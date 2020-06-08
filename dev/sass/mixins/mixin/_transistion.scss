@@ -1,0 +1,10 @@
+// transition(持續時間,作用域,作用位置X,作用位置y)
+@mixin transitionSet($time,$pro:all,$ori1:50%,$ori2:50%) {
+    transition-duration: $time;
+    transition-property: $pro;
+    @if $ori2 == '' {
+        transform-origin: $ori1 $ori1;
+    } @else{
+        transform-origin: $ori1 $ori2;
+    }
+}

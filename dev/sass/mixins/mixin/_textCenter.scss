@@ -1,0 +1,4 @@
+@mixin textCenter($lineHeight) {
+    text-align: center;
+    line-height: $lineHeight;
+}

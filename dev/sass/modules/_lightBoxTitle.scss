@@ -1,0 +1,8 @@
+@import "../mixins/mixin";
+// 燈箱(title)
+@mixin lightBoxTitle($fz:1.8rem,$pTopDown:12px,$pLeftRight:0px,$mTopDown:0px,$mLeftRight:0px){
+    font-size: $fz;
+    padding: $pTopDown $pLeftRight;
+    margin: $mTopDown $mLeftRight;
+    @include textCenter($fz);
+}

@@ -1,0 +1,21 @@
+@import "../base/color";
+@import "../mixins/mixin";
+@mixin btn($width,$height,$fz:20px) {
+    @include transitionSet(.2s);
+    @include textCenter($height);
+    width: $width;
+    height: $height;
+    color: $white;
+    background-color: $orange;
+    font-weight: 700;
+    font-size: $fz;
+    letter-spacing: 2px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transform: scale(1);
+    &:hover,
+    &:focus{
+        transform: scale(1.1);
+        opacity: .9;
+    }
+};

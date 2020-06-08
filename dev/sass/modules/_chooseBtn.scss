@@ -1,0 +1,20 @@
+@import "../base/color";
+@import "../mixins/mixin";
+@mixin btnChoose($width,$height,$fz:20px) {
+    @include transitionSet(.2s);
+    @include textCenter($height);
+    width: $width;
+    height: $height;
+    color: $black;
+    background-color: $yellow;
+    font-weight: 700;
+    font-size: $fz;
+    letter-spacing: 2px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    &:hover,
+    &:focus{
+        opacity: .9;
+        background-color: rgb(228, 181, 28);
+    }
+};

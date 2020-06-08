@@ -1,0 +1,7 @@
+// 字體
+@mixin fontStyle($color,$size:1rem,$weight:500,$wrap:wrap){
+    font-size: $size;
+    color: $color;
+    font-weight: $weight;
+    white-space: $wrap;
+}

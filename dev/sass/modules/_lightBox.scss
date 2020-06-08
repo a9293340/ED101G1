@@ -1,0 +1,7 @@
+// 燈箱(大)
+@mixin lightBox($width:800px) {
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, .3);
+    width: $width;
+    z-index: 999;
+}
