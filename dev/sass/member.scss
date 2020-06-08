@@ -1,21 +1,2 @@
 @import "./main";
 
-.div{
-    @include lightBox;
-    h1{
-        @include lightBoxTitle;
-    }
-    // margin: 0;
-    color: hotpink;
-}
-.btn{
-    @include btn(50px,30px);
-}
-.cover{
-    @include coverBlack;
-    // position: fixed;
-}
-.Cbtn{
-    @include btnChoose(50px,50px);
-    border-radius: 50%;
-}
