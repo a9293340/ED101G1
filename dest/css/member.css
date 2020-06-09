@@ -23,3 +23,49 @@ body {
 
 nav {
   color: green; }
+
+#memApp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+  border: 1px solid red;
+  border-radius: 0px;
+  margin: 20px auto;
+  padding: 15px; }
+  #memApp .memHeader {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start; }
+    #memApp .memHeader .memHeaderId {
+      font-size: 1rem;
+      color: #595959;
+      font-weight: 500;
+      white-space: wrap; }
+    #memApp .memHeader .memHeaderBtn {
+      transition-duration: 0.2s;
+      transition-property: all;
+      transform-origin: 50% 50%;
+      text-align: center;
+      line-height: 50px;
+      width: 120px;
+      height: 50px;
+      color: #141212;
+      background-color: #FFD23F;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 2px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 15px;
+      font-size: 1rem;
+      color: #141212;
+      font-weight: 500;
+      white-space: wrap; }
+      #memApp .memHeader .memHeaderBtn:hover, #memApp .memHeader .memHeaderBtn:focus {
+        opacity: .9;
+        background-color: #e4b51c; }
