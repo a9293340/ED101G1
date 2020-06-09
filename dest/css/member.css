@@ -30,11 +30,10 @@ nav {
   justify-content: center;
   align-items: center;
   width: 1200px;
-  border: 1px solid red;
-  border-radius: 0px;
   margin: 20px auto;
   padding: 15px; }
   #memApp .memHeader {
+    margin-left: 60px;
     width: 95%;
     display: flex;
     flex-direction: row;
@@ -69,3 +68,9 @@ nav {
       #memApp .memHeader .memHeaderBtn:hover, #memApp .memHeader .memHeaderBtn:focus {
         opacity: .9;
         background-color: #e4b51c; }
+      #memApp .memHeader .memHeaderBtn .memBtnImg {
+        width: 30px; }
+  #memApp .memLine {
+    border-top: 3px solid #595959;
+    width: 90%;
+    margin: 30px; }
