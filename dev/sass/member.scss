@@ -3,10 +3,12 @@
 #memApp{
     @include flexStyle(center,center,column);
     width: 1200px;
-    @include border(1px,red);
+    // @include border(1px,red);
     margin: 20px auto;
     padding: 15px;
     .memHeader{
+        // @include border(1px,green);
+        margin-left: 60px;
         width: 95%;
         @include flexStyle(flex-start,flex-start);
         .memHeaderId{
@@ -17,6 +19,14 @@
             @include btnChoose(120px,50px);
             margin: 0 15px;
             @include fontStyle($black);
+            .memBtnImg{
+                width: 30px;
+            }
         }
+    }
+    .memLine{
+        border-top: 3px solid $grey;
+        width: 90%;
+        margin: 30px;
     }
 }
