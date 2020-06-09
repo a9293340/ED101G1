@@ -9,7 +9,7 @@
   border: 1px solid rgb(240, 37, 37);
 
   .am_title {
-    font-size: $font1;
+    font-size: $fzContent;
   }
 
   .am_group {
@@ -46,11 +46,11 @@
         flex-direction: column;
 
         .title {
-          @include font_padding;
+          
         }
 
         .content {
-          @include font_padding;
+          
         }
       }
     }
