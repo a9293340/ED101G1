@@ -1,14 +1,13 @@
 @import "./main";
+$memgrey: #9b9b9b;
 
 #memApp{
-    @include flexStyle(center,center,column);
+    @include flexStyle(flex-start,flex-start,column);
     width: 1200px;
     // @include border(1px,red);
     margin: 20px auto;
     padding: 15px;
     .memHeader{
-        // @include border(1px,green);
-        margin-left: 60px;
         width: 95%;
         @include flexStyle(flex-start,flex-start);
         .memHeaderId{
@@ -26,7 +25,65 @@
     }
     .memLine{
         border-top: 3px solid $grey;
-        width: 90%;
-        margin: 30px;
+        width: 100%;
+        margin: 30px 0;
+    }
+
+    .memContent{
+        @include flexStyle(space-between,flex-start);
+        width: 100%;
+        // @include border(1px,red);
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    #memContentFile{
+        .memFileBox,.memFileImg{
+            width: 45%;
+            // @include border(1px,green);
+        }
+        .memFileLine{
+            border-left: 1px solid $grey;
+            height: 200px;
+            // margin: 0 5px;
+        }
+        .memFileBox{
+            .memFileForm{
+                @include flexStyle(center,flex-start,column);
+                width: 100%;
+                .memFirSecNameBox{
+                    @include flexStyle(flex-start,center);
+                    margin: 15px 0;
+                }
+                label{
+                    @include flexStyle(flex-start,center);
+                    @include fontStyle($memgrey,1.2rem);
+                    margin-left: 10px;
+                    p{
+                        @include fontStyle($black);
+                        margin-left: 20px;
+                    }
+                    input{
+                        @include fontStyle($black);
+                        margin-left: 15px;
+                        padding: 5px;
+                        margin-right: 20px;
+                    }
+                    .memSurName{
+                        width: 50px;
+                        margin-left: 50px;
+                        margin-right: 50px;
+                    }
+                    .memName{
+                        width: 100px;
+                    }
+                    .memHeight,.memWeight{
+                        margin: 10px 0;
+                        margin-left: 30px;
+                        margin-right: 10px;
+                        width: 80px;
+                    }
+                }
+            }
+        }
     }
 }
