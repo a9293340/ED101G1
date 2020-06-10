@@ -26,7 +26,7 @@ gulp.task('sass', function () {
 // html之圖檔連結請使用./dest/image/路徑 不要使用開發路徑的圖檔)
 gulp.task('moveImg',function(){
     //src 來源 
-    return gulp.src('./dev/images/*')
+    return gulp.src('./dev/images/*/*')
     //pipe 透過管道 dest 目的地
     .pipe(gulp.dest('dest/images'))
 })

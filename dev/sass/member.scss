@@ -1,5 +1,6 @@
 @import "./main";
 $memgrey: #9b9b9b;
+$bgcgrey: #c4c0c0;
 
 #memApp{
     @include flexStyle(flex-start,flex-start,column);
@@ -12,6 +13,7 @@ $memgrey: #9b9b9b;
         @include flexStyle(flex-start,flex-start);
         .memHeaderId{
             @include fontStyle($grey);
+            margin-right: 20px;
 
         }
         .memHeaderBtn{
@@ -30,7 +32,7 @@ $memgrey: #9b9b9b;
     }
 
     .memContent{
-        @include flexStyle(space-between,flex-start);
+        @include flexStyle(space-around,flex-start);
         width: 100%;
         // @include border(1px,red);
         padding: 20px;
@@ -38,18 +40,19 @@ $memgrey: #9b9b9b;
     }
     #memContentFile{
         .memFileBox,.memFileImg{
-            width: 45%;
+            width: 550px;
             // @include border(1px,green);
         }
         .memFileLine{
             border-left: 1px solid $grey;
-            height: 200px;
+            height: 600px;
             // margin: 0 5px;
         }
         .memFileBox{
             .memFileForm{
                 @include flexStyle(center,flex-start,column);
                 width: 100%;
+                padding-top: 40px;
                 .memFirSecNameBox{
                     @include flexStyle(flex-start,center);
                     margin: 15px 0;
@@ -76,12 +79,92 @@ $memgrey: #9b9b9b;
                     .memName{
                         width: 100px;
                     }
-                    .memHeight,.memWeight{
-                        margin: 10px 0;
+                    .memHeight,.memWeight,.memBMI,.memPhone,.memAddr{
+                        margin: 20px 0;
                         margin-left: 30px;
                         margin-right: 10px;
                         width: 80px;
                     }
+                    .memPhone{
+                        width: 120px;
+                    }
+                    .memAddr{
+                        width: 180px;
+                    }
+                }
+                .memFormBtn{
+                    @include btn(120px,50px,20px);
+                    line-height: 40px;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                }
+            }
+        }
+        .memFileImg{
+            @include flexStyle(center,center,column);
+            // @include border(1px,green);
+            // width: 200px;
+            margin-top: 60px;
+            // position: relative;
+            .memImage{
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                background-color: $bgcgrey;
+                overflow: hidden;
+                position: relative;
+                .memPicture{
+                    width: 100%;
+                }
+                .changeImage{
+                    position: absolute;
+                    width: 200px;
+                    height: 100px;
+                    background-color: $memgrey;
+                    opacity: .8;
+                    bottom: -100px;
+                    @include transitionSet(.3s);
+                    cursor: pointer;
+                    @include textCenter(50px);
+                    @include fontStyle($black,1.2rem);
+                }
+                &:hover{
+                    .changeImage{
+                        bottom: -40px;
+                    }
+                }
+            }
+            .memImgLimitBox{
+                width: 160px;
+                margin-bottom: 20px;
+                @include flexStyle(flex-start,flex-start,column);
+                .memImgLimit{
+                    @include fontStyle($memgrey);
+                    line-height: 30px;
+                }
+            }
+            .memBaoBeeBox{
+                // width: 160px;
+                margin-top: 20px;
+                // margin-bottom: 20px;
+                @include flexStyle(center,center);
+                span{
+                    @include fontStyle($black,1.2rem);
+                }
+                img{
+                    margin-left: 10px;
+                    width: 20px;
+                }
+            }
+            .memShowBoeBee{
+                @include flexStyle(center,center);
+                margin-top: 20px;
+                img{
+                    width: 35px;
+                    margin-right: 20px;
+                }
+                span{
+                    @include fontStyle($memgrey,1.4rem);
                 }
             }
         }
