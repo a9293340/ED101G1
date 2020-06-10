@@ -15,7 +15,6 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   vertical-align: baseline; }
 
 body {
@@ -23,6 +22,15 @@ body {
 
 nav {
   color: green; }
+
+h1 {
+  font-size: 2rem; }
+
+h2 {
+  font-size: 2rem; }
+
+p {
+  font-size: 1rem; }
 
 #running {
   width: 1200px;
@@ -110,6 +118,7 @@ nav {
     padding: 5px 10px;
     border-radius: 5px;
     transform: scale(1);
+    border: 0;
     cursor: pointer;
     font-family: 'Noto Sans TC'; }
     .buy_bandoLeft button:hover, .buy_bandoLeft button:focus {

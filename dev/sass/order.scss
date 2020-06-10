@@ -1,5 +1,13 @@
 @import "./main"; 
-
+h1{
+	font-size:$fzSubtitle;
+}
+h2{
+	font-size:$fzSubtitle;
+}
+p{
+	font-size:$fzContent;
+}
 
 //colors
 $white: white;
