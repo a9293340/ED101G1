@@ -23,3 +23,35 @@ body {
 
 nav {
   color: green; }
+
+.home_menu_group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 900px; }
+  .home_menu_group .left_featured {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    background-color: #FFD23F;
+    height: 500px;
+    width: 300px; }
+  .home_menu_group .middle_self {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #EA6227;
+    height: 500px;
+    width: 300px; }
+  .home_menu_group .right_limited {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFD23F;
+    height: 500px;
+    width: 300px; }
