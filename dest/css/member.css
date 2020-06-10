@@ -15,7 +15,6 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   vertical-align: baseline; }
 
 body {
@@ -42,7 +41,8 @@ nav {
       font-size: 1rem;
       color: #595959;
       font-weight: 500;
-      white-space: wrap; }
+      white-space: wrap;
+      margin-right: 20px; }
     #memApp .memHeader .memHeaderBtn {
       transition-duration: 0.2s;
       transition-property: all;
@@ -76,22 +76,23 @@ nav {
   #memApp .memContent {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     width: 100%;
     padding: 20px;
     box-sizing: border-box; }
   #memApp #memContentFile .memFileBox, #memApp #memContentFile .memFileImg {
-    width: 45%; }
+    width: 550px; }
   #memApp #memContentFile .memFileLine {
     border-left: 1px solid #595959;
-    height: 200px; }
+    height: 600px; }
   #memApp #memContentFile .memFileBox .memFileForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 100%; }
+    width: 100%;
+    padding-top: 40px; }
     #memApp #memContentFile .memFileBox .memFileForm .memFirSecNameBox {
       display: flex;
       flex-direction: row;
@@ -128,8 +129,111 @@ nav {
         margin-right: 50px; }
       #memApp #memContentFile .memFileBox .memFileForm label .memName {
         width: 100px; }
-      #memApp #memContentFile .memFileBox .memFileForm label .memHeight, #memApp #memContentFile .memFileBox .memFileForm label .memWeight {
-        margin: 10px 0;
+      #memApp #memContentFile .memFileBox .memFileForm label .memHeight, #memApp #memContentFile .memFileBox .memFileForm label .memWeight, #memApp #memContentFile .memFileBox .memFileForm label .memBMI, #memApp #memContentFile .memFileBox .memFileForm label .memPhone, #memApp #memContentFile .memFileBox .memFileForm label .memAddr {
+        margin: 20px 0;
         margin-left: 30px;
         margin-right: 10px;
         width: 80px; }
+      #memApp #memContentFile .memFileBox .memFileForm label .memPhone {
+        width: 120px; }
+      #memApp #memContentFile .memFileBox .memFileForm label .memAddr {
+        width: 180px; }
+    #memApp #memContentFile .memFileBox .memFileForm .memFormBtn {
+      transition-duration: 0.2s;
+      transition-property: all;
+      transform-origin: 50% 50%;
+      text-align: center;
+      line-height: 50px;
+      width: 120px;
+      height: 50px;
+      color: #ECEEE7;
+      background-color: #EA6227;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 2px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transform: scale(1);
+      border: 0;
+      cursor: pointer;
+      line-height: 40px;
+      margin: 0 auto;
+      margin-top: 20px; }
+      #memApp #memContentFile .memFileBox .memFileForm .memFormBtn:hover, #memApp #memContentFile .memFileBox .memFileForm .memFormBtn:focus {
+        transform: scale(1.1);
+        opacity: .9; }
+  #memApp #memContentFile .memFileImg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px; }
+    #memApp #memContentFile .memFileImg .memImage {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: #c4c0c0;
+      overflow: hidden;
+      position: relative; }
+      #memApp #memContentFile .memFileImg .memImage .memPicture {
+        width: 100%; }
+      #memApp #memContentFile .memFileImg .memImage .changeImage {
+        position: absolute;
+        width: 200px;
+        height: 100px;
+        background-color: #9b9b9b;
+        opacity: .8;
+        bottom: -100px;
+        transition-duration: 0.3s;
+        transition-property: all;
+        transform-origin: 50% 50%;
+        cursor: pointer;
+        text-align: center;
+        line-height: 50px;
+        font-size: 1.2rem;
+        color: #141212;
+        font-weight: 500;
+        white-space: wrap; }
+      #memApp #memContentFile .memFileImg .memImage:hover .changeImage {
+        bottom: -40px; }
+    #memApp #memContentFile .memFileImg .memImgLimitBox {
+      width: 160px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start; }
+      #memApp #memContentFile .memFileImg .memImgLimitBox .memImgLimit {
+        font-size: 1rem;
+        color: #9b9b9b;
+        font-weight: 500;
+        white-space: wrap;
+        line-height: 30px; }
+    #memApp #memContentFile .memFileImg .memBaoBeeBox {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center; }
+      #memApp #memContentFile .memFileImg .memBaoBeeBox span {
+        font-size: 1.2rem;
+        color: #141212;
+        font-weight: 500;
+        white-space: wrap; }
+      #memApp #memContentFile .memFileImg .memBaoBeeBox img {
+        margin-left: 10px;
+        width: 20px; }
+    #memApp #memContentFile .memFileImg .memShowBoeBee {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px; }
+      #memApp #memContentFile .memFileImg .memShowBoeBee img {
+        width: 35px;
+        margin-right: 20px; }
+      #memApp #memContentFile .memFileImg .memShowBoeBee span {
+        font-size: 1.4rem;
+        color: #9b9b9b;
+        font-weight: 500;
+        white-space: wrap; }
