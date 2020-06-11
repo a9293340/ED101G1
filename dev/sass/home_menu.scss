@@ -2,29 +2,44 @@
 
 
 .home_menu_group {
-  @include flexStyle(space-around, center);
+  @include flexStyle(center, center);
   height: 900px;
-
+  width: 100%;
+  position: relative;
 
   .left_featured {
     @include flexStyle(center, center);
     font-size: $fzTitle;
     background-color: $yellow;
-    height: 500px;
-    width: 300px;
+    position: absolute;
+    height: 100%;
+    // clip-path: polygon(0 0, 100% 0, 0 100%, 0% 100%);
+    width: 40%;
+    left:0;
+    z-index: 0;
   }
 
   .middle_self {
     @include flexStyle(center, center);
     background-color: $orange;
-    height: 500px;
-    width: 300px;
+    position: absolute;
+    height: 100%;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    width: 60%;
+    z-index: 10;
+    
   }
 
   .right_limited {
     @include flexStyle(center, center);
+    position: absolute;
     background-color: $yellow;
-    height: 500px;
-    width: 300px;
+    height: 100%;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 50% 100%);
+    width: 40%;
+    right:0;
+    z-index: 11;
+    opacity: .5;
+    
   }
 }
