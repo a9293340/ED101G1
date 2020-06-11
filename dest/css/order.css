@@ -32,6 +32,23 @@ h2 {
 p {
   font-size: 1rem; }
 
+.orderLeft {
+  position: fixed;
+  top: 50%;
+  left: 50px;
+  margin-top: -200px;
+  text-align: center; }
+  .orderLeft P {
+    margin: 0;
+    line-height: 52px; }
+  .orderLeft .orderCirle {
+    margin-top: 20px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer; }
+
 #running {
   width: 1200px;
   height: 50px;
@@ -45,7 +62,8 @@ p {
 .buy_single {
   width: 1200px;
   height: auto;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: flex; }
 
 .buy_single_main {
   text-align: center; }
@@ -76,6 +94,7 @@ p {
   justify-content: space-between; }
 
 #buy_card {
+  display: none;
   width: 250px;
   height: 308px;
   margin: 10px 20px;
@@ -83,7 +102,68 @@ p {
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
   #buy_card img {
-    margin-top: 10px; }
+    margin-top: 5px;
+    cursor: pointer; }
+  #buy_card p {
+    margin: 0;
+    color: #595959; }
+
+#meat_card {
+  width: 250px;
+  height: 308px;
+  margin: 10px 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
+  #meat_card img {
+    margin-top: 5px;
+    cursor: pointer; }
+  #meat_card p {
+    margin: 0;
+    color: #595959; }
+
+#rice_card {
+  display: none;
+  width: 250px;
+  height: 308px;
+  margin: 10px 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
+  #rice_card img {
+    margin-top: 5px;
+    cursor: pointer; }
+  #rice_card p {
+    margin: 0;
+    color: #595959; }
+
+#buy_card3 {
+  width: 250px;
+  height: 308px;
+  margin: 10px 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
+  #buy_card3 img {
+    margin-top: 5px;
+    cursor: pointer; }
+  #buy_card3 p {
+    margin: 0;
+    color: #595959; }
+
+#buy_card4 {
+  width: 250px;
+  height: 308px;
+  margin: 10px 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
+  #buy_card4 img {
+    margin-top: 5px;
+    cursor: pointer; }
+  #buy_card4 p {
+    margin: 0;
+    color: #595959; }
 
 .buy_icon_card {
   width: 250px;

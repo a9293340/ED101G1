@@ -18,14 +18,22 @@
 </head>
 <body>
     <div class="buy_main">
-        <div class="buy_single">   
-            <h1>自訂便當</h1>
+
+        <div class="orderLeft">
+            <div class="orderCirle 1"><p>自選</p></div>
+            <div class="orderCirle 2"><p>經典</p></div>
+            <div class="orderCirle 3"><p>活動</p></div>
+            <div class="orderCirle 4"><p>其他</p></div>
+        </div>
+
+        <div class="buy_single" id="order_1">   
+            <img src="./images/order/3.svg" width="50px" height="50px"><h1>自訂便當</h1>
         </div>
               
                   <div id="buy_app2">
-                      <div class="buy_icon_containter">
+                      <div class="buy_icon_containter scroll">
                           <div class="buy_icon_card" v-for="(item, index) in icon" :key="item.id">
-                              <img v-bind:src="item.img" atl="">
+                              <img v-bind:src="item.img" atl="" width="50px" height="50px">
                               <p>{{item.text}}</p>
                               <!-- <img src="https://fakeimg.pl/100/" alt="">
                               <p>米飯</p> -->
@@ -41,21 +49,66 @@
        
                   <div id="buy_app">
                        <div class="buy_single_containter scroll">
+
+                        <div id="meat_card" v-for="(item, index) in meat" :key="item.id">
+                              
+                            <img :id="'meatimg'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
+                            <div class="buy_name">{{item.name}}</div>
+                            <div class="buy_price"><span>NT $</span>{{item.price}}</div>
+                            <div><p>Cal: {{item.cal}}</p></div>
+                           
+                            <img :id="'meatplus'+item.id" src="./images/order/plus.svg" width="20px" height="20px">
+                         
+                            <div class="buy_single_lightbox box0">  
+                                <img src="" alt="" width="200" height="200" id="meatlightImg">
+                                <p id="meatlightText"></p>
+                                <button class="closelightbox0">delete</button> 
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div id="rice_card" v-for="(item, index) in rice" :key="item.id">
+                              
+                            <img :id="'riceimg'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
+                            <div class="buy_name">{{item.name}}</div>
+                            <div class="buy_price"><span>NT $</span>{{item.price}}</div>
+                            <div><p>Cal: {{item.cal}}</p></div>
+                           
+                            <img :id="'plus'+item.id" src="./images/order/plus.svg" width="20px" height="20px">
+                         
+                            <div class="buy_single_lightbox box1">  
+                                <img src="" alt="" width="200" height="200" id="lightImg">
+                                <p id="lightText"></p>
+                                <button class="closelightbox1">delete</button> 
+                            </div>
+                        </div>  
+
                           <div id="buy_card" v-for="(item, index) in single" :key="item.id">
                               
                               <img :id="'img'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
                               <div class="buy_name">{{item.name}}</div>
-                              <div class="buy_price"><span>$</span>{{item.price}}</div>
-                              <button-counter></button-counter>
-                          
-                              <div class="buy_single_lightbox">  
-                                  <img src="" alt="" width="200" height="200" id="lightImg">
-                                  <p id="lightText"></p>
-                                  <button>delete</button> 
+                              <div class="buy_price"><span>NT $</span>{{item.price}}</div>
+                              <div><p>Cal: {{item.cal}}</p></div>
+                              <!-- <button-counter></button-counter> -->
+                              <img :id="'plus'+item.id" src="./images/order/plus.svg" width="20px" height="20px">
+                           
+                              <div class="buy_single_lightbox box2">  
+                                  <img src="" alt="" width="200" height="200" id="lightImg2">
+                                  <p id="lightText2"></p>
+                                  <button class="closelightbox2">delete</button> 
                               </div>
                           </div>
-                          <!-- v-if="item.lightbox  -->
-                  <!-- data-count="" -->
+                    
                        </div>
                   </div>
       
@@ -75,40 +128,39 @@
                   </div>
       
       
-           <div class="buy_single">
-              <h1>精選便當</h1>
+           <div class="buy_single" id="order_2">
+            <img src="./images/order/2.png" width="50px" height="50px"><h1>精選便當</h1>
           </div>
                   <div id="buy_app3">
-                      <div class="buy_setdo_containter">
+                      <div class="buy_setdo_containter scroll">
       
-                      <div id="buy_card" v-for="(item, index) in setdo" :key="item.id">
+                      <div id="buy_card3" v-for="(item, index) in setdo" :key="item.id">
                            <img v-bind:src="item.img" atl="" width="200" height="200">
                           <div class="buy_name">{{item.name}}</div>
                            <div class="buy_price"><span>$</span>{{item.price}}</div>
                            <button-counter></button-counter>
                       </div>
-                  <!-- data-count="" -->
-                   </div>
+                
+                      </div>
       
       
                   </div> 
-          <div class="buy_single">
-              <h1>活動便當</h1>
+          <div class="buy_single" id="order_3">
+            <img src="./images/order/1.png" width="50px" height="50px"><h1>活動便當</h1>
           </div>                
               <div id="buy_app4">
-                  <div class="buy_setdo_containter">
+                  <div class="buy_setdo_containter scroll">
       
-                      <div id="buy_card" v-for="(item, index) in active" :key="item.id">
+                      <div id="buy_card4" v-for="(item, index) in active" :key="item.id">
                                <img v-bind:src="item.img" atl="">
                               <div class="buy_name">{{item.name}}</div>
                               <div class="buy_price"><span>$</span>{{item.price}}</div>
                               <button-counter></button-counter>
                        </div>
-                  <!-- data-count="" -->
                   </div>
               </div> 
-              <div class="buy_other">
-                  <h1>其他商品</h1>
+              <div class="buy_single" id="order_4">
+                <img src="./images/order/875068.png" width="50px" height="50px"><h1>其他商品</h1>
               </div>   
               
           <div class="buy_other_container">
