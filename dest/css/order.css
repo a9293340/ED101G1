@@ -77,9 +77,13 @@ p {
 
 #buy_card {
   width: 250px;
-  height: 300px;
+  height: 308px;
   margin: 10px 20px;
-  text-align: center; }
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
+  #buy_card img {
+    margin-top: 10px; }
 
 .buy_icon_card {
   width: 250px;
@@ -127,9 +131,13 @@ p {
 
 .buy_other_juice {
   width: 250px;
-  height: 300px;
+  height: auto;
   margin: 10px 20px;
-  text-align: center; }
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
+  .buy_other_juice img {
+    margin-top: 10px; }
 
 .buy_single_lightbox {
   border-radius: 10px;
@@ -144,11 +152,12 @@ p {
   margin-top: -150px; }
 
 .count {
-  position: relative; }
+  position: relative;
+  margin-bottom: 10px; }
   .count img {
     position: absolute;
     right: 50px;
-    top: 7px; }
+    top: 0px; }
   .count button {
     border: none;
     margin: 5px;
