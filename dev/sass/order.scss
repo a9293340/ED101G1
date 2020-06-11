@@ -104,7 +104,7 @@ $white: white;
 		 margin-top: 10px;
 	 } 
 }
-.buy_single_lightbox {
+.buy_single_lightbox { 
 	@include lightBox($width:800px);
 	display: none;
 	cursor: pointer;
