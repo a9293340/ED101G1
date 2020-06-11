@@ -31,6 +31,14 @@ gulp.task('moveImg',function(){
     .pipe(gulp.dest('dest/images'))
 })
 
+// 搬php 輸入 gulp movePhp
+gulp.task('movePhp',function(){
+    //src 來源 
+    return gulp.src('./dev/php/*.php')
+    //pipe 透過管道 dest 目的地
+    .pipe(gulp.dest('dest/php'))
+})
+
 // html 樣板
 gulp.task('fileinclude', function () {
     gulp.src(['./dev/*.html'])
