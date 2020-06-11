@@ -80,7 +80,7 @@ $white: white;
 	justify-content: space-between;
 }
 #buy_card {
-	display: none;
+	// display: none;
 	width: 250px;
 	height: 308px;
 	margin: 10px 20px;
@@ -97,7 +97,7 @@ $white: white;
 	 }
 }
 #meat_card{
-	
+	// display: none;
 	width: 250px;
 	height: 308px;
 	margin: 10px 20px;
@@ -115,7 +115,7 @@ $white: white;
 }
 
 #rice_card{
-	display: none;
+	
 	width: 250px;
 	height: 308px;
 	margin: 10px 20px;
@@ -163,6 +163,21 @@ $white: white;
 		 color: $grey;
 	 }
 }
+
+#rice{
+	margin: 0 auto;
+	width: 1200px;
+	height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	overflow-y: auto;
+	overflow-x: hidden;
+	justify-content: space-between;
+}
+
+
+
 .buy_icon_card {
 	width: 250px;
 	height: 80px; 

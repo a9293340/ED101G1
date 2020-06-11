@@ -392,10 +392,39 @@ function view4(){
 }
 
 
-// 米飯lightbox js
+
 for(var j=0; j < rice.length;j++){
     document.getElementById(`riceimg${j+1}`).addEventListener('click',ricelightBox)
+    document.getElementById(`plus${j+1}`).addEventListener('click',plusone)
 }
+
+
+function plusone(){
+    document.getElementById('rice').style.display="none";
+    document.getElementById('meat').style.display="flex";
+    document.getElementById('meat').style.width="1200px";
+    document.getElementById('meat').style.height="400px";
+    document.getElementById('meat').style.overflowY="auto";
+    document.getElementById('meat').style.overflowx=" hidden";
+    document.getElementById('meat').style.flexWrap="wrap";
+    document.getElementById('meat').style.justifyContent="space-between";
+    document.getElementById('order_text').innerText="請選擇一道主食";
+}
+
+
+
+
+
+
+
+
+document.getElementById('meat').style.display="none";
+document.getElementById('single').style.display="none";
+
+
+
+// 米飯lightbox js
+
 function ricelightBox(){
     document.getElementsByClassName('box1')[0].style.display='block';
     let A = this.dataset.id;
@@ -417,7 +446,38 @@ function closelightBox1(){
 
 for(var j=0; j < meat.length;j++){
     document.getElementById(`meatimg${j+1}`).addEventListener('click',meatlightBox)
+    document.getElementById(`meatplus${j+1}`).addEventListener('click',meatplusone)
 }
+// flex-wrap: wrap;
+// align-content: flex-start;
+// overflow-y: auto;
+// overflow-x: hidden;
+// justify-content: space-between;
+function meatplusone(){
+    document.getElementById('meat').style.display="none";
+    document.getElementById('single').style.display="flex";
+    document.getElementById('single').style.width="1200px";
+    document.getElementById('single').style.height="400px";
+    document.getElementById('single').style.overflowY="auto";
+    document.getElementById('single').style.overflowx=" hidden";
+    document.getElementById('single').style.flexWrap="wrap";
+    document.getElementById('single').style.justifyContent="space-between";
+    document.getElementById('order_text').innerText="請任選三道配菜(可重複)";
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 function meatlightBox(){
     document.getElementsByClassName('box0')[0].style.display='block';
     let A = this.dataset.id;
