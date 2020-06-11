@@ -37,7 +37,7 @@ let single = [{
     name:"三杯杏鮑菇",
     img:"./images/bandon_include/threecup.jpg",
     price:'500',
-    lightbox: false,
+    // lightbox: false,
     text:"介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹介紹"
 },
 {
@@ -231,30 +231,28 @@ let other3 = new Vue({
 var app = new Vue({
     el:'#buy_app',  
     data:{
-        single
+        single,
+        catchImg:'',
+
     },methods:{
-
-        lightopen: function(item){
-            item.lightbox = true;
-        },
-        lightclose: function(item){
-            item.lightbox = false;
-        },
-
-
-
-        add: function(item) {
-            item.count++;
-        },
-        minus:function (item) {
-            if(item.count>1){
-                item.count--;
-            }
-        }
-    },
+       
+    }, 
 })
 
-
+for(var j=0; j < single.length;j++){
+    document.getElementById(`img${j+1}`).addEventListener('click',lightBox)
+}
+function lightBox(){
+    document.getElementsByClassName('buy_single_lightbox')[0].style.display='block';
+    let A = this.dataset.id;
+    console.log(A);
+    for(let i = 0;i<single.length;i++){
+        if(single[i].id == Number(A)){
+            document.getElementById('lightImg').src = single[i].img;
+            document.getElementById('lightText').innerText = single[i].text;
+        }
+    }
+}
 
 
 

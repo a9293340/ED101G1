@@ -43,17 +43,18 @@
                        <div class="buy_single_containter scroll">
                           <div id="buy_card" v-for="(item, index) in single" :key="item.id">
                               
-                              <img @click ="lightopen(item)" v-bind:src="item.img" atl="" width="200" height="200">
+                              <img :id="'img'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
                               <div class="buy_name">{{item.name}}</div>
                               <div class="buy_price"><span>$</span>{{item.price}}</div>
                               <button-counter></button-counter>
                           
-                              <div class="buy_single_lightbox" v-if="item.lightbox">
-                                  <img v-bind:src="item.img" alt="" width="200" height="200">
-                                  <p>{{item.text}}</p>
-                                  <button @click = "lightclose(item)">delete</button>
+                              <div class="buy_single_lightbox">  
+                                  <img src="" alt="" width="200" height="200" id="lightImg">
+                                  <p id="lightText"></p>
+                                  <button>delete</button> 
                               </div>
                           </div>
+                          <!-- v-if="item.lightbox  -->
                   <!-- data-count="" -->
                        </div>
                   </div>
@@ -62,7 +63,7 @@
                       <div class="buy_bandoImg">
                           <img src="./images/bandon_include/bando.jpg"  width="600" height="600">
                       </div>
-                      <div class="buy_bandoLeft">          
+                      <div class="buy_bandoLeft">           
                           <div class="buy_trangleImg">
                               <img src="https://fakeimg.pl/300x200/" width="300" height="200">
                           </div>

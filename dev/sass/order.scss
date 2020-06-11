@@ -102,10 +102,12 @@ $white: white;
 	box-shadow: 2px 2px 10px rgba(0, 0, 0, .3);
 	 img{
 		 margin-top: 10px;
-	 }
+	 } 
 }
 .buy_single_lightbox {
-    @include lightBox($width:800px);
+	@include lightBox($width:800px);
+	display: none;
+	cursor: pointer;
     position: fixed;
 	// width: 300px;
 	// height: 300px;
