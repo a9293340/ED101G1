@@ -44,6 +44,67 @@
         </div>
 
         <div class="memLine"></div>
+
+        <div class="memContent" id="memContentFile">
+            <div class="memFileBox">
+                <form action="" class="memFileForm">
+                    <label>使用者帳號
+                        <p>{{memData.memEmail}}</p>
+                    </label>
+                    <div class="memFirSecNameBox">
+                        <label for="memSurName">
+                            姓
+                            <input type="text" class="memSurName" name="memSurName" id="memSurName" v-model='memData.memSurname'>
+                        </label>
+                        <label for="memName">
+                            名
+                            <input type="text" class="memName" name="memName" id="memName" v-model='memData.memName'>
+                        </label>
+                    </div>
+                    <label for="memHeight">
+                        身高
+                        <input type="text" class="memHeight" name="memHeight" id="memHeight" v-model='memData.memHeight'>
+                        公分
+                    </label>
+                    <label for="memWeight">
+                        體重
+                        <input type="text" class="memWeight" name="memWeight" id="memWeight" v-model='memData.memWeight'>
+                        公斤
+                    </label>
+                    <label>
+                        BMI
+                        <p class="memBMI">{{Math.round(memData.memWeight/Math.pow(memData.memHeight/100,2))}}</p>
+                    </label>
+                    <label for="memPhone">
+                        電話
+                        <input type="text" class="memPhone" name="memPhone" id="memPhone" v-model='memData.memPhone'>
+                    </label>
+                    <label for="memAddr">
+                        地址
+                        <input type="text" class="memAddr" name="memAddr" id="memAddr" v-model='memData.memAddr'>
+                    </label>
+                    <button class="memFormBtn">確認送出</button>
+                </form>
+            </div>
+            <div class="memFileLine"></div>
+            <div class="memFileImg">
+                <div class="memImage">
+                    <img :src="memData.memImage" class="memPicture">
+                    <div class="changeImage">點選更換圖片</div>
+                </div>
+                <div class="memImgLimitBox">
+                    <p class="memImgLimit">檔案大小：最大1MB檔案限制：.JPG,.PNG</p>
+                </div>
+                <div class="memBaoBeeBox">
+                    <span>可用的寶幣</span>
+                    <img src="./images/member/questionIcon.png" alt="">
+                </div>
+                <div class="memShowBoeBee">
+                    <img src="./images/member/coinIcon.png" alt="">
+                    <span>{{memData.memScore}}</span>
+                </div>
+            </div>
+        </div>
     </div>
 
 
