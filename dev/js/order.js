@@ -59,7 +59,7 @@ let rice =[{
 
 let meat =[{
     id:'1',
-    name:"炸雞腿",
+    name:"炸雞腿", 
     img:"./images/order/chicken.jpg",
     cal:"300cal",
     price:'500',
