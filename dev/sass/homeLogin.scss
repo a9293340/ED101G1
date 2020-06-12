@@ -64,47 +64,6 @@
       transform: translateY(0px);
     }
 
-    // 社群連結
-    .homeSocial-login{
-      float: left;
-    width: 100%;
-    height: auto;
-    padding: 15px;
-    border-bottom: 1px solid #ECEEE7;
-    margin: 0 auto;
-
-      a{
-        position:relative;
-        float: left;
-        width:calc(40% - 8px);
-        text-decoration: none;
-        color: $white;
-        padding: 12px;
-        border-radius: 2px;
-        font-size:$fzSmall;
-        text-transform: uppercase;
-        margin: 0 3%;
-        text-align:center;
-        
-        i{
-          width:40px;
-          top: 2px;
-        }
-      }
-
-      a:first-child{
-        background-color: $violet;
-      }
-      a:last-child{
-        background-color:$red;
-      }
-    }
-
-    h3 {
-      text-align:center;
-      margin:0 auto;
-      color: $grey;
-    }
 
     //註冊
     .homeTop-row {

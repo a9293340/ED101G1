@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/home_am.css">
+    <link rel="stylesheet" href="./css/home_health.css">
+    <link rel="stylesheet" href="./css/homeLogin.css">
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Vue -->
@@ -13,6 +15,9 @@
 </head>
 
 <body>
+    <!-- homeFirst -->
+    @@include('./layout/homeFirst.html',{})
+
     <!-- header -->
     @@include('./layout/header.html',{})
 
@@ -20,6 +25,8 @@
     <!-- header -->
     <!-- home_menu -->
     @@include('./layout/home_menu.html',{})
+    <!-- home_heath -->
+    @@include('./layout/home_health.html',{})
     <!-- home-am -->
     @@include('./layout/home_am.html',{})
 

@@ -57,7 +57,6 @@ nav {
   text-align: center;
   background-color: #ECEEE7;
   -webkit-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   text-align: center;
   transition: 0.3s background-color ease;
@@ -88,42 +87,6 @@ nav {
   top: 0;
   z-index: 1;
   transform: translateY(0px);
-}
-.homeTab-wrap .homeSocial-login {
-  float: left;
-  width: 100%;
-  height: auto;
-  padding: 15px;
-  border-bottom: 1px solid #ECEEE7;
-  margin: 0 auto;
-}
-.homeTab-wrap .homeSocial-login a {
-  position: relative;
-  float: left;
-  width: calc(40% - 8px);
-  text-decoration: none;
-  color: #ECEEE7;
-  padding: 12px;
-  border-radius: 2px;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  margin: 0 3%;
-  text-align: center;
-}
-.homeTab-wrap .homeSocial-login a i {
-  width: 40px;
-  top: 2px;
-}
-.homeTab-wrap .homeSocial-login a:first-child {
-  background-color: #49639F;
-}
-.homeTab-wrap .homeSocial-login a:last-child {
-  background-color: #DF4A32;
-}
-.homeTab-wrap h3 {
-  text-align: center;
-  margin: 0 auto;
-  color: #595959;
 }
 .homeTab-wrap .homeTop-row:after {
   content: "";
