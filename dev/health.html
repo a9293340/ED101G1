@@ -1,14 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hang">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>健康分析</title>
+    <!-- Vue.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <link rel="stylesheet" href="./css/health.css">
 </head>
 
 <body>
-    <p>test</p>
+    <div id="app" class="wrapper">
+        <div class="content">
+            <h1 class="title">健康自己看</h1>
+            <p class="title2">感謝您長期對寶島食堂的支持與愛護，我們推出「健康自己看」 活動，填完本問卷者，能依據您的健康狀態，提供建議的便當類型喔!快加入吧!</p>
+            <div v-for="question in questions" class="board">
+                <p>{{question.title}}</p>
+                <button id='a1'></button>
+                <button id='a2'></button>
+                <button id='a3'></button>
+                <h3 id='score'></h3>
+            </div>
+            <div class="img1"><img src="./images/logo.png"></div>
+        </div>
+    </div>
+
+    <script src="./js/health.js"></script>
 </body>
 
 </html>
