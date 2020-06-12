@@ -50,7 +50,7 @@
                   <div id="buy_app">
                 <div class="buy_single_containter scroll">
                 <div id='rice'>
-                        <div id="rice_card" v-for="(item, index) in rice" :key="item.id">
+                        <div class="ricecard" v-for="(item, index) in rice" :key="item.id">
                               
                             <img :id="'riceimg'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
                             <div class="buy_name">{{item.name}}</div>
@@ -70,7 +70,7 @@
 
 
                    <div id='meat'> 
-                        <div id="meat_card" v-for="(item, index) in meat" :key="item.id">
+                        <div class="meat_card" v-for="(item, index) in meat" :key="item.id">
                               
                             <img :id="'meatimg'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
                             <div class="buy_name">{{item.name}}</div>
@@ -90,7 +90,7 @@
 
 
                     <div id='single'>  
-                          <div id="buy_card" v-for="(item, index) in single" :key="item.id">
+                          <div class="single_card" v-for="(item, index) in single" :key="item.id">
                        
                               <img :id="'img'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
                               <div class="buy_name">{{item.name}}</div>
