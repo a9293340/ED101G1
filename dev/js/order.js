@@ -220,7 +220,7 @@ let active=[{
 }]
 
 
-let other_juice = {
+let other_juice ={
     imgsrc:'https://fakeimg.pl/200/',
     id:"1",
     name:'養身蔬果汁',
@@ -393,10 +393,7 @@ function view4(){
 
 
 
-for(var j=0; j < rice.length;j++){
-    document.getElementById(`riceimg${j+1}`).addEventListener('click',ricelightBox)
-    document.getElementById(`plus${j+1}`).addEventListener('click',plusone)
-}
+
 
 
 function plusone(){
@@ -421,7 +418,10 @@ function plusone(){
 document.getElementById('meat').style.display="none";
 document.getElementById('single').style.display="none";
 
-
+for(var j=0; j < rice.length;j++){
+    document.getElementById(`riceimg${j+1}`).addEventListener('click',ricelightBox)
+    document.getElementById(`plus${j+1}`).addEventListener('click',plusone)
+}
 
 // 米飯lightbox js
 
