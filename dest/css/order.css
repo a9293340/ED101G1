@@ -32,6 +32,11 @@ h2 {
 p {
   font-size: 1rem; }
 
+.orderRoof {
+  background-image: url(../images/order/roof.png);
+  width: 100%;
+  height: 175px; }
+
 .orderLeft {
   position: fixed;
   top: 50%;
