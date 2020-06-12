@@ -15,7 +15,7 @@ Vue.component('button-counter', {
 
 
 let icon =[{
-    id:"11",
+    id:"1",
     img:'./images/order/rice.png',
     text:"米飯"
 },
