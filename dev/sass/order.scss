@@ -79,7 +79,7 @@ $white: white;
 	display: flex;
 	justify-content: space-between;
 }
-#buy_card {
+.single_card {
 	// display: none;
 	width: 250px;
 	height: 308px;
@@ -96,7 +96,7 @@ $white: white;
 		 color: $grey;
 	 }
 }
-#meat_card{
+.meat_card{
 	// display: none;
 	width: 250px;
 	height: 308px;
@@ -113,8 +113,7 @@ $white: white;
 		 color: $grey;
 	 }
 }
-
-#rice_card{
+.ricecard{
 	
 	width: 250px;
 	height: 308px;
@@ -131,6 +130,7 @@ $white: white;
 		 color: $grey;
 	 }
 }
+
 #buy_card3{
 	width: 250px;
 	height: 308px;
