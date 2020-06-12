@@ -25,20 +25,20 @@
     <div id="memApp">
         <div class="memHeader">
             <p class="memHeaderId">{{memData.memEmail}}</p>
-            <div class="memHeaderBtn">
-                <img src="" class="memBtnImg">
+            <div class="memHeaderBtn memHeaderBtnOrange" id="memGoFile" data-change="0">
+                <img src="./images/member/fileIcon.png" class="memBtnImg">
                 我的檔案
             </div>
-            <div class="memHeaderBtn">
-                <img src="" class="memBtnImg">
+            <div class="memHeaderBtn" id="memGoOrder" data-change="1">
+                <img src="./images/member/orderIcon.png" class="memBtnImg">
                 我的訂單
             </div>
-            <div class="memHeaderBtn">
-                <img src="" class="memBtnImg">
+            <div class="memHeaderBtn" id="memGoHealth" data-change="2">
+                <img src="./images/member/healthIcon.png" class="memBtnImg">
                 健康檔案
             </div>
-            <div class="memHeaderBtn">
-                <img src="" class="memBtnImg">
+            <div class="memHeaderBtn" id="memGoGame" data-change="3">
+                <img src="./images/member/questionIcon.png" class="memBtnImg">
                 小遊戲
             </div>
         </div>
@@ -104,6 +104,56 @@
                     <span>{{memData.memScore}}</span>
                 </div>
             </div>
+        </div>
+        <div class="memContent memContentNone" id="memContentOrder">
+            <div class="memOrderBox" v-for="item in memOrder">
+                <div class="memOrderInfo">
+                    <p class="memOrderNum">訂單編號：{{item.orderId}}</p>
+                    <div class="memOrderSta">
+                        <img src="./images/member/shoppingIcon.png" alt="">
+                        <p>{{item.orderStatus}}</p>
+                    </div>
+                </div>
+                <div class="memOrderListBox">
+                    <div class="memOrderList" v-for='(single,index) in memSingleOrder' v-if='single.soBelongOrder == item.orderId' >
+                        <div class="memFlexRight">
+                            <img src="https://fakeimg.pl/80/" alt="">
+                            <div class="memOrderSomethingBox">
+                                <p>自選便當</p>
+                                <p class="memFontSmall">規格:{{single.soRice}}/{{single.sideDishes1}}/{{single.sideDishes2}}/{{single.sideDishes3}}/{{single.mainfood}}/</p>
+                                <p class="memFontSmall">X {{single.soAmount}}</p>
+                            </div>
+                        </div>
+                        <p class="memOrderPirceShow">${{single.soPrice}}</p>
+                    </div>
+                    <div class="memOrderList" v-for='set in memSetOrder' v-if='set.setoBelongOrder == item.orderId' >
+                        <div class="memFlexRight">
+                            <img :src="set.setImage" alt="">
+                            <div class="memOrderSomethingBox">
+                                <p>{{set.setName}}</p>
+                                <p class="memFontSmall">X {{set.setoAmount}}</p>
+                            </div>
+                        </div>
+                        <p class="memOrderPirceShow">${{set.setoPrice}}</p>
+                    </div>
+                    <div class="memOrderList" v-for='other in memOtherOrder' v-if='other.ooBelongOrder == item.orderId' >
+                        <div class="memFlexRight">
+                            <img :src="other.opImage" alt="">
+                            <div class="memOrderSomethingBox">
+                                <p>{{other.opName}}</p>
+                                <p class="memFontSmall">X {{other.ooAmount}}</p>
+                            </div>
+                        </div>
+                        <p class="memOrderPirceShow">${{other.ooPrice}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="memContent memContentNone" id="memContentHealth">
+            
+        </div>
+        <div class="memContent memContentNone" id="memContentGame">
+            
         </div>
     </div>
 
