@@ -1,0 +1,211 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+body {
+  font-family: "Noto Sans TC", "Noto Sans", "微軟正黑體", "Times New Roman", sans-serif;
+}
+
+nav {
+  color: green;
+}
+
+.homeContainer {
+  max-width: 500px;
+  margin: 40px auto 0;
+  padding: 0 10px;
+}
+
+.homeTab-wrap {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  list-style: none;
+  background-color: #fff;
+  box-shadow: 0 0 1em #ccc;
+}
+.homeTab-wrap .homeTab {
+  display: none;
+}
+.homeTab-wrap .homeTab:checked + label {
+  cursor: default;
+  color: #ffffff;
+  background-color: #37AB64;
+}
+.homeTab-wrap .homeTab + label {
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  flex-grow: 3;
+  text-align: center;
+  background-color: #ECEEE7;
+  -webkit-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-align: center;
+  transition: 0.3s background-color ease;
+  padding: 15px;
+}
+.homeTab-wrap .homeTab-content {
+  padding: 10px;
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  opacity: 0;
+  left: 0;
+  transform: translateY(-3px);
+}
+.homeTab-wrap .homeTab:checked:nth-of-type(1) ~ .homeTab-content:nth-of-type(1) {
+  opacity: 1;
+  transition: 0.5s opacity ease-in, 0.8s transform ease;
+  position: relative;
+  top: 0;
+  z-index: 1;
+  transform: translateY(0px);
+}
+.homeTab-wrap .homeTab:checked:nth-of-type(2) ~ .homeTab-content:nth-of-type(2) {
+  opacity: 1;
+  transition: 0.5s opacity ease-in, 0.8s transform ease;
+  position: relative;
+  top: 0;
+  z-index: 1;
+  transform: translateY(0px);
+}
+.homeTab-wrap .homeSocial-login {
+  float: left;
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  border-bottom: 1px solid #ECEEE7;
+  margin: 0 auto;
+}
+.homeTab-wrap .homeSocial-login a {
+  position: relative;
+  float: left;
+  width: calc(40% - 8px);
+  text-decoration: none;
+  color: #ECEEE7;
+  padding: 12px;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin: 0 3%;
+  text-align: center;
+}
+.homeTab-wrap .homeSocial-login a i {
+  width: 40px;
+  top: 2px;
+}
+.homeTab-wrap .homeSocial-login a:first-child {
+  background-color: #49639F;
+}
+.homeTab-wrap .homeSocial-login a:last-child {
+  background-color: #DF4A32;
+}
+.homeTab-wrap h3 {
+  text-align: center;
+  margin: 0 auto;
+  color: #595959;
+}
+.homeTab-wrap .homeTop-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.homeTab-wrap .homeTop-row:after > div {
+  float: left;
+  margin-right: 4%;
+}
+.homeTab-wrap .homeTop-row:after > div:last-child {
+  margin: 0;
+}
+.homeTab-wrap .homeField-wrap {
+  position: relative;
+  padding: 15px;
+  display: flex;
+}
+.homeTab-wrap .homeField-wrap .homeReq {
+  margin: 2px;
+  color: #EA6227;
+}
+.homeTab-wrap .homeField-wrap label {
+  transform: translateY(6px);
+  left: 13px;
+  color: #595959;
+  transition: all 0.25s ease;
+  pointer-events: none;
+  font-size: 1rem;
+  float: left;
+  width: 80px;
+}
+.homeTab-wrap .homeField-wrap .homeNameBox {
+  display: inline-flex;
+  width: 100%;
+}
+.homeTab-wrap .homeField-wrap .homeNameBox .homeName-1 {
+  width: calc(25% - 10px);
+  margin-right: 9%;
+}
+.homeTab-wrap .homeField-wrap .homeNameBox .homeName-2 {
+  width: calc(45% - 10px);
+}
+.homeTab-wrap input {
+  display: block;
+  width: calc(80% - 8px);
+  padding: 10px;
+  background: none;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 5px;
+}
+.homeTab-wrap input:focus {
+  outline: 0;
+  border-color: #37AB64;
+}
+.homeTab-wrap .homeButton {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 15px 0;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #37AB64;
+  color: #ECEEE7;
+  -webkit-appearance: none;
+}
+.homeTab-wrap .homeButton:hover, .homeTab-wrap .homeButton:focus {
+  background: #37AB64;
+}
+.homeTab-wrap .homeButton-block {
+  display: block;
+  width: 100%;
+}
+
+.homeForgot {
+  margin-top: -20px;
+  text-align: right;
+  font-size: 0.8rem;
+  padding: 10px;
+}
