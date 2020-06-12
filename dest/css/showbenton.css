@@ -1,21 +1,88 @@
 @charset "UTF-8";
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+p {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   vertical-align: baseline; }
 
 body {
@@ -24,11 +91,64 @@ body {
 nav {
   color: green; }
 
-div {
-  width: 600px;
-  height: 400px;
-  background-color: burlywood; }
+body {
+  background-color: #f9e8d4; }
+
+p.showTitle {
+  font-size: 48px;
+  color: #f3f3f3;
+  font-weight: bold;
+  white-space: 10px;
+  padding: 160px 0 30px 0;
+  color: #141212;
+  text-align: right;
+  margin-right: 200px; }
+
+div.showBlock {
+  border: 20px solid #d6bf7f;
+  border-radius: 5px;
+  width: 100%;
+  margin: auto;
+  background-image: url("/dev/images/showbenton/bulletin1.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border: transparent;
+  background-color: #f9e8d4; }
+
+div.addBenton {
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: #EA6227;
+  width: 70px;
+  padding: 10px 5px;
+  margin-top: auto; }
+  div.addBenton:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+    cursor: pointer; }
 
 img {
+  height: 50px;
   width: 50px;
-  height: 50px; }
+  opacity: 0.7;
+  display: block;
+  margin: auto; }
+
+div.showBentonImg {
+  border: 1px solid black;
+  widows: 500px;
+  height: 400px; }
+
+p.showMyself {
+  font-size: 2.5rem;
+  color: #383838;
+  font-weight: 800;
+  white-space: 10px;
+  text-align: right;
+  letter-spacing: 8px;
+  margin: 100px 150px 0 0;
+  padding: 10px;
+  color: #677eca; }
+
+.grid {
+  background-image: url("/dev/images/showbenton/bulletin1.png"); }

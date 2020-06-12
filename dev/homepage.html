@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,15 +11,19 @@
     <!-- Vue -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
 </head>
+
 <body>
     <!-- header -->
     @@include('./layout/header.html',{})
 
-    <!-- home-am -->
+
     <!-- header -->
+    <!-- home_menu -->
+    @@include('./layout/home_menu.html',{})
+    <!-- home-am -->
     @@include('./layout/home_am.html',{})
 
-    
+
 
     <!-- Login、Signup、ShoppingCart -->
     <script src="../dev/js/layout/login.js"></script>
@@ -27,4 +32,5 @@
     <!-- homepage -->
     <script src="../dev/js/homepage.js"></script>
 </body>
+
 </html>

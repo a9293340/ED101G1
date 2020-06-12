@@ -1,11 +1,118 @@
 @import "./main";
-div {
-  width: 600px;
-  height: 400px;
-  background-color: burlywood;
+body {
+  background-color: #f9e8d4;
 }
 
-img {
-  width: 50px;
-  height: 50px;
+p.showTitle {
+  @include fontStyle(
+    rgb(243, 243, 243),
+    $size: 48px,
+    $weight: bold,
+    $wrap: 10px
+  );
+  padding: 160px 0 30px 0;
+  color: $black;
+  text-align: right;
+  margin-right: 200px;
 }
+
+div.showBlock {
+  @include border(20px, rgb(214, 191, 127), $rpx: 5px);
+  width: 100%;
+  margin: auto;
+  background-image: url("/dev/images/showbenton/bulletin1.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border: transparent;
+  background-color: #f9e8d4;
+}
+
+div.addBenton {
+  @include border(1px, transparent, $rpx: 2px);
+  background-color: $orange;
+  width: 70px;
+  padding: 10px 5px;
+  margin-top: auto;
+
+  &:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+    cursor: pointer;
+  }
+}
+img {
+  height: 50px;
+  width: 50px;
+  opacity: 0.7;
+  display: block;
+  margin: auto;
+}
+
+//放圖片便當的區域
+div.showBentonImg {
+  border: 1px solid black;
+  widows: 500px;
+  height: 400px;
+}
+
+p.showMyself {
+  @include fontStyle(rgb(56, 56, 56), $size: 2.5rem, $weight: 800, $wrap: 10px);
+  text-align: right;
+  letter-spacing: 8px;
+  margin: 100px 150px 0 0;
+  padding: 10px;
+  color: rgb(103, 126, 202);
+}
+
+.grid {
+  background-image: url("/dev/images/showbenton/bulletin1.png");
+}
+
+//------------ligthbox----------
+// div.addBenton {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100vh;
+//   background-color: hsla(0, 0%, 0%, 0.5);
+//   opacity: 0;
+//   z-index: -1;
+//   transition: opacity 1s;
+// }
+
+// div.overlay.-on {
+//   /* 加上 -on 之後，Modal 漸漸出現，因為有設定 transition */
+//   opacity: 1;
+//   z-index: 1;
+// }
+
+// div.overlay.-opacity-zero {
+//   opacity: 0;
+// }
+
+// div.overlay {
+//   background-color: white;
+//   width: 90%;
+//   max-width: 800px;
+//   border-radius: 10px;
+//   box-shadow: 0 0 10px #ddd;
+//   padding: 10px;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+// }
+
+//----------按讚數---------------
+
+// div {
+//   width: 600px;
+//   height: 400px;
+//   background-color: burlywood;
+// }
+
+// img {
+//   width: 40px;
+//   height: 40px;
+// }
