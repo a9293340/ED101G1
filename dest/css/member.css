@@ -15,7 +15,6 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   vertical-align: baseline; }
 
 body {
@@ -27,11 +26,9 @@ nav {
 #memApp {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 1200px;
-  border: 1px solid red;
-  border-radius: 0px;
   margin: 20px auto;
   padding: 15px; }
   #memApp .memHeader {
@@ -39,13 +36,18 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: flex-start; }
+    align-items: center; }
     #memApp .memHeader .memHeaderId {
       font-size: 1rem;
       color: #595959;
       font-weight: 500;
-      white-space: wrap; }
+      white-space: wrap;
+      margin-right: 20px; }
     #memApp .memHeader .memHeaderBtn {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
       transition-duration: 0.2s;
       transition-property: all;
       transform-origin: 50% 50%;
@@ -69,3 +71,258 @@ nav {
       #memApp .memHeader .memHeaderBtn:hover, #memApp .memHeader .memHeaderBtn:focus {
         opacity: .9;
         background-color: #e4b51c; }
+      #memApp .memHeader .memHeaderBtn .memBtnImg {
+        width: 24px;
+        margin-right: 5px; }
+    #memApp .memHeader .memHeaderBtnOrange {
+      background-color: #37AB64; }
+      #memApp .memHeader .memHeaderBtnOrange:hover, #memApp .memHeader .memHeaderBtnOrange:focus {
+        opacity: .9;
+        background-color: #8ae9ae; }
+  #memApp .memLine {
+    border-top: 3px solid #595959;
+    width: 100%;
+    margin: 30px 0; }
+  #memApp .memContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box; }
+  #memApp #memContentFile .memFileBox, #memApp #memContentFile .memFileImg {
+    width: 550px; }
+  #memApp #memContentFile .memFileLine {
+    border-left: 1px solid #595959;
+    height: 600px; }
+  #memApp #memContentFile .memFileBox .memFileForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 40px; }
+    #memApp #memContentFile .memFileBox .memFileForm .memFirSecNameBox {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 15px 0; }
+    #memApp #memContentFile .memFileBox .memFileForm label {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 1.2rem;
+      color: #9b9b9b;
+      font-weight: 500;
+      white-space: wrap;
+      margin-left: 10px; }
+      #memApp #memContentFile .memFileBox .memFileForm label p {
+        font-size: 1rem;
+        color: #141212;
+        font-weight: 500;
+        white-space: wrap;
+        margin-left: 20px; }
+      #memApp #memContentFile .memFileBox .memFileForm label input {
+        font-size: 1rem;
+        color: #141212;
+        font-weight: 500;
+        white-space: wrap;
+        margin-left: 15px;
+        padding: 5px;
+        margin-right: 20px; }
+      #memApp #memContentFile .memFileBox .memFileForm label .memSurName {
+        width: 50px;
+        margin-left: 50px;
+        margin-right: 50px; }
+      #memApp #memContentFile .memFileBox .memFileForm label .memName {
+        width: 100px; }
+      #memApp #memContentFile .memFileBox .memFileForm label .memHeight, #memApp #memContentFile .memFileBox .memFileForm label .memWeight, #memApp #memContentFile .memFileBox .memFileForm label .memBMI, #memApp #memContentFile .memFileBox .memFileForm label .memPhone, #memApp #memContentFile .memFileBox .memFileForm label .memAddr {
+        margin: 20px 0;
+        margin-left: 30px;
+        margin-right: 10px;
+        width: 80px; }
+      #memApp #memContentFile .memFileBox .memFileForm label .memPhone {
+        width: 120px; }
+      #memApp #memContentFile .memFileBox .memFileForm label .memAddr {
+        width: 180px; }
+    #memApp #memContentFile .memFileBox .memFileForm .memFormBtn {
+      transition-duration: 0.2s;
+      transition-property: all;
+      transform-origin: 50% 50%;
+      text-align: center;
+      line-height: 50px;
+      width: 120px;
+      height: 50px;
+      color: #ECEEE7;
+      background-color: #EA6227;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 2px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transform: scale(1);
+      border: 0;
+      cursor: pointer;
+      line-height: 40px;
+      margin: 0 auto;
+      margin-top: 20px; }
+      #memApp #memContentFile .memFileBox .memFileForm .memFormBtn:hover, #memApp #memContentFile .memFileBox .memFileForm .memFormBtn:focus {
+        transform: scale(1.1);
+        opacity: .9; }
+  #memApp #memContentFile .memFileImg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px; }
+    #memApp #memContentFile .memFileImg .memImage {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: #c4c0c0;
+      overflow: hidden;
+      position: relative; }
+      #memApp #memContentFile .memFileImg .memImage .memPicture {
+        width: 100%; }
+      #memApp #memContentFile .memFileImg .memImage .changeImage {
+        position: absolute;
+        width: 200px;
+        height: 100px;
+        background-color: #9b9b9b;
+        opacity: .8;
+        bottom: -100px;
+        transition-duration: 0.3s;
+        transition-property: all;
+        transform-origin: 50% 50%;
+        cursor: pointer;
+        text-align: center;
+        line-height: 50px;
+        font-size: 1.2rem;
+        color: #141212;
+        font-weight: 500;
+        white-space: wrap; }
+      #memApp #memContentFile .memFileImg .memImage:hover .changeImage {
+        bottom: -40px; }
+    #memApp #memContentFile .memFileImg .memImgLimitBox {
+      width: 160px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start; }
+      #memApp #memContentFile .memFileImg .memImgLimitBox .memImgLimit {
+        font-size: 1rem;
+        color: #9b9b9b;
+        font-weight: 500;
+        white-space: wrap;
+        line-height: 30px; }
+    #memApp #memContentFile .memFileImg .memBaoBeeBox {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center; }
+      #memApp #memContentFile .memFileImg .memBaoBeeBox span {
+        font-size: 1.2rem;
+        color: #141212;
+        font-weight: 500;
+        white-space: wrap; }
+      #memApp #memContentFile .memFileImg .memBaoBeeBox img {
+        margin-left: 10px;
+        width: 20px; }
+    #memApp #memContentFile .memFileImg .memShowBoeBee {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px; }
+      #memApp #memContentFile .memFileImg .memShowBoeBee img {
+        width: 35px;
+        margin-right: 20px; }
+      #memApp #memContentFile .memFileImg .memShowBoeBee span {
+        font-size: 1.4rem;
+        color: #9b9b9b;
+        font-weight: 500;
+        white-space: wrap; }
+  #memApp #memContentOrder {
+    justify-self: center;
+    align-items: center;
+    flex-direction: column; }
+    #memApp #memContentOrder .memOrderBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 1000px;
+      border-radius: 20px;
+      padding: 20px 40px;
+      margin: 30px 0;
+      box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.3); }
+      #memApp #memContentOrder .memOrderBox .memOrderInfo {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 1000px; }
+        #memApp #memContentOrder .memOrderBox .memOrderInfo .memOrderNum {
+          font-size: 1rem;
+          color: #595959;
+          font-weight: 500;
+          white-space: wrap; }
+        #memApp #memContentOrder .memOrderBox .memOrderInfo .memOrderSta {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center; }
+          #memApp #memContentOrder .memOrderBox .memOrderInfo .memOrderSta img {
+            margin-right: 10px; }
+          #memApp #memContentOrder .memOrderBox .memOrderInfo .memOrderSta p {
+            font-size: 1rem;
+            color: #595959;
+            font-weight: 500;
+            white-space: wrap; }
+      #memApp #memContentOrder .memOrderBox .memOrderListBox {
+        width: 90%;
+        height: 290px;
+        overflow: hidden; }
+        #memApp #memContentOrder .memOrderBox .memOrderListBox .memOrderList {
+          width: 100%;
+          height: 130px;
+          margin-top: 10px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center; }
+          #memApp #memContentOrder .memOrderBox .memOrderListBox .memOrderList img {
+            margin-right: 30px; }
+          #memApp #memContentOrder .memOrderBox .memOrderListBox .memOrderList .memFlexRight {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center; }
+            #memApp #memContentOrder .memOrderBox .memOrderListBox .memOrderList .memFlexRight .memOrderSomethingBox {
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start; }
+              #memApp #memContentOrder .memOrderBox .memOrderListBox .memOrderList .memFlexRight .memOrderSomethingBox p {
+                font-size: 1.2rem;
+                color: #141212;
+                font-weight: 500;
+                white-space: wrap;
+                margin: 5px 0; }
+              #memApp #memContentOrder .memOrderBox .memOrderListBox .memOrderList .memFlexRight .memOrderSomethingBox .memFontSmall {
+                font-size: 0.8rem;
+                color: #9b9b9b;
+                font-weight: 500;
+                white-space: wrap; }
+          #memApp #memContentOrder .memOrderBox .memOrderListBox .memOrderList .memOrderPirceShow {
+            font-size: 1.2rem;
+            color: #141212;
+            font-weight: 500;
+            white-space: wrap; }
+  #memApp .memContentNone {
+    display: none; }
