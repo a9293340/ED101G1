@@ -32,6 +32,20 @@ h2 {
 p {
   font-size: 1rem; }
 
+.ordercart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  border: 1px solid blue; }
+
+#ordertitle1 {
+  transform: scale(1.5); }
+
+#ordertitletext1 {
+  color: #EA6227; }
+
 .orderRoof {
   background-image: url(../images/order/roof.png);
   width: 100%;
