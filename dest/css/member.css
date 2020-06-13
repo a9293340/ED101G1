@@ -31,6 +31,14 @@ nav {
     right: -30%;
     opacity: .6; } }
 
+@keyframes memShake {
+  0% {
+    transform: rotate(-10deg); }
+  50% {
+    transform: rotate(10deg); }
+  100% {
+    transform: rotate(-10deg); } }
+
 #memApp {
   display: flex;
   flex-direction: column;
@@ -318,7 +326,7 @@ nav {
       padding: 20px 40px;
       margin: 30px 0;
       box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.3);
-      background-color: #fdfbea; }
+      background-color: #f8f7ea; }
       #memApp #memContentOrder .memOrderBox .memOrderInfo {
         display: flex;
         flex-direction: row;
@@ -454,5 +462,255 @@ nav {
         width: 60%; }
         #memApp #memContentHealth .memHealthDataShowBox .memMyHealthAnalyImgBox #myChart {
           margin-top: 20px; }
+    #memApp #memContentHealth .memHealthLine {
+      border-top: 3px solid #595959;
+      opacity: .4;
+      width: 90%;
+      margin: 50px 0; }
+    #memApp #memContentHealth .memHealthContentBox {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      border-radius: 10px;
+      padding: 20px 40px;
+      margin: 30px 0;
+      box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.1);
+      background-color: #f8f7ea; }
+      #memApp #memContentHealth .memHealthContentBox .memHealthContentInfoBox {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start; }
+        #memApp #memContentHealth .memHealthContentBox .memHealthContentInfoBox p {
+          font-size: 1rem;
+          color: #9b9b9b;
+          font-weight: 500;
+          white-space: wrap; }
+          #memApp #memContentHealth .memHealthContentBox .memHealthContentInfoBox p span {
+            font-size: 1.2rem;
+            color: #141212;
+            font-weight: 500;
+            white-space: wrap; }
+        #memApp #memContentHealth .memHealthContentBox .memHealthContentInfoBox .memHealthImgAndIntrudBox {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          margin: 10px 0;
+          width: 100%; }
+          #memApp #memContentHealth .memHealthContentBox .memHealthContentInfoBox .memHealthImgAndIntrudBox img {
+            width: 120px; }
+          #memApp #memContentHealth .memHealthContentBox .memHealthContentInfoBox .memHealthImgAndIntrudBox .memHealthIntruBox {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-left: 15px; }
+            #memApp #memContentHealth .memHealthContentBox .memHealthContentInfoBox .memHealthImgAndIntrudBox .memHealthIntruBox h2 {
+              font-size: 1.2rem;
+              color: #9b9b9b;
+              font-weight: 500;
+              white-space: wrap; }
+              #memApp #memContentHealth .memHealthContentBox .memHealthContentInfoBox .memHealthImgAndIntrudBox .memHealthIntruBox h2 span {
+                font-size: 1.4rem;
+                color: #141212;
+                font-weight: 500;
+                white-space: wrap; }
+            #memApp #memContentHealth .memHealthContentBox .memHealthContentInfoBox .memHealthImgAndIntrudBox .memHealthIntruBox p {
+              font-size: 1rem;
+              color: #9b9b9b;
+              font-weight: 500;
+              white-space: wrap; }
+              #memApp #memContentHealth .memHealthContentBox .memHealthContentInfoBox .memHealthImgAndIntrudBox .memHealthIntruBox p span {
+                font-size: 1.2rem;
+                color: #141212;
+                font-weight: 500;
+                white-space: wrap; }
+      #memApp #memContentHealth .memHealthContentBox .memHealthContentGoToListBox {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        width: 30%; }
+        #memApp #memContentHealth .memHealthContentBox .memHealthContentGoToListBox .memHealthContentGoToListBtn {
+          transition-duration: 0.2s;
+          transition-property: all;
+          transform-origin: 50% 50%;
+          text-align: center;
+          line-height: 40px;
+          width: 100px;
+          height: 40px;
+          color: #ECEEE7;
+          background-color: #EA6227;
+          font-weight: 700;
+          font-size: 20px;
+          letter-spacing: 2px;
+          padding: 5px 10px;
+          border-radius: 5px;
+          transform: scale(1);
+          border: 0;
+          cursor: pointer; }
+          #memApp #memContentHealth .memHealthContentBox .memHealthContentGoToListBox .memHealthContentGoToListBtn:hover, #memApp #memContentHealth .memHealthContentBox .memHealthContentGoToListBox .memHealthContentGoToListBtn:focus {
+            transform: scale(1.1);
+            opacity: .9; }
+        #memApp #memContentHealth .memHealthContentBox .memHealthContentGoToListBox p {
+          margin-top: 50px;
+          font-size: 0.7rem;
+          color: #9b9b9b;
+          font-weight: 500;
+          white-space: wrap; }
+          #memApp #memContentHealth .memHealthContentBox .memHealthContentGoToListBox p span {
+            font-size: 0.9rem;
+            color: #141212;
+            font-weight: 500;
+            white-space: wrap; }
+  #memApp #memContentGame {
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative; }
+    #memApp #memContentGame h2 {
+      font-size: 2rem;
+      color: #141212;
+      font-weight: 500;
+      white-space: wrap;
+      margin-bottom: 30px; }
+    #memApp #memContentGame .game {
+      width: 500px;
+      height: 500px;
+      position: relative;
+      background-color: #222222;
+      border-radius: 15px;
+      box-shadow: 2px 2px 100px rgba(207, 195, 195, 0.3);
+      overflow: hidden; }
+      #memApp #memContentGame .game .grade {
+        padding: 10px;
+        font-size: 1.4rem;
+        color: #ECEEE7;
+        font-weight: 500;
+        white-space: wrap; }
+      #memApp #memContentGame .game .board {
+        background-color: #ffab2d; }
+      #memApp #memContentGame .game .ball {
+        overflow: hidden;
+        border-radius: 50%; }
+        #memApp #memContentGame .game .ball img {
+          width: 100%; }
+      #memApp #memContentGame .game .info {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #222;
+        border-radius: 15px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; }
+        #memApp #memContentGame .game .info .infoText {
+          margin: 0 auto;
+          font-size: 1.4rem;
+          color: #ECEEE7;
+          font-weight: 500;
+          white-space: wrap;
+          margin-bottom: 10px; }
+        #memApp #memContentGame .game .info .start {
+          transition-duration: 0.2s;
+          transition-property: all;
+          transform-origin: 50% 50%;
+          text-align: center;
+          line-height: 50px;
+          width: 120px;
+          height: 50px;
+          color: #ECEEE7;
+          background-color: #EA6227;
+          font-weight: 700;
+          font-size: 20px;
+          letter-spacing: 2px;
+          padding: 5px 10px;
+          border-radius: 5px;
+          transform: scale(1);
+          border: 0;
+          cursor: pointer;
+          line-height: 40px; }
+          #memApp #memContentGame .game .info .start:hover, #memApp #memContentGame .game .info .start:focus {
+            transform: scale(1.1);
+            opacity: .9; }
+      #memApp #memContentGame .game .start {
+        width: 100px; }
+    #memApp #memContentGame .memGameTomoto {
+      position: absolute;
+      right: 15%;
+      bottom: 0; }
+      #memApp #memContentGame .memGameTomoto img {
+        width: 100px;
+        animation: memShake 1.5s ease-in-out infinite; }
+      #memApp #memContentGame .memGameTomoto .memGameConversationBox {
+        position: absolute;
+        bottom: 100px;
+        right: -20px; }
+        #memApp #memContentGame .memGameTomoto .memGameConversationBox img {
+          width: 150px; }
+        #memApp #memContentGame .memGameTomoto .memGameConversationBox p {
+          position: absolute;
+          bottom: 50px;
+          right: 10px;
+          animation: memShake 1.5s ease-in-out infinite;
+          font-size: 1rem;
+          color: #9b9b9b;
+          font-weight: 500;
+          white-space: wrap; }
+  #memApp .memContentOrderList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box; }
+    #memApp .memContentOrderList .memContentOrderListHeader {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 60px; }
+      #memApp .memContentOrderList .memContentOrderListHeader p {
+        font-size: 1.2rem;
+        color: #9b9b9b;
+        font-weight: 500;
+        white-space: wrap; }
+        #memApp .memContentOrderList .memContentOrderListHeader p span {
+          font-size: 1.4rem;
+          color: #141212;
+          font-weight: 500;
+          white-space: wrap; }
+      #memApp .memContentOrderList .memContentOrderListHeader .memOrderListGoBackBtn {
+        font-size: 1.4rem;
+        color: #37AB64;
+        font-weight: 700;
+        white-space: wrap;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        transition-property: all;
+        transform-origin: 50% 50%; }
+        #memApp .memContentOrderList .memContentOrderListHeader .memOrderListGoBackBtn span {
+          font-size: 1.4rem;
+          color: #37AB64;
+          font-weight: 700;
+          white-space: wrap;
+          margin-right: 3px; }
+        #memApp .memContentOrderList .memContentOrderListHeader .memOrderListGoBackBtn:hover {
+          color: #EA6227;
+          transform: scale(1.1); }
+          #memApp .memContentOrderList .memContentOrderListHeader .memOrderListGoBackBtn:hover span {
+            color: #EA6227;
+            transform: scale(1.1); }
   #memApp .memContentNone {
     display: none; }
