@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>order</title>
     <!-- 字體 -->
@@ -17,6 +17,7 @@
 
 </head>
 <body>
+    <div class="orderRoof"></div>
     <div class="buy_main">
 
         <div class="orderLeft">
@@ -50,7 +51,7 @@
                   <div id="buy_app">
                 <div class="buy_single_containter scroll">
                 <div id='rice'>
-                        <div id="rice_card" v-for="(item, index) in rice" :key="item.id">
+                        <div class="ricecard" v-for="(item, index) in rice" :key="item.id">
                               
                             <img :id="'riceimg'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
                             <div class="buy_name">{{item.name}}</div>
@@ -70,7 +71,7 @@
 
 
                    <div id='meat'> 
-                        <div id="meat_card" v-for="(item, index) in meat" :key="item.id">
+                        <div class="meat_card" v-for="(item, index) in meat" :key="item.id">
                               
                             <img :id="'meatimg'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
                             <div class="buy_name">{{item.name}}</div>
@@ -90,7 +91,7 @@
 
 
                     <div id='single'>  
-                          <div id="buy_card" v-for="(item, index) in single" :key="item.id">
+                          <div class="single_card" v-for="(item, index) in single" :key="item.id">
                        
                               <img :id="'img'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
                               <div class="buy_name">{{item.name}}</div>
@@ -135,9 +136,13 @@
                            <img v-bind:src="item.img" atl="" width="200" height="200">
                           <div class="buy_name">{{item.name}}</div>
                            <div class="buy_price"><span>$</span>{{item.price}}</div>
-                           <button-counter></button-counter>
+                           <div class="count">
+                               <button v-on:click="count++;">+</button><span class="countvalue">0</span><button v-on:click="if(count>0){count--;}">-</button>
+                               <img class="plusincart" src=https://fakeimg.pl/20/  :data-num="item.id">
+                            </div>
+                           <!-- <button-counter></button-counter> -->
                       </div>
-                
+                 
                       </div>
       
       
@@ -152,7 +157,10 @@
                                <img v-bind:src="item.img" atl="">
                               <div class="buy_name">{{item.name}}</div>
                               <div class="buy_price"><span>$</span>{{item.price}}</div>
-                              <button-counter></button-counter>
+                              <div class="count">
+                                <button v-on:click="count++;">+</button><span class="countvalue">0</span><button v-on:click="if(count>0){count--;}">-</button>
+                                <img class="plusincart" src=https://fakeimg.pl/20/  :data-num="item.id">
+                             </div>
                        </div>
                   </div>
               </div> 
@@ -168,7 +176,7 @@
                   </select>
                   <div>{{name}}</div>
                   <div><span>$</span>{{price}}</div>
-                  <button-counter></button-counter>
+                  <!-- <button-counter></button-counter> -->
               </div>
               <div id="other2" class="buy_other_juice">
                   <img :src=imgsrc>
@@ -177,7 +185,8 @@
                   </select>
                   <div>{{name}}</div>
                   <div><span>$</span>{{price}}</div>
-                  <button-counter></button-counter>
+                  <!-- <button-counter></button-counter> -->
+                  
               </div>
               <div id="other3" class="buy_other_juice">
                   <img :src=imgsrc>
@@ -186,7 +195,7 @@
                   </select>
                   <div>{{name}}</div>
                   <div><span>$</span>{{price}}</div>
-                  <button-counter></button-counter>
+                  <!-- <button-counter></button-counter> -->
               </div>
           </div>
       
