@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+=======
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>>>>>>> dev
     <title>order</title>
     <!-- 字體 -->
     <link
@@ -19,8 +25,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Vue -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+<<<<<<< HEAD
   </head>
   <body>
+=======
+
+
+</head>
+<body>
+    <div class="ordercart">
+        <p id="ricename"></p>
+        <p id="meatname"></p>
+        <p id="singlename"></p>
+    </div>
+    <div class="orderRoof"></div>
+>>>>>>> dev
     <div class="buy_main">
       <div class="orderLeft">
         <div class="orderCirle 1"><p>自選</p></div>
@@ -34,6 +53,7 @@
         <h1>自訂便當</h1>
       </div>
 
+<<<<<<< HEAD
       <div id="buy_app2">
         <div class="buy_icon_containter scroll">
           <div
@@ -44,6 +64,18 @@
             <img v-bind:src="item.img" atl="" width="50px" height="50px" />
             <p>{{item.text}}</p>
             <!-- <img src="https://fakeimg.pl/100/" alt="">
+=======
+        <div class="buy_single" id="order_1">   
+            <img src="./images/order/3.svg" width="50px" height="50px"><h1>自訂便當</h1>
+        </div>
+              
+                  <div id="buy_app2">
+                      <div class="buy_icon_containter scroll">
+                          <div class="buy_icon_card" v-for="(item, index) in icon" :key="item.id">
+                              <img v-bind:src="item.img" atl="" width="50px" height="50px" :id="'ordertitle'+item.id">
+                              <p :id="'ordertitletext'+item.id">{{item.text}}</p>
+                              <!-- <img src="https://fakeimg.pl/100/" alt="">
+>>>>>>> dev
                               <p>米飯</p> -->
           </div>
         </div>
@@ -106,10 +138,104 @@
                 :data-id="item.id"
               />
 
+<<<<<<< HEAD
               <div class="buy_single_lightbox box0">
                 <img src="" alt="" width="200" height="200" id="meatlightImg" />
                 <p id="meatlightText"></p>
                 <button class="closelightbox0">delete</button>
+=======
+                    <div id='single'>  
+                          <div class="single_card" v-for="(item, index) in single" :key="item.id">
+                       
+                              <img :id="'img'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
+                              <div class="buy_name">{{item.name}}</div>
+                              <div class="buy_price"><span>NT $</span>{{item.price}}</div>
+                              <div><p>Cal: {{item.cal}}</p></div>
+                              <!-- <button-counter></button-counter> -->
+                              <img :id="'singleplus'+item.id" src="./images/order/plus.svg" width="20px" height="20px" :data-id="item.id">
+                           
+                              <div class="buy_single_lightbox box2">  
+                                  <img src="" alt="" width="200" height="200" id="lightImg2">
+                                  <p id="lightText2"></p>
+                                  <button class="closelightbox2">delete</button> 
+                              </div>
+                          </div>
+                    </div>     
+                       </div>
+                  </div>
+      
+                  <div class="buy_bando"> 
+                      <div class="buy_bandoImg">
+                          <img src="./images/bandon_include/bando.jpg"  width="600" height="600">
+                      </div>
+                      <div class="buy_bandoLeft">           
+                          <div class="buy_trangleImg">
+                              <img src="https://fakeimg.pl/300x200/" width="300" height="200">
+                          </div>
+                          <div class="buy_list">
+                              <img src="https://fakeimg.pl/300x400/" width="300" height="400">
+                          </div>
+                          <button id="incart">加入購物車</button>
+                      </div>          
+                  </div>
+      
+      
+           <div class="buy_single" id="order_2">
+            <img src="./images/order/2.png" width="50px" height="50px"><h1>精選便當</h1>
+          </div>
+                  <div id="buy_app3">
+                      <div class="buy_setdo_containter scroll">
+      
+                      <div id="buy_card3" v-for="(item, index) in setdo" :key="item.id">
+                           <img v-bind:src="item.img" atl="" width="200" height="200">
+                          <div class="buy_name">{{item.name}}</div>
+                           <div class="buy_price"><span>$</span>{{item.price}}</div>
+                           <button-counter></button-counter>
+                           <!-- <button-counter></button-counter> -->
+                      </div>
+                 
+                      </div>
+      
+      
+                  </div> 
+          <div class="buy_single" id="order_3">
+            <img src="./images/order/1.png" width="50px" height="50px"><h1>活動便當</h1>
+          </div>                
+              <div id="buy_app4">
+                  <div class="buy_setdo_containter scroll">
+      
+                      <div id="buy_card4" v-for="(item, index) in active" :key="item.id">
+                               <img v-bind:src="item.img" atl="">
+                              <div class="buy_name">{{item.name}}</div>
+                              <div class="buy_price"><span>$</span>{{item.price}}</div>
+                              <button-counter></button-counter>
+                       </div>
+                  </div>
+              </div> 
+              <div class="buy_single" id="order_4">
+                <img src="./images/order/875068.png" width="50px" height="50px"><h1>其他商品</h1>
+              </div>   
+              
+          <div class="buy_other_container">
+              <div id="other" class="buy_other_juice">
+                  <img :src=imgsrc>
+                  <select v-model="id"  @change="changeimg(parseInt(id))">
+                      <option v-for="list in lists" :value="list.id">{{list.name}}</option>
+                  </select>
+                  <div>{{name}}</div>
+                  <div><span>$</span>{{price}}</div>
+                  <button-counter></button-counter>
+              </div>
+              <div id="other2" class="buy_other_juice">
+                  <img :src=imgsrc>
+                  <select v-model="id"  @change="changeimg(parseInt(id))">
+                      <option v-for="list in lists" :value="list.id">{{list.name}}</option>
+                  </select>
+                  <div>{{name}}</div>
+                  <div><span>$</span>{{price}}</div>
+                  <button-counter></button-counter>
+                  
+>>>>>>> dev
               </div>
             </div>
           </div>
