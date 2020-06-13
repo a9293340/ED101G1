@@ -12,6 +12,17 @@ $bgcgrey: #c4c0c0;
         opacity: .6;
     }
 }
+@keyframes memShake{
+    0%{
+        transform: rotate(-10deg);
+    }
+    50%{
+        transform: rotate(10deg);
+    }
+    100%{
+        transform: rotate(-10deg);
+    }
+}
 
 #memApp{
     @include flexStyle(flex-start,flex-start,column);
@@ -239,7 +250,6 @@ $bgcgrey: #c4c0c0;
             }
         }
     }
-
     #memContentOrder{
         justify-self: center;
         align-items: center;
@@ -253,7 +263,7 @@ $bgcgrey: #c4c0c0;
             padding: 20px 40px;
             margin: 30px 0;
             box-shadow: 3px 3px 30px rgba(0, 0, 0, .3);
-            background-color: #fdfbea;
+            background-color: #f8f7ea;
             .memOrderInfo{
                 @include flexStyle(space-between,center);
                 width: 1000px;
@@ -351,6 +361,206 @@ $bgcgrey: #c4c0c0;
                 }
             }
         }
+        .memHealthLine{
+            border-top: 3px solid $grey;
+            opacity: .4;
+            width: 90%;
+            margin: 50px 0;
+        }
+        .memHealthContentBox{
+            @include flexStyle(space-between,center);
+            // flex-wrap: wrap;
+            width: 90%;
+            border-radius: 10px;
+            // border: 1px solid $memgrey;
+            padding: 20px 40px;
+            margin: 30px 0;
+            box-shadow: 3px 3px 30px rgba(0, 0, 0, .1);
+            background-color: #f8f7ea;
+            .memHealthContentInfoBox{
+                width: 60%;
+                @include flexStyle(center,flex-start,column);
+                p{
+                    @include fontStyle($memgrey);
+                    span{
+                        @include fontStyle($black,1.2rem);
+                    }
+                }
+                .memHealthImgAndIntrudBox{
+                    @include flexStyle(flex-start,center);
+                    margin: 10px 0;
+                    width: 100%;
+                    img{
+                        // width: 30%;
+                        width: 120px;
+                    }
+                    .memHealthIntruBox{
+                        @include flexStyle(flex-start,flex-start,column);
+                        margin-left: 15px;
+                        h2{
+                            @include fontStyle($memgrey,1.2rem);
+                            span{
+                                @include fontStyle($black,1.4rem);
+                            }
+                        }
+                        p{
+                            @include fontStyle($memgrey,1rem);
+                            span{
+                                @include fontStyle($black,1.2rem);
+                            }
+                        }
+                    }
+                }
+            }
+            .memHealthContentGoToListBox{
+                height: 200px;
+                // border: 1px solid red;
+                @include flexStyle(flex-end,center,column);
+                width: 30%;
+                // border: 1px solid red;
+                .memHealthContentGoToListBtn{
+                    @include btn(100px,40px);
+                    
+                }
+                p{
+                    margin-top: 50px;
+                    @include fontStyle($memgrey,.7rem);
+                    span{
+                        @include fontStyle($black,.9rem);
+                    }
+                }
+            }
+        }
+    }
+    #memContentGame{
+        justify-self: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        // border: 1px solid red;
+        h2{
+            @include fontStyle($black,2rem);
+            margin-bottom: 30px;
+        }
+        .game{
+            width: 500px;
+            height: 500px;
+            position: relative;
+            // border: 5px solid white;
+            background-color: #222222;
+            border-radius: 15px;
+            box-shadow: 2px 2px 100px rgba($color: rgb(207, 195, 195), $alpha: .3);
+            overflow: hidden;
+            .grade{
+                padding: 10px;
+                @include fontStyle($white,1.4rem);
+            }
+            .board{
+                // background-color: black
+                background-color: #ffab2d;
+            }
+            .ball{
+                // background-color: $white;
+                overflow: hidden;
+                border-radius: 50%;
+                img{
+                    width: 100%;
+                }
+            }
+            .info{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                right: 0;
+                background-color: #222;
+                border-radius: 15px;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                .infoText{
+                    margin: 0 auto;
+                    @include fontStyle($white,1.4rem);
+                    margin-bottom: 10px;
+                }
+                .start{
+                    @include btn(120px,50px,20px);
+                    line-height: 40px;
+                }
+            }
+            .start{
+                width: 100px;
+            }
+        }
+        .memGameTomoto{
+            position: absolute;
+            // width: 100px;
+            right: 15%;
+            bottom: 0;
+            img{
+                width: 100px;
+                animation: memShake 1.5s ease-in-out infinite;
+            }
+            .memGameConversationBox{
+                position: absolute;
+                bottom: 100px;
+                right: -20px;
+                img{
+                    width: 150px;
+                }
+                p{
+                    // white-space: nowrap;
+                    // border: 1px solid red;
+                    // width: 150px;
+                    position: absolute;
+                    bottom: 50px;
+                    right: 10px;
+                    animation: memShake 1.5s ease-in-out infinite;
+                    @include fontStyle($memgrey,1rem);
+                }
+            }
+        }
+    }
+    .memContentOrderList{
+        @include flexStyle(center,center,column);
+        width: 100%;
+        // @include border(1px,red);
+        padding: 20px;
+        box-sizing: border-box;
+        // border: 1px solid red;
+        // display: none;
+        .memContentOrderListHeader{
+            width: 100%;
+            // border: 1px solid red;
+            @include flexStyle(space-between,center);
+            padding: 0 60px;
+            p{
+                @include fontStyle($memgrey,1.2rem);
+                span{
+                    @include fontStyle($black,1.4rem);
+                }
+            }
+            .memOrderListGoBackBtn{
+                @include fontStyle($green,1.4rem,700);
+                cursor: pointer;
+                @include transitionSet(.3s);
+                span{
+                    @include fontStyle($green,1.4rem,700);
+                    margin-right: 3px;
+                }
+                &:hover{
+                    color: $orange;
+                    transform: scale(1.1);
+                    span{
+                        color: $orange;
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+
     }
     .memContentNone{
         display: none;
