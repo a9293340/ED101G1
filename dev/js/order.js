@@ -1,15 +1,14 @@
 // 定义一个名为 button-counter 的新组件
-Vue.component('button-counter', {
-    data: function () {
-      return {
-        count: 0
-      } 
-    },
-    template: '<div class=count><button v-on:click="count++">+</button>{{count}}<button v-on:click="if(count>0){count--;}">-</button><img src=https://fakeimg.pl/20/></div>'
+// Vue.component('button-counter', {
+//     data: function () {
+//       return {
+//         count: 0
+//       } 
+//     },
+//     template: '<div class="count"><button v-on:click="count++;">+</button><span class="countvalue">{{count}}</span><button v-on:click="if(count>0){count--;}">-</button><img class="plusincart" src=https://fakeimg.pl/20/></div>'
  
-  })
+//   }) 
 
- 
 
 
 
@@ -521,3 +520,20 @@ document.getElementsByClassName('closelightbox2')[0].addEventListener('click',cl
 function closelightBox2(){ 
     document.getElementsByClassName('box2')[0].style.display='none';
 }
+
+
+//count 值
+
+// for(var i = 0; i<9; i++){
+// document.getElementsByClassName('plusincart')[i].addEventListener('click',cart)
+// }
+// function  cart(){
+
+//     var countvalue = document.getElementsByClassName('countvalue')[i].innerText;
+//     console.log(countvalue);
+// }
+
+    
+
+
+ 
