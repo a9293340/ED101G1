@@ -281,7 +281,7 @@ p {
     transform: scale(1);
     border: 0;
     cursor: pointer;
-    font-family: 'Noto Sans TC'; }
+    font-family: "Noto Sans TC"; }
     .buy_bandoLeft button:hover, .buy_bandoLeft button:focus {
       transform: scale(1.1);
       opacity: .9; }
@@ -327,7 +327,7 @@ p {
     cursor: pointer; }
     .count button:hover, .count button:focus {
       transform: scale(1.1);
-      opacity: .9; }
+      opacity: 0.9; }
 
 .scroll::-webkit-scrollbar {
   width: 5px; }
