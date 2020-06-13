@@ -1,15 +1,14 @@
 // 定义一个名为 button-counter 的新组件
-Vue.component('button-counter', {
-    data: function () {
-      return {
-        count: 0
-      } 
-    },
-    template: '<div class=count><button v-on:click="count++">+</button>{{count}}<button v-on:click="if(count>0){count--;}">-</button><img src=https://fakeimg.pl/20/></div>'
+// Vue.component('button-counter', {
+//     data: function () {
+//       return {
+//         count: 0
+//       } 
+//     },
+//     template: '<div class="count"><button v-on:click="count++;">+</button><span class="countvalue">{{count}}</span><button v-on:click="if(count>0){count--;}">-</button><img class="plusincart" src=https://fakeimg.pl/20/></div>'
  
-  })
+//   }) 
 
- 
 
 
 
@@ -59,7 +58,7 @@ let rice =[{
 
 let meat =[{
     id:'1',
-    name:"炸雞腿",
+    name:"炸雞腿", 
     img:"./images/order/chicken.jpg",
     cal:"300cal",
     price:'500',
@@ -220,7 +219,7 @@ let active=[{
 }]
 
 
-let other_juice = {
+let other_juice ={
     imgsrc:'https://fakeimg.pl/200/',
     id:"1",
     name:'養身蔬果汁',
@@ -393,10 +392,7 @@ function view4(){
 
 
 
-for(var j=0; j < rice.length;j++){
-    document.getElementById(`riceimg${j+1}`).addEventListener('click',ricelightBox)
-    document.getElementById(`plus${j+1}`).addEventListener('click',plusone)
-}
+
 
 
 function plusone(){
@@ -421,7 +417,10 @@ function plusone(){
 document.getElementById('meat').style.display="none";
 document.getElementById('single').style.display="none";
 
-
+for(var j=0; j < rice.length;j++){
+    document.getElementById(`riceimg${j+1}`).addEventListener('click',ricelightBox)
+    document.getElementById(`plus${j+1}`).addEventListener('click',plusone)
+}
 
 // 米飯lightbox js
 
@@ -521,3 +520,20 @@ document.getElementsByClassName('closelightbox2')[0].addEventListener('click',cl
 function closelightBox2(){ 
     document.getElementsByClassName('box2')[0].style.display='none';
 }
+
+
+//count 值
+
+// for(var i = 0; i<9; i++){
+// document.getElementsByClassName('plusincart')[i].addEventListener('click',cart)
+// }
+// function  cart(){
+
+//     var countvalue = document.getElementsByClassName('countvalue')[i].innerText;
+//     console.log(countvalue);
+// }
+
+    
+
+
+ 
