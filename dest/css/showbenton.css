@@ -1,17 +1,85 @@
 @charset "UTF-8";
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+p {
   margin: 0;
   padding: 0;
   border: 0;
@@ -22,3 +90,139 @@ body {
 
 nav {
   color: green; }
+
+body {
+  background-color: #f9e8d4; }
+
+p.showTitle {
+  font-size: 48px;
+  color: #f3f3f3;
+  font-weight: bold;
+  white-space: 10px;
+  padding: 160px 0 30px 0;
+  color: #141212;
+  text-align: right;
+  margin-right: 200px; }
+
+div.showBlock {
+  border: 20px solid #d6bf7f;
+  border-radius: 5px;
+  width: 100%;
+  margin: auto;
+  background-image: url("/dev/images/showbenton/bulletin1.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border: transparent;
+  background-color: #f9e8d4; }
+
+div.addBenton {
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: #EA6227;
+  width: 70px;
+  padding: 10px 5px;
+  margin-top: auto; }
+  div.addBenton:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+    cursor: pointer; }
+  div.addBenton img {
+    height: 50px;
+    width: 50px;
+    opacity: 0.7;
+    display: block;
+    margin: auto; }
+
+div.showBentonImg {
+  border: 1px solid black;
+  widows: 500px;
+  height: 400px; }
+
+p.showMyself {
+  font-size: 2.5rem;
+  color: #383838;
+  font-weight: 800;
+  white-space: 10px;
+  text-align: right;
+  letter-spacing: 8px;
+  margin: 100px 150px 0 0;
+  padding: 10px;
+  color: #677eca; }
+
+.grid {
+  background-image: url("/dev/images/showbenton/bulletin1.png");
+  color: blue; }
+
+.showBentonListLightbox {
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  width: 800px;
+  z-index: 999;
+  display: block;
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -250px;
+  display: none; }
+
+ul.bentoncardBox {
+  border: 1px solid transparent;
+  list-style: none;
+  display: inline-block;
+  overflow: auto;
+  height: 400px; }
+
+.bentoncarTitle {
+  font-size: 2rem;
+  text-align: center;
+  padding: 10px; }
+
+li.bentonCard {
+  margin: 20px;
+  display: inline-block;
+  border: 3px solid transparent; }
+
+li.bentonCard img {
+  cursor: pointer;
+  vertical-align: bottom; }
+
+div.confirmBentonBox1 {
+  width: 80px;
+  margin: 30px auto; }
+
+div.confirmBentonBox2 {
+  width: 350px;
+  margin: 30px 0; }
+
+button.Pre {
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
+  margin: 0 110px 0 60px; }
+
+button.Next {
+  width: 80px;
+  height: 50px;
+  cursor: pointer; }
+
+div.bentonContentForm {
+  width: 350px;
+  margin: 30px auto 0; }
+
+label.Step2Title,
+label.Step2Content {
+  vertical-align: top;
+  font-size: 18px; }
+
+#Step2TitlText {
+  width: 270px;
+  height: 25px;
+  font-size: 16px; }
+
+.Step2Space {
+  margin: 30px 0px; }
+
+#Step2ContentText {
+  font-size: 16px; }

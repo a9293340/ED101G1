@@ -12,7 +12,22 @@ p{
 //colors
 $white: white;
 
+.ordercart{
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: auto;
+	height: auto;
+	border: 1px solid blue;
+}
 
+
+#ordertitle1{
+	transform:scale(1.5);
+}
+#ordertitletext1{
+	color: $orange;
+}
 
 .orderRoof{
 	background-image: url(../images/order/roof.png);
@@ -103,6 +118,15 @@ $white: white;
 		 margin: 0;
 		 color: $grey;
 	 }
+}
+.single_card:hover{
+	box-shadow: 2px 2px 10px $orange;
+}
+.meat_card:hover{
+	box-shadow: 2px 2px 10px $orange;
+}
+.ricecard:hover{
+	box-shadow: 2px 2px 10px $orange;
 }
 .meat_card{
 	// display: none;
@@ -266,7 +290,7 @@ $white: white;
 }
 
 
-.scroll::-webkit-scrollbar { 
+.scroll::-webkit-scrollbar {  
 	width: 5px;
 }
 .scroll::-webkit-scrollbar-track {
@@ -276,4 +300,10 @@ $white: white;
 .scroll::-webkit-scrollbar-thumb {
 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
 	border-radius: 10px;
+}
+
+
+.buy_list{
+	width: 300px;
+	height: 400px;
 }
