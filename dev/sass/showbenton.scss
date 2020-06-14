@@ -109,17 +109,28 @@ li.bentonCard img {
   vertical-align: bottom;
 }
 
-.confirmBentonBox {
-  width: 100px;
+// Step1
+div.confirmBentonBox1 {
+  width: 80px;
   margin: 30px auto;
 }
 
-.confirmBenton {
-  width: 100px;
+div.confirmBentonBox2 {
+  width: 350px;
+  margin: 30px 0;
+}
+button.Pre {
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
+  margin: 0 110px 0 60px;
+}
+
+button.Next {
+  width: 80px;
   height: 50px;
   cursor: pointer;
 }
-
 //--------------Step2-------------
 div.bentonContentForm {
   width: 350px;

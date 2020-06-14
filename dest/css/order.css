@@ -331,7 +331,10 @@ p {
 
 .count {
   position: relative;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer; }
   .count img {
     position: absolute;
     right: 50px;
