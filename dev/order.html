@@ -119,15 +119,21 @@
       
                   <div class="buy_bando"> 
                       <div class="buy_bandoImg">
-                          <img src="./images/bandon_include/bando.jpg"  width="600" height="600">
+                          <img src="./images/bandon_include/bentoBox.png"  width="600" height="600">
                       </div>
-                      <div class="buy_bandoLeft">           
+                      <div class="buy_bandoLeft">
+                        <div class="buy_list">
+                            <p id="list_ricename"></p>
+                            <p id="list_meatname"></p>
+                            <p id="list_singlename1"></p>
+                            <p id="list_singlename2"></p>
+                            <p id="list_singlename3"></p>
+                              <!-- <img src="https://fakeimg.pl/300x400/" width="300" height="400"> -->
+                          </div>          
                           <div class="buy_trangleImg">
                               <img src="https://fakeimg.pl/300x200/" width="300" height="200">
                           </div>
-                          <div class="buy_list">
-                              <img src="https://fakeimg.pl/300x400/" width="300" height="400">
-                          </div>
+                         
                           <button id="incart">加入購物車</button>
                       </div>          
                   </div>
@@ -140,11 +146,19 @@
                       <div class="buy_setdo_containter scroll">
       
                       <div id="buy_card3" v-for="(item, index) in setdo" :key="item.id">
-                           <img v-bind:src="item.img" atl="" width="200" height="200">
+                           <img :id="'setdoimg'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
                           <div class="buy_name">{{item.name}}</div>
                            <div class="buy_price"><span>$</span>{{item.price}}</div>
                            <button-counter></button-counter>
                            <!-- <button-counter></button-counter> -->
+
+
+
+                           <div class="buy_single_lightbox box3">  
+                            <img src="" alt="" width="200" height="200" id="setdolightImg">
+                            <p id="setdolightText"></p>
+                            <button class="closelightbox3">delete</button> 
+                          </div>
                       </div>
                  
                       </div>

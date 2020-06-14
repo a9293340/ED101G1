@@ -100,7 +100,7 @@ let meat =[{
 let single = [{
     id:'1',
     name:"三杯杏鮑菇",
-    img:"./images/bandon_include/threecup.jpg",
+    img:"./images/bandon_include/kingMushroom.png",
     cal:"300cal",
     price:'500',
 
@@ -152,7 +152,7 @@ let single = [{
 {
     id:'7',
     name:"番茄炒蛋",
-    img:"./images/bandon_include/tomatoegg.jpg",
+    img:"./images/bandon_include/tomatoEgg.png",
     price:'700',
     cal:"300cal",
     text:"番茄炒蛋不僅好吃，連配色都很鮮豔，一看就讓人食指大動！紅通通的大番茄含有豐富的茄紅素、維生素C、膳食纖維等營養，是很棒的蔬菜，尤其是它特有的茄紅素，是一種天然色素，不但使番茄呈現討喜的鮮紅色，還具有很強的抗氧化功能，可以降低身體的氧化傷害，保持健康與美麗。 番茄含有豐富的茄紅素。"
@@ -161,7 +161,7 @@ let single = [{
 {
     id:'8',
     name:"蠔油青江菜",
-    img:"./images/bandon_include/oilgreen.jpg", 
+    img:"./images/bandon_include/spoonVeg.png", 
     price:'700',
     cal:"300cal",
     text:"青江菜營養價值高，可以保持血管彈性，提供人體所需礦物質、維生素；維生素B2尤為豐富，有抑制潰瘍的作用，經常食用對皮膚和眼睛的保養有很好的效果；富含纖維，可以有效改善便秘。"
@@ -177,21 +177,26 @@ let setdo=[{
     name:"清蒸鱈魚便當",
     img:"https://fakeimg.pl/200/",
     price:'100',
-    count:"1"
+    count:"1",
+    text:'寶島食堂嚴選冰島鱈魚，無細刺，肉質滑嫩鮮甜，如雪花般入口即化的綿密感魚肉更富含OMEGA-3即DHA、EPA適合成長中的孩子食用。'
 },
 {
     id:'2',
     name:"紅燒獅子頭便當",
     img:"https://fakeimg.pl/200/",
     price:'100',
-    count:"1"
+    count:"1",
+    text:''
+
 },
 {
     id:'3',
     name:"經典滷排骨便當",
     img:"https://fakeimg.pl/200/",
     price:'100',
-    count:"1"
+    count:"1",
+    text:'寶島食堂獨特的排骨醃料配方，醃料採用數十種配料，醃製入味，再採用大吟釀醬油的醬汁滷出新味道，軟嫩可口。'
+
 }]
 
 
@@ -422,12 +427,40 @@ for(var j=0; j < single.length;j++){
 }
 
 
-
-
+for(var j=0; j < setdo.length;j++){
+    document.getElementById(`setdoimg${j+1}`).addEventListener('click',setdolightBox)
+}
 
 
 
 // 米飯lightbox js
+
+function setdolightBox(){
+    document.getElementsByClassName('box3')[0].style.display='block';
+    let A = this.dataset.id;
+    console.log(A);
+    for(let i = 0;i<setdo.length;i++){
+        if(rice[i].id == Number(A)){
+            document.getElementById('setdolightImg').src = setdo[i].img;
+            document.getElementById('setdolightText').innerText = setdo[i].text;
+        }
+    }
+}
+document.getElementsByClassName('closelightbox3')[0].addEventListener('click',closelightbox3)
+function closelightbox3(){ 
+    document.getElementsByClassName('box3')[0].style.display='none';
+}
+
+
+
+
+
+
+
+
+
+
+
 
 function ricelightBox(){
     document.getElementsByClassName('box1')[0].style.display='block';
@@ -462,6 +495,10 @@ function riceincart(){
     localStorage.setItem('ricetext', ricetext);
     localStorage.setItem('riceimg', riceimg);
     localStorage.setItem('riceprice', riceprice);
+    var listrice = localStorage.getItem('ricename');
+    var listriceprice = localStorage.getItem('riceprice');
+    document.getElementById('list_ricename').innerText = `${listrice} x1  NT$${listriceprice}`;
+
 }
 
 
@@ -480,6 +517,9 @@ function meatincart(){
     localStorage.setItem('meattext', meattext);
     localStorage.setItem('meatimg', meatimg);
     localStorage.setItem('meatprice', meatprice);
+    var listmeat = localStorage.getItem('meatname');
+    var listmeatprice = localStorage.getItem('meatprice');
+    document.getElementById('list_meatname').innerText = `${listmeat} x1  NT$${listmeatprice}`;
 }
 
 var singlecount = 0;
@@ -504,6 +544,10 @@ function singleincart()
                 localStorage.setItem('singletext'+`${singlecount}`, singletext);
                 localStorage.setItem('singleimg'+`${singlecount}`, singleimg);
                 localStorage.setItem('singleprice'+`${singlecount}`, singleprice);
+                var listsingle = localStorage.getItem('singlename'+`${singlecount}`);
+                var listsingleprice = localStorage.getItem('singleprice'+`${singlecount}`);
+                document.getElementById('list_singlename'+`${singlecount}`).innerText = `${listsingle} x1  NT$${listsingleprice}`;
+               
     }else
     {
         alert('只能選三道配菜喔');

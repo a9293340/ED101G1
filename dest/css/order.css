@@ -356,3 +356,7 @@ p {
 
 .scroll::-webkit-scrollbar-thumb {
   border-radius: 10px; }
+
+.buy_list {
+  width: 300px;
+  height: 400px; }
