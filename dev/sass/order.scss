@@ -1,27 +1,56 @@
 @import "./main";
+
 h1 {
   font-size: $fzSubtitle;
 }
+
 h2 {
   font-size: $fzSubtitle;
 }
+
 p {
   font-size: $fzContent;
 }
 
 //colors
 $white: white;
-<<<<<<< HEAD
+
+.ordercart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  border: 1px solid blue;
+}
+
+
+#ordertitle1 {
+  transform: scale(1.5);
+}
+
+#ordertitletext1 {
+  color: $orange;
+}
+
+.orderRoof {
+  background-image: url(../images/order/roof.png);
+  width: 100%;
+  height: 175px;
+}
+
 .orderLeft {
   position: fixed;
   top: 50%;
   left: 50px;
   margin-top: -200px;
   text-align: center;
+
   P {
     margin: 0;
     line-height: 52px;
   }
+
   .orderCirle {
     margin-top: 20px;
     width: 50px;
@@ -29,74 +58,34 @@ $white: white;
     border: 1px solid black;
     border-radius: 50%;
     cursor: pointer;
+
   }
+
 }
-=======
-
-.ordercart{
-	position: fixed;
-	right: 0;
-	top: 0;
-	width: auto;
-	height: auto;
-	border: 1px solid blue;
-}
-
-
-#ordertitle1{
-	transform:scale(1.5);
-}
-#ordertitletext1{
-	color: $orange;
-}
-
-.orderRoof{
-	background-image: url(../images/order/roof.png);
-	width: 100%;
-	height: 175px;
-}
-.orderLeft{
-	position: fixed;
-	top:50%;
-	left:50px;
-	margin-top: -200px;
-	text-align: center;
-	P{
-		margin: 0;
-		line-height: 52px;
-	}
-	.orderCirle{
-			margin-top: 20px;
-			width: 50px;
-			height: 50px;
-			border: 1px solid black;
-			border-radius: 50%;
-			cursor: pointer;
-
-		}	
-
-	}
->>>>>>> dev
 
 #running {
   width: 1200px;
   height: 50px;
   margin: 0 auto;
 }
+
 .buy_main {
   width: 1200px;
   height: auto;
   margin: 0 auto;
 }
+
 .buy_single {
   width: 1200px;
   height: auto;
   margin: 0 auto;
   display: flex;
 }
+
 .buy_single_main {
   text-align: center;
 }
+
 .buy_single_containter {
   margin: 0 auto;
   width: 1200px;
@@ -108,6 +97,7 @@ $white: white;
   overflow-x: hidden;
   justify-content: space-between;
 }
+
 .buy_setdo_containter {
   width: 1050px;
   margin: 0 auto;
@@ -115,6 +105,7 @@ $white: white;
   display: flex;
   justify-content: space-between;
 }
+
 .buy_other_container {
   width: 1050px;
   margin: 0 auto;
@@ -122,6 +113,7 @@ $white: white;
   display: flex;
   justify-content: space-between;
 }
+
 .single_card {
   // display: none;
   width: 250px;
@@ -130,15 +122,18 @@ $white: white;
   text-align: center;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+
   img {
     margin-top: 5px;
     cursor: pointer;
   }
+
   p {
     margin: 0;
     color: $grey;
   }
 }
+
 .meat_card {
   // display: none;
   width: 250px;
@@ -147,15 +142,18 @@ $white: white;
   text-align: center;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+
   img {
     margin-top: 5px;
     cursor: pointer;
   }
+
   p {
     margin: 0;
     color: $grey;
   }
 }
+
 .ricecard {
   width: 250px;
   height: 308px;
@@ -163,10 +161,12 @@ $white: white;
   text-align: center;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+
   img {
     margin-top: 5px;
     cursor: pointer;
   }
+
   p {
     margin: 0;
     color: $grey;
@@ -180,15 +180,18 @@ $white: white;
   text-align: center;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+
   img {
     margin-top: 5px;
     cursor: pointer;
   }
+
   p {
     margin: 0;
     color: $grey;
   }
 }
+
 #buy_card4 {
   width: 250px;
   height: 308px;
@@ -196,10 +199,12 @@ $white: white;
   text-align: center;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+
   img {
     margin-top: 5px;
     cursor: pointer;
   }
+
   p {
     margin: 0;
     color: $grey;
@@ -224,26 +229,31 @@ $white: white;
   margin: 10px 20px;
   text-align: center;
 }
+
 .buy_icon_containter {
   width: 600px;
   margin: 0 auto 80px auto;
   display: flex;
   justify-content: space-between;
 }
+
 .buy_bando {
   width: 1000px;
   margin: 0 auto;
   display: flex;
 }
+
 .buy_bandoLeft {
   width: 400px;
   margin: 0 auto;
   text-align: center;
+
   button {
     @include btn(auto, auto);
     font-family: "Noto Sans TC";
   }
 }
+
 .buy_other_juice {
   width: 250px;
   height: auto;
@@ -251,10 +261,12 @@ $white: white;
   text-align: center;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+
   img {
     margin-top: 10px;
   }
 }
+
 .buy_single_lightbox {
   @include lightBox($width: 800px);
   display: none;
@@ -270,64 +282,73 @@ $white: white;
   margin-top: -150px;
 }
 
-<<<<<<< HEAD
-.count {
+HEAD .count {
   position: relative;
   margin-bottom: 10px;
+
   img {
     position: absolute;
     right: 50px;
     top: 0px;
   }
+
   button {
     border: none;
     margin: 5px;
     background-color: $yellow;
     border-radius: 5px;
+
     &:hover,
     &:focus {
       transform: scale(1.1);
       opacity: 0.9;
-=======
-.count{
-	  position: relative; 
-	  margin-bottom: 10px;
-    img{
-        position: absolute;
-        right: 50px;
-        top:0px;
-    }
-    button{
-        border: none;
-        margin: 5px;
-        background-color: $yellow;
-        border-radius: 5px;
-        &:hover,
-        &:focus{
+
+      .count {
+        position: relative;
+        margin-bottom: 10px;
+
+        img {
+          position: absolute;
+          right: 50px;
+          top: 0px;
+        }
+
+        button {
+          border: none;
+          margin: 5px;
+          background-color: $yellow;
+          border-radius: 5px;
+
+          &:hover,
+          &:focus {
             transform: scale(1.1);
             opacity: .9;
+          }
+
+          width: 25px;
+          height: 25px;
+          cursor: pointer;
+
+
+
         }
+
         width: 25px;
         height: 25px;
         cursor: pointer;
-        
-        
->>>>>>> dev
+      }
     }
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-  }
-}
 
-.scroll::-webkit-scrollbar {
-  width: 5px;
-}
-.scroll::-webkit-scrollbar-track {
-  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-  border-radius: 10px;
-}
-.scroll::-webkit-scrollbar-thumb {
-  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-  border-radius: 10px;
-}
+    .scroll::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .scroll::-webkit-scrollbar-track {
+      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+      border-radius: 10px;
+    }
+
+    .scroll::-webkit-scrollbar-thumb {
+      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+      border-radius: 10px;
+    }

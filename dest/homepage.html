@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/home_health.css">
     <link rel="stylesheet" href="./css/homeLogin.css">
     <link rel="stylesheet" href="./css/home_menu.css">
+    <link rel="stylesheet" href="./css/header.css">
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Vue -->
@@ -20,7 +21,28 @@
     第一屏動畫
 
     <!-- header -->
-    
+    <nav>
+  <div class="top_group">
+    <div class="btn_switch">
+      <div class="bgl top"></div>
+      <div class="bgl"></div>
+      <div class="bgl bottom"></div>
+    </div>
+    <a href="./index.html" class="logo">
+      <img src="../../dev/images/header/寶島食堂LOGO_v3-02.png" alt="">
+    </a>
+    <div class="navgroup">
+      <a href="#">我要訂餐<span class="span0"></span></a>
+      <a href="#">健康分析<span class="span1"></span></a>
+      <a href="#">SHOW便當<span class="span2"></span></a>
+      <a href="#">關於我們<span class="span3"></span></a>
+    </div>
+    <div class="searchgroup">
+      <a href=""><img src="../../dest/images/header/shopping-cart.png" width="30" height="30" alt=""></a>
+      <a href=""><img src="../../dest/images/header/user.png" width="30" height="30" alt=""></a>
+    </div>
+  </div>
+</nav>
 
 
     <!-- header -->
@@ -74,9 +96,22 @@
             <div class="el__text">自選便當</div>
             <div class="el__close-btn"></div>
             <div class="el__leaderBoards">
-              <div class="leaderBoard">123</div>
-              <div class="leaderBoard">456</div>
-              <div class="leaderBoard">789</div>
+              <a href="#" class="leaderBoard a1">
+                <div class="top_img">
+                </div>
+                <div class="content">自選便當</div>
+              </a>
+              <a href="#" class="leaderBoard a2">
+                <canvas id="canvas"></canvas>
+                <div class="top_img">
+                </div>
+                <div class="content">自選便當</div>
+              </a>
+              <a href="#" class="leaderBoard a3">
+                <div class="top_img">
+                </div>
+                <div class="content">自選便當</div>
+              </a>
             </div>
           </div>
         </div>
