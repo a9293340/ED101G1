@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>寶島食堂</title>
     <!-- 字體 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/member.css">
+    <link rel="stylesheet" href="./css/member.css" />
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Vue -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+<<<<<<< HEAD
+  </head>
+  <body>
+=======
     <!-- chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
@@ -20,14 +30,25 @@
     <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
 </head>
 <body>
+>>>>>>> dev
     <!-- header -->
     
 
     <!-- shoppingCart -->
     
 
-
     <div id="memApp">
+<<<<<<< HEAD
+      <div class="memHeader">
+        <p class="memHeaderId">{{memData.memEmail}}</p>
+        <div
+          class="memHeaderBtn memHeaderBtnOrange"
+          id="memGoFile"
+          data-change="0"
+        >
+          <img src="./images/member/fileIcon.png" class="memBtnImg" />
+          我的檔案
+=======
         <div class="memHeader">
             <p class="memHeaderId">{{memData.memEmail}}</p>
             <div class="memHeaderBtn memHeaderBtnOrange" id="memGoFile" data-change="0" @click='changContentBtn'>
@@ -46,51 +67,179 @@
                 <img src="./images/member/questionIcon.png" class="memBtnImg">
                 小遊戲
             </div>
+>>>>>>> dev
         </div>
+        <div class="memHeaderBtn" id="memGoOrder" data-change="1">
+          <img src="./images/member/orderIcon.png" class="memBtnImg" />
+          我的訂單
+        </div>
+        <div class="memHeaderBtn" id="memGoHealth" data-change="2">
+          <img src="./images/member/healthIcon.png" class="memBtnImg" />
+          健康檔案
+        </div>
+        <div class="memHeaderBtn" id="memGoGame" data-change="3">
+          <img src="./images/member/questionIcon.png" class="memBtnImg" />
+          小遊戲
+        </div>
+      </div>
 
-        <div class="memLine"></div>
+      <div class="memLine"></div>
 
-        <div class="memContent" id="memContentFile">
-            <div class="memFileBox">
-                <form action="" class="memFileForm">
-                    <label>使用者帳號
-                        <p>{{memData.memEmail}}</p>
-                    </label>
-                    <div class="memFirSecNameBox">
-                        <label for="memSurName">
-                            姓
-                            <input type="text" class="memSurName" name="memSurName" id="memSurName" v-model='memData.memSurname'>
-                        </label>
-                        <label for="memName">
-                            名
-                            <input type="text" class="memName" name="memName" id="memName" v-model='memData.memName'>
-                        </label>
-                    </div>
-                    <label for="memHeight">
-                        身高
-                        <input type="text" class="memHeight" name="memHeight" id="memHeight" v-model='memData.memHeight'>
-                        公分
-                    </label>
-                    <label for="memWeight">
-                        體重
-                        <input type="text" class="memWeight" name="memWeight" id="memWeight" v-model='memData.memWeight'>
-                        公斤
-                    </label>
-                    <label>
-                        BMI
-                        <p class="memBMI">{{Math.round(memData.memWeight/Math.pow(memData.memHeight/100,2))}}</p>
-                    </label>
-                    <label for="memPhone">
-                        電話
-                        <input type="text" class="memPhone" name="memPhone" id="memPhone" v-model='memData.memPhone'>
-                    </label>
-                    <label for="memAddr">
-                        地址
-                        <input type="text" class="memAddr" name="memAddr" id="memAddr" v-model='memData.memAddr'>
-                    </label>
-                    <button class="memFormBtn">確認送出</button>
-                </form>
+      <div class="memContent" id="memContentFile">
+        <div class="memFileBox">
+          <form action="" class="memFileForm">
+            <label
+              >使用者帳號
+              <p>{{memData.memEmail}}</p>
+            </label>
+            <div class="memFirSecNameBox">
+              <label for="memSurName">
+                姓
+                <input
+                  type="text"
+                  class="memSurName"
+                  name="memSurName"
+                  id="memSurName"
+                  v-model="memData.memSurname"
+                />
+              </label>
+              <label for="memName">
+                名
+                <input
+                  type="text"
+                  class="memName"
+                  name="memName"
+                  id="memName"
+                  v-model="memData.memName"
+                />
+              </label>
             </div>
+<<<<<<< HEAD
+            <label for="memHeight">
+              身高
+              <input
+                type="text"
+                class="memHeight"
+                name="memHeight"
+                id="memHeight"
+                v-model="memData.memHeight"
+              />
+              公分
+            </label>
+            <label for="memWeight">
+              體重
+              <input
+                type="text"
+                class="memWeight"
+                name="memWeight"
+                id="memWeight"
+                v-model="memData.memWeight"
+              />
+              公斤
+            </label>
+            <label>
+              BMI
+              <p class="memBMI">
+                {{Math.round(memData.memWeight/Math.pow(memData.memHeight/100,2))}}
+              </p>
+            </label>
+            <label for="memPhone">
+              電話
+              <input
+                type="text"
+                class="memPhone"
+                name="memPhone"
+                id="memPhone"
+                v-model="memData.memPhone"
+              />
+            </label>
+            <label for="memAddr">
+              地址
+              <input
+                type="text"
+                class="memAddr"
+                name="memAddr"
+                id="memAddr"
+                v-model="memData.memAddr"
+              />
+            </label>
+            <button class="memFormBtn">確認送出</button>
+          </form>
+        </div>
+        <div class="memFileLine"></div>
+        <div class="memFileImg">
+          <div class="memImage">
+            <img :src="memData.memImage" class="memPicture" />
+            <div class="changeImage">點選更換圖片</div>
+          </div>
+          <div class="memImgLimitBox">
+            <p class="memImgLimit">檔案大小：最大1MB檔案限制：.JPG,.PNG</p>
+          </div>
+          <div class="memBaoBeeBox">
+            <span>可用的寶幣</span>
+            <img src="./images/member/questionIcon.png" alt="" />
+          </div>
+          <div class="memShowBoeBee">
+            <img src="./images/member/coinIcon.png" alt="" />
+            <span>{{memData.memScore}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="memContent memContentNone" id="memContentOrder">
+        <div class="memOrderBox" v-for="item in memOrder">
+          <div class="memOrderInfo">
+            <p class="memOrderNum">訂單編號：{{item.orderId}}</p>
+            <div class="memOrderSta">
+              <img src="./images/member/shoppingIcon.png" alt="" />
+              <p>{{item.orderStatus}}</p>
+            </div>
+          </div>
+          <div class="memOrderListBox">
+            <div
+              class="memOrderList"
+              v-for="(single,index) in memSingleOrder"
+              v-if="single.soBelongOrder == item.orderId"
+            >
+              <div class="memFlexRight">
+                <img src="https://fakeimg.pl/80/" alt="" />
+                <div class="memOrderSomethingBox">
+                  <p>自選便當</p>
+                  <p class="memFontSmall">
+                    規格:{{single.soRice}}/{{single.sideDishes1}}/{{single.sideDishes2}}/{{single.sideDishes3}}/{{single.mainfood}}/
+                  </p>
+                  <p class="memFontSmall">X {{single.soAmount}}</p>
+                </div>
+              </div>
+              <p class="memOrderPirceShow">${{single.soPrice}}</p>
+            </div>
+            <div
+              class="memOrderList"
+              v-for="set in memSetOrder"
+              v-if="set.setoBelongOrder == item.orderId"
+            >
+              <div class="memFlexRight">
+                <img :src="set.setImage" alt="" />
+                <div class="memOrderSomethingBox">
+                  <p>{{set.setName}}</p>
+                  <p class="memFontSmall">X {{set.setoAmount}}</p>
+                </div>
+              </div>
+              <p class="memOrderPirceShow">${{set.setoPrice}}</p>
+            </div>
+            <div
+              class="memOrderList"
+              v-for="other in memOtherOrder"
+              v-if="other.ooBelongOrder == item.orderId"
+            >
+              <div class="memFlexRight">
+                <img :src="other.opImage" alt="" />
+                <div class="memOrderSomethingBox">
+                  <p>{{other.opName}}</p>
+                  <p class="memFontSmall">X {{other.ooAmount}}</p>
+                </div>
+              </div>
+              <p class="memOrderPirceShow">${{other.ooPrice}}</p>
+=======
             <div class="memFileLine"></div>
             <div class="memFileImg">
                 <div class="memImage">
@@ -168,8 +317,15 @@
                     <p>訂單金額：<span>${{item.orderTotalPrice}}</span></p>
                     <div class="memOrderGoToListBtn" :data-order='item.orderId' @click='showOrderList'>查看訂單</div>
                 </div>
+>>>>>>> dev
             </div>
+          </div>
         </div>
+<<<<<<< HEAD
+      </div>
+      <div class="memContent memContentNone" id="memContentHealth"></div>
+      <div class="memContent memContentNone" id="memContentGame"></div>
+=======
         <div class="memContent memContentNone" id="memContentHealth">
             <div class="memHealthDataShowBox">
                 <div class="memMyFileDataBox">
@@ -265,8 +421,8 @@
                 <p>訂單編號：<span>{{nowDataSetNumber}}</span></p>
             </div>
         </div>
+>>>>>>> dev
     </div>
-
 
     <!-- footer -->
     
@@ -275,5 +431,5 @@
     <script src="../dev/js/layout/shoppingcart.js"></script>
     <!-- Member -->
     <script src="../dev/js/member.js"></script>
-</body>
+  </body>
 </html>

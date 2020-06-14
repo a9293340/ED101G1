@@ -1,1 +1,171 @@
 @import "./main";
+body {
+  background-color: #f9e8d4;
+}
+
+p.showTitle {
+  @include fontStyle(
+    rgb(243, 243, 243),
+    $size: 48px,
+    $weight: bold,
+    $wrap: 10px
+  );
+  padding: 160px 0 30px 0;
+  color: $black;
+  text-align: right;
+  margin-right: 200px;
+}
+
+div.showBlock {
+  @include border(20px, rgb(214, 191, 127), $rpx: 5px);
+  width: 100%;
+  margin: auto;
+  background-image: url("/dev/images/showbenton/bulletin1.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border: transparent;
+  background-color: #f9e8d4;
+}
+
+div.addBenton {
+  @include border(1px, transparent, $rpx: 2px);
+  background-color: $orange;
+  width: 70px;
+  padding: 10px 5px;
+  margin-top: auto;
+
+  &:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  img {
+    height: 50px;
+    width: 50px;
+    opacity: 0.7;
+    display: block;
+    margin: auto;
+  }
+}
+
+//放圖片便當的區域
+div.showBentonImg {
+  border: 1px solid black;
+  widows: 500px;
+  height: 400px;
+}
+
+p.showMyself {
+  @include fontStyle(rgb(56, 56, 56), $size: 2.5rem, $weight: 800, $wrap: 10px);
+  text-align: right;
+  letter-spacing: 8px;
+  margin: 100px 150px 0 0;
+  padding: 10px;
+  color: rgb(103, 126, 202);
+}
+
+.grid {
+  background-image: url("/dev/images/showbenton/bulletin1.png");
+  color: blue;
+}
+
+//------------ligthbox----------
+
+.showBentonListLightbox {
+  @include lightBox($width: 800px);
+  display: block;
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -250px;
+  display: none;
+}
+
+ul.bentoncardBox {
+  border: 1px solid transparent;
+  list-style: none;
+  display: inline-block;
+  overflow: auto;
+  height: 400px;
+}
+
+.bentoncarTitle {
+  font-size: $fzSubtitle;
+  text-align: center;
+  padding: 10px;
+}
+
+li.bentonCard {
+  margin: 20px;
+  display: inline-block;
+  border: 3px solid transparent;
+}
+
+li.bentonCard img {
+  cursor: pointer;
+  vertical-align: bottom;
+}
+
+// Step1
+div.confirmBentonBox1 {
+  width: 80px;
+  margin: 30px auto;
+}
+
+div.confirmBentonBox2 {
+  width: 350px;
+  margin: 30px 0;
+}
+button.Pre {
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
+  margin: 0 110px 0 60px;
+}
+
+button.Next {
+  width: 80px;
+  height: 50px;
+  cursor: pointer;
+}
+//--------------Step2-------------
+div.bentonContentForm {
+  width: 350px;
+  margin: 30px auto 0;
+}
+
+label.Step2Title,
+label.Step2Content {
+  vertical-align: top;
+  font-size: 18px;
+}
+
+#Step2TitlText {
+  width: 270px;
+  height: 25px;
+  font-size: 16px;
+}
+
+.Step2Space {
+  margin: 30px 0px;
+}
+
+#Step2ContentText {
+  font-size: 16px;
+}
+
+//----------按讚數---------------
+
+// div {
+//   width: 600px;
+//   height: 400px;
+//   background-color: burlywood;
+// }
+
+// img {
+//   width: 40px;
+//   height: 40px;
+// }
