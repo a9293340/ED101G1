@@ -119,6 +119,15 @@ $white: white;
 		 color: $grey;
 	 }
 }
+.single_card:hover{
+	box-shadow: 2px 2px 10px $orange;
+}
+.meat_card:hover{
+	box-shadow: 2px 2px 10px $orange;
+}
+.ricecard:hover{
+	box-shadow: 2px 2px 10px $orange;
+}
 .meat_card{
 	// display: none;
 	width: 250px;
