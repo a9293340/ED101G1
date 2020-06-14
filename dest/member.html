@@ -20,10 +20,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
     <!-- Vue -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
-<<<<<<< HEAD
-  </head>
-  <body>
-=======
     <!-- chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
@@ -31,7 +27,6 @@
     <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
 </head>
 <body>
->>>>>>> dev
     <!-- header -->
     
 
@@ -39,7 +34,6 @@
     
 
     <div id="memApp">
-<<<<<<< HEAD
       <div class="memHeader">
         <p class="memHeaderId">{{memData.memEmail}}</p>
         <div
@@ -49,26 +43,6 @@
         >
           <img src="./images/member/fileIcon.png" class="memBtnImg" />
           我的檔案
-=======
-        <div class="memHeader">
-            <p class="memHeaderId">{{memData.memEmail}}</p>
-            <div class="memHeaderBtn memHeaderBtnOrange" id="memGoFile" data-change="0" @click='changContentBtn'>
-                <img src="./images/member/fileIcon.png" class="memBtnImg">
-                我的檔案
-            </div>
-            <div class="memHeaderBtn" id="memGoOrder" data-change="1" @click='changContentBtn'>
-                <img src="./images/member/orderIcon.png" class="memBtnImg">
-                我的訂單
-            </div>
-            <div class="memHeaderBtn" id="memGoHealth" data-change="2" @click='changContentBtn'>
-                <img src="./images/member/healthIcon.png" class="memBtnImg">
-                健康檔案
-            </div>
-            <div class="memHeaderBtn" id="memGoGame" data-change="3" @click='changContentBtn'>
-                <img src="./images/member/game.png" class="memBtnImg">
-                小遊戲
-            </div>
->>>>>>> dev
         </div>
         <div class="memHeaderBtn" id="memGoOrder" data-change="1">
           <img src="./images/member/orderIcon.png" class="memBtnImg" />
@@ -115,7 +89,6 @@
                 />
               </label>
             </div>
-<<<<<<< HEAD
             <label for="memHeight">
               身高
               <input
@@ -240,7 +213,6 @@
                 </div>
               </div>
               <p class="memOrderPirceShow">${{other.ooPrice}}</p>
-=======
             <div class="memFileLine"></div>
             <div class="memFileImg">
                 <div class="memImage">
@@ -318,15 +290,12 @@
                     <p>訂單金額：<span>${{item.orderTotalPrice}}</span></p>
                     <div class="memOrderGoToListBtn" :data-order='item.orderId' @click='showOrderList'>查看訂單</div>
                 </div>
->>>>>>> dev
             </div>
           </div>
         </div>
-<<<<<<< HEAD
       </div>
       <div class="memContent memContentNone" id="memContentHealth"></div>
       <div class="memContent memContentNone" id="memContentGame"></div>
-=======
         <div class="memContent memContentNone" id="memContentHealth">
             <div class="memHealthDataShowBox">
                 <div class="memMyFileDataBox">
@@ -553,7 +522,6 @@
                 <div class="memHealthListRecommondFood"></div>
             </div>
         </div>
->>>>>>> dev
     </div>
 
     <!-- footer -->
