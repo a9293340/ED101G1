@@ -172,6 +172,8 @@ function nextQuestion() {
     } else if (count == 7) {
         document.getElementById('exam').style.display = "none";
         document.getElementById('examResult').style.display = "block";
+    } else {
+        document.getElementById("exam").style.display = "block";
     }
 };
 
