@@ -482,22 +482,33 @@ function meatincart(){
     localStorage.setItem('meatprice', meatprice);
 }
 
-function singleincart(){
-    let A = this.dataset.id;
-    console.log(A);
-    for(let i = 0;i<single.length;i++){
-        if(single[i].id == Number(A)){
-            var singlename = single[i].name;
-            var singletext = single[i].text;
-            var singleimg  = single[i].img;
-            var singleprice = single[i].price;
+var singlecount = 0;
+function singleincart()
+ {
+    singlecount++;
+    if(singlecount<4)
+    {
+            let A = this.dataset.id;
+            console.log(A);
+        for(let i = 0;i<single.length;i++)
+        {
+            if(single[i].id == Number(A))
+            {
+                 var singlename = single[i].name;
+                 var singletext = single[i].text;
+                 var singleimg  = single[i].img;
+                 var singleprice = single[i].price;
+            }
         }
+                localStorage.setItem( 'singlename'+`${singlecount}`  , singlename);
+                localStorage.setItem('singletext'+`${singlecount}`, singletext);
+                localStorage.setItem('singleimg'+`${singlecount}`, singleimg);
+                localStorage.setItem('singleprice'+`${singlecount}`, singleprice);
+    }else
+    {
+        alert('只能選三道配菜喔');
     }
-    localStorage.setItem('singlename', singlename);
-    localStorage.setItem('singletext', singletext);
-    localStorage.setItem('singleimg', singleimg);
-    localStorage.setItem('singleprice', singleprice);
-}
+ }
 
 
 function meatlightBox(){
@@ -637,10 +648,15 @@ document.getElementById('incart').addEventListener('click',shoppcar)
 function shoppcar(){
     var rice = localStorage.getItem('ricename');
     var meat = localStorage.getItem('meatname');
-    var single = localStorage.getItem('singlename');
+    var single1 = localStorage.getItem('singlename1');
+    var single2 = localStorage.getItem('singlename2');
+    var single3 = localStorage.getItem('singlename3');
 document.getElementById('ricename').innerText=`${rice}`;
 document.getElementById('meatname').innerText=`${meat}`;
-document.getElementById('singlename').innerText=`${single}`;
+document.getElementById('singlename1').innerText=`${single1}`;
+document.getElementById('singlename2').innerText=`${single2}`;
+document.getElementById('singlename3').innerText=`${single3}`;
+   
 
 }
 
