@@ -1,8 +1,8 @@
-@import "./main";  
+@import "./main"; 
 h1{
-	font-size:$fzSubtitle; 
+	font-size:$fzSubtitle;
 }
-h2{ 
+h2{
 	font-size:$fzSubtitle;
 }
 p{
@@ -281,7 +281,7 @@ $white: white;
 }
 
 
-.scroll::-webkit-scrollbar { 
+.scroll::-webkit-scrollbar {  
 	width: 5px;
 }
 .scroll::-webkit-scrollbar-track {
