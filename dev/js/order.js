@@ -2,7 +2,7 @@
 Vue.component('button-counter', {
     data: function () {
       return {
-        count: 0
+        count: 0 
       } 
     },
     template: '<div class="count"><button v-on:click="count++;">+</button><span class="countvalue">{{count}}</span><button v-on:click="if(count>0){count--;}">-</button><img class="plusincart" src=https://fakeimg.pl/20/></div>'
