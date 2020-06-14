@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./css/home_am.css">
     <link rel="stylesheet" href="./css/home_health.css">
     <link rel="stylesheet" href="./css/homeLogin.css">
+    <link rel="stylesheet" href="./css/home_menu.css">
+    <link rel="stylesheet" href="./css/header.css">
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Vue -->
@@ -19,18 +21,141 @@
     第一屏動畫
 
     <!-- header -->
-    
+    <nav>
+  <div class="top_group">
+    <div class="btn_switch">
+      <div class="bgl top"></div>
+      <div class="bgl"></div>
+      <div class="bgl bottom"></div>
+    </div>
+    <a href="./index.html" class="logo">
+      <img src="../../dev/images/header/寶島食堂LOGO_v3-02.png" alt="">
+    </a>
+    <div class="navgroup">
+      <a href="#">我要訂餐<span class="span0"></span></a>
+      <a href="#">健康分析<span class="span1"></span></a>
+      <a href="#">SHOW便當<span class="span2"></span></a>
+      <a href="#">關於我們<span class="span3"></span></a>
+    </div>
+    <div class="searchgroup">
+      <a href=""><img src="../../dest/images/header/shopping-cart.png" width="30" height="30" alt=""></a>
+      <a href=""><img src="../../dest/images/header/user.png" width="30" height="30" alt=""></a>
+    </div>
+  </div>
+</nav>
 
 
     <!-- header -->
     <!-- home_menu -->
-    <div class="home_menu">
-  <div class="home_menu_group">
-    <div class="left_featured">123456</div>
-    <div class="middle_self">456</div>
-    <div class="right_limited">789</div>
+    <div class=" cont s--inactive">
+  <!-- s--inactive是一開始載入時的動畫 -->
+  <!-- cont inner start-->
+  <div class="cont__inner">
+    <!-- el start 這邊是第一區 -->
+    <div class="el first">
+      <!--點選區域後觸發 s--active-->
+      <div class="el__overflow">
+        <!--顯示長條狀圖案，關閉後只有黑色背景-->
+        <div class="el__inner">
+          <div class="el__bg"></div>
+          <!--背景圖-->
+          <div class="el__preview-cont">
+            <!-- 用來包section1文字 -->
+            <h2 class="el__heading"></h2>
+          </div>
+          <div class="el__content">
+            <!--點開後出現內容-->
+            <div class="el__text">精選便當</div>
+            <div class="el__close-btn"></div>
+            <div class="el__leaderBoards">
+              <div class="leaderBoard"></div>
+              <div class="leaderBoard"></div>
+              <div class="leaderBoard"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="el__index left">
+        <!--數字列-->
+        <div class="el__index-back">精選便當</div>
+        <div class="el__index-front">
+          <div class="el__index-overlay" data-index="精選便當">精選便當</div>
+        </div>
+      </div>
+    </div>
+    <!-- el end -->
+    <!-- el start 這邊是第二區 -->
+    <div class="el sec middle">
+      <div class="el__overflow">
+        <div class="el__inner">
+          <div class="el__bg"></div>
+          <div class="el__preview-cont">
+            <h2 class="el__heading"></h2>
+          </div>
+          <div class="el__content">
+            <div class="el__text">自選便當</div>
+            <div class="el__close-btn"></div>
+            <div class="el__leaderBoards">
+              <a href="#" class="leaderBoard a1">
+                <div class="top_img">
+                </div>
+                <div class="content">自選便當</div>
+              </a>
+              <a href="#" class="leaderBoard a2">
+                <canvas id="canvas"></canvas>
+                <div class="top_img">
+                </div>
+                <div class="content">自選便當</div>
+              </a>
+              <a href="#" class="leaderBoard a3">
+                <div class="top_img">
+                </div>
+                <div class="content">自選便當</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="el__index mid">
+        <div class="el__index-back">自選便當</div>
+        <div class="el__index-front">
+          <div class="el__index-overlay" data-index="自選便當">自選便當</div>
+        </div>
+      </div>
+    </div>
+    <!-- el end -->
+    <!-- el start 這邊是第三區 -->
+    <div class="el third">
+      <div class="el__overflow">
+        <div class="el__inner">
+          <div class="el__bg"></div>
+          <div class="el__preview-cont">
+            <h2 class="el__heading"></h2>
+          </div>
+          <div class="el__content">
+            <div class="el__text">季節便當</div>
+            <div class="el__close-btn"></div>
+            <div class="el__leaderBoards">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="el__index right">
+        <div class="el__index-back">季節便當</div>
+        <div class="el__index-front">
+          <div class="el__index-overlay" data-index="季節便當">季節便當</div>
+        </div>
+      </div>
+    </div>
+    <!-- el end -->
+
   </div>
+  <!-- cont inner end -->
 </div>
+
+
+<script src="0603.js"></script>
     <!-- home_heath -->
     <div></div>
     <!-- home-am -->
@@ -52,7 +177,7 @@
         </div>
         <div class="phone">
           <div class="title">電話：</div>
-          <div class="content">03-52789456</div>
+          <div class="content">03-527894556</div>
         </div>
       </div>
     </div>
@@ -67,6 +192,7 @@
     <script src="../dev/js/layout/signup.js"></script>
     <!-- homepage -->
     <script src="../dev/js/homepage.js"></script>
+    <script src="../dev/js/layout/home_menu.js"></script>
 </body>
 
 </html>
