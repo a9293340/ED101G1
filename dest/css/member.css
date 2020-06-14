@@ -650,7 +650,8 @@ nav {
       bottom: 0; }
       #memApp #memContentGame .memGameTomoto img {
         width: 100px;
-        animation: memShake 1.5s ease-in-out infinite; }
+        animation: memShake 1.5s ease-in-out infinite;
+        cursor: pointer; }
       #memApp #memContentGame .memGameTomoto .memGameConversationBox {
         position: absolute;
         bottom: 100px;
@@ -659,8 +660,9 @@ nav {
           width: 150px; }
         #memApp #memContentGame .memGameTomoto .memGameConversationBox p {
           position: absolute;
+          width: 150px;
           bottom: 50px;
-          right: 10px;
+          right: -15px;
           animation: memShake 1.5s ease-in-out infinite;
           font-size: 1rem;
           color: #9b9b9b;
@@ -712,5 +714,295 @@ nav {
           #memApp .memContentOrderList .memContentOrderListHeader .memOrderListGoBackBtn:hover span {
             color: #EA6227;
             transform: scale(1.1); }
+    #memApp .memContentOrderList .memContentOrderListStatus {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px; }
+      #memApp .memContentOrderList .memContentOrderListStatus .memContentOrderListCircleBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative; }
+        #memApp .memContentOrderList .memContentOrderListStatus .memContentOrderListCircleBox .memContentOrderListCircle {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid #141212;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%; }
+          #memApp .memContentOrderList .memContentOrderListStatus .memContentOrderListCircleBox .memContentOrderListCircle img {
+            width: 25px; }
+        #memApp .memContentOrderList .memContentOrderListStatus .memContentOrderListCircleBox .memContentOrderListCircleFont {
+          position: absolute;
+          font-size: 1rem;
+          color: #141212;
+          font-weight: 500;
+          white-space: wrap;
+          bottom: -45px; }
+        #memApp .memContentOrderList .memContentOrderListStatus .memContentOrderListCircleBox .memContentOrderListCircleGreen {
+          border-color: #37AB64;
+          background-color: #37AB64; }
+        #memApp .memContentOrderList .memContentOrderListStatus .memContentOrderListCircleBox .memContentOrderListCircleGrey {
+          border-color: #9b9b9b;
+          background-color: #9b9b9b; }
+        #memApp .memContentOrderList .memContentOrderListStatus .memContentOrderListCircleBox .memContentOrderListCircleFontGrey {
+          color: #9b9b9b; }
+        #memApp .memContentOrderList .memContentOrderListStatus .memContentOrderListCircleBox .memContentOrderListCircleFontGreen {
+          color: #37AB64; }
+      #memApp .memContentOrderList .memContentOrderListStatus .memContentOrderListLine {
+        border-top: 1px solid #141212;
+        width: 50px; }
+    #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox {
+      margin-top: 60px;
+      padding: 30px 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      background-color: #fdf2da; }
+      #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListBuyAgainBox, #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListQRCodeBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 180px;
+        width: 40%; }
+        #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListBuyAgainBox h3, #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListQRCodeBox h3 {
+          font-size: 1rem;
+          color: #141212;
+          font-weight: 500;
+          white-space: wrap;
+          margin-bottom: 30px; }
+          #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListBuyAgainBox h3 span, #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListQRCodeBox h3 span {
+            font-size: 0.7rem;
+            color: #9b9b9b;
+            font-weight: 500;
+            white-space: wrap; }
+        #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListBuyAgainBox .memContentOrderListBuyAgainBtn, #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListQRCodeBox .memContentOrderListBuyAgainBtn {
+          margin-top: 10px;
+          transition-duration: 0.2s;
+          transition-property: all;
+          transform-origin: 50% 50%;
+          text-align: center;
+          line-height: 50px;
+          width: 120px;
+          height: 50px;
+          color: #ECEEE7;
+          background-color: #EA6227;
+          font-weight: 700;
+          font-size: 20px;
+          letter-spacing: 2px;
+          padding: 5px 10px;
+          border-radius: 5px;
+          transform: scale(1);
+          border: 0;
+          cursor: pointer;
+          font-size: 1rem; }
+          #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListBuyAgainBox .memContentOrderListBuyAgainBtn:hover, #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListBuyAgainBox .memContentOrderListBuyAgainBtn:focus, #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListQRCodeBox .memContentOrderListBuyAgainBtn:hover, #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListQRCodeBox .memContentOrderListBuyAgainBtn:focus {
+            transform: scale(1.1);
+            opacity: .9; }
+      #memApp .memContentOrderList .memContentOrderListQRCodeAndBuyAgainBox .memContentOrderListBuyAgainBox {
+        justify-content: center; }
+    #memApp .memContentOrderList .memContentOrderListMailBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 30px;
+      width: 90%; }
+      #memApp .memContentOrderList .memContentOrderListMailBox .memMailLine {
+        height: .1875rem;
+        width: 100%;
+        background-position-x: -1.875rem;
+        background-size: 7.25rem .1875rem;
+        background-image: repeating-linear-gradient(45deg, #6fa6d6, #6fa6d6 33px, transparent 0, transparent 41px, #f18d9b 0, #f18d9b 74px, transparent 0, transparent 82px);
+        margin: 10px 0; }
+      #memApp .memContentOrderList .memContentOrderListMailBox h3, #memApp .memContentOrderList .memContentOrderListMailBox p {
+        margin-left: 30px; }
+      #memApp .memContentOrderList .memContentOrderListMailBox h3 {
+        font-size: 1.6rem;
+        color: #141212;
+        font-weight: 500;
+        white-space: wrap;
+        margin-bottom: 20px; }
+      #memApp .memContentOrderList .memContentOrderListMailBox p {
+        font-size: 1.2rem;
+        color: #9b9b9b;
+        font-weight: 500;
+        white-space: wrap;
+        margin: 10px 0;
+        margin-left: 30px; }
+    #memApp .memContentOrderList .memContentOrderListBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      margin-top: 30px;
+      padding: 20px 60px;
+      width: 90%; }
+      #memApp .memContentOrderList .memContentOrderListBox h3 {
+        font-size: 1.6rem;
+        color: #141212;
+        font-weight: 500;
+        white-space: wrap;
+        margin-bottom: 20px; }
+      #memApp .memContentOrderList .memContentOrderListBox .memContentOrderListReal {
+        border-bottom: 1px solid #9b9b9b;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 10px;
+        width: 90%; }
+        #memApp .memContentOrderList .memContentOrderListBox .memContentOrderListReal .memContentOrderListRealRight {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center; }
+          #memApp .memContentOrderList .memContentOrderListBox .memContentOrderListReal .memContentOrderListRealRight img {
+            margin-right: 30px; }
+          #memApp .memContentOrderList .memContentOrderListBox .memContentOrderListReal .memContentOrderListRealRight .memOrderListRealSomething {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start; }
+            #memApp .memContentOrderList .memContentOrderListBox .memContentOrderListReal .memContentOrderListRealRight .memOrderListRealSomething p {
+              font-size: 1.4rem;
+              color: #141212;
+              font-weight: 500;
+              white-space: wrap;
+              margin: 5px 0; }
+            #memApp .memContentOrderList .memContentOrderListBox .memContentOrderListReal .memContentOrderListRealRight .memOrderListRealSomething .memFontSmall {
+              font-size: 1rem;
+              color: #9b9b9b;
+              font-weight: 500;
+              white-space: wrap; }
+        #memApp .memContentOrderList .memContentOrderListBox .memContentOrderListReal .memOrderPirceShow {
+          font-size: 1.2rem;
+          color: #141212;
+          font-weight: 500;
+          white-space: wrap; }
+      #memApp .memContentOrderList .memContentOrderListBox .memOrderListTotalPriceBox {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+        margin-right: 60px; }
+        #memApp .memContentOrderList .memContentOrderListBox .memOrderListTotalPriceBox p {
+          font-size: 0.9rem;
+          color: #141212;
+          font-weight: 500;
+          white-space: wrap;
+          margin-right: 30px; }
+          #memApp .memContentOrderList .memContentOrderListBox .memOrderListTotalPriceBox p span {
+            font-size: 1.6rem;
+            color: #141212;
+            font-weight: 500;
+            white-space: wrap; }
+  #memApp .memContentHealthList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box; }
+    #memApp .memContentHealthList div {
+      width: 100%;
+      margin-bottom: 40px; }
+      #memApp .memContentHealthList div .memContentHealthListHeader {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 60px; }
+        #memApp .memContentHealthList div .memContentHealthListHeader p {
+          font-size: 1.2rem;
+          color: #9b9b9b;
+          font-weight: 500;
+          white-space: wrap; }
+          #memApp .memContentHealthList div .memContentHealthListHeader p span {
+            font-size: 1.4rem;
+            color: #141212;
+            font-weight: 500;
+            white-space: wrap; }
+        #memApp .memContentHealthList div .memContentHealthListHeader h3 {
+          font-size: 2rem;
+          color: #141212;
+          font-weight: 500;
+          white-space: wrap; }
+        #memApp .memContentHealthList div .memContentHealthListHeader .memHealthListHeaderGoBackBtn {
+          font-size: 1.4rem;
+          color: #37AB64;
+          font-weight: 700;
+          white-space: wrap;
+          cursor: pointer;
+          transition-duration: 0.3s;
+          transition-property: all;
+          transform-origin: 50% 50%; }
+          #memApp .memContentHealthList div .memContentHealthListHeader .memHealthListHeaderGoBackBtn span {
+            font-size: 1.4rem;
+            color: #37AB64;
+            font-weight: 700;
+            white-space: wrap;
+            margin-right: 3px; }
+          #memApp .memContentHealthList div .memContentHealthListHeader .memHealthListHeaderGoBackBtn:hover {
+            color: #EA6227;
+            transform: scale(1.1); }
+            #memApp .memContentHealthList div .memContentHealthListHeader .memHealthListHeaderGoBackBtn:hover span {
+              color: #EA6227;
+              transform: scale(1.1); }
+      #memApp .memContentHealthList div .memContentHealthListMainBox {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 90%;
+        margin: 20px auto; }
+        #memApp .memContentHealthList div .memContentHealthListMainBox .memHealthListImage {
+          width: 30%; }
+        #memApp .memContentHealthList div .memContentHealthListMainBox .memContentHealthListMain {
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start; }
+          #memApp .memContentHealthList div .memContentHealthListMainBox .memContentHealthListMain p {
+            font-size: 1.2rem;
+            color: #9b9b9b;
+            font-weight: 500;
+            white-space: wrap; }
+          #memApp .memContentHealthList div .memContentHealthListMainBox .memContentHealthListMain h3 {
+            margin: 20px 0;
+            padding-left: 80px;
+            font-size: 2.6rem;
+            color: #141212;
+            font-weight: 500;
+            white-space: wrap; }
+          #memApp .memContentHealthList div .memContentHealthListMainBox .memContentHealthListMain h4 {
+            font-size: 1.4rem;
+            color: #141212;
+            font-weight: 500;
+            white-space: wrap;
+            width: 90%;
+            margin-top: 20px; }
+      #memApp .memContentHealthList div .memHealthListRecommondFood {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 80%;
+        margin: 20px auto;
+        background-color: #f4fbef; }
   #memApp .memContentNone {
     display: none; }

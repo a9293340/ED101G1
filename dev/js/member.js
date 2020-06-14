@@ -20,11 +20,13 @@ function gogoPower(){
     let memOrder = [{
         orderId: 10002,
         orderTotalPrice: 800,
-        orderStatus: '3'
+        orderStatus: 3,
+        orderClass:0
     },{
         orderId: 10001,
         orderTotalPrice: 600,
-        orderStatus: '4'
+        orderStatus: 4,
+        orderClass:1
     }];
     let memHealth = [{
         healId:10009,
@@ -81,18 +83,24 @@ function gogoPower(){
         el: '#memApp',
         data: {
             memData,
+            memOrder,
+            memHealth,
+            nowDataSetNumber:0,
+            nowDataHealthNumber:0,
             memSetOrder:[],
             memOtherOrder:[],
             memSingleOrder:[],
-            memOrder,
-            memHealth,
-            nowDataSetNumber:0
+            memSingleProduct:[],
+            memSetProduct:[],
+            memOtherProduct:[]
         },
         methods: {
             changContentBtn(e){
                 // console.log(e.target.dataset.change)
                 let changeCount = e.target.dataset.change;
                 document.getElementById('memContentOrderList').classList.add('memContentNone');
+                
+                document.getElementById('memContentHealthList').classList.add('memContentNone');
                 for(let j = 0; j<memContent.length;j++){
                     memContent[j].classList.add('memContentNone');
                     memHeaderBtn[j].classList.remove('memHeaderBtnOrange');
@@ -140,31 +148,31 @@ function gogoPower(){
                     let memOtherOrder = [{
                         opName: '紅茶',
                         ooPrice: 25,
-                        ooAmount: 100,
+                        ooAmount: 1,
                         opImage: 'https://fakeimg.pl/100/',
                         ooBelongOrder: 10001
                     },{
                         opName: '綠茶',
                         ooPrice: 25,
-                        ooAmount: 100,
+                        ooAmount: 1,
                         opImage: 'https://fakeimg.pl/100/',
                         ooBelongOrder: 10001
                     },{
                         opName: '人參雞精',
                         ooPrice: 110,
-                        ooAmount: 220,
+                        ooAmount: 1,
                         opImage: 'https://fakeimg.pl/100/',
                         ooBelongOrder: 10001
                     },{
                         opName: '紅茶',
                         ooPrice: 25,
-                        ooAmount: 50,
+                        ooAmount: 1,
                         opImage: 'https://fakeimg.pl/100/',
                         ooBelongOrder: 10002
                     },{
                         opName: '綠茶',
                         ooPrice: 25,
-                        ooAmount: 100,
+                        ooAmount: 1,
                         opImage: 'https://fakeimg.pl/100/',
                         ooBelongOrder: 10002
                     }]
@@ -176,7 +184,8 @@ function gogoPower(){
                         mainfood: '滷排骨',
                         soPrice: '130',
                         soAmount: 2,
-                        soBelongOrder: 10001
+                        soBelongOrder: 10001,
+                        soImg: 'https://fakeimg.pl/100/'
                     },{
                         soRice: '白米',
                         sideDishes1: '清蒸毛豆',
@@ -185,7 +194,8 @@ function gogoPower(){
                         mainfood: '清蒸鱈魚',
                         soPrice: '140',
                         soAmount: 3,
-                        soBelongOrder: 10001
+                        soBelongOrder: 10001,
+                        soImg: 'https://fakeimg.pl/100/'
                     },{
                         soRice: '白米',
                         sideDishes1: '番茄炒蛋',
@@ -194,6 +204,7 @@ function gogoPower(){
                         mainfood: '滷排骨',
                         soPrice: '130',
                         soAmount: 2,
+                        soImg: 'https://fakeimg.pl/100/',
                         soBelongOrder: 10002
                     }]
                     this.memSetOrder = memSetOrder;
@@ -201,19 +212,37 @@ function gogoPower(){
                     this.memSingleOrder = memSingleOrder;
 
                 }
+                if(Number(changeCount) == 2){
+                    // 生成折線圖
+                    document.getElementById("myChart").innerHTML = '';
+                    memDrawChartLine();
+                }
                 if(Number(changeCount) == 3){
                     let now = new Date();
                     if(new Date(memData.memSignIntime) > now){
                         $(".infoText").html("遊玩次數達到本日上線囉~明日請早");
                         $("button").hide();
                     }
+                    document.getElementById('memSimpleUsage').innerText = '';
+                    tomotoTypeIt();
+                    setInterval(()=>{
+                        document.getElementById('memSimpleUsage').innerText = '';
+                        tomotoTypeIt();
+                    }, 10000);
                 }
             },
             showOrderList(e){
                 let orderId = e.target.dataset.order;
                 // 現在的訂單4
-                this.nowDataSetNumber = orderId;
+                this.nowDataSetNumber = Number(orderId);
                 console.log(orderId);
+                //生成QRCode(要換成php網址)
+                $('#memContentOrderListQRCode').html('');
+                $('#memContentOrderListQRCode').qrcode({
+                    width: 120,
+                    height: 120,
+                    text: '../php/memOrderList.php'
+                });
                 // 跳轉至orderList的content
                 document.getElementById('memContentOrderList').classList.remove('memContentNone');
                 for(let j = 0; j<memContent.length;j++){
@@ -223,108 +252,231 @@ function gogoPower(){
             showHealthList(e){
                 let healthId = e.target.dataset.healthid;
                 console.log(healthId);
+                this.nowDataHealthNumber = Number(healthId);
+                // ajax 套餐及其他商品資料 並丟入vue的data內
+                let memSingleProduct;
+                let memSetProduct;
+                let memOtherProduct;
+                this.memSingleProduct = memSingleProduct;
+                this.memSetProduct = memSetProduct;
+                this.memOtherProduct = memOtherProduct;
+
                 // 跳轉至healthList的content
+                document.getElementById('memContentHealthList').classList.remove('memContentNone');
+                for(let j = 0; j<memContent.length;j++){
+                    memContent[j].classList.add('memContentNone');
+                }
             },
             GoBackToOrderContent(){
                 document.getElementById('memContentOrderList').classList.add('memContentNone');
                 memContent[1].classList.remove('memContentNone');
+            },
+            GoBackToHealthContent(){
+                document.getElementById('memContentHealthList').classList.add('memContentNone');
+                memContent[2].classList.remove('memContentNone');
+            },
+            memStartGamesGo(){
+                game.startGame();
             }
+        },
+        computed: {
+            memChooseCirleColor1(){
+                for(let i = 0; i< this.memOrder.length;i++){
+                    if(this.memOrder[i].orderId == this.nowDataSetNumber){
+                        if(this.memOrder[i].orderStatus == 1){
+                            return 'memContentOrderListCircle memContentOrderListCircleGreen';
+                        }else if(this.memOrder[i].orderStatus > 1){
+                            return 'memContentOrderListCircle memContentOrderListCircleGrey';
+                        }else{
+                            return 'memContentOrderListCircle';
+                        }
+                    }
+                }
+            },
+            memChooseCirleColor2(){
+                for(let i = 0; i< this.memOrder.length;i++){
+                    if(this.memOrder[i].orderId == this.nowDataSetNumber){
+                        if(this.memOrder[i].orderStatus == 2){
+                            return 'memContentOrderListCircle memContentOrderListCircleGreen';
+                        }else if(this.memOrder[i].orderStatus > 2){
+                            return 'memContentOrderListCircle memContentOrderListCircleGrey';
+                        }else{
+                            return 'memContentOrderListCircle';
+                        }
+                    }
+                }
+            },
+            memChooseCirleColor3(){
+                for(let i = 0; i< this.memOrder.length;i++){
+                    if(this.memOrder[i].orderId == this.nowDataSetNumber){
+                        if(this.memOrder[i].orderStatus == 3){
+                            return 'memContentOrderListCircle memContentOrderListCircleGreen';
+                        }else if(this.memOrder[i].orderStatus > 3){
+                            return 'memContentOrderListCircle memContentOrderListCircleGrey';
+                        }else{
+                            return 'memContentOrderListCircle';
+                        }
+                    }
+                }
+            },
+            memChooseCirleColor4(){
+                for(let i = 0; i< this.memOrder.length;i++){
+                    if(this.memOrder[i].orderId == this.nowDataSetNumber){
+                        if(this.memOrder[i].orderStatus == 4){
+                            return 'memContentOrderListCircle memContentOrderListCircleGreen';
+                        }else{
+                            return 'memContentOrderListCircle';
+                        }
+                    }
+                }
+            },
+            memChooseCircleFontColor1(){
+                for(let i = 0; i< this.memOrder.length;i++){
+                    if(this.memOrder[i].orderId == this.nowDataSetNumber){
+                        if(this.memOrder[i].orderStatus == 1){
+                            return 'memContentOrderListCircleFont memContentOrderListCircleFontGreen';
+                        }else if(this.memOrder[i].orderStatus > 1){
+                            return 'memContentOrderListCircleFont memContentOrderListCircleFontGrey';
+                        }else{
+                            return 'memContentOrderListCircleFont';
+                        }
+                    }
+                }
+            },
+            memChooseCircleFontColor2(){
+                for(let i = 0; i< this.memOrder.length;i++){
+                    if(this.memOrder[i].orderId == this.nowDataSetNumber){
+                        if(this.memOrder[i].orderStatus == 2){
+                            return 'memContentOrderListCircleFont memContentOrderListCircleFontGreen';
+                        }else if(this.memOrder[i].orderStatus > 2){
+                            return 'memContentOrderListCircleFont memContentOrderListCircleFontGrey';
+                        }else{
+                            return 'memContentOrderListCircleFont';
+                        }
+                    }
+                }
+            },
+            memChooseCircleFontColor3(){
+                for(let i = 0; i< this.memOrder.length;i++){
+                    if(this.memOrder[i].orderId == this.nowDataSetNumber){
+                        if(this.memOrder[i].orderStatus == 3){
+                            return 'memContentOrderListCircleFont memContentOrderListCircleFontGreen';
+                        }else if(this.memOrder[i].orderStatus > 3){
+                            return 'memContentOrderListCircleFont memContentOrderListCircleFontGrey';
+                        }else{
+                            return 'memContentOrderListCircleFont';
+                        }
+                    }
+                }
+            },
+            memChooseCircleFontColor4(){
+                for(let i = 0; i< this.memOrder.length;i++){
+                    if(this.memOrder[i].orderId == this.nowDataSetNumber){
+                        if(this.memOrder[i].orderStatus == 4){
+                            return 'memContentOrderListCircleFont memContentOrderListCircleFontGreen';
+                        }else{
+                            return 'memContentOrderListCircleFont';
+                        }
+                    }
+                }
+            },
         },
     })
 
-
-    let ctx = document.getElementById("myChart").getContext('2d');
-    const colors = {
-        green: {
-            fill: '#e0eadf',
-            stroke: '#5eb84d',
-        },
-        lightBlue: {
-            stroke: '#6fccdd',
-        },
-        darkBlue: {
-            fill: '#92bed2',
-            stroke: '#3282bf',
-        },
-        purple: {
-            fill: '#8fa8c8',
-            stroke: '#75539e',
-        },
-    };
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        responsive: false,
-        data: {
-            datasets: [{
-                label: 'ColdHot',
-                fill: false,
-                backgroundColor: '#ffffff',
-                pointBackgroundColor: colors.purple.stroke,
-                borderColor: colors.purple.stroke,
-                pointHighlightStroke: colors.purple.stroke,
-                borderCapStyle: 'butt',
-                pointRadius:6,
-                pointBackgroundColor: '#ffffff',
-                pointBorderWidth: 1,
-                data: memHealthColdHot,
-            },{
-                label: 'Health',
-                fill: false,
-                backgroundColor: '#ffffff',
-                pointBackgroundColor: colors.darkBlue.stroke,
-                borderColor: colors.darkBlue.stroke,
-                pointHighlightStroke: colors.darkBlue.stroke,
-                borderCapStyle: 'butt',
-                pointRadius:6,
-                pointBackgroundColor: '#ffffff',
-                pointBorderWidth: 1,
-                data: memHealthHealth,
-            },{
-                label: 'Stomach',
-                fill: false,
-                backgroundColor: '#ffffff',
-                pointBackgroundColor: colors.lightBlue.stroke,
-                borderColor: colors.lightBlue.stroke,
-                pointHighlightStroke: colors.lightBlue.stroke,
-                borderCapStyle: 'butt',
-                pointRadius:6,
-                pointBackgroundColor: '#ffffff',
-                pointBorderWidth: 1,
-                data: memHealthStomach,
-            }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    type: "time",
-                    display: true,
-                    id: "date-axis",
-                    ticks: {
-                        source: "data",
-                        minRotation: 45,
-                    },
-                    gridLines: { 
-                        display: false
-                    } 
-                }],
-                yAxes: [{
-                    type: "linear",
-                    display: true,
-                    position: "left",
-                    ticks: {
-                        suggestedMin: 0,
-                        suggestedMax: 100,
-                        stepSize:20,
-                        beginAtZero: true,
-                    },
-                    gridLines: { 
-                        display: true
-                    } 
-                }],
+    // chartjs
+    function memDrawChartLine(){
+        let ctx = document.getElementById("myChart").getContext('2d');
+        const colors = {
+            green: {
+                fill: '#e0eadf',
+                stroke: '#5eb84d',
+            },
+            lightBlue: {
+                stroke: '#6fccdd',
+            },
+            darkBlue: {
+                fill: '#92bed2',
+                stroke: '#3282bf',
+            },
+            purple: {
+                fill: '#8fa8c8',
+                stroke: '#75539e',
+            },
+        };
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            responsive: false,
+            data: {
+                datasets: [{
+                    label: 'ColdHot',
+                    fill: false,
+                    backgroundColor: '#ffffff',
+                    pointBackgroundColor: colors.purple.stroke,
+                    borderColor: colors.purple.stroke,
+                    pointHighlightStroke: colors.purple.stroke,
+                    borderCapStyle: 'butt',
+                    pointRadius:6,
+                    pointBackgroundColor: '#ffffff',
+                    pointBorderWidth: 1,
+                    data: memHealthColdHot,
+                },{
+                    label: 'Health',
+                    fill: false,
+                    backgroundColor: '#ffffff',
+                    pointBackgroundColor: colors.darkBlue.stroke,
+                    borderColor: colors.darkBlue.stroke,
+                    pointHighlightStroke: colors.darkBlue.stroke,
+                    borderCapStyle: 'butt',
+                    pointRadius:6,
+                    pointBackgroundColor: '#ffffff',
+                    pointBorderWidth: 1,
+                    data: memHealthHealth,
+                },{
+                    label: 'Stomach',
+                    fill: false,
+                    backgroundColor: '#ffffff',
+                    pointBackgroundColor: colors.lightBlue.stroke,
+                    borderColor: colors.lightBlue.stroke,
+                    pointHighlightStroke: colors.lightBlue.stroke,
+                    borderCapStyle: 'butt',
+                    pointRadius:6,
+                    pointBackgroundColor: '#ffffff',
+                    pointBorderWidth: 1,
+                    data: memHealthStomach,
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: "time",
+                        display: true,
+                        id: "date-axis",
+                        ticks: {
+                            source: "data",
+                            minRotation: 45,
+                        },
+                        gridLines: { 
+                            display: false
+                        } 
+                    }],
+                    yAxes: [{
+                        type: "linear",
+                        display: true,
+                        position: "left",
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            stepSize:20,
+                            beginAtZero: true,
+                        },
+                        gridLines: { 
+                            display: true
+                        } 
+                    }],
+                }
             }
-        }
-    });
-
+        });
+    }
 
     //遊戲
     var gameObject = function(position,size,selector){
@@ -385,9 +537,6 @@ function gogoPower(){
         this.update();
     }
     
-    
-    var ball = new Ball();
-    
     var Board = function(position,selector){
         this.size = {width:100,height:15};
         gameObject.call(this,position,this.size,selector);
@@ -404,15 +553,6 @@ function gogoPower(){
         }
         this.updateCss();
     }
-    
-    var Board1 = new Board(
-        {x:0,y:30},'.b1'
-    );
-    
-    var Board2 = new Board(
-        {x:0,y:455},'.b2'
-    );
-    
     //遊戲機制
     var Game = function(){
         this.timer = null;
@@ -434,7 +574,6 @@ function gogoPower(){
             console.log(_this.control);
         })
     }
-    
     //開始遊戲
     Game.prototype.startGame = function(){
         var time = 3;
@@ -506,24 +645,38 @@ function gogoPower(){
         // 要加入積分
         memData.memScore += this.grade;
         console.log(memData.memScore);
-
         // 將 memData.memScore 與 memData.memSignIntime回傳資料庫
     }
+
+    var ball = new Ball();
+    var Board1 = new Board(
+        {x:0,y:30},'.b1'
+    );
     
+    var Board2 = new Board(
+        {x:0,y:455},'.b2'
+    );
     var game = new Game();
 
-    document.getElementsByClassName('start')[0].addEventListener('click',startGamesGo);
 
-    function startGamesGo(){
-        game.startGame();
-    }
+
 
     // typeit
-    new TypeIt("#memSimpleUsage", {
-        strings: "每天只能玩一次喔",
-        speed: 100,
-        waitUntilVisible: true
-        }).go();
+    function tomotoTypeIt(){
+        new TypeIt("#memSimpleUsage", {
+            speed: 150,
+            waitUntilVisible: true
+            }).type("每天只能完一次喔", {delay: 300})
+            .move(-3)
+            .delete(1)
+            .type('玩',{delay: 300})
+            .move('END')
+            .pause(300)
+            .delete(8)
+            .type('快點來賺寶幣8~')
+            .go();
+    }
+
 }
 
 
