@@ -505,7 +505,7 @@ function riceincart(){
     localStorage.setItem('riceprice', riceprice);
     var listrice = localStorage.getItem('ricename');
     var listriceprice = localStorage.getItem('riceprice');
-    document.getElementById('list_ricename').innerText = `${listrice} x1  NT$${listriceprice}`;
+    document.getElementById('list_ricename').innerText = `米食: ${listrice} x1  NT$${listriceprice}`;
 
 }
 
@@ -527,7 +527,7 @@ function meatincart(){
     localStorage.setItem('meatprice', meatprice);
     var listmeat = localStorage.getItem('meatname');
     var listmeatprice = localStorage.getItem('meatprice');
-    document.getElementById('list_meatname').innerText = `${listmeat} x1  NT$${listmeatprice}`;
+    document.getElementById('list_meatname').innerText = `主食: ${listmeat} x1  NT$${listmeatprice}`;
 }
 
 var singlecount = 0;
@@ -554,7 +554,7 @@ function singleincart()
                 localStorage.setItem('singleprice'+`${singlecount}`, singleprice);
                 var listsingle = localStorage.getItem('singlename'+`${singlecount}`);
                 var listsingleprice = localStorage.getItem('singleprice'+`${singlecount}`);
-                document.getElementById('list_singlename'+`${singlecount}`).innerText = `${listsingle} x1  NT$${listsingleprice}`;
+                document.getElementById('list_singlename'+`${singlecount}`).innerText = `配菜: ${listsingle} x1  NT$${listsingleprice}`;
                
     }else
     {
@@ -695,6 +695,7 @@ function singleshow(){
    
 }
 //購物車
+
 document.getElementById('incart').addEventListener('click',shoppcar)
 
 
@@ -736,18 +737,24 @@ var singleorder= {
     single3:`${single3}`,
     single3price:`${singleprice3}`,
  }
+if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!==null){
+
  orderCart.push(singleorder);
- for(let i=0; i<orderCart.length; i++){
-    console.log(orderCart[i]);
- }
+
+//  for(let i=0; i<orderCart.length; i++){
+//     console.log(orderCart[i]);
+//  }
    
  singlecount = 0;
 
- document.getElementById('list_ricename').innerText = '';
- document.getElementById('list_meatname').innerText = '';
- document.getElementById('list_singlename1').innerText = '';
- document.getElementById('list_singlename2').innerText = '';
- document.getElementById('list_singlename3').innerText = '';
+ document.getElementById('list_ricename').innerText = '米食:';
+ document.getElementById('list_meatname').innerText = '主食:';
+ document.getElementById('list_singlename1').innerText = '配菜:';
+ document.getElementById('list_singlename2').innerText = '配菜:';
+ document.getElementById('list_singlename3').innerText = '配菜:';
+
+ 
+
 
  var singleOrder = JSON.stringify(orderCart);
  localStorage.setItem('singleOrder', singleOrder);
@@ -757,8 +764,35 @@ var singleorder= {
  console.log(singleorderlist.$data.finalsinglelist);
 
 
+ localStorage.removeItem('ricename');
+ localStorage.removeItem('meatname');
+ localStorage.removeItem('singlename1');
+ localStorage.removeItem('singlename2');
+ localStorage.removeItem('singlename3');
+
+
+
+
+
+ 
+ riceshow();
+ }else{
+     alert('請把便當裝滿喔')
+ }
 }
 
+
+function setcart(){
+    var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
+    singleorderlist.$data.finalsinglelist = finalsinglelist;
+    orderCart=finalsinglelist; //整個的重點
+    console.log(singleorderlist.$data.finalsinglelist);
+   
+}
+
+if(localStorage.getItem('singleOrder')){ //重點2
+setcart();
+}
 // var app4 = new Vue({
 //     el:'#buy_app4',  
 //     data:{
