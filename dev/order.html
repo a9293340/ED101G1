@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>order</title>
     <!-- 字體 -->
@@ -24,7 +24,7 @@
         <p id="singlename2"></p>
         <p id="singlename3"></p>
     </div>
-    <div class="orderRoof"></div>
+    <!-- <div class="orderRoof"></div> -->
     <div class="buy_main">
 
         <div class="orderLeft">
@@ -55,7 +55,7 @@
                       <p id='order_text'>請選擇一種米飯</p>
                    </div>
        
-                  <div id="buy_app">
+            <div id="buy_app">
                 <div class="buy_single_containter scroll">
                 <div id='rice'>
                         <div class="ricecard" v-for="(item, index) in rice" :key="item.id">
@@ -113,11 +113,46 @@
                                   <button class="closelightbox2">delete</button> 
                               </div>
                           </div>
-                    </div>     
-                       </div>
-                  </div>
+                        </div>     
+                    </div>
+
+
+
+                    <div class="buy_bando">
+                        <div class="buy_bandoImg">
+                            <img src="./images/bandon_include/bentoBox.png"  width="500" height="500">
+                            
+                        </div>   
+        
+                        <div class="buy_bandoLeft">
+                          <div class="buy_list">
+                              <p id="list_ricename"></p>
+                              <p id="list_meatname"></p>
+                              <p id="list_singlename1"></p>
+                              <p id="list_singlename2"></p>
+                              <p id="list_singlename3"></p>
+                                <!-- <img src="https://fakeimg.pl/300x400/" width="300" height="400"> -->
+                            </div>          
+                            <!-- <div class="buy_trangleImg">
+                                <img src="https://fakeimg.pl/300x200/" width="300" height="200">
+                            </div> -->
+                            <button id="incart">加入購物車</button>
+                           
+                        </div>
+                      
+                               
+                    </div>
+
+
+
+
+
+
+
+
+            </div>
       
-                  <div class="buy_bando"> 
+                  <!-- <div class="buy_bando"> 
                       <div class="buy_bandoImg">
                           <img src="./images/bandon_include/bentoBox.png"  width="600" height="600">
                       </div>
@@ -128,7 +163,7 @@
                             <p id="list_singlename1"></p>
                             <p id="list_singlename2"></p>
                             <p id="list_singlename3"></p>
-                              <!-- <img src="https://fakeimg.pl/300x400/" width="300" height="400"> -->
+                              
                           </div>          
                           <div class="buy_trangleImg">
                               <img src="https://fakeimg.pl/300x200/" width="300" height="200">
@@ -136,7 +171,7 @@
                          
                           <button id="incart">加入購物車</button>
                       </div>          
-                  </div>
+                  </div> -->
       
       
            <div class="buy_single" id="order_2">

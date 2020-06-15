@@ -641,8 +641,8 @@ function imgscale2(){
     document.getElementById('meat').style.display="none";
     document.getElementById('single').style.display="none";
     document.getElementById('rice').style.display="flex";
-    document.getElementById('rice').style.width="1200px";
-    document.getElementById('rice').style.height="400px";
+    // document.getElementById('rice').style.width="1200px";
+    // document.getElementById('rice').style.height="400px";
     document.getElementById('rice').style.overflowY="auto";
     document.getElementById('rice').style.overflowx=" hidden";
     document.getElementById('rice').style.flexWrap="wrap";
@@ -663,8 +663,8 @@ function meatshow(){
     document.getElementById('rice').style.display="none";
     document.getElementById('single').style.display="none";
     document.getElementById('meat').style.display="flex";
-    document.getElementById('meat').style.width="1200px";
-    document.getElementById('meat').style.height="400px";
+    // document.getElementById('meat').style.width="1200px";
+    // document.getElementById('meat').style.height="400px";
     document.getElementById('meat').style.overflowY="auto";
     document.getElementById('meat').style.overflowx=" hidden";
     document.getElementById('meat').style.flexWrap="wrap";
@@ -677,8 +677,8 @@ function singleshow(){
     document.getElementById('meat').style.display="none";
     document.getElementById('rice').style.display="none";
     document.getElementById('single').style.display="flex";
-    document.getElementById('single').style.width="1200px";
-    document.getElementById('single').style.height="400px";
+    // document.getElementById('single').style.width="1200px";
+    // document.getElementById('single').style.height="400px";
     document.getElementById('single').style.overflowY="auto";
     document.getElementById('single').style.overflowx=" hidden";
     document.getElementById('single').style.flexWrap="wrap";
