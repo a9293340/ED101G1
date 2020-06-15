@@ -11,38 +11,18 @@
     <link rel="stylesheet" href="./css/member.css">
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
     <!-- Vue -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <!-- chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <!-- typeitjs -->
+    <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
 </head>
 <body>
     <!-- header -->
-    <nav>
-  <div class="top_group">
-    <div class="btn_switch">
-      <div class="bgl top"></div>
-      <div class="bgl"></div>
-      <div class="bgl bottom"></div>
-    </div>
-    <a href="./index.html" class="logo">
-      <img src="../../dev/images/header/寶島食堂LOGO_v3-02.png" alt="">
-    </a>
-    <div class="navgroup">
-<<<<<<< HEAD
-      <a href="#" class="book">我要訂餐1<span class="span0"></span></a>
-=======
-      <a href="#" class="book">我要訂餐<span class="span0"></span></a>
->>>>>>> 5fc8bfd58df671298993f9a1dfc00d43a1e05fa5
-      <a href="#" class="analysis">健康分析<span class="span1"></span></a>
-      <a href="#" class="showbento">SHOW便當<span class="span2"></span></a>
-      <a href="#" class="aboutus">關於我們<span class="span3"></span></a>
-    </div>
-    <div class="membergroup">
-      <a href=""><img src="../../dest/images/header/shopping-cart.png" width="30" height="30" alt=""></a>
-      <a href=""><img src="../../dest/images/header/user.png" width="30" height="30" alt=""></a>
-    </div>
-  </div>
-</nav>
-
+    
 
     <!-- shoppingCart -->
     
@@ -51,32 +31,20 @@
     <div id="memApp">
         <div class="memHeader">
             <p class="memHeaderId">{{memData.memEmail}}</p>
-<<<<<<< HEAD
-            <div class="memHeaderBtn">
-                <img src="" class="memBtnImg">
-                我的檔案
-=======
             <div class="memHeaderBtn memHeaderBtnOrange" id="memGoHealth" data-change="0" @click='changContentBtn'>
                 <img src="./images/member/healthIcon.png" class="memBtnImg">
                 健康檔案
->>>>>>> EricHong
             </div>
-            <div class="memHeaderBtn">
-                <img src="" class="memBtnImg">
+            <div class="memHeaderBtn" id="memGoOrder" data-change="1" @click='changContentBtn'>
+                <img src="./images/member/orderIcon.png" class="memBtnImg">
                 我的訂單
             </div>
-<<<<<<< HEAD
-            <div class="memHeaderBtn">
-                <img src="" class="memBtnImg">
-                健康檔案
-=======
             <div class="memHeaderBtn" id="memGoFile" data-change="2" @click='changContentBtn'>
                 <img src="./images/member/fileIcon.png" class="memBtnImg">
                 我的檔案
->>>>>>> EricHong
             </div>
-            <div class="memHeaderBtn">
-                <img src="" class="memBtnImg">
+            <div class="memHeaderBtn" id="memGoGame" data-change="3" @click='changContentBtn'>
+                <img src="./images/member/game.png" class="memBtnImg">
                 小遊戲
             </div>
         </div>
@@ -100,11 +68,6 @@
                     <h2 class="memHealthDataShowTitle">健康分析指數</h2>
                     <canvas id="myChart" width="600" height="300"></canvas>
                 </div>
-<<<<<<< HEAD
-                <div class="memBaoBeeBox">
-                    <span>可用的寶幣</span>
-                    <img src="./images/member/questionIcon.png" alt="">
-=======
             </div>
             <div class="memHealthLine"></div>
             <div class="memHealthContentBox" v-for='health in memHealth'>
@@ -148,15 +111,12 @@
                             </p>
                         </div>
                     </div>
->>>>>>> EricHong
                 </div>
                 <div class="memHealthContentGoToListBox">
                     <div class="memHealthContentGoToListBtn" :data-healthid="health.healId" @click='showHealthList'>查看分析</div>
                     <p>測驗分析日期：<span>{{health.healLastTime}}</span>
                     </p>
                 </div>
-<<<<<<< HEAD
-=======
             </div>
         </div>
         <div class="memContent memContentNone" id="memContentOrder">
@@ -555,7 +515,6 @@
                     </div>
 
                 </div>
->>>>>>> EricHong
             </div>
         </div>
     </div>
