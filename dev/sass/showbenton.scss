@@ -3,6 +3,22 @@ body {
   background-color: #f9e8d4;
 }
 
+header {
+  border: 1px solid blue;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  background-color: rgb(248, 249, 255);
+}
+
+footer {
+  border: 1px solid blue;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgb(248, 249, 255);
+}
+
 p.showTitle {
   @include fontStyle(
     rgb(243, 243, 243),
@@ -10,18 +26,27 @@ p.showTitle {
     $weight: bold,
     $wrap: 10px
   );
-  padding: 160px 0 0;
+  padding: 50px 0 0;
   color: $black;
-  text-align: right;
-  margin-right: 200px;
+  text-align: left;
+  margin-left: 150px;
+}
+
+p.showTitle1 {
+  padding: 5px 0 0;
+  color: $black;
+  text-align: left;
+  margin-left: 170px;
+  font-size: 30px;
 }
 
 div.showBlock {
   @include border(20px, rgb(214, 191, 127), $rpx: 5px);
   width: 100%;
-  margin: auto;
+  height: 120px;
+  margin: 20px auto 0;
   min-width: 1200px;
-  background-image: url("../images/showbenton/bulletin1.png");
+  background-image: url("../images/showbenton/bulletinV1.png");
   background-size: 100%;
   background-repeat: no-repeat;
   border: transparent;
@@ -35,7 +60,7 @@ div.addBenton {
   padding: 10px 5px;
   margin-top: auto;
   position: fixed;
-  top: 180px;
+  top: 200px;
 
   &:hover {
     transform: scale(1.1);
@@ -55,15 +80,18 @@ div.addBenton {
 //放圖片便當的區域
 div.showBentonImg {
   border: 1px solid black;
-  width: 1800px;
-  height: 640px;
-  width: 100%;
+  height: 330px;
   min-width: 1200px;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position-y: 200px;
-  background-position-x: 30px;
-  background-image: url("../images/showbenton/KitchenBackgroundImg.png");
+  position: relative;
+  div.kitchenTool {
+    border: 1px solid purple;
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    display: block;
+    bottom: 0px;
+    right: 0;
+  }
 }
 
 .shareBentonImg {
