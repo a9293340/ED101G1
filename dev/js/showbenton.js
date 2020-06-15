@@ -1,4 +1,4 @@
-//---------------------------------------lightbox
+//---------------------------------------lightbox1
 new Vue({
   el: "#addBenton", //el:document.getElementById('app');
   data: {},
