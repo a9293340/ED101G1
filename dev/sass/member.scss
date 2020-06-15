@@ -80,40 +80,32 @@ $bgcgrey: #c4c0c0;
             // margin: 0 5px;
         }
         .memFileBox{
+            h2{
+                display: none;
+            }
             .memFileForm{
                 @include flexStyle(center,flex-start,column);
                 width: 100%;
                 padding-top: 40px;
-                .memFirSecNameBox{
-                    @include flexStyle(flex-start,center);
-                    margin: 15px 0;
-                }
+                padding-left: 10px;
                 label{
                     @include flexStyle(flex-start,center);
                     @include fontStyle($memgrey,1.2rem);
-                    margin-left: 10px;
+                    // margin-left: 10px;
                     p{
                         @include fontStyle($black);
-                        margin-left: 20px;
+                        margin-left: 30px;
                     }
                     input{
                         @include fontStyle($black);
-                        margin-left: 15px;
+                        margin-left: 20px;
                         padding: 5px;
-                        margin-right: 20px;
+                        // margin-right: 20px;
                     }
-                    .memSurName{
-                        width: 50px;
-                        margin-left: 50px;
-                        margin-right: 50px;
-                    }
-                    .memName{
-                        width: 100px;
-                    }
-                    .memHeight,.memWeight,.memBMI,.memPhone,.memAddr{
+                    .memHeight,.memWeight,.memBMI,.memPhone,.memAddr,.memName{
                         margin: 20px 0;
                         margin-left: 30px;
-                        margin-right: 10px;
+                        // margin-right: 10px;
                         width: 80px;
                     }
                     .memPhone{
@@ -257,7 +249,7 @@ $bgcgrey: #c4c0c0;
         .memOrderBox{
             @include flexStyle(center,center,column);
             // flex-wrap: wrap;
-            width: 1000px;
+            width: 90%;
             border-radius: 20px;
             // border: 1px solid $memgrey;
             padding: 20px 40px;
@@ -266,7 +258,7 @@ $bgcgrey: #c4c0c0;
             background-color: #f8f7ea;
             .memOrderInfo{
                 @include flexStyle(space-between,center);
-                width: 1000px;
+                width: 100%;
                 .memOrderNum{
                     @include fontStyle($grey,1.2rem);
                 }
@@ -664,7 +656,7 @@ $bgcgrey: #c4c0c0;
             padding: 20px 60px;
             width: 90%;
             h3{
-                @include fontStyle($black,1.6rem);
+                @include fontStyle($black,2rem);
                 margin-bottom: 20px;
             }
             .memContentOrderListReal{
@@ -761,7 +753,7 @@ $bgcgrey: #c4c0c0;
                     @include flexStyle(flex-start,flex-start,column);
                     // border: 1px solid red;
                     p{
-                        @include fontStyle($memgrey,1.2rem);
+                        @include fontStyle(#686464,1.2rem);
                     }
                     h3{
                         margin: 20px 0;
@@ -776,15 +768,265 @@ $bgcgrey: #c4c0c0;
                 }
             }
             .memHealthListRecommondFood{
-                @include flexStyle(space-around,center);
-                width: 80%;
+                @include flexStyle(center,center,column);
+                width: 90%;
                 margin: 20px auto;
+                padding: 20px 0;
                 background-color: rgb(244, 251, 239);
                 // height: 200px;
+                .memHealthListTitle{
+                    margin-bottom: 40px;
+                    // border: 1px solid red;
+                    width: 90%;
+                    padding-left: 20px;
+                    @include flexStyle(flex-start,center);
+                    h2{
+                        @include fontStyle($black,2rem);
+                    }
+                }
+                .memHealthListSetBox{
+                    @include flexStyle(space-between,center);
+                    // border: 1px solid red;
+                    margin: 0;
+                    width: 90%;
+                    .memHealthListSet{
+                        margin: 0;
+                        width: 70%;
+                        @include flexStyle(flex-start,center);
+                        padding: 20px;
+                        // box-sizing: border-box;
+                        img{
+                            width: 30%;
+                            margin-right: 40px;
+                        }
+                        .memHealthListSetSomething{
+                            width: 65%;
+                            @include flexStyle(center,flex-start,column);
+                            h3{
+                                @include fontStyle($black,1.4rem);
+                                margin-bottom: 10px;
+                            }
+                            p{
+                                @include fontStyle($memgrey,.9rem);
+                            }
+                        }
+                    }
+                    .memHealthListGoBuySetBtn{
+                        @include btn(120px,50px,20px);
+                        margin-top: 20px;
+                    }
+                }
+                .memHealthListLine{
+                    border-top: 1px solid $grey;
+                    opacity: .8;
+                    width: 90%;
+                    margin: 30px 0;
+                }
+                .memHealthListOtherBox{
+                    @include flexStyle(space-around,center);
+                    // border: 1px solid red;
+                    margin: 0;
+                    width: 90%;
+                    .memHealthListOther{
+                        @include flexStyle(center,center);
+                        // border: 1px solid red;
+                        width: 30%;
+                        // padding: 20px;
+                        box-sizing: border-box;
+                        margin: 0;
+                        .memHealthListOtherList{
+                            margin: 0;
+                            width: 100%;
+                            @include flexStyle(center,center,column);
+                            // border: 1px solid red;
+                            img{
+                                width: 60%;
+                                // margin-right: 40px;
+                            }
+                            h3{
+                                @include fontStyle($black,1.4rem);
+                                margin-top: 10px;
+                            }
+                            .memHealthListOtherListBtn{
+                                @include btn(120px,50px,20px);
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
             }
+    
         }
     }
     .memContentNone{
         display: none;
+    }
+}
+
+
+@media screen and ( max-width: 576px ) and ( min-width: 375px ){
+    #memApp{
+        width: 100%;
+        padding: 5px;
+        .memHeader{
+            box-sizing: border-box;
+            width: 95%;
+            justify-content: center;
+            .memHeaderId{
+                font-size: .6rem;
+                margin-right: 10px;
+            }
+            .memHeaderBtn{
+                width: 20%;
+                // min-width: 75px;
+                font-size: .6rem;
+                margin: 0 5px;
+                padding: 0;
+                .memBtnImg{
+                    display: none;
+                }
+            }
+            #memGoGame{
+                display: none;
+            }
+        }
+        .memLine{
+            margin: 20px auto;
+            width: 95%;
+            box-sizing: border-box;
+        }
+        .memContent{
+            padding: 10px;
+        }
+        #memContentFile{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            // overflow-x: hidden;
+            overflow: hidden;
+            .memFileBox,.memFileImg{
+                width: 95%;
+            }
+            .memFileLine{
+                display: none;
+            }
+            .memFileImg{
+                order: 1;
+                margin-left: 0px;
+                align-items: center;
+                .memImage{
+                    margin-bottom: 20px;
+                }
+                .memImgLimitBox{
+                    margin-left: 0px;
+                }
+                .memBaoBeeBox{
+                    margin-left: 0px;
+                }
+                .memShowBoeBee{
+                    margin-left: 0px;
+                }
+                .memFileUseImg{
+                    display: none;
+                }
+            }
+            .memFileBox{
+                order: 2;
+                h2{
+                    display: block;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                }
+                .memFileForm{
+                    margin-left: 20px;
+                }
+            }
+        }
+        #memContentHealth{
+            // overflow: hidden;
+            .memHealthDataShowBox{
+                width: 95%;
+                @include flexStyle(center,center,column);
+                box-sizing: border-box;
+                // border: 1px solid red;
+                .memMyFileDataBox{
+                    order: 2;
+                    width: 100%;
+                    margin-top: 10px;
+                    // border: 1px solid red;
+                    .memHealthDataShowDataBox{
+                        @include flexStyle(center,flex-start,column);
+                        margin-top: 20px;
+                        p{
+                            margin: 10px 0;
+                        }
+                    }
+                }
+                .memMyHealthAnalyImgBox{
+                    order: 1;
+                    width: 100%;
+                    #myChart{
+                        margin-top: 20px;
+                    }
+                }
+            }
+            .memHealthContentBox{
+                @include flexStyle(center,center,column);
+                width: 95%;
+                // border: 1px solid red;
+                box-sizing: border-box;
+                .memHealthContentInfoBox{
+                    width: 100%;
+                }
+                .memHealthContentGoToListBox{
+                    width: 100%;
+                    height: auto;
+                    p{
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+        #memContentOrder{
+            .memOrderBox{
+                width: 95%;
+                box-sizing: border-box;
+                padding: 10px 10px;
+                .memOrderInfo{
+                    p{
+                        font-size: 1rem;
+                    }
+                    .memOrderSta{
+                        p{
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                .memOrderListBox{
+                    width: 100%;
+                    margin: 10px 0;
+                    height: 140px;
+                    .memOrderList{
+                        .memFlexRight{
+                            width: 80%;
+                            img{
+                                margin-right: 10px;
+                                width: 30%;
+                            }
+                            .memOrderSomethingBox{
+                                width: 70%;
+                                p{
+                                    font-size: 1.2rem;
+                                }
+                                .memFontSmall{
+                                    font-size: .8rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
     }
 }

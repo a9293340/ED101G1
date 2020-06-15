@@ -180,19 +180,16 @@ nav {
   #memApp #memContentFile .memFileLine {
     border-left: 1px solid #595959;
     height: 600px; }
+  #memApp #memContentFile .memFileBox h2 {
+    display: none; }
   #memApp #memContentFile .memFileBox .memFileForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    padding-top: 40px; }
-    #memApp #memContentFile .memFileBox .memFileForm .memFirSecNameBox {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      margin: 15px 0; }
+    padding-top: 40px;
+    padding-left: 10px; }
     #memApp #memContentFile .memFileBox .memFileForm label {
       display: flex;
       flex-direction: row;
@@ -201,32 +198,23 @@ nav {
       font-size: 1.2rem;
       color: #9b9b9b;
       font-weight: 500;
-      white-space: wrap;
-      margin-left: 10px; }
+      white-space: wrap; }
       #memApp #memContentFile .memFileBox .memFileForm label p {
         font-size: 1rem;
         color: #141212;
         font-weight: 500;
         white-space: wrap;
-        margin-left: 20px; }
+        margin-left: 30px; }
       #memApp #memContentFile .memFileBox .memFileForm label input {
         font-size: 1rem;
         color: #141212;
         font-weight: 500;
         white-space: wrap;
-        margin-left: 15px;
-        padding: 5px;
-        margin-right: 20px; }
-      #memApp #memContentFile .memFileBox .memFileForm label .memSurName {
-        width: 50px;
-        margin-left: 50px;
-        margin-right: 50px; }
-      #memApp #memContentFile .memFileBox .memFileForm label .memName {
-        width: 100px; }
-      #memApp #memContentFile .memFileBox .memFileForm label .memHeight, #memApp #memContentFile .memFileBox .memFileForm label .memWeight, #memApp #memContentFile .memFileBox .memFileForm label .memBMI, #memApp #memContentFile .memFileBox .memFileForm label .memPhone, #memApp #memContentFile .memFileBox .memFileForm label .memAddr {
+        margin-left: 20px;
+        padding: 5px; }
+      #memApp #memContentFile .memFileBox .memFileForm label .memHeight, #memApp #memContentFile .memFileBox .memFileForm label .memWeight, #memApp #memContentFile .memFileBox .memFileForm label .memBMI, #memApp #memContentFile .memFileBox .memFileForm label .memPhone, #memApp #memContentFile .memFileBox .memFileForm label .memAddr, #memApp #memContentFile .memFileBox .memFileForm label .memName {
         margin: 20px 0;
         margin-left: 30px;
-        margin-right: 10px;
         width: 80px; }
       #memApp #memContentFile .memFileBox .memFileForm label .memPhone {
         width: 120px; }
@@ -389,7 +377,7 @@ nav {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 1000px;
+      width: 90%;
       border-radius: 20px;
       padding: 20px 40px;
       margin: 30px 0;
@@ -400,7 +388,7 @@ nav {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        width: 1000px; }
+        width: 100%; }
         #memApp #memContentOrder .memOrderBox .memOrderInfo .memOrderNum {
           font-size: 1.2rem;
           color: #595959;
@@ -916,7 +904,7 @@ nav {
       padding: 20px 60px;
       width: 90%; }
       #memApp .memContentOrderList .memContentOrderListBox h3 {
-        font-size: 1.6rem;
+        font-size: 2rem;
         color: #141212;
         font-weight: 500;
         white-space: wrap;
@@ -1047,7 +1035,7 @@ nav {
           align-items: flex-start; }
           #memApp .memContentHealthList div .memContentHealthListMainBox .memContentHealthListMain p {
             font-size: 1.2rem;
-            color: #9b9b9b;
+            color: #686464;
             font-weight: 500;
             white-space: wrap; }
           #memApp .memContentHealthList div .memContentHealthListMainBox .memContentHealthListMain h3 {
@@ -1066,11 +1054,258 @@ nav {
             margin-top: 20px; }
       #memApp .memContentHealthList div .memHealthListRecommondFood {
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        width: 80%;
+        width: 90%;
         margin: 20px auto;
+        padding: 20px 0;
         background-color: #f4fbef; }
+        #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListTitle {
+          margin-bottom: 40px;
+          width: 90%;
+          padding-left: 20px;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center; }
+          #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListTitle h2 {
+            font-size: 2rem;
+            color: #141212;
+            font-weight: 500;
+            white-space: wrap; }
+        #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListSetBox {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          margin: 0;
+          width: 90%; }
+          #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListSetBox .memHealthListSet {
+            margin: 0;
+            width: 70%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px; }
+            #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListSetBox .memHealthListSet img {
+              width: 30%;
+              margin-right: 40px; }
+            #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListSetBox .memHealthListSet .memHealthListSetSomething {
+              width: 65%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start; }
+              #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListSetBox .memHealthListSet .memHealthListSetSomething h3 {
+                font-size: 1.4rem;
+                color: #141212;
+                font-weight: 500;
+                white-space: wrap;
+                margin-bottom: 10px; }
+              #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListSetBox .memHealthListSet .memHealthListSetSomething p {
+                font-size: 0.9rem;
+                color: #9b9b9b;
+                font-weight: 500;
+                white-space: wrap; }
+          #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListSetBox .memHealthListGoBuySetBtn {
+            transition-duration: 0.2s;
+            transition-property: all;
+            transform-origin: 50% 50%;
+            text-align: center;
+            line-height: 50px;
+            width: 120px;
+            height: 50px;
+            color: #ECEEE7;
+            background-color: #EA6227;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 2px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transform: scale(1);
+            border: 0;
+            cursor: pointer;
+            margin-top: 20px; }
+            #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListSetBox .memHealthListGoBuySetBtn:hover, #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListSetBox .memHealthListGoBuySetBtn:focus {
+              transform: scale(1.1);
+              opacity: .9; }
+        #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListLine {
+          border-top: 1px solid #595959;
+          opacity: .8;
+          width: 90%;
+          margin: 30px 0; }
+        #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListOtherBox {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          margin: 0;
+          width: 90%; }
+          #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListOtherBox .memHealthListOther {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            box-sizing: border-box;
+            margin: 0; }
+            #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListOtherBox .memHealthListOther .memHealthListOtherList {
+              margin: 0;
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center; }
+              #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListOtherBox .memHealthListOther .memHealthListOtherList img {
+                width: 60%; }
+              #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListOtherBox .memHealthListOther .memHealthListOtherList h3 {
+                font-size: 1.4rem;
+                color: #141212;
+                font-weight: 500;
+                white-space: wrap;
+                margin-top: 10px; }
+              #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListOtherBox .memHealthListOther .memHealthListOtherList .memHealthListOtherListBtn {
+                transition-duration: 0.2s;
+                transition-property: all;
+                transform-origin: 50% 50%;
+                text-align: center;
+                line-height: 50px;
+                width: 120px;
+                height: 50px;
+                color: #ECEEE7;
+                background-color: #EA6227;
+                font-weight: 700;
+                font-size: 20px;
+                letter-spacing: 2px;
+                padding: 5px 10px;
+                border-radius: 5px;
+                transform: scale(1);
+                border: 0;
+                cursor: pointer;
+                margin-top: 10px; }
+                #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListOtherBox .memHealthListOther .memHealthListOtherList .memHealthListOtherListBtn:hover, #memApp .memContentHealthList div .memHealthListRecommondFood .memHealthListOtherBox .memHealthListOther .memHealthListOtherList .memHealthListOtherListBtn:focus {
+                  transform: scale(1.1);
+                  opacity: .9; }
   #memApp .memContentNone {
     display: none; }
+
+@media screen and (max-width: 576px) and (min-width: 375px) {
+  #memApp {
+    width: 100%;
+    padding: 5px; }
+    #memApp .memHeader {
+      box-sizing: border-box;
+      width: 95%;
+      justify-content: center; }
+      #memApp .memHeader .memHeaderId {
+        font-size: .6rem;
+        margin-right: 10px; }
+      #memApp .memHeader .memHeaderBtn {
+        width: 20%;
+        font-size: .6rem;
+        margin: 0 5px;
+        padding: 0; }
+        #memApp .memHeader .memHeaderBtn .memBtnImg {
+          display: none; }
+      #memApp .memHeader #memGoGame {
+        display: none; }
+    #memApp .memLine {
+      margin: 20px auto;
+      width: 95%;
+      box-sizing: border-box; }
+    #memApp .memContent {
+      padding: 10px; }
+    #memApp #memContentFile {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; }
+      #memApp #memContentFile .memFileBox, #memApp #memContentFile .memFileImg {
+        width: 95%; }
+      #memApp #memContentFile .memFileLine {
+        display: none; }
+      #memApp #memContentFile .memFileImg {
+        order: 1;
+        margin-left: 0px;
+        align-items: center; }
+        #memApp #memContentFile .memFileImg .memImage {
+          margin-bottom: 20px; }
+        #memApp #memContentFile .memFileImg .memImgLimitBox {
+          margin-left: 0px; }
+        #memApp #memContentFile .memFileImg .memBaoBeeBox {
+          margin-left: 0px; }
+        #memApp #memContentFile .memFileImg .memShowBoeBee {
+          margin-left: 0px; }
+        #memApp #memContentFile .memFileImg .memFileUseImg {
+          display: none; }
+      #memApp #memContentFile .memFileBox {
+        order: 2; }
+        #memApp #memContentFile .memFileBox h2 {
+          display: block;
+          margin: 0 auto;
+          margin-top: 20px; }
+        #memApp #memContentFile .memFileBox .memFileForm {
+          margin-left: 20px; }
+    #memApp #memContentHealth .memHealthDataShowBox {
+      width: 95%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box; }
+      #memApp #memContentHealth .memHealthDataShowBox .memMyFileDataBox {
+        order: 2;
+        width: 100%;
+        margin-top: 10px; }
+        #memApp #memContentHealth .memHealthDataShowBox .memMyFileDataBox .memHealthDataShowDataBox {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          margin-top: 20px; }
+          #memApp #memContentHealth .memHealthDataShowBox .memMyFileDataBox .memHealthDataShowDataBox p {
+            margin: 10px 0; }
+      #memApp #memContentHealth .memHealthDataShowBox .memMyHealthAnalyImgBox {
+        order: 1;
+        width: 100%; }
+        #memApp #memContentHealth .memHealthDataShowBox .memMyHealthAnalyImgBox #myChart {
+          margin-top: 20px; }
+    #memApp #memContentHealth .memHealthContentBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 95%;
+      box-sizing: border-box; }
+      #memApp #memContentHealth .memHealthContentBox .memHealthContentInfoBox {
+        width: 100%; }
+      #memApp #memContentHealth .memHealthContentBox .memHealthContentGoToListBox {
+        width: 100%;
+        height: auto; }
+        #memApp #memContentHealth .memHealthContentBox .memHealthContentGoToListBox p {
+          margin-top: 20px; }
+    #memApp #memContentOrder .memOrderBox {
+      width: 95%;
+      box-sizing: border-box;
+      padding: 10px 10px; }
+      #memApp #memContentOrder .memOrderBox .memOrderInfo p {
+        font-size: 1rem; }
+      #memApp #memContentOrder .memOrderBox .memOrderInfo .memOrderSta p {
+        font-size: 1rem; }
+      #memApp #memContentOrder .memOrderBox .memOrderListBox {
+        width: 100%;
+        margin: 10px 0;
+        height: 140px; }
+        #memApp #memContentOrder .memOrderBox .memOrderListBox .memOrderList .memFlexRight {
+          width: 80%; }
+          #memApp #memContentOrder .memOrderBox .memOrderListBox .memOrderList .memFlexRight img {
+            margin-right: 10px;
+            width: 30%; }
+          #memApp #memContentOrder .memOrderBox .memOrderListBox .memOrderList .memFlexRight .memOrderSomethingBox {
+            width: 70%; }
+            #memApp #memContentOrder .memOrderBox .memOrderListBox .memOrderList .memFlexRight .memOrderSomethingBox p {
+              font-size: 1.2rem; }
+            #memApp #memContentOrder .memOrderBox .memOrderListBox .memOrderList .memFlexRight .memOrderSomethingBox .memFontSmall {
+              font-size: .8rem; } }
