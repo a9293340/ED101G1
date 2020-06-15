@@ -43,7 +43,7 @@ p.showTitle1 {
 div.showBlock {
   @include border(20px, rgb(214, 191, 127), $rpx: 5px);
   width: 100%;
-  height: 120px;
+  height: 130px;
   margin: 20px auto 0;
   min-width: 1200px;
   background-image: url("../images/showbenton/bulletinV1.png");
