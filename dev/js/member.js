@@ -6,8 +6,7 @@ function gogoPower(){
         memId : 10001,
         memEmail : 'f1020@gmail.com',
         memPsw : 'a1234567A',
-        memSurname : '黃',
-        memName : '阿炳',
+        memName : '黃阿炳',
         memScore : 1020,
         memImage : './images/member/rcc_author3.jpg',
         memAddr : '桃園市中大路200號',
@@ -33,7 +32,7 @@ function gogoPower(){
         healClass : 1,
         healReview : '有點熱喔你有點熱喔你有點熱喔你有點熱喔你',
         healColdHot : 85,
-        healhealth : 36,
+        healhealth : 84,
         healStomach : 77,
         healLastTime : '2020-05-15 10:06:20',
         healNewWeight : 65.4,
@@ -75,7 +74,6 @@ function gogoPower(){
         memHealthColdHot.push(objColdHot);
         memHealthHealth.push(objhealth);
         memHealthStomach.push(objStomach);
-
     }
 
     
@@ -90,9 +88,14 @@ function gogoPower(){
             memSetOrder:[],
             memOtherOrder:[],
             memSingleOrder:[],
-            memSingleProduct:[],
             memSetProduct:[],
-            memOtherProduct:[]
+            memOtherProduct:[],
+            memCold:0,
+            memHot:0,
+            memSad:0,
+            memHappy:0,
+            memFat:0,
+            memThin:0
         },
         methods: {
             changContentBtn(e){
@@ -254,13 +257,153 @@ function gogoPower(){
                 console.log(healthId);
                 this.nowDataHealthNumber = Number(healthId);
                 // ajax 套餐及其他商品資料 並丟入vue的data內
-                let memSingleProduct;
-                let memSetProduct;
-                let memOtherProduct;
-                this.memSingleProduct = memSingleProduct;
+                let memSetProduct = [{
+                    setId: 1001,
+                    setName: '鱈魚便當',
+                    setPrice: 130,
+                    setCalories:800,
+                    setColdHot: 21,  //最冷
+                    setHealth:96,
+                    setClass:0,
+                    setImage:'https://fakeimg.pl/110/',
+                    setInfo:'寶島食堂嚴選冰島鱈魚，無細刺，肉質滑嫩鮮甜，如雪花般入口即化的綿密感魚肉更富含OMEGA-3即DHA、EPA適合成長中的孩子食用。'
+                },{
+                    setId: 1002,
+                    setName: '雞腿便當',
+                    setPrice: 110,
+                    setCalories:1200,
+                    setColdHot: 83,
+                    setHealth:18,  //最低
+                    setClass:0,
+                    setImage:'https://fakeimg.pl/100/',
+                    setInfo:'很多人說寶島食堂的雞腿很好吃，汁非常多，肉鮮美不柴，外皮金黃酥脆，那是因為我們池上木片便當使用了國產黃金雞，最後再經由師傅的油炸功力讓一隻金黃酥脆多汁又鮮嫩的雞腿能夠送到您的手中。'
+                },{
+                    setId: 1003,
+                    setName: '滷排骨便當',
+                    setPrice: 100,
+                    setCalories:1000,
+                    setColdHot: 83,
+                    setHealth:98,  //最高
+                    setClass:0,
+                    setImage:'https://fakeimg.pl/100/',
+                    setInfo:'寶島食堂獨特的排骨醃料配方，醃料採用數十種配料，醃製入味，再採用大吟釀醬油的醬汁滷出新味道，軟嫩可口。'
+                },{
+                    setId: 1004,
+                    setName: '炸豬排便當',
+                    setPrice: 140,
+                    setCalories:1000,
+                    setColdHot: 96,  //最熱
+                    setHealth:63,  
+                    setClass:1,
+                    setImage:'https://fakeimg.pl/100/',
+                    setInfo:'獨特的里肌醃料配方，當日醃製完畢即放入冷凍庫並在隔日清晨直送各店家，油炸後香濃可口，且無骨，適合小孩子食用。古法秘製，真空加速入味，裹上一層白面紗進入油炸鍋，3分鐘起鍋金黃外皮，肉質扎實'
+                },{
+                    setId: 1005,
+                    setName: '香腸便當',
+                    setPrice: 120,
+                    setCalories:1600,  //最肥
+                    setColdHot: 57,  
+                    setHealth:44,  
+                    setClass:1,
+                    setImage:'https://fakeimg.pl/100/',
+                    setInfo:'使用乾淨的冷油下去油炸，外觀紅潤有光澤，內部更是口感扎實，不禁讓人懷念起兒時的好味道。'
+                },{
+                    setId: 1006,
+                    setName: '鮭魚便當',
+                    setPrice: 120,
+                    setCalories:600,  //最瘦
+                    setColdHot: 41,  
+                    setHealth:89,  
+                    setClass:1,
+                    setImage:'https://fakeimg.pl/130/',
+                    setInfo:'鮭魚飯便當：嚴選智利紅鮭，令人食指大動的粉橘色魚肉咬下去清爽健康的魚油在口腔裡娉然散開餘韻纏繞，欲罷不能，一口接著一口！非常適合正在發育的小朋友品嘗。'
+                }]
+                let memOtherProduct=[{
+                    opId:1001,
+                    opName:'薑母茶',
+                    opPrice:60,
+                    opClass:0,
+                    opImage:'https://fakeimg.pl/100/'
+                },{
+                    opId:1002,
+                    opName:'蔬果汁',
+                    opPrice:45,
+                    opClass:0,
+                    opImage:'https://fakeimg.pl/100/'
+                },{
+                    opId:1003,
+                    opName:'綠茶',
+                    opPrice:25,
+                    opClass:0,
+                    opImage:'https://fakeimg.pl/100/'
+                },{
+                    opId:1004,
+                    opName:'鳳梨',
+                    opPrice:30,
+                    opClass:1,
+                    opImage:'https://fakeimg.pl/100/'
+                },{
+                    opId:1005,
+                    opName:'西瓜',
+                    opPrice:30,
+                    opClass:1,
+                    opImage:'https://fakeimg.pl/100/'
+                },{
+                    opId:1006,
+                    opName:'蘋果',
+                    opPrice:30,
+                    opClass:1,
+                    opImage:'https://fakeimg.pl/100/'
+                },{
+                    opId:1007,
+                    opName:'益生菌',
+                    opPrice:80,
+                    opClass:2,
+                    opImage:'https://fakeimg.pl/100/'
+                },{
+                    opId:1008,
+                    opName:'人參雞精',
+                    opPrice:80,
+                    opClass:2,
+                    opImage:'https://fakeimg.pl/100/'
+                },]
+
                 this.memSetProduct = memSetProduct;
                 this.memOtherProduct = memOtherProduct;
-
+                // 找出Set中 冷、熱、健康好壞、BMI高低的東西
+                let cold = 100;
+                let hot = 0;
+                let sad = 100;
+                let happy = 0;
+                let fat = 0;
+                let thin = 10000;
+                for(let i =0;i<this.memSetProduct.length;i++){
+                    if(this.memSetProduct[i].setColdHot < cold){
+                        this.memCold = this.memSetProduct[i].setId
+                        cold = this.memSetProduct[i].setColdHot
+                    }
+                    if(this.memSetProduct[i].setColdHot > hot){
+                        this.memHot = this.memSetProduct[i].setId
+                        hot = this.memSetProduct[i].setColdHot
+                    }
+                    if(this.memSetProduct[i].setHealth < sad){
+                        this.memSad = this.memSetProduct[i].setId
+                        sad = this.memSetProduct[i].setHealth
+                    }
+                    if(this.memSetProduct[i].setHealth > happy){
+                        this.memHappy = this.memSetProduct[i].setId
+                        happy = this.memSetProduct[i].setHealth
+                    }
+                    if(this.memSetProduct[i].setCalories > fat){
+                        this.memFat = this.memSetProduct[i].setId
+                        fat = this.memSetProduct[i].setCalories
+                    }
+                    if(this.memSetProduct[i].setCalories < thin){
+                        this.memThin = this.memSetProduct[i].setId
+                        thin = this.memSetProduct[i].setCalories
+                    }
+                }
+                // console.log(this.memCold,this.memHot,this.memSad,this.memHappy,this.memFat,this.memThin)
                 // 跳轉至healthList的content
                 document.getElementById('memContentHealthList').classList.remove('memContentNone');
                 for(let j = 0; j<memContent.length;j++){
@@ -273,7 +416,7 @@ function gogoPower(){
             },
             GoBackToHealthContent(){
                 document.getElementById('memContentHealthList').classList.add('memContentNone');
-                memContent[2].classList.remove('memContentNone');
+                memContent[0].classList.remove('memContentNone');
             },
             memStartGamesGo(){
                 game.startGame();
@@ -659,7 +802,9 @@ function gogoPower(){
     var game = new Game();
 
 
-
+    // 生成折線圖
+    document.getElementById("myChart").innerHTML = '';
+    memDrawChartLine();
 
     // typeit
     function tomotoTypeIt(){
