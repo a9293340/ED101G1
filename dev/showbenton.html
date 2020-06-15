@@ -20,24 +20,22 @@
       <p class="showTitle">
         SHOW便當
       </p>
-      <div class="showBentonImg">
-        放圖片的地方
+      <!----------------新增按鈕--------------->
+      <div id="addBenton" class="addBenton" @click="showBentonList">
+        <img src="./images/showbenton/addition.png" />
       </div>
+      <div id="showBentonImg" class="showBentonImg"></div>
     </div>
     <!------------------格線------------------>
     <div class="grid"></div>
-
-    <!----------------新增按鈕--------------->
-    <div id="addBenton" class="addBenton" @click="showBentonList">
-      <img src="/dev/images/showbenton/addition.png" />
-    </div>
 
     <!----------------跳出燈箱--------------->
     <div id="lightbox" class="showBentonListLightbox box1">
       <!-------Step1-------->
       <div v-if="showBentonImgList === true">
         <div class="bentoncarTitle">
-          請選擇喜愛的自選便當
+          <span>請選擇喜愛的自選便當</span>
+          <img @click="closelightbox" src="./images/showbenton/close.png" />
         </div>
         <ul class="bentoncardBox">
           <li
@@ -66,7 +64,8 @@
       <!-------Step2-------->
       <div v-else>
         <div class="bentoncarTitle">
-          請填寫便當內容
+          <span> 請填寫便當內容</span>
+          <img @click="closelightbox" src="./images/showbenton/close.png" />
         </div>
         <div class="bentonContentForm">
           <label class="Step2Title" for="Step2TitlText">標題：</label>
@@ -78,7 +77,7 @@
               <button class="Pre" @click="showBentonStep1(true)">
                 上一步
               </button>
-              <button class="Next">
+              <button class="Next" @click="SendBenton">
                 送出
               </button>
             </div>
@@ -86,6 +85,8 @@
         </div>
       </div>
     </div>
+
+    <!----------------冰箱/烤箱/瓦斯爐背景圖--------------->
 
     <!------------------按讚數--------------------->
     <!-- <div>
