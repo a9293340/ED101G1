@@ -9,6 +9,8 @@ Vue.component('button-counter', {
  
   }) 
 
+let orderCart = [];
+
 
 
 
@@ -55,6 +57,12 @@ let rice =[{
 
 }]
 //主食：炸雞腿、滷排骨、清蒸鱈魚、蔥爆牛柳
+
+// var ee =JSON.stringify(rice);
+// localStorage.setItem('aaa', ee);
+// var ss= localStorage.getItem('aaa');
+// console.log(ss);
+
 
 let meat =[{
     id:'1',
@@ -689,18 +697,93 @@ function singleshow(){
 //購物車
 document.getElementById('incart').addEventListener('click',shoppcar)
 
+
+var singleorderlist = new Vue({
+    el:'#list',  
+    data:{
+        finalsinglelist:[]
+    },
+})
+
+
+
+
 function shoppcar(){
     var rice = localStorage.getItem('ricename');
+    var riceprice = localStorage.getItem('riceprice')
     var meat = localStorage.getItem('meatname');
+    var meatprice = localStorage.getItem('meatprice');
     var single1 = localStorage.getItem('singlename1');
+    var singleprice1 = localStorage.getItem('singleprice1');
     var single2 = localStorage.getItem('singlename2');
+    var singleprice2 = localStorage.getItem('singleprice2');
     var single3 = localStorage.getItem('singlename3');
-document.getElementById('ricename').innerText=`${rice}`;
-document.getElementById('meatname').innerText=`${meat}`;
-document.getElementById('singlename1').innerText=`${single1}`;
-document.getElementById('singlename2').innerText=`${single2}`;
-document.getElementById('singlename3').innerText=`${single3}`;
+    var singleprice3 = localStorage.getItem('singleprice3');
+// document.getElementById('ricename').innerText=`${rice}`;
+// document.getElementById('meatname').innerText=`${meat}`;
+// document.getElementById('singlename1').innerText=`${single1}`;
+// document.getElementById('singlename2').innerText=`${single2}`;
+// document.getElementById('singlename3').innerText=`${single3}`;
+var singleorder= {
+    rice:`${rice}`,
+    riceprice:`${riceprice}`,
+    meat:`${meat}`,
+    meatprice:`${meatprice}`,
+    single1:`${single1}`,
+    single1price:`${singleprice1}`,
+    single2:`${single2}`,
+    single2price:`${singleprice2}`,
+    single3:`${single3}`,
+    single3price:`${singleprice3}`,
+ }
+ orderCart.push(singleorder);
+ for(let i=0; i<orderCart.length; i++){
+    console.log(orderCart[i]);
+ }
    
+ singlecount = 0;
+
+ document.getElementById('list_ricename').innerText = '';
+ document.getElementById('list_meatname').innerText = '';
+ document.getElementById('list_singlename1').innerText = '';
+ document.getElementById('list_singlename2').innerText = '';
+ document.getElementById('list_singlename3').innerText = '';
+
+ var singleOrder = JSON.stringify(orderCart);
+ localStorage.setItem('singleOrder', singleOrder);
+
+ var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
+ singleorderlist.$data.finalsinglelist = finalsinglelist;
+ console.log(singleorderlist.$data.finalsinglelist);
+
 
 }
+
+// var app4 = new Vue({
+//     el:'#buy_app4',  
+//     data:{
+//         active
+//     },methods:{
+//         add: function(item) {
+//             item.count++;
+//         },
+//         minus:function (item) {
+//             if(item.count>1){
+//                 item.count--;
+//             }
+//         }
+//     },
+// })
+
+// let finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
+
+// var singleorderlist = new Vue({
+//     el:'#list',  
+//     data:{
+//         finalsinglelist:[]
+//     },
+// })
+// console.log(singleorderlist.$data.finalsinglelist);
+// singleorderlist.$data.finalsinglelist = finalsinglelist;
+// console.log(singleorderlist.$data.finalsinglelist);
 
