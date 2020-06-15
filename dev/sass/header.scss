@@ -1,0 +1,152 @@
+@import "./main";
+
+@mixin span {
+  position: absolute;
+  width: 90%;
+  height: 5px;
+  bottom: 10px;
+  transition: 1s;
+  z-index: -1;
+  @content;
+}
+
+@mixin aHover {
+  a:hover {
+    @content
+  }
+}
+
+nav {
+  width: 100%;
+  position: relative;
+  opacity: 1;
+  transition: all ease 1s;
+  background-color: rgb(255, 162, 162);
+  z-index: 30;
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 30;
+    opacity: 1;
+    transition: all ease .1s;
+  }
+
+  @include flexStyle(center, center, column);
+
+  .top_group {
+    width: 100%;
+    position: relative;
+    opacity: 1;
+    transition: all ease 1s;
+    background-color: rgb(255, 255, 255);
+    z-index: 30;
+    @include flexStyle(space-evenly, center);
+
+    .logo {
+      width: 25%;
+      display: block;
+      display: flex;
+      img {
+        width: 85%;
+        max-width: 100%;
+        height: auto;
+        margin-left: 7%;
+      }
+    }
+
+
+ 
+      .span0 {
+      
+        @include span {
+          background-color: rgb(253, 194, 127)
+        }
+      }
+
+      .span1 {
+        @include span {
+          background-color: rgb(154, 241, 158);
+        }
+      }
+
+      .span2 {
+        @include span {
+          background-color: rgb(250, 196, 79);
+        }
+      }
+
+      .span3 {
+        @include span {
+          background-color: rgb(228, 68, 68);
+        }
+      }
+    
+    .navgroup {
+      width: 80%;
+      height: 100px;
+      display: flex;
+      font-size: 1.3rem;
+      margin-left: 10%;
+      justify-content: center;
+  
+         
+          
+        .book,.analysis,.showbento,.aboutus{
+          text-decoration: none;
+          width: 23%;
+          color: #000;
+          position: relative;
+          @include flexStyle(center, center, column);
+          &:before{
+            content:"";
+            position: absolute;
+            left: 3%;
+            background-image: url(../../dest/images/header/fault_01.png);
+            width: 50px;
+            height: 50px;
+          }
+      
+    }
+    .showbento{
+      &:before{ 
+        left: -2%;
+      }
+     
+    }
+  }
+  .membergroup {
+    width: 30%;
+    height: 100px;
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1%;
+
+    a {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #000;
+      position: relative;
+    }
+  }
+
+  .btn_switch {
+    display: none;
+  }
+
+  @include aHover {
+    .span0,
+    .span1,
+    .span2,
+    .span3 {
+      height: 80px;
+    }
+  }
+
+}
+}
