@@ -788,7 +788,9 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
 
 window.onload = function(){
     for(var h=0; h<singleNum; h++){
-   document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
+            if(document.getElementById(`b${h}`)){
+    document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
+            }
     }
 }
 
