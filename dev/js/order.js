@@ -10,7 +10,7 @@
 //   }) 
 
 let orderCart = []; 
-
+let setdoMenu=[];
 
 
 
@@ -126,7 +126,7 @@ let single = [{
 {
     id:'3',
     name:"咖哩",
-    img:"./images/bandon_include/curry.jpg",
+    img:"./images/bandon_include/curry.png",
     price:'700',
     cal:"300cal",
     text:""
@@ -134,7 +134,7 @@ let single = [{
 {
     id:'4',
     name:"花椰菜炒蝦仁",
-    img:"./images/bandon_include/flower.jpg",
+    img:"./images/bandon_include/friedShrimp.png",
     price:'700',
     cal:"300cal",
     text:"青花菜是十字花科蔬菜，營養價值非常高，是超級食物之一。青花菜放入沸水快速汆燙撈起，營養不流失，搭配蝦仁拌炒就是一道色香味俱全的料理。"
@@ -846,7 +846,7 @@ function setdominus(){
 
 
 
-var setdoMenu=[];
+
 
 function setdoCart(){
     let A = this.dataset.id;
@@ -872,7 +872,30 @@ function setdoCart(){
                     setdoprice:`${setdoprice}`,
                     setdoimg:`${setdoimg}`,
                 }
-                setdoMenu.push(setdoList);
+
+                // if(JSON.parse(localStorage.getItem('setdoMenuList'))){
+                //     console.log(JSON.parse(localStorage.getItem('setdoMenuList')));
+                // }
+                // for(var i = 0 ;i<setdoMenu.length;i++){
+                // if(JSON.parse(localStorage.getItem('setdoMenuList')[i].setdoid)==setdoList.setdoid){
+                //     JSON.parse(localStorage.getItem('setdoMenuList')[i].setdoMany)+1;
+                // }
+                // }
+                var samename = 0;
+                if(setdoMenu.length>0){
+                for(var c =0  ;c < setdoMenu.length; c++){
+                    if(setdoMenu[c].setdoname == setdoList.setdoname){
+                        g=1;
+                        setdoMenu[c].setdoMany = parseInt(setdoMenu[c].setdoMany)+parseInt(setdoList.setdoMany);
+                    } 
+                }
+                if(samename!=1){
+                    setdoMenu.push(setdoList);
+                }
+                }else{
+                    setdoMenu.push(setdoList);
+                }
+                // setdoMenu.push(setdoList);
                 // console.log(setdoMenu[]);
                 var setdoMenuList =JSON.stringify(setdoMenu);
                 localStorage.setItem('setdoMenuList',setdoMenuList);
