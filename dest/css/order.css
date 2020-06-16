@@ -107,9 +107,11 @@ p {
   position: fixed;
   right: 0;
   top: 0;
-  width: auto;
+  width: 300px;
   height: auto;
   border: 1px solid blue; }
+  .ordercart table {
+    width: 300px; }
 
 #ordertitle1 {
   transform: scale(1.5); }

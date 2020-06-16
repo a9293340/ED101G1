@@ -5,7 +5,7 @@ h1 {
 }
 
 h2 {
-  font-size: $fzSubtitle;
+  font-size: $fzSubtitle; 
 }
 
 p {
@@ -13,7 +13,7 @@ p {
 }
 
 //colors
-$white: white;
+$white: white; 
 
 
 
@@ -24,9 +24,12 @@ $white: white;
   position: fixed;
   right: 0;
   top: 0;
-  width: auto;
+  width: 300px;
   height: auto;
   border: 1px solid blue;
+  table{
+    width: 300px;
+  }
 }
 
 
