@@ -14,7 +14,7 @@ a {
 }
 
 body {
-  background: #ffffff;
+  background: white;
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
@@ -129,7 +129,7 @@ $contentFadeinAT: 0.5s;
   position: relative;
   overflow: hidden;
   height: 100vh;
-  padding: $vertPad $sidePad;
+  background-color: black;
 
   &__inner {
     position: relative;
@@ -473,7 +473,7 @@ $contentFadeinAT: 0.5s;
     }
 
     &-overlay {
-      /* 遮罩色的父層 */
+      /* 遮罩色層 */
       overflow: hidden;
       position: relative;
       transform: translate3d(0, 100%, 0);
@@ -558,29 +558,15 @@ $contentFadeinAT: 0.5s;
     }
   }
 
-  &.sec.s--active {
+  &.first.s--active,&.sec.s--active,&.third.s--active {
     @include myaction {
       .el__bg:before {
-        background-image: url(../images/homepage/BG.png);
+        background-image: url(../../dest/images/homepage/BG.png);
       }
     }
   }
 
-  &.third.s--active {
-    @include myaction {
-      .el__bg:before {
-        background-image: url(../images/homepage/BG.png);
-      }
-    }
-  }
-
-  &.first.s--active {
-    @include myaction {
-      .el__bg:before {
-        background-image: url(../images/homepage/BG.png);
-      }
-    }
-  }
+   
 
   // &.s--active {
   //   // 這邊不include的因是上面就是el了
