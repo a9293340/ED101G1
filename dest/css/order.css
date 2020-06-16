@@ -100,13 +100,18 @@ h2 {
 p {
   font-size: 1rem; }
 
+#buy_app {
+  display: flex; }
+
 .ordercart {
   position: fixed;
   right: 0;
   top: 0;
-  width: auto;
+  width: 300px;
   height: auto;
   border: 1px solid blue; }
+  .ordercart table {
+    width: 300px; }
 
 #ordertitle1 {
   transform: scale(1.5); }
@@ -156,13 +161,12 @@ p {
   text-align: center; }
 
 .buy_single_containter {
-  margin: 0 auto;
-  width: 1200px;
-  height: 400px;
+  width: 600px;
+  height: 660px;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   justify-content: space-between; }
 
@@ -252,13 +256,11 @@ p {
 
 #rice {
   margin: 0 auto;
-  width: 1200px;
-  height: 400px;
+  width: 600px;
+  height: 660px;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  overflow-y: auto;
-  overflow-x: hidden;
   justify-content: space-between; }
 
 .buy_icon_card {
@@ -274,36 +276,42 @@ p {
   justify-content: space-between; }
 
 .buy_bando {
-  width: 1000px;
-  margin: 0 auto;
-  display: flex; }
+  width: 600px;
+  margin: 0 auto; }
+
+.buy_bandoImg {
+  text-align: center; }
+
+.buy_list {
+  height: 150px; }
 
 .buy_bandoLeft {
-  width: 400px;
+  width: 600px;
   margin: 0 auto;
   text-align: center; }
-  .buy_bandoLeft button {
-    transition-duration: 0.2s;
-    transition-property: all;
-    transform-origin: 50% 50%;
-    text-align: center;
-    line-height: auto;
-    width: auto;
-    height: auto;
-    color: white;
-    background-color: #EA6227;
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: 2px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transform: scale(1);
-    border: 0;
-    cursor: pointer;
-    font-family: "Noto Sans TC"; }
-    .buy_bandoLeft button:hover, .buy_bandoLeft button:focus {
-      transform: scale(1.1);
-      opacity: .9; }
+
+#incart {
+  transition-duration: 0.2s;
+  transition-property: all;
+  transform-origin: 50% 50%;
+  text-align: center;
+  line-height: auto;
+  width: auto;
+  height: auto;
+  color: white;
+  background-color: #EA6227;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 2px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transform: scale(1);
+  border: 0;
+  cursor: pointer;
+  font-family: "Noto Sans TC"; }
+  #incart:hover, #incart:focus {
+    transform: scale(1.1);
+    opacity: .9; }
 
 .buy_other_juice {
   width: 250px;
