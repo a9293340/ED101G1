@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>order</title>
     <!-- 字體 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/order.css">
+    <link rel="stylesheet" href="./css/order.css"> 
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Vue -->
@@ -17,14 +17,56 @@
 
 </head>
 <body>
-    <div class="ordercart">
-        <p id="ricename"></p>
-        <p id="meatname"></p>
-        <p id="singlename1"></p>
-        <p id="singlename2"></p>
-        <p id="singlename3"></p>
-    </div>
-    <div class="orderRoof"></div>
+   <div id="list">
+        <div class="ordercart"  >
+          <div v-for="(item, index) in finalsinglelist">
+            <h3>自選便當</h3>
+            <table>
+                <tr>
+                    <td>{{item.rice}} </td>
+                    <td>x1</td>
+                    <td></td>
+                    <td>NT${{item.riceprice}}</td>
+                </tr>
+                <tr>
+                    <td>{{item.meat}} </td>
+                    <td>x1</td>
+                    <td></td>
+                    <td>NT${{item.meatprice}}</td>
+                </tr>
+                <tr>
+                    <td>{{item.single1}}</td>
+                    <td>x1</td>
+                    <td></td>
+                    <td>NT${{item.single1price}}</td>
+                </tr>
+                <tr>
+                    <td>{{item.single2}}</td>
+                    <td>x1</td>
+                    <td></td>
+                    <td>NT${{item.single2price}}</td>
+                </tr>
+                <tr>
+                    <td>{{item.single3}}</td>
+                    <td>x1</td>
+                    <td></td>
+                    <td>NT${{item.single3price}}</td>
+                </tr>
+            <!-- <p>{{item.rice}} x1 NT${{item.riceprice}}</p>
+            <p>{{item.meat}} x1 NT${{item.meatprice}}</p>
+            <p>{{item.single1}} x1 NT${{item.single1price}}</p>
+            <p>{{item.single2}} x1 NT${{item.single2price}}</p>
+            <p>{{item.single3}} x1 NT${{item.single3price}}</p> -->
+            </table>
+            <!-- <p id="ricename"></p>
+            <p id="meatname"></p>
+            <p id="singlename1"></p>
+            <p id="singlename2"></p>
+            <p id="singlename3"></p> -->
+          </div>
+        </div>
+    </div> 
+    <!-- <div class="orderRoof"></div> --> 
     <div class="buy_main">
 
         <div class="orderLeft">
@@ -55,7 +97,7 @@
                       <p id='order_text'>請選擇一種米飯</p>
                    </div>
        
-                  <div id="buy_app">
+            <div id="buy_app">
                 <div class="buy_single_containter scroll">
                 <div id='rice'>
                         <div class="ricecard" v-for="(item, index) in rice" :key="item.id">
@@ -113,11 +155,46 @@
                                   <button class="closelightbox2">delete</button> 
                               </div>
                           </div>
-                    </div>     
-                       </div>
-                  </div>
+                        </div>     
+                    </div>
+
+
+
+                    <div class="buy_bando">
+                        <div class="buy_bandoImg">
+                            <img src="./images/bandon_include/bentoBox.png"  width="500" height="500">
+                            
+                        </div>   
+        
+                        <div class="buy_bandoLeft">
+                          <div class="buy_list">
+                              <p id="list_ricename">米食:</p>
+                              <p id="list_meatname">主食:</p>
+                              <p id="list_singlename1">配菜:</p>
+                              <p id="list_singlename2">配菜:</p>
+                              <p id="list_singlename3">配菜:</p>
+                                <!-- <img src="https://fakeimg.pl/300x400/" width="300" height="400"> -->
+                            </div>          
+                            <!-- <div class="buy_trangleImg">
+                                <img src="https://fakeimg.pl/300x200/" width="300" height="200">
+                            </div> -->
+                            <button id="incart">加入購物車</button>
+                           
+                        </div>
+                      
+                               
+                    </div>
+
+
+
+
+
+
+
+
+            </div>
       
-                  <div class="buy_bando"> 
+                  <!-- <div class="buy_bando"> 
                       <div class="buy_bandoImg">
                           <img src="./images/bandon_include/bentoBox.png"  width="600" height="600">
                       </div>
@@ -128,7 +205,7 @@
                             <p id="list_singlename1"></p>
                             <p id="list_singlename2"></p>
                             <p id="list_singlename3"></p>
-                              <!-- <img src="https://fakeimg.pl/300x400/" width="300" height="400"> -->
+                              
                           </div>          
                           <div class="buy_trangleImg">
                               <img src="https://fakeimg.pl/300x200/" width="300" height="200">
@@ -136,7 +213,7 @@
                          
                           <button id="incart">加入購物車</button>
                       </div>          
-                  </div>
+                  </div> -->
       
       
            <div class="buy_single" id="order_2">
