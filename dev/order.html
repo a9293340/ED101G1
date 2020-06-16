@@ -19,8 +19,8 @@
 <body>
    <div id="list">
         <div class="ordercart"  >
-          <div v-for="(item, index) in finalsinglelist">
             <h3>自選便當</h3>
+          <div v-for="(item, index) in finalsinglelist">
             <table>
                 <tr>
                     <td>{{item.rice}} </td>
@@ -52,17 +52,18 @@
                     <td></td>
                     <td>NT${{item.single3price}}</td>
                 </tr>
-            <!-- <p>{{item.rice}} x1 NT${{item.riceprice}}</p>
-            <p>{{item.meat}} x1 NT${{item.meatprice}}</p>
-            <p>{{item.single1}} x1 NT${{item.single1price}}</p>
-            <p>{{item.single2}} x1 NT${{item.single2price}}</p>
-            <p>{{item.single3}} x1 NT${{item.single3price}}</p> -->
             </table>
-            <!-- <p id="ricename"></p>
-            <p id="meatname"></p>
-            <p id="singlename1"></p>
-            <p id="singlename2"></p>
-            <p id="singlename3"></p> -->
+          </div>
+          <h3>經典便當</h3>
+          <div v-for="(item, index) in finalsetdolist">
+            <table>
+                <tr>
+                    <td>{{item.setdoname}}</td>
+                    <td>NT${{item.setdoprice}}</td>
+                    <td></td>
+                    <td>x{{item.setdoMany}}</td>
+                </tr>
+            </table>
           </div>
         </div>
     </div> 
@@ -226,7 +227,9 @@
                            <img :id="'setdoimg'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
                           <div class="buy_name">{{item.name}}</div>
                            <div class="buy_price"><span>$</span>{{item.price}}</div>
-                           <button-counter></button-counter>
+                            <div><button :id ="'setdocountplus'+item.id" :data-num="item.id">+</button><span :id="'setdocount'+item.id">0</span><button  :id ="'setdocountminus'+item.id" :data-num="item.id">-</button>
+                            <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.id" :data-id="item.id">
+                            </div>
                            <!-- <button-counter></button-counter> -->
 
 
@@ -249,10 +252,11 @@
                   <div class="buy_setdo_containter scroll">
       
                       <div id="buy_card4" v-for="(item, index) in active" :key="item.id">
-                               <img v-bind:src="item.img" atl="">
+                               <img v-bind:src="item.img" atl="" width="200" height="200">
                               <div class="buy_name">{{item.name}}</div>
                               <div class="buy_price"><span>$</span>{{item.price}}</div>
-                              <button-counter></button-counter>
+
+                              <!-- <button-counter></button-counter> -->
                        </div>
                   </div>
               </div> 
@@ -268,7 +272,7 @@
                   </select>
                   <div>{{name}}</div>
                   <div><span>$</span>{{price}}</div>
-                  <button-counter></button-counter>
+                  <!-- <button-counter></button-counter> -->
               </div>
               <div id="other2" class="buy_other_juice">
                   <img :src=imgsrc>
@@ -277,7 +281,7 @@
                   </select>
                   <div>{{name}}</div>
                   <div><span>$</span>{{price}}</div>
-                  <button-counter></button-counter>
+                  <!-- <button-counter></button-counter> -->
                   
               </div>
               <div id="other3" class="buy_other_juice">
@@ -287,7 +291,7 @@
                   </select>
                   <div>{{name}}</div>
                   <div><span>$</span>{{price}}</div>
-                  <button-counter></button-counter>
+                  <!-- <button-counter></button-counter> -->
               </div>
           </div>
       

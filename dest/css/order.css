@@ -232,7 +232,12 @@ p {
   margin: 10px 20px;
   text-align: center;
   border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  position: relative; }
+  #buy_card3 .cart {
+    position: absolute;
+    right: 60px;
+    bottom: 27px; }
   #buy_card3 img {
     margin-top: 5px;
     cursor: pointer; }
