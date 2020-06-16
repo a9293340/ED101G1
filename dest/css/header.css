@@ -96,8 +96,8 @@ nav {
   position: relative;
   opacity: 1;
   transition: all ease 1s;
-  background-color: #ffa2a2;
   z-index: 30;
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,77 +122,71 @@ nav {
     nav .top_group .logo {
       width: 25%;
       display: block;
-      display: flex; }
+      display: flex;
+      min-width: 200px; }
       nav .top_group .logo img {
         width: 85%;
         max-width: 100%;
         height: auto;
         margin-left: 7%; }
-    nav .top_group .span0 {
-      position: absolute;
-      width: 90%;
-      height: 5px;
-      bottom: 10px;
-      transition: 1s;
-      z-index: -1;
-      background-color: #fdc27f; }
-    nav .top_group .span1 {
-      position: absolute;
-      width: 90%;
-      height: 5px;
-      bottom: 10px;
-      transition: 1s;
-      z-index: -1;
-      background-color: #9af19e; }
-    nav .top_group .span2 {
-      position: absolute;
-      width: 90%;
-      height: 5px;
-      bottom: 10px;
-      transition: 1s;
-      z-index: -1;
-      background-color: #fac44f; }
-    nav .top_group .span3 {
-      position: absolute;
-      width: 90%;
-      height: 5px;
-      bottom: 10px;
-      transition: 1s;
-      z-index: -1;
-      background-color: #e44444; }
     nav .top_group .navgroup {
       width: 80%;
-      height: 100px;
       display: flex;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-left: 10%;
       justify-content: center; }
       nav .top_group .navgroup .book, nav .top_group .navgroup .analysis, nav .top_group .navgroup .showbento, nav .top_group .navgroup .aboutus {
         text-decoration: none;
-        width: 23%;
+        width: 200px;
         color: #000;
         position: relative;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center; }
+        nav .top_group .navgroup .book:hover, nav .top_group .navgroup .analysis:hover, nav .top_group .navgroup .showbento:hover, nav .top_group .navgroup .aboutus:hover {
+          color: #EA6227; }
         nav .top_group .navgroup .book:before, nav .top_group .navgroup .analysis:before, nav .top_group .navgroup .showbento:before, nav .top_group .navgroup .aboutus:before {
+          content: "";
+          overflow: hidden;
+          position: absolute;
+          transform: translate3d(0, 0, 0);
+          left: 3%;
+          background-image: url(../../dest/images/header/faultc_01.png);
+          width: 50px;
+          height: 50px;
+          transition: .5s; }
+        nav .top_group .navgroup .book:after, nav .top_group .navgroup .analysis:after, nav .top_group .navgroup .showbento:after, nav .top_group .navgroup .aboutus:after {
           content: "";
           position: absolute;
           left: 3%;
-          background-image: url(../../dest/images/header/fault_01.png);
+          background-color: #fff;
           width: 50px;
-          height: 50px; }
+          height: 50px;
+          transform: translate3d(0, 0, 0);
+          opacity: 1; }
+        nav .top_group .navgroup .book:hover:after, nav .top_group .navgroup .analysis:hover:after, nav .top_group .navgroup .showbento:hover:after, nav .top_group .navgroup .aboutus:hover:after {
+          content: "";
+          position: absolute;
+          left: 3%;
+          background-color: #fff;
+          width: 50px;
+          height: 50px;
+          transform: translate3d(0, -5vw, 0);
+          opacity: 1;
+          transition: .8s ease-out; }
       nav .top_group .navgroup .showbento:before {
+        left: -2%; }
+      nav .top_group .navgroup .showbento:after {
+        left: -2%; }
+      nav .top_group .navgroup .showbento:hover:after {
         left: -2%; }
     nav .top_group .membergroup {
       width: 30%;
-      height: 100px;
       display: flex;
       font-size: 1.5rem;
       justify-content: space-evenly;
-      align-items: center;
-      margin-top: 1%; }
+      align-items: center; }
       nav .top_group .membergroup a {
         text-decoration: none;
         display: flex;
@@ -203,8 +197,114 @@ nav {
         position: relative; }
     nav .top_group .btn_switch {
       display: none; }
-    nav .top_group a:hover .span0,
-    nav .top_group a:hover .span1,
-    nav .top_group a:hover .span2,
-    nav .top_group a:hover .span3 {
-      height: 80px; }
+
+@media (max-width: 1200px) {
+  nav {
+    width: 100%;
+    position: relative;
+    opacity: 1;
+    transition: all ease 1s;
+    z-index: 30;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    nav.fixed {
+      position: fixed;
+      top: 0;
+      z-index: 30;
+      opacity: 1;
+      transition: all ease .1s; }
+    nav .top_group {
+      width: 100%;
+      position: relative;
+      opacity: 1;
+      transition: all ease 1s;
+      background-color: white;
+      z-index: 30;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center; }
+      nav .top_group .logo {
+        width: 25%;
+        display: block;
+        display: flex;
+        min-width: 250px; }
+        nav .top_group .logo img {
+          width: 85%;
+          max-width: 100%;
+          height: auto;
+          margin-left: 7%; }
+      nav .top_group .navgroup {
+        width: 80%;
+        display: flex;
+        font-size: 1.2rem;
+        margin-left: 10%;
+        justify-content: center; }
+        nav .top_group .navgroup .book, nav .top_group .navgroup .analysis, nav .top_group .navgroup .showbento, nav .top_group .navgroup .aboutus {
+          text-decoration: none;
+          width: 200px;
+          color: #000;
+          position: relative;
+          margin-left: -50px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center; }
+          nav .top_group .navgroup .book:before, nav .top_group .navgroup .analysis:before, nav .top_group .navgroup .showbento:before, nav .top_group .navgroup .aboutus:before {
+            content: "";
+            overflow: hidden;
+            position: absolute;
+            transform: translate3d(0, 0, 0);
+            left: 6%;
+            background-image: url(../../dest/images/header/faultc_01.png);
+            width: 50px;
+            height: 50px;
+            transition: .5s;
+            transform: scale(0.8); }
+          nav .top_group .navgroup .book:after, nav .top_group .navgroup .analysis:after, nav .top_group .navgroup .showbento:after, nav .top_group .navgroup .aboutus:after {
+            content: "";
+            position: absolute;
+            left: 6%;
+            background-color: #fff;
+            width: 50px;
+            height: 50px;
+            transform: translate3d(0, 0, 0);
+            opacity: 1; }
+          nav .top_group .navgroup .book:hover:after, nav .top_group .navgroup .analysis:hover:after, nav .top_group .navgroup .showbento:hover:after, nav .top_group .navgroup .aboutus:hover:after {
+            content: "";
+            position: absolute;
+            left: 6%;
+            background-color: #fff;
+            width: 50px;
+            height: 50px;
+            transform: translate3d(0, -5vw, 0);
+            opacity: 1;
+            transition: .8s ease-out; }
+        nav .top_group .navgroup .showbento:before {
+          left: 2%; }
+        nav .top_group .navgroup .showbento:after {
+          left: 2%; }
+        nav .top_group .navgroup .showbento:hover:after {
+          left: 2%; }
+      nav .top_group .membergroup {
+        width: 30%;
+        display: flex;
+        font-size: 1.5rem;
+        justify-content: space-evenly;
+        align-items: center; }
+        nav .top_group .membergroup a {
+          text-decoration: none;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: #000;
+          position: relative; }
+          nav .top_group .membergroup a img {
+            width: 25px;
+            height: 25px; }
+      nav .top_group .btn_switch {
+        display: none; } }
