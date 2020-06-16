@@ -94,23 +94,45 @@ nav {
 body {
   background-color: #f9e8d4; }
 
+header {
+  border: 1px solid blue;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  background-color: #f8f9ff; }
+
+footer {
+  border: 1px solid blue;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #f8f9ff; }
+
 p.showTitle {
   font-size: 48px;
   color: #f3f3f3;
   font-weight: bold;
   white-space: 10px;
-  padding: 160px 0 0;
+  padding: 50px 0 0;
   color: #141212;
-  text-align: right;
-  margin-right: 200px; }
+  text-align: left;
+  margin-left: 150px; }
+
+p.showTitle1 {
+  padding: 5px 0 0;
+  color: #141212;
+  text-align: left;
+  margin-left: 170px;
+  font-size: 30px; }
 
 div.showBlock {
   border: 20px solid #d6bf7f;
   border-radius: 5px;
   width: 100%;
-  margin: auto;
+  height: 130px;
+  margin: 20px auto 0;
   min-width: 1200px;
-  background-image: url("../images/showbenton/bulletin1.png");
+  background-image: url("../images/showbenton/bulletinV1.png");
   background-size: 100%;
   background-repeat: no-repeat;
   border: transparent;
@@ -124,7 +146,7 @@ div.addBenton {
   padding: 10px 5px;
   margin-top: auto;
   position: fixed;
-  top: 180px; }
+  top: 200px; }
   div.addBenton:hover {
     transform: scale(1.1);
     opacity: 0.9;
@@ -138,15 +160,17 @@ div.addBenton {
 
 div.showBentonImg {
   border: 1px solid black;
-  width: 1800px;
-  height: 640px;
-  width: 100%;
+  height: 330px;
   min-width: 1200px;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position-y: 200px;
-  background-position-x: 30px;
-  background-image: url("../images/showbenton/KitchenBackgroundImg.png"); }
+  position: relative; }
+  div.showBentonImg div.kitchenTool {
+    border: 1px solid purple;
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    display: block;
+    bottom: 0px;
+    right: 0; }
 
 .shareBentonImg {
   width: 220px;
