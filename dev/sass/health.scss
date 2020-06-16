@@ -2,11 +2,18 @@
     box-sizing: border-box;
 }
 
+body{
+    margin: 0;
+}
+header{
+    border: 1px solid rgb(8, 8, 8);
+    height: 80px;
+}
 div.wrapper {
     border: 1px solid red;
     width: 100%;
     min-width: 1200px;
-    background-image: url("../images/healthImages/blackBoard.png");
+    background-image: url("../images/healthImages/blackBoard.jpg");
 }
 
 .content {
@@ -17,34 +24,85 @@ div.wrapper {
 }
 
 h1.title {
-    border: 1px solid black;
-    width: 202px;
+    //border: 1px solid black;
+    width: 100%;
     color: white;
     font-family: Noto Sans TC;
-    margin: 20px 90px;
+    margin: 10px auto;
     font-size: 2.3rem;
+    letter-spacing: 5px;
 }
 
 p.title2 {
     // border: 1px solid orange;
     color: #ffd23f;
-    width: 1020px;
+    width: 100%;
+    margin:0 auto;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+button{
+    cursor: pointer;
+}
+div.overlay{
+    position: fixed;
+    right:25%;
+    top:25%;
+    width: 50%;
+    height: 50vh;
+    background-color: rgba(199, 198, 198, 0.9);
+    box-shadow: 0 0 10px #ddd;
+    z-index: 1;
+    opacity: 1;
+    line-height: 50px;
+    
+}
+div.overlay.-opacity-zero{
+    opacity: 0;
+}
+form> h2{
+    text-align: center;
+}
+.bmiContent{
+    width: 100%;
+}
+div.bmiForm{
+    color: black;
+    width: 400px;
+    padding: 15px;
     margin: 0 auto;
+    font-size: 1.2rem;
+    
+    
+}
+div.overlay > div.bmiForm{
+    width: 54%;
+    margin: 0 auto;
+    max-width: 800px;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    line-height: 35px;
+}
+p.resultTitle{
+    width: 85px;
     font-size: 1.5rem;
-    margin-top: 30px;
+
 }
-@font-face{
-    font-family: crayon;
-    src: url(/fonts/crayon_1-1.ttf);
+#result{
+    color:red;
 }
-p.duty{
-    writing-mode: vertical-rl;
-    font-size: 1.5rem;
-    color: white;
-    margin-right:auto;
-    font-family: crayon;
-    display: inline-flex;
+p,#result{
+    width: 150px;
+    margin: 0;
+    display: inline-block;
 }
+
 div.board {
     // border: 1px solid black;
     width: 1000px;
@@ -57,9 +115,14 @@ div.board {
     margin-bottom: 20px;
     
 }
-
+p.separate{
+    width: 10px;
+}
+#number,p.separate,#numberTotal{
+    display: inline-block;
+}
 .questionTitle{
-    width: 300px;
+    width: 30%;
     // border: 1px solid black;
     font-size: 1.5rem;
     margin: auto;
@@ -70,7 +133,6 @@ button.btn{
     height: 50px;
     text-align: center;
     border-radius: 10px;
-    display: inline-flex;
     margin-top: 30px;
     margin-left: 10px;
     font-size: 1rem;
@@ -96,7 +158,8 @@ div.wrapper2 {
     border: 1px solid red;
     width: 100%;
     min-width: 1200px;
-    background-image: url("../images/blackBoard.png");
+    background-image: url("../images/healthImages/blackBoard.jpg");
+
 }
 #examResult {
     display: none;
@@ -110,10 +173,10 @@ div.wrapper2 {
 
 h1.title1 {
     border: 1px solid black;
-    width: 202px;
+    width: 100%;
     color: white;
     font-family: 'Noto Sans TC';
-    margin: 30px 90px;
+    margin-left: auto;;
     font-size: 2.5rem;
     
 }
@@ -121,12 +184,16 @@ h1.title1 {
 p.title3 {
     border: 1px solid orange;
     color: #ffd23f;
-    width: 1020px;
+    width: 100%;
     margin: 0 auto;
     font-size: 1.5rem;
     margin-bottom: 50px;
+    text-align: center;
 }
-
+a{
+    text-decoration: none;
+    color:white;
+}
 ul.cooks {
     border: 1px solid red;
     width: 1000px;
@@ -152,11 +219,31 @@ ul.bento {
 
 li.dish {
     border: 1px solid gray;
-    width: 200px;
+    width: 230px;
     white-space: pre-wrap;
+    color: #ffd23f;
+    font-size: 1.2rem;
 }
 
 li.img{
       margin-right: auto;
 
     }
+button.cart{
+    //border: 1px solid black;
+    margin-left: auto;
+    padding-top: 3px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    background-color: #ea6627;
+    color: white;
+}
+li.img,button.cart{
+    display: block;
+    margin: auto;
+}
+
+ footer{
+     border: 1px solid green;
+     height: 50px;
+ }   
