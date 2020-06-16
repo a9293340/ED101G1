@@ -107,8 +107,11 @@ $white: white;
   justify-content: space-between;
 
 }
-
+#buy_app3{
+  height: 750px;
+}
 .buy_setdo_containter {
+  flex-wrap: wrap;
   width: 1050px;
   margin: 0 auto;
   height: 350px;
@@ -183,7 +186,7 @@ $white: white;
   }
 }
 
-#buy_card3 {
+.buy_card3 {
   width: 250px;
   height: 308px;
   margin: 10px 20px;
