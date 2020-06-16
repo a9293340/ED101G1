@@ -883,16 +883,18 @@ function setdoCart(){
                 // }
                 var samename = 0;
                 if(setdoMenu.length>0){
-                for(var c =0  ;c < setdoMenu.length; c++){
-                    if(setdoMenu[c].setdoname == setdoList.setdoname){
-                        g=1;
-                        setdoMenu[c].setdoMany = parseInt(setdoMenu[c].setdoMany)+parseInt(setdoList.setdoMany);
-                    } 
+                     for(var c =0  ;c < setdoMenu.length; c++){
+                            if(setdoMenu[c].setdoname == setdoList.setdoname){
+                                samename=1;
+                            setdoMenu[c].setdoMany = parseInt(setdoMenu[c].setdoMany)+parseInt(setdoList.setdoMany);
+                            } 
+                     }
+                    if(samename!=1){
+                        setdoMenu.push(setdoList);
+                    }
                 }
-                if(samename!=1){
-                    setdoMenu.push(setdoList);
-                }
-                }else{
+                else
+                {
                     setdoMenu.push(setdoList);
                 }
                 // setdoMenu.push(setdoList);
