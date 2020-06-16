@@ -57,10 +57,11 @@
                     <h2 class="memHealthDataShowTitle">基本資料</h2>
                     <div class="memHealthDataShowDataBox">
                         <p>性別：{{memData.memGender}}</p>
-                        <p>身高：{{memHealth[0].healNewheight}} cm</p>
-                        <p>體重：{{memHealth[0].healNewWeight}} kg</p>
-                        <p>BMI：{{Math.round(memHealth[0].healNewWeight/Math.pow(memHealth[0].healNewheight/100,2))}}</p>
-                        <p>最後更新日期：{{memHealth[0].healLastTime}}
+                        <!-- 避免還沒接收檔案時就渲染會報錯 -->
+                        <p v-if='memHealth[0]'>身高：{{memHealth[0].healNewheight}} cm</p>
+                        <p v-if='memHealth[0]'>體重：{{memHealth[0].healNewWeight}} kg</p>
+                        <p v-if='memHealth[0]'>BMI：{{Math.round(memHealth[0].healNewWeight/Math.pow(memHealth[0].healNewheight/100,2))}}</p>
+                        <p v-if='memHealth[0]'>最後更新日期：{{memHealth[0].healLastTime}}
                         </p>
                     </div>
                 </div>
@@ -305,7 +306,7 @@
                 <div class="memContentOrderListBuyAgainBox" v-for='order in memOrder' v-if='order.orderId == nowDataSetNumber'>
                     <h3 v-if='order.orderStatus == 4'>訂單已完成，再次選購請點選下面按鈕</h3>
                     <h3 v-else>訂單尚未完成，待完成後即可再次選購</h3>
-                    <div class="memContentOrderListBuyAgainBtn" v-if='order.orderStatus == 4'>
+                    <div class="memContentOrderListBuyAgainBtn" v-if='order.orderStatus == 4' @click='memBuyAgain'>
                         再買一次
                     </div>
                 </div>
@@ -364,7 +365,7 @@
             <div v-for='health in memHealth' v-if='health.healId == nowDataHealthNumber'>
                 <div class="memContentHealthListHeader">
                     <p class="memHealthListHeaderGoBackBtn" @click='GoBackToHealthContent'><span><</span>回上一頁</p>
-                    <h3>健康分析測驗結果</h3>
+                    <h3>健康測驗結果</h3>
                     <p>健康分析編號：<span>H{{nowDataHealthNumber}}</span></p>
                 </div>
                 <div class="memContentHealthListMainBox">
@@ -403,7 +404,7 @@
                                 <p>{{set.setInfo}}</p>
                             </div>
                         </div>
-                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memSad' :data-setId='set.setId'>加入購物車</div>
+                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memHot' :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
                     </div>
                     <div class="memHealthListSetBox" v-if='health.healClass == 1'>
                         <div class='memHealthListSet' v-for='set in memSetProduct' v-if='set.setId == memCold'>
@@ -413,7 +414,7 @@
                                 <p>{{set.setInfo}}</p>
                             </div>
                         </div>
-                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memSad' :data-setId='set.setId'>加入購物車</div>
+                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memCold' :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
                     </div>
                     <div class="memHealthListSetBox" v-if='health.healClass == 2'>
                         <div class='memHealthListSet' v-for='set in memSetProduct' v-if='set.setId == memThin'>
@@ -423,7 +424,7 @@
                                 <p>{{set.setInfo}}</p>
                             </div>
                         </div>
-                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memSad' :data-setId='set.setId'>加入購物車</div>
+                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memThin' :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
                     </div>
                     <div class="memHealthListSetBox" v-if='health.healClass == 3'>
                         <div class='memHealthListSet' v-for='set in memSetProduct' v-if='set.setId == memFat'>
@@ -433,7 +434,7 @@
                                 <p>{{set.setInfo}}</p>
                             </div>
                         </div>
-                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memSad' :data-setId='set.setId'>加入購物車</div>
+                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memFat' :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
                     </div>
                     <div class="memHealthListSetBox" v-if='health.healClass == 4'>
                         <div class='memHealthListSet' v-for='set in memSetProduct' v-if='set.setId == memHappy'>
@@ -443,7 +444,7 @@
                                 <p>{{set.setInfo}}</p>
                             </div>
                         </div>
-                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memSad' :data-setId='set.setId'>加入購物車</div>
+                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memHappy' :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
                     </div>
                     <div class="memHealthListSetBox" v-if='health.healClass == 5'>
                         <div class='memHealthListSet' v-for='set in memSetProduct' v-if='set.setId == memSad'>
@@ -453,7 +454,7 @@
                                 <p>{{set.setInfo}}</p>
                             </div>
                         </div>
-                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memSad' :data-setId='set.setId'>加入購物車</div>
+                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memSad' :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
                     </div>
                     <div class="memHealthListLine"></div>
                     <div class="memHealthListTitle">
@@ -464,7 +465,7 @@
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
-                                <div class="memHealthListOtherListBtn">加入購物車</div>
+                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>加入購物車</div>
                             </div>
                         </div>
                     </div>
@@ -473,7 +474,7 @@
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
-                                <div class="memHealthListOtherListBtn">加入購物車</div>
+                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>加入購物車</div>
                             </div>
                         </div>
                     </div>
@@ -482,7 +483,7 @@
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
-                                <div class="memHealthListOtherListBtn">加入購物車</div>
+                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>加入購物車</div>
                             </div>
                         </div>
                     </div>
@@ -491,7 +492,7 @@
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
-                                <div class="memHealthListOtherListBtn">加入購物車</div>
+                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>加入購物車</div>
                             </div>
                         </div>
                     </div>
@@ -500,7 +501,7 @@
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
-                                <div class="memHealthListOtherListBtn">加入購物車</div>
+                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>加入購物車</div>
                             </div>
                         </div>
                     </div>
@@ -509,7 +510,7 @@
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
-                                <div class="memHealthListOtherListBtn">加入購物車</div>
+                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>加入購物車</div>
                             </div>
                         </div>
                     </div>
