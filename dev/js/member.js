@@ -1,64 +1,6 @@
 window.addEventListener('load',gogoPower);
 
 function gogoPower(){
-    // 第一次ajax 在vue 初始化時就執行並抓取會員資料 健康分析跟訂單資料
-    let memData = {
-        memId : 10001,
-        memEmail : 'f1020@gmail.com',
-        memPsw : 'a1234567A',
-        memName : '黃阿炳',
-        memScore : 1020,
-        memImage : './images/member/rcc_author3.jpg',
-        memAddr : '桃園市中大路200號',
-        memPhone : '0922222222',
-        memHeight :178.1,
-        memWeight :65.4,
-        memGender : '男',
-        memSignIntime: '2020-06-12 15:20:00'
-    }
-    let memOrder = [{
-        orderId: 10002,
-        orderTotalPrice: 800,
-        orderStatus: 3,
-        orderClass:0
-    },{
-        orderId: 10001,
-        orderTotalPrice: 600,
-        orderStatus: 4,
-        orderClass:1
-    }];
-    let memHealth = [{
-        healId:10009,
-        healClass : 1,
-        healReview : '有點熱喔你有點熱喔你有點熱喔你有點熱喔你',
-        healColdHot : 85,
-        healhealth : 84,
-        healStomach : 77,
-        healLastTime : '2020-05-15 10:06:20',
-        healNewWeight : 65.4,
-        healNewheight : 178.1
-    },{
-        healId:10003,
-        healClass : 1,
-        healReview : '有點熱喔你有點熱喔你有點熱喔你有點熱喔你',
-        healColdHot : 77,
-        healhealth : 48,
-        healStomach : 82,
-        healLastTime : '2020-05-12 12:06:20',
-        healNewWeight : 69.4,
-        healNewheight : 178.1
-    },{
-        healId:10001,
-        healClass : 2,
-        healReview : '有點肥喔你有點肥喔你有點肥喔你有點肥喔你',
-        healColdHot : 63,
-        healhealth : 27,
-        healStomach : 42,
-        healLastTime : '2020-05-10 10:06:20',
-        healNewWeight : 98.4,
-        healNewheight : 178.1
-    }]
-
     
     let memHeaderBtn = document.getElementsByClassName('memHeaderBtn');
     let memContent = document.getElementsByClassName('memContent');
@@ -67,22 +9,14 @@ function gogoPower(){
     let memHealthHealth = [];
     let memHealthStomach = [];
     // ajax後寫入
-    for(let i = 0; i<memHealth.length;i++){
-        let objColdHot = {x:new Date(memHealth[i].healLastTime),y:memHealth[i].healColdHot};
-        let objhealth = {x:new Date(memHealth[i].healLastTime),y:memHealth[i].healhealth};
-        let objStomach = {x:new Date(memHealth[i].healLastTime),y:memHealth[i].healStomach};
-        memHealthColdHot.push(objColdHot);
-        memHealthHealth.push(objhealth);
-        memHealthStomach.push(objStomach);
-    }
 
     
     let memVm = new Vue({
         el: '#memApp',
         data: {
-            memData,
-            memOrder,
-            memHealth,
+            memData:{},
+            memOrder:[],
+            memHealth:[],
             nowDataSetNumber:0,
             nowDataHealthNumber:0,
             memSetOrder:[],
@@ -112,107 +46,18 @@ function gogoPower(){
                 memHeaderBtn[Number(changeCount)].classList.add('memHeaderBtnOrange');
                 if(Number(changeCount) == 1){
                     // 第二次Ajax 取得套餐等orderList資訊並丟入Vue的data內
-                    let memSetOrder = [{
-                        setName: '排骨飯',
-                        setoPrice: 240,
-                        setoAmount: 3,
-                        setImage: 'https://fakeimg.pl/100/',
-                        setoBelongOrder: 10001,
-                        setClass : 0
-                    },{
-                        setName: '雞腿飯',
-                        setoPrice: 85,
-                        setoAmount: 1,
-                        setImage: 'https://fakeimg.pl/100/',
-                        setoBelongOrder: 10001,
-                        setClass : 1
-                    },{
-                        setName: '排骨飯',
-                        setoPrice: 160,
-                        setoAmount: 2,
-                        setImage: 'https://fakeimg.pl/100/',
-                        setoBelongOrder: 10002,
-                        setClass : 0
-                    },{
-                        setName: '魚排飯',
-                        setoPrice: 300,
-                        setoAmount: 3,
-                        setImage: 'https://fakeimg.pl/100/',
-                        setoBelongOrder: 10002,
-                        setClass : 0
-                    },{
-                        setName: '雞腿飯',
-                        setoPrice: 170,
-                        setoAmount: 2,
-                        setImage: 'https://fakeimg.pl/100/',
-                        setoBelongOrder: 10002,
-                        setClass : 1
-                    }]
-                    let memOtherOrder = [{
-                        opName: '紅茶',
-                        ooPrice: 25,
-                        ooAmount: 1,
-                        opImage: 'https://fakeimg.pl/100/',
-                        ooBelongOrder: 10001
-                    },{
-                        opName: '綠茶',
-                        ooPrice: 25,
-                        ooAmount: 1,
-                        opImage: 'https://fakeimg.pl/100/',
-                        ooBelongOrder: 10001
-                    },{
-                        opName: '人參雞精',
-                        ooPrice: 110,
-                        ooAmount: 1,
-                        opImage: 'https://fakeimg.pl/100/',
-                        ooBelongOrder: 10001
-                    },{
-                        opName: '紅茶',
-                        ooPrice: 25,
-                        ooAmount: 1,
-                        opImage: 'https://fakeimg.pl/100/',
-                        ooBelongOrder: 10002
-                    },{
-                        opName: '綠茶',
-                        ooPrice: 25,
-                        ooAmount: 1,
-                        opImage: 'https://fakeimg.pl/100/',
-                        ooBelongOrder: 10002
-                    }]
-                    let memSingleOrder = [{
-                        soRice: '白米',
-                        sideDishes1: '番茄炒蛋',
-                        sideDishes2: '三杯杏鮑菇',
-                        sideDishes3: '竹筍炒肉絲',
-                        mainfood: '滷排骨',
-                        soPrice: '130',
-                        soAmount: 2,
-                        soBelongOrder: 10001,
-                        soImg: 'https://fakeimg.pl/100/'
-                    },{
-                        soRice: '白米',
-                        sideDishes1: '清蒸毛豆',
-                        sideDishes2: '花椰菜炒蝦仁',
-                        sideDishes3: '咖哩',
-                        mainfood: '清蒸鱈魚',
-                        soPrice: '140',
-                        soAmount: 3,
-                        soBelongOrder: 10001,
-                        soImg: 'https://fakeimg.pl/100/'
-                    },{
-                        soRice: '白米',
-                        sideDishes1: '番茄炒蛋',
-                        sideDishes2: '三杯杏鮑菇',
-                        sideDishes3: '竹筍炒肉絲',
-                        mainfood: '滷排骨',
-                        soPrice: '130',
-                        soAmount: 2,
-                        soImg: 'https://fakeimg.pl/100/',
-                        soBelongOrder: 10002
-                    }]
-                    this.memSetOrder = memSetOrder;
-                    this.memOtherOrder = memOtherOrder;
-                    this.memSingleOrder = memSingleOrder;
+                    $.getJSON("../dev/js/modules/memSetOrder.json")
+                    .then((data)=>{
+                        this.memSetOrder = data;
+                    });
+                    $.getJSON("../dev/js/modules/memOtherOrder.json")
+                    .then((data)=>{
+                        this.memOtherOrder = data;
+                    });
+                    $.getJSON("../dev/js/modules/memSingleOrder.json")
+                    .then((data)=>{
+                        this.memSingleOrder = data;
+                    });
 
                 }
                 if(Number(changeCount) == 2){
@@ -235,6 +80,9 @@ function gogoPower(){
                 }
             },
             showOrderList(e){
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 200);
                 let orderId = e.target.dataset.order;
                 // 現在的訂單4
                 this.nowDataSetNumber = Number(orderId);
@@ -251,158 +99,57 @@ function gogoPower(){
                 for(let j = 0; j<memContent.length;j++){
                     memContent[j].classList.add('memContentNone');
                 }
+
             },
             showHealthList(e){
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 200);
                 let healthId = e.target.dataset.healthid;
                 console.log(healthId);
                 this.nowDataHealthNumber = Number(healthId);
                 // ajax 套餐及其他商品資料 並丟入vue的data內
-                let memSetProduct = [{
-                    setId: 1001,
-                    setName: '鱈魚便當',
-                    setPrice: 130,
-                    setCalories:800,
-                    setColdHot: 21,  //最冷
-                    setHealth:96,
-                    setClass:0,
-                    setImage:'https://fakeimg.pl/110/',
-                    setInfo:'寶島食堂嚴選冰島鱈魚，無細刺，肉質滑嫩鮮甜，如雪花般入口即化的綿密感魚肉更富含OMEGA-3即DHA、EPA適合成長中的孩子食用。'
-                },{
-                    setId: 1002,
-                    setName: '雞腿便當',
-                    setPrice: 110,
-                    setCalories:1200,
-                    setColdHot: 83,
-                    setHealth:18,  //最低
-                    setClass:0,
-                    setImage:'https://fakeimg.pl/100/',
-                    setInfo:'很多人說寶島食堂的雞腿很好吃，汁非常多，肉鮮美不柴，外皮金黃酥脆，那是因為我們池上木片便當使用了國產黃金雞，最後再經由師傅的油炸功力讓一隻金黃酥脆多汁又鮮嫩的雞腿能夠送到您的手中。'
-                },{
-                    setId: 1003,
-                    setName: '滷排骨便當',
-                    setPrice: 100,
-                    setCalories:1000,
-                    setColdHot: 83,
-                    setHealth:98,  //最高
-                    setClass:0,
-                    setImage:'https://fakeimg.pl/100/',
-                    setInfo:'寶島食堂獨特的排骨醃料配方，醃料採用數十種配料，醃製入味，再採用大吟釀醬油的醬汁滷出新味道，軟嫩可口。'
-                },{
-                    setId: 1004,
-                    setName: '炸豬排便當',
-                    setPrice: 140,
-                    setCalories:1000,
-                    setColdHot: 96,  //最熱
-                    setHealth:63,  
-                    setClass:1,
-                    setImage:'https://fakeimg.pl/100/',
-                    setInfo:'獨特的里肌醃料配方，當日醃製完畢即放入冷凍庫並在隔日清晨直送各店家，油炸後香濃可口，且無骨，適合小孩子食用。古法秘製，真空加速入味，裹上一層白面紗進入油炸鍋，3分鐘起鍋金黃外皮，肉質扎實'
-                },{
-                    setId: 1005,
-                    setName: '香腸便當',
-                    setPrice: 120,
-                    setCalories:1600,  //最肥
-                    setColdHot: 57,  
-                    setHealth:44,  
-                    setClass:1,
-                    setImage:'https://fakeimg.pl/100/',
-                    setInfo:'使用乾淨的冷油下去油炸，外觀紅潤有光澤，內部更是口感扎實，不禁讓人懷念起兒時的好味道。'
-                },{
-                    setId: 1006,
-                    setName: '鮭魚便當',
-                    setPrice: 120,
-                    setCalories:600,  //最瘦
-                    setColdHot: 41,  
-                    setHealth:89,  
-                    setClass:1,
-                    setImage:'https://fakeimg.pl/130/',
-                    setInfo:'鮭魚飯便當：嚴選智利紅鮭，令人食指大動的粉橘色魚肉咬下去清爽健康的魚油在口腔裡娉然散開餘韻纏繞，欲罷不能，一口接著一口！非常適合正在發育的小朋友品嘗。'
-                }]
-                let memOtherProduct=[{
-                    opId:1001,
-                    opName:'薑母茶',
-                    opPrice:60,
-                    opClass:0,
-                    opImage:'https://fakeimg.pl/100/'
-                },{
-                    opId:1002,
-                    opName:'蔬果汁',
-                    opPrice:45,
-                    opClass:0,
-                    opImage:'https://fakeimg.pl/100/'
-                },{
-                    opId:1003,
-                    opName:'綠茶',
-                    opPrice:25,
-                    opClass:0,
-                    opImage:'https://fakeimg.pl/100/'
-                },{
-                    opId:1004,
-                    opName:'鳳梨',
-                    opPrice:30,
-                    opClass:1,
-                    opImage:'https://fakeimg.pl/100/'
-                },{
-                    opId:1005,
-                    opName:'西瓜',
-                    opPrice:30,
-                    opClass:1,
-                    opImage:'https://fakeimg.pl/100/'
-                },{
-                    opId:1006,
-                    opName:'蘋果',
-                    opPrice:30,
-                    opClass:1,
-                    opImage:'https://fakeimg.pl/100/'
-                },{
-                    opId:1007,
-                    opName:'益生菌',
-                    opPrice:80,
-                    opClass:2,
-                    opImage:'https://fakeimg.pl/100/'
-                },{
-                    opId:1008,
-                    opName:'人參雞精',
-                    opPrice:80,
-                    opClass:2,
-                    opImage:'https://fakeimg.pl/100/'
-                },]
-
-                this.memSetProduct = memSetProduct;
-                this.memOtherProduct = memOtherProduct;
-                // 找出Set中 冷、熱、健康好壞、BMI高低的東西
-                let cold = 100;
-                let hot = 0;
-                let sad = 100;
-                let happy = 0;
-                let fat = 0;
-                let thin = 10000;
-                for(let i =0;i<this.memSetProduct.length;i++){
-                    if(this.memSetProduct[i].setColdHot < cold){
-                        this.memCold = this.memSetProduct[i].setId
-                        cold = this.memSetProduct[i].setColdHot
+                $.getJSON("../dev/js/modules/memSetProduct.json")
+                .then((data)=>{
+                    this.memSetProduct = data;
+                    // 找出Set中 冷、熱、健康好壞、BMI高低的東西
+                    let cold = 100;
+                    let hot = 0;
+                    let sad = 100;
+                    let happy = 0;
+                    let fat = 0;
+                    let thin = 10000;
+                    for(let i =0;i<this.memSetProduct.length;i++){
+                        if(this.memSetProduct[i].setColdHot < cold){
+                            this.memCold = this.memSetProduct[i].setId
+                            cold = this.memSetProduct[i].setColdHot
+                        }
+                        if(this.memSetProduct[i].setColdHot > hot){
+                            this.memHot = this.memSetProduct[i].setId
+                            hot = this.memSetProduct[i].setColdHot
+                        }
+                        if(this.memSetProduct[i].setHealth < sad){
+                            this.memSad = this.memSetProduct[i].setId
+                            sad = this.memSetProduct[i].setHealth
+                        }
+                        if(this.memSetProduct[i].setHealth > happy){
+                            this.memHappy = this.memSetProduct[i].setId
+                            happy = this.memSetProduct[i].setHealth
+                        }
+                        if(this.memSetProduct[i].setCalories > fat){
+                            this.memFat = this.memSetProduct[i].setId
+                            fat = this.memSetProduct[i].setCalories
+                        }
+                        if(this.memSetProduct[i].setCalories < thin){
+                            this.memThin = this.memSetProduct[i].setId
+                            thin = this.memSetProduct[i].setCalories
+                        }
                     }
-                    if(this.memSetProduct[i].setColdHot > hot){
-                        this.memHot = this.memSetProduct[i].setId
-                        hot = this.memSetProduct[i].setColdHot
-                    }
-                    if(this.memSetProduct[i].setHealth < sad){
-                        this.memSad = this.memSetProduct[i].setId
-                        sad = this.memSetProduct[i].setHealth
-                    }
-                    if(this.memSetProduct[i].setHealth > happy){
-                        this.memHappy = this.memSetProduct[i].setId
-                        happy = this.memSetProduct[i].setHealth
-                    }
-                    if(this.memSetProduct[i].setCalories > fat){
-                        this.memFat = this.memSetProduct[i].setId
-                        fat = this.memSetProduct[i].setCalories
-                    }
-                    if(this.memSetProduct[i].setCalories < thin){
-                        this.memThin = this.memSetProduct[i].setId
-                        thin = this.memSetProduct[i].setCalories
-                    }
-                }
+                });
+                $.getJSON("../dev/js/modules/memOtherProduct.json")
+                .then((data)=>{
+                    this.memOtherProduct = data;
+                });
                 // console.log(this.memCold,this.memHot,this.memSad,this.memHappy,this.memFat,this.memThin)
                 // 跳轉至healthList的content
                 document.getElementById('memContentHealthList').classList.remove('memContentNone');
@@ -420,6 +167,217 @@ function gogoPower(){
             },
             memStartGamesGo(){
                 game.startGame();
+            },
+            memBuyAgain(){
+                // single
+                let single = [];
+                let setA = [];
+                let other = [];
+                // 跟子鈞討論 1.紀錄總價格 2.數量？
+                if(localStorage['singleOrder']){
+                    single = JSON.parse(localStorage['singleOrder']);
+                    for(let i = 0; i < this.memSingleOrder.length; i++){
+                        if(this.memSingleOrder[i].soBelongOrder == this.nowDataSetNumber){
+                            single.push({
+                                "meat":this.memSingleOrder[i].mainfood,
+                                "rice":this.memSingleOrder[i].soRice,
+                                "single1":this.memSingleOrder[i].sideDishes1,
+                                "single2":this.memSingleOrder[i].sideDishes2,
+                                "single3":this.memSingleOrder[i].sideDishes3,
+                                "soPrice":this.memSingleOrder[i].soPrice,
+                                "soImg":this.memSingleOrder[i].soImg
+                            })
+                        }
+                    }
+                    localStorage['singleOrder'] = JSON.stringify(single);
+                }else{
+                    for(let i = 0; i < this.memSingleOrder.length; i++){
+                        if(this.memSingleOrder[i].soBelongOrder == this.nowDataSetNumber){
+                            single.push({
+                                "meat":this.memSingleOrder[i].mainfood,
+                                "rice":this.memSingleOrder[i].soRice,
+                                "single1":this.memSingleOrder[i].sideDishes1,
+                                "single2":this.memSingleOrder[i].sideDishes2,
+                                "single3":this.memSingleOrder[i].sideDishes3,
+                                "soPrice":this.memSingleOrder[i].soPrice,
+                                "soImg":this.memSingleOrder[i].soImg
+                            })
+                        }
+                    }
+                    localStorage['singleOrder'] = JSON.stringify(single);
+                }
+
+                // set
+                if(localStorage['setdoMenuList']){
+                    setA = JSON.parse(localStorage['setdoMenuList']);
+                    for(let i = 0; i < this.memSetOrder.length; i++){
+                        if(this.memSetOrder[i].setoBelongOrder == this.nowDataSetNumber){
+                            let check = 0;
+                            for(let j = 0;j < setA.length;j++){
+                                if(setA[j].setdoName == this.memSetOrder[i].setName){
+                                    check ++;
+                                }
+                            }
+                            if(check > 0){
+                                for(let j = 0;j < setA.length;j++){
+                                    if(setA[j].setdoName == this.memSetOrder[i].setName){
+                                        setA[j].setdoMany += this.memSetOrder[i].setoAmount
+                                    }
+                                }
+                            }else{
+                                setA.push({
+                                    "setdoMany":this.memSetOrder[i].setoAmount,
+                                    "setdoId":this.memSetOrder[i].setId,
+                                    "setdoImg":this.memSetOrder[i].setImage,
+                                    "setdoName":this.memSetOrder[i].setName,
+                                    "setdoPrice":this.memSetOrder[i].setoPrice / this.memSetOrder[i].setoAmount
+                                })
+                            }
+                        }
+                    }
+                    localStorage['setdoMenuList'] = JSON.stringify(setA);
+                }else{
+                    for(let i = 0; i < this.memSetOrder.length; i++){
+                        if(this.memSetOrder[i].setoBelongOrder == this.nowDataSetNumber){
+                            setA.push({
+                                "setdoMany":this.memSetOrder[i].setoAmount,
+                                "setdoId":this.memSetOrder[i].setId,
+                                "setdoImg":this.memSetOrder[i].setImage,
+                                "setdoName":this.memSetOrder[i].setName,
+                                "setdoPrice":this.memSetOrder[i].setoPrice / this.memSetOrder[i].setoAmount
+                            })
+                        }
+                    }
+                    localStorage['setdoMenuList'] = JSON.stringify(setA);
+                }
+
+                //other
+                if(localStorage['otherdoMenuList']){
+                    other = JSON.parse(localStorage['otherdoMenuList']);
+                    for(let i = 0; i < this.memOtherOrder.length; i++){
+                        if(this.memOtherOrder[i].ooBelongOrder == this.nowDataSetNumber){
+                            let check = 0;
+                            for(let j = 0;j < other.length;j++){
+                                if(other[j].otherdoName == this.memOtherOrder[i].opName){
+                                    check ++;
+                                }
+                            }
+                            if(check > 0){
+                                for(let j = 0;j < other.length;j++){
+                                    if(other[j].otherdoName == this.memOtherOrder[i].opName){
+                                        other[j].otherdoMany += this.memOtherOrder[i].ooAmount
+                                    }
+                                }
+                            }else{
+                                other.push({
+                                    "otherdoMany":this.memOtherOrder[i].ooAmount,
+                                    "otherdoId":this.memOtherOrder[i].opId,
+                                    "otherdoImg":this.memOtherOrder[i].opImage,
+                                    "otherdoName":this.memOtherOrder[i].opName,
+                                    "otherdoPrice":this.memOtherOrder[i].ooPrice / this.memOtherOrder[i].ooAmount
+                                })
+                            }
+                        }
+                    }
+                    localStorage['otherdoMenuList'] = JSON.stringify(other);
+                }else{
+                    for(let i = 0; i < this.memOtherOrder.length; i++){
+                        if(this.memOtherOrder[i].ooBelongOrder == this.nowDataSetNumber){
+                            other.push({
+                                "otherdoMany":this.memOtherOrder[i].ooAmount,
+                                "otherdoId":this.memOtherOrder[i].opId,
+                                "otherdoImg":this.memOtherOrder[i].opImage,
+                                "otherdoName":this.memOtherOrder[i].opName,
+                                "otherdoPrice":this.memOtherOrder[i].ooPrice / this.memOtherOrder[i].ooAmount
+                            })
+                        }
+                    }
+                    localStorage['otherdoMenuList'] = JSON.stringify(other);
+                }
+            },
+            AddOtherToCart(e){
+                let id = Number(e.target.dataset.count)
+                console.log(id)
+                let other = []
+                if(localStorage['otherdoMenuList']){
+                    other = JSON.parse(localStorage['otherdoMenuList']);
+                    if(other.some(function(item){return item.otherdoId == id})){
+                        for(let i = 0;i<other.length;i++){
+                            if(other[i].otherdoId == id){
+                                other[i].otherdoMany ++;
+                            }
+                        }
+                    }else{
+                        for(let i = 0; i < this.memOtherProduct.length; i++){
+                            if(this.memOtherProduct[i].opId == id){
+                                other.push({
+                                    "otherdoMany":1,
+                                    "otherdoId":this.memOtherProduct[i].opId,
+                                    "otherdoImg":this.memOtherProduct[i].opImage,
+                                    "otherdoName":this.memOtherProduct[i].opName,
+                                    "otherdoPrice":this.memOtherProduct[i].opPrice
+                                })
+                            }
+                        }
+                    }
+                    localStorage['otherdoMenuList'] = JSON.stringify(other);
+                    // console.log(other.some(function(item){return item.otherdoId == id}))
+                }else{
+                    for(let i = 0; i < this.memOtherProduct.length; i++){
+                        if(this.memOtherProduct[i].opId == id){
+                            other.push({
+                                "otherdoMany":1,
+                                "otherdoId":this.memOtherProduct[i].opId,
+                                "otherdoImg":this.memOtherProduct[i].opImage,
+                                "otherdoName":this.memOtherProduct[i].opName,
+                                "otherdoPrice":this.memOtherProduct[i].opPrice
+                            })
+                        }
+                    }
+                    localStorage['otherdoMenuList'] = JSON.stringify(other);
+                }
+            },
+            AddSetToCart(e){
+                let id = Number(e.target.dataset.count)
+                console.log(id)
+                let setA = [];
+                if(localStorage['setdoMenuList']){
+                    setA = JSON.parse(localStorage['setdoMenuList']);
+                    if(setA.some(function(item){return item.setdoId == id})){
+                        for(let i = 0;i<setA.length;i++){
+                            if(setA[i].setdoId == id){
+                                setA[i].setdoMany ++;
+                            }
+                        }
+                    }else{
+                        for(let i = 0; i < this.memSetProduct.length; i++){
+                            if(this.memSetProduct[i].setId == id){
+                                setA.push({
+                                    "setdoMany":1,
+                                    "setdoId":this.memSetProduct[i].setId,
+                                    "setdoImg":this.memSetProduct[i].setImage,
+                                    "setdoName":this.memSetProduct[i].setName,
+                                    "setdoPrice":this.memSetProduct[i].setPrice
+                                })
+                            }
+                        }
+                    }
+                    localStorage['setdoMenuList'] = JSON.stringify(setA);
+                }else{
+                    for(let i = 0; i < this.memSetProduct.length; i++){
+                        if(this.memSetProduct[i].setId == id){
+                            setA.push({
+                                "setdoMany":1,
+                                "setdoId":this.memSetProduct[i].setId,
+                                "setdoImg":this.memSetProduct[i].setImage,
+                                "setdoName":this.memSetProduct[i].setName,
+                                "setdoPrice":this.memSetProduct[i].setPrice
+                            })
+                        }
+                    }
+                    localStorage['setdoMenuList'] = JSON.stringify(setA);
+                }
+
             }
         },
         computed: {
@@ -524,10 +482,40 @@ function gogoPower(){
                 }
             },
         },
+        mounted() {
+            // ajax memData
+            $.getJSON("../dev/js/modules/memData.json")
+            .then((data)=>{
+                this.memData = data;
+            });
+            // ajax memOrder
+            $.getJSON("../dev/js/modules/memOrder.json")
+            .then((data)=>{
+                this.memOrder = data;
+                // console.log(data)
+            });
+            // ajax memHealth 並且 畫折線圖
+            $.getJSON("../dev/js/modules/memHealth.json")
+            .then((data)=>{
+                this.memHealth = data;
+                for(let i = 0; i<this.memHealth.length;i++){
+                    let objColdHot = {x:new Date(this.memHealth[i].healLastTime),y:this.memHealth[i].healColdHot};
+                    let objhealth = {x:new Date(this.memHealth[i].healLastTime),y:this.memHealth[i].healhealth};
+                    let objStomach = {x:new Date(this.memHealth[i].healLastTime),y:this.memHealth[i].healStomach};
+                    memHealthColdHot.push(objColdHot);
+                    memHealthHealth.push(objhealth);
+                    memHealthStomach.push(objStomach);
+                }
+                // 生成折線圖
+                document.getElementById("myChart").innerHTML = '';
+                memDrawChartLine(memHealthColdHot,memHealthHealth,memHealthStomach);
+                // console.log(this.memHealth)
+            });
+        },
     })
 
     // chartjs
-    function memDrawChartLine(){
+    function memDrawChartLine(memHealthColdHot,memHealthHealth,memHealthStomach){
         let ctx = document.getElementById("myChart").getContext('2d');
         const colors = {
             green: {
@@ -803,8 +791,8 @@ function gogoPower(){
 
 
     // 生成折線圖
-    document.getElementById("myChart").innerHTML = '';
-    memDrawChartLine();
+    // document.getElementById("myChart").innerHTML = '';
+    // memDrawChartLine();
 
     // typeit
     function tomotoTypeIt(){
