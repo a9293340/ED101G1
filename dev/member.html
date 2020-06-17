@@ -101,14 +101,14 @@
                                 <span v-if='Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) > 24' style="color: brown;">過胖</span>
                                 /體質：
                                 <!-- 體質判斷 -->
-                                <span v-if='health.healColdHot >= 70' style="color: red;">偏燥</span>
+                                <span v-if='health.healColdHot >= 60' style="color: red;">偏燥</span>
                                 <span v-if='health.healColdHot <= 30' style="color: royalblue;">偏寒</span>
-                                <span v-if='health.healColdHot < 70 && health.healColdHot > 30'>正常</span>
+                                <span v-if='health.healColdHot < 60 && health.healColdHot > 30'>正常</span>
                                 /健康狀況：
                                 <!-- 健康狀況判斷 -->
-                                <span v-if='(health.healhealth + health.healStomach)/2 >= 40 && (health.healhealth + health.healStomach)/2 <= 70'>正常</span>
+                                <span v-if='(health.healhealth + health.healStomach)/2 >= 40 && (health.healhealth + health.healStomach)/2 <= 60'>正常</span>
                                 <span v-if='(health.healhealth + health.healStomach)/2 < 40' style="color: brown;">略差</span>
-                                <span v-if='(health.healhealth + health.healStomach)/2 > 70' style="color: green;">超棒</span>
+                                <span v-if='(health.healhealth + health.healStomach)/2 > 60' style="color: green;">超棒</span>
                             </p>
                         </div>
                     </div>
