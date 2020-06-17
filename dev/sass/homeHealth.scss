@@ -4,10 +4,11 @@
   padding:0;
   margin:0;
   font-size: 0;
+  height: 100vh;
   .homeBlackBoardContainer {
     max-width: 100%;
     width: 100%;
-    height:900px;
+    height:100%;
     background-image: url("../images/homeHealth/homeBlackBoard.jpg");
     .homeBlackBoardTit{
       // border: 1px solid greenyellow;
@@ -29,10 +30,10 @@
       width: 100%;
       font-size: $fzMd;
       letter-spacing: 1px;
-      text-align: left;
+      padding: 40px 0;
       }
     }
-    .order{
+    .homeOrder{
       width: 1200px;
       margin: 0 auto;
       height: 50%;
@@ -41,6 +42,7 @@
       box-shadow: 5px 5px 10px $black;
       background:$white;
       opacity: 0.5;
+      padding: 20px;
       .homeNum,.homeSeparate,#numberTotal{
       display: inline-block;
       }
@@ -53,21 +55,18 @@
       font-size: 1.5rem;
       margin: auto;
       text-align: left;
-      color:$white;
+      color:$green;
+      font-weight: 900;
     }
     .homeQuesionBox{
       color: $white;
       font-size: 1rem;
       border: 1px solid $black;
-      label{
-      border: 1px solid red;
-      }
-      label.test{
-        margin-left: 50px;
-      }
-      label.test2{
-        width: 200px;
-        display: inline-block;
+      padding: 30px 0;
+      .homeTest{
+      margin-left: 50px;
+      width: 200px;
+      display: inline-block;
       }
     }
    }
