@@ -1,17 +1,17 @@
-//定义一个名为 button-counter 的新组件
-Vue.component('button-counter', {
-    data: function () { 
-      return {
-        count: 0
-      } 
-    },
-    template: '<div class="count"><button v-on:click="count++;">+</button><span class="countvalue">{{count}}</span><button v-on:click="if(count>0){count--;}">-</button><img class="plusincart" src=https://fakeimg.pl/20/></div>'
+// //定义一个名为 button-counter 的新组件
+// Vue.component('button-counter', {
+//     data: function () { 
+//       return {
+//         count: 0
+//       } 
+//     },
+//     template: '<div class="count"><button v-on:click="count++;">+</button><span class="countvalue">{{count}}</span><button v-on:click="if(count>0){count--;}">-</button><img class="plusincart" src=https://fakeimg.pl/20/></div>'
  
-  }) 
+//   }) 
 
 let orderCart = []; 
-
-
+let setdoMenu=[];
+let singleNum = 0;
 
 
 
@@ -126,7 +126,7 @@ let single = [{
 {
     id:'3',
     name:"咖哩",
-    img:"./images/bandon_include/curry.jpg",
+    img:"./images/bandon_include/curry.png",
     price:'700',
     cal:"300cal",
     text:""
@@ -134,7 +134,7 @@ let single = [{
 {
     id:'4',
     name:"花椰菜炒蝦仁",
-    img:"./images/bandon_include/flower.jpg",
+    img:"./images/bandon_include/friedShrimp.png",
     price:'700',
     cal:"300cal",
     text:"青花菜是十字花科蔬菜，營養價值非常高，是超級食物之一。青花菜放入沸水快速汆燙撈起，營養不流失，搭配蝦仁拌炒就是一道色香味俱全的料理。"
@@ -183,7 +183,7 @@ let single = [{
 let setdo=[{
     id:'1',
     name:"清蒸鱈魚便當",
-    img:"https://fakeimg.pl/200/",
+    img:"./images/bandon_include/setdo1.jpg",
     price:'100',
     count:"1",
     text:'寶島食堂嚴選冰島鱈魚，無細刺，肉質滑嫩鮮甜，如雪花般入口即化的綿密感魚肉更富含OMEGA-3即DHA、EPA適合成長中的孩子食用。'
@@ -191,7 +191,7 @@ let setdo=[{
 {
     id:'2',
     name:"紅燒獅子頭便當",
-    img:"https://fakeimg.pl/200/",
+    img:"./images/bandon_include/setdo2.jpg",
     price:'100',
     count:"1",
     text:''
@@ -200,11 +200,32 @@ let setdo=[{
 {
     id:'3',
     name:"經典滷排骨便當",
-    img:"https://fakeimg.pl/200/",
+    img:"./images/bandon_include/setdo3.jpg",
     price:'100',
     count:"1",
     text:'寶島食堂獨特的排骨醃料配方，醃料採用數十種配料，醃製入味，再採用大吟釀醬油的醬汁滷出新味道，軟嫩可口。'
 
+},
+{
+    id:'4',
+    name:"母親節便當",
+    img:"./images/bandon_include/active1.jpg",
+    price:'100',
+    count:"1"
+},
+{
+    id:'5',
+    name:"父親節便當",
+    img:"./images/bandon_include/active2.jpg",
+    price:'100',
+    count:"1"
+},
+{
+    id:'6',
+    name:"端午節便當",
+    img:"./images/bandon_include/active3.jpg",
+    price:'100',
+    count:"1"
 }]
 
 
@@ -212,21 +233,21 @@ let setdo=[{
 let active=[{
     id:'1',
     name:"母親節便當",
-    img:"https://fakeimg.pl/200/",
+    img:"./images/bandon_include/active1.jpg",
     price:'100',
     count:"1"
 },
 {
     id:'2',
     name:"父親節便當",
-    img:"https://fakeimg.pl/200/",
+    img:"./images/bandon_include/active2.jpg",
     price:'100',
     count:"1"
 },
 {
     id:'3',
     name:"端午節便當",
-    img:"https://fakeimg.pl/200/",
+    img:"./images/bandon_include/active3.jpg",
     price:'100',
     count:"1"
 }]
@@ -363,21 +384,7 @@ var app3 = new Vue({
 })
 
 
-var app4 = new Vue({
-    el:'#buy_app4',  
-    data:{
-        active
-    },methods:{
-        add: function(item) {
-            item.count++;
-        },
-        minus:function (item) {
-            if(item.count>1){
-                item.count--;
-            }
-        }
-    },
-})
+
 
 //錨點 js
 
@@ -448,7 +455,7 @@ function setdolightBox(){
     let A = this.dataset.id;
     console.log(A);
     for(let i = 0;i<setdo.length;i++){
-        if(rice[i].id == Number(A)){
+        if(setdo[i].id == Number(A)){
             document.getElementById('setdolightImg').src = setdo[i].img;
             document.getElementById('setdolightText').innerText = setdo[i].text;
         }
@@ -607,18 +614,6 @@ function closelightBox2(){
     document.getElementsByClassName('box2')[0].style.display='none';
 }
 
-
-//count 值
-
-for(var i = 0; i<9; i++){
-document.getElementsByClassName('plusincart')[i].addEventListener('click',cart)
-}
-function  cart(){
-
-    var countvalue = document.getElementsByClassName('countvalue')[i].innerText;
-    console.log(countvalue);
-}
-
     
 
 
@@ -702,14 +697,15 @@ document.getElementById('incart').addEventListener('click',shoppcar)
 var singleorderlist = new Vue({
     el:'#list',  
     data:{
-        finalsinglelist:[]
+        finalsinglelist:[],
+        finalsetdolist:[]
     },
 })
 
 
 
-
 function shoppcar(){
+
     var rice = localStorage.getItem('ricename');
     var riceprice = localStorage.getItem('riceprice')
     var meat = localStorage.getItem('meatname');
@@ -726,6 +722,7 @@ function shoppcar(){
 // document.getElementById('singlename2').innerText=`${single2}`;
 // document.getElementById('singlename3').innerText=`${single3}`;
 var singleorder= {
+    sNum:`${singleNum}`,
     rice:`${rice}`,
     riceprice:`${riceprice}`,
     meat:`${meat}`,
@@ -738,7 +735,8 @@ var singleorder= {
     single3price:`${singleprice3}`,
  }
 if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!==null){
-
+    singleNum++;
+    localStorage.setItem('singleNum',singleNum);
  orderCart.push(singleorder);
 
 //  for(let i=0; i<orderCart.length; i++){
@@ -764,6 +762,11 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
  console.log(singleorderlist.$data.finalsinglelist);
 
 
+
+
+
+
+
  localStorage.removeItem('ricename');
  localStorage.removeItem('meatname');
  localStorage.removeItem('singlename1');
@@ -776,9 +779,39 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
 
  
  riceshow();
+
+ window.location.reload();
  }else{
      alert('請把便當裝滿喔')
  }
+}
+
+window.onload = function(){
+    for(var h=0; h<singleNum; h++){
+            if(document.getElementById(`b${h}`)){
+    document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
+            }
+    }
+}
+
+
+
+function deletesinglecart(){
+    let A = this.dataset.num;
+    console.log(A);
+    var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
+    for(let i=0; i<finalsinglelist.length; i++){
+
+        if(finalsinglelist[i].sNum ==  Number(A)){
+            finalsinglelist.splice(i,1);
+            orderCart.splice(i,1);
+        }
+    }
+  
+    console.log(finalsinglelist);
+    singleorderlist.$data.finalsinglelist = finalsinglelist;
+    localStorage.setItem('singleOrder', JSON.stringify(finalsinglelist));  
+
 }
 
 
@@ -786,12 +819,22 @@ function setcart(){
     var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
     singleorderlist.$data.finalsinglelist = finalsinglelist;
     orderCart=finalsinglelist; //整個的重點
+    singleNum=localStorage.getItem('singleNum');
     console.log(singleorderlist.$data.finalsinglelist);
    
 }
-
+function setsetdocart(){
+    var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
+    singleorderlist.$data.finalsetdolist = finalsetdolist;
+    setdoMenu=finalsetdolist;
+    console.log(singleorderlist.$data.finalsetdolist);
+}
 if(localStorage.getItem('singleOrder')){ //重點2
 setcart();
+}
+
+if(localStorage.getItem('setdoMenuList')){
+    setsetdocart();
 }
 // var app4 = new Vue({
 //     el:'#buy_app4',  
@@ -820,4 +863,98 @@ setcart();
 // console.log(singleorderlist.$data.finalsinglelist);
 // singleorderlist.$data.finalsinglelist = finalsinglelist;
 // console.log(singleorderlist.$data.finalsinglelist);
+setdocount=[];
+for(var j=0; j < setdo.length;j++){
+    setdocount[j+1]=0;
+    document.getElementById(`setdocountplus${j+1}`).addEventListener('click',setdoplus)
+    document.getElementById(`setdocountminus${j+1}`).addEventListener('click',setdominus)
+    document.getElementById(`setdocart${j+1}`).addEventListener('click',setdoCart)
+}     
 
+function setdoplus(){
+    let num = this.dataset.num
+    setdocount[num]++;
+    console.log(setdocount[num]);
+    document.getElementById(`setdocount${num}`).innerText = setdocount[num];
+}
+   
+function setdominus(){
+    let num = this.dataset.num
+    if(setdocount[num]>0){
+    setdocount[num]--;
+    console.log(setdocount[num]);
+    document.getElementById(`setdocount${num}`).innerText = setdocount[num];
+    }
+
+}
+
+
+
+
+
+
+function setdoCart(){
+    let A = this.dataset.id;
+    console.log(A);
+    for(let i = 0;i<setdo.length;i++){
+        if(setdo[i].id == Number(A)){
+            setdoMany =  document.getElementById(`setdocount${A}`).innerText;
+            setdoid = setdo[i].id;
+            setdoname = setdo[i].name;
+            setdoprice = setdo[i].price;
+            setdoimg = setdo[i].img;
+            if(setdoMany>0){
+            // localStorage.setItem('setdoMany',setdoMany);
+            // localStorage.setItem('setdoid',setdoid);
+            // localStorage.setItem('setdoname',setdoname);
+            // localStorage.setItem('setdoprice',setdoprice);
+            // localStorage.setItem('setdoimg',setdoimg);
+                setdoList=
+                {
+                    setdoMany:`${setdoMany}`,
+                    setdoid:`${setdoid}`,
+                    setdoname:`${setdoname}`,
+                    setdoprice:`${setdoprice}`,
+                    setdoimg:`${setdoimg}`,
+                }
+
+                // if(JSON.parse(localStorage.getItem('setdoMenuList'))){
+                //     console.log(JSON.parse(localStorage.getItem('setdoMenuList')));
+                // }
+                // for(var i = 0 ;i<setdoMenu.length;i++){
+                // if(JSON.parse(localStorage.getItem('setdoMenuList')[i].setdoid)==setdoList.setdoid){
+                //     JSON.parse(localStorage.getItem('setdoMenuList')[i].setdoMany)+1;
+                // }
+                // }
+                var samename = 0;
+                if(setdoMenu.length>0){
+                     for(var c =0  ;c < setdoMenu.length; c++){
+                            if(setdoMenu[c].setdoname == setdoList.setdoname){
+                                samename=1;
+                            setdoMenu[c].setdoMany = parseInt(setdoMenu[c].setdoMany)+parseInt(setdoList.setdoMany);
+                            } 
+                     }
+                    if(samename!=1){
+                        setdoMenu.push(setdoList);
+                    }
+                }
+                else
+                {
+                    setdoMenu.push(setdoList);
+                }
+                // setdoMenu.push(setdoList);
+                // console.log(setdoMenu[]);
+                var setdoMenuList =JSON.stringify(setdoMenu);
+                localStorage.setItem('setdoMenuList',setdoMenuList);
+
+                var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
+                singleorderlist.$data.finalsetdolist = finalsetdolist;
+                console.log(singleorderlist.$data.finalsetdolist);
+
+
+            }else{
+                alert("還沒選數量喔");
+            }
+        }
+    }
+}
