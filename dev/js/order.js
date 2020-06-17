@@ -12,6 +12,7 @@
 let orderCart = []; 
 let setdoMenu=[];
 let singleNum = 0;
+let setdoNum = 0 ;
 
 
 
@@ -98,13 +99,6 @@ let meat =[{
     text:"杏鮑菇營養豐富，富含蛋白質、碳水化合物、維生素及鈣、鎂、銅、鋅等礦物質，可以提高人體免疫功能，對人體具有抗癌、降血脂、潤腸胃以及美容等作用。"
 }]
 
-
-
-
-
-
-
-
 let single = [{
     id:'1',
     name:"三杯杏鮑菇",
@@ -177,9 +171,6 @@ let single = [{
 }
 ];
 
-
-
-
 let setdo=[{
     id:'1',
     name:"清蒸鱈魚便當",
@@ -228,8 +219,6 @@ let setdo=[{
     count:"1"
 }]
 
-
-
 let active=[{
     id:'1',
     name:"母親節便當",
@@ -252,92 +241,107 @@ let active=[{
     count:"1"
 }]
 
-
-let other_juice ={
-    imgsrc:'https://fakeimg.pl/200/',
-    id:"1",
-    name:'養身蔬果汁',
-    price:"80",
-    lists : [
-        {id:"1",name:'養身蔬果汁'},
-        {id:"2",name:'果汁'},
-    ]
-}
-let other_fruit = {
-    imgsrc:'https://fakeimg.pl/200/',
-    id:"1",
-    name:'養身蔬果汁',
-    price:"80",
-    lists : [
-        {id:"1",name:'養身蔬果汁'},
-        {id:"2",name:'果汁'},
-    ]
-}
-let other_body = {
-    imgsrc:'https://fakeimg.pl/200/',
-    id:"1",
-    name:'養身蔬果汁',
-    price:"80",
-    lists : [
-        {id:"1",name:'養身蔬果汁'},
-        {id:"2",name:'果汁'},
-    ]
-}
-
-let other = new Vue({
-    el:'#other',
-    data: other_juice,
-    methods:{
-        changeimg: function(id){
-            if(id == 1){
-                this.name ='養身蔬果汁';
-                this.imgsrc = "https://fakeimg.pl/200/";
-                this.price = '80';
-            }else if(id == 2){
-                this.name ='果汁';
-                this.imgsrc = "https://fakeimg.pl/200/";
-                this.price = '60';
-            }
-        }
+let other=[
+    {
+       opId:'1001',
+       opName:"薑母茶",
+       opPrice:'60',
+       opClass:'0',
+       opImage:"https://fakeimg.pl/100/"
     },
-})
-let other2 = new Vue({
-    el:'#other2',
-    data: other_fruit,
-    methods:{
-        changeimg: function(id){
-            if(id == 1){
-                this.name ='養身蔬果汁';
-                this.imgsrc = "https://fakeimg.pl/200/";
-                this.price = '80';
-            }else if(id == 2){
-                this.name ='果汁';
-                this.imgsrc = "https://fakeimg.pl/200/";
-                this.price = '60';
-            }
-        }
+    {
+       opId:'1002',
+       opName:"蔬果汁",
+       opPrice:'45',
+       opClass:'0',
+       opImage:"https://fakeimg.pl/100/"
     },
-})
-let other3 = new Vue({
-    el:'#other3',
-    data: other_body,
-    methods:{
-        changeimg: function(id){
-            if(id == 1){
-                this.name ='養身蔬果汁';
-                this.imgsrc = "https://fakeimg.pl/200/";
-                this.price = '80';
-            }else if(id == 2){
-                this.name ='果汁';
-                this.imgsrc = "https://fakeimg.pl/200/";
-                this.price = '60';
-            }
-        }
+    {
+       opId:'1003',
+       opName:"綠茶",
+       opPrice:'25',
+       opClass:'0',
+       opImage:"https://fakeimg.pl/100/"
     },
+    {
+       opId:'1004',
+       opName:"鳳梨",
+       opPrice:'30',
+       opClass:'1',
+        opImage:"https://fakeimg.pl/100/"
+    },
+    {
+       opId:'1005',
+       opName:"西瓜",
+       opPrice:'30',
+       opClass:'1',
+       opImage:"https://fakeimg.pl/100/"
+    },
+    {
+       opId:'1006',
+       opName:"蘋果",
+       opPrice:'30',
+       opClass:'1',
+       opImage:"https://fakeimg.pl/100/"
+    },
+    {
+       opId:'1007',
+        opName:"益生菌",
+       opPrice:'80',
+       opClass:'2',
+       opImage:"https://fakeimg.pl/100/"
+    },
+    {
+       opId:'1008',
+       opName:"人參雞精",
+       opPrice:'80',
+       opClass:'2',
+       opImage:"https://fakeimg.pl/100/"
+    }
+ ]
+
+
+var orderOther = new Vue({
+    el:'#orderOther',
+    data:{
+        selectedone: 1,
+        selectedtwo: 1,
+        selectedthree: 1,
+        othercount1:0,
+        othercount2:0,
+        othercount3:0,
+        other,
+    },methods:{
+        otherplus:function(){
+            orderOther.$data.othercount1++;
+        },
+        otherminus:function(){
+            if(orderOther.$data.othercount1>0){
+            orderOther.$data.othercount1--;
+            }
+        },
+        otherplus2:function(){
+            orderOther.$data.othercount2++;
+        },
+        otherminus2:function(){
+            if(orderOther.$data.othercount2>0){
+            orderOther.$data.othercount2--;
+            }
+        },
+        otherplus3:function(){
+            orderOther.$data.othercount3++;
+        },
+        otherminus3:function(){
+            if(orderOther.$data.othercount3>0){
+            orderOther.$data.othercount3--;
+            }
+        },
+        otherincart:function(){
+            console.log(this.dataset.id);
+        }
+
+    }, 
 })
-
-
-
 
 
 var app = new Vue({
@@ -352,12 +356,6 @@ var app = new Vue({
        
     }, 
 })
-
-
-
-
-
-
 var app2 = new Vue({
     el:'#buy_app2',  
     data:{
@@ -383,29 +381,37 @@ var app3 = new Vue({
     },
 })
 
+document.getElementById('otherCart').addEventListener('click',otherIncart);
 
+function otherIncart(){
+   let A = this.dataset.id;
+   console.log(A);
+   for(var i = 0; i<other.length ;i++ ){
+       if(other[i].opId == Number(A)){
+           otherName = other[i].opName;
+           otherPrice = other[i].opPrice;
+           otherMany  = orderOther.$data.othercount1;
+       }
 
+   }
+
+}
 
 //錨點 js
 
 document.getElementsByClassName('1')[0].addEventListener('click',view)
-
 function view(){
     document.getElementById('order_1').scrollIntoView();
 }
-
 document.getElementsByClassName('2')[0].addEventListener('click',view2)
-
 function view2(){
     document.getElementById('order_2').scrollIntoView();
 }
 document.getElementsByClassName('3')[0].addEventListener('click',view3)
-
 function view3(){
     document.getElementById('order_3').scrollIntoView();
 }
 document.getElementsByClassName('4')[0].addEventListener('click',view4)
-
 function view4(){
     document.getElementById('order_4').scrollIntoView();
 }
@@ -422,7 +428,7 @@ document.getElementById('ordertitle3').addEventListener('click',imgscale2)
 document.getElementById('meat').style.display="none";
 document.getElementById('single').style.display="none";
 
-for(var j=0; j < rice.length;j++){
+for(var j=0; j < rice.length;j++){   //rice 的 click事件
     document.getElementById(`riceimg${j+1}`).addEventListener('click',ricelightBox)
     document.getElementById(`plus${j+1}`).addEventListener('click',meatshow)
     document.getElementById(`plus${j+1}`).addEventListener('click',imgscale1)
@@ -430,19 +436,19 @@ for(var j=0; j < rice.length;j++){
 }
 
 
-for(var j=0; j < meat.length;j++){
+for(var j=0; j < meat.length;j++){  //meat 的 click事件
     document.getElementById(`meatimg${j+1}`).addEventListener('click',meatlightBox)
     document.getElementById(`meatplus${j+1}`).addEventListener('click',singleshow)
     document.getElementById(`meatplus${j+1}`).addEventListener('click',imgscale2)
     document.getElementById(`meatplus${j+1}`).addEventListener('click',meatincart)
 }
 
-for(var j=0; j < single.length;j++){
+for(var j=0; j < single.length;j++){  //自選 的 click事件
     document.getElementById(`singleplus${j+1}`).addEventListener('click',singleincart)
+    document.getElementById(`img${j+1}`).addEventListener('click',lightBox)
 }
 
-
-for(var j=0; j < setdo.length;j++){
+for(var j=0; j < setdo.length;j++){   //套餐燈箱 click 事件
     document.getElementById(`setdoimg${j+1}`).addEventListener('click',setdolightBox)
 }
 
@@ -466,17 +472,6 @@ function closelightbox3(){
     document.getElementsByClassName('box3')[0].style.display='none';
 }
 
-
-
-
-
-
-
-
-
-
-
-
 function ricelightBox(){
     document.getElementsByClassName('box1')[0].style.display='block';
     let A = this.dataset.id;
@@ -492,6 +487,44 @@ document.getElementsByClassName('closelightbox1')[0].addEventListener('click',cl
 function closelightBox1(){ 
     document.getElementsByClassName('box1')[0].style.display='none';
 }
+
+
+function meatlightBox(){
+    document.getElementsByClassName('box0')[0].style.display='block';
+    let A = this.dataset.id;
+    console.log(A);
+    for(let i = 0;i<meat.length;i++){
+        if(meat[i].id == Number(A)){
+            document.getElementById('meatlightImg').src = meat[i].img;
+            document.getElementById('meatlightText').innerText = meat[i].text;
+        }
+    }
+}
+document.getElementsByClassName('closelightbox0')[0].addEventListener('click',closelightBox0)
+function closelightBox0(){ 
+    document.getElementsByClassName('box0')[0].style.display='none';
+}
+
+function lightBox(){
+    document.getElementsByClassName('box2')[0].style.display='block';
+    let A = this.dataset.id;
+    console.log(A);
+    for(let i = 0;i<single.length;i++){
+        if(single[i].id == Number(A)){
+            document.getElementById('lightImg2').src = single[i].img;
+            document.getElementById('lightText2').innerText = single[i].text;
+        }
+    }
+}
+document.getElementsByClassName('closelightbox2')[0].addEventListener('click',closelightBox2)
+function closelightBox2(){ 
+    document.getElementsByClassName('box2')[0].style.display='none';
+}
+
+
+
+
+
 
 
 function riceincart(){
@@ -538,7 +571,7 @@ function meatincart(){
 }
 
 var singlecount = 0;
-function singleincart()
+function singleincart() 
  {
     singlecount++;
     if(singlecount<4)
@@ -570,53 +603,7 @@ function singleincart()
  }
 
 
-function meatlightBox(){
-    document.getElementsByClassName('box0')[0].style.display='block';
-    let A = this.dataset.id;
-    console.log(A);
-    for(let i = 0;i<meat.length;i++){
-        if(meat[i].id == Number(A)){
-            document.getElementById('meatlightImg').src = meat[i].img;
-            document.getElementById('meatlightText').innerText = meat[i].text;
-        }
-    }
-}
-document.getElementsByClassName('closelightbox0')[0].addEventListener('click',closelightBox0)
-function closelightBox0(){ 
-    document.getElementsByClassName('box0')[0].style.display='none';
-}
-
-
-
-
-
-
-
-//// 配菜lightbox js
-
-for(var j=0; j < single.length;j++){
-    document.getElementById(`img${j+1}`).addEventListener('click',lightBox)
-}
-function lightBox(){
-    document.getElementsByClassName('box2')[0].style.display='block';
-    let A = this.dataset.id;
-    console.log(A);
-    for(let i = 0;i<single.length;i++){
-        if(single[i].id == Number(A)){
-            document.getElementById('lightImg2').src = single[i].img;
-            document.getElementById('lightText2').innerText = single[i].text;
-        }
-    }
-}
-
-document.getElementsByClassName('closelightbox2')[0].addEventListener('click',closelightBox2)
-function closelightBox2(){ 
-    document.getElementsByClassName('box2')[0].style.display='none';
-}
-
-    
-
-
+//nav 的大小
 function imgscale1(){
     document.getElementById('ordertitle1').style.transform = "scale(1)";
     document.getElementById('ordertitletext1').style.color = "#000000";
@@ -626,8 +613,6 @@ function imgscale1(){
     document.getElementById('ordertitletext3').style.color = "#000000";
      
  }
-
-
 function imgscale2(){
     document.getElementById('ordertitle1').style.transform = "scale(1)";
     document.getElementById('ordertitletext1').style.color = "#000000";
@@ -637,9 +622,17 @@ function imgscale2(){
     document.getElementById('ordertitletext3').style.color = "#EA6227";
      
  }
+function ricescale(){
+    document.getElementById('ordertitle1').style.transform = "scale(1.5)";
+    document.getElementById('ordertitletext1').style.color = "#EA6227";
+    document.getElementById('ordertitle2').style.transform = "scale(1)";
+    document.getElementById('ordertitletext2').style.color = "#000000";
+    document.getElementById('ordertitle3').style.transform = "scale(1)";
+    document.getElementById('ordertitletext3').style.color = "#000000";
+     
+}
 
-
-
+//自選換頁
  function riceshow(){
     document.getElementById('meat').style.display="none";
     document.getElementById('single').style.display="none";
@@ -652,16 +645,6 @@ function imgscale2(){
     document.getElementById('rice').style.justifyContent="space-between";
     document.getElementById('order_text').innerText="請選擇一道米飯";
 }
-function ricescale(){
-    document.getElementById('ordertitle1').style.transform = "scale(1.5)";
-    document.getElementById('ordertitletext1').style.color = "#EA6227";
-    document.getElementById('ordertitle2').style.transform = "scale(1)";
-    document.getElementById('ordertitletext2').style.color = "#000000";
-    document.getElementById('ordertitle3').style.transform = "scale(1)";
-    document.getElementById('ordertitletext3').style.color = "#000000";
-     
- }
-
 function meatshow(){
     document.getElementById('rice').style.display="none";
     document.getElementById('single').style.display="none";
@@ -674,8 +657,6 @@ function meatshow(){
     document.getElementById('meat').style.justifyContent="space-between";
     document.getElementById('order_text').innerText="請選擇一道主食";
 }
-
-
 function singleshow(){
     document.getElementById('meat').style.display="none";
     document.getElementById('rice').style.display="none";
@@ -689,12 +670,16 @@ function singleshow(){
     document.getElementById('order_text').innerText="請任選三道配菜(可重複)";
    
 }
+
+
+
+
 //購物車
 
 document.getElementById('incart').addEventListener('click',shoppcar)
 
 
-var singleorderlist = new Vue({
+var singleorderlist = new Vue({   //購物車 vue
     el:'#list',  
     data:{
         finalsinglelist:[],
@@ -703,8 +688,83 @@ var singleorderlist = new Vue({
 })
 
 
+// window.onload = function(){       //刪除的click事件
+//     for(var h=0; h<singleNum; h++){
+//             if(document.getElementById(`b${h}`)){
+//     document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
+//             }
+//     }
 
-function shoppcar(){
+//     for(var i=0; i<setdo.length; i++){
+//         if(document.getElementById(`setdodelete${i}`)){
+//             document.getElementById(`setdodelete${i}`).addEventListener('click',deletesinglecart);
+//         }
+//     }
+// }
+
+function deletesinglecart(){       //刪除購物車
+    let A = this.dataset.num;
+    console.log(A);
+    var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
+    for(let i=0; i<finalsinglelist.length; i++){
+
+        if(finalsinglelist[i].sNum ==  Number(A)){
+            finalsinglelist.splice(i,1);
+            orderCart.splice(i,1);
+        }
+    }
+  
+    console.log(finalsinglelist);
+    singleorderlist.$data.finalsinglelist = finalsinglelist;
+    localStorage.setItem('singleOrder', JSON.stringify(finalsinglelist));  
+
+}
+
+function deletesetdocart(){
+    let A = this.dataset.num;
+    console.log(A);
+    var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
+    for(let i=0; i<finalsetdolist.length; i++){
+
+        if(finalsetdolist[i].setdoid ==  Number(A)){
+            finalsetdolist.splice(i,1);
+            setdoMenu.splice(i,1);
+        }
+    }
+    singleorderlist.$data.finalsetdolist = finalsetdolist;
+    localStorage.setItem('setdoMenuList', JSON.stringify(finalsetdolist)); 
+}
+
+setdocount=[];
+for(var j=0; j < setdo.length;j++){    //套餐的+- 購物車   click事件
+    setdocount[j+1]=0;
+    document.getElementById(`setdocountplus${j+1}`).addEventListener('click',setdoplus)
+    document.getElementById(`setdocountminus${j+1}`).addEventListener('click',setdominus)
+    document.getElementById(`setdocart${j+1}`).addEventListener('click',setdoCart)
+}     
+
+
+function setdoplus(){     //套餐數量++
+    let num = this.dataset.num
+    setdocount[num]++;
+    console.log(setdocount[num]);
+    document.getElementById(`setdocount${num}`).innerText = setdocount[num];
+}
+   
+function setdominus(){    //套餐數量--
+    let num = this.dataset.num
+    if(setdocount[num]>0){
+    setdocount[num]--;
+    console.log(setdocount[num]);
+    document.getElementById(`setdocount${num}`).innerText = setdocount[num];
+    }
+
+}
+
+
+
+
+function shoppcar(){              //自選的加入購物車
 
     var rice = localStorage.getItem('ricename');
     var riceprice = localStorage.getItem('riceprice')
@@ -716,6 +776,7 @@ function shoppcar(){
     var singleprice2 = localStorage.getItem('singleprice2');
     var single3 = localStorage.getItem('singlename3');
     var singleprice3 = localStorage.getItem('singleprice3');
+    var soPrice = parseInt(riceprice)+parseInt(meatprice)+parseInt(singleprice1)+parseInt(singleprice2)+parseInt(singleprice3);
 // document.getElementById('ricename').innerText=`${rice}`;
 // document.getElementById('meatname').innerText=`${meat}`;
 // document.getElementById('singlename1').innerText=`${single1}`;
@@ -733,6 +794,7 @@ var singleorder= {
     single2price:`${singleprice2}`,
     single3:`${single3}`,
     single3price:`${singleprice3}`,
+    soPrice:`${soPrice}`
  }
 if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!==null){
     singleNum++;
@@ -757,12 +819,24 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
  var singleOrder = JSON.stringify(orderCart);
  localStorage.setItem('singleOrder', singleOrder);
 
- var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
- singleorderlist.$data.finalsinglelist = finalsinglelist;
- console.log(singleorderlist.$data.finalsinglelist);
+//  var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
+//  singleorderlist.$data.finalsinglelist = finalsinglelist;
+//  console.log(singleorderlist.$data.finalsinglelist);
 
+// //------------------
+// console.log("==========",singleNum);
+// setTimeout(function(){
+//   for(var h=0; h<singleNum; h++){
+//     if(document.getElementById(`b${h}`)){
+// document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
+//     }else{
+//         console.log("not yet");
+//     }
+//     }  
+// },1000);
 
-
+//------------------
+setcart();
 
 
 
@@ -770,7 +844,7 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
  localStorage.removeItem('ricename');
  localStorage.removeItem('meatname');
  localStorage.removeItem('singlename1');
- localStorage.removeItem('singlename2');
+ localStorage.removeItem('singlename2'); 
  localStorage.removeItem('singlename3');
 
 
@@ -780,120 +854,13 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
  
  riceshow();
 
- window.location.reload();
+//  window.location.reload();
  }else{
      alert('請把便當裝滿喔')
  }
 }
 
-window.onload = function(){
-    for(var h=0; h<singleNum; h++){
-            if(document.getElementById(`b${h}`)){
-    document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
-            }
-    }
-}
-
-
-
-function deletesinglecart(){
-    let A = this.dataset.num;
-    console.log(A);
-    var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
-    for(let i=0; i<finalsinglelist.length; i++){
-
-        if(finalsinglelist[i].sNum ==  Number(A)){
-            finalsinglelist.splice(i,1);
-            orderCart.splice(i,1);
-        }
-    }
-  
-    console.log(finalsinglelist);
-    singleorderlist.$data.finalsinglelist = finalsinglelist;
-    localStorage.setItem('singleOrder', JSON.stringify(finalsinglelist));  
-
-}
-
-
-function setcart(){
-    var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
-    singleorderlist.$data.finalsinglelist = finalsinglelist;
-    orderCart=finalsinglelist; //整個的重點
-    singleNum=localStorage.getItem('singleNum');
-    console.log(singleorderlist.$data.finalsinglelist);
-   
-}
-function setsetdocart(){
-    var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
-    singleorderlist.$data.finalsetdolist = finalsetdolist;
-    setdoMenu=finalsetdolist;
-    console.log(singleorderlist.$data.finalsetdolist);
-}
-if(localStorage.getItem('singleOrder')){ //重點2
-setcart();
-}
-
-if(localStorage.getItem('setdoMenuList')){
-    setsetdocart();
-}
-// var app4 = new Vue({
-//     el:'#buy_app4',  
-//     data:{
-//         active
-//     },methods:{
-//         add: function(item) {
-//             item.count++;
-//         },
-//         minus:function (item) {
-//             if(item.count>1){
-//                 item.count--;
-//             }
-//         }
-//     },
-// })
-
-// let finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
-
-// var singleorderlist = new Vue({
-//     el:'#list',  
-//     data:{
-//         finalsinglelist:[]
-//     },
-// })
-// console.log(singleorderlist.$data.finalsinglelist);
-// singleorderlist.$data.finalsinglelist = finalsinglelist;
-// console.log(singleorderlist.$data.finalsinglelist);
-setdocount=[];
-for(var j=0; j < setdo.length;j++){
-    setdocount[j+1]=0;
-    document.getElementById(`setdocountplus${j+1}`).addEventListener('click',setdoplus)
-    document.getElementById(`setdocountminus${j+1}`).addEventListener('click',setdominus)
-    document.getElementById(`setdocart${j+1}`).addEventListener('click',setdoCart)
-}     
-
-function setdoplus(){
-    let num = this.dataset.num
-    setdocount[num]++;
-    console.log(setdocount[num]);
-    document.getElementById(`setdocount${num}`).innerText = setdocount[num];
-}
-   
-function setdominus(){
-    let num = this.dataset.num
-    if(setdocount[num]>0){
-    setdocount[num]--;
-    console.log(setdocount[num]);
-    document.getElementById(`setdocount${num}`).innerText = setdocount[num];
-    }
-
-}
-
-
-
-
-
-
-function setdoCart(){
+function setdoCart(){      //套餐的加入購物車
     let A = this.dataset.id;
     console.log(A);
     for(let i = 0;i<setdo.length;i++){
@@ -911,6 +878,7 @@ function setdoCart(){
             // localStorage.setItem('setdoimg',setdoimg);
                 setdoList=
                 {
+                    setdoNum:`${setdoNum}`,
                     setdoMany:`${setdoMany}`,
                     setdoid:`${setdoid}`,
                     setdoname:`${setdoname}`,
@@ -936,25 +904,72 @@ function setdoCart(){
                      }
                     if(samename!=1){
                         setdoMenu.push(setdoList);
+                        // window.location.reload();
                     }
                 }
                 else
                 {
+                    // setdoNum++;
+                    // localStorage.setItem('setdoNum',setdoNum);
                     setdoMenu.push(setdoList);
+                    // window.location.reload();
                 }
                 // setdoMenu.push(setdoList);
                 // console.log(setdoMenu[]);
                 var setdoMenuList =JSON.stringify(setdoMenu);
                 localStorage.setItem('setdoMenuList',setdoMenuList);
 
-                var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
-                singleorderlist.$data.finalsetdolist = finalsetdolist;
-                console.log(singleorderlist.$data.finalsetdolist);
-
-
+                // var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
+                // singleorderlist.$data.finalsetdolist = finalsetdolist;
+                // console.log(singleorderlist.$data.finalsetdolist);
+                // window.location.reload();
+                setsetdocart()
             }else{
                 alert("還沒選數量喔");
             }
         }
     }
+}
+
+
+
+function setcart(){          //一開始自選購物車重新渲染
+    var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
+    singleorderlist.$data.finalsinglelist = finalsinglelist;
+    orderCart=finalsinglelist; //整個的重點
+    singleNum=localStorage.getItem('singleNum');
+    console.log(singleorderlist.$data.finalsinglelist);
+
+    setTimeout(function(){
+        for(var h=0; h<singleNum; h++){
+          if(document.getElementById(`b${h}`)){
+      document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
+          }else{
+              console.log("not yet");
+          }
+          }  
+      },1000);
+   
+}
+
+if(localStorage.getItem('singleOrder')){ //重點2
+    setcart();
+    }
+//...................................
+function setsetdocart(){       //一開始套餐購物車重新渲染
+    var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
+    singleorderlist.$data.finalsetdolist = finalsetdolist;
+    setdoMenu=finalsetdolist;
+    console.log(singleorderlist.$data.finalsetdolist);
+
+    setTimeout(function(){
+    for(var i=0; i<6; i++){
+                if(document.getElementById(`setdodelete${i}`)){
+                    document.getElementById(`setdodelete${i}`).addEventListener('click',deletesetdocart);
+                }
+            }
+    },1000);        
+}
+if(localStorage.getItem('setdoMenuList')){
+    setsetdocart();
 }
