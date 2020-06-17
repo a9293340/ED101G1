@@ -1,0 +1,126 @@
+@charset "UTF-8";
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline; }
+
+body {
+  font-family: 'Noto Sans TC','Noto Sans', '微軟正黑體', "Times New Roman", sans-serif; }
+
+nav {
+  color: green; }
+
+.home_am {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #f02525; }
+  .home_am .am_title {
+    font-size: 1rem; }
+  .home_am .am_group {
+    height: 800px;
+    display: flex; }
+    .home_am .am_group .left_map {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      background-image: url(../image/home_am_map.jpg);
+      background-position: center;
+      background-repeat: no-repeat; }
+      .home_am .am_group .left_map .store_icon {
+        width: 50px;
+        height: 50px; }
+    .home_am .am_group .right_content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 50%;
+      background-color: #a1e4e0; }
+      .home_am .am_group .right_content .content_group {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-direction: column; }
