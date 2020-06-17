@@ -39,6 +39,13 @@ gulp.task('movePhp',function(){
     .pipe(gulp.dest('dest/php'))
 })
 
+gulp.task('moveVendor',function(){
+    //src 來源 
+    return gulp.src(['./dev/vendor/*/*','./dev/vendor/*/*/*','./dev/vendor/*/*/*/*'])
+    //pipe 透過管道 dest 目的地
+    .pipe(gulp.dest('dest/vendor'))
+})
+
 // html 樣板
 gulp.task('fileinclude', function () {
     gulp.src(['./dev/*.html'])

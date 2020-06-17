@@ -26,7 +26,7 @@ $white: white;
   top: 0;
   width: 300px;
   height: auto;
-  border: 1px solid blue;
+  border: 1px solid blue; 
   table{
     width: 300px;
   }
@@ -107,8 +107,11 @@ $white: white;
   justify-content: space-between;
 
 }
-
+#buy_app3{
+  height: 750px;
+}
 .buy_setdo_containter {
+  flex-wrap: wrap;
   width: 1050px;
   margin: 0 auto;
   height: 350px;
@@ -183,7 +186,7 @@ $white: white;
   }
 }
 
-#buy_card3 {
+.buy_card3 {
   width: 250px;
   height: 308px;
   margin: 10px 20px;
@@ -342,7 +345,7 @@ HEAD .count {
           top: 0px;
         }
 
-        button {
+        button { 
           border: none;
           margin: 5px;
           background-color: $yellow;

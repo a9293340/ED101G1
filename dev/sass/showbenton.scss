@@ -26,7 +26,7 @@ p.showTitle {
     $weight: bold,
     $wrap: 10px
   );
-  padding: 50px 0 0;
+  padding: 20px 0 0;
   color: $black;
   text-align: left;
   margin-left: 150px;
@@ -60,7 +60,7 @@ div.addBenton {
   padding: 10px 5px;
   margin-top: auto;
   position: fixed;
-  top: 200px;
+  top: 230px;
 
   &:hover {
     transform: scale(1.1);
@@ -80,26 +80,113 @@ div.addBenton {
 //放圖片便當的區域
 div.showBentonImg {
   border: 1px solid black;
-  height: 330px;
-  min-width: 1200px;
-  position: relative;
-  div.kitchenTool {
-    border: 1px solid purple;
-    position: sticky;
-    bottom: 0;
-    right: 0;
-    display: block;
-    bottom: 0px;
-    right: 0;
-  }
+  margin: 0 auto;
+  width: 1200px;
+}
+
+div.kitchenTool {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  bottom: -30px;
+  right: 0;
 }
 
 .shareBentonImg {
   width: 220px;
-  height: 220px;
-  margin: auto;
+  height: 200px;
+  margin: 15px auto 10px;
   display: block;
-  margin: auto;
+  text-align: center;
+}
+
+//便利貼的標題
+p.shareBentonText {
+  word-break: break-word;
+  font-size: 24px;
+}
+//便利貼的內文
+p.shareBentonContent {
+  font-size: 16px;
+  word-break: break-word;
+}
+
+//便利貼的讚圖
+.like {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  .like:hover {
+    transform: scale(1.1);
+    opacity: 0.6;
+    cursor: pointer;
+    //   cursor: pointer;
+    //   background: url("../images/showbenton/like1.png");
+    // }
+  }
+}
+
+//便利貼的對話框圖
+.conversation {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-left: auto;
+}
+
+//便利貼的個數
+.shareBenton:first-child,
+.shareBenton:nth-child(2),
+.shareBenton:nth-child(3) {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin: 60px 30px 50px 70px;
+  box-shadow: 0px 2px 4px rgb(114, 114, 114);
+}
+
+.shareBenton:first-child {
+  background-image: linear-gradient(to bottom right, #b4acfb, #f8d0ec, #fad8fb);
+}
+
+.shareBenton:nth-child(2) {
+  background-image: linear-gradient(to bottom right, #b1d7f6, #e0f0fd, #dfeffc);
+}
+
+.shareBenton:nth-child(3) {
+  background-image: linear-gradient(to bottom right, #fabc76, #ecce8b, #f0d2b0);
+}
+
+.shareBenton:first-child::before {
+  content: " 天下第一菜";
+  font-size: 30px;
+  position: relative;
+  top: 30px;
+  color: rgb(69, 7, 241);
+  font-weight: bold;
+  text-shadow: -1px 0 rgb(219, 219, 219), 0 1px rgb(228, 228, 228),
+    1px 0 rgb(238, 238, 238), 0 -1px rgb(202, 202, 202);
+}
+
+.shareBenton:nth-child(2)::before {
+  content: "新一代食神";
+  font-size: 30px;
+  position: relative;
+  top: 30px;
+  color: rgb(69, 7, 241);
+  text-shadow: -1px 0 rgb(219, 219, 219), 0 1px rgb(228, 228, 228),
+    1px 0 rgb(238, 238, 238), 0 -1px rgb(202, 202, 202);
+}
+
+.shareBenton:nth-child(3)::before {
+  content: "明日小當家";
+  font-size: 30px;
+  position: relative;
+  top: 30px;
+  color: rgb(69, 7, 241);
+  text-shadow: -1px 0 rgb(219, 219, 219), 0 1px rgb(228, 228, 228),
+    1px 0 rgb(238, 238, 238), 0 -1px rgb(202, 202, 202);
 }
 
 p.showMyself {
@@ -177,15 +264,29 @@ div.confirmBentonBox2 {
   margin: 30px 0;
 }
 button.Pre {
-  width: 80px;
-  height: 50px;
+  @include btnChoose(90px, 60px, $fz: 18px);
+  width: 90px;
+  height: 60px;
+  line-height: 50px;
   cursor: pointer;
-  margin: 0 110px 0 60px;
+  margin: 0 110px 0 30px;
 }
 
 button.Next {
-  width: 80px;
-  height: 50px;
+  @include btnChoose(90px, 60px, $fz: 18px);
+  width: 90px;
+  height: 60px;
+  line-height: 50px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+button.Send {
+  @include btn(90px, 60px, $fz: 18px);
+  line-height: 50px;
+  width: 90px;
+
+  line-height: 50px;
   cursor: pointer;
 }
 //--------------Step2-------------
@@ -217,12 +318,25 @@ label.Step2Content {
 
 //-------------便當牆-------------
 .shareBenton {
-  width: 300px;
-  height: 320px;
-  margin: 0px 0px 10px 120px;
-  border: 1px solid purple;
+  width: 280px;
+  vertical-align: top;
   display: inline-block;
-  border-radius: 5px;
+  border: 1px solid transparent;
+
+  background-color: rgb(243, 248, 201);
+}
+
+//---------------便當前三名背景---------------
+.group0 {
+  transform: rotate(-5deg);
+}
+
+.group1 {
+  transform: rotate(5deg);
+}
+
+.group2 {
+  transform: rotate(-5deg);
 }
 
 //----------按讚數---------------

@@ -29,7 +29,12 @@ nav {
   opacity: 1;
   transition: all ease 1s;
   z-index: 30;
+<<<<<<< HEAD
   padding: 10px 0;
+=======
+  padding:10px 0;
+  overflow: hidden;
+>>>>>>> e46b42d80c8012360eb4d26b3c7c1e22674f9078
 
   &.fixed {
     position: fixed;
