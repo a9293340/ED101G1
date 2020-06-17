@@ -1,0 +1,75 @@
+@import "./main";
+
+.homeSection-3{
+  padding:0;
+  margin:0;
+  font-size: 0;
+  .homeBlackBoardContainer {
+    max-width: 100%;
+    width: 100%;
+    height:900px;
+    background-image: url("../images/homeHealth/homeBlackBoard.jpg");
+    .homeBlackBoardTit{
+      // border: 1px solid greenyellow;
+      width: 1200px;
+      // height: 100px;
+      margin: 0 auto;
+      padding-top: 2%;
+      h1{
+      width: 100%;
+      color: white;
+      margin: 10px auto;
+      font-size: $fzTitle;
+      letter-spacing: 5px;
+      text-align: left;
+      font-weight: 900;
+      }
+      p{
+      color:$white;
+      width: 100%;
+      font-size: $fzMd;
+      letter-spacing: 1px;
+      text-align: left;
+      }
+    }
+    .order{
+      width: 1200px;
+      margin: 0 auto;
+      height: 50%;
+      border-radius: 10px;
+      border: 1px solid $white;
+      box-shadow: 5px 5px 10px $black;
+      background:$white;
+      opacity: 0.5;
+      .homeNum,.homeSeparate,#numberTotal{
+      display: inline-block;
+      }
+      .homeSeparate{
+        width: 10px;
+      }
+      .homeQuestionTitle{
+      width: 100%;
+      // border: 1px solid red;
+      font-size: 1.5rem;
+      margin: auto;
+      text-align: left;
+      color:$white;
+    }
+    .homeQuesionBox{
+      color: $white;
+      font-size: 1rem;
+      border: 1px solid $black;
+      label{
+      border: 1px solid red;
+      }
+      label.test{
+        margin-left: 50px;
+      }
+      label.test2{
+        width: 200px;
+        display: inline-block;
+      }
+    }
+   }
+  }
+}
