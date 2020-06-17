@@ -661,19 +661,19 @@ var singleorderlist = new Vue({   //購物車 vue
 })
 
 
-window.onload = function(){       //刪除的click事件
-    for(var h=0; h<singleNum; h++){
-            if(document.getElementById(`b${h}`)){
-    document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
-            }
-    }
+// window.onload = function(){       //刪除的click事件
+//     for(var h=0; h<singleNum; h++){
+//             if(document.getElementById(`b${h}`)){
+//     document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
+//             }
+//     }
 
-    for(var i=0; i<setdo.length; i++){
-        if(document.getElementById(`setdodelete${i}`)){
-            document.getElementById(`setdodelete${i}`).addEventListener('click',deletesinglecart);
-        }
-    }
-}
+//     for(var i=0; i<setdo.length; i++){
+//         if(document.getElementById(`setdodelete${i}`)){
+//             document.getElementById(`setdodelete${i}`).addEventListener('click',deletesinglecart);
+//         }
+//     }
+// }
 
 function deletesinglecart(){       //刪除購物車
     let A = this.dataset.num;
@@ -693,7 +693,20 @@ function deletesinglecart(){       //刪除購物車
 
 }
 
+function deletesetdocart(){
+    let A = this.dataset.num;
+    console.log(A);
+    var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
+    for(let i=0; i<finalsetdolist.length; i++){
 
+        if(finalsetdolist[i].setdoid ==  Number(A)){
+            finalsetdolist.splice(i,1);
+            setdoMenu.splice(i,1);
+        }
+    }
+    singleorderlist.$data.finalsetdolist = finalsetdolist;
+    localStorage.setItem('setdoMenuList', JSON.stringify(finalsetdolist)); 
+}
 
 setdocount=[];
 for(var j=0; j < setdo.length;j++){    //套餐的+- 購物車   click事件
@@ -777,12 +790,24 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
  var singleOrder = JSON.stringify(orderCart);
  localStorage.setItem('singleOrder', singleOrder);
 
- var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
- singleorderlist.$data.finalsinglelist = finalsinglelist;
- console.log(singleorderlist.$data.finalsinglelist);
+//  var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
+//  singleorderlist.$data.finalsinglelist = finalsinglelist;
+//  console.log(singleorderlist.$data.finalsinglelist);
 
+// //------------------
+// console.log("==========",singleNum);
+// setTimeout(function(){
+//   for(var h=0; h<singleNum; h++){
+//     if(document.getElementById(`b${h}`)){
+// document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
+//     }else{
+//         console.log("not yet");
+//     }
+//     }  
+// },1000);
 
-
+//------------------
+setcart();
 
 
 
@@ -790,7 +815,7 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
  localStorage.removeItem('ricename');
  localStorage.removeItem('meatname');
  localStorage.removeItem('singlename1');
- localStorage.removeItem('singlename2');
+ localStorage.removeItem('singlename2'); 
  localStorage.removeItem('singlename3');
 
 
@@ -800,7 +825,7 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
  
  riceshow();
 
- window.location.reload();
+//  window.location.reload();
  }else{
      alert('請把便當裝滿喔')
  }
@@ -865,11 +890,11 @@ function setdoCart(){      //套餐的加入購物車
                 var setdoMenuList =JSON.stringify(setdoMenu);
                 localStorage.setItem('setdoMenuList',setdoMenuList);
 
-                var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
-                singleorderlist.$data.finalsetdolist = finalsetdolist;
-                console.log(singleorderlist.$data.finalsetdolist);
-                window.location.reload();
-
+                // var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
+                // singleorderlist.$data.finalsetdolist = finalsetdolist;
+                // console.log(singleorderlist.$data.finalsetdolist);
+                // window.location.reload();
+                setsetdocart()
             }else{
                 alert("還沒選數量喔");
             }
@@ -885,6 +910,16 @@ function setcart(){          //一開始自選購物車重新渲染
     orderCart=finalsinglelist; //整個的重點
     singleNum=localStorage.getItem('singleNum');
     console.log(singleorderlist.$data.finalsinglelist);
+
+    setTimeout(function(){
+        for(var h=0; h<singleNum; h++){
+          if(document.getElementById(`b${h}`)){
+      document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
+          }else{
+              console.log("not yet");
+          }
+          }  
+      },1000);
    
 }
 
@@ -897,6 +932,14 @@ function setsetdocart(){       //一開始套餐購物車重新渲染
     singleorderlist.$data.finalsetdolist = finalsetdolist;
     setdoMenu=finalsetdolist;
     console.log(singleorderlist.$data.finalsetdolist);
+
+    setTimeout(function(){
+    for(var i=0; i<6; i++){
+                if(document.getElementById(`setdodelete${i}`)){
+                    document.getElementById(`setdodelete${i}`).addEventListener('click',deletesetdocart);
+                }
+            }
+    },1000);        
 }
 if(localStorage.getItem('setdoMenuList')){
     setsetdocart();
