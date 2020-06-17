@@ -41,7 +41,7 @@
       border: 1px solid $white;
       box-shadow: 5px 5px 10px $black;
       background:$white;
-      opacity: 0.5;
+      opacity: 0.8;
       padding: 20px;
       .homeNum,.homeSeparate,#numberTotal{
       display: inline-block;
@@ -52,11 +52,12 @@
       .homeQuestionTitle{
       width: 100%;
       // border: 1px solid red;
-      font-size: 1.5rem;
+      font-size:$fzSubtitle;
       margin: auto;
       text-align: left;
       color:$green;
       font-weight: 900;
+      margin: 3rem;
     }
     .homeQuesionBox{
       color: $white;
@@ -67,7 +68,7 @@
       width: 200px;
       display: inline-block;
       color:$green;
-      font-size: 1.5rem;
+      font-size:$fzSubtitle;
       font-weight: 900;
       line-height: 26px;
       .homeQinput{
@@ -75,6 +76,9 @@
         height: 30px;
         border: 5px solid red;
         background: $white;
+        .homeQcheck{
+          color:$yellow;
+        }
        }
       }
      }

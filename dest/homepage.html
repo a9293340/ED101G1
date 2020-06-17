@@ -273,16 +273,16 @@
             <p class="homeQuestionTitle">Q : 請問您的手腳是否常常感到容易冰冷呢？</p>
             <div class="homeQuesionBox">
                 <label class="homeTest">
-                    <input class="homeQinput" type="radio" name="homeFood" checked>
+                    <input class="homeQinput" type="radio" name="homeFood">
+                    會盜汗
+                </label>
+                <label class="homeTest">
+                    <input class="homeQinput homeQcheck" type="radio" name="homeFood"   checked>
                     時常冰冷
                 </label>
                 <label class="homeTest">
                     <input class="homeQinput" type="radio" name="homeFood">
                     正常
-                </label>
-                <label class="homeTest">
-                    <input class="homeQinput" type="radio" name="homeFood">
-                    會盜汗
                 </label>
             </div>
         </div>
@@ -295,7 +295,7 @@
 <!-- end 第 3 屏 -->
 <script>
 var index = 1;            //全局变量，在0到(num-1)之间循环      
-        var num = 4;
+        var num = 2;
         var img = document.getElementById("homeTapPic");   //获取图片ID  
         // var title = document.getElementById("title");
         function homeTapPicChange() {
@@ -311,7 +311,7 @@ var index = 1;            //全局变量，在0到(num-1)之间循环
                 index = index % num;       //大于最多图片数量后回到第0张  
             }
         }
-        setInterval("homeTapPicChange()", 50); //设置定时器，作用于PicChange()函数内，时间为1000毫秒刷新一次  
+        setInterval("homeTapPicChange()", 800); //设置定时器，作用于PicChange()函数内，时间为1000毫秒刷新一次  
 </script>
 
 
@@ -342,7 +342,21 @@ var index = 1;            //全局变量，在0到(num-1)之间循环
 </div>
 
     <!-- 頁尾 footer -->
-    <div class="homeFooter">頁尾</div>
+    <div class="homeFooter">
+    <div class="homeFooterBox">
+            <div class="homeFooterMg">
+                <ul>
+                    <li><a class="homeFooterBold" href="#">Copyright ©  2020 寶島食堂</a></li>
+                    <li><a class="bold" href="#">電話</a></li>
+                    <li><a class="bold" href="#">地址</a></li>
+                    <li><a class="bold" href="#">粉絲團</a></li>
+                    <li class="mg-none-i">
+                        <a class="bold"  href="#">Piktab</a>
+                    </li>
+                </ul>
+            </div>
+    </div>
+</div>
 
     <!-- Login、Signup、ShoppingCart -->
     <script src="../dev/js/layout/login.js"></script>

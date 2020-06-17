@@ -1,7 +1,32 @@
 @import "./main";
 
 .homeFooter{
-    background:$green;
-    height:40px;
-    border:1px red solid;
+background-color:$grey;
+font-size:$fzContent;
+height: 50px;
+line-height: 50px;
+letter-spacing: 5px;
+.homeFooterBox{
+    max-width: 1200px;
+    margin: 0 auto;
+    // line-height: 22px;
+    display: inline-block;
+    margin: 0;
+    ul{
+    outline: none;
+    float:left;
+        li{
+            display:inline;
+            margin-right: 30px;
+            list-style: none;
+            &:hover{
+                color: #a5b7c6;
+            }
+            .homeFooterBold{
+            color: yellow;  
+            font-weight: 700;
+            }
+        }
+    }
+  }
 }
