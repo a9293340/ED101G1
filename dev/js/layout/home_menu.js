@@ -1,129 +1,90 @@
-<<<<<<< HEAD
-new Vue({
-  el: '#first',
-  data: {
-    list: [
-      { id: '123', benton: '雞腿便當' },
-      { id: '223', benton: '鮭魚便當' },
-      { id: '023', benton: '排骨便當' },
-    ],
-  }
-})
-// 排行榜
-new Vue({
-  el: '#mid',
-  data: {
-    message: [
-
-    ]
-  },
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
 //menu vue
 // first menu
 let menu_first = new Vue({
   el: '#first',
-  data:{
+  data: {
     list: [
       {
-      id:'1',
-      benton:'雞腿便當',
-      img:'../../dest/images/showbenton/like.png',
-    },
+        id: '1',
+        benton: '雞腿便當',
+        img: '../../dest/images/showbenton/like.png',
+      },
       {
-      id:'2',
-      benton:'排骨便當',
-      img:'../../dest/images/showbenton/like.png',
-    },
+        id: '2',
+        benton: '排骨便當',
+        img: '../../dest/images/showbenton/like.png',
+      },
       {
-      id:'3',
-      benton:'鮭魚便當',
-      img:'../../dest/images/showbenton/like.png',
-    },
+        id: '3',
+        benton: '鮭魚便當',
+        img: '../../dest/images/showbenton/like.png',
+      },
 
     ],
-    
-},
+
+  },
 });
 
 //sec menu
 
 let menu_sec = document.getElementById("first"),
- sec_img = document.getElementById("sec_img"),
- first_img = document.getElementById("first_img"),
- third_img = document.getElementById("third_img"),
- menu_name = document.getElementById("menu_name"),
- menu_memname = document.getElementById("menu_memname"),
- menu_date = document.getElementById("menu_date"),
+  sec_img = document.getElementById("sec_img"),
+  first_img = document.getElementById("first_img"),
+  third_img = document.getElementById("third_img"),
+  menu_name = document.getElementById("menu_name"),
+  menu_memname = document.getElementById("menu_memname"),
+  menu_date = document.getElementById("menu_date"),
 
- menu_name_sec = document.getElementById("menu_name_sec"),
+  menu_name_sec = document.getElementById("menu_name_sec"),
 
- menu_like = document.getElementById("menu_like");
+  menu_like = document.getElementById("menu_like");
 
 //fake data
-let leaderBoardData =[
+let leaderBoardData = [
   {
-    postTitle : "鮭魚便當",
-    postContent : "很好吃很好吃很好吃",
-    postData : "2020/08/07",
-    postLike : 50,
-    memName : "John",
-    soImg : "../../dest/images/bandon_include/curry.png",
-    soRice : "白飯",
-    mainFood : "鮭魚",
-    sideDishes1 : "配菜1",
-    sideDishes1 : "配菜2",
-    sideDishes1 : "配菜3",
+    postTitle: "鮭魚便當",
+    postContent: "很好吃很好吃很好吃",
+    postData: "2020/08/07",
+    postLike: 50,
+    memName: "John",
+    soImg: "../../dest/images/bandon_include/curry.png",
+    soRice: "白飯",
+    mainFood: "鮭魚",
+    sideDishes1: "配菜1",
+    sideDishes1: "配菜2",
+    sideDishes1: "配菜3",
   },
   {
-    postTitle : "排骨便當",
-    postContent : "很好吃很好吃很好吃",
-    postData : "2020/08/07",
-    postLike : 140,
-    memName : "John",
-    soImg : "../../dest/images/bandon_include/friedShrimp.png",
-    soRice : "白飯",
-    mainFood : "排骨",
-    sideDishes1 : "配菜1",
-    sideDishes1 : "配菜2",
-    sideDishes1 : "配菜3",
+    postTitle: "排骨便當",
+    postContent: "很好吃很好吃很好吃",
+    postData: "2020/08/07",
+    postLike: 140,
+    memName: "John",
+    soImg: "../../dest/images/bandon_include/friedShrimp.png",
+    soRice: "白飯",
+    mainFood: "排骨",
+    sideDishes1: "配菜1",
+    sideDishes1: "配菜2",
+    sideDishes1: "配菜3",
   },
   {
-    postTitle : "烤雞便當",
-    postContent : "很好吃很好吃很好吃",
-    postData : "2020/08/07",
-    postLike : 30,
-    memName : "John",
-    soImg : "../../dest/images/bandon_include/spoonVeg.png",
-    soRice : "白飯",
-    mainFood : "烤雞",
-    sideDishes1 : "配菜1",
-    sideDishes1 : "配菜2",
-    sideDishes1 : "配菜3",
+    postTitle: "烤雞便當",
+    postContent: "很好吃很好吃很好吃",
+    postData: "2020/08/07",
+    postLike: 30,
+    memName: "John",
+    soImg: "../../dest/images/bandon_include/spoonVeg.png",
+    soRice: "白飯",
+    mainFood: "烤雞",
+    sideDishes1: "配菜1",
+    sideDishes1: "配菜2",
+    sideDishes1: "配菜3",
   },
 
 ]
 
-leaderBoardData.sort( function(a,b){
-  return b.postLike-a.postLike;
+leaderBoardData.sort(function (a, b) {
+  return b.postLike - a.postLike;
 });
 
 console.log(leaderBoardData);
@@ -133,24 +94,24 @@ let leader_2 = document.getElementById("leader_2");
 let leader_2_str = '';
 let leader_3 = document.getElementById("leader_3");
 
-function leader_order(){
-  for(var i =0; i<leaderBoardData.length;i++){
+function leader_order() {
+  for (var i = 0; i < leaderBoardData.length; i++) {
     // if(i == 0){
     //   first_img.src= leaderBoardData[i].soImg;
     //   menu_name_sec.innerText = leaderBoardData[i].postTitle;
     // }
-    if(i == 0){
-      first_img.src= leaderBoardData[i].soImg;
+    if (i == 0) {
+      first_img.src = leaderBoardData[i].soImg;
       var test = `<div id="menu_name_sec"> ${leaderBoardData[i].postTitle} </div>`;
       var test1 = `<div id="menu_date_sec"> ${leaderBoardData[i].postData} </div>`;
       var test2 = `<div id="menu_memname_sec"> ${leaderBoardData[i].memName} </div>`;
       var test3 = `<div id="menu_like_sec"> ${leaderBoardData[i].postLike} </div>`;
-      leader_1_str+=test;
-      leader_1_str+=test1;
-      leader_1_str+=test2;
-      leader_1_str+=test3;
-    }else if(i == 1){
-      sec_img.src= leaderBoardData[i].soImg;
+      leader_1_str += test;
+      leader_1_str += test1;
+      leader_1_str += test2;
+      leader_1_str += test3;
+    } else if (i == 1) {
+      sec_img.src = leaderBoardData[i].soImg;
       var leader_2_str = `<div id="menu_name_sec"> ${leaderBoardData[i].postTitle} </div>
       <div id="menu_date_sec"> ${leaderBoardData[i].postData} </div>
       <div id="menu_memname_sec"> ${leaderBoardData[i].memName} </div>
@@ -166,7 +127,7 @@ function leader_order(){
       // console.log(leader_2_str)
 
     }
-    
+
   }
   leader_1.innerHTML = leader_1_str;
   leader_2.innerHTML = leader_2_str;
@@ -226,29 +187,28 @@ leader_order();
 //third menu
 let menu_third = new Vue({
   el: '#third',
-  data:{
+  data: {
     list: [
       {
-      id:'1',
-      benton:'雞腿便當',
-      img:'../../dest/images/showbenton/like.png',
-    },
+        id: '1',
+        benton: '雞腿便當',
+        img: '../../dest/images/showbenton/like.png',
+      },
       {
-      id:'2',
-      benton:'排骨便當',
-      img:'../../dest/images/showbenton/like.png',
-    },
+        id: '2',
+        benton: '排骨便當',
+        img: '../../dest/images/showbenton/like.png',
+      },
       {
-      id:'3',
-      benton:'鮭魚便當',
-      img:'../../dest/images/showbenton/like.png',
-    },
+        id: '3',
+        benton: '鮭魚便當',
+        img: '../../dest/images/showbenton/like.png',
+      },
 
     ],
-    
-},
+
+  },
 });
->>>>>>> e46b42d80c8012360eb4d26b3c7c1e22674f9078
 
 //主要效果控制
 
