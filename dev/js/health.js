@@ -1,27 +1,27 @@
 $(document).ready(function () {
 
     // console.log("1");
-    $('#healWeight').change(function () {
-        let healHeight = parseInt($('#healHeight').val());
-        let healWeight = parseInt($('#healWeight').val());
+    $('#weight').change(function () {
+        let height = parseInt($('#height').val());
+        let weight = parseInt($('#weight').val());
         // console.log(height);
-        let BMI = healWeight / ((healHeight / 100) * (healHeight / 100));
+        let BMI = weight / ((height / 100) * (height / 100));
         BMI = BMI.toFixed(2);
         console.log(BMI);
-        $("#healResult").text(BMI);
+        $("#result").text(BMI);
     });
     // let BMI = weight / ((height / 100) * (height / 100));
     // BMI = BMI.toFixed(2);
-    $("button.healBtnClose").on("click", function () {
-        let method = $("input[name=healGender]:checked").val();
-        let close1 = $('#healResult').text();
+    $("button.btnClose").on("click", function () {
+        let method = $("input[name=gender]:checked").val();
+        let close1 = $('#result').text();
         if (close1 == "") {
             alert("請輸入完整的身高,體重");
         } else if (typeof (method) == "undefined") {
             alert("請選擇性別");
             return false;
         } else {
-            $("div.healOverlay").css("display", "none");
+            $("div.overlay").css("display", "none");
         }
     });
 });
@@ -29,7 +29,7 @@ $(document).ready(function () {
 
 function doFirst() {
 
-    let healStomachQuestion = [{
+    let stomachQuestion = [{
         q: ' Q:請問您每日排便幾次？',
         op1: '1~2次', //低分-50
         op2: '2~3次', //中分0
@@ -77,7 +77,7 @@ function doFirst() {
         op3: '正常'
     }];
 
-    let healLifequestion = [{
+    let lifequestion = [{
         q: 'Q:請問您較常的運動類型？',
         op1: '無',
         op2: '有氧運動',
@@ -104,114 +104,114 @@ function doFirst() {
 
 
 
-    let healthResult = 0;
-    let healthSecondResult = 0;
-    let healthThirdResult = 0;
-    let healthCount = 0;
-    let healthRandom2 = 0;
-    let healthRandom3 = 0;
-    let healthNumberOrder = 1;
-    let healthTotalNumber = 6;
-    function healthRandom() {
-        result = Math.floor(Math.healthRandom() * 4);//題號亂數
+    let result = 0;
+    let secondResult = 0;
+    let thirdResult = 0;
+    let count = 0;
+    let random2 = 0;
+    let random3 = 0;
+    let numberOrder = 1;
+    let totalNumber = 6;
+    function random() {
+        result = Math.floor(Math.random() * 4);//題號亂數
     }
-    healthRandom();
+    random();
     //------------------------------
     function secondRandom() {
         secondResult = Math.floor(Math.random() * 4);
     }
     secondRandom();
-    healthRandom2 = secondResult;
+    random2 = secondResult;
     //------------------------------
     function thirdRandom() {
         thirdResult = Math.floor(Math.random() * 4);
     }
     thirdRandom();
-    healthRandom3 = healthThirdResult;
+    random3 = thirdResult;
     //------------------------------
 
 
 
 
-    var healthRandomFirst = healthResult;
+    var randomFirst = result;
     //let result = Math.floor(Math.random() * 4);//題號亂數
     //console.log(stomachQuestion[0].q1);
 
-    document.getElementById('healNumber').innerText = `${healthNumberOrder}`;
-    document.getElementById('healNumberTotal').innerText = `${healthTotalNumber}`;
+    document.getElementById('number').innerText = `${numberOrder}`;
+    document.getElementById('numberTotal').innerText = `${totalNumber}`;
 
-    function begin() { //抓healStomachQuestion開頭的第一題及第二題
-        document.getElementById("healQuestion").innerText = healStomachQuestion[`${healthResult}`].q;
-        document.getElementById("healA1").innerText = healStomachQuestion[`${healthResult}`].op1;
-        document.getElementById("healA2").innerText = healStomachQuestion[`${healthResult}`].op2;
-        document.getElementById("healA3").innerText = healStomachQuestion[`${healthResult}`].op3;
+    function begin() { //抓stomachQuestion開頭的第一題及第二題
+        document.getElementById("question").innerText = stomachQuestion[`${result}`].q;
+        document.getElementById("a1").innerText = stomachQuestion[`${result}`].op1;
+        document.getElementById("a2").innerText = stomachQuestion[`${result}`].op2;
+        document.getElementById("a3").innerText = stomachQuestion[`${result}`].op3;
     }
     begin();
 
     function second() { //抓healthQuestion的第一題及第二題
-        document.getElementById("healQuestion").innerText = healthQuestion[`${healthSecondResult}`].q;
-        document.getElementById("healA1").innerText = healthQuestion[`${healthSecondResult}`].op1;
-        document.getElementById("healA2").innerText = healthQuestion[`${healthSecondResult}`].op2;
-        document.getElementById("healA3").innerText = healthQuestion[`${healthSecondResult}`].op3;
+        document.getElementById("question").innerText = healthQuestion[`${secondResult}`].q;
+        document.getElementById("a1").innerText = healthQuestion[`${secondResult}`].op1;
+        document.getElementById("a2").innerText = healthQuestion[`${secondResult}`].op2;
+        document.getElementById("a3").innerText = healthQuestion[`${secondResult}`].op3;
     }
 
-    function third() { //抓healLifeQuestion的第一題及第二題
-        document.getElementById("healQuestion").innerText = healLifequestion[`${healthThirdResult}`].q;
-        document.getElementById("healA1").innerText = healLifequestion[`${healthThirdResult}`].op1;
-        document.getElementById("healA2").innerText = healLifequestion[`${healthThirdResult}`].op2;
-        document.getElementById("healA3").innerText = healLifequestion[`${healthThirdResult}`].op3;
+    function third() { //抓lifeQuestion的第一題及第二題
+        document.getElementById("question").innerText = lifequestion[`${thirdResult}`].q;
+        document.getElementById("a1").innerText = lifequestion[`${thirdResult}`].op1;
+        document.getElementById("a2").innerText = lifequestion[`${thirdResult}`].op2;
+        document.getElementById("a3").innerText = lifequestion[`${thirdResult}`].op3;
     }
 
 
 
 
-    document.getElementById('healA1').addEventListener("click", nextQuestion) //
-    document.getElementById('healA2').addEventListener("click", nextQuestion)
-    document.getElementById('healA3').addEventListener("click", nextQuestion)
+    document.getElementById('a1').addEventListener("click", nextQuestion) //
+    document.getElementById('a2').addEventListener("click", nextQuestion)
+    document.getElementById('a3').addEventListener("click", nextQuestion)
 
-    document.getElementById('healA1').addEventListener("click", num) //
-    document.getElementById('healA2').addEventListener("click", num)
-    document.getElementById('healA3').addEventListener("click", num)
+    document.getElementById('a1').addEventListener("click", num) //
+    document.getElementById('a2').addEventListener("click", num)
+    document.getElementById('a3').addEventListener("click", num)
 
     function nextQuestion() {
         count++;
-        console.log(healthCount);
-        if (healthCount < 3) {
+        console.log(count);
+        if (count < 3) {
             do {
-                healthRandom();
+                random();
 
-            } while (healthRandomFirst == healthResult) {
-                healthRandom();
+            } while (randomFirst == result) {
+                random();
             }
             begin();
 
-        } else if (healthCount == 3) {
+        } else if (count == 3) {
             second();
 
-        } else if (healthCount == 4) {
+        } else if (count == 4) {
             do {
                 secondRandom();
 
-            } while (healthRandom2 == healthSecondResult) {
+            } while (random2 == secondResult) {
                 secondRandom();
             }
             second();
-        } else if (healthCount == 5) {
+        } else if (count == 5) {
 
             third();
-        } else if (healthCount == 6) {
+        } else if (count == 6) {
             do {
-                healthRandom3();
+                thirdRandom();
 
-            } while (healthRandom3 == healthThirdResult) {
-                healthRandom3();
+            } while (random3 == thirdResult) {
+                thirdRandom();
             }
             third();
-        } else if (healthCount == 7) {
-            document.getElementById('healExam').style.display = "none";
-            document.getElementById('healExamResult').style.display = "block";
+        } else if (count == 7) {
+            document.getElementById('exam').style.display = "none";
+            document.getElementById('examResult').style.display = "block";
         } else {
-            document.getElementById("healExam").style.display = "block";
+            document.getElementById("exam").style.display = "block";
         }
 
 
@@ -219,10 +219,10 @@ function doFirst() {
     };
 
     function num() {
-        healthNumberOrder++;
+        numberOrder++;
 
-        if (healthNumberOrder < 7) {
-            document.getElementById('healNumber').innerText = `${healthNumberOrder}`;
+        if (numberOrder < 7) {
+            document.getElementById('number').innerText = `${numberOrder}`;
         }
     }
 
