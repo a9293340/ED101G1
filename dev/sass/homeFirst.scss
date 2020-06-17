@@ -1,19 +1,5 @@
 @import "./main";
 
-body {
-// font-size:$fzContent;
-// line-height: 1.8;
-// // font-weight: 400;
-// color: lighten($black,60%);
-// margin: 0;
-// &.menu-show {
-//   overflow: hidden;
-//   position: fixed;
-//   height: 100%;
-//   width: 100%;
-// }
-}
-
 a {
 transition: .3s all ease;
 color: $yellow;
@@ -388,9 +374,23 @@ margin: 0;
         div{
           .homeTab-pane{
             display: none;
-            i{
+            .homeCalendarSvg{
               font-size:$fzContent;
               position: relative;
+              background-image: url(../images/homeFirst/homeCalendar.svg);
+              display: inline-block;
+              font: normal normal normal 14px/1 FontAwesome;
+              font-size: inherit;
+              text-rendering: auto;
+            }
+            .homeGps{
+              font-size:$fzContent;
+              position: relative;
+              background-image: url(../images/homeFirst/homeGps.svg);
+              display: inline-block;
+              font: normal normal normal 14px/1 FontAwesome;
+              font-size: inherit;
+              text-rendering: auto;
             }
             .datepickerDemo {
               padding: 40px;
