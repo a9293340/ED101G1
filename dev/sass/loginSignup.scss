@@ -3,7 +3,7 @@
 .homeContainer {
   max-width: 500px;
   margin: 40px auto 0;
-  padding: 0 10px;
+  // padding: 0 10px;
   @include lightBoxMd; //燈箱(中)
 }
 
@@ -14,7 +14,7 @@
   position: relative;
   list-style: none;
   // background-color:$white;
-  box-shadow:  0 0 1em $lightGrey;
+  // box-shadow:  0 0 1em $lightGrey;
 
     .homeTab {
       display: none;
