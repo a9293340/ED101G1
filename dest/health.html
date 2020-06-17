@@ -12,61 +12,60 @@
 
 <body>
     <header></header>
-    <div class="healWrapper">
+    <div class="wrapper">
 
-        <div class="healContent" id="healExam">
-            <h1 class="healTitle">便當健康吃</h1>
-            <p class="healTitle2">此問卷以生活作習、目前體質及腸胃狀況之隨機題庫，依據您目前的健康狀態，提供適合您的便當類型喔!趕快來測驗吧!</p>
-            <div class="healBoard">
-                <div class="healOrder">
-                    <h2 id="healNumber"></h2>
-                    <p class="healSeparate">/</p>
-                    <h2 id="healNumberTotal"></h2>
+        <div class="content" id="exam">
+            <h1 class="title">便當健康吃</h1>
+            <p class="title2">此問卷以生活作習、目前體質及腸胃狀況之隨機題庫，依據您目前的健康狀態，提供適合您的便當類型喔!趕快來測驗吧!</p>
+            <div v-for="question in questions" class="board">
+                <div class="order">
+                    <h2 id="number"></h2>
+                    <p class="separate">/</p>
+                    <h2 id="numberTotal"></h2>
                 </div>
-                <p class="healQuestionTitle" id="healQuestion"></p>
+                <p class="questionTitle" id="question"></p>
 
-                <button class="healBtn" id='healA1'></button>
-                <button class="healBtn" id='healA2'></button>
-                <button class="healBtn" id='healA3'></button>
+                <button class="btn" id='a1'></button>
+                <button class="btn" id='a2'></button>
+                <button class="btn" id='a3'></button>
 
-                <h3 id='healScore'></h3>
+                <h3 id='score'></h3>
             </div>
-            <div class="healImg1"><img src="./images/healthImages/logo.png"></div>
+            <div class="imgLogo"><img src="./images/healthImages/logo.png"></div>
         </div>
 
-        <div class="healOverlay">
-            <div class="healBmiForm">
+        <!-- <div class="overlay">
+            <div class="bmiForm">
                 <h2>您的BMI</h2>
-                <p class="healBmiContent">為了讓測驗更加準確，BMI值也是重要的參考值</p><br>
+                <p class="bmiContent">為了讓測驗更加準確，BMI值也是重要的參考值</p><br>
                 <label>您的性別</label>
-                男<input type="radio" name="healGender" id="healGenders">女<input type="radio" name="healGender"
-                    id="healGenders"><br>
+                男<input type="radio" name="gender" id="genders">女<input type="radio" name="gender" id="genders"><br>
                 <label>請輸入您的身高</label>
-                <input type="text" name=" healHeight" id="healHeight"><br>
+                <input type="text" name=" height" id="height"><br>
                 <label>請輸入您的體重</label>
-                <input type="text" name=" healWeight" id="healWeight"><br>
-                <p class="healResultTitle">BMI
-                <p id="healResult"></p>
+                <input type="text" name=" weight" id="weight"><br>
+                <p class="resultTitle">BMI
+                <p id="result"></p>
                 </p>
-                <button type="button" class="healBtnClose">close</button>
+                <button type="button" class="btnClose">close</button>
             </div>
-        </div>
+        </div> -->
         <!-- 以下為測驗結果 -->
-        <div class="healWrapper2" id="healExamResult">
-            <div class="healContent2">
-                <h1 class="healTitle1">健康自己看</h1>
-                <p class="healTitle3">您屬於<a href="#">虛寒體質</a>，請注意您的飲食狀況，詳細的健康分析，請至<a href="#">健康檔案</a>觀看，以下是我們推薦的餐點</p>
-                <ul class="healCooks">
+        <div class="wrapper2" id="examResult">
+            <div class="content">
+                <h1 class="title1">健康自己看</h1>
+                <p class="title3">您屬於<a href="#">虛寒體質</a>，請注意您的飲食狀況，詳細的健康分析，請至<a href="#">健康檔案</a>觀看，以下是我們推薦的餐點</p>
+                <ul class="cooks">
                     <li><img src="https://via.placeholder.com/200.png/09f/fff"></li>
                     <li><img src="https://via.placeholder.com/200.png/09f/fff"></li>
                     <li><img src="https://via.placeholder.com/200.png/09f/fff"></li>
                 </ul>
-                <ul class="healBento">
+                <ul class="bento">
                     <li><img src="https://via.placeholder.com/300.png/09f/fff"></li>
-                    <li class="healDish">內容 : 白飯、主菜、 宮保雞丁、宮保雞丁、宮保雞丁。<br>總卡路里 : 1000大卡
+                    <li class="dish">內容 : 白飯、主菜、 宮保雞丁、宮保雞丁、宮保雞丁。<br>總卡路里 : 1000大卡
                     </li>
-                    <li class="healImg"><img class="healChart" src="https://via.placeholder.com/200.png/09f/fff"><button
-                            class="healCart">加入購物車</button></li>
+                    <li class="img"><img class="rader" src="https://via.placeholder.com/200.png/09f/fff"><button
+                            class="cart">加入購物車</button></li>
                 </ul>
 
             </div>
