@@ -29,12 +29,11 @@ color: $yellow !important;
 }
 
 section {
-text-align: center;
-// border: 1px solid red;
+// text-align: center;
 font-size: 0;
 margin: 0;
-// overflow: hidden;
-// box-sizing: border-box;
+height: 100vh;
+
 
 .eff{
   // height:100%;
@@ -42,7 +41,6 @@ margin: 0;
   width: 100%;
   max-width: 100%;
   background-image: url(../images/homeFirst/homeRiceBg.jpg);
-  background-size: 100% 100%;
   background-repeat: no-repeat;
   position: relative;
   background-size: cover;
