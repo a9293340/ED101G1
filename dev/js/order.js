@@ -241,93 +241,107 @@ let active=[{
     count:"1"
 }]
 
-let other_juice ={
-    imgsrc:'https://fakeimg.pl/200/',
-    id:"1",
-    name:'養身蔬果汁',
-    price:"80",
-    lists : [
-        {id:"1",name:'養身蔬果汁'},
-        {id:"2",name:'果汁'},
-    ]
-}
-
-let other_fruit = {
-    imgsrc:'https://fakeimg.pl/200/',
-    id:"1",
-    name:'養身蔬果汁',
-    price:"80",
-    lists : [
-        {id:"1",name:'養身蔬果汁'},
-        {id:"2",name:'果汁'},
-    ]
-}
-
-let other_body = {
-    imgsrc:'https://fakeimg.pl/200/',
-    id:"1",
-    name:'養身蔬果汁',
-    price:"80",
-    lists : [
-        {id:"1",name:'養身蔬果汁'},
-        {id:"2",name:'果汁'},
-    ]
-}
-
-let other = new Vue({
-    el:'#other',
-    data: other_juice,
-    methods:{
-        changeimg: function(id){
-            if(id == 1){
-                this.name ='養身蔬果汁';
-                this.imgsrc = "https://fakeimg.pl/200/";
-                this.price = '80';
-            }else if(id == 2){
-                this.name ='果汁';
-                this.imgsrc = "https://fakeimg.pl/200/";
-                this.price = '60';
-            }
-        }
+let other=[
+    {
+       opId:'1001',
+       opName:"薑母茶",
+       opPrice:'60',
+       opClass:'0',
+       opImage:"https://fakeimg.pl/100/"
     },
-})
-let other2 = new Vue({
-    el:'#other2',
-    data: other_fruit,
-    methods:{
-        changeimg: function(id){
-            if(id == 1){
-                this.name ='養身蔬果汁';
-                this.imgsrc = "https://fakeimg.pl/200/";
-                this.price = '80';
-            }else if(id == 2){
-                this.name ='果汁';
-                this.imgsrc = "https://fakeimg.pl/200/";
-                this.price = '60';
-            }
-        }
+    {
+       opId:'1002',
+       opName:"蔬果汁",
+       opPrice:'45',
+       opClass:'0',
+       opImage:"https://fakeimg.pl/100/"
     },
-})
-let other3 = new Vue({
-    el:'#other3',
-    data: other_body,
-    methods:{
-        changeimg: function(id){
-            if(id == 1){
-                this.name ='養身蔬果汁';
-                this.imgsrc = "https://fakeimg.pl/200/";
-                this.price = '80';
-            }else if(id == 2){
-                this.name ='果汁';
-                this.imgsrc = "https://fakeimg.pl/200/";
-                this.price = '60';
-            }
-        }
+    {
+       opId:'1003',
+       opName:"綠茶",
+       opPrice:'25',
+       opClass:'0',
+       opImage:"https://fakeimg.pl/100/"
     },
+    {
+       opId:'1004',
+       opName:"鳳梨",
+       opPrice:'30',
+       opClass:'1',
+        opImage:"https://fakeimg.pl/100/"
+    },
+    {
+       opId:'1005',
+       opName:"西瓜",
+       opPrice:'30',
+       opClass:'1',
+       opImage:"https://fakeimg.pl/100/"
+    },
+    {
+       opId:'1006',
+       opName:"蘋果",
+       opPrice:'30',
+       opClass:'1',
+       opImage:"https://fakeimg.pl/100/"
+    },
+    {
+       opId:'1007',
+        opName:"益生菌",
+       opPrice:'80',
+       opClass:'2',
+       opImage:"https://fakeimg.pl/100/"
+    },
+    {
+       opId:'1008',
+       opName:"人參雞精",
+       opPrice:'80',
+       opClass:'2',
+       opImage:"https://fakeimg.pl/100/"
+    }
+ ]
+
+
+var orderOther = new Vue({
+    el:'#orderOther',
+    data:{
+        selectedone: 1,
+        selectedtwo: 1,
+        selectedthree: 1,
+        othercount1:0,
+        othercount2:0,
+        othercount3:0,
+        other,
+    },methods:{
+        otherplus:function(){
+            orderOther.$data.othercount1++;
+        },
+        otherminus:function(){
+            if(orderOther.$data.othercount1>0){
+            orderOther.$data.othercount1--;
+            }
+        },
+        otherplus2:function(){
+            orderOther.$data.othercount2++;
+        },
+        otherminus2:function(){
+            if(orderOther.$data.othercount2>0){
+            orderOther.$data.othercount2--;
+            }
+        },
+        otherplus3:function(){
+            orderOther.$data.othercount3++;
+        },
+        otherminus3:function(){
+            if(orderOther.$data.othercount3>0){
+            orderOther.$data.othercount3--;
+            }
+        },
+        otherincart:function(){
+            console.log(this.dataset.id);
+        }
+
+    }, 
 })
-
-
-
 
 
 var app = new Vue({
@@ -367,8 +381,21 @@ var app3 = new Vue({
     },
 })
 
+document.getElementById('otherCart').addEventListener('click',otherIncart);
 
+function otherIncart(){
+   let A = this.dataset.id;
+   console.log(A);
+   for(var i = 0; i<other.length ;i++ ){
+       if(other[i].opId == Number(A)){
+           otherName = other[i].opName;
+           otherPrice = other[i].opPrice;
+           otherMany  = orderOther.$data.othercount1;
+       }
 
+   }
+
+}
 
 //錨點 js
 
@@ -544,7 +571,7 @@ function meatincart(){
 }
 
 var singlecount = 0;
-function singleincart()
+function singleincart() 
  {
     singlecount++;
     if(singlecount<4)
@@ -749,6 +776,7 @@ function shoppcar(){              //自選的加入購物車
     var singleprice2 = localStorage.getItem('singleprice2');
     var single3 = localStorage.getItem('singlename3');
     var singleprice3 = localStorage.getItem('singleprice3');
+    var soPrice = parseInt(riceprice)+parseInt(meatprice)+parseInt(singleprice1)+parseInt(singleprice2)+parseInt(singleprice3);
 // document.getElementById('ricename').innerText=`${rice}`;
 // document.getElementById('meatname').innerText=`${meat}`;
 // document.getElementById('singlename1').innerText=`${single1}`;
@@ -766,6 +794,7 @@ var singleorder= {
     single2price:`${singleprice2}`,
     single3:`${single3}`,
     single3price:`${singleprice3}`,
+    soPrice:`${soPrice}`
  }
 if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!==null){
     singleNum++;
