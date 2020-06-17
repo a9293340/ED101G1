@@ -66,14 +66,40 @@
       margin-left: 50px;
       width: 200px;
       display: inline-block;
+      color:$green;
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 26px;
       .homeQinput{
         width: 30px;
         height: 30px;
         border: 5px solid red;
         background: $white;
+       }
       }
-      }
+     }
     }
-   }
+    .homeTapBox{
+      border: 1px solid yellowgreen;
+      position: relative;
+      .homeTapUp{
+        border: 1px solid yellow;
+        position: relative;
+        right: -245px;
+        width: 300px;
+        height: auto;
+        top: -40vh;
+        opacity: 1;
+        z-index: 9999;
+       }
+      }
+    .homeTwBoy{
+      border: 1px solid red;
+      position: relative;
+      right: -60%;
+      width: 400px;
+      height: auto;
+      top: -95vh;
+    }
   }
 }

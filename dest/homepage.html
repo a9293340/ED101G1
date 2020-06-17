@@ -286,9 +286,33 @@
                 </label>
             </div>
         </div>
+        <div class="homeTapBox" id="pics" align="center">
+            <img class="homeTapUp" id="homeTapPic" src="./images/homeHealth/a.png"/>
+        </div>
+        <img class="homeTwBoy" id="homeTapPic" src="./images/homeHealth/homeHealthLogo.png" />
     </div>
 </section>
 <!-- end 第 3 屏 -->
+<script>
+var index = 1;            //全局变量，在0到(num-1)之间循环      
+        var num = 4;
+        var img = document.getElementById("homeTapPic");   //获取图片ID  
+        // var title = document.getElementById("title");
+        function homeTapPicChange() {
+            switch (index) {
+                case 1: img.src = "./images/homeHealth/a.png"; break;   //切换到1.jpg  
+                case 2: img.src = "./images/homeHealth/b.png"; break;   //切换到2.jpg  
+                // case 3: img.src = "./images/homeHealth/homeTap-one.png"; break;   //切换到3.jpg  
+                // case 4: img.src = "./images/homeHealth/homeTap-one.png"; break;   //切换到4.jpg  
+            }
+            // title.innerHTML = "图片" + index;     //修改标题  
+            index++;                         //切换到下一张  
+            if (index > num) {
+                index = index % num;       //大于最多图片数量后回到第0张  
+            }
+        }
+        setInterval("homeTapPicChange()", 1000); //设置定时器，作用于PicChange()函数内，时间为1000毫秒刷新一次  
+</script>
 
 
     <!-- home-am -->
