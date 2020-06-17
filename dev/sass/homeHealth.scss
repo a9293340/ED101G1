@@ -80,26 +80,23 @@
      }
     }
     .homeTapBox{
-      border: 1px solid yellowgreen;
-      position: relative;
       .homeTapUp{
-        border: 1px solid yellow;
+        // border: 1px solid yellow;
         position: relative;
-        right: -245px;
-        width: 300px;
+        right: -250px;
+        width: 280px;
         height: auto;
         top: -40vh;
         opacity: 1;
-        z-index: 9999;
        }
       }
     .homeTwBoy{
-      border: 1px solid red;
+      // border: 1px solid red;
       position: relative;
-      right: -60%;
-      width: 400px;
+      right: -61%;
+      width: 500px;
       height: auto;
-      top: -95vh;
+      top: -85vh;
     }
   }
 }
