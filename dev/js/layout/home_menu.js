@@ -1,3 +1,41 @@
+new Vue({
+  el: '#first',
+  data: {
+    list: [
+      { id: '123', benton: '雞腿便當' },
+      { id: '223', benton: '鮭魚便當' },
+      { id: '023', benton: '排骨便當' },
+    ],
+  }
+})
+// 排行榜
+new Vue({
+  el: '#mid',
+  data: {
+    message: [
+
+    ]
+  },
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //主要效果控制
 
 var $cont = document.querySelector('.cont');
@@ -23,6 +61,7 @@ $closeBtnsArr.forEach(function ($btn) {
     document.querySelector('.el.s--active').classList.remove('s--active');
   });
 });
+
 
 //變形蟲控制
 const c = document.getElementById("canvas");
@@ -110,3 +149,5 @@ function rnd() {
   Math.seed = (Math.seed * 108013 + 2531011) & 0xffffffff;
   return Math.abs(Math.seed >> 16) / 32869;
 }
+
+

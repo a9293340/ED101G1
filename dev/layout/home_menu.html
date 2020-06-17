@@ -3,7 +3,7 @@
   <!-- cont inner start-->
   <div class="cont__inner">
     <!-- el start 這邊是第一區 -->
-    <div class="el first">
+    <div class="el first" id="first">
       <!--點選區域後觸發 s--active-->
       <div class="el__overflow">
         <!--顯示長條狀圖案，關閉後只有黑色背景-->
@@ -19,9 +19,11 @@
             <div class="el__text">精選便當</div>
             <div class="el__close-btn"></div>
             <div class="el__leaderBoards">
-              <div class="leaderBoard"></div>
-              <div class="leaderBoard"></div>
-              <div class="leaderBoard"></div>
+              <ul>
+                <li v-for="(menu, index) in list">
+                  index: ${index}, benton: ${menu.benton}
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -36,7 +38,7 @@
     </div>
     <!-- el end -->
     <!-- el start 這邊是第二區 -->
-    <div class="el sec middle">
+    <div class="el sec middle" id="mid">
       <div class="el__overflow">
         <div class="el__inner">
           <div class="el__bg"></div>
@@ -49,19 +51,22 @@
             <div class="el__leaderBoards">
               <a href="#" class="leaderBoard a1">
                 <div class="top_img">
+                  <img id="sec_food" src="" alt="">
                 </div>
-                <div class="content">自選便當</div>
+                <div class="content">{{message}}</div>
               </a>
               <a href="#" class="leaderBoard a2">
                 <canvas id="canvas"></canvas>
                 <div class="top_img">
+                  <img id="first_food" src="" alt="">
                 </div>
-                <div class="content">自選便當</div>
+                <div class="content">{{message}}</div>
               </a>
               <a href="#" class="leaderBoard a3">
                 <div class="top_img">
+                  <img id="third_food" src="" alt="">
                 </div>
-                <div class="content">自選便當</div>
+                <div class="content">{{message}}</div>
               </a>
             </div>
           </div>
