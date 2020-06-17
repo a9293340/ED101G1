@@ -11,25 +11,25 @@
 </head>
 
 <body>
-    <!-- <header></header> -->
-    <div class="wrapper">
+    <header></header>
+    <div class="healWrapper">
 
-        <div class="content" id="exam">
-            <h1 class="title">便當健康吃</h1>
-            <p class="title2">此問卷以生活作習、目前體質及腸胃狀況之隨機題庫，依據您目前的健康狀態，提供適合您的便當類型喔!趕快來測驗吧!</p>
-            <div v-for="question in questions" class="board">
-                <div class="order">
-                    <h2 id="number"></h2>
-                    <p class="separate">/</p>
-                    <h2 id="numberTotal"></h2>
+        <div class="healContent" id="healExam">
+            <h1 class="healTitle">便當健康吃</h1>
+            <p class="healTitle2">此問卷以生活作習、目前體質及腸胃狀況之隨機題庫，依據您目前的健康狀態，提供適合您的便當類型喔!趕快來測驗吧!</p>
+            <div class="healBoard">
+                <div class="healOrder">
+                    <h2 id="healNumber"></h2>
+                    <p class="healSeparate">/</p>
+                    <h2 id="healNumberTotal"></h2>
                 </div>
-                <p class="questionTitle" id="question"></p>
+                <p class="healQuestionTitle" id="healQuestion"></p>
 
-                <button class="btn" id='a1'></button>
-                <button class="btn" id='a2'></button>
-                <button class="btn" id='a3'></button>
+                <button class="healBtn" id='healA1'></button>
+                <button class="healBtn" id='healA2'></button>
+                <button class="healBtn" id='healA3'></button>
 
-                <h3 id='score'></h3>
+                <h3 id='healScore'></h3>
             </div>
             <div class="img1"><img src="./images/healthImages/logo.png"></div>
         </div>
@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    <!-- <footer></footer> -->
+    <footer></footer>
     <script src="../dev/js/health.js"></script>
 
 
