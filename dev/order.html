@@ -51,13 +51,13 @@
                     <td>{{item.single3}}</td>
                     <td>x1</td>
                     <td></td>
-                    <td>NT${{item.single3price}}</td>
+                    <td>NT${{item.single3price}}</td> 
                 </tr>
             </table>
           </div>
           <h3>經典便當</h3>
           <div v-for="(item, index) in finalsetdolist">
-            <span>X</span>
+            <span :id="'setdodelete'+ item.setdoid" :data-num="item.setdoid">X</span>
             <table>
                 <tr>
                     <td>{{item.setdoname}}</td>
