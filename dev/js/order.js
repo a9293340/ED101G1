@@ -10,7 +10,8 @@
 //   }) 
 
 let orderCart = []; 
-let setdoMenu=[];
+let otherMenu =[];
+let setdoMenu = [];
 let singleNum = 0;
 let setdoNum = 0 ;
 
@@ -382,18 +383,73 @@ var app3 = new Vue({
 })
 
 document.getElementById('otherCart').addEventListener('click',otherIncart);
+document.getElementById('otherCart2').addEventListener('click',otherIncart);
+document.getElementById('otherCart3').addEventListener('click',otherIncart);
+
+
+
 
 function otherIncart(){
+    otherright = 0;
    let A = this.dataset.id;
    console.log(A);
    for(var i = 0; i<other.length ;i++ ){
        if(other[i].opId == Number(A)){
+           otherright=1;
+           otherImg =other[i].opImage;
+           otherId = other[i].opId;
            otherName = other[i].opName;
            otherPrice = other[i].opPrice;
+           if(other[i].opClass == 0){
            otherMany  = orderOther.$data.othercount1;
+           }else if(other[i].opClass == 1){
+            otherMany  = orderOther.$data.othercount2;
+           }else if(other[i].opClass == 2){
+            otherMany  = orderOther.$data.othercount3;   
+           }
+           console.log(otherMany);
+           if(otherMany==0){
+               alert('還沒選數量喔')
+           }
        }
-
+      
    }
+            if(otherright==0){
+                 alert('請選擇品項喔')
+             }
+
+        if(otherright!==0 && otherMany!==0){
+
+            otherList={
+                otherImg:`${otherImg}`,
+                otherId:`${otherId}`,
+                otherName:`${otherName}`,
+                otherPrice:`${otherPrice}`,
+                otherMany:`${otherMany}`,
+            }
+            var othersamename = 0;
+            if(otherMenu.length>0){
+                 for(var c =0  ;c < otherMenu.length; c++){
+                        if(otherMenu[c].otherName == otherList.otherName){
+                            othersamename=1;
+                            otherMenu[c].otherMany = parseInt(otherMenu[c].otherMany)+parseInt(otherList.otherMany);
+                        } 
+                 }
+                if(othersamename!=1){
+                    otherMenu.push(otherList);
+                   
+                }
+            }
+            else
+            {
+                otherMenu.push(otherList);
+            }
+
+           otherOrder = JSON.stringify(otherMenu);
+           localStorage.setItem('otherOrder',otherOrder);
+
+           setordercart();
+        }
 
 }
 
@@ -683,7 +739,8 @@ var singleorderlist = new Vue({   //購物車 vue
     el:'#list',  
     data:{
         finalsinglelist:[],
-        finalsetdolist:[]
+        finalsetdolist:[],
+        finalorderlist:[]
     },
 })
 
@@ -733,6 +790,22 @@ function deletesetdocart(){
     }
     singleorderlist.$data.finalsetdolist = finalsetdolist;
     localStorage.setItem('setdoMenuList', JSON.stringify(finalsetdolist)); 
+}
+
+
+function deleteordercart(){
+    let A = this.dataset.num;
+    console.log(A);
+    var finalorderlist = JSON.parse(localStorage.getItem('otherOrder'));
+    for(let i=0; i<finalorderlist.length; i++){
+
+        if(finalorderlist[i].otherId ==  Number(A)){
+            finalorderlist.splice(i,1);
+            otherMenu.splice(i,1);
+        }
+    }
+    singleorderlist.$data.finalorderlist = finalorderlist;
+    localStorage.setItem('otherOrder', JSON.stringify(finalorderlist)); 
 }
 
 setdocount=[];
@@ -963,7 +1036,7 @@ function setsetdocart(){       //一開始套餐購物車重新渲染
     console.log(singleorderlist.$data.finalsetdolist);
 
     setTimeout(function(){
-    for(var i=0; i<6; i++){
+    for(var i=0; i<7; i++){
                 if(document.getElementById(`setdodelete${i}`)){
                     document.getElementById(`setdodelete${i}`).addEventListener('click',deletesetdocart);
                 }
@@ -972,4 +1045,22 @@ function setsetdocart(){       //一開始套餐購物車重新渲染
 }
 if(localStorage.getItem('setdoMenuList')){
     setsetdocart();
+}
+
+function setordercart(){
+    var finalorderlist = JSON.parse(localStorage.getItem('otherOrder'));
+    singleorderlist.$data.finalorderlist = finalorderlist;
+    otherMenu=finalorderlist;
+
+    setTimeout(function(){
+        for(var i=1; i<9; i++){
+                    if(document.getElementById(`orderdelete100${i}`)){
+                        document.getElementById(`orderdelete100${i}`).addEventListener('click',deleteordercart);
+                    }
+                }
+        },1000);   
+
+}
+if(localStorage.getItem('otherOrder')){
+    setordercart();
 }
