@@ -67,7 +67,7 @@ function gogoPower(){
                 }
                 if(Number(changeCount) == 3){
                     let now = new Date();
-                    if(new Date(memData.memSignIntime) > now){
+                    if(new Date(this.memData.memSignIntime) > now){
                         $(".infoText").html("遊玩次數達到本日上線囉~明日請早");
                         $("button").hide();
                     }
@@ -173,7 +173,13 @@ function gogoPower(){
                 let single = [];
                 let setA = [];
                 let other = [];
-                // 跟子鈞討論 1.紀錄總價格 2.數量？
+                let count = 0;
+                if(localStorage['singleNum']){
+                    count = Number(localStorage['singleNum'])
+                }else{
+                    localStorage['singleNum'] = 0;
+                    count = localStorage['singleNum']
+                }
                 if(localStorage['singleOrder']){
                     single = JSON.parse(localStorage['singleOrder']);
                     for(let i = 0; i < this.memSingleOrder.length; i++){
@@ -185,10 +191,13 @@ function gogoPower(){
                                 "single2":this.memSingleOrder[i].sideDishes2,
                                 "single3":this.memSingleOrder[i].sideDishes3,
                                 "soPrice":this.memSingleOrder[i].soPrice,
-                                "soImg":this.memSingleOrder[i].soImg
+                                "soImg":this.memSingleOrder[i].soImg,
+                                "sNum":count
                             })
+                            count++
                         }
                     }
+                    localStorage['singleNum'] = count;
                     localStorage['singleOrder'] = JSON.stringify(single);
                 }else{
                     for(let i = 0; i < this.memSingleOrder.length; i++){
@@ -200,10 +209,13 @@ function gogoPower(){
                                 "single2":this.memSingleOrder[i].sideDishes2,
                                 "single3":this.memSingleOrder[i].sideDishes3,
                                 "soPrice":this.memSingleOrder[i].soPrice,
-                                "soImg":this.memSingleOrder[i].soImg
+                                "soImg":this.memSingleOrder[i].soImg,
+                                "sNum":count
                             })
+                            count++
                         }
                     }
+                    localStorage['singleNum'] = count;
                     localStorage['singleOrder'] = JSON.stringify(single);
                 }
 
@@ -377,8 +389,8 @@ function gogoPower(){
                     }
                     localStorage['setdoMenuList'] = JSON.stringify(setA);
                 }
-
             }
+            
         },
         computed: {
             memChooseCirleColor1(){
@@ -771,11 +783,11 @@ function gogoPower(){
             this.grade += 100;
         }
         $(".infoText").html(`${result} You Get Score：${this.grade}<br>遊玩次數達到本日上線囉~明日請早`);
-        memData.memSignIntime = today;
-        console.log(memData.memSignIntime);
+        memVm.$data.memData.memSignIntime = today;
+        console.log('aaa'+memVm.$data.memData.memSignIntime);
         // 要加入積分
-        memData.memScore += this.grade;
-        console.log(memData.memScore);
+        memVm.$data.memData.memScore += this.grade;
+        console.log('bbb'+memVm.$data.memData.memScore);
         // 將 memData.memScore 與 memData.memSignIntime回傳資料庫
     }
 
