@@ -3,7 +3,7 @@
 .homeContainer {
   max-width: 500px;
   margin: 40px auto 0;
-  padding: 0 10px;
+  // padding: 0 10px;
   @include lightBoxMd; //燈箱(中)
 }
 
@@ -14,7 +14,7 @@
   position: relative;
   list-style: none;
   // background-color:$white;
-  box-shadow:  0 0 1em $lightGrey;
+  // box-shadow:  0 0 1em $lightGrey;
 
     .homeTab {
       display: none;
@@ -86,7 +86,6 @@
       position:relative;
       padding:15px;
       display: flex;
-
       .homeReq {
         margin:2px;
         color:$orange;
@@ -116,30 +115,13 @@
           width: calc(45% - 10px);
          } 
       }
-      .homeField-ok{  //帳號、密碼正確
-        width: 90%;
-        text-align: center;
-        border-radius: 5px;
-        margin: 0;
-        font-size:$fzSmall;
-        color:$white;
-        font-weight: 500;
-        white-space: wrap;
-        padding: 2px 5px;
-        background-color:$green;
-      }
-      .homeField-error{//帳號、密碼錯誤
-        width: 90%;
-        text-align: center;
-        border-radius: 5px;
-        margin: 0;
-        font-size:$fzSmall;
-        color:$white;
-        font-weight: 500;
-        white-space: wrap;
-        padding: 2px 5px;
-        background-color:$darkred;
-      }
+    }
+   .homeField-error{//帳號、密碼錯誤
+    width: 100%;
+    text-align: center;
+    font-size:$fzSmall;
+    color:$red;
+    padding-left: 40px;
     }
 
     input{

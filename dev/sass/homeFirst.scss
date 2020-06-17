@@ -1,18 +1,17 @@
 @import "./main";
 
 body {
-background: $white;
-font-size:$fzContent;
-line-height: 1.8;
-font-weight: 400;
-color: lighten($black,60%);
-margin: 0;
-&.menu-show {
-  overflow: hidden;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-}
+// font-size:$fzContent;
+// line-height: 1.8;
+// // font-weight: 400;
+// color: lighten($black,60%);
+// margin: 0;
+// &.menu-show {
+//   overflow: hidden;
+//   position: fixed;
+//   height: 100%;
+//   width: 100%;
+// }
 }
 
 a {
@@ -48,12 +47,15 @@ text-align: center;
 // border: 1px solid red;
 font-size: 0;
 margin: 0;
+// overflow: hidden;
+// box-sizing: border-box;
 
 .eff{
-  height:935px;
+  // height:100%;
+  height:900px;
   width: 100%;
   max-width: 100%;
-  background-image: url(https://image.freepik.com/free-photo/steam-from-man-taking-tasty-rice-with-spoon-from-cooker-kitchen-jasmine-rice-cooking-electric-rice-cooker-with-steam-selective-focus_39810-124.jpg);
+  background-image: url(../images/homeFirst/homeRiceBg.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   position: relative;
@@ -66,7 +68,7 @@ margin: 0;
       left:60%;
       width: 133px;
       height: 135px;
-      background-image: url(../images/love-Fish.png);
+      background-image: url(../images/homeFirst/love-Fish.png);
       z-index: 99999;
       animation-duration:3s;  //執行動畫長度
       animation-fill-mode: both;
@@ -103,7 +105,7 @@ margin: 0;
       width: 133px;
       height: 135px;
       z-index: 99999;
-      background-image: url(../images/love-Pg.png);
+      background-image: url(../images/homeFirst/love-Pg.png);
       animation-duration:3s; //執行動畫長度
       animation-fill-mode: both;
       animation-name:loveElement-Pg;
@@ -140,7 +142,7 @@ margin: 0;
       width: 133px;
       height: 135px;
       z-index: 99999;
-      background-image: url(../images/love-Gt.png);
+      background-image: url(../images/homeFirst/love-Gt.png);
       animation-duration:3s;  //執行動畫長度
       animation-fill-mode: both;
       animation-name: loveElement-Gt;
@@ -349,7 +351,7 @@ margin: 0;
           line-height: 1.8;
           font-weight: 400;
           color: $greyGrey;
-          height: 52px;
+          height:95px;
         }
         .homeDelivery,.homeTakeaway{
           padding: 10px 30px !important;
