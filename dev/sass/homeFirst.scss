@@ -374,10 +374,10 @@ margin: 0;
         div{
           .homeTab-pane{
             display: none;
-            .homeCalendarSvg{
+            .homeCalendar{
               font-size:$fzContent;
               position: relative;
-              background-image: url(../images/homeFirst/homeCalendar.svg);
+              background-image: url(../images/homeFirst/homeCalendar.png);
               display: inline-block;
               font: normal normal normal 14px/1 FontAwesome;
               font-size: inherit;
@@ -387,7 +387,7 @@ margin: 0;
             .homeGps{
               font-size:$fzContent;
               position: relative;
-              background-image: url(../images/homeFirst/homeGps.svg);
+              background-image: url(../images/homeFirst/homeGps.png);
               display: inline-block;
               font: normal normal normal 14px/1 FontAwesome;
               font-size: inherit;
