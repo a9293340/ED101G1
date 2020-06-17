@@ -9,7 +9,7 @@ header{
     border: 1px solid rgb(8, 8, 8);
     height: 80px;
 }
-div.wrapper {
+div.healWrapper {
     border: 1px solid red;
     width: 100%;
     min-width: 1200px;
@@ -17,14 +17,14 @@ div.wrapper {
     background-size: 100%;
 }
 
-.content {
+.healContent {
     // border: 1px solid blue;
     width: 1200px;
     margin: 0 auto;
 
 }
 
-h1.title {
+h1.healTitle {
     //border: 1px solid black;
     width: 100%;
     color: white;
@@ -35,7 +35,7 @@ h1.title {
     padding: 10px;
 }
 
-p.title2 {
+p.healTitle2 {
     // border: 1px solid orange;
     color: #ffd23f;
     width: 100%;
@@ -49,7 +49,7 @@ p.title2 {
 button{
     cursor: pointer;
 }
-div.overlay{
+div.healOverlay{
     position: fixed;
     right:25%;
     top:25%;
@@ -62,16 +62,16 @@ div.overlay{
     line-height: 50px;
     
 }
-div.overlay.-opacity-zero{
+div.healOverlay.-opacity-zero{
     opacity: 0;
 }
-form> h2{
+.healBmiform> h2{
     text-align: center;
 }
-.bmiContent{
+.healBmiContent{
     width: 100%;
 }
-div.bmiForm{
+div.healBmiForm{
     color: black;
     width: 400px;
     padding: 15px;
@@ -80,7 +80,7 @@ div.bmiForm{
     
     
 }
-div.overlay > div.bmiForm{
+div.healOverlay > div.healBmiForm{
     width: 60%;
     margin: 0 auto;
     max-width: 800px;
@@ -92,21 +92,21 @@ div.overlay > div.bmiForm{
     transform: translate(-50%,-50%);
     line-height: 35px;
 }
-p.resultTitle{
+p.healResultTitle{
     width: 85px;
     font-size: 1.5rem;
 
 }
-#result{
+#healResult{
     color:red;
 }
-p,#result{
+p,#healResult{
     width: 150px;
     margin: 0;
     display: inline-block;
 }
 
-div.board {
+div.healBoard {
     // border: 1px solid black;
     width: 1000px;
     margin:  auto;
@@ -118,20 +118,20 @@ div.board {
     margin-bottom: 20px;
     
 }
-p.separate{
+p.healSeparate{
     width: 10px;
 }
-#number,p.separate,#numberTotal{
+#healNumber,p.healSeparate,#healNumberTotal{
     display: inline-block;
 }
-.questionTitle{
+.healQuestionTitle{
     width: 30%;
     // border: 1px solid black;
     font-size: 1.5rem;
     margin: auto;
     text-align: left;
 }
-button.btn{
+button.healBtn{
     width: 100px;
     height: 50px;
     text-align: center;
@@ -142,13 +142,13 @@ button.btn{
     vertical-align: bottom;
 }
 
-button.btn:hover{
+button.healBtn:hover{
     background-color: #ffd23f;
 }
 
 
 
-.img1 {
+.healImg1 {
     width: 150px;
     margin-left: auto;
     margin-right: 40px;
@@ -158,24 +158,24 @@ button.btn:hover{
 
 
 
-div.wrapper2 {
+div.healWrapper2 {
     border: 1px solid red;
     width: 100%;
     min-width: 1200px;
     background-image: url("../images/healthImages/blackBoard.jpg");
 
 }
-#examResult {
+#healExamResult {
     display: none;
 }
-.content {
+.healContent2 {
     // border: 1px solid blue;
     width: 1200px;
     margin: 0 auto;
 
 }
 
-h1.title1 {
+h1.healTitle1 {
     border: 1px solid black;
     width: 100%;
     color: white;
@@ -185,7 +185,7 @@ h1.title1 {
     
 }
 
-p.title3 {
+p.healTitle3 {
     border: 1px solid orange;
     color: #ffd23f;
     width: 100%;
@@ -198,7 +198,7 @@ a{
     text-decoration: none;
     color:white;
 }
-ul.cooks {
+ul.healCooks {
     border: 1px solid red;
     width: 1000px;
     display: flex;
@@ -213,7 +213,7 @@ li {
 
 }
 
-ul.bento {
+ul.healBento {
     border: 1px solid red;
     width: 1000px;
     margin: 0 auto;
@@ -221,7 +221,7 @@ ul.bento {
     display: flex;
 }
 
-li.dish {
+li.healDish {
     border: 1px solid gray;
     width: 230px;
     white-space: pre-wrap;
@@ -229,11 +229,11 @@ li.dish {
     font-size: 1.2rem;
 }
 
-li.img{
+li.healImg{
       margin-right: auto;
 
     }
-button.cart{
+button.healCart{
     //border: 1px solid black;
     margin-left: auto;
     padding-top: 3px;
@@ -242,7 +242,7 @@ button.cart{
     background-color: #ea6627;
     color: white;
 }
-li.img,button.cart{
+li.healImg,button.healCart{
     display: block;
     margin: auto;
 }

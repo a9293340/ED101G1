@@ -8,18 +8,18 @@ header {
   border: 1px solid #080808;
   height: 80px; }
 
-div.wrapper {
+div.healWrapper {
   border: 1px solid red;
   width: 100%;
   min-width: 1200px;
   background-image: url("../images/healthImages/blackBoard.jpg");
   background-size: 100%; }
 
-.content {
+.healContent {
   width: 1200px;
   margin: 0 auto; }
 
-h1.title {
+h1.healTitle {
   width: 100%;
   color: white;
   font-family: Noto Sans TC;
@@ -28,7 +28,7 @@ h1.title {
   letter-spacing: 5px;
   padding: 10px; }
 
-p.title2 {
+p.healTitle2 {
   color: #ffd23f;
   width: 100%;
   margin: 0 auto;
@@ -40,7 +40,7 @@ p.title2 {
 button {
   cursor: pointer; }
 
-div.overlay {
+div.healOverlay {
   position: fixed;
   right: 25%;
   top: 25%;
@@ -52,23 +52,23 @@ div.overlay {
   opacity: 1;
   line-height: 50px; }
 
-div.overlay.-opacity-zero {
+div.healOverlay.-opacity-zero {
   opacity: 0; }
 
-form > h2 {
+.healBmiform > h2 {
   text-align: center; }
 
-.bmiContent {
+.healBmiContent {
   width: 100%; }
 
-div.bmiForm {
+div.healBmiForm {
   color: black;
   width: 400px;
   padding: 15px;
   margin: 0 auto;
   font-size: 1.2rem; }
 
-div.overlay > div.bmiForm {
+div.healOverlay > div.healBmiForm {
   width: 60%;
   margin: 0 auto;
   max-width: 800px;
@@ -80,19 +80,19 @@ div.overlay > div.bmiForm {
   transform: translate(-50%, -50%);
   line-height: 35px; }
 
-p.resultTitle {
+p.healResultTitle {
   width: 85px;
   font-size: 1.5rem; }
 
-#result {
+#healResult {
   color: red; }
 
-p, #result {
+p, #healResult {
   width: 150px;
   margin: 0;
   display: inline-block; }
 
-div.board {
+div.healBoard {
   width: 1000px;
   margin: auto;
   background-color: rgba(233, 233, 233, 0.5);
@@ -102,19 +102,19 @@ div.board {
   text-align: center;
   margin-bottom: 20px; }
 
-p.separate {
+p.healSeparate {
   width: 10px; }
 
-#number, p.separate, #numberTotal {
+#healNumber, p.healSeparate, #healNumberTotal {
   display: inline-block; }
 
-.questionTitle {
+.healQuestionTitle {
   width: 30%;
   font-size: 1.5rem;
   margin: auto;
   text-align: left; }
 
-button.btn {
+button.healBtn {
   width: 100px;
   height: 50px;
   text-align: center;
@@ -124,28 +124,28 @@ button.btn {
   font-size: 1rem;
   vertical-align: bottom; }
 
-button.btn:hover {
+button.healBtn:hover {
   background-color: #ffd23f; }
 
-.img1 {
+.healImg1 {
   width: 150px;
   margin-left: auto;
   margin-right: 40px; }
 
-div.wrapper2 {
+div.healWrapper2 {
   border: 1px solid red;
   width: 100%;
   min-width: 1200px;
   background-image: url("../images/healthImages/blackBoard.jpg"); }
 
-#examResult {
+#healExamResult {
   display: none; }
 
-.content {
+.healContent2 {
   width: 1200px;
   margin: 0 auto; }
 
-h1.title1 {
+h1.healTitle1 {
   border: 1px solid black;
   width: 100%;
   color: white;
@@ -153,7 +153,7 @@ h1.title1 {
   margin-left: auto;
   font-size: 2.5rem; }
 
-p.title3 {
+p.healTitle3 {
   border: 1px solid orange;
   color: #ffd23f;
   width: 100%;
@@ -166,7 +166,7 @@ a {
   text-decoration: none;
   color: white; }
 
-ul.cooks {
+ul.healCooks {
   border: 1px solid red;
   width: 1000px;
   display: flex;
@@ -178,24 +178,24 @@ li {
   border: 1px solid blue;
   margin: 20px auto; }
 
-ul.bento {
+ul.healBento {
   border: 1px solid red;
   width: 1000px;
   margin: 0 auto;
   list-style: none;
   display: flex; }
 
-li.dish {
+li.healDish {
   border: 1px solid gray;
   width: 230px;
   white-space: pre-wrap;
   color: #ffd23f;
   font-size: 1.2rem; }
 
-li.img {
+li.healImg {
   margin-right: auto; }
 
-button.cart {
+button.healCart {
   margin-left: auto;
   padding-top: 3px;
   border-radius: 5px;
@@ -203,7 +203,7 @@ button.cart {
   background-color: #ea6627;
   color: white; }
 
-li.img, button.cart {
+li.healImg, button.healCart {
   display: block;
   margin: auto; }
 
