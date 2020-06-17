@@ -61,12 +61,17 @@
     .homeQuesionBox{
       color: $white;
       font-size: 1rem;
-      border: 1px solid $black;
       padding: 30px 0;
       .homeTest{
       margin-left: 50px;
       width: 200px;
       display: inline-block;
+      .homeQinput{
+        width: 30px;
+        height: 30px;
+        border: 5px solid red;
+        background: $white;
+      }
       }
     }
    }
