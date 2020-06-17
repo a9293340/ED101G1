@@ -46,7 +46,7 @@ new Vue({
     bentonArray: [],
   },
   methods: {
-    chooseBenton(item) {
+    showChooseBenton(item) {
       $(".bentonCard").css("border-color", "white");
       $(`#bentonLi${item.id}`).css("border-color", "rgb(231, 70, 21)");
       this.img = item.img; //變成全域變數
@@ -54,7 +54,7 @@ new Vue({
     showBentonStep1(isShow) {
       this.showBentonImgList = isShow;
     },
-    closelightbox() {
+    showCloselightbox() {
       $(".box1").css("display", "none");
     },
     SendBenton() {
@@ -75,14 +75,36 @@ new Vue({
         let arrBentonImg = this.bentonArray[i].bentonImg; //arr圖片
         let arrBentonTitle = this.bentonArray[i].title; //arr標題
         let arrBentonContent = this.bentonArray[i].content; //arr內文
+
+        $(".shareBenton").remove();
         $("#showBentonImg").append(
-          `<div><img src='${arrBentonImg}'/><p>${arrBentonTitle}</p><p>${arrBentonContent}</p></div>`
+          `<div>
+            <img src='${arrBentonImg}'/>
+            <p>${arrBentonTitle}</p>
+            <p>${arrBentonContent}</p>
+            <img src='./images/showbenton/conversation.png'/>
+            <img src='./images/showbenton/like.png'/>
+
+          </div>`
         );
-        //新增分享便當的圖片
-        $("#showBentonImg img").addClass("shareBentonImg");
-        //新增分享便當的便貼
-        $("#showBentonImg div").addClass("shareBenton");
+
+        $("#showBentonImg div")
+          .eq(i)
+          .addClass("group" + i);
+        //新增分享便當的標題
+        $(`#showBentonImg div.group${i} p`).eq(0).addClass("shareBentonText");
+        $(`#showBentonImg div.group${i} p`)
+          .eq(1)
+          .addClass("shareBentonContent");
+        //讚圖
+        $(`#showBentonImg div.group${i} img`).eq(2).addClass("like");
+        $(`#showBentonImg div.group${i} img`).eq(1).addClass("conversation");
       }
+      //內容物如下
+      //新增分享便當的圖片
+      $("#showBentonImg img").addClass("shareBentonImg");
+      //新增分享便當的便貼區塊
+      $("#showBentonImg div").addClass("shareBenton");
     },
   },
 });

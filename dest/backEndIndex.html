@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>寶島食堂 管理平台</title>
+
+  <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="./css/sb-admin-2.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/backEndAdmin.css">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center" href="index.html">
+        <div class="sidebar-brand-text">寶島食堂 管理平台</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        管理頁面1
+      </div>
+
+      <!-- 會員管理 -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adItem01" aria-expanded="true" aria-controls="adItem01">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>會員管理</span>
+        </a>
+        <div id="adItem01" class="collapse" aria-labelledby="headingUtilities" data-parent="#adItem01">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="#">會員狀態修改</a>
+            <a class="collapse-item" href="#">查詢會員</a>
+          </div>
+        </div>
+      </li>
+      
+      <!-- 後台管理員管理 -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adItem02" aria-expanded="true" aria-controls="adItem02">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>後台管理員管理</span>
+        </a>
+        <div id="adItem02" class="collapse" aria-labelledby="headingUtilities" data-parent="#adItem02">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="#">新增管理員</a>
+            <a class="collapse-item" href="#">查詢/修改管理員</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 訂單管理 -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adItem03" aria-expanded="true" aria-controls="adItem03">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>訂單管理</span>
+        </a>
+        <div id="adItem03" class="collapse" aria-labelledby="headingTwo" data-parent="#adItem03">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="#">訂單狀態修改</a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                  <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="#">外送訂單</a>
+                    <a class="collapse-item" href="#">外帶訂單</a>
+                  </div>
+                </div>
+            <a class="collapse-item" href="#">訂單查詢</a>
+            <a class="collapse-item" href="#">訂單歸檔</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 單品管理 -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adItem04" aria-expanded="true" aria-controls="adItem04">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>單品管理</span>
+        </a>
+        <div id="adItem04" class="collapse" aria-labelledby="headingUtilities" data-parent="#adItem04">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="#">新增商品</a>
+            <a class="collapse-item" href="#">查詢/修改商品</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 套餐管理 -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adItem05" aria-expanded="true" aria-controls="adItem05">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>套餐管理</span>
+        </a>
+        <div id="adItem05" class="collapse" aria-labelledby="headingUtilities" data-parent="#adItem05">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="#">新增商品</a>
+            <a class="collapse-item" href="#">查詢/修改商品</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 其它商品 -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adItem06" aria-expanded="true" aria-controls="adItem06">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>其它商品</span>
+        </a>
+        <div id="adItem06" class="collapse" aria-labelledby="headingUtilities" data-parent="#adItem06">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="#">新增商品</a>
+            <a class="collapse-item" href="#">查詢/修改商品</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 健康分析管理 -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adItem07" aria-expanded="true" aria-controls="adItem07">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>健康分析管理</span>
+        </a>
+        <div id="adItem07" class="collapse" aria-labelledby="headingTwo" data-parent="#adItem07">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="#">題庫管理</a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                  <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="#">新增題庫</a>
+                    <a class="collapse-item" href="#">查詢/修改題庫</a>
+                  </div>
+                </div>
+            <a class="collapse-item" href="#">分析&建議機制</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 管理員管理 -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adItem08" aria-expanded="true" aria-controls="adItem08">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>管理員管理</span>
+        </a>
+        <div id="adItem08" class="collapse" aria-labelledby="headingUtilities" data-parent="#adItem08">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="#">會員狀態修改</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 門市管理 -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adItem09" aria-expanded="true" aria-controls="adItem09">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>門市管理</span>
+        </a>
+        <div id="adItem09" class="collapse" aria-labelledby="headingUtilities" data-parent="#adItem09">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="#">新增店休時間</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- 討論區管理 -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#adItem10" aria-expanded="true" aria-controls="adItem10">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>討論區管理</span>
+        </a>
+        <div id="adItem10" class="collapse" aria-labelledby="headingUtilities" data-parent="#adItem10">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="#">留言檢舉</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">這裡顯示管理員ID</span>
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  登出
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <p id="xxx">test111</p>
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; 寶島食堂 2020</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">登出</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">確定要登出管理平台 ?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">否</button>
+          <a class="btn btn-primary" href="login.html">是</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="./vendor/jquery/jquery.min.js"></script>
+  <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="../dev/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
