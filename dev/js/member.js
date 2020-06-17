@@ -790,10 +790,6 @@ function gogoPower(){
     var game = new Game();
 
 
-    // 生成折線圖
-    // document.getElementById("myChart").innerHTML = '';
-    // memDrawChartLine();
-
     // typeit
     function tomotoTypeIt(){
         new TypeIt("#memSimpleUsage", {
