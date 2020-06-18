@@ -1,8 +1,13 @@
+//使用方法 載入這支js
+//將自選setcart() 套餐setsetdocart() 其他setordercart() 加入你們的加入購物車事件中
+
+
+
 let orderCart = []; 
 let otherMenu =[];
 let setdoMenu = [];
 let singleNum = 0;
-let setdoNum = 0 ;
+let setdoNum = 0 ; 
 
 
 var singleorderlist = new Vue({   //購物車 vue
@@ -15,76 +20,6 @@ var singleorderlist = new Vue({   //購物車 vue
 })
 
 
-// function setdoCart(){      //套餐的加入購物車
-//     let A = this.dataset.id;
-//     console.log(A);
-//     for(let i = 0;i<setdo.length;i++){
-//         if(setdo[i].id == Number(A)){
-//             setdoMany =  document.getElementById(`setdocount${A}`).innerText;
-//             setdoId = setdo[i].id;
-//             setdoName = setdo[i].name;
-//             setdoPrice = setdo[i].price;
-//             setdoImg = setdo[i].img;
-//             if(setdoMany>0){
-//             // localStorage.setItem('setdoMany',setdoMany);
-//             // localStorage.setItem('setdoid',setdoid);
-//             // localStorage.setItem('setdoname',setdoname);
-//             // localStorage.setItem('setdoprice',setdoprice);
-//             // localStorage.setItem('setdoimg',setdoimg);
-//                 setdoList=
-//                 {
-//                     setdoNum:`${setdoNum}`,
-//                     setdoMany:`${setdoMany}`,
-//                     setdoId:`${setdoId}`,
-//                     setdoName:`${setdoName}`,
-//                     setdoPrice:`${setdoPrice}`,
-//                     setdoImg:`${setdoImg}`,
-//                 }
-
-//                 // if(JSON.parse(localStorage.getItem('setdoMenuList'))){
-//                 //     console.log(JSON.parse(localStorage.getItem('setdoMenuList')));
-//                 // }
-//                 // for(var i = 0 ;i<setdoMenu.length;i++){
-//                 // if(JSON.parse(localStorage.getItem('setdoMenuList')[i].setdoid)==setdoList.setdoid){
-//                 //     JSON.parse(localStorage.getItem('setdoMenuList')[i].setdoMany)+1;
-//                 // }
-//                 // }
-//                 var samename = 0;
-//                 if(setdoMenu.length>0){
-//                      for(var c =0  ;c < setdoMenu.length; c++){
-//                             if(setdoMenu[c].setdoName == setdoList.setdoName){
-//                                 samename=1;
-//                             setdoMenu[c].setdoMany = parseInt(setdoMenu[c].setdoMany)+parseInt(setdoList.setdoMany);
-//                             } 
-//                      }
-//                     if(samename!=1){
-//                         setdoMenu.push(setdoList);
-//                         // window.location.reload();
-//                     }
-//                 }
-//                 else
-//                 {
-//                     // setdoNum++;
-//                     // localStorage.setItem('setdoNum',setdoNum);
-//                     setdoMenu.push(setdoList);
-//                     // window.location.reload();
-//                 }
-//                 // setdoMenu.push(setdoList);
-//                 // console.log(setdoMenu[]);
-//                 var setdoMenuList =JSON.stringify(setdoMenu);
-//                 localStorage.setItem('setdoMenuList',setdoMenuList);
-
-//                 // var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
-//                 // singleorderlist.$data.finalsetdolist = finalsetdolist;
-//                 // console.log(singleorderlist.$data.finalsetdolist);
-//                 // window.location.reload();
-//                 setsetdocart()
-//             }else{
-//                 alert("還沒選數量喔");
-//             }
-//         }
-//     }
-// }
 
 
 
@@ -133,11 +68,9 @@ function setordercart(){          //一開始其他購物車重新渲染
     otherMenu=finalorderlist;
     
     setTimeout(function(){
-        for(var i=1000; i<1010; i++){
-                    if(document.getElementById(`orderdelete${i}`)){
-                        document.getElementById(`orderdelete${i}`).addEventListener('click',deleteordercart);
-                    }
-                }
+        for(let g= 0 ;g <finalorderlist.length;g++){
+            document.getElementById(`orderdelete${finalorderlist[g].otherId}`).addEventListener('click',deleteordercart);
+        }
         },1000);   
 
 }
