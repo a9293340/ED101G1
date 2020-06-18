@@ -118,12 +118,10 @@ function setsetdocart(){       //一開始套餐購物車重新渲染
     console.log(singleorderlist.$data.finalsetdolist);
 
     setTimeout(function(){
-    for(var i=0; i<7; i++){
-                if(document.getElementById(`setdodelete${i}`)){
-                    document.getElementById(`setdodelete${i}`).addEventListener('click',deletesetdocart);
-                }
-            }
-    },1000);        
+        for(let g= 0 ;g <finalsetdolist.length;g++){
+            document.getElementById(`setdodelete${finalsetdolist[g].setdoId}`).addEventListener('click',deletesetdocart);
+        }
+    },1000);   
 }
 if(localStorage.getItem('setdoMenuList')){
     setsetdocart();

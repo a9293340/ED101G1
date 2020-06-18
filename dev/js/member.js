@@ -306,6 +306,9 @@ function gogoPower(){
                     }
                     localStorage['otherOrder'] = JSON.stringify(other);
                 }
+                setcart()
+                setsetdocart()
+                setordercart()
             },
             AddOtherToCart(e){
                 let id = Number(e.target.dataset.count)
