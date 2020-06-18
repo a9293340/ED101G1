@@ -2,6 +2,7 @@ let orderCart = [];
 let otherMenu =[];
 let setdoMenu = [];
 let singleNum = 0;
+let setdoNum = 0 ;
 
 
 var singleorderlist = new Vue({   //購物車 vue

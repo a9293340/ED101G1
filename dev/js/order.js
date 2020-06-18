@@ -9,11 +9,11 @@
  
 //   }) 
 
-let orderCart = []; 
-let otherMenu =[];
-let setdoMenu = [];
-let singleNum = 0;
-let setdoNum = 0 ;
+// let orderCart = []; 
+// let otherMenu =[];
+// let setdoMenu = [];
+// let singleNum = 0;
+// let setdoNum = 0 ;
 
 
 
@@ -735,14 +735,14 @@ function singleshow(){
 document.getElementById('incart').addEventListener('click',shoppcar)
 
 
-var singleorderlist = new Vue({   //購物車 vue
-    el:'#list',  
-    data:{
-        finalsinglelist:[],
-        finalsetdolist:[],
-        finalorderlist:[]
-    },
-})
+// var singleorderlist = new Vue({   //購物車 vue
+//     el:'#list',  
+//     data:{
+//         finalsinglelist:[],
+//         finalsetdolist:[],
+//         finalorderlist:[]
+//     },
+// })
 
 
 // window.onload = function(){       //刪除的click事件
@@ -759,54 +759,54 @@ var singleorderlist = new Vue({   //購物車 vue
 //     }
 // }
 
-function deletesinglecart(){       //刪除購物車
-    let A = this.dataset.num;
-    console.log(A);
-    var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
-    for(let i=0; i<finalsinglelist.length; i++){
+// function deletesinglecart(){       //刪除購物車
+//     let A = this.dataset.num;
+//     console.log(A);
+//     var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
+//     for(let i=0; i<finalsinglelist.length; i++){
 
-        if(finalsinglelist[i].sNum ==  Number(A)){
-            finalsinglelist.splice(i,1);
-            orderCart.splice(i,1);
-        }
-    }
+//         if(finalsinglelist[i].sNum ==  Number(A)){
+//             finalsinglelist.splice(i,1);
+//             orderCart.splice(i,1);
+//         }
+//     }
   
-    console.log(finalsinglelist);
-    singleorderlist.$data.finalsinglelist = finalsinglelist;
-    localStorage.setItem('singleOrder', JSON.stringify(finalsinglelist));  
+//     console.log(finalsinglelist);
+//     singleorderlist.$data.finalsinglelist = finalsinglelist;
+//     localStorage.setItem('singleOrder', JSON.stringify(finalsinglelist));  
 
-}
+// }
 
-function deletesetdocart(){
-    let A = this.dataset.num;
-    console.log(A);
-    var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
-    for(let i=0; i<finalsetdolist.length; i++){
+// function deletesetdocart(){
+//     let A = this.dataset.num;
+//     console.log(A);
+//     var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
+//     for(let i=0; i<finalsetdolist.length; i++){
 
-        if(finalsetdolist[i].setdoId ==  Number(A)){
-            finalsetdolist.splice(i,1);
-            setdoMenu.splice(i,1);
-        }
-    }
-    singleorderlist.$data.finalsetdolist = finalsetdolist;
-    localStorage.setItem('setdoMenuList', JSON.stringify(finalsetdolist)); 
-}
+//         if(finalsetdolist[i].setdoId ==  Number(A)){
+//             finalsetdolist.splice(i,1);
+//             setdoMenu.splice(i,1);
+//         }
+//     }
+//     singleorderlist.$data.finalsetdolist = finalsetdolist;
+//     localStorage.setItem('setdoMenuList', JSON.stringify(finalsetdolist)); 
+// }
 
 
-function deleteordercart(){
-    let A = this.dataset.num;
-    console.log(A);
-    var finalorderlist = JSON.parse(localStorage.getItem('otherOrder'));
-    for(let i=0; i<finalorderlist.length; i++){
+// function deleteordercart(){
+//     let A = this.dataset.num;
+//     console.log(A);
+//     var finalorderlist = JSON.parse(localStorage.getItem('otherOrder'));
+//     for(let i=0; i<finalorderlist.length; i++){
 
-        if(finalorderlist[i].otherId ==  Number(A)){
-            finalorderlist.splice(i,1);
-            otherMenu.splice(i,1);
-        }
-    }
-    singleorderlist.$data.finalorderlist = finalorderlist;
-    localStorage.setItem('otherOrder', JSON.stringify(finalorderlist)); 
-}
+//         if(finalorderlist[i].otherId ==  Number(A)){
+//             finalorderlist.splice(i,1);
+//             otherMenu.splice(i,1);
+//         }
+//     }
+//     singleorderlist.$data.finalorderlist = finalorderlist;
+//     localStorage.setItem('otherOrder', JSON.stringify(finalorderlist)); 
+// }
 
 setdocount=[];
 for(var j=0; j < setdo.length;j++){    //套餐的+- 購物車   click事件
@@ -1023,61 +1023,61 @@ function setdoCart(){      //套餐的加入購物車
 
 
 
-function setcart(){          //一開始自選購物車重新渲染
-    var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
-    singleorderlist.$data.finalsinglelist = finalsinglelist;
-    orderCart=finalsinglelist; //整個的重點
-    singleNum=localStorage.getItem('singleNum');
-    console.log(singleorderlist.$data.finalsinglelist);
+// function setcart(){          //一開始自選購物車重新渲染
+//     var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
+//     singleorderlist.$data.finalsinglelist = finalsinglelist;
+//     orderCart=finalsinglelist; //整個的重點
+//     singleNum=localStorage.getItem('singleNum');
+//     console.log(singleorderlist.$data.finalsinglelist);
 
-    setTimeout(function(){
-        for(var h=0; h<singleNum; h++){
-          if(document.getElementById(`b${h}`)){
-      document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
-          }else{
-              console.log("not yet");
-          }
-          }  
-      },1000);
+//     setTimeout(function(){
+//         for(var h=0; h<singleNum; h++){
+//           if(document.getElementById(`b${h}`)){
+//       document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
+//           }else{
+//               console.log("not yet");
+//           }
+//           }  
+//       },1000);
    
-}
+// }
 
-if(localStorage.getItem('singleOrder')){ //重點2
-    setcart();
-    }
-//...................................
-function setsetdocart(){       //一開始套餐購物車重新渲染
-    var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
-    singleorderlist.$data.finalsetdolist = finalsetdolist;
-    setdoMenu=finalsetdolist;
-    console.log(singleorderlist.$data.finalsetdolist);
+// if(localStorage.getItem('singleOrder')){ //重點2
+//     setcart();
+//     }
+// //...................................
+// function setsetdocart(){       //一開始套餐購物車重新渲染
+//     var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
+//     singleorderlist.$data.finalsetdolist = finalsetdolist;
+//     setdoMenu=finalsetdolist;
+//     console.log(singleorderlist.$data.finalsetdolist);
 
-    setTimeout(function(){
-    for(var i=0; i<7; i++){
-                if(document.getElementById(`setdodelete${i}`)){
-                    document.getElementById(`setdodelete${i}`).addEventListener('click',deletesetdocart);
-                }
-            }
-    },1000);        
-}
-if(localStorage.getItem('setdoMenuList')){
-    setsetdocart();
-}
+//     setTimeout(function(){
+//     for(var i=0; i<7; i++){
+//                 if(document.getElementById(`setdodelete${i}`)){
+//                     document.getElementById(`setdodelete${i}`).addEventListener('click',deletesetdocart);
+//                 }
+//             }
+//     },1000);        
+// }
+// if(localStorage.getItem('setdoMenuList')){
+//     setsetdocart();
+// }
 
-function setordercart(){
-    var finalorderlist = JSON.parse(localStorage.getItem('otherOrder'));
-    singleorderlist.$data.finalorderlist = finalorderlist;
-    otherMenu=finalorderlist;
+// function setordercart(){
+//     var finalorderlist = JSON.parse(localStorage.getItem('otherOrder'));
+//     singleorderlist.$data.finalorderlist = finalorderlist;
+//     otherMenu=finalorderlist;
     
-    setTimeout(function(){
-        for(var i=1000; i<1010; i++){
-                    if(document.getElementById(`orderdelete${i}`)){
-                        document.getElementById(`orderdelete${i}`).addEventListener('click',deleteordercart);
-                    }
-                }
-        },1000);   
+//     setTimeout(function(){
+//         for(var i=1000; i<1010; i++){
+//                     if(document.getElementById(`orderdelete${i}`)){
+//                         document.getElementById(`orderdelete${i}`).addEventListener('click',deleteordercart);
+//                     }
+//                 }
+//         },1000);   
 
-}
-if(localStorage.getItem('otherOrder')){
-    setordercart();
-}
+// }
+// if(localStorage.getItem('otherOrder')){
+//     setordercart();
+// }
