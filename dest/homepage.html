@@ -2,352 +2,382 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./css/loginSignup.css">
-  <!--註冊/登入 -->
-  <link rel="stylesheet" href="./css/homeFirst.css">
-  <!--第1屏 -->
-  <link rel="stylesheet" href="./css/header.css">
-  <!--header -->
-  <link rel="stylesheet" href="./css/home_menu.css">
-  <!--第2屏 -->
-  <link rel="stylesheet" href="./css/homeHealth.css">
-  <!--第3屏 -->
-  <link rel="stylesheet" href="./css/home_am.css">
-  <!--第4屏 -->
-  <link rel="stylesheet" href="./css/footer.css">
-  <!--footer -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/loginSignup.css"> <!--註冊/登入 -->
+    <link rel="stylesheet" href="./css/homeFirst.css"> <!--第1屏 -->
+    <link rel="stylesheet" href="./css/header.css">    <!--header -->
+    <link rel="stylesheet" href="./css/home_menu.css"> <!--第2屏 -->
+    <link rel="stylesheet" href="./css/homeHealth.css"><!--第3屏 -->
+    <link rel="stylesheet" href="./css/home_am.css">   <!--第4屏 -->
+    <link rel="stylesheet" href="./css/footer.css">    <!--footer -->
 
-  <!-- Jquery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!-- Vue -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Vue -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
 </head>
 
 <body>
-  <!-- 第一屏 homeFirst -->
-  <!-- 第 1 屏 -->
-  <section>
+    <!-- 第一屏 homeFirst -->
+    <!-- 第 1 屏 -->
+<section style="height: 100vh;">
     <header class="eff">
-      <video class="element-animation"
-        style="clip-path: url(#smoke-clip);border: 0;right:-450px;top:-600px;z-index: 99999;mix-blend-mode: screen;position: relative;"
-        width="500" height="1100" src="./images/homeFirst/smoke.mp4" muted="" autoplay="" loop=""></video>
-      <video class="homeShowSmoke element-animation" style="clip-path: url(#smoke-clip);" width="500" height="1100"
-        src="./images/homeFirst/smoke.mp4" muted="" autoplay="" loop=""></video>
-      <!-- 菜色輪播 -->
-      <div class="homeLove-Fish loveElement-Fish"></div>
-      <div class="homeLove-Pg loveElement-Pg"></div>
-      <div class="homeLove-Gt loveElement-Gt"></div>
-      <div class="homeCoverflow element-animation">
-        <a href="#">
-          <img src="./images/homeFirst/homeFoodPg.png"></a>
-        <a href="#">
-          <img src="./images/homeFirst/homeFoodFish.png"></a>
-        <a href="#">
-          <img src="./images/homeFirst/homeFoodGt.png">
-        </a>
-      </div>
-      <!-- end 菜色輪播 -->
+        <video class="element-animation"
+            style="clip-path: url(#smoke-clip);border: 0;right:-800px;top:-600px;z-index: 99999;mix-blend-mode: screen;position: relative;"
+            width="500" height="1100" src="./images/homeFirst/smoke.mp4" muted="" autoplay="" loop=""></video>
+        <video class="homeShowSmoke element-animation" style="clip-path: url(#smoke-clip);" width="500" height="1100"
+            src="./images/homeFirst/smoke.mp4" muted="" autoplay="" loop=""></video>
+        <!-- 菜色輪播 -->
+        <div class="homeLove-Fish loveElement-Fish"></div>
+        <div class="homeLove-Pg loveElement-Pg"></div>
+        <div class="homeLove-Gt loveElement-Gt"></div>
+        <div class="homeCoverflow element-animation">
+            <a href="#">
+                <img src="./images/homeFirst/homeFoodPg.png"></a>
+            <a href="#">
+                <img src="./images/homeFirst/homeFoodFish.png"></a>
+            <a href="#">
+                <img src="./images/homeFirst/homeFoodGt.png">
+            </a>
+        </div>
+        <!-- end 菜色輪播 -->
     </header>
     <div class="homeTextBox fadeInUp">
-      <h1>寶島食堂</h1>
-      <h2>你中餐晚餐的好選擇</h2>
-      <div class="homeRow">
-        <div class="homeCol">
-          <div class="homeSelectBox">
-            <input class="tab" id="tab1" type="radio" name="group1" checked="checked" />
-            <label for="tab1" class="homeDelivery">外送</label>
-            <input class="tab" id="tab2" type="radio" name="group1" />
-            <label for="tab2" class="homeTakeaway">外帶</label>
-            <!-- 外送表單 -->
-            <div class="homeTab-pane fade tab-content">
-              <form action="#">
-                <i class="fa fa-calendar" style="position: relative;right:150px;z-index:2;color:#ff6347;"></i>
-                <!-- 日曆 -->
-                <input type="text" id="datepicker" placeholder="送達日期"
-                  style="right:180px;position: relative;padding: 1rem;border-radius: 7px;border: 0;z-index:1;padding-left:40px;">
-                <!-- end 日曆 -->
-                <div class="icon">
-                  <i class="fa fa-map-marker"
-                    style="position: relative;right: 20px;z-index:2;top: -36px;color:#ff6347;"></i>
+        <h1>寶島食堂</h1>
+        <h2>你中餐晚餐的好選擇</h2>
+        <div class="homeRow">
+            <div class="homeCol">
+                <div class="homeSelectBox">
+                    <input class="tab" id="tab1" type="radio" name="group1" checked="checked" />
+                    <label for="tab1" class="homeDelivery">外送</label>
+                    <input class="tab" id="tab2" type="radio" name="group1" />
+                    <label for="tab2" class="homeTakeaway">外帶</label>
+                    <!-- 外送表單 -->
+                    <div class="homeTab-pane fade tab-content">
+                        <form action="#">
+                            <div class="homeCalendar"
+                            style="position: relative;z-index:2;background-image: url(./images/homeFirst/homeCalendar.png);width: 24px;height: 24px;top: 10px;box-sizing: border-box;"></div>
+                    <!-- 日曆 -->
+                            <input type="text" id="datepicker" placeholder="送達日期"
+                                style="right:180px;position: relative;padding: 1rem;border-radius: 7px;border: 0;z-index: -1;padding-left:40px;top: -25px;">
+                            <!-- end 日曆 -->
+                            <div class="icon">
+                                <div class="homeGps"
+                                style="position: relative;right: -250px;z-index:2;top: -60px;color:#ff6347;background-image: url(./images/homeFirst/homeGps.png);width: 24px;height: 24px;"></div>
+                            </div>
+                            <input type="text" placeholder="輸入您的地址"
+                                style="right:-70px;position: relative;padding: 1rem;border-radius: 7px;border: 0;z-index: -1;padding-left:40px;top: -95px;">
+                            <button type="submit" class="homeControl-btn"
+                                style="padding: 0.8rem 1rem;color: #fff;background: #ff6347;border-radius: 5px;display: block;border: 1px solid #ff6347;font-weight: 400;position: absolute;top: 25px;left: 500px;z-index: 99;font-size: 1rem;">前往訂餐</button>
+                        </form>
+                    </div>
+                    <!-- end 外送表單 -->
+                    <!-- 外帶表單 -->
+                    <div class="homeTab-pane fade tab-content">
+                        <form action="#">
+                            <div class="homeCalendar"
+                            style="position: relative;right: -15px;z-index:2;color:#ff6347;background-image: url(./images/homeFirst/homeCalendar.png);width: 24px;height: 24px;top: 10px;"></div>
+                             <!-- 日曆 -->
+                            <input type="text" id="datepickerTakeway" placeholder="取餐日期"
+                                style="right: 50px;position: relative;padding: 1rem;border-radius:7px;border: 0;z-index: -1;padding-left: 50px;width: 83%;top: -23px;">
+                            <!-- end 日曆 -->
+                            <button type="submit" class="homeControl-btn"
+                                style="padding: 0.8rem 1rem;color: #fff;background: #ff6347;border-radius: 5px;display: block;border: 1px solid #ff6347;font-weight: 400;position: absolute;top: 25px;left: 500px;z-index: 99;font-size: 1rem;">前往訂餐</button>
+                        </form>
+                    </div>
+                    <!-- end 外帶表單 -->
                 </div>
-                <input type="text" placeholder="輸入您的地址"
-                  style="right:-70px;position: relative;padding: 1rem;border-radius: 7px;border: 0;z-index:1;padding-left:40px;top: -75px;">
-                <button type="submit" class="homeControl-btn"
-                  style="padding: 0.8rem 1rem;color: #fff;background: #ff6347;border-radius: 5px;display: block;border: 1px solid #ff6347;font-weight: 400;position: absolute;top: 25px;left: 500px;z-index: 99;font-size: 1rem;">前往訂餐</button>
-              </form>
             </div>
-            <!-- end 外送表單 -->
-            <!-- 外帶表單 -->
-            <div class="homeTab-pane fade tab-content">
-              <form action="#">
-                <i class="fa fa-calendar" style="position: relative;right:35px;z-index:2;color:#ff6347;"></i>
-                <!-- 日曆 -->
-                <input type="text" id="datepickerTakeway" placeholder="取餐日期"
-                  style="right:60px;position: relative;padding: 1rem;border-radius:7px;border: 0;z-index:1;padding-left:40px;width:70%;">
-                <!-- end 日曆 -->
-                <button type="submit" class="homeControl-btn"
-                  style="padding: 0.8rem 1rem;color: #fff;background: #ff6347;border-radius: 5px;display: block;border: 1px solid #ff6347;font-weight: 400;position: absolute;top: 25px;left: 500px;z-index: 99;font-size: 1rem;">前往訂餐</button>
-              </form>
-            </div>
-            <!-- end 外帶表單 -->
-          </div>
         </div>
-      </div>
     </div>
     <!-- 導引按鈕 -->
     <div class="homeMouse" id="homeNext"></div>
     <!-- end 導引按鈕 -->
-  </section>
-  <!-- end 第 1 屏 -->
+</section>
+<!-- end 第 1 屏 -->
 
 
-  <!-- header -->
-  <nav id="homeTwoScreen">
-    <div class="top_group">
-      <div class="btn_switch">
-        <div class="bgl top"></div>
-        <div class="bgl"></div>
-        <div class="bgl bottom"></div>
+    <!-- header -->
+    <nav id="homeTwoScreen" >
+  <div class="top_group">
+    <div class="btn_switch">
+      <div class="bgl top"></div>
+      <div class="bgl"></div>
+      <div class="bgl bottom"></div>
+    </div>
+    <a href="./index.html" class="logo">
+      <img src="./images/header/寶島食堂LOGO_v3-02.png" alt="">
+    </a>
+    <div class="navgroup">
+      <a href="#" class="book">我要訂餐</a>
+      <a href="#" class="analysis">健康分析</a>
+      <a href="#" class="showbento">SHOW便當</a>
+      <a href="#" class="aboutus">關於我們</a>
+    </div>
+    <div class="membergroup">
+      <a href=""><img src="./images/header/shopping-cart.png" width="30" height="30" alt=""></a>
+      <a href=""><img src="./images/header/user.png" width="30" height="30" alt=""></a>
+    </div>
+  </div>
+</nav>
+
+    <!-- header -->
+    <!-- home_menu -->
+    <div class="cont s--inactive">
+  <!-- s--inactive是一開始載入時的動畫 -->
+  <!-- cont inner start-->
+  <div class="cont__inner">
+    <!-- el start 這邊是第一區 -->
+    <div class="el first" id="first">
+      <!--點選區域後觸發 s--active-->
+      <div class="el__overflow">
+        <!--顯示長條狀圖案，關閉後只有黑色背景-->
+        <div class="el__inner">
+          <div class="el__bg"></div>
+          <!--背景圖-->
+          <div class="el__preview-cont">
+            <!-- 用來包section1文字 -->
+            <h2 class="el__heading"></h2>
+          </div>
+          <div class="el__content">
+            <!--點開後出現內容-->
+            <div class="el__text">精選便當</div>
+            <div class="el__close-btn"></div>
+            <div class="el__leaderBoards">
+              <ul>
+                <li 
+                v-for="(menu, index) in list"
+                @click="choosefeatured(item)">
+                <a class="benton_price">{{menu.price}}</a>
+                <a class="benton_name">{{menu.benton}}</a>
+                <img 
+                class="featured_benton"
+                data-id="menu.id"
+                v-bind:src="menu.img"
+                width="210px"
+                height="210px">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <a href="./index.html" class="logo">
-        <img src="./images/header/寶島食堂LOGO_v3-02.png" alt="">
-      </a>
-      <div class="navgroup">
-        <a href="#" class="book">我要訂餐</a>
-        <a href="#" class="analysis">健康分析</a>
-        <a href="#" class="showbento">SHOW便當</a>
-        <a href="#" class="aboutus">關於我們</a>
-      </div>
-      <div class="membergroup">
-        <a href=""><img src="./images/header/shopping-cart.png" width="30" height="30" alt=""></a>
-        <a href=""><img src="./images/header/user.png" width="30" height="30" alt=""></a>
+      <div class="el__index left">
+        <!--數字列-->
+        <div class="el__index-back">精選便當</div>
+        <div class="el__index-front">
+          <div class="el__index-overlay" data-index="精選便當">精選便當</div>
+        </div>
       </div>
     </div>
-  </nav>
-
-  <!-- header -->
-  <!-- home_menu -->
-  <div class="cont s--inactive">
-    <!-- s--inactive是一開始載入時的動畫 -->
-    <!-- cont inner start-->
-    <div class="cont__inner">
-      <!-- el start 這邊是第一區 -->
-      <div class="el first" id="first">
-        <!--點選區域後觸發 s--active-->
-        <div class="el__overflow">
-          <!--顯示長條狀圖案，關閉後只有黑色背景-->
-          <div class="el__inner">
-            <div class="el__bg"></div>
-            <!--背景圖-->
-            <div class="el__preview-cont">
-              <!-- 用來包section1文字 -->
-              <h2 class="el__heading"></h2>
-            </div>
-            <div class="el__content">
-              <!--點開後出現內容-->
-              <div class="el__text">精選便當</div>
-              <div class="el__close-btn"></div>
-              <div class="el__leaderBoards">
-                <ul>
-                  <li v-for="(menu, index) in list" @click="choosefeatured(item)">
-                    {{index}}, benton:{{menu.benton}}
-                    <img class="featured_benton" data-id="menu.id" v-bind:src="menu.img" width="210px" height="210px">
-                  </li>
-                </ul>
-              </div>
-            </div>
+    <!-- el end -->
+    <!-- el start 這邊是第二區 -->
+    <div class="el sec middle" id="sec">
+      <div class="el__overflow">
+        <div class="el__inner">
+          <div class="el__bg"></div>
+          <div class="el__preview-cont">
+            <h2 class="el__heading"></h2>
           </div>
-        </div>
-        <div class="el__index left">
-          <!--數字列-->
-          <div class="el__index-back">精選便當</div>
-          <div class="el__index-front">
-            <div class="el__index-overlay" data-index="精選便當">精選便當</div>
-          </div>
-        </div>
-      </div>
-      <!-- el end -->
-      <!-- el start 這邊是第二區 -->
-      <div class="el sec middle" id="sec">
-        <div class="el__overflow">
-          <div class="el__inner">
-            <div class="el__bg"></div>
-            <div class="el__preview-cont">
-              <h2 class="el__heading"></h2>
-            </div>
-            <div class="el__content">
-              <div class="el__text">自選便當</div>
-              <div class="el__close-btn"></div>
-              <div class="el__leaderBoards">
-                <a href="#" class="leaderBoard sec">
-                  <div class="top_img">
-                    <img width="210px" height="210px" id="sec_img">
-                  </div>
-                  <div class="content" id="leader_2">
-                    <div id="menu_name"></div>
-                    <div id="menu_date"></div>
-                    <div id="menu_memname"></div>
-                    <div id="menu_like"></div>
-                  </div>
-                </a>
-                <a href="#" class="leaderBoard first">
-                  <canvas id="canvas"></canvas>
-                  <div class="top_img">
-                    <img width="210px" height="210px" id="first_img">
-                  </div>
-                  <div class="content" id="leader_1">
-                    <!-- <div id="menu_name_sec"></div> -->
-                    <!-- <div id="menu_date_sec"></div>
+          <div class="el__content">
+            <div class="el__text">自選便當</div>
+            <div class="el__close-btn"></div>
+            <div class="el__leaderBoards">
+              <a href="#" class="leaderBoard sec">
+                <div class="top_img">
+                  <img width="210px" height="210px" id="sec_img">
+                </div>
+                <div class="content" id="leader_2">
+                </div>
+              </a>
+              <a href="#" class="leaderBoard first">
+                <canvas id="canvas"></canvas>
+                <div class="top_img">
+                  <img width="210px" height="210px" id="first_img">
+                </div>
+                <div class="content" id="leader_1">
+                  <!-- <div id="menu_name_sec"></div> -->
+                  <!-- <div id="menu_date_sec"></div>
                   <div id="menu_memname_sec"></div>
                   <div id="menu_like_sec"></div> -->
-                  </div>
-                </a>
-                <a href="#" class="leaderBoard third" id="leader_3">
-                  <div class="top_img">
-                    <img width="210px" height="210px" id="third_img">
-                  </div>
-                  <div class="content">
-                    <div id="menu_name_third"></div>
-                    <div id="menu_date_third"></div>
-                    <div id="menu_memname_third"></div>
-                    <div id="menu_like_third"></div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="el__index mid">
-          <div class="el__index-back">自選便當</div>
-          <div class="el__index-front">
-            <div class="el__index-overlay" data-index="自選便當">自選便當</div>
-          </div>
-        </div>
-      </div>
-      <!-- el end -->
-      <!-- el start 這邊是第三區 -->
-      <div class="el third" id="third">
-        <div class="el__overflow">
-          <div class="el__inner">
-            <div class="el__bg"></div>
-            <div class="el__preview-cont">
-              <h2 class="el__heading"></h2>
-            </div>
-            <div class="el__content">
-              <div class="el__text">季節便當</div>
-              <div class="el__close-btn"></div>
-              <div class="el__leaderBoards">
-                <ul>
-                  <li v-for="(menu, index) in list" @click="choosefeatured(item)">
-                    {{index}}, benton:{{menu.benton}}
-                    <img class="featured_benton" data-id="menu.id" v-bind:src="menu.img" width="210px" height="210px">
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="el__index right">
-          <div class="el__index-back">季節便當</div>
-          <div class="el__index-front">
-            <div class="el__index-overlay" data-index="季節便當">季節便當</div>
-          </div>
-        </div>
-      </div>
-      <!-- el end -->
+                </div>
+              </a>
+              <a href="#" class="leaderBoard third">
+                <div class="top_img">
+                  <img width="210px" height="210px" id="third_img">
+                </div>
+                <div class="content" id="leader_3">
 
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="el__index mid">
+        <div class="el__index-back">自選便當</div>
+        <div class="el__index-front">
+          <div class="el__index-overlay" data-index="自選便當">自選便當</div>
+        </div>
+      </div>
     </div>
-    <!-- cont inner end -->
-  </div>
+    <!-- el end -->
+    <!-- el start 這邊是第三區 -->
+    <div class="el third" id="third">
+      <div class="el__overflow">
+        <div class="el__inner">
+          <div class="el__bg"></div>
+          <div class="el__preview-cont">
+            <h2 class="el__heading"></h2>
+          </div>
+          <div class="el__content">
+            <div class="el__text">季節便當</div>
+            <div class="el__close-btn"></div>
+            <div class="el__leaderBoards">
+              <ul>
+               <li 
+                v-for="(menu, index) in list"
+                @click="choosefeatured(item)">
+                <a class="benton_price">{{menu.price}}</a>
+                <a class="benton_name">{{menu.benton}}</a>
+                <a href="">
+                <img 
+                class="featured_benton"
+                data-id="menu.id"
+                v-bind:src="menu.img"
+                width="210px"
+                height="210px">
+                </a>
+                
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="el__index right">
+        <div class="el__index-back">季節便當</div>
+        <div class="el__index-front">
+          <div class="el__index-overlay" data-index="季節便當">季節便當</div>
+        </div>
+      </div>
+    </div>
+    <!-- el end -->
 
-  <!-- 第三屏 健康分析 -->
-  <!-- 第 3 屏 -->
-  <section class="homeSection-3" style="border: 1px solid green;">
+  </div>
+  <!-- cont inner end -->
+</div>
+
+    <!-- 第三屏 健康分析 -->
+    <!-- 第 3 屏 -->
+<section class="homeSection-3">
     <div class="homeBlackBoardContainer">
-      <div class="homeBlackBoardTit">
-        <h1>便當健康吃</h1>
-        <p>此問卷以生活作習、目前體質及腸胃狀況之隨機題庫，依據您目前的健康狀態，提供適合您的便當類型喔!趕快來測驗吧!</p>
-      </div>
-      <div class="order">
-        <h2 class="homeNum">11111</h2>
-        <p class="homeSeparate">/</p>
-        <h2 class="homeNum">66666</h2>
-        <p class="homeQuestionTitle">Q : 請問您的手腳是否常常感到容易冰冷呢？</p>
-        <div class="homeQuesionBox">
-          <label class="test2">
-            <input type="radio" name="food_type_3" checked>
-            時常冰冷
-          </label>
-          <label class="test2">
-            <input type="radio" name="food_type_3">
-            正常
-          </label>
-          <label class="test2">
-            <input type="radio" name="food_type_3">
-            會盜汗
-          </label>
+        <div class="homeBlackBoardTit">
+            <h1>便當健康吃</h1>
+            <p>此問卷以生活作習、目前體質及腸胃狀況之隨機題庫，依據您目前的健康狀態，提供適合您的便當類型喔!趕快來測驗吧!</p>
         </div>
-      </div>
+        <div class="homeOrder">
+            <h2 class="homeNum">1</h2>
+            <p class="homeSeparate">/</p>
+            <h2 class="homeNum">6</h2>
+            <p class="homeQuestionTitle">Q : 請問您的手腳是否常常感到容易冰冷呢？</p>
+            <div class="homeQuesionBox">
+                <label class="homeTest">
+                    <input class="homeQinput" type="radio" name="homeFood">
+                    會盜汗
+                </label>
+                <label class="homeTest">
+                    <input class="homeQinput homeQcheck" type="radio" name="homeFood"   checked>
+                    時常冰冷
+                </label>
+                <label class="homeTest">
+                    <input class="homeQinput" type="radio" name="homeFood">
+                    正常
+                </label>
+            </div>
+        </div>
+        <div class="homeTapBox" id="pics" align="center">
+            <img class="homeTapUp" id="homeTapPic" src="./images/homeHealth/a.png"/>
+        </div>
+        <img class="homeTwBoy" id="homeTapPic" src="./images/homeHealth/homeHealthLogo.png" />
     </div>
-  </section>
-  <!-- end 第 3 屏 -->
+</section>
+<!-- end 第 3 屏 -->
+<script>
+var index = 1;            //全局变量，在0到(num-1)之间循环      
+        var num = 2;
+        var img = document.getElementById("homeTapPic");   //获取图片ID  
+        // var title = document.getElementById("title");
+        function homeTapPicChange() {
+            switch (index) {
+                case 1: img.src = "./images/homeHealth/a.png"; break;   //切换到1.jpg  
+                case 2: img.src = "./images/homeHealth/b.png"; break;   //切换到2.jpg  
+                // case 3: img.src = "./images/homeHealth/homeTap-one.png"; break;   //切换到3.jpg  
+                // case 4: img.src = "./images/homeHealth/homeTap-one.png"; break;   //切换到4.jpg  
+            }
+            // title.innerHTML = "图片" + index;     //修改标题  
+            index++;                         //切换到下一张  
+            if (index > num) {
+                index = index % num;       //大于最多图片数量后回到第0张  
+            }
+        }
+        setInterval("homeTapPicChange()", 800); //设置定时器，作用于PicChange()函数内，时间为1000毫秒刷新一次  
+</script>
 
 
-  <!-- home-am -->
-  <div class="home_am">
-    <div class="am_title">門市資訊</div>
-    <div class="am_group">
-      <div class="left_map">
-        <img class="store_icon" src="../image/home_am_map.jpg" alt="">
-      </div>
-      <div class="right_content">
-        <div class="content_group">
-          <div class="time">
-            <div class="title">營業時間：</div>
-            <div class="content">每周一到日 上午10點-晚上8點</div>
-          </div>
-          <div class="address">
-            <div class="title">地址：</div>
-            <div class="content">桃園市中壢區中央西路50段</div>
-          </div>
-          <div class="phone">
-            <div class="title">電話：</div>
-            <div class="content">03-52789456</div>
-          </div>
+    <!-- home-am -->
+    <div class="home_am">
+  <div class="am_title">門市資訊</div>
+  <div class="am_group">
+    <div class="left_map">
+      <img class="store_icon" src="../image/home_am_map.jpg" alt="">
+    </div>
+    <div class="right_content">
+      <div class="content_group">
+        <div class="time">
+          <div class="title">營業時間：</div>
+          <div class="content">每周一到日 上午10點-晚上8點</div>
+        </div>
+        <div class="address">
+          <div class="title">地址：</div>
+          <div class="content">桃園市中壢區中央西路50段</div>
+        </div>
+        <div class="phone">
+          <div class="title">電話：</div>
+          <div class="content">03-52789456</div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- 頁尾 footer -->
-  <div class="homeFooter">頁尾</div>
+    <!-- 頁尾 footer -->
+    <div class="homeFooter">
+    <div class="homeFooterBox">
+        <ul>
+            <li><a class="bold" href="#">Copyright ©  2020 寶島食堂</a></li>
+            <li><a class="bold" href="#">電話</a></li>
+            <li><a class="bold" href="#">地址</a></li>
+            <li><a class="bold" href="#">粉絲團</a></li>
+            <li class="mg-none-i">
+                <a class="bold"  href="#">Piktab</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
-  <!-- Login、Signup、ShoppingCart -->
-  <script src="../dev/js/layout/login.js"></script>
-  <script src="../dev/js/layout/shoppingcart.js"></script>
-  <script src="../dev/js/layout/signup.js"></script>
-  <!-- homepage -->
-  <script src="../dev/js/homepage.js"></script>
-  <script src="../dev/js/layout/home_menu.js"></script>
-  <!-- 日曆 CDN-->
-  <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-  <link href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
-  <script src="https://use.fontawesome.com/2287e04f65.js"></script>
-  <script>
-    $(function () {
-      $("#datepicker").datepicker({ minDate: -20, maxDate: "+1M +10D" });
-      $("#datepickerTakeway").datepicker({ minDate: -20, maxDate: "+1M +10D" });
-    });
-  </script>
-  <!--end 日曆 CDN -->
-  <!-- 向下導引 button-->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-  <script src="../dev/js/layout/homeFirstNextButton.js"></script>
-  <!-- end 向下導引 button -->
+    <!-- Login、Signup、ShoppingCart -->
+    <script src="../dev/js/layout/login.js"></script>
+    <script src="../dev/js/layout/shoppingcart.js"></script>
+    <script src="../dev/js/layout/signup.js"></script>
+    <!-- homepage -->
+    <script src="../dev/js/homepage.js"></script>
+    <script src="../dev/js/layout/home_menu.js"></script>
+    <!-- 向下導引 button-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="../dev/js/layout/homeFirstNextButton.js"></script>
+    <!-- end 向下導引 button -->
 </body>
-
 </html>

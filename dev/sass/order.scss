@@ -72,9 +72,12 @@ $white: white;
 }
 
 #running {
-  width: 1200px;
+  width: 600px;
   height: 50px;
-  margin: 0 auto;
+  p{
+    font-size: 20px;
+  }
+  // margin: 0 auto;
 }
 
 .buy_main {
@@ -86,8 +89,9 @@ $white: white;
 .buy_single {
   width: 1200px;
   height: auto;
-  margin: 0 auto;
+  margin: 50px 0px;
   display: flex;
+ 
 }
 
 .buy_single_main {
@@ -101,7 +105,7 @@ $white: white;
   height: 660px;
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start; 
+  align-content: flex-start;  
   overflow-y: auto;
   overflow-x: hidden; 
   justify-content: space-between;
@@ -128,14 +132,15 @@ $white: white;
 }
 
 .single_card {
-  // display: none;
   width: 250px;
   height: 308px;
   margin: 10px 20px;
   text-align: center;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-
+  &:hover{
+    box-shadow: 2px 2px 10px $orange ;
+  }      
   img {
     margin-top: 5px;
     cursor: pointer;
@@ -147,44 +152,6 @@ $white: white;
   }
 }
 
-.meat_card {
-  // display: none;
-  width: 250px;
-  height: 308px;
-  margin: 10px 20px;
-  text-align: center;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-
-  img {
-    margin-top: 5px;
-    cursor: pointer;
-  }
-
-  p {
-    margin: 0;
-    color: $grey;
-  }
-}
-
-.ricecard {
-  width: 250px;
-  height: 308px;
-  margin: 10px 20px;
-  text-align: center;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-
-  img {
-    margin-top: 5px;
-    cursor: pointer;
-  }
-
-  p {
-    margin: 0;
-    color: $grey;
-  }
-}
 
 .buy_card3 {
   width: 250px;
@@ -194,6 +161,9 @@ $white: white;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   position: relative;
+  &:hover{
+    box-shadow: 2px 2px 10px $orange;
+  }
   .cart{
     position: absolute;
     right:60px;
@@ -208,6 +178,20 @@ $white: white;
     margin: 0;
     color: $grey;
   }
+  .orderbutton{
+    cursor: pointer;
+    margin: 5px 5px ;
+    width: 23px;
+    height: 23px;
+    font-size: 20px;
+    background-color: $green;
+    border: none;
+    color: #fff;
+    &:hover{
+      background-color:#40dd7c;
+    }
+  }
+  
 }
 
 #buy_card4 {
@@ -253,8 +237,10 @@ $white: white;
 
 .buy_icon_containter {
   width: 600px;
-  margin: 0 auto 80px auto;
+  margin: 20px 20px;
+  // margin: 0 auto 80px auto;
   display: flex;
+  display: none;
   justify-content: space-between;
 }
 
@@ -302,7 +288,7 @@ $white: white;
 .buy_single_lightbox {
   @include lightBox($width: 800px);
   display: none;
-  cursor: pointer;
+  
   position: fixed;
   // width: 300px;
   // height: 300px;
@@ -312,7 +298,31 @@ $white: white;
   left: 50%;
   margin-left: -400px;
   margin-top: -150px;
+  .orderrelitive{
+      position: relative;
+      img{
+        cursor: auto;
+      }
+    h3{
+      @include lightBoxTitle($fz:1.8rem,$pTopDown:12px,$pLeftRight:0px,$mTopDown:0px,$mLeftRight:0px);
+    }
+    P{
+      text-align: justify;
+      padding: 15px;
+    }
+    .closelightbox3,.closelightbox1,.closelightbox0,.closelightbox2{
+      position: absolute;
+      cursor: pointer;
+      right: 15px;
+      top:10px;
+    }
+  }
+  
 }
+.orderCover{
+  @include coverBlack;
+ display: none;
+ }
 
 HEAD .count {
   position: relative;

@@ -8,7 +8,7 @@ let sgproduct=[
        "spHealth":82,
        "spClass":0,
        "spInfo":"我是紫米飯，我敲健康的說，快來吃我",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/order/purplerice.jpg",
        "spMeat":0,
        "spStatus":1
     },
@@ -21,7 +21,7 @@ let sgproduct=[
        "spHealth":65,
        "spClass":0,
        "spInfo":"我是白米飯，我又Q又嫩，快來吃我",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/order/whiterice.jpg",
        "spMeat":0,
        "spStatus":1
     },
@@ -34,7 +34,7 @@ let sgproduct=[
        "spHealth":28,
        "spClass":1,
        "spInfo":"我是炸雞腿，我超油超香，快來吃我",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/order/chicken.jpg",
        "spMeat":1,
        "spStatus":1
     },
@@ -47,7 +47,7 @@ let sgproduct=[
        "spHealth":76,
        "spClass":1,
        "spInfo":"我是滷排骨，我超油超香，快來吃我",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/order/pork.jpg",
        "spMeat":1,
        "spStatus":1
     },
@@ -60,7 +60,7 @@ let sgproduct=[
        "spHealth":96,
        "spClass":1,
        "spInfo":"我是清蒸鱈魚，我又滑又嫩，快來吃我",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/order/fish.jpg",
        "spMeat":1,
        "spStatus":1
     },
@@ -73,7 +73,7 @@ let sgproduct=[
        "spHealth":14,
        "spClass":1,
        "spInfo":"我是蔥爆牛柳，我又蔥又爆，快來吃我",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/order/beef.jpg",
        "spMeat":1,
        "spStatus":1
     },
@@ -86,7 +86,7 @@ let sgproduct=[
        "spHealth":24,
        "spClass":2,
        "spInfo":"豬肉具有滋陰、潤燥的功能。竹筍有袪熱化痰、解渴益氣、爽胃等功效。肥胖症、脂肪肝、皮脂腺囊腫患者宜常吃此菜。對糖尿病、水腫、積食、便秘、積痰、咳嗽、瘡瘍等症有輔助療效。",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/bandon_include/bambomeet.jpg",
        "spMeat":1,
        "spStatus":1
     },
@@ -99,7 +99,7 @@ let sgproduct=[
        "spHealth":83,
        "spClass":2,
        "spInfo":"毛豆，在一般料理中算是蔬菜類，但營養價值卻是「豆魚肉蛋類」的豆類，蛋白質含量高於一般蔬菜，同時兼具豆類及蔬菜兩者營養特性，是不可多得的健康好物！",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/bandon_include/beens.jpg",
        "spMeat":0,
        "spStatus":1
     },
@@ -112,7 +112,7 @@ let sgproduct=[
        "spHealth":87,
        "spClass":2,
        "spInfo":"番茄炒蛋不僅好吃，連配色都很鮮豔，一看就讓人食指大動！紅通通的大番茄含有豐富的茄紅素、維生素C、膳食纖維等營養，是很棒的蔬菜，尤其是它特有的茄紅素，是一種天然色素，不但使番茄呈現討喜的鮮紅色，還具有很強的抗氧化功能，可以降低身體的氧化傷害，保持健康與美麗。",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/bandon_include/tomatoEgg.png",
        "spMeat":0,
        "spStatus":1
     },
@@ -125,7 +125,7 @@ let sgproduct=[
        "spHealth":76,
        "spClass":2,
        "spInfo":"青花菜是十字花科蔬菜，營養價值非常高，是超級食物之一。青花菜放入沸水快速汆燙撈起，營養不流失，搭配蝦仁拌炒就是一道色香味俱全的料理。",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/bandon_include/friedShrimp.png",
        "spMeat":1,
        "spStatus":1
     },
@@ -138,7 +138,7 @@ let sgproduct=[
        "spHealth":11,
        "spClass":2,
        "spInfo":"豆腐營養價值高，除了含有優質蛋白質外，還含有豐富的鈣質、維生素E、卵磷脂及半胱胺酸等營養素。豆腐的大豆蛋白，因為沒有肉類所含的脂肪及膽固醇，所以是護心、瘦身之選。",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/bandon_include/spicytofood.png",
        "spMeat":0,
        "spStatus":1
     },
@@ -151,7 +151,7 @@ let sgproduct=[
        "spHealth":55,
        "spClass":2,
        "spInfo":"青江菜營養價值高，可以保持血管彈性，提供人體所需礦物質、維生素；維生素B2尤為豐富，有抑制潰瘍的作用，經常食用對皮膚和眼睛的保養有很好的效果；富含纖維，可以有效改善便秘。",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/bandon_include/spoonVeg.png",
        "spMeat":0,
        "spStatus":1
     },
@@ -164,7 +164,7 @@ let sgproduct=[
        "spHealth":78,
        "spClass":2,
        "spInfo":"杏鮑菇營養豐富，富含蛋白質、碳水化合物、維生素及鈣、鎂、銅、鋅等礦物質，可以提高人體免疫功能，對人體具有抗癌、降血脂、潤腸胃以及美容等作用。",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/bandon_include/kingMushroom.png",
        "spMeat":0,
        "spStatus":1
     },
@@ -177,7 +177,7 @@ let sgproduct=[
        "spHealth":74,
        "spClass":2,
        "spInfo":"咖哩常見於印度、泰國和日本料理，常和飯一同享用，不僅口感濃郁，讓人吃起來有滿足感，而且營養豐富。咖哩中的薑黃堪稱「印度維他命」，其抗氧化能力高過維他命E、C。",
-       "spImage":"https://fakeimg.pl/100/",
+       "spImage":"./images/bandon_include/curry.png",
        "spMeat":0,
        "spStatus":1
     }
@@ -221,54 +221,6 @@ let icon =[{
 
 
 
-let setdo=[{
-    id:'1',
-    name:"清蒸鱈魚便當",
-    img:"./images/bandon_include/setdo1.jpg",
-    price:'100',
-    count:"1",
-    text:'寶島食堂嚴選冰島鱈魚，無細刺，肉質滑嫩鮮甜，如雪花般入口即化的綿密感魚肉更富含OMEGA-3即DHA、EPA適合成長中的孩子食用。'
-},
-{
-    id:'2',
-    name:"紅燒獅子頭便當",
-    img:"./images/bandon_include/setdo2.jpg",
-    price:'100',
-    count:"1",
-    text:''
-
-},
-{
-    id:'3',
-    name:"經典滷排骨便當",
-    img:"./images/bandon_include/setdo3.jpg",
-    price:'100',
-    count:"1",
-    text:'寶島食堂獨特的排骨醃料配方，醃料採用數十種配料，醃製入味，再採用大吟釀醬油的醬汁滷出新味道，軟嫩可口。'
-
-},
-{
-    id:'4',
-    name:"母親節便當",
-    img:"./images/bandon_include/active1.jpg",
-    price:'100',
-    count:"1"
-},
-{
-    id:'5',
-    name:"父親節便當",
-    img:"./images/bandon_include/active2.jpg",
-    price:'100',
-    count:"1"
-},
-{
-    id:'6',
-    name:"端午節便當",
-    img:"./images/bandon_include/active3.jpg",
-    price:'100',
-    count:"1"
-}]
-
 
 
 let orderSetdo=[
@@ -280,7 +232,7 @@ let orderSetdo=[
        "setColdHot":21,
        "setHealth":96,
        "setClass":0,
-       "setImage":"https://fakeimg.pl/110/",
+       "setImage":"./images/bandon_include/setdo1.jpg",
        "setInfo":"寶島食堂嚴選冰島鱈魚，無細刺，肉質滑嫩鮮甜，如雪花般入口即化的綿密感魚肉更富含OMEGA-3即DHA、EPA適合成長中的孩子食用。"
     },
     {
@@ -291,7 +243,7 @@ let orderSetdo=[
        "setColdHot":83,
        "setHealth":18,
        "setClass":0,
-       "setImage":"https://fakeimg.pl/100/",
+       "setImage":"./images/bandon_include/setdo2.jpg",
        "setInfo":"很多人說寶島食堂的雞腿很好吃，汁非常多，肉鮮美不柴，外皮金黃酥脆，那是因為我們池上木片便當使用了國產黃金雞，最後再經由師傅的油炸功力讓一隻金黃酥脆多汁又鮮嫩的雞腿能夠送到您的手中。"
     },
     {
@@ -302,7 +254,7 @@ let orderSetdo=[
        "setColdHot":83,
        "setHealth":98,
        "setClass":0,
-       "setImage":"https://fakeimg.pl/100/",
+       "setImage":"./images/bandon_include/setdo3.jpg",
        "setInfo":"寶島食堂獨特的排骨醃料配方，醃料採用數十種配料，醃製入味，再採用大吟釀醬油的醬汁滷出新味道，軟嫩可口。"
     },
     {
@@ -313,7 +265,7 @@ let orderSetdo=[
        "setColdHot":96,
        "setHealth":63,
        "setClass":1,
-       "setImage":"https://fakeimg.pl/100/",
+       "setImage":"./images/bandon_include/active1.jpg",
        "setInfo":"獨特的里肌醃料配方，當日醃製完畢即放入冷凍庫並在隔日清晨直送各店家，油炸後香濃可口，且無骨，適合小孩子食用。古法秘製，真空加速入味，裹上一層白面紗進入油炸鍋，3分鐘起鍋金黃外皮，肉質扎實"
     },
     {
@@ -324,7 +276,7 @@ let orderSetdo=[
        "setColdHot":57,
        "setHealth":44,
        "setClass":1,
-       "setImage":"https://fakeimg.pl/100/",
+       "setImage":"./images/bandon_include/active2.jpg",
        "setInfo":"使用乾淨的冷油下去油炸，外觀紅潤有光澤，內部更是口感扎實，不禁讓人懷念起兒時的好味道。"
     },
     {
@@ -335,7 +287,7 @@ let orderSetdo=[
        "setColdHot":41,
        "setHealth":89,
        "setClass":1,
-       "setImage":"https://fakeimg.pl/130/",
+       "setImage":"./images/bandon_include/active3.jpg",
        "setInfo":"鮭魚飯便當：嚴選智利紅鮭，令人食指大動的粉橘色魚肉咬下去清爽健康的魚油在口腔裡娉然散開餘韻纏繞，欲罷不能，一口接著一口！非常適合正在發育的小朋友品嘗。"
     }
  ]
@@ -544,7 +496,7 @@ function otherIncart(){
 
            setordercart();
         }
-
+ 
 }
 
 //錨點 js
@@ -608,10 +560,12 @@ for(var j=0; j < orderSetdo.length;j++){   //套餐燈箱 click 事件
 
 function setdolightBox(){
     document.getElementsByClassName('box3')[0].style.display='block';
+    document.getElementsByClassName('box3')[1].style.display='block';
     let A = this.dataset.id;
     console.log(A);
     for(let i = 0;i<orderSetdo.length;i++){
         if(orderSetdo[i].setId == Number(A)){
+            document.getElementById('setdolightTitle').innerText = orderSetdo[i].setName;
             document.getElementById('setdolightImg').src = orderSetdo[i].setImage;
             document.getElementById('setdolightText').innerText = orderSetdo[i].setInfo;
         }
@@ -620,14 +574,17 @@ function setdolightBox(){
 document.getElementsByClassName('closelightbox3')[0].addEventListener('click',closelightbox3)
 function closelightbox3(){ 
     document.getElementsByClassName('box3')[0].style.display='none';
+    document.getElementsByClassName('box3')[1].style.display='none';
 }
 
 function ricelightBox(){
     document.getElementsByClassName('box1')[0].style.display='block';
+    document.getElementsByClassName('box1')[1].style.display='block';
     let A = this.dataset.id;
     console.log(A);
     for(let i = 0;i<orderRice.length;i++){
-        if(orderRice[i].spId == Number(A)){
+        if(orderRice[i].spId == Number(A)){  orderlighttitle
+            document.getElementById('orderlighttitle').innerText = orderRice[i].spName;
             document.getElementById('lightImg').src = orderRice[i].spImage;
             document.getElementById('lightText').innerText = orderRice[i].spInfo;
         }
@@ -636,15 +593,18 @@ function ricelightBox(){
 document.getElementsByClassName('closelightbox1')[0].addEventListener('click',closelightBox1)
 function closelightBox1(){ 
     document.getElementsByClassName('box1')[0].style.display='none';
+    document.getElementsByClassName('box1')[1].style.display='none';
 }
 
 
 function meatlightBox(){
     document.getElementsByClassName('box0')[0].style.display='block';
+    document.getElementsByClassName('box0')[1].style.display='block';
     let A = this.dataset.id;
     console.log(A);
     for(let i = 0;i<orderMeat.length;i++){
         if(orderMeat[i].spId == Number(A)){
+            document.getElementById('meatlightTitle').innerText = orderMeat[i].spName;
             document.getElementById('meatlightImg').src = orderMeat[i].spImage;
             document.getElementById('meatlightText').innerText = orderMeat[i].spInfo;
         }
@@ -653,14 +613,17 @@ function meatlightBox(){
 document.getElementsByClassName('closelightbox0')[0].addEventListener('click',closelightBox0)
 function closelightBox0(){ 
     document.getElementsByClassName('box0')[0].style.display='none';
+    document.getElementsByClassName('box0')[1].style.display='none';
 }
 
 function lightBox(){
     document.getElementsByClassName('box2')[0].style.display='block';
+    document.getElementsByClassName('box2')[1].style.display='block';
     let A = this.dataset.id;
     console.log(A);
     for(let i = 0;i<orderSingle.length;i++){
         if(orderSingle[i].spId == Number(A)){
+            document.getElementById('lightTitle').innerText = orderSingle[i].spName;
             document.getElementById('lightImg2').src = orderSingle[i].spImage;
             document.getElementById('lightText2').innerText = orderSingle[i].spInfo;
         }
@@ -669,6 +632,7 @@ function lightBox(){
 document.getElementsByClassName('closelightbox2')[0].addEventListener('click',closelightBox2)
 function closelightBox2(){ 
     document.getElementsByClassName('box2')[0].style.display='none';
+    document.getElementsByClassName('box2')[1].style.display='none';
 }
 
 
