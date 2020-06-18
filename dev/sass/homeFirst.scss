@@ -1,39 +1,5 @@
 @import "./main";
 
-body {
-// font-size:$fzContent;
-// line-height: 1.8;
-// // font-weight: 400;
-// color: lighten($black,60%);
-// margin: 0;
-// &.menu-show {
-//   overflow: hidden;
-//   position: fixed;
-//   height: 100%;
-//   width: 100%;
-// }
-}
-
-a {
-transition: .3s all ease;
-color: $yellow;
-&:hover, &:focus {
-  text-decoration: none;
-  color: $yellow;
-  outline: none !important;
-}
-}
-h1, h2, h3, h4, h5,
-.h1, .h2, .h3, .h4, .h5 {
-line-height: 1.5;
-color: $black;
-font-weight: 400;
-}
-
-.text-primary {
-color: $yellow !important;
-
-}
 @mixin border-radius($radius) {
    border-radius: $radius;
 }
@@ -43,20 +9,15 @@ color: $yellow !important;
 }
 
 section {
-text-align: center;
-// border: 1px solid red;
+// text-align: center;
 font-size: 0;
 margin: 0;
-// overflow: hidden;
-// box-sizing: border-box;
-
+overflow: hidden;
 .eff{
-  // height:100%;
-  height:900px;
+  height:100%;
   width: 100%;
   max-width: 100%;
   background-image: url(../images/homeFirst/homeRiceBg.jpg);
-  background-size: 100% 100%;
   background-repeat: no-repeat;
   position: relative;
   background-size: cover;
@@ -175,7 +136,7 @@ margin: 0;
       width:500px;
       transform: translate(calc(80 / var(--height) * 100vmin), calc(-80 / var(--height) * 100vmin));
       position: relative;
-      left: 100px;
+      left: 500px;
       z-index: 99999;
       top: -400px;
       animation-delay:2s; //延遲
@@ -188,7 +149,7 @@ margin: 0;
       width:35%;
       max-width: 100%;
       height: auto;
-      left:47%;
+      left:52%;
       animation-duration:4s;
       animation-name:animationFrames;
       a{
@@ -388,9 +349,24 @@ margin: 0;
         div{
           .homeTab-pane{
             display: none;
-            i{
+            .homeCalendar{
               font-size:$fzContent;
               position: relative;
+              
+              display: inline-block;
+              font: normal normal normal 14px/1 FontAwesome;
+              font-size: inherit;
+              text-rendering: auto;
+              border: 1px solid red;
+            }
+            .homeGps{
+              font-size:$fzContent;
+              position: relative;
+              display: inline-block;
+              font: normal normal normal 14px/1 FontAwesome;
+              font-size: inherit;
+              text-rendering: auto;
+              border: 1px solid green;
             }
             .datepickerDemo {
               padding: 40px;

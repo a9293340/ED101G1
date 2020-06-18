@@ -146,7 +146,7 @@ p.separate,
     display: inline-block;
 }
 
-.questionTitle {
+#questionPanel {
     width: 30%;
     // border: 1px solid black;
     font-size: 1.5rem;
@@ -154,19 +154,52 @@ p.separate,
     text-align: left;
 }
 
-button.btn {
-    width: 100px;
-    height: 50px;
-    text-align: center;
-    border-radius: 10px;
-    margin-top: 30px;
-    margin-left: 10px;
-    font-size: 1rem;
-    vertical-align: bottom;
+#questionOptions {
+    display: inline-flex;
+    #a1{
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-left: 10px;
+        font-size: 1rem;
+        vertical-align: bottom;
+        
+    }
+    #a2{
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-left: 10px;
+        font-size: 1rem;
+        vertical-align: bottom;
+    }
+    #a3{
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-left: 10px;
+        font-size: 1rem;
+        vertical-align: bottom;
+    }
 }
 
-button.btn:hover {
-    background-color: #ffd23f;
+#questionOptions{
+    #a1:hover{
+         background-color: #ffd23f;
+    }
+    #a2:hover{
+        background-color: #ffd23f;
+    }
+    #a3:hover{
+        background-color: #ffd23f;
+    }
+   
 }
 
 
@@ -318,20 +351,24 @@ footer {
         font-size: 1rem;
     }
 
-    .questionTitle {
+    #questionPanel {
         width: 90%;
         font-size: 1rem;
         text-align: center;
     }
+    #questionOptions{
+        width: 90%;
+        font-size: .5rem;
+        vertical-align: bottom;
+    }
+    #questionOptions>button{
+        margin: auto;
+    }
 
-    div.img1>img {
+    div.imgLogo>img {
         width: 100%;
     }
 
-    button.btn {
-        width: 40%;
-        font-size: 1rem;
-    }
 
     div.wrapper2 {
         width: 100%;
@@ -446,15 +483,18 @@ footer {
         font-size: 1rem;
     }
 
-    .questionTitle {
+    #questionPanel {
         width: 90%;
         font-size: 1rem;
         text-align: center;
     }
+    #questionOptions{
+        width: 90%;
+        font-size: .5rem;
+    }
 
-    button.btn {
-        width: 40%;
-        font-size: 1rem;
+    div.imgLogo>img {
+        width: 100%;
     }
 
     div.wrapper2 {

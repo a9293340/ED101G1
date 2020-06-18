@@ -1,6 +1,6 @@
 //menu vue
 // first menu
-let menu_first = new Vue({
+let menu_Feature = new Vue({
   el: '#first',
   data: {
     list: [
@@ -8,16 +8,19 @@ let menu_first = new Vue({
         id: '1',
         benton: '雞腿便當',
         img: '../../dest/images/showbenton/like.png',
+        price: 80 ,
       },
       {
         id: '2',
         benton: '排骨便當',
         img: '../../dest/images/showbenton/like.png',
+        price: 180 ,
       },
       {
         id: '3',
         benton: '鮭魚便當',
         img: '../../dest/images/showbenton/like.png',
+        price: 820 ,
       },
 
     ],
@@ -30,14 +33,8 @@ let menu_first = new Vue({
 let menu_sec = document.getElementById("first"),
   sec_img = document.getElementById("sec_img"),
   first_img = document.getElementById("first_img"),
-  third_img = document.getElementById("third_img"),
-  menu_name = document.getElementById("menu_name"),
-  menu_memname = document.getElementById("menu_memname"),
-  menu_date = document.getElementById("menu_date"),
+  third_img = document.getElementById("third_img");
 
-  menu_name_sec = document.getElementById("menu_name_sec"),
-
-  menu_like = document.getElementById("menu_like");
 
 //fake data
 let leaderBoardData = [
@@ -82,12 +79,11 @@ let leaderBoardData = [
   },
 
 ]
-
+//排序成 [1,0,2]
 leaderBoardData.sort(function (a, b) {
   return b.postLike - a.postLike;
 });
 
-console.log(leaderBoardData);
 let leader_1 = document.getElementById("leader_1");
 let leader_1_str = '';
 let leader_2 = document.getElementById("leader_2");
@@ -102,17 +98,14 @@ function leader_order() {
     // }
     if (i == 0) {
       first_img.src = leaderBoardData[i].soImg;
-      var test = `<div id="menu_name_sec"> ${leaderBoardData[i].postTitle} </div>`;
-      var test1 = `<div id="menu_date_sec"> ${leaderBoardData[i].postData} </div>`;
-      var test2 = `<div id="menu_memname_sec"> ${leaderBoardData[i].memName} </div>`;
-      var test3 = `<div id="menu_like_sec"> ${leaderBoardData[i].postLike} </div>`;
-      leader_1_str += test;
-      leader_1_str += test1;
-      leader_1_str += test2;
-      leader_1_str += test3;
+      leader_1_str = `<div id="menu_name_sec"> ${leaderBoardData[i].postTitle} </div>
+      <div id="menu_date_sec"> ${leaderBoardData[i].postData} </div>
+      <div id="menu_memname_sec"> ${leaderBoardData[i].memName} </div>
+      <div id="menu_like_sec"> ${leaderBoardData[i].postLike} </div>
+      `;
     } else if (i == 1) {
       sec_img.src = leaderBoardData[i].soImg;
-      var leader_2_str = `<div id="menu_name_sec"> ${leaderBoardData[i].postTitle} </div>
+      leader_2_str = `<div id="menu_name_sec"> ${leaderBoardData[i].postTitle} </div>
       <div id="menu_date_sec"> ${leaderBoardData[i].postData} </div>
       <div id="menu_memname_sec"> ${leaderBoardData[i].memName} </div>
       <div id="menu_like_sec"> ${leaderBoardData[i].postLike} </div>
@@ -126,62 +119,22 @@ function leader_order() {
       // leader_2_str+=test3;
       // console.log(leader_2_str)
 
+    }else{
+      third_img.src = leaderBoardData[i].soImg;
+      leader_3_str = `<div id="menu_name_sec"> ${leaderBoardData[i].postTitle} </div>
+      <div id="menu_date_sec"> ${leaderBoardData[i].postData} </div>
+      <div id="menu_memname_sec"> ${leaderBoardData[i].memName} </div>
+      <div id="menu_like_sec"> ${leaderBoardData[i].postLike} </div>
+      `;
     }
 
   }
   leader_1.innerHTML = leader_1_str;
   leader_2.innerHTML = leader_2_str;
+  leader_3.innerHTML = leader_3_str;
   // leader_2.innerHTML = str;
 };
 leader_order();
-
-
-
-// compare_num();
-// let like_max = Math.max(...like_array);
-// let like_min = Math.min(...like_array);
-// var like_first = like_max;
-// var like_sec = 0;
-// var like_third = like_min;
-// var final_like_array = [];
-// final_like_array.push(like_sec);
-// final_like_array.push(like_first);
-// final_like_array.push(like_third);
-// console.log(final_like_array);
-
-// function leader_order(){
-//   for(var i =0; i<final_like_array.length;i++){
-//     if(final_like_array[i] == like_max){
-//       menu_name_sec.append(leaderBoardData[1].postTitle);
-//     }else if(final_like_array[i] == like_min){
-//       menu_name_third.append(leaderBoardData[0].postTitle);
-//     }else{
-//       menu_name.append(leaderBoardData[2].postTitle);
-//     }
-//   }
-// }
-// leader_order();
-
-// function leader_order(){
-//   for(var i =0; i<leaderBoardData.length;i++){
-//     if(like_max == leaderBoardData[i].like){
-//       first_img.src= leaderBoardData[i].soImg;
-//       menu_name.append(leaderBoardData[].postTitle);
-//       menu_date.append(leaderBoardData[].postData);
-//       menu_memname.append(`發文人: ${leaderBoardData[].memName}`);
-//       menu_like.append(`讚數: ${leaderBoardData[].postLike}`);
-//     }
-//   }
-// }
-// leader_order();
-
-// sec_img.src = '../../dest/images/showbenton/like.png';
-// sec_img.src = '../../dest/images/showbenton/like.png';
-// sec_img.src = '../../dest/images/showbenton/like.png';
-
-
-
-
 
 
 //third menu
@@ -193,16 +146,19 @@ let menu_third = new Vue({
         id: '1',
         benton: '雞腿便當',
         img: '../../dest/images/showbenton/like.png',
+        price: 80 ,
       },
       {
         id: '2',
         benton: '排骨便當',
         img: '../../dest/images/showbenton/like.png',
+        price: 80 ,
       },
       {
         id: '3',
         benton: '鮭魚便當',
         img: '../../dest/images/showbenton/like.png',
+        price: 80 ,
       },
 
     ],
@@ -210,7 +166,7 @@ let menu_third = new Vue({
   },
 });
 
-//主要效果控制
+//第二幕主要效果控制
 
 var $cont = document.querySelector('.cont');
 var $elsArr = [].slice.call(document.querySelectorAll('.el')); //[].slice.call(arguments)能将具有length属性的对象转成数组。
