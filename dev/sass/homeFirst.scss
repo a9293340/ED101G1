@@ -1,25 +1,5 @@
 @import "./main";
 
-a {
-transition: .3s all ease;
-color: $yellow;
-&:hover, &:focus {
-  text-decoration: none;
-  color: $yellow;
-  outline: none !important;
-}
-}
-h1, h2, h3, h4, h5,
-.h1, .h2, .h3, .h4, .h5 {
-line-height: 1.5;
-color: $black;
-font-weight: 400;
-}
-
-.text-primary {
-color: $yellow !important;
-
-}
 @mixin border-radius($radius) {
    border-radius: $radius;
 }
