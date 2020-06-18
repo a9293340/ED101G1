@@ -41,16 +41,27 @@
         </table>
       </div>
       <h3>經典便當</h3>
-      <div v-for="(item, index) in finalsetdolist">
-        <span :id="'setdodelete'+ item.setdoid" :data-num="item.setdoid">X</span>
+      <div v-for="(item, index) in finalsetdolist">  
+        <span :id="'setdodelete'+ item.setdoId" :data-num="item.setdoId">X</span>
         <table>
             <tr>
-                <td>{{item.setdoname}}</td>
-                <td>NT${{item.setdoprice}}</td>
+                <td>{{item.setdoName}}</td>
+                <td>NT${{item.setdoPrice}}</td>
                 <td></td>
                 <td>x{{item.setdoMany}}</td>
             </tr>
         </table>
       </div>
+      <div v-for="(item, index) in finalorderlist">
+        <span :id="'orderdelete'+item.otherId" :data-num="item.otherId">X</span>
+      <table>
+        <tr>
+            <td>{{item.otherName}}</td>
+            <td>NT${{item.otherPrice}}</td>
+            <td></td>
+            <td>x{{item.otherMany}}</td>
+        </tr>
+      </table>
+    </div>
     </div>
 </div> 

@@ -783,7 +783,7 @@ function deletesetdocart(){
     var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
     for(let i=0; i<finalsetdolist.length; i++){
 
-        if(finalsetdolist[i].setdoid ==  Number(A)){
+        if(finalsetdolist[i].setdoId ==  Number(A)){
             finalsetdolist.splice(i,1);
             setdoMenu.splice(i,1);
         }
@@ -854,19 +854,33 @@ function shoppcar(){              //自選的加入購物車
 // document.getElementById('meatname').innerText=`${meat}`;
 // document.getElementById('singlename1').innerText=`${single1}`;
 // document.getElementById('singlename2').innerText=`${single2}`;
+// var singleorder= {
+//     sNum:`${singleNum}`,
+//     rice:`${rice}`,
+//     riceprice:`${riceprice}`,
+//     meat:`${meat}`,
+//     meatprice:`${meatprice}`,
+//     single1:`${single1}`,
+//     single1price:`${singleprice1}`,
+//     single2:`${single2}`,
+//     single2price:`${singleprice2}`,
+//     single3:`${single3}`,
+//     single3price:`${singleprice3}`,
+//     soPrice:`${soPrice}`
+//  }
 // document.getElementById('singlename3').innerText=`${single3}`;
 var singleorder= {
     sNum:`${singleNum}`,
     rice:`${rice}`,
-    riceprice:`${riceprice}`,
+    // ricePrice:`${riceprice}`,
     meat:`${meat}`,
-    meatprice:`${meatprice}`,
+    // meatPrice:`${meatprice}`,
     single1:`${single1}`,
-    single1price:`${singleprice1}`,
+    // single1Price:`${singleprice1}`,
     single2:`${single2}`,
-    single2price:`${singleprice2}`,
+    // single2Price:`${singleprice2}`,
     single3:`${single3}`,
-    single3price:`${singleprice3}`,
+    // single3Price:`${singleprice3}`,
     soPrice:`${soPrice}`
  }
 if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!==null){
@@ -933,16 +947,19 @@ setcart();
  }
 }
 
+
+
+
 function setdoCart(){      //套餐的加入購物車
     let A = this.dataset.id;
     console.log(A);
     for(let i = 0;i<setdo.length;i++){
         if(setdo[i].id == Number(A)){
             setdoMany =  document.getElementById(`setdocount${A}`).innerText;
-            setdoid = setdo[i].id;
-            setdoname = setdo[i].name;
-            setdoprice = setdo[i].price;
-            setdoimg = setdo[i].img;
+            setdoId = setdo[i].id;
+            setdoName = setdo[i].name;
+            setdoPrice = setdo[i].price;
+            setdoImg = setdo[i].img;
             if(setdoMany>0){
             // localStorage.setItem('setdoMany',setdoMany);
             // localStorage.setItem('setdoid',setdoid);
@@ -953,10 +970,10 @@ function setdoCart(){      //套餐的加入購物車
                 {
                     setdoNum:`${setdoNum}`,
                     setdoMany:`${setdoMany}`,
-                    setdoid:`${setdoid}`,
-                    setdoname:`${setdoname}`,
-                    setdoprice:`${setdoprice}`,
-                    setdoimg:`${setdoimg}`,
+                    setdoId:`${setdoId}`,
+                    setdoName:`${setdoName}`,
+                    setdoPrice:`${setdoPrice}`,
+                    setdoImg:`${setdoImg}`,
                 }
 
                 // if(JSON.parse(localStorage.getItem('setdoMenuList'))){
@@ -970,7 +987,7 @@ function setdoCart(){      //套餐的加入購物車
                 var samename = 0;
                 if(setdoMenu.length>0){
                      for(var c =0  ;c < setdoMenu.length; c++){
-                            if(setdoMenu[c].setdoname == setdoList.setdoname){
+                            if(setdoMenu[c].setdoName == setdoList.setdoName){
                                 samename=1;
                             setdoMenu[c].setdoMany = parseInt(setdoMenu[c].setdoMany)+parseInt(setdoList.setdoMany);
                             } 
@@ -1051,11 +1068,11 @@ function setordercart(){
     var finalorderlist = JSON.parse(localStorage.getItem('otherOrder'));
     singleorderlist.$data.finalorderlist = finalorderlist;
     otherMenu=finalorderlist;
-
+    
     setTimeout(function(){
-        for(var i=1; i<9; i++){
-                    if(document.getElementById(`orderdelete100${i}`)){
-                        document.getElementById(`orderdelete100${i}`).addEventListener('click',deleteordercart);
+        for(var i=1000; i<1010; i++){
+                    if(document.getElementById(`orderdelete${i}`)){
+                        document.getElementById(`orderdelete${i}`).addEventListener('click',deleteordercart);
                     }
                 }
         },1000);   
