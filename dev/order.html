@@ -17,73 +17,7 @@
 
 </head>
 <body>
-    <div id="list">
-        <div class="ordercart"  >
-            <h3>自選便當</h3>
-          <div v-for="(item, index) in finalsinglelist">
-              <span :id="'b'+item.sNum" :data-num="item.sNum">X</span>
-            <table>
-                <tr>
-                    <td>{{item.rice}} </td>
-                    <td>x1</td>
-                    <td></td>
-                    <!-- <td>NT${{item.riceprice}}</td> -->
-                </tr>
-                <tr>
-                    <td>{{item.meat}} </td>
-                    <td>x1</td>
-                    <td></td>
-                    <!-- <td>NT${{item.meatprice}}</td> -->
-                </tr>
-                <tr>
-                    <td>{{item.single1}}</td>
-                    <td>x1</td>
-                    <td></td>
-                    <!-- <td>NT${{item.single1price}}</td> -->
-                </tr>
-                <tr>
-                    <td>{{item.single2}}</td>
-                    <td>x1</td>
-                    <td></td>
-                    <!-- <td>NT${{item.single2price}}</td> -->
-                </tr>
-                <tr>
-                    <td>{{item.single3}}</td>
-                    <td>x1</td>
-                    <td></td>
-                    <!-- <td>NT${{item.single3price}}</td>   -->
-                </tr>
-                <tr>
-                    <td>總價格:</td>
-                    <td>NT$ {{item.soPrice}}</td>
-                </tr>
-            </table>
-          </div>
-          <h3>經典便當</h3>
-          <div v-for="(item, index) in finalsetdolist">  
-            <span :id="'setdodelete'+ item.setdoId" :data-num="item.setdoId">X</span>
-            <table>
-                <tr>
-                    <td>{{item.setdoName}}</td>
-                    <td>NT${{item.setdoPrice}}</td>
-                    <td></td>
-                    <td>x{{item.setdoMany}}</td>
-                </tr>
-            </table>
-          </div>
-          <div v-for="(item, index) in finalorderlist">
-            <span :id="'orderdelete'+item.otherId" :data-num="item.otherId">X</span>
-          <table>
-            <tr>
-                <td>{{item.otherName}}</td>
-                <td>NT${{item.otherPrice}}</td>
-                <td></td>
-                <td>x{{item.otherMany}}</td>
-            </tr>
-          </table>
-        </div>
-        </div>
-    </div> 
+   
     <!-- <div class="orderRoof"></div> --> 
     <div class="buy_main">
 
@@ -118,14 +52,14 @@
             <div id="buy_app">
                 <div class="buy_single_containter scroll">
                 <div id='rice'>
-                        <div class="ricecard" v-for="(item, index) in rice" :key="item.id">
+                        <div class="ricecard" v-for="(item, index) in orderRice" >
                               
-                            <img :id="'riceimg'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
-                            <div class="buy_name">{{item.name}}</div>
-                            <div class="buy_price"><span>NT $</span>{{item.price}}</div>
-                            <div><p>Cal: {{item.cal}}</p></div>
+                            <img :id="'riceimg'+item.spId"  :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
+                            <div class="buy_name">{{item.spName}}</div>
+                            <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
+                            <div><p>Cal: {{item.spCalories}}</p></div>
                            
-                            <img :id="'plus'+item.id" src="./images/order/plus.svg" width="20px" height="20px" :data-id="item.id">
+                            <img :id="'plus'+item.spId" src="./images/order/plus.svg" width="20px" height="20px" :data-id="item.spId">
                          
                             <div class="buy_single_lightbox box1">  
                                 <img src="" alt="" width="200" height="200" id="lightImg">
@@ -138,14 +72,14 @@
 
 
                    <div id='meat'> 
-                        <div class="meat_card" v-for="(item, index) in meat" :key="item.id">
+                        <div class="meat_card" v-for="(item, index) in orderMeat" >
                               
-                            <img :id="'meatimg'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
-                            <div class="buy_name">{{item.name}}</div>
-                            <div class="buy_price"><span>NT $</span>{{item.price}}</div>
-                            <div><p>Cal: {{item.cal}}</p></div>
+                            <img :id="'meatimg'+item.spId"  :data-id="item.spId" v-bind:src="item.img" atl="" width="200" height="200">
+                            <div class="buy_name">{{item.spName}}</div>
+                            <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
+                            <div><p>Cal: {{item.spCalories}}</p></div>
                            
-                            <img :id="'meatplus'+item.id" src="./images/order/plus.svg" width="20px" height="20px" :data-id="item.id">
+                            <img :id="'meatplus'+item.spId" src="./images/order/plus.svg" width="20px" height="20px" :data-id="item.spId">
                          
                             <div class="buy_single_lightbox box0">  
                                 <img src="" alt="" width="200" height="200" id="meatlightImg">
@@ -158,14 +92,14 @@
 
 
                     <div id='single'>  
-                          <div class="single_card" v-for="(item, index) in single" :key="item.id">
+                          <div class="single_card" v-for="(item, index) in orderSingle" >
                        
-                              <img :id="'img'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
-                              <div class="buy_name">{{item.name}}</div>
-                              <div class="buy_price"><span>NT $</span>{{item.price}}</div>
-                              <div><p>Cal: {{item.cal}}</p></div>
+                              <img :id="'img'+item.spId"  :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
+                              <div class="buy_name">{{item.spName}}</div>
+                              <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
+                              <div><p>Cal: {{item.spCalories}}</p></div>
                               <!-- <button-counter></button-counter> -->
-                              <img :id="'singleplus'+item.id" src="./images/order/plus.svg" width="20px" height="20px" :data-id="item.id">
+                              <img :id="'singleplus'+item.spId" src="./images/order/plus.svg" width="20px" height="20px" :data-id="item.spId">
                            
                               <div class="buy_single_lightbox box2">  
                                   <img src="" alt="" width="200" height="200" id="lightImg2">
@@ -220,12 +154,12 @@
                   <div id="buy_app3">
                       <div class="buy_setdo_containter scroll">
       
-                      <div class="buy_card3" v-for="item in setdo.slice(0,3)" :key="item.id">
-                           <img :id="'setdoimg'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
-                          <div class="buy_name">{{item.name}}</div>
-                           <div class="buy_price"><span>$</span>{{item.price}}</div>
-                            <div><button :id ="'setdocountplus'+item.id" :data-num="item.id">+</button><span :id="'setdocount'+item.id">0</span><button  :id ="'setdocountminus'+item.id" :data-num="item.id">-</button>
-                            <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.id" :data-id="item.id">
+                      <div class="buy_card3" v-for="item in orderSetdo.slice(0,3)" >
+                           <img :id="'setdoimg'+item.setId"  :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200" height="200">
+                          <div class="buy_name">{{item.setName}}</div>
+                           <div class="buy_price"><span>$</span>{{item.setPrice}}</div>
+                            <div><button :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button><span :id="'setdocount'+item.setId">0</span><button  :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button>
+                            <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.setId" :data-id="item.setId">
                             </div>
                            <!-- <button-counter></button-counter> -->
 
@@ -240,12 +174,12 @@
                 <div class="buy_single" id="order_3">
                     <img src="./images/order/1.png" width="50px" height="50px"><h1>活動便當</h1>
                 </div> 
-                      <div class="buy_card3" v-for="item in setdo.slice(3,6)" :key="item.id">
-                        <img :id="'setdoimg'+item.id"  :data-id="item.id" v-bind:src="item.img" atl="" width="200" height="200">
-                       <div class="buy_name">{{item.name}}</div>
-                        <div class="buy_price"><span>$</span>{{item.price}}</div>
-                         <div><button :id ="'setdocountplus'+item.id" :data-num="item.id">+</button><span :id="'setdocount'+item.id">0</span><button  :id ="'setdocountminus'+item.id" :data-num="item.id">-</button>
-                         <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.id" :data-id="item.id">
+                      <div class="buy_card3" v-for="item in orderSetdo.slice(3,6)" >
+                        <img :id="'setdoimg'+item.setId"  :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200" height="200">
+                       <div class="buy_name">{{item.setName}}</div>
+                        <div class="buy_price"><span>$</span>{{item.setPrice}}</div>
+                         <div><button :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button><span :id="'setdocount'+item.setId">0</span><button  :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button>
+                         <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.setId" :data-id="item.setId">
                          </div>
                         <!-- <button-counter></button-counter> -->
 
@@ -318,10 +252,10 @@
       
       </div>   
 
-
+      @@include('./layout/shoppingcart.html',{})
 
 
       <script src="../dev/js/order.js"></script>
       <script src="../dev/js/layout/shoppingcart.js"></script>
-</body>
+</body> 
 </html>

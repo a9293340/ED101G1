@@ -23,7 +23,7 @@
   }
 }
 
-nav {
+#homeTwoScreen {
   width: 100%;
   position: relative;
   opacity: 1;
@@ -52,7 +52,7 @@ nav {
     @include flexStyle(space-evenly, center);
 
     .logo {
-      width: 25%;
+      width: 20%;
       display: block;
       display: flex;
       min-width: 200px;
