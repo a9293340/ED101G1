@@ -51,7 +51,7 @@
 
         <div class="memLine"></div>
 
-        <div class="memContent" id="memContentHealth">
+        <div class="memContent" id="memContentHealth" v-if="memData.memHealth ==1">
             <div class="memHealthDataShowBox">
                 <div class="memMyFileDataBox">
                     <h2 class="memHealthDataShowTitle">基本資料</h2>
@@ -65,7 +65,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="memMyHealthAnalyImgBox">
+                <div class="memMyHealthAnalyImgBox" v-if='memHealth.length >= 2'>
                     <h2 class="memHealthDataShowTitle">健康分析指數</h2>
                     <canvas id="myChart" width="600" height="300"></canvas>
                 </div>
@@ -119,6 +119,12 @@
                     </p>
                 </div>
             </div>
+        </div>
+        <div class="memContent" id="memContentHealth" v-if="memData.memHealth ==0">
+            <p class="memYouHaveNotDoAnyHealthAnalysis">
+                您尚未做過任何健康測驗喔，<a href="./health.html">快來測試吧！</a>
+            </p>
+            <img src="./images/member/memFileUse.png" alt="" class="memGoGoTestQuickly">
         </div>
         <div class="memContent memContentNone" id="memContentOrder">
             <div class="memOrderBox" v-for="item in memOrder">

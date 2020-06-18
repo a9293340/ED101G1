@@ -325,6 +325,20 @@ $bgcgrey: #c4c0c0;
         justify-self: center;
         align-items: center;
         flex-direction: column;
+        position: relative;
+        .memYouHaveNotDoAnyHealthAnalysis{
+            @include fontStyle($black,2rem);
+            a{
+                text-decoration : none;
+                color: $orange;
+            }
+        }
+        .memGoGoTestQuickly{
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            top: -20px;
+        }
         .memHealthDataShowBox{
             width: 100%;
             @include flexStyle(space-around,flex-start);
