@@ -10,5 +10,6 @@
     "memHeight":178.1,
     "memWeight":65.4,
     "memGender":"男",
-    "memSignIntime":"2020-06-12 15:20:00"
+    "memSignIntime":"2020-06-12 15:20:00",
+    "memHealth":1
 }
