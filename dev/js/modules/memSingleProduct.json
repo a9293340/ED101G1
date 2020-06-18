@@ -39,7 +39,7 @@
        "spStatus":1
     },
     {
-       "spId":1003,
+       "spId":1004,
        "spName":"滷排骨",
        "spPrice":45,
        "spCalories":300,
@@ -52,7 +52,7 @@
        "spStatus":1
     },
     {
-       "spId":1004,
+       "spId":1005,
        "spName":"清蒸鱈魚",
        "spPrice":45,
        "spCalories":130,
@@ -65,7 +65,7 @@
        "spStatus":1
     },
     {
-       "spId":1005,
+       "spId":1006,
        "spName":"蔥爆牛柳",
        "spPrice":45,
        "spCalories":330,
@@ -78,7 +78,7 @@
        "spStatus":1
     },
     {
-       "spId":1006,
+       "spId":1007,
        "spName":"竹筍炒肉絲",
        "spPrice":20,
        "spCalories":300,
@@ -91,7 +91,7 @@
        "spStatus":1
     },
     {
-       "spId":1007,
+       "spId":1008,
        "spName":"清蒸毛豆",
        "spPrice":20,
        "spCalories":100,
@@ -104,7 +104,7 @@
        "spStatus":1
     },
     {
-       "spId":1008,
+       "spId":1009,
        "spName":"番茄炒蛋",
        "spPrice":20,
        "spCalories":120,
@@ -117,7 +117,7 @@
        "spStatus":1
     },
     {
-       "spId":1009,
+       "spId":1010,
        "spName":"花椰菜炒蝦仁",
        "spPrice":20,
        "spCalories":280,
@@ -130,7 +130,7 @@
        "spStatus":1
     },
     {
-       "spId":1010,
+       "spId":1011,
        "spName":"麻婆豆腐",
        "spPrice":20,
        "spCalories":310,
@@ -143,7 +143,7 @@
        "spStatus":1
     },
     {
-       "spId":1011,
+       "spId":1012,
        "spName":"蠔油青江菜",
        "spPrice":20,
        "spCalories":240,
@@ -156,7 +156,7 @@
        "spStatus":1
     },
     {
-       "spId":1012,
+       "spId":1013,
        "spName":"三杯杏鮑菇",
        "spPrice":20,
        "spCalories":230,
@@ -169,7 +169,7 @@
        "spStatus":1
     },
     {
-       "spId":1013,
+       "spId":1014,
        "spName":"馬鈴薯咖哩",
        "spPrice":20,
        "spCalories":180,
