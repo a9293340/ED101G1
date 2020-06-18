@@ -1,0 +1,132 @@
+<div class="cont s--inactive">
+  <!-- s--inactive是一開始載入時的動畫 -->
+  <!-- cont inner start-->
+  <div class="cont__inner">
+    <!-- el start 這邊是第一區 -->
+    <div class="el first" id="first">
+      <!--點選區域後觸發 s--active-->
+      <div class="el__overflow">
+        <!--顯示長條狀圖案，關閉後只有黑色背景-->
+        <div class="el__inner">
+          <div class="el__bg"></div>
+          <!--背景圖-->
+          <div class="el__preview-cont">
+            <!-- 用來包section1文字 -->
+            <h2 class="el__heading"></h2>
+          </div>
+          <div class="el__content">
+            <!--點開後出現內容-->
+            <div class="el__text">精選便當</div>
+            <div class="el__close-btn"></div>
+            <div class="el__leaderBoards">
+              <ul>
+                <li v-for="(menu, index) in list" @click="choosefeatured(item)">
+                  {{index}}, benton:{{menu.benton}}
+                  <img class="featured_benton" data-id="menu.id" v-bind:src="menu.img" width="210px" height="210px">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="el__index left">
+        <!--數字列-->
+        <div class="el__index-back">精選便當</div>
+        <div class="el__index-front">
+          <div class="el__index-overlay" data-index="精選便當">精選便當</div>
+        </div>
+      </div>
+    </div>
+    <!-- el end -->
+    <!-- el start 這邊是第二區 -->
+    <div class="el sec middle" id="sec">
+      <div class="el__overflow">
+        <div class="el__inner">
+          <div class="el__bg"></div>
+          <div class="el__preview-cont">
+            <h2 class="el__heading"></h2>
+          </div>
+          <div class="el__content">
+            <div class="el__text">自選便當</div>
+            <div class="el__close-btn"></div>
+            <div class="el__leaderBoards">
+              <a href="#" class="leaderBoard sec">
+                <div class="top_img">
+                  <img width="210px" height="210px" id="sec_img">
+                </div>
+                <div class="content" id="leader_2">
+                  <div id="menu_name"></div>
+                  <div id="menu_date"></div>
+                  <div id="menu_memname"></div>
+                  <div id="menu_like"></div>
+                </div>
+              </a>
+              <a href="#" class="leaderBoard first">
+                <canvas id="canvas"></canvas>
+                <div class="top_img">
+                  <img width="210px" height="210px" id="first_img">
+                </div>
+                <div class="content" id="leader_1">
+                  <!-- <div id="menu_name_sec"></div> -->
+                  <!-- <div id="menu_date_sec"></div>
+                  <div id="menu_memname_sec"></div>
+                  <div id="menu_like_sec"></div> -->
+                </div>
+              </a>
+              <a href="#" class="leaderBoard third" id="leader_3">
+                <div class="top_img">
+                  <img width="210px" height="210px" id="third_img">
+                </div>
+                <div class="content">
+                  <div id="menu_name_third"></div>
+                  <div id="menu_date_third"></div>
+                  <div id="menu_memname_third"></div>
+                  <div id="menu_like_third"></div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="el__index mid">
+        <div class="el__index-back">自選便當</div>
+        <div class="el__index-front">
+          <div class="el__index-overlay" data-index="自選便當">自選便當</div>
+        </div>
+      </div>
+    </div>
+    <!-- el end -->
+    <!-- el start 這邊是第三區 -->
+    <div class="el third" id="third">
+      <div class="el__overflow">
+        <div class="el__inner">
+          <div class="el__bg"></div>
+          <div class="el__preview-cont">
+            <h2 class="el__heading"></h2>
+          </div>
+          <div class="el__content">
+            <div class="el__text">季節便當</div>
+            <div class="el__close-btn"></div>
+            <div class="el__leaderBoards">
+              <ul>
+                <li v-for="(menu, index) in list" @click="choosefeatured(item)">
+                  {{index}}, benton:{{menu.benton}}
+                  <img class="featured_benton" data-id="menu.id" v-bind:src="menu.img" width="210px" height="210px">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="el__index right">
+        <div class="el__index-back">季節便當</div>
+        <div class="el__index-front">
+          <div class="el__index-overlay" data-index="季節便當">季節便當</div>
+        </div>
+      </div>
+    </div>
+    <!-- el end -->
+
+  </div>
+  <!-- cont inner end -->
+</div>

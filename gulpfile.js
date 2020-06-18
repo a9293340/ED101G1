@@ -18,37 +18,52 @@ var imagemin = require('gulp-imagemin');
 // sass 轉譯
 gulp.task('sass', function () {
     return gulp.src('./dev/sass/*.scss')//來源
-      .pipe(sass().on('error', sass.logError)) //sass轉譯
-      .pipe(gulp.dest('./dest/css')); //目的地
-    });
+        .pipe(sass().on('error', sass.logError)) //sass轉譯
+        .pipe(gulp.dest('./dest/css')); //目的地
+});
 
 // 搬圖檔(有放圖檔請放在dev的imgage內，新增圖檔時記得新增後於終端機輸入 gulp moveImg 指令)
 // html之圖檔連結請使用./dest/image/路徑 不要使用開發路徑的圖檔)
-gulp.task('moveImg',function(){
+gulp.task('moveImg', function () {
     //src 來源 
-    return gulp.src('./dev/images/*')
-    //pipe 透過管道 dest 目的地
-    .pipe(gulp.dest('dest/images'))
+    return gulp.src('./dev/images/*/*')
+        //pipe 透過管道 dest 目的地
+        .pipe(gulp.dest('dest/images'))
+})
+
+// 搬php 輸入 gulp movePhp
+gulp.task('movePhp', function () {
+    //src 來源 
+    return gulp.src('./dev/php/*.php')
+        //pipe 透過管道 dest 目的地
+        .pipe(gulp.dest('dest/php'))
+})
+
+gulp.task('moveVendor', function () {
+    //src 來源 
+    return gulp.src(['./dev/vendor/*/*', './dev/vendor/*/*/*', './dev/vendor/*/*/*/*'])
+        //pipe 透過管道 dest 目的地
+        .pipe(gulp.dest('dest/vendor'))
 })
 
 // html 樣板
 gulp.task('fileinclude', function () {
     gulp.src(['./dev/*.html'])
-    .pipe(fileinclude({
-        prefix: '@@',
-        basepath: '@file'
-    }))
-    .pipe(gulp.dest('./dest'));
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('./dest'));
 });
 
 // 壓圖
-gulp.task('minimage',function(){
+gulp.task('minimage', function () {
     gulp.src('./dev/images/*')
-    .pipe(imagemin())
-    .pipe(gulp.dest('dest/images'))
-    })
+        .pipe(imagemin())
+        .pipe(gulp.dest('dest/images'))
+})
 
-gulp.task('default',function(){
-    gulp.watch('./dev/sass/*.scss',['sass']).on('change',reload);
-    gulp.watch(['./dev/*.html','./dev/**/*.html'],['fileinclude']).on('change',reload);
+gulp.task('default', function () {
+    gulp.watch('./dev/sass/*.scss', ['sass']).on('change', reload);
+    gulp.watch(['./dev/*.html', './dev/**/*.html'], ['fileinclude']).on('change', reload);
 })
