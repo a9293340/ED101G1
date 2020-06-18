@@ -134,7 +134,11 @@ function deleteordercart(){
 
 
 
-
+export default{
+    setcart,
+    setsetdocart,
+    setordercart
+}
 
 
 

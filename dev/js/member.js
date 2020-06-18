@@ -1,3 +1,4 @@
+import shopCart from '../../dev/js/layout/shoppingcart.js';
 window.addEventListener('load',gogoPower);
 
 function gogoPower(){
@@ -8,7 +9,6 @@ function gogoPower(){
     let memHealthColdHot = [];
     let memHealthHealth = [];
     let memHealthStomach = [];
-    // ajax後寫入
 
     
     let memVm = new Vue({
@@ -306,9 +306,9 @@ function gogoPower(){
                     }
                     localStorage['otherOrder'] = JSON.stringify(other);
                 }
-                setcart()
-                setsetdocart()
-                setordercart()
+                shopCart.setcart()
+                shopCart.setsetdocart()
+                shopCart.setordercart()
             },
             AddOtherToCart(e){
                 let id = Number(e.target.dataset.count)
@@ -351,6 +351,9 @@ function gogoPower(){
                     }
                     localStorage['otherOrder'] = JSON.stringify(other);
                 }
+                shopCart.setcart()
+                shopCart.setsetdocart()
+                shopCart.setordercart()
             },
             AddSetToCart(e){
                 let id = Number(e.target.dataset.count)
@@ -392,6 +395,9 @@ function gogoPower(){
                     }
                     localStorage['setdoMenuList'] = JSON.stringify(setA);
                 }
+                shopCart.setcart()
+                shopCart.setsetdocart()
+                shopCart.setordercart()
             }
             
         },
