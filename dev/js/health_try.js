@@ -239,7 +239,9 @@ function doFirst() {
 
     }
 
-    let healthTitle = document.getElementsByClassName('title3')[0]
+    let healthTitle = document.getElementsByClassName('title3')[0];
+    let memSingleProduct = [];
+    let healthFinalAnswer = {}
     function goToFinalHealthPage(){
         console.log('BMI:',BMIbox,"avgScore:",avgScoreBox);
         if(BMIbox > 24){
@@ -296,7 +298,186 @@ function doFirst() {
     function healthChooseMenu(healthStyle){
         // healthStyle : fat thin sad good hot cold
         console.log(healthStyle);
+        let healthCooks = document.getElementById('cooks');
+        let healthDash = document.getElementById('dish');
+        $.getJSON("../dev/js/modules/memSingleProduct.json")
+            .then((data)=>{
+                memSingleProduct = data;
+                console.log(memSingleProduct);
+                healthFinalAnswer = healthFindData(memSingleProduct,healthStyle);
+                console.log(healthFinalAnswer);
+                healthCooks.innerHTML = `
+                    <li>
+                        <img src="${healthFinalAnswer.sideDashe1.spImage}">
+                        <p>${healthFinalAnswer.sideDashe1.spName}</p>
+                    </li>
+                    <li>
+                        <img src="${healthFinalAnswer.sideDashe2.spImage}">
+                        <p>${healthFinalAnswer.sideDashe2.spName}</p>
+                    </li>
+                    <li>
+                        <img src="${healthFinalAnswer.sideDashe3.spImage}">
+                        <p>${healthFinalAnswer.sideDashe3.spName}</p>
+                    </li>
+                `
+                // console.log(healthFinalAnswer.rice.spName)
+                healthDash.innerHTML = `
+                    內容 : ${healthFinalAnswer.rice.spName}、${healthFinalAnswer.mainFood.spName}、${healthFinalAnswer.sideDashe1.spName}、${healthFinalAnswer.sideDashe2.spName}、${healthFinalAnswer.sideDashe3.spName}。<br>總卡路里 : ${healthFinalAnswer.rice.spCalories+healthFinalAnswer.mainFood.spCalories+healthFinalAnswer.sideDashe1.spCalories+healthFinalAnswer.sideDashe1.spCalories+healthFinalAnswer.sideDashe1.spCalories}大卡
+                `
+            });
         
+    }
+
+    function healthFindData(memSingleProduct,healthStyle){
+        
+        let riceBox = []
+        let mainBox = []
+        let sideDashBox = []
+        // console.log("A",memSingleProduct.length)
+        for(let i = 0 ;i < memSingleProduct.length;i++){
+            if(memSingleProduct[i].spClass == 0){
+                riceBox.push(memSingleProduct[i])
+            }
+            if(memSingleProduct[i].spClass == 1){
+                mainBox.push(memSingleProduct[i])
+            }
+            if(memSingleProduct[i].spClass == 2){
+                sideDashBox.push(memSingleProduct[i])
+            }
+        }
+        // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+
+        // 過胖
+        if(healthStyle == 'fat'){
+            riceBox.sort(function(a,b){
+                return a.spCalories > b.spCalories?1:-1;
+            })
+            mainBox.sort(function(a,b){
+                return a.spCalories > b.spCalories?1:-1;
+            })
+            sideDashBox.sort(function(a,b){
+                return a.spCalories > b.spCalories?1:-1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice:riceBox[0],
+                mainFood:mainBox[0],
+                sideDashe1:sideDashBox[0],
+                sideDashe2:sideDashBox[1],
+                sideDashe3:sideDashBox[3],
+
+            }
+        }
+        
+        // 過瘦
+        if(healthStyle == 'thin'){
+            riceBox.sort(function(a,b){
+                return a.spCalories < b.spCalories?1:-1;
+            })
+            mainBox.sort(function(a,b){
+                return a.spCalories < b.spCalories?1:-1;
+            })
+            sideDashBox.sort(function(a,b){
+                return a.spCalories < b.spCalories?1:-1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice:riceBox[0],
+                mainFood:mainBox[0],
+                sideDashe1:sideDashBox[0],
+                sideDashe2:sideDashBox[1],
+                sideDashe3:sideDashBox[3],
+
+            }
+        }
+
+        // 燥熱
+        if(healthStyle == 'hot'){
+            riceBox.sort(function(a,b){
+                return a.spColdHot > b.spColdHot?1:-1;
+            })
+            mainBox.sort(function(a,b){
+                return a.spColdHot > b.spColdHot?1:-1;
+            })
+            sideDashBox.sort(function(a,b){
+                return a.spColdHot > b.spColdHot?1:-1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice:riceBox[0],
+                mainFood:mainBox[0],
+                sideDashe1:sideDashBox[0],
+                sideDashe2:sideDashBox[1],
+                sideDashe3:sideDashBox[3],
+
+            }
+        }
+
+        // 寒冷
+        if(healthStyle == 'cold'){
+            riceBox.sort(function(a,b){
+                return a.spColdHot < b.spColdHot?1:-1;
+            })
+            mainBox.sort(function(a,b){
+                return a.spColdHot < b.spColdHot?1:-1;
+            })
+            sideDashBox.sort(function(a,b){
+                return a.spColdHot < b.spColdHot?1:-1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice:riceBox[0],
+                mainFood:mainBox[0],
+                sideDashe1:sideDashBox[0],
+                sideDashe2:sideDashBox[1],
+                sideDashe3:sideDashBox[3],
+
+            }
+        }
+
+        // 憂傷
+        if(healthStyle == 'sad'){
+            riceBox.sort(function(a,b){
+                return a.spHealth > b.spHealth?1:-1;
+            })
+            mainBox.sort(function(a,b){
+                return a.spHealth > b.spHealth?1:-1;
+            })
+            sideDashBox.sort(function(a,b){
+                return a.spHealth > b.spHealth?1:-1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice:riceBox[0],
+                mainFood:mainBox[0],
+                sideDashe1:sideDashBox[0],
+                sideDashe2:sideDashBox[1],
+                sideDashe3:sideDashBox[3],
+
+            }
+        }
+
+        // 快樂
+        if(healthStyle == 'good'){
+            riceBox.sort(function(a,b){
+                return a.spHealth < b.spHealth?1:-1;
+            })
+            mainBox.sort(function(a,b){
+                return a.spHealth < b.spHealth?1:-1;
+            })
+            sideDashBox.sort(function(a,b){
+                return a.spHealth < b.spHealth?1:-1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice:riceBox[0],
+                mainFood:mainBox[0],
+                sideDashe1:sideDashBox[0],
+                sideDashe2:sideDashBox[1],
+                sideDashe3:sideDashBox[3],
+
+            }
+        }
     }
 
 
