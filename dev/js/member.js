@@ -264,89 +264,89 @@ function gogoPower(){
                 }
 
                 //other
-                if(localStorage['otherdoMenuList']){
-                    other = JSON.parse(localStorage['otherdoMenuList']);
+                if(localStorage['otherOrder']){
+                    other = JSON.parse(localStorage['otherOrder']);
                     for(let i = 0; i < this.memOtherOrder.length; i++){
                         if(this.memOtherOrder[i].ooBelongOrder == this.nowDataSetNumber){
                             let check = 0;
                             for(let j = 0;j < other.length;j++){
-                                if(other[j].otherdoName == this.memOtherOrder[i].opName){
+                                if(other[j].otherName == this.memOtherOrder[i].opName){
                                     check ++;
                                 }
                             }
                             if(check > 0){
                                 for(let j = 0;j < other.length;j++){
-                                    if(other[j].otherdoName == this.memOtherOrder[i].opName){
-                                        other[j].otherdoMany += this.memOtherOrder[i].ooAmount
+                                    if(other[j].otherName == this.memOtherOrder[i].opName){
+                                        other[j].otherMany += this.memOtherOrder[i].ooAmount
                                     }
                                 }
                             }else{
                                 other.push({
-                                    "otherdoMany":this.memOtherOrder[i].ooAmount,
-                                    "otherdoId":this.memOtherOrder[i].opId,
-                                    "otherdoImg":this.memOtherOrder[i].opImage,
-                                    "otherdoName":this.memOtherOrder[i].opName,
-                                    "otherdoPrice":this.memOtherOrder[i].ooPrice / this.memOtherOrder[i].ooAmount
+                                    "otherMany":this.memOtherOrder[i].ooAmount,
+                                    "otherId":this.memOtherOrder[i].opId,
+                                    "otherImg":this.memOtherOrder[i].opImage,
+                                    "otherName":this.memOtherOrder[i].opName,
+                                    "otherPrice":this.memOtherOrder[i].ooPrice / this.memOtherOrder[i].ooAmount
                                 })
                             }
                         }
                     }
-                    localStorage['otherdoMenuList'] = JSON.stringify(other);
+                    localStorage['otherOrder'] = JSON.stringify(other);
                 }else{
                     for(let i = 0; i < this.memOtherOrder.length; i++){
                         if(this.memOtherOrder[i].ooBelongOrder == this.nowDataSetNumber){
                             other.push({
-                                "otherdoMany":this.memOtherOrder[i].ooAmount,
-                                "otherdoId":this.memOtherOrder[i].opId,
-                                "otherdoImg":this.memOtherOrder[i].opImage,
-                                "otherdoName":this.memOtherOrder[i].opName,
-                                "otherdoPrice":this.memOtherOrder[i].ooPrice / this.memOtherOrder[i].ooAmount
+                                "otherMany":this.memOtherOrder[i].ooAmount,
+                                "otherId":this.memOtherOrder[i].opId,
+                                "otherImg":this.memOtherOrder[i].opImage,
+                                "otherName":this.memOtherOrder[i].opName,
+                                "otherPrice":this.memOtherOrder[i].ooPrice / this.memOtherOrder[i].ooAmount
                             })
                         }
                     }
-                    localStorage['otherdoMenuList'] = JSON.stringify(other);
+                    localStorage['otherOrder'] = JSON.stringify(other);
                 }
             },
             AddOtherToCart(e){
                 let id = Number(e.target.dataset.count)
                 console.log(id)
                 let other = []
-                if(localStorage['otherdoMenuList']){
-                    other = JSON.parse(localStorage['otherdoMenuList']);
-                    if(other.some(function(item){return item.otherdoId == id})){
+                if(localStorage['otherOrder']){
+                    other = JSON.parse(localStorage['otherOrder']);
+                    if(other.some(function(item){return item.otherId == id})){
                         for(let i = 0;i<other.length;i++){
-                            if(other[i].otherdoId == id){
-                                other[i].otherdoMany ++;
+                            if(other[i].otherId == id){
+                                other[i].otherMany ++;
                             }
                         }
                     }else{
                         for(let i = 0; i < this.memOtherProduct.length; i++){
                             if(this.memOtherProduct[i].opId == id){
                                 other.push({
-                                    "otherdoMany":1,
-                                    "otherdoId":this.memOtherProduct[i].opId,
-                                    "otherdoImg":this.memOtherProduct[i].opImage,
-                                    "otherdoName":this.memOtherProduct[i].opName,
-                                    "otherdoPrice":this.memOtherProduct[i].opPrice
+                                    "otherMany":1,
+                                    "otherId":this.memOtherProduct[i].opId,
+                                    "otherImg":this.memOtherProduct[i].opImage,
+                                    "otherName":this.memOtherProduct[i].opName,
+                                    "otherPrice":this.memOtherProduct[i].opPrice
                                 })
                             }
                         }
                     }
-                    localStorage['otherdoMenuList'] = JSON.stringify(other);
-                    // console.log(other.some(function(item){return item.otherdoId == id}))
+                    localStorage['otherOrder'] = JSON.stringify(other);
+                    // console.log(other.some(function(item){return item.otherId == id}))
                 }else{
                     for(let i = 0; i < this.memOtherProduct.length; i++){
                         if(this.memOtherProduct[i].opId == id){
                             other.push({
-                                "otherdoMany":1,
-                                "otherdoId":this.memOtherProduct[i].opId,
-                                "otherdoImg":this.memOtherProduct[i].opImage,
-                                "otherdoName":this.memOtherProduct[i].opName,
-                                "otherdoPrice":this.memOtherProduct[i].opPrice
+                                "otherMany":1,
+                                "otherId":this.memOtherProduct[i].opId,
+                                "otherImg":this.memOtherProduct[i].opImage,
+                                "otherName":this.memOtherProduct[i].opName,
+                                "otherPrice":this.memOtherProduct[i].opPrice
                             })
                         }
                     }
-                    localStorage['otherdoMenuList'] = JSON.stringify(other);
+                    localStorage['otherOrder'] = JSON.stringify(other);
                 }
             },
             AddSetToCart(e){
