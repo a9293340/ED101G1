@@ -1,6 +1,12 @@
-@import "./main";
+@import "../modules/lightBox";
+
 
 .homeContainer {
+  background-color: rgb(224, 243, 219);
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%);
   max-width: 500px;
   margin: 40px auto 0;
   // padding: 0 10px;

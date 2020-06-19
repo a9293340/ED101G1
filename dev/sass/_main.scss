@@ -6,11 +6,10 @@
 @import "base/body";
 
 // import layout
-@import "layout/header";
-@import "layout/footer";
 @import "layout/loginSignup";
 @import "layout/shoppingCart";
-
+@import 'layout/header';
+@import 'layout/footer';
 // import mixin
 @import "mixins/mixin";
 
