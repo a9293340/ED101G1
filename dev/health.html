@@ -54,24 +54,27 @@
                 <h1 class="title1">健康自己看</h1>
                 <p class="title3"></p>
                 <ul class="mainFood" id="mainFood">
-                    
+
                 </ul>
                 <ul class="cooks" id="cooks">
 
                 </ul>
-                
+
                 <ul class="bento">
                     <li><img src="https://via.placeholder.com/300.png/09f/fff"></li>
                     <li class="dish" id="dish"></li>
                     <li class="img"><img class="rader" src="https://via.placeholder.com/200.png/09f/fff"><button
-                            class="cart">加入購物車</button></li>
+                            id="healthCart">加入購物車</button></li>
                 </ul>
 
             </div>
         </div>
     </div>
-    <footer></footer>
+
+    @@include('./layout/shoppingcart.html',{})
+    @@include('./layout/footer.html',{})
     <script src="../dev/js/health.js"></script>
+    <script src="../dev/js/layout/shoppingcart.js"></script>
 
 
 </body>
