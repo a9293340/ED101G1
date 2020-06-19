@@ -1,7 +1,4 @@
-// import shopCart from '../../dev/js/layout/shoppingcart.js';
-// shopCart.shopCart.()
-// shopCart.setsetdocart()
-// shopCart.setordercart()
+
 
 let sgproduct=[
     {
@@ -13,7 +10,7 @@ let sgproduct=[
        "spHealth":82,
        "spClass":0,
        "spInfo":"我是紫米飯，我敲健康的說，快來吃我",
-       "spImage":"./images/order/purplerice.jpg",
+       "spImage":"./images/bandon_include/PurpleRicePic.png",
        "spMeat":0,
        "spStatus":1
     },
@@ -26,7 +23,7 @@ let sgproduct=[
        "spHealth":65,
        "spClass":0,
        "spInfo":"我是白米飯，我又Q又嫩，快來吃我",
-       "spImage":"./images/order/whiterice.jpg",
+       "spImage":"./images/bandon_include/RicePic.png",
        "spMeat":0,
        "spStatus":1
     },
@@ -665,6 +662,7 @@ function riceincart(){
     var listrice = localStorage.getItem('ricename');
     var listriceprice = localStorage.getItem('riceprice');
     document.getElementById('list_ricename').innerText = `米食: ${listrice} x1  NT$${listriceprice}`;
+    document.getElementById('orderRicePic').src = `${riceimg}`;
 
 }
 
@@ -687,6 +685,7 @@ function meatincart(){
     var listmeat = localStorage.getItem('meatname');
     var listmeatprice = localStorage.getItem('meatprice');
     document.getElementById('list_meatname').innerText = `主食: ${listmeat} x1  NT$${listmeatprice}`;
+    document.getElementById('orderMeatPic').src = `${meatimg}`;
 }
 
 var singlecount = 0;
@@ -714,7 +713,7 @@ function singleincart()
                 var listsingle = localStorage.getItem('singlename'+`${singlecount}`);
                 var listsingleprice = localStorage.getItem('singleprice'+`${singlecount}`);
                 document.getElementById('list_singlename'+`${singlecount}`).innerText = `配菜: ${listsingle} x1  NT$${listsingleprice}`;
-               
+                document.getElementById('orderSinglPic'+`${singlecount}`).src =`${singleimg}`;
     }else
     {
         alert('只能選三道配菜喔');
@@ -846,15 +845,10 @@ function shoppcar(){              //自選的加入購物車
 var singleorder= {
     sNum:`${singleNum}`,
     rice:`${rice}`,
-    // ricePrice:`${riceprice}`,
     meat:`${meat}`,
-    // meatPrice:`${meatprice}`,
     single1:`${single1}`,
-    // single1Price:`${singleprice1}`,
     single2:`${single2}`,
-    // single2Price:`${singleprice2}`,
     single3:`${single3}`,
-    // single3Price:`${singleprice3}`,
     soPrice:`${soPrice}`
  }
 if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!==null){

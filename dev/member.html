@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="./css/member.css">
+    <!-- <link rel="stylesheet" href="./css/loginSignup.css"> -->
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
@@ -22,7 +23,7 @@
 </head>
 <body>
     <!-- header -->
-    
+    @@include('./layout/header.html',{})
 
     <!-- shoppingCart -->
     
@@ -219,8 +220,13 @@
             <div class="memFileImg">
                 <!-- <h2>◆修改頭像</h2> -->
                 <div class="memImage">
-                    <img :src="memData.memImage" class="memPicture">
-                    <div class="changeImage">點選更換圖片</div>
+                    <label for="memChangeImage">
+                        <img :src="memData.memImage" class="memPicture" id="memPicture">
+                        <div class="changeImage">點選更換圖片</div>
+                    </label>
+                    <form action="">
+                        <input type="file" id="memChangeImage" style="display: none;" @change='memChangeBigHead'>
+                    </form>
                 </div>
                 <div class="memImgLimitBox">
                     <p class="memImgLimit">檔案大小：最大1MB檔案限制：.JPG,.PNG</p>
@@ -527,6 +533,7 @@
     </div>
 
     @@include('./layout/shoppingcart.html',{})
+    @@include('./layout/loginSignup.html',{})
     <!-- footer -->
     
 
