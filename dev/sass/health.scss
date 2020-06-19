@@ -1,7 +1,9 @@
+@import "./main";
+
 * {
     box-sizing: border-box;
     @import "base/_fontStyle.scss";
-    
+
 }
 
 body {
@@ -21,7 +23,7 @@ div.wrapper {
     background-size: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    
+
 }
 
 .content {
@@ -85,11 +87,13 @@ form>h2 {
 .bmiContent {
     width: 100%;
 }
-span.healBmiBtn>button.btnClose{
+
+span.healBmiBtn>button.btnClose {
     width: 45px;
     margin-left: 35%;
-  
+
 }
+
 div.bmiForm {
     color: black;
     width: 400px;
@@ -163,7 +167,8 @@ p.separate,
 
 #questionOptions {
     display: inline-flex;
-    #a1{
+
+    #a1 {
         width: 100px;
         height: 50px;
         text-align: center;
@@ -172,9 +177,10 @@ p.separate,
         margin-left: 10px;
         font-size: 1rem;
         vertical-align: bottom;
-        
+
     }
-    #a2{
+
+    #a2 {
         width: 100px;
         height: 50px;
         text-align: center;
@@ -184,7 +190,8 @@ p.separate,
         font-size: 1rem;
         vertical-align: bottom;
     }
-    #a3{
+
+    #a3 {
         width: 100px;
         height: 50px;
         text-align: center;
@@ -196,17 +203,19 @@ p.separate,
     }
 }
 
-#questionOptions{
-    #a1:hover{
-         background-color: #ffd23f;
-    }
-    #a2:hover{
+#questionOptions {
+    #a1:hover {
         background-color: #ffd23f;
     }
-    #a3:hover{
+
+    #a2:hover {
         background-color: #ffd23f;
     }
-   
+
+    #a3:hover {
+        background-color: #ffd23f;
+    }
+
 }
 
 
@@ -266,24 +275,28 @@ a {
     color: white;
     font-size: 1.8rem;
 }
-span.healCooks{
-        width: 80px;
-        margin-right: auto;
-        color: white;
-        font-size: 1.4rem;
-    }
-span.healOthers{
-        width: 80px;
-        margin-right: auto;
-        color: white;
-        font-size: 1.4rem;
-    }
-span.healBento{
-        width: 80px;
-        margin-right: auto;
-        color: white;
-        font-size: 1.4rem;
-    }
+
+span.healCooks {
+    width: 80px;
+    margin-right: auto;
+    color: white;
+    font-size: 1.4rem;
+}
+
+span.healOthers {
+    width: 80px;
+    margin-right: auto;
+    color: white;
+    font-size: 1.4rem;
+}
+
+span.healBento {
+    width: 80px;
+    margin-right: auto;
+    color: white;
+    font-size: 1.4rem;
+}
+
 ul.healCooks1 {
     border: 1px solid red;
     width: 1000px;
@@ -299,6 +312,7 @@ li {
     margin: 20px auto;
 
 }
+
 ul.healCooks2 {
     border: 1px solid red;
     width: 1000px;
@@ -336,8 +350,9 @@ li.img {
 
 }
 
-button.cart {
-    //border: 1px solid black;
+#healthCart {
+    position: relative;
+    z-index: 99;
     margin-left: auto;
     padding-top: 3px;
     border-radius: 5px;
@@ -397,12 +412,14 @@ footer {
         font-size: 1rem;
         text-align: center;
     }
-    #questionOptions{
+
+    #questionOptions {
         width: 90%;
         font-size: .5rem;
         vertical-align: bottom;
     }
-    #questionOptions>button{
+
+    #questionOptions>button {
         margin: auto;
     }
 
@@ -429,38 +446,47 @@ footer {
         padding: 10px;
         text-align: left;
     }
-    p.title3> a{
+
+    p.title3>a {
         font-size: 1rem;
     }
-    span.healCooks,span.healOthers,span.healBento{
+
+    span.healCooks,
+    span.healOthers,
+    span.healBento {
         font-size: 1rem;
-        padding-left:20px ;
+        padding-left: 20px;
     }
 
     ul.healCooks1 {
-        width:90%;
+        width: 90%;
         margin-bottom: 20px;
     }
-    ul.healCookVegs{
+
+    ul.healCookVegs {
         width: 90%;
     }
-    ul.healCooks1>li{
-        margin:0 auto;
+
+    ul.healCooks1>li {
+        margin: 0 auto;
     }
 
     ul.healCooks1>li>img {
         width: 90%;
     }
+
     ul.healCooks2 {
-        width:90%;
+        width: 90%;
     }
-    ul.healCooks2>li{
-        margin:0 auto;
+
+    ul.healCooks2>li {
+        margin: 0 auto;
     }
 
     ul.healCooks2>li>img {
         width: 90%;
     }
+
     ul.bentoContent {
         width: 80%;
         display: block;
@@ -516,10 +542,11 @@ footer {
     div.overlay>div.bmiForm>p.resultTitle {
         font-size: small;
     }
-    span.healBmiBtn>button.btnClose{
+
+    span.healBmiBtn>button.btnClose {
         width: 45px;
         margin-left: 0;
-      
+
     }
 }
 
@@ -558,7 +585,8 @@ footer {
         font-size: 1rem;
         text-align: center;
     }
-    #questionOptions{
+
+    #questionOptions {
         width: 90%;
         font-size: .5rem;
     }
@@ -585,34 +613,41 @@ footer {
         padding: 10px;
         text-align: left;
     }
-    p.title3> a{
+
+    p.title3>a {
         font-size: 1rem;
     }
 
-    span.healCooks,span.healOthers,span.healBento{
+    span.healCooks,
+    span.healOthers,
+    span.healBento {
         font-size: 1rem;
-        padding-left:20px ;
+        padding-left: 20px;
     }
 
     ul.healCooks1 {
-        width:70%;
+        width: 70%;
         margin-bottom: 20px;
     }
-    ul.healCookVegs{
+
+    ul.healCookVegs {
         width: 90%;
     }
-    ul.healCooks1>li{
-        margin:0 auto;
+
+    ul.healCooks1>li {
+        margin: 0 auto;
     }
 
     ul.healCooks1>li>img {
         width: 90%;
     }
+
     ul.healCooks2 {
-        width:90%;
+        width: 90%;
     }
-    ul.healCooks2>li{
-        margin:0 auto;
+
+    ul.healCooks2>li {
+        margin: 0 auto;
     }
 
     ul.healCooks2>li>img {
@@ -670,9 +705,10 @@ footer {
     div.overlay>div.bmiForm>p.resultTitle {
         font-size: small;
     }
-    span.healBmiBtn{
+
+    span.healBmiBtn {
         width: 60px;
-        margin-left: -20% ;
+        margin-left: -20%;
     }
-    
+
 }
