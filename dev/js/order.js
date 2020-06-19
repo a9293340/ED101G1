@@ -1,3 +1,8 @@
+// import shopCart from '../../dev/js/layout/shoppingcart.js';
+// shopCart.shopCart.()
+// shopCart.setsetdocart()
+// shopCart.setordercart()
+
 let sgproduct=[
     {
        "spId":1001,
@@ -790,12 +795,12 @@ function singleshow(){
 
 //購物車
 
-document.getElementById('incart').addEventListener('click',shoppcar)
+document.getElementById('incart').addEventListener('click',shoppcar);
 
 
 
 
-setdocount=[];
+let setdocount=[];
 for(var j=0; j < orderSetdo.length;j++){    //套餐的+- 購物車   click事件
     setdocount[orderSetdo[j].setId]=0;
     document.getElementById(`setdocountplus${orderSetdo[j].setId}`).addEventListener('click',setdoplus)
@@ -965,7 +970,7 @@ function setdoCart(){      //套餐的加入購物車
                 localStorage.setItem('setdoMenuList',setdoMenuList);
 
                
-                setsetdocart()
+               setsetdocart();
             }else{
                 alert("還沒選數量喔");
             }
