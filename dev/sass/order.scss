@@ -15,6 +15,9 @@ p {
 //colors
 $white: white; 
 
+img[src=""],img:not([src]){
+opacity: 0;
+}
 
 
 #buy_app{
@@ -250,17 +253,64 @@ $white: white;
   // display: flex;
 }
 .buy_bandoImg{
-  text-align: center;
+  margin: 0 auto;
+  background-image:url(../images/bandon_include/bentoBox.png);
+  width: 450px;
+  height: 450px;
+  background-size:cover;
+  position: relative;
+      #orderRicePic{
+        left: 40px;
+        top:50px;
+        position: absolute;
+        // border: 1px solid blue;
+        width: 220px;
+        height: 300px;
+      }
+      #orderMeatPic{
+        left: 40px;
+        top:50px;
+        position: absolute;
+        width: 150px;
+        height: 150px;
+      }
+      #orderSinglPic1{
+        right:55px;
+        top:50px;
+        position: absolute;
+        width: 160px;
+        height: 160px;
+      }
+      #orderSinglPic2{
+        right:55px;
+        top:120px;
+        position: absolute;
+        width: 160px;
+        height: 160px;
+      }
+      #orderSinglPic3{
+        right:55px;
+        top:200px;
+        position: absolute;
+        width: 160px;
+        height: 160px;
+      }
  
 }
 .buy_list{
   height: 150px;
+  width: 50%;
+margin-left: 35%;
+
+
 }
 
 .buy_bandoLeft {
   width: 600px;
   margin: 0 auto;
-  text-align: center;
+  // text-align: left;
+  display: flex;
+  flex-direction: column;
 
   // button {
   //   @include btn(auto, auto);
@@ -271,6 +321,9 @@ $white: white;
   
     @include btn(auto, auto);
     font-family: "Noto Sans TC";
+    width: 30%;
+    margin-left: 35%;
+    
 }
 .buy_other_juice {
   width: 250px;
