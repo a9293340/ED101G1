@@ -399,6 +399,16 @@ function gogoPower(){
                 setcart()
                 setsetdocart()
                 setordercart()
+            },
+            memChangeBigHead(e){
+                let file = e.target.files[0];
+                let reader = new FileReader();
+                reader.onload = function(){
+                    document.getElementById('memPicture').src = reader.result;
+                    // ajax
+                }
+                reader.readAsDataURL(file);
+
             }
             
         },
