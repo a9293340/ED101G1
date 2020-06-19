@@ -1,14 +1,147 @@
 $(document).ready(function () {
 
+});
+function doFirst() {
+    let BMIbox = '';
+    let Questions = {
+        "0": [
+            {
+                "examTitle": "Q:請問您每週排便幾次？",
+                "option1": "1~2次",
+                "option2": "2~3次",
+                "option3": "3次以上",
+                "optionNum1":20,
+                "optionNum2":45,
+                "optionNum3":100
+            },
+            {
+                "examTitle": "Q:請問您的排便顏色為？",
+                "option1": "黑色",
+                "option2": "綠色",
+                "option3": "黃褐色",
+                "optionNum1":0,
+                "optionNum2":25,
+                "optionNum3":100
+            },
+            {
+                "examTitle": "Q:請問您排便形狀為？",
+                "option1": "一顆顆硬球狀",
+                "option2": "烙屎狀",
+                "option3": "條狀",
+                "optionNum1":20,
+                "optionNum2":20,
+                "optionNum3":100
+            },
+            {
+                "examTitle": "請問您每日的飲水情況？",
+                "option1": "500 cc以下",
+                "option2": "500~1400 cc",
+                "option3": "1400以上",
+                "optionNum1":10,
+                "optionNum2":50,
+                "optionNum3":100
+            }
+        ],
+        "1": [
+            {
+                "examTitle": "Q:請問您較常的運動類型？",
+                "option1": "無",
+                "option2": "有氧運動",
+                "option3": "無氧運動",
+                "optionNum1":0,
+                "optionNum2":90,
+                "optionNum3":70
+            },
+            {
+                "examTitle": "Q:請問您每次運動多久？",
+                "option1": "10分鐘以內",
+                "option2": "10~30分鐘",
+                "option3": "30分鐘以上",
+                "optionNum1":30,
+                "optionNum2":70,
+                "optionNum3":100
+            },
+            {
+                "examTitle": "Q:請問您一週運動幾次？",
+                "option1": "1~2次",
+                "option2": "2~3次",
+                "option3": "3次以上",
+                "optionNum1":20,
+                "optionNum2":45,
+                "optionNum3":100
+            },
+            {
+                "examTitle": "Q:請問你晚上睡得好嗎？",
+                "option1": "壞",
+                "option2": "一般般",
+                "option3": "好",
+                "optionNum1":22,
+                "optionNum2":60,
+                "optionNum3":100
+            }
+        ],
+        "2": [
+            {
+                "examTitle": "Q:請問您目前舌頭顏色為？",
+                "option1": "過白",
+                "option2": "黃色",
+                "option3": "正常色",
+                "optionNum1":0,
+                "optionNum2":100,
+                "optionNum3":50
+            },
+            {
+                "examTitle": "Q:請問您手腳冰冷程度？",
+                "option1": "時常冰冷",
+                "option2": "會盜汗",
+                "option3": "正常",
+                "optionNum1":0,
+                "optionNum2":100,
+                "optionNum3":50
+            },
+            {
+                "examTitle": "Q:請問您的頭髮狀態為？",
+                "option1": "常掉髮",
+                "option2": "偶而掉髮",
+                "option3": "正常",
+                "optionNum1":90,
+                "optionNum2":60,
+                "optionNum3":50
+            },
+            {
+                "examTitle": "Q:您經常腹瀉嗎？",
+                "option1": "常腹瀉",
+                "option2": "常便秘",
+                "option3": "正常",
+                "optionNum1":0,
+                "optionNum2":100,
+                "optionNum3":50
+            }
+        ]
+    };
     // console.log("1");
-    $('#weight').change(function () {
+    $('#weight').keyup(function () {
         let height = parseInt($('#height').val());
         let weight = parseInt($('#weight').val());
         // console.log(height);
         let BMI = weight / ((height / 100) * (height / 100));
         BMI = BMI.toFixed(2);
         console.log(BMI);
-        $("#result").text(BMI);
+        if(height && weight){
+            $("#result").text(BMI);
+        }
+    });
+
+    $('#height').keyup(function () {
+        let height = parseInt($('#height').val());
+        let weight = parseInt($('#weight').val());
+        // console.log(height);
+        let BMI = weight / ((height / 100) * (height / 100));
+        BMI = BMI.toFixed(2);
+        console.log(BMI);
+        if(height && weight){
+            $("#result").text(BMI);
+        }
     });
     // let BMI = weight / ((height / 100) * (height / 100));
     // BMI = BMI.toFixed(2);
@@ -21,86 +154,12 @@ $(document).ready(function () {
             alert("請選擇性別");
             return false;
         } else {
+            BMIbox = Number(close1);
+            console.log(BMIbox);
             $("div.overlay").css("display", "none");
         }
     });
-});
-function doFirst() {
-    // let numberOrder = 1;
-    // // let totalNumber = 6;
-    // document.getElementById('number').innerText = `${numberOrder}`;
-    // document.getElementById('numberTotal').innerText = `${totalNumber}`;
-    let Questions = [
-        [{
-            q: ' Q:請問您每日排便幾次？',
-            op1: '1~2次', //低分-50
-            op2: '2~3次', //中分0
-            op3: '3次以上'//高分50
-        },
-        {
-            q: 'Q:請問您的排便顏色為？',
-            op1: '黑色', //低分-50
-            op2: '綠色', //中分0
-            op3: '黃褐色' //高分50
-        },
-        {
-            q: 'Q:請問您排便形狀為？',
-            op1: '一顆顆硬球狀',//低分
-            op2: '烙屎狀',//中分
-            op3: '條狀',//高分
-        }, {
-            q: 'Q:請問您每日的飲水情況？',
-            op1: '500 cc以下',   //低分
-            op2: '500~1400 cc', //中分
-            op3: '1400以上'      //高分
-        }],
-        [{
-            q: 'Q:請問您較常的運動類型？',
-            op1: '無',
-            op2: '有氧運動',
-            op3: '無氧運動'
-        },
-        {
-            q: 'Q:請問您每次運動多久？',
-            op1: '10分鐘以內',
-            op2: '10~30分鐘',
-            op3: '30分鐘以上'
-        },
-        {
-            q: 'Q:請問您一週運動幾次？',
-            op1: '1~2次',
-            op2: '2~3次',
-            op3: '3次以上'
-        }, {
-            q: 'Q:請問你晚上睡得好嗎？',
-            op1: '壞',
-            op2: 'x',
-            op3: '好'
-        }],
-        [{
-            q: 'Q:請問您目前舌頭顏色為？',
-            op1: '過白', //低分
-            op2: '黃色', //中分
-            op3: '正常色'//高分
-        },
-        {
-            q: 'Q:請問您手腳冰冷程度？',
-            op1: '時常冰冷', //低分
-            op2: '會盜汗',  //中分
-            op3: '正常'    //高分
-        },
-        {
-            q: 'Q:請問您的頭髮狀態為？',
-            op1: '常掉髮',//低分
-            op2: '不常掉髮',
-            op3: '正常'
-        }, {
-            q: 'Q:您經常腹瀉嗎？',
-            op1: '常腹瀉',
-            op2: '常便秘',
-            op3: '正常'
-        }],
-    ];
+
     //--------------------------
 
 
@@ -121,9 +180,9 @@ function doFirst() {
 
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 2; j++) {
-            let aRandom = Math.floor(Math.random() * 4);
             Q_num = Q[i][j];
-            console.log(Questions[i][Q_num].q);
+            // console.log(Questions[i][Q_num].q);
+            console.log(Questions[i][Q_num].examTitle)
         }
 
         console.log("-------------");
@@ -133,18 +192,22 @@ function doFirst() {
     let avgScoreBox = [];
     let scoreBox = []
     function healthFindQuestion() {
-        document.getElementById("questionPanel").innerText = '';
-        document.getElementById("questionOptions").innerHTML = '';
-        document.getElementById('number').innerText = ''
-        let i = parseInt(count / 2);
-        let j = count % 2;
-        let j_num = Q[i][j];
-        document.getElementById("questionPanel").innerText = Questions[i][j_num].q;
-        document.getElementById("questionOptions").innerHTML = `<button id='a1' data-score='-50'>${Questions[i][j_num].op1}</button>
-            <button id='a2' data-score='0'>${Questions[i][j_num].op2}</button>
-            <button id='a3' data-score='50'>${Questions[i][j_num].op3}</button> `;
+        if(count < 6){
+            document.getElementById("questionPanel").innerText = '';
+            document.getElementById("questionOptions").innerHTML = '';
+            document.getElementById('number').innerText = ''
+            let i = parseInt(count / 2);
+            let j = count % 2;
+            let j_num = Q[i][j];
+            document.getElementById("questionPanel").innerText = Questions[i][j_num].examTitle;
+            document.getElementById("questionOptions").innerHTML = `<button id='a1' data-score='${Questions[i][j_num].optionNum1}'>${Questions[i][j_num].option1}</button>
+                <button id='a2' data-score='${Questions[i][j_num].optionNum2}'>${Questions[i][j_num].option2}</button>
+                <button id='a3' data-score='${Questions[i][j_num].optionNum3}'>${Questions[i][j_num].option3}</button> `;
+        }
         count++;
-        document.getElementById('number').innerText = count;
+        if(count < 7){
+            document.getElementById('number').innerText = count;
+        }
         document.getElementById('a1').addEventListener('click', getScore);
         document.getElementById('a2').addEventListener('click', getScore);
         document.getElementById('a3').addEventListener('click', getScore);
@@ -155,53 +218,280 @@ function doFirst() {
 
 
 
-    let ee = 0;
+    
     function getScore() {
         score = parseInt(this.dataset.score);
         scoreBox.push(score);
-        console.log(scoreBox);
-        console.log(count);
-        if (ee == 3) {
-
-            healthFindQuestion();
-            avg01 = avgScoreBox[0] + avgScoreBox[1];
+        console.log(scoreBox[count-1]);
+        
+        healthFindQuestion();
+        
+        if(count % 2 == 1){
+            avgScoreBox.push((scoreBox[count - 2] + scoreBox[count - 3]) / 2)
+            console.log('a',avgScoreBox)
         }
-        // console.log(scoreBox[count - 1])
-        if (count % 2 == 0) {
-            ee++;
-            avgScoreBox.push((scoreBox[count - 2] + scoreBox[count - 1]) / 2)
-            // 找最後平均分數 （腸胃、冷暖、生活作息）
-            console.log(avgScoreBox)
 
-        }
-        if (count < 6) {
-            healthFindQuestion();
-        } else if (count == 6) {
+        if(count == 7){
             document.getElementById('exam').style.display = "none";
             document.getElementById('examResult').style.display = "block";
-        } else {
-            document.getElementById("exam").style.display = "block";
+            goToFinalHealthPage();
         }
 
     }
 
+    let healthTitle = document.getElementsByClassName('title3')[0];
+    let memSingleProduct = [];
+    let healthFinalAnswer = {}
+    function goToFinalHealthPage(){
+        console.log('BMI:',BMIbox,"avgScore:",avgScoreBox);
+        if(BMIbox > 24){
+            healthTitle.innerHTML = `
+            您屬於<a id="healthBody" href="#">胖嘟嘟體質</a>，請注意您的飲食狀況，詳細的健康分析，請至<a
+            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
+            `
+            console.log('過胖');
+            healthChooseMenu('fat');
+            return;
+        }else if(BMIbox < 18){
+            healthTitle.innerHTML = `
+            您屬於<a id="healthBody" href="#">三比八體質</a>，請注意您的飲食狀況，詳細的健康分析，請至<a
+            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
+            `
+            console.log('過瘦')
+            healthChooseMenu('thin');
+            return;
+        }else if(avgScoreBox[2] >= 51){
+            healthTitle.innerHTML = `
+            您屬於<a id="healthBody" href="#">燥呼呼體質</a>，請注意您的飲食狀況，詳細的健康分析，請至<a
+            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
+            `
+            console.log('燥熱')
+            healthChooseMenu('hot');
+            return;
+        }else if(avgScoreBox[2] < 50){
+            healthTitle.innerHTML = `
+            您屬於<a id="healthBody" href="#">冷吱吱體質</a>，請注意您的飲食狀況，詳細的健康分析，請至<a
+            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
+            `
+            console.log('虛寒')
+            healthChooseMenu('cold');
+            return;
+        }else if((avgScoreBox[0]+avgScoreBox[1])/2 < 50){
+            healthTitle.innerHTML = `
+            您屬於<a id="healthBody" href="#">煩惱憂憂型</a>，請注意您的飲食狀況，詳細的健康分析，請至<a
+            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
+            `
+            console.log('身體欠佳')
+            healthChooseMenu('bad');
+            return;
+        }else{
+            healthTitle.innerHTML = `
+            您屬於<a id="healthBody" href="#">幸褔樂樂型</a>，請注意您的飲食狀況，詳細的健康分析，請至<a
+            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
+            `
+            console.log('快樂')
+            healthChooseMenu('good');
+            return;
+        }
+    }
+
+    function healthChooseMenu(healthStyle){
+        // healthStyle : fat thin sad good hot cold
+        console.log(healthStyle);
+        let healthCooks = document.getElementById('cooks');
+        let healthDash = document.getElementById('dish');
+        let healthMainFood = document.getElementById('mainFood');
+        $.getJSON("../dev/js/modules/memSingleProduct.json")
+            .then((data)=>{
+                memSingleProduct = data;
+                console.log(memSingleProduct);
+                healthFinalAnswer = healthFindData(memSingleProduct,healthStyle);
+                console.log(healthFinalAnswer);
+                healthMainFood.innerHTML = `
+                <li>
+                    <img src="${healthFinalAnswer.rice.spImage}">
+                    <p>${healthFinalAnswer.rice.spName}</p>
+                </li>
+                <li>
+                    <img src="${healthFinalAnswer.mainFood.spImage}">
+                    <p>${healthFinalAnswer.mainFood.spName}</p>
+                </li>
+                `
+                healthCooks.innerHTML = `
+                    <li>
+                        <img src="${healthFinalAnswer.sideDashe1.spImage}">
+                        <p>${healthFinalAnswer.sideDashe1.spName}</p>
+                    </li>
+                    <li>
+                        <img src="${healthFinalAnswer.sideDashe2.spImage}">
+                        <p>${healthFinalAnswer.sideDashe2.spName}</p>
+                    </li>
+                    <li>
+                        <img src="${healthFinalAnswer.sideDashe3.spImage}">
+                        <p>${healthFinalAnswer.sideDashe3.spName}</p>
+                    </li>
+                `
+                // console.log(healthFinalAnswer.rice.spName)
+                healthDash.innerHTML = `
+                    內容 : ${healthFinalAnswer.rice.spName}、${healthFinalAnswer.mainFood.spName}、${healthFinalAnswer.sideDashe1.spName}、${healthFinalAnswer.sideDashe2.spName}、${healthFinalAnswer.sideDashe3.spName}。<br>總卡路里 : ${healthFinalAnswer.rice.spCalories+healthFinalAnswer.mainFood.spCalories+healthFinalAnswer.sideDashe1.spCalories+healthFinalAnswer.sideDashe1.spCalories+healthFinalAnswer.sideDashe1.spCalories}大卡
+                `
+            });
+        
+    }
+
+    function healthFindData(memSingleProduct,healthStyle){
+        
+        let riceBox = []
+        let mainBox = []
+        let sideDashBox = []
+        // console.log("A",memSingleProduct.length)
+        for(let i = 0 ;i < memSingleProduct.length;i++){
+            if(memSingleProduct[i].spClass == 0){
+                riceBox.push(memSingleProduct[i])
+            }
+            if(memSingleProduct[i].spClass == 1){
+                mainBox.push(memSingleProduct[i])
+            }
+            if(memSingleProduct[i].spClass == 2){
+                sideDashBox.push(memSingleProduct[i])
+            }
+        }
+        // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+
+        // 過胖
+        if(healthStyle == 'fat'){
+            riceBox.sort(function(a,b){
+                return a.spCalories > b.spCalories?1:-1;
+            })
+            mainBox.sort(function(a,b){
+                return a.spCalories > b.spCalories?1:-1;
+            })
+            sideDashBox.sort(function(a,b){
+                return a.spCalories > b.spCalories?1:-1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice:riceBox[0],
+                mainFood:mainBox[0],
+                sideDashe1:sideDashBox[0],
+                sideDashe2:sideDashBox[1],
+                sideDashe3:sideDashBox[2],
+
+            }
+        }
+        
+        // 過瘦
+        if(healthStyle == 'thin'){
+            riceBox.sort(function(a,b){
+                return a.spCalories < b.spCalories?1:-1;
+            })
+            mainBox.sort(function(a,b){
+                return a.spCalories < b.spCalories?1:-1;
+            })
+            sideDashBox.sort(function(a,b){
+                return a.spCalories < b.spCalories?1:-1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice:riceBox[0],
+                mainFood:mainBox[0],
+                sideDashe1:sideDashBox[0],
+                sideDashe2:sideDashBox[1],
+                sideDashe3:sideDashBox[2],
+
+            }
+        }
+
+        // 燥熱
+        if(healthStyle == 'hot'){
+            riceBox.sort(function(a,b){
+                return a.spColdHot > b.spColdHot?1:-1;
+            })
+            mainBox.sort(function(a,b){
+                return a.spColdHot > b.spColdHot?1:-1;
+            })
+            sideDashBox.sort(function(a,b){
+                return a.spColdHot > b.spColdHot?1:-1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice:riceBox[0],
+                mainFood:mainBox[0],
+                sideDashe1:sideDashBox[0],
+                sideDashe2:sideDashBox[1],
+                sideDashe3:sideDashBox[2],
+
+            }
+        }
+
+        // 寒冷
+        if(healthStyle == 'cold'){
+            riceBox.sort(function(a,b){
+                return a.spColdHot < b.spColdHot?1:-1;
+            })
+            mainBox.sort(function(a,b){
+                return a.spColdHot < b.spColdHot?1:-1;
+            })
+            sideDashBox.sort(function(a,b){
+                return a.spColdHot < b.spColdHot?1:-1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice:riceBox[0],
+                mainFood:mainBox[0],
+                sideDashe1:sideDashBox[0],
+                sideDashe2:sideDashBox[1],
+                sideDashe3:sideDashBox[2],
+
+            }
+        }
+
+        // 憂傷
+        if(healthStyle == 'sad'){
+            riceBox.sort(function(a,b){
+                return a.spHealth > b.spHealth?1:-1;
+            })
+            mainBox.sort(function(a,b){
+                return a.spHealth > b.spHealth?1:-1;
+            })
+            sideDashBox.sort(function(a,b){
+                return a.spHealth > b.spHealth?1:-1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice:riceBox[0],
+                mainFood:mainBox[0],
+                sideDashe1:sideDashBox[0],
+                sideDashe2:sideDashBox[1],
+                sideDashe3:sideDashBox[2],
+
+            }
+        }
+
+        // 快樂
+        if(healthStyle == 'good'){
+            riceBox.sort(function(a,b){
+                return a.spHealth < b.spHealth?1:-1;
+            })
+            mainBox.sort(function(a,b){
+                return a.spHealth < b.spHealth?1:-1;
+            })
+            sideDashBox.sort(function(a,b){
+                return a.spHealth < b.spHealth?1:-1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice:riceBox[0],
+                mainFood:mainBox[0],
+                sideDashe1:sideDashBox[0],
+                sideDashe2:sideDashBox[1],
+                sideDashe3:sideDashBox[2],
+
+            }
+        }
+    }
 
 
 
-
-    //     document.getElementById("showQuestion").onclick = function () {
-    //         let i = parseInt(count / 2);
-    //         let j = count % 2;
-    //         let j_num = Q[i][j];
-    //         document.getElementById("questionPanel").innerText = Questions[i][j_num].q;
-    //         document.getElementById("questionOptions").innerHTML = `<button>${Questions[i][j_num].op1}</button>
-    // <button>${Questions[i][j_num].op2}</button>
-    // <button>${Questions[i][j_num].op3}</button> `;
-
-    //         Questions[i][j_num].q;
-    //         count++;
-    //     }
-    // for (let i = 0;)
-
-
-}; window.addEventListener('load', doFirst);
+}; 
+window.addEventListener('load', doFirst);
