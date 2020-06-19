@@ -10,7 +10,7 @@ let sgproduct=[
        "spHealth":82,
        "spClass":0,
        "spInfo":"我是紫米飯，我敲健康的說，快來吃我",
-       "spImage":"./images/order/purplerice.jpg",
+       "spImage":"./images/bandon_include/PurpleRicePic.png",
        "spMeat":0,
        "spStatus":1
     },
