@@ -1,4 +1,4 @@
-import shopCart from '../../dev/js/layout/shoppingcart.js';
+// import shopCart from '../../dev/js/layout/shoppingcart.js';
 import charLine from '../../dev/js/modules/chartLine.js';
 window.addEventListener('load',gogoPower);
 
@@ -307,9 +307,9 @@ function gogoPower(){
                     }
                     localStorage['otherOrder'] = JSON.stringify(other);
                 }
-                shopCart.setcart()
-                shopCart.setsetdocart()
-                shopCart.setordercart()
+                setcart()
+                setsetdocart()
+                setordercart()
             },
             AddOtherToCart(e){
                 let id = Number(e.target.dataset.count)
@@ -352,9 +352,9 @@ function gogoPower(){
                     }
                     localStorage['otherOrder'] = JSON.stringify(other);
                 }
-                shopCart.setcart()
-                shopCart.setsetdocart()
-                shopCart.setordercart()
+                setcart()
+                setsetdocart()
+                setordercart()
             },
             AddSetToCart(e){
                 let id = Number(e.target.dataset.count)
@@ -396,9 +396,9 @@ function gogoPower(){
                     }
                     localStorage['setdoMenuList'] = JSON.stringify(setA);
                 }
-                shopCart.setcart()
-                shopCart.setsetdocart()
-                shopCart.setordercart()
+                setcart()
+                setsetdocart()
+                setordercart()
             }
             
         },
