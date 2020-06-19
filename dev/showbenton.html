@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -145,7 +145,7 @@
             width="300"
             height="260"
           />
-          <button class="buyMore">我也要吃</button>
+          <button id="showbtn" class="buyMore">我也要吃</button>
           <div class="memTextBlock">
           <p id="ContentTitlText">{{currentBenton.title}}</p>
           <p style="font-size:18px; text-align: left;">{{currentBenton.content}}</p>
@@ -177,7 +177,7 @@
               rows="3"
               id="content" 
             ></textarea>  
-            <button
+            <button 
               type="button"
               id="btn"
               style="display: block;"
@@ -204,6 +204,8 @@
       />
       <span id="like_num">0</span>
     </div> -->
+    @@include('./layout/shoppingcart.html',{})
+    <script src="../dev/js/layout/shoppingcart.js"></script>
     <script src="../dev/js/showbenton.js"></script>
   </body>
 </html>
