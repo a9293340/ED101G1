@@ -284,7 +284,7 @@ span.healBento{
         color: white;
         font-size: 1.4rem;
     }
-ul.healCooks1 {
+ul.mainFood {
     border: 1px solid red;
     width: 1000px;
     display: flex;
@@ -299,7 +299,7 @@ li {
     margin: 20px auto;
 
 }
-ul.healCooks2 {
+ul.cooks {
     border: 1px solid red;
     width: 1000px;
     display: flex;
@@ -307,50 +307,53 @@ ul.healCooks2 {
     margin: auto;
     margin-bottom: 50px;
     padding: 0;
+    li {
+        border: 1px solid blue;
+        margin: 20px auto;
+    
+    }
 }
 
-li {
-    border: 1px solid blue;
-    margin: 20px auto;
 
-}
 
-ul.bentoContent {
+ul.bento {
     border: 1px solid red;
     width: 1000px;
     margin: 0 auto;
     list-style: none;
     display: flex;
+
+    li.dish {
+        border: 1px solid gray;
+        width: 230px;
+        white-space: pre-wrap;
+        color: #ffd23f;
+        font-size: 1.2rem;
+    }
+    
+    li.img {
+        margin-right: auto;
+    
+    }
+    
+    button.cart {
+        //border: 1px solid black;
+        margin-left: auto;
+        padding-top: 3px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        background-color: #ea6627;
+        color: white;
+    }
+    
+    li.img,
+    button.cart {
+        display: block;
+        margin: auto;
+    }
 }
 
-li.dish {
-    border: 1px solid gray;
-    width: 230px;
-    white-space: pre-wrap;
-    color: #ffd23f;
-    font-size: 1.2rem;
-}
 
-li.img {
-    margin-right: auto;
-
-}
-
-button.cart {
-    //border: 1px solid black;
-    margin-left: auto;
-    padding-top: 3px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    background-color: #ea6627;
-    color: white;
-}
-
-li.img,
-button.cart {
-    display: block;
-    margin: auto;
-}
 
 footer {
     border: 1px solid green;
