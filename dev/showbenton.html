@@ -24,16 +24,13 @@
       </p>
       <p class="showTitle1">美味便當Top3</p>
     </div>
-      <!----------------新增按鈕--------------->
-      <div id="addBenton" class="addBenton" @click="showBentonList">
-        <img src="./images/showbenton/addition.png" />
-      </div>
-      <div id="showBentonImg" class="showBentonImg">
-       
-      </div>
-      <div class="kitchenTool">
-        <img src="./images/showbenton/KitchenTool.png" />
-      </div>
+    <!----------------新增按鈕--------------->
+    <div id="addBenton" class="addBenton" @click="showBentonList">
+      <img src="./images/showbenton/addition.png" />
+    </div>
+    <div id="showBentonImg" class="showBentonImg"></div>
+    <div class="kitchenTool">
+      <img src="./images/showbenton/KitchenTool.png" />
     </div>
     <!------------------格線------------------>
     <div class="grid"></div>
@@ -47,7 +44,7 @@
           <img @click="showCloselightbox" src="./images/showbenton/close.png" />
         </div>
         <ul class="bentoncardBox">
-          <li 
+          <li
             :id="'bentonLi'+item.id"
             class="bentonCard"
             v-for="(item, index) in benton"
@@ -78,10 +75,21 @@
         </div>
         <div class="bentonContentForm">
           <label class="Step2Title" for="Step2TitlText">標題：</label>
-          <input id="Step2TitlText" type="text" />
+          <input
+            id="Step2TitlText"
+            type="text"
+            v-on:input="checkTitle"
+            v-model="message"
+          />
           <div class="Step2Space">
-            <label class="Step2Content" for="Step2ContentText" >內容：</label>
-            <textarea id="Step2ContentText" rows="15" cols="30"></textarea>
+            <label class="Step2Content" for="Step2ContentText">內容：</label>
+            <textarea
+              id="Step2ContentText"
+              rows="15"
+              cols="30"
+              v-on:input="checkContent"
+              v-model="messageContent"
+            ></textarea>
             <div class="confirmBentonBox2">
               <button class="Pre" @click="showBentonStep1(true)">
                 上一步
@@ -95,7 +103,96 @@
       </div>
     </div>
 
-    <!----------------冰箱/烤箱/瓦斯爐背景圖--------------->
+    <div class="showBentonImg" id="bentonWall">
+      <div
+        class="shareBenton"
+        v-for="(notes,index) in bentonArray"
+        :id="'bentonDiv'+index"
+        :key="index"
+      >
+        <img
+          @click="openLightBox(notes, index)"
+          :id="'bentonimg'+index"
+          :data-id="index"
+          v-bind:src="notes.bentonImg"
+          alt=""
+        />
+        <p id="Step2TitlText">{{notes.title}}</p>
+        <!-- <p id="Step2ContentText">{{notes.content}}</p> -->
+        <img
+          class="conversation"
+          @click="openLightBox(notes, index)"
+          src="./images/showbenton/conversation.png"
+          width="30px"
+          height="30px"
+        />
+        <img
+          class="like"
+          @click="addLikeTimes(notes)"
+          src="./images/showbenton/like.png"
+          width="30px"
+          height="30px"
+        />
+        <span class="liketimes">{{notes.liketimes}}</span>
+      </div>
+
+      <div class="showBentonContentbox" id="mainBuyBenton">
+        <div v-bind:class="currentBenton.cls">
+          <img
+            class="showBentonContentImg"
+            v-bind:src="currentBenton.bentonImg"
+            alt=""
+            width="300"
+            height="260"
+          />
+          <button class="buyMore">我也要吃</button>
+          <div class="memTextBlock">
+          <p id="ContentTitlText">{{currentBenton.title}}</p>
+          <p style="font-size:18px; text-align: left;">{{currentBenton.content}}</p>
+          <p class="member">by {{memData.memName}}</p>
+        </div>
+        </hr>
+        <div class="mesTalks">───────── 留言區 ──────────</div>
+          <!--討論區-->
+          <div style="height:80px; overflow:auto; border:1px solid black;">
+            <div
+              v-for="talks in talkArray"
+              id="show_msg"
+              class="showmsg"
+             
+            >
+              <img :src="memData.memImage" class="memPicture" />
+              <div class="talkmessage">{{talks.talkmessage}}</div>
+
+              <p class="talkDataTime">{{talks.dateTime}}</p>
+            </div>
+          </div>
+        
+          <form id="demo">
+            <div></div>
+            <p style="font-size:16px; text-align: left; padding-left:13px;">歡迎留下你的想法和意見：</p>
+            <textarea
+              class="comment"
+              cols="40"
+              rows="3"
+              id="content"
+            ></textarea>
+            <button
+              type="button"
+              id="btn"
+              style="display: block;"
+              @click="talk"
+            >
+              送出
+            </button>
+          </form>
+
+          <p id="result"></p>
+        </div>
+      </div>
+    </div>
+
+    <!----------------click跳出便當強詳細內容--------------->
 
     <!----------footer------------>
     <!-- <footer>我是footer</footer> -->
