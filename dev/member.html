@@ -220,12 +220,12 @@
             <div class="memFileImg">
                 <!-- <h2>◆修改頭像</h2> -->
                 <div class="memImage">
-                    <label for="memChangeImage">
+                    <label for="memImage">
                         <img :src="memData.memImage" class="memPicture" id="memPicture">
                         <div class="changeImage">點選更換圖片</div>
                     </label>
                     <form action="">
-                        <input type="file" id="memChangeImage" style="display: none;" @change='memChangeBigHead'>
+                        <input type="file" id="memImage" name="memImage" style="display: none;" @change='memChangeBigHead'>
                     </form>
                 </div>
                 <div class="memImgLimitBox">
