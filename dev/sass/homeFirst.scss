@@ -8,6 +8,93 @@
   transition: all $transition ease;
 }
 
+// --------------------手機板
+@media (min-width: 375px) and (max-width: 576px){
+  .eff{
+    border: 3px solid yellow;
+    background-position: bottom;
+    .homeVideo-xs{
+      right:30px !important;
+      top:-650px !important
+    }
+    .homeLove-Fish,.homeLove-Pg,.homeLove-Gt{
+      // border: 3px solid yellow;
+      width: 100px !important;
+      height: 100px!important;
+      background-size: cover;
+    }
+    .homeLove-Fish{  //鱈魚
+      top: 40px !important;
+      left:0px !important;
+    }
+    .homeLove-Pg{ //排骨
+      top: 68px !important;
+      left:200px !important;
+    }
+    .homeLove-Gt{  //雞腿
+      top:-20px !important;
+      left:200px !important;
+    }
+    .homeCoverflow-xs{
+      position: static !important;
+      border: 3px solid green;
+      a > img{
+        max-width: 80% !important;
+        position: relative;
+        left:0px;
+        top:50px;
+      }
+    }
+  }
+  .homeTextBox{
+    max-width: 100% !important;
+    /* top: 35% !important; */
+    left:0% !important;
+    margin: 0 2rem;
+    .homeSelectBox {
+      // width: 60%;
+      // right: -15%;
+      position: relative;
+      .homeControl-btn-Delivery-xs{ //外送 Bbutton
+        top: 170px!important; 
+        left: 0px!important;
+      }
+      .homeControl-btn-Takeaway-xs{ //外帶 Bbutton
+        left: 0 !important;
+        top:105px!important;
+      }
+    }
+    h1,h2{
+      font-size:$fzSubtitle !important;
+    }
+    .tab-content{
+      // width: 55% !important;
+      // margin: 0 3rem;
+      .homeCalendar{
+        left: 10px;
+      }
+      .homeDate-xs{
+        right: 0 !important;
+        width:100% !important;
+      }
+      .homeGps{
+        top:0!important;
+        left: 10px;
+      }
+      .homeAdd-xs{
+        top:-30px !important;
+        width:100% !important;
+        left: 0;
+      }
+    }
+    .homeHeight-160-xs{  //外送 input 高度增高為160px
+      height:160px !important;
+    }
+  }
+}
+
+// --------------------end 手機板
+
 section {
 // text-align: center;
 font-size: 0;
@@ -139,7 +226,7 @@ overflow: hidden;
       left: 500px;
       z-index: 99999;
       top: -400px;
-      animation-delay:2s; //延遲
+      // animation-delay:5s; //延遲
       animation-duration:4s;  //執行長度
     }
    .homeCoverflow{
@@ -150,7 +237,7 @@ overflow: hidden;
       max-width: 100%;
       height: auto;
       left:52%;
-      animation-duration:4s;
+      animation-duration:10s;
       animation-name:animationFrames;
       a{
         display: block;
@@ -158,10 +245,10 @@ overflow: hidden;
         top:0;
         left:0;
         opacity: 0;
-        // filter: alpha(opacity=0);
+        filter: alpha(opacity=100);
         /*當圖片數量增加，影片長度需更改，變為5s*圖片數量*/
         // animation: silder 8s linear infinite;
-        animation: silder 8s infinite;
+        animation: silder 10s infinite;
         img{
           max-width: 100%;
         }
@@ -178,10 +265,10 @@ overflow: hidden;
               /* 1- 5秒靜止*/
           }
           30% {
-              opacity:0.9;
+              opacity:0.95;
               filter: alpha(opacity=100);
               /* 5-6秒淡出*/
-          }
+             }
         }
         /*每個圖片各延遲5秒*/
         &:nth-child(3){animation-delay: 10s;}
@@ -227,17 +314,12 @@ overflow: hidden;
   animation-duration:3s;
   animation-fill-mode: both;
   animation-name: fadeInUp;
-  h2{
+  h1,h2{
     font-size:$fzBig;
     color: $white;
-    /* line-height: 1.2; */
     font-weight: 900;
-    /* margin-bottom: 3rem; */
     text-align: left;
-    margin: 0 0 2.54rem 0;
-    // border: 1px solid $white;
   }
-
   .homeRow{
     display: flex;
     flex-wrap: wrap;
@@ -488,3 +570,4 @@ $animationDuration: 1.5s;
     }
   }
 }
+

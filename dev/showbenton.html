@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -145,7 +145,11 @@
             width="300"
             height="260"
           />
+<<<<<<< HEAD
           <button  id="buyMore" class="buyMore" @click="showbentonShoppingCart">我也要吃</button>
+=======
+          <button id="showbtn" class="buyMore">我也要吃</button>
+>>>>>>> 3b9881dfea1aad89aad1400607f1a8141c8bf4a3
           <div class="memTextBlock">
           <p id="ContentTitlText">{{currentBenton.title}}</p>
           <p style="font-size:18px; text-align: left;">{{currentBenton.content}}</p>
@@ -177,7 +181,7 @@
               rows="3" 
               id="content" 
             ></textarea>  
-            <button
+            <button 
               type="button"
               id="showbtn"
               style="display: block;"
@@ -193,7 +197,25 @@
     </div>
     <!-- @@include('./layout/shoppingcart.html',{}) -->
 
+<<<<<<< HEAD
     <!-- <script src="../dev/js/layout/shoppingcart.js"></script> -->
     <script src="../dev/js/showbenton.js"></script> 
+=======
+    <!----------------click跳出便當強詳細內容--------------->
+
+    <!----------footer------------>
+    <!-- <footer>我是footer</footer> -->
+    <!------------------按讚數--------------------->
+    <!-- <div>
+      <img
+        id="like_img"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Windows_Settings_app_icon.png/768px-Windows_Settings_app_icon.png"
+      />
+      <span id="like_num">0</span>
+    </div> -->
+    @@include('./layout/shoppingcart.html',{})
+    <script src="../dev/js/layout/shoppingcart.js"></script>
+    <script src="../dev/js/showbenton.js"></script>
+>>>>>>> 3b9881dfea1aad89aad1400607f1a8141c8bf4a3
   </body>
 </html>

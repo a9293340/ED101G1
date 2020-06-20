@@ -634,11 +634,11 @@ function gogoPower(){
         let _this = this;
         $(window).keydown(function(evt){
             _this.control[evt.key] = true;
-            console.log(_this.control);
+            // console.log(_this.control);
         })
         $(window).keyup(function(evt){
             _this.control[evt.key] = false;
-            console.log(_this.control);
+            // console.log(_this.control);
         })
     }
     //開始遊戲

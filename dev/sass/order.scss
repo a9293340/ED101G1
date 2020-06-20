@@ -1,7 +1,7 @@
 @import "./main";
 
-h1 {
-  font-size: $fzSubtitle;
+h1 { 
+  font-size: $fzSubtitle; 
 }
 
 h2 {
@@ -285,11 +285,11 @@ img:not([src]) {
   }
 
   #orderMeatPic {
-    left: 40px;
-    top: 50px;
+    left: 50px;
+    top: 100px;
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
   }
 
   #orderSinglPic1 {

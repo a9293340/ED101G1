@@ -220,12 +220,12 @@
             <div class="memFileImg">
                 <!-- <h2>◆修改頭像</h2> -->
                 <div class="memImage">
-                    <label for="memChangeImage">
+                    <label for="memImage">
                         <img :src="memData.memImage" class="memPicture" id="memPicture">
                         <div class="changeImage">點選更換圖片</div>
                     </label>
                     <form action="">
-                        <input type="file" id="memChangeImage" style="display: none;" @change='memChangeBigHead'>
+                        <input type="file" id="memImage" name="memImage" style="display: none;" @change='memChangeBigHead'>
                     </form>
                 </div>
                 <div class="memImgLimitBox">
@@ -335,7 +335,7 @@
                 <h3>◆訂購明細</h3>
                 <div class="memContentOrderListReal" v-for='single in memSingleOrder' v-if='single.soBelongOrder == nowDataSetNumber'>
                     <div class="memContentOrderListRealRight">
-                        <img :src="single.soImg">
+                        <img :src="single.soImg" class="memContentOrderListRealRightImg">
                         <div class="memOrderListRealSomething">
                             <p>自選便當</p>
                             <p class="memFontSmall">規格:{{single.soRice}}/{{single.sideDishes1}}/{{single.sideDishes2}}/{{single.sideDishes3}}/{{single.mainfood}}</p>
@@ -533,12 +533,13 @@
     </div>
 
     @@include('./layout/shoppingcart.html',{})
-    @@include('./layout/loginSignup.html',{})
+    <!-- @@include('./layout/loginSignup.html',{}) -->
     <!-- footer -->
     
 
     <!-- Login、Signup、ShoppingCart -->
     <script src="../dev/js/layout/shoppingcart.js"></script>
+    <!-- <script src="../dev//js/layout/loginSignup.js"></script> -->
     <!-- Member -->
     <script type="module" src="../dev/js/member.js"></script>
 </body>
