@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header></header>
+    @@include('./layout/header.html',{})
     <div class="wrapper">
 
         <div class="content" id="exam">
@@ -45,7 +45,7 @@
                 <p class="resultTitle">BMI
                 <p id="result"></p>
                 </p>
-                <button type="button" class="btnClose">close</button>
+                <button type="button" class="btnClose">送出</button>
             </div>
         </div>
         <!-- 以下為測驗結果 -->
@@ -61,7 +61,7 @@
                 </ul>
 
                 <ul class="bento">
-                    <li><img src="https://via.placeholder.com/300.png/09f/fff"></li>
+                    <li><img src="https://via.placeholder.com/200.png/09f/fff"></li>
                     <li class="dish" id="dish"></li>
                     <li class="img"><img class="rader" src="https://via.placeholder.com/200.png/09f/fff"><button
                             id="healthCart">加入購物車</button></li>
