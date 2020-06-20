@@ -42,7 +42,7 @@
         <div class="bentoncarTitle">
           <span>請選擇喜愛的自選便當</span>
           <img @click="showCloselightbox" src="./images/showbenton/close.png" />
-        </div>
+        </di v>
         <ul class="bentoncardBox">
           <li
             :id="'bentonLi'+item.id"
@@ -145,7 +145,11 @@
             width="300"
             height="260"
           />
+<<<<<<< HEAD
+          <button  id="buyMore" class="buyMore" @click="showbentonShoppingCart">我也要吃</button>
+=======
           <button id="showbtn" class="buyMore">我也要吃</button>
+>>>>>>> 3b9881dfea1aad89aad1400607f1a8141c8bf4a3
           <div class="memTextBlock">
           <p id="ContentTitlText">{{currentBenton.title}}</p>
           <p style="font-size:18px; text-align: left;">{{currentBenton.content}}</p>
@@ -174,24 +178,29 @@
             <textarea
               class="comment"
               cols="40"
-              rows="3"
+              rows="3" 
               id="content" 
             ></textarea>  
             <button 
               type="button"
-              id="btn"
+              id="showbtn"
               style="display: block;"
-              @click="talk"
+
             >
               送出
             </button>
           </form>
 
           <p id="result"></p>
-        </div>
+        </div> 
       </div>
     </div>
+    <!-- @@include('./layout/shoppingcart.html',{}) -->
 
+<<<<<<< HEAD
+    <!-- <script src="../dev/js/layout/shoppingcart.js"></script> -->
+    <script src="../dev/js/showbenton.js"></script> 
+=======
     <!----------------click跳出便當強詳細內容--------------->
 
     <!----------footer------------>
@@ -207,5 +216,6 @@
     @@include('./layout/shoppingcart.html',{})
     <script src="../dev/js/layout/shoppingcart.js"></script>
     <script src="../dev/js/showbenton.js"></script>
+>>>>>>> 3b9881dfea1aad89aad1400607f1a8141c8bf4a3
   </body>
 </html>

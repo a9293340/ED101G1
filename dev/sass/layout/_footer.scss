@@ -8,21 +8,39 @@
     width: 100%;
     .homeFooterBox{
         margin: 0 auto;
-        border: 1px solid red;
         ul{
-        li{
-        display:inline;
-        border: 1px solid green;
-        letter-spacing: 5px;
-        margin: 0 3%;
-        &:first-child{
-            border: 1px solid red;
-            letter-spacing: 2px;
-        }
-        &:hover{
-            color: #a5b7c6;
-        }
-        }
+            li{
+                display:inline;
+                letter-spacing: 5px;
+                margin: 0 3%;
+                &:hover{
+                    color:$lightGrey;
+                }
+                &:first-child{
+                letter-spacing:1px;
+                float: left;
+                padding-right: 25%;
+                }
+
+                .homePhone{
+                    letter-spacing: 2px;
+                    float: right;
+                    width: 24px;
+                    height: auto;
+                    z-index: 999;
+                }
+                .homeAdd{
+                    letter-spacing: 2px;
+                    float: right;
+                    width: 24px;
+                    height: auto;
+                }
+                img{
+                    top: 6px;
+                    position: relative;
+                    padding: 0 10px;
+                }
+            }
         }
       }
     }

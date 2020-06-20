@@ -13,17 +13,22 @@
             <div class="homeQuesionBox">
                 <label class="homeTest">
                     <input class="homeQinput" type="radio" name="homeFood">
-                    會盜汗
+                    時常冰冷
                 </label>
                 <label class="homeTest">
-                    <input class="homeQinput homeQcheck" type="radio" name="homeFood"   checked>
-                    時常冰冷
+                    <input class="homeQinput homeQcheck" type="radio" name="homeFood"  checked>
+                    會盜汗
                 </label>
                 <label class="homeTest">
                     <input class="homeQinput" type="radio" name="homeFood">
                     正常
                 </label>
             </div>
+        </div>
+        <div class="homeIceBox">
+            <img class="homeIceOne" src="./images/homeHealth/homeIceOne.png" />
+            <img class="homeIceTwo" src="./images/homeHealth/homeIceTwo.png" />
+            <img class="homeIceThree" src="./images/homeHealth/homeIceThree.png" />
         </div>
         <div class="homeTapBox" id="pics" align="center">
             <img class="homeTapUp" id="homeTapPic" src="./images/homeHealth/a.png"/>
@@ -33,22 +38,22 @@
 </section>
 <!-- end 第 3 屏 -->
 <script>
-var index = 1;            //全局变量，在0到(num-1)之间循环      
+var index = 1;            //全局變量，在0到(num-1)之間循環   
         var num = 2;
-        var img = document.getElementById("homeTapPic");   //获取图片ID  
+        var img = document.getElementById("homeTapPic");   //獲取圖片ID  
         // var title = document.getElementById("title");
         function homeTapPicChange() {
             switch (index) {
-                case 1: img.src = "./images/homeHealth/a.png"; break;   //切换到1.jpg  
-                case 2: img.src = "./images/homeHealth/b.png"; break;   //切换到2.jpg  
-                // case 3: img.src = "./images/homeHealth/homeTap-one.png"; break;   //切换到3.jpg  
-                // case 4: img.src = "./images/homeHealth/homeTap-one.png"; break;   //切换到4.jpg  
+                case 1: img.src = "./images/homeHealth/a.png"; break;   //切换到a.jpg  
+                case 2: img.src = "./images/homeHealth/b.png"; break;   //切换到b.jpg  
+                // case 3: img.src = "./images/homeHealth/homeTap-one.png"; break;   //切换到c.jpg  
+                // case 4: img.src = "./images/homeHealth/homeTap-one.png"; break;   //切换到d.jpg  
             }
-            // title.innerHTML = "图片" + index;     //修改标题  
-            index++;                         //切换到下一张  
+            // title.innerHTML = "圖片" + index;     //修改標題  
+            index++;                         //切换到下一張  
             if (index > num) {
-                index = index % num;       //大于最多图片数量后回到第0张  
+                index = index % num;       //大於最多圖片數量後回到第0張  
             }
         }
-        setInterval("homeTapPicChange()", 800); //设置定时器，作用于PicChange()函数内，时间为1000毫秒刷新一次  
+        setInterval("homeTapPicChange()", 500); //定時器，作用於PicChange()函數内，時間為1000毫秒刷新一次
 </script>

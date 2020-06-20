@@ -12,6 +12,7 @@
         "memWeight":65.4,
         "memGender":"男",
         "memSignIntime":"2020-06-12 15:20:00",
+        "memPlaytime":"2020-06-12 15:20:00",
         "memLastVote":"2020-06-12 15:20:00",
         "memHealth":1
     },
@@ -28,6 +29,7 @@
         "memWeight":87.4,
         "memGender":"男",
         "memSignIntime":"2020-06-17 15:20:00",
+        "memPlaytime":"2020-06-16 15:20:00",
         "memLastVote":"2020-06-15 15:20:00",
         "memHealth":0
     },
@@ -44,6 +46,7 @@
         "memWeight":43.4,
         "memGender":"女",
         "memSignIntime":"2020-06-17 19:20:00",
+        "memPlaytime":"2020-06-12 20:20:00",
         "memLastVote":"2020-06-17 19:20:00",
         "memHealth":0
     }

@@ -10,10 +10,27 @@
     width: 100%;
     height:100%;
     background-image: url("../images/homeHealth/homeBlackBoard.jpg");
+    .homeTapUp {
+      position: relative;
+      right: -250px;
+      width: 280px;
+      height: auto;
+      top: -80vh;
+      opacity: 1;
+    }
+    .homeTwBoy{
+      position: relative;
+      right: -69%;
+      width: 230px;
+      height: auto;
+      top: -125vh;
+      animation: homeTwBoyAction ease-out 1s;
+      animation-iteration-count: 1;
+      transform-origin: 50% 50%;
+      animation-fill-mode:forwards; 
+    }  
     .homeBlackBoardTit{
-      // border: 1px solid greenyellow;
       width: 1200px;
-      // height: 100px;
       margin: 0 auto;
       padding-top: 2%;
       h1{
@@ -34,7 +51,7 @@
       }
     }
     .homeOrder{
-      width: 1200px;
+      width:85%;
       margin: 0 auto;
       height: 50%;
       border-radius: 10px;
@@ -50,57 +67,208 @@
         width: 10px;
       }
       .homeQuestionTitle{
-      width: 100%;
-      // border: 1px solid red;
-      font-size:$fzSubtitle;
-      margin: auto;
-      text-align: left;
-      color:$green;
-      font-weight: 900;
-      margin: 3rem;
-    }
-    .homeQuesionBox{
-      color: $white;
-      font-size: 1rem;
-      padding: 30px 0;
-      .homeTest{
-      margin-left: 50px;
-      width: 200px;
-      display: inline-block;
-      color:$green;
-      font-size:$fzSubtitle;
-      font-weight: 900;
-      line-height: 26px;
-      .homeQinput{
-        width: 30px;
-        height: 30px;
-        border: 5px solid red;
-        background: $white;
-        .homeQcheck{
-          color:$yellow;
-        }
-       }
+        width: 100%;
+        font-size:$fzSubtitle;
+        margin: auto;
+        text-align: left;
+        color:$green;
+        font-weight: 900;
+        margin: 3rem;
       }
-     }
+      .homeQuesionBox{
+        color: $white;
+        font-size: 1rem;
+        padding: 30px 0;
+        .homeTest{
+          margin-left: 50px;
+          width: 200px;
+          display: inline-block;
+          color:$green;
+          font-size:$fzSubtitle;
+          font-weight: 900;
+          line-height: 26px;
+          &:hover{
+            transform: scale(1.2);
+            color: $orange; 
+            cursor: pointer;
+          }
+          &:nth-child(2){
+            background: $white;
+            font-size:$fzSubtitle;
+            animation: homeQTextBig 0.4s infinite alternate;
+            transform-origin: center;
+            animation-delay: 0s;
+            @keyframes homeQTextBig{
+              to { transform: scale(1.1); }
+            }
+          }
+          .homeQinput{
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+    .homeIceBox{
+      .homeIceOne{
+        width: 150px;
+        height: auto;
+        position: relative;
+        top: -285px;
+        left: 300px;
+        animation: homeIceOneAction linear  2s;
+        animation-iteration-count: 1;
+        transform-origin: 50% 50%;      
+        animation-delay: 2s;  
+        @keyframes homeIceOneAction{
+          0% {
+            transform:  translate(300px,0px)  rotate(180deg) ;
+            opacity: 0;
+          }
+          100% {
+            transform:  translate(0px,0px)  rotate(0deg) ;
+            opacity: 1;
+          }
+        }
+        &:hover{
+          transform:  rotate(30deg) ;
+        }
+      }
+      .homeIceTwo{
+        width: 350px;
+        height: auto;
+        position: relative;
+        top: -300px;
+        left: 300px;
+        &:hover{
+          transform: scale(1.1); 
+        }
+      }
+      .homeIceThree{
+        width: 450px;
+        height: auto;
+        position: relative;
+        top: -190px;
+        left: 350px;
+        z-index: 9999;
+        &:hover{
+          transform:  translate(1px,0px)  rotate(-15deg) ;
+        }
+      }
     }
     .homeTapBox{
       .homeTapUp{
-        // border: 1px solid yellow;
         position: relative;
         right: -250px;
         width: 280px;
         height: auto;
-        top: -40vh;
+        top: -80vh;
         opacity: 1;
+        animation: homeTwBoyAction ease-out 1s;
        }
-      }
+    }
     .homeTwBoy{
-      // border: 1px solid red;
       position: relative;
-      right: -61%;
-      width: 500px;
+      right: -69%;
+      width: 230px;
       height: auto;
-      top: -85vh;
+      top: -125vh;
+      animation: homeTwBoyAction ease-out 1s;
+      animation-iteration-count: 1;
+      transform-origin: 50% 50%;
+      animation-fill-mode:forwards; 
+      @keyframes homeTwBoyAction{
+        0% {
+          opacity:0;
+          transform:  translate(300px,0px)  skewX(-30deg) ;
+        }
+        60% {
+          opacity:1;
+          transform:  translate(-40px,0px)  skewX(30deg) ;
+        }
+        80% {
+          opacity:1;
+          transform:  translate(0px,0px)  skewX(-15deg) ;
+        }
+        100% {
+          opacity:1;
+          transform:  translate(0px,0px)  skewX(0deg) ;
+        }
+      }
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+// --------------------手機板
+@media (min-width: 375px) and (max-width: 576px){
+  .homeBlackBoardContainer {
+    max-width: 100%;
+    width: 100%;
+    height:100%;
+    background-image: url("../images/homeHealth/homeBlackBoard.jpg");
+    .homeBlackBoardTit{
+      width:90% !important;
+      p{
+        padding: 0px 0 20px !important;
+      }
+      .homeQuestionTitle{
+        margin: 0 !important;
+      }
+      .homeTest{
+        line-height: 50px !important;
+        margin-left: 10px !important;
+      }
+      .homeIceBox{
+        .homeIceOne{
+          width: 30% !important;
+          top:-20px !important;
+          left:20px !important;
+          border: 3px solid yellow !important;
+        }
+        .homeIceTwo{
+          top: -150px !important;
+          left: 180px!important;
+        }
+        .homeIceThree{
+          display:none !important;
+        }  
+      }
+      .homeTapUp {
+        right: 0px !important;
+        top: -305px !important;
+        width:40% !important;
+      }
+      .homeTwBoy{
+        right: -58% !important;
+        width: 40% !important;
+        top: -75vh !important;
+      } 
+    }
+  }
+}
+// --------------------end 手機板
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
