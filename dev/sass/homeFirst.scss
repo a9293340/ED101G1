@@ -14,29 +14,26 @@
     border: 3px solid yellow;
     background-position: bottom;
     .homeVideo-xs{
-      right:0 !important;
+      right:30px !important;
+      top:-650px !important
     }
-    .loveElement-Fish-xs{  //鱈魚
-      top:50px !important;
-      left:0;
-      animation-name: loveElement-Fish-xs !important;
-      border: 3px solid yellow;
-     .loveElement-Fish-xs{
-        animation: loveElement-Fish-xs 3s;
-      }
-      @keyframes loveElement-Fish-xs{
-        0% {
-          transform:  translate(0px,0px);
-          opacity:0;
-        }
-        99% {
-          opacity:1;
-        }
-        100% {
-          transform: translate(-100px,0px)  ;
-          opacity:0;
-        }
-     }
+    .homeLove-Fish,.homeLove-Pg,.homeLove-Gt{
+      // border: 3px solid yellow;
+      width: 100px !important;
+      height: 100px!important;
+      background-size: cover;
+    }
+    .homeLove-Fish{  //鱈魚
+      top: 40px !important;
+      left:0px !important;
+    }
+    .homeLove-Pg{ //排骨
+      top: 68px !important;
+      left:200px !important;
+    }
+    .homeLove-Gt{  //雞腿
+      top:-20px !important;
+      left:200px !important;
     }
     .homeCoverflow-xs{
       position: static !important;
@@ -44,28 +41,54 @@
       a > img{
         max-width: 80% !important;
         position: relative;
-        left:-15px;
-        top:80px;
+        left:0px;
+        top:50px;
       }
     }
   }
   .homeTextBox{
     max-width: 100% !important;
-    left: 5%  !important;
-    top:35% !important;
+    /* top: 35% !important; */
+    left:0% !important;
+    margin: 0 2rem;
+    .homeSelectBox {
+      // width: 60%;
+      // right: -15%;
+      position: relative;
+      .homeControl-btn-Delivery-xs{
+        top: 170px!important; 
+        left: 0px!important;
+      }
+      .homeControl-btn-Takeaway-xs{
+        left: 0 !important;
+        top:105px!important;
+      }
+    }
     h1,h2{
       font-size:$fzSubtitle !important;
     }
     .tab-content{
-      width: 93% !important;
+      // width: 55% !important;
+      // margin: 0 3rem;
+      .homeCalendar{
+        left: 10px;
+      }
       .homeDate-xs{
         right: 0 !important;
         width:100% !important;
       }
+      .homeGps{
+        top:0!important;
+        left: 10px;
+      }
       .homeAdd-xs{
         top:-30px !important;
         width:100% !important;
+        left: 0;
       }
+    }
+    .homeHeight-160-xs{  //外送 input 高度增高為160px
+      height:160px !important;
     }
   }
 }
@@ -291,17 +314,12 @@ overflow: hidden;
   animation-duration:3s;
   animation-fill-mode: both;
   animation-name: fadeInUp;
-  h2{
+  h1,h2{
     font-size:$fzBig;
     color: $white;
-    /* line-height: 1.2; */
     font-weight: 900;
-    /* margin-bottom: 3rem; */
     text-align: left;
-    margin: 0 0 2.54rem 0;
-    // border: 1px solid $white;
   }
-
   .homeRow{
     display: flex;
     flex-wrap: wrap;
@@ -553,35 +571,3 @@ $animationDuration: 1.5s;
   }
 }
 
-// --------------------手機板
-@media (min-width: 375px) and (max-width: 576px){
-  .eff{
-    border: 3px solid yellow;
-    background-position: bottom;
-    .homeVideo-xs{
-      right:0 !important;
-    }
-    .loveElement-Fish-xs{  //鱈魚
-      top:50px !important;
-      left:0;
-      animation-name: loveElement-Fish-xs !important;
-      border: 3px solid yellow;
-     .loveElement-Fish-xs{
-        animation: loveElement-Fish-xs 3s;
-      }
-      @keyframes loveElement-Fish-xs{
-        0% {
-          transform:  translate(0px,0px);
-          opacity:0;
-        }
-        99% {
-          opacity:1;
-        }
-        100% {
-          transform: translate(-100px,0px)  ;
-          opacity:0;
-        }
-      }
-    }
-  }
-}
