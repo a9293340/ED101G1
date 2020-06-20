@@ -42,7 +42,7 @@
         <div class="bentoncarTitle">
           <span>請選擇喜愛的自選便當</span>
           <img @click="showCloselightbox" src="./images/showbenton/close.png" />
-        </div>
+        </di v>
         <ul class="bentoncardBox">
           <li
             :id="'bentonLi'+item.id"
@@ -145,7 +145,7 @@
             width="300"
             height="260"
           />
-          <button class="buyMore">我也要吃</button>
+          <button  id="buyMore" class="buyMore" @click="showbentonShoppingCart">我也要吃</button>
           <div class="memTextBlock">
           <p id="ContentTitlText">{{currentBenton.title}}</p>
           <p style="font-size:18px; text-align: left;">{{currentBenton.content}}</p>
@@ -174,36 +174,26 @@
             <textarea
               class="comment"
               cols="40"
-              rows="3"
+              rows="3" 
               id="content" 
             ></textarea>  
             <button
               type="button"
-              id="btn"
+              id="showbtn"
               style="display: block;"
-              @click="talk"
+
             >
               送出
             </button>
           </form>
 
           <p id="result"></p>
-        </div>
+        </div> 
       </div>
     </div>
+    <!-- @@include('./layout/shoppingcart.html',{}) -->
 
-    <!----------------click跳出便當強詳細內容--------------->
-
-    <!----------footer------------>
-    <!-- <footer>我是footer</footer> -->
-    <!------------------按讚數--------------------->
-    <!-- <div>
-      <img
-        id="like_img"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Windows_Settings_app_icon.png/768px-Windows_Settings_app_icon.png"
-      />
-      <span id="like_num">0</span>
-    </div> -->
-    <script src="../dev/js/showbenton.js"></script>
+    <!-- <script src="../dev/js/layout/shoppingcart.js"></script> -->
+    <script src="../dev/js/showbenton.js"></script> 
   </body>
 </html>
