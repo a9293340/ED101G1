@@ -506,18 +506,28 @@ function otherIncart(){
 document.getElementsByClassName('1')[0].addEventListener('click',view)
 function view(){
     document.getElementById('order_1').scrollIntoView();
+    document.getElementsByClassName('1')[0].style.backgroundColor="#FFD23F";
+    document.getElementsByClassName('2')[0].style.backgroundColor="#37AB64";
+    document.getElementsByClassName('4')[0].style.backgroundColor="#37AB64";
 }
 document.getElementsByClassName('2')[0].addEventListener('click',view2)
 function view2(){
     document.getElementById('order_2').scrollIntoView();
+    document.getElementsByClassName('1')[0].style.backgroundColor="#37AB64";
+    document.getElementsByClassName('2')[0].style.backgroundColor="#FFD23F";
+    document.getElementsByClassName('4')[0].style.backgroundColor="#37AB64";
 }
-document.getElementsByClassName('3')[0].addEventListener('click',view3)
-function view3(){
-    document.getElementById('order_3').scrollIntoView();
-}
+// document.getElementsByClassName('3')[0].addEventListener('click',view3)
+// function view3(){
+//     document.getElementById('order_3').scrollIntoView();
+// }
 document.getElementsByClassName('4')[0].addEventListener('click',view4)
 function view4(){
-    document.getElementById('order_4').scrollIntoView();
+    document.getElementById('orderOther').scrollIntoView();
+    document.getElementsByClassName('1')[0].style.backgroundColor="#37AB64";
+    document.getElementsByClassName('2')[0].style.backgroundColor="#37AB64";
+    document.getElementsByClassName('4')[0].style.backgroundColor="#FFD23F";
+    
 }
 
 
