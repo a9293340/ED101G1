@@ -68,7 +68,7 @@ function gogoPower(){
                 }
                 if(Number(changeCount) == 3){
                     let now = new Date();
-                    if(new Date(this.memData.memSignIntime) > now){
+                    if(new Date(this.memData.memPlaytime) > now){
                         $(".infoText").html("遊玩次數達到本日上線囉~明日請早");
                         $("button").hide();
                     }
@@ -701,18 +701,18 @@ function gogoPower(){
         clearInterval(this.timer);
         $(".info").show();
         // 把今日遊玩紀錄寫入資料庫
-        let now = new Date();
+        let now = nextDay(1);
         let today = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
         if(result == 'Computer lose'){
             this.grade += 100;
         }
         $(".infoText").html(`${result} You Get Score：${this.grade}<br>遊玩次數達到本日上線囉~明日請早`);
-        memVm.$data.memData.memSignIntime = today;
-        console.log('aaa'+memVm.$data.memData.memSignIntime);
+        memVm.$data.memData.memPlaytime = today;
+        console.log('aaa'+memVm.$data.memData.memPlaytime);
         // 要加入積分
         memVm.$data.memData.memScore += this.grade;
         console.log('bbb'+memVm.$data.memData.memScore);
-        // 將 memData.memScore 與 memData.memSignIntime回傳資料庫
+        // 將 memData.memScore 與 memData.memPlaytime回傳資料庫
     }
 
     var ball = new Ball();
@@ -740,6 +740,12 @@ function gogoPower(){
             .delete(8)
             .type('快點來賺寶幣8~')
             .go();
+    }
+
+    //找明天
+    const nextDay = function(n){
+        var temp = new Date();
+        return new Date(temp.setDate(temp.getDate() + n));
     }
 
 }
