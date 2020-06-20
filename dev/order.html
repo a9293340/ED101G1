@@ -27,7 +27,7 @@
             <div class="orderCirle 1"><p>自選</p></div>
             <div class="orderCirle 2"><p>經典</p></div>
             <div class="orderCirle 3"><p>活動</p></div>
-            <div class="orderCirle 4"><p>其他</p></div>
+            <div class="orderCirle 4"><p>其他</p></div> 
         </div>
 
         <div class="buy_single" id="order_1">   
@@ -125,9 +125,13 @@
 
 
 
-                    <div class="buy_bando">
+                    <div class="buy_bando"> 
                         <div class="buy_bandoImg">
                             <!-- <img src="./images/bandon_include/bentoBox.png"  width="450" height="450"> -->
+                            <img id='orderHappyTaiwan' src="./images/bandon_include/OrderhappyTaiwan.png" width="180" height="220">
+                            <img id='orderFat' src="./images/bandon_include/orderfat.png" width="200" height="220">
+                            <img id='orderHappy' src="./images/bandon_include/orderHappy.png" width="220" height="220">
+                            <img id='orderBentoBottom' src="./images/bandon_include/bentobottom.png">
                             <img id="orderRicePic">
                             <img id="orderMeatPic">
                             <img id="orderSinglPic1">
@@ -138,17 +142,50 @@
         
                         <div class="buy_bandoLeft"> 
                           <div class="buy_list">
-                              <p id="list_ricename">米食:</p>
-                              <p id="list_meatname">主食:</p>
+                              <table>
+                                  <tr>
+                                      <td>米食:</td>
+                                      <td id="list_ricename"></td>
+                                      <td id="list_riceNum"></td>
+                                      <td id="list_ricenamePrice"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>主食:</td>
+                                    <td id="list_meatname"></td>
+                                    <td id="list_meatNum"></td>
+                                    <td id="list_meatPrice"></td>
+                                </tr>
+                                <tr>
+                                    <td>配菜:</td>
+                                    <td id="list_singlename1"></td>
+                                    <td id="list_singleNum1"></td>
+                                    <td id="list_singlePrice1"></td>
+                                </tr>
+                                <tr>
+                                    <td>配菜:</td>
+                                    <td id="list_singlename2"></td>
+                                    <td id="list_singleNum2"></td>
+                                    <td id="list_singlePrice2"></td>
+                                </tr>
+                                <tr>
+                                    <td>配菜:</td>
+                                    <td id="list_singlename3"></td>
+                                    <td id="list_singleNum3"></td>
+                                    <td id="list_singlePrice3"></td>
+                                </tr>
+                              </table>
+                              <!-- <p id="list_ricename">米食:</p> -->
+                              <!-- <p id="list_meatname">主食:</p>
                               <p id="list_singlename1">配菜:</p>
                               <p id="list_singlename2">配菜:</p>
-                              <p id="list_singlename3">配菜:</p>
+                              <p id="list_singlename3">配菜:</p> -->
+                              <button id="incart">加入購物車</button>
                                 <!-- <img src="https://fakeimg.pl/300x400/" width="300" height="400"> -->
                             </div>          
                             <!-- <div class="buy_trangleImg">
                                 <img src="https://fakeimg.pl/300x200/" width="300" height="200">
                             </div> -->
-                            <button id="incart">加入購物車</button>
+                            <!-- <button id="incart">加入購物車</button> -->
                            
                         </div>
                       

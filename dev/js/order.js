@@ -3,26 +3,26 @@
 let sgproduct=[
     {
        "spId":1001,
-       "spName":"紫米飯",
+       "spName":"養身紫米飯",
        "spPrice":15,
        "spCalories":80,
        "spColdHot":52,
        "spHealth":82,
        "spClass":0,
-       "spInfo":"我是紫米飯，我敲健康的說，快來吃我",
+       "spInfo":"紫米是香米的一種，富含蛋白質、醣類、不飽和脂肪酸、維生素B1、維生素B2、鈣、磷、鐵、鎂、鋅等礦物質和天然黑色素，還含有人體必需胺基酸。黑紫米因產量稀少，營養價值高，歷代帝王，將它視為貢品。台灣的紫米屬於零星種植，最多見於無污染的花蓮、台東地區水田中，紫米於低海拔的生長環境時，一年只能收成一次。",
        "spImage":"./images/bandon_include/PurpleRicePic.png",
        "spMeat":0,
        "spStatus":1
     },
     {
        "spId":1002,
-       "spName":"白米飯",
+       "spName":'台東池上白米' ,
        "spPrice":10,
        "spCalories":150,
        "spColdHot":67,
        "spHealth":65,
        "spClass":0,
-       "spInfo":"我是白米飯，我又Q又嫩，快來吃我",
+       "spInfo":"台東擁有得天獨厚的天然環境，加上辛勤耕作的池上稻農，讓池上米連續三屆榮獲全國「冠軍米」頭銜。寶島食堂也嚴選台東在地池上特等米，香Q的池上特等米搭配任何主食及配菜，讓每個自選便當都是最美味的便當。",
        "spImage":"./images/bandon_include/RicePic.png",
        "spMeat":0,
        "spStatus":1
@@ -35,7 +35,7 @@ let sgproduct=[
        "spColdHot":95,
        "spHealth":28,
        "spClass":1,
-       "spInfo":"我是炸雞腿，我超油超香，快來吃我",
+       "spInfo":"炸雞是許多人心中的國民美食，也是台灣常見的小吃，香酥又會噴肉汁的炸雞，可以說是最邪惡的嘴饞美食，寶島食堂的獨門醃料，外皮薄脆，肉質吃起來鮮嫩多汁，鹹香夠味的會一隻接一隻吃不停 。",
        "spImage":"./images/bandon_include/chicken.png",
        "spMeat":1,
        "spStatus":1
@@ -48,7 +48,7 @@ let sgproduct=[
        "spColdHot":53,
        "spHealth":76,
        "spClass":1,
-       "spInfo":"我是滷排骨，我超油超香，快來吃我",
+       "spInfo":"寶島食堂使用帶有軟骨的豬小排，是厚塊狀，不是薄薄一片的那種排骨，滷的軟嫩，骨肉能輕鬆分離，軟骨也保有脆脆口感和滿滿膠質。",
        "spImage":"./images/bandon_include/Pork.png",
        "spMeat":1,
        "spStatus":1
@@ -61,7 +61,7 @@ let sgproduct=[
        "spColdHot":15,
        "spHealth":96,
        "spClass":1,
-       "spInfo":"我是清蒸鱈魚，我又滑又嫩，快來吃我",
+       "spInfo":"深海魚富含歐米伽3不飽和脂肪酸，而且魚肉細嫩鮮美，無大骨刺。好吃營養的深海魚，對大腦、身體成長發育有輔助作用。來自阿拉斯加的銀鱈魚作為優質深海魚，深海油脂含量特別豐富，鮮嫩美味。",
        "spImage":"./images/order/fish.jpg",
        "spMeat":1,
        "spStatus":1
@@ -74,7 +74,7 @@ let sgproduct=[
        "spColdHot":73,
        "spHealth":14,
        "spClass":1,
-       "spInfo":"我是蔥爆牛柳，我又蔥又爆，快來吃我",
+       "spInfo":"島食堂嚴選牛里脊肉，是切割自牛背部的柔嫩瘦肉，適合燒烤。牛肉蛋白質含量高，而脂肪含量低，葱是一种很普遍的调味品或蔬菜，在炒菜前將它和薑切碎一起下油鍋中炒至金黄後再將其他蔬菜倒入鍋中炒。",
        "spImage":"./images/order/beef.jpg",
        "spMeat":1,
        "spStatus":1
@@ -661,7 +661,9 @@ function riceincart(){
     localStorage.setItem('riceprice', riceprice);
     var listrice = localStorage.getItem('ricename');
     var listriceprice = localStorage.getItem('riceprice');
-    document.getElementById('list_ricename').innerText = `米食: ${listrice} x1  NT$${listriceprice}`;
+    document.getElementById('list_ricename').innerText = `${listrice}`;
+    document.getElementById('list_riceNum').innerText =`x1`;
+    document.getElementById('list_ricenamePrice').innerText=`NT$${listriceprice}`;
     document.getElementById('orderRicePic').src = `${riceimg}`;
 
 }
@@ -684,7 +686,9 @@ function meatincart(){
     localStorage.setItem('meatprice', meatprice);
     var listmeat = localStorage.getItem('meatname');
     var listmeatprice = localStorage.getItem('meatprice');
-    document.getElementById('list_meatname').innerText = `主食: ${listmeat} x1  NT$${listmeatprice}`;
+    document.getElementById('list_meatname').innerText = `${listmeat}`;
+    document.getElementById('list_meatNum').innerText=`x1`;
+    document.getElementById('list_meatPrice').innerText=`NT$${listmeatprice}`
     document.getElementById('orderMeatPic').src = `${meatimg}`;
 }
 
@@ -712,7 +716,9 @@ function singleincart()
                 localStorage.setItem('singleprice'+`${singlecount}`, singleprice);
                 var listsingle = localStorage.getItem('singlename'+`${singlecount}`);
                 var listsingleprice = localStorage.getItem('singleprice'+`${singlecount}`);
-                document.getElementById('list_singlename'+`${singlecount}`).innerText = `配菜: ${listsingle} x1  NT$${listsingleprice}`;
+                document.getElementById('list_singlename'+`${singlecount}`).innerText = `${listsingle}`;
+                document.getElementById('list_singleNum'+`${singlecount}`).innerText=`x1`
+                document.getElementById('list_singlePrice'+`${singlecount}`).innerText=`NT$${listsingleprice}`
                 document.getElementById('orderSinglPic'+`${singlecount}`).src =`${singleimg}`;
     }else
     {
@@ -862,33 +868,33 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
    
  singlecount = 0;
 
- document.getElementById('list_ricename').innerText = '米食:';
- document.getElementById('list_meatname').innerText = '主食:';
- document.getElementById('list_singlename1').innerText = '配菜:';
- document.getElementById('list_singlename2').innerText = '配菜:';
- document.getElementById('list_singlename3').innerText = '配菜:';
+ document.getElementById('list_ricename').innerText = '';
+ document.getElementById('list_riceNum').innerText = '';
+ document.getElementById('list_ricenamePrice').innerText = '';
 
- 
+ document.getElementById('list_meatname').innerText = '';
+ document.getElementById('list_meatNum').innerText = '';
+ document.getElementById('list_meatPrice').innerText = '';
+ document.getElementById('list_singlename1').innerText = '';
+ document.getElementById('list_singleNum1').innerText = '';
+ document.getElementById('list_singleNum2').innerText = '';
+ document.getElementById('list_singleNum3').innerText = '';
+ document.getElementById('list_singlePrice1').innerText = '';
+ document.getElementById('list_singlePrice2').innerText = '';
+ document.getElementById('list_singlePrice3').innerText = '';
+ document.getElementById('list_singlename2').innerText = '';
+ document.getElementById('list_singlename3').innerText = '';
 
+ document.getElementById('orderRicePic').src = ``;
+ document.getElementById('orderMeatPic').src = ``;
+ document.getElementById('orderSinglPic1').src = ``;
+ document.getElementById('orderSinglPic2').src = ``;
+ document.getElementById('orderSinglPic3').src = ``;
 
  var singleOrder = JSON.stringify(orderCart);
  localStorage.setItem('singleOrder', singleOrder);
 
-//  var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
-//  singleorderlist.$data.finalsinglelist = finalsinglelist;
-//  console.log(singleorderlist.$data.finalsinglelist);
 
-// //------------------
-// console.log("==========",singleNum);
-// setTimeout(function(){
-//   for(var h=0; h<singleNum; h++){
-//     if(document.getElementById(`b${h}`)){
-// document.getElementById(`b${h}`).addEventListener('click',deletesinglecart);
-//     }else{
-//         console.log("not yet");
-//     }
-//     }  
-// },1000);
 
 //------------------
 setcart();
