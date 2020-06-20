@@ -36,7 +36,7 @@ let sgproduct=[
        "spHealth":28,
        "spClass":1,
        "spInfo":"我是炸雞腿，我超油超香，快來吃我",
-       "spImage":"./images/order/chicken.jpg",
+       "spImage":"./images/bandon_include/chicken.png",
        "spMeat":1,
        "spStatus":1
     },
@@ -49,7 +49,7 @@ let sgproduct=[
        "spHealth":76,
        "spClass":1,
        "spInfo":"我是滷排骨，我超油超香，快來吃我",
-       "spImage":"./images/order/pork.jpg",
+       "spImage":"./images/bandon_include/Pork.png",
        "spMeat":1,
        "spStatus":1
     },
