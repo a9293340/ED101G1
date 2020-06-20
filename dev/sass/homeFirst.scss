@@ -8,6 +8,70 @@
   transition: all $transition ease;
 }
 
+// --------------------手機板
+@media (min-width: 375px) and (max-width: 576px){
+  .eff{
+    border: 3px solid yellow;
+    background-position: bottom;
+    .homeVideo-xs{
+      right:0 !important;
+    }
+    .loveElement-Fish-xs{  //鱈魚
+      top:50px !important;
+      left:0;
+      animation-name: loveElement-Fish-xs !important;
+      border: 3px solid yellow;
+     .loveElement-Fish-xs{
+        animation: loveElement-Fish-xs 3s;
+      }
+      @keyframes loveElement-Fish-xs{
+        0% {
+          transform:  translate(0px,0px);
+          opacity:0;
+        }
+        99% {
+          opacity:1;
+        }
+        100% {
+          transform: translate(-100px,0px)  ;
+          opacity:0;
+        }
+     }
+    }
+    .homeCoverflow-xs{
+      position: static !important;
+      border: 3px solid green;
+      a > img{
+        max-width: 80% !important;
+        position: relative;
+        left:-15px;
+        top:80px;
+      }
+    }
+  }
+  .homeTextBox{
+    max-width: 100% !important;
+    left: 5%  !important;
+    top:35% !important;
+    h1,h2{
+      font-size:$fzSubtitle !important;
+    }
+    .tab-content{
+      width: 93% !important;
+      .homeDate-xs{
+        right: 0 !important;
+        width:100% !important;
+      }
+      .homeAdd-xs{
+        top:-30px !important;
+        width:100% !important;
+      }
+    }
+  }
+}
+
+// --------------------end 手機板
+
 section {
 // text-align: center;
 font-size: 0;
@@ -485,6 +549,39 @@ $animationDuration: 1.5s;
     }
     100% {
       transform: translateY($mouseHeight / 2 - ($mouseWidth / 2 - $dotSize / 2));
+    }
+  }
+}
+
+// --------------------手機板
+@media (min-width: 375px) and (max-width: 576px){
+  .eff{
+    border: 3px solid yellow;
+    background-position: bottom;
+    .homeVideo-xs{
+      right:0 !important;
+    }
+    .loveElement-Fish-xs{  //鱈魚
+      top:50px !important;
+      left:0;
+      animation-name: loveElement-Fish-xs !important;
+      border: 3px solid yellow;
+     .loveElement-Fish-xs{
+        animation: loveElement-Fish-xs 3s;
+      }
+      @keyframes loveElement-Fish-xs{
+        0% {
+          transform:  translate(0px,0px);
+          opacity:0;
+        }
+        99% {
+          opacity:1;
+        }
+        100% {
+          transform: translate(-100px,0px)  ;
+          opacity:0;
+        }
+      }
     }
   }
 }
