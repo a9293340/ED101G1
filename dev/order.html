@@ -25,13 +25,13 @@
 
         <div class="orderLeft">
             <div class="orderCirle 1"><p>自選</p></div>
-            <div class="orderCirle 2"><p>經典</p></div>
-            <div class="orderCirle 3"><p>活動</p></div>
-            <div class="orderCirle 4"><p>其他</p></div>
+            <div class="orderCirle 2"><p>精選</p></div>
+            <!-- <div class="orderCirle 3"><p>活動</p></div> -->
+            <div class="orderCirle 4"><p>其他</p></div> 
         </div>
 
         <div class="buy_single" id="order_1">   
-            <img src="./images/order/3.svg" width="50px" height="50px"><h1>自訂便當</h1>
+            <img src="./images/order/3.svg" width="40" height="40"><h1>自選便當</h1>
         </div>
               
                   <div id="buy_app2">
@@ -56,7 +56,7 @@
                 <div id='rice'>
                         <div class="single_card" v-for="(item, index) in orderRice" >
                               
-                            <img :id="'riceimg'+item.spId"  :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
+                            <img :id="'riceimg'+item.spId" class="orderRicePic" :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
                             <div class="buy_name">{{item.spName}}</div>
                             <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
                             <div><p>Cal: {{item.spCalories}}</p></div>
@@ -73,7 +73,7 @@
                             </div>
                            
                        
-                        </div>   
+                        </div>    
                 </div>
 
 
@@ -81,7 +81,7 @@
                    <div id='meat'> 
                         <div class="single_card" v-for="(item, index) in orderMeat" > 
                               
-                            <img :id="'meatimg'+item.spId"  :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
+                            <img :id="'meatimg'+item.spId" class="orderRicePic"  :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
                             <div class="buy_name">{{item.spName}}</div>
                             <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
                             <div><p>Cal: {{item.spCalories}}</p></div>
@@ -104,7 +104,7 @@
                     <div id='single'>  
                           <div class="single_card" v-for="(item, index) in orderSingle" >
                        
-                              <img :id="'img'+item.spId"  :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
+                              <img :id="'img'+item.spId" class="orderRicePic"  :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
                               <div class="buy_name">{{item.spName}}</div>
                               <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
                               <div><p>Cal: {{item.spCalories}}</p></div>
@@ -125,9 +125,13 @@
 
 
 
-                    <div class="buy_bando">
+                    <div class="buy_bando"> 
                         <div class="buy_bandoImg">
                             <!-- <img src="./images/bandon_include/bentoBox.png"  width="450" height="450"> -->
+                            <img id='orderHappyTaiwan' src="./images/bandon_include/OrderhappyTaiwan.png" width="180" height="220">
+                            <img id='orderFat' src="./images/bandon_include/orderfat.png" width="200" height="220">
+                            <img id='orderHappy' src="./images/bandon_include/orderHappy.png" width="220" height="220">
+                            <img id='orderBentoBottom' src="./images/bandon_include/bentobottom.png">
                             <img id="orderRicePic">
                             <img id="orderMeatPic">
                             <img id="orderSinglPic1">
@@ -138,17 +142,50 @@
         
                         <div class="buy_bandoLeft"> 
                           <div class="buy_list">
-                              <p id="list_ricename">米食:</p>
-                              <p id="list_meatname">主食:</p>
+                              <table>
+                                  <tr>
+                                      <td>米食:</td>
+                                      <td id="list_ricename"></td>
+                                      <td id="list_riceNum"></td>
+                                      <td id="list_ricenamePrice"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>主食:</td>
+                                    <td id="list_meatname"></td>
+                                    <td id="list_meatNum"></td>
+                                    <td id="list_meatPrice"></td>
+                                </tr>
+                                <tr>
+                                    <td>配菜:</td>
+                                    <td id="list_singlename1"></td>
+                                    <td id="list_singleNum1"></td>
+                                    <td id="list_singlePrice1"></td>
+                                </tr>
+                                <tr>
+                                    <td>配菜:</td>
+                                    <td id="list_singlename2"></td>
+                                    <td id="list_singleNum2"></td>
+                                    <td id="list_singlePrice2"></td>
+                                </tr>
+                                <tr>
+                                    <td>配菜:</td>
+                                    <td id="list_singlename3"></td>
+                                    <td id="list_singleNum3"></td>
+                                    <td id="list_singlePrice3"></td>
+                                </tr>
+                              </table>
+                              <!-- <p id="list_ricename">米食:</p> -->
+                              <!-- <p id="list_meatname">主食:</p>
                               <p id="list_singlename1">配菜:</p>
                               <p id="list_singlename2">配菜:</p>
-                              <p id="list_singlename3">配菜:</p>
+                              <p id="list_singlename3">配菜:</p> -->
+                              <button id="incart">加入購物車</button>
                                 <!-- <img src="https://fakeimg.pl/300x400/" width="300" height="400"> -->
                             </div>          
                             <!-- <div class="buy_trangleImg">
                                 <img src="https://fakeimg.pl/300x200/" width="300" height="200">
                             </div> -->
-                            <button id="incart">加入購物車</button>
+                            <!-- <button id="incart">加入購物車</button> -->
                            
                         </div>
                       
@@ -167,7 +204,7 @@
       
       
            <div class="buy_single" id="order_2"> 
-            <img src="./images/order/2.png" width="50px" height="50px"><h1>精選便當</h1>
+            <img src="./images/order/2.png" width="40" height="40"><h1>精選便當</h1>
           </div>
                   <div id="buy_app3">
                       <div class="buy_setdo_containter scroll">
@@ -176,8 +213,9 @@
                            <img :id="'setdoimg'+item.setId"  :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200" height="200">
                           <div class="buy_name">{{item.setName}}</div>
                            <div class="buy_price"><span>$</span>{{item.setPrice}}</div>
-                            <div><button class="orderbutton" :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button><span :id="'setdocount'+item.setId">0</span><button class="orderbutton" :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button>
-                            <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.setId" :data-id="item.setId">
+                            <div><button class="orderbutton" :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button><span class="ordercount" :id="'setdocount'+item.setId">0</span><button class="orderbutton" :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button>
+                                <span :id="'setdocart'+item.setId" :data-id="item.setId" class="cart">購買</span>
+                            <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.setId" :data-id="item.setId"> -->
                             </div>
                            <!-- <button-counter></button-counter> -->
 
@@ -199,8 +237,9 @@
                         <img :id="'setdoimg'+item.setId"  :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200" height="200">
                        <div class="buy_name">{{item.setName}}</div>
                         <div class="buy_price"><span>$</span>{{item.setPrice}}</div>
-                         <div><button class="orderbutton" :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button><span :id="'setdocount'+item.setId">0</span><button class="orderbutton" :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button>
-                         <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.setId" :data-id="item.setId">
+                         <div><button class="orderbutton" :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button><span class="ordercount" :id="'setdocount'+item.setId">0</span><button class="orderbutton" :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button>
+                            <span :id="'setdocart'+item.setId" :data-id="item.setId" class="cart">購買</span>
+                         <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.setId" :data-id="item.setId"> -->
                          </div>
                         <!-- <button-counter></button-counter> -->
 
@@ -221,7 +260,7 @@
             </div> 
         
               <div class="buy_single">
-                <img src="./images/order/875068.png" width="50px" height="50px"><h1>其他商品</h1>
+                <img src="./images/order/875068.png" width="40" height="40"><h1>其他商品</h1>
               </div>   
     <div id="orderOther">
           <div class="buy_other_container">
@@ -231,12 +270,13 @@
                <img v-else :src="selectedone.opImage"  width="200" height="200">
                <p v-if ="selectedone == 1">&nbsp;</p>
                <p v-else>NT$ {{selectedone.opPrice}}</p>
-               <select v-model="selectedone">
+               <select v-model="selectedone" class="shortselect">
                    <option selectedone value="1">請選擇飲料</option>
                 <option  v-for="item in other" v-if="item.opClass == 0" :value="{opId:item.opId,opName:item.opName,opImage:item.opImage,opPrice:item.opPrice}">{{item.opName}}</option>
                 </select>
                 <div><button class="orderbutton" :id="'otherplus'+selectedone.opId" @click='otherplus'>+</button><span :id="'othercount'+selectedone.opId">{{othercount1}}</span><button class="orderbutton" :id="'otherminus'+selectedone.opId"  @click='otherminus'>-</button>
-                    <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :data-id="selectedone.opId" id="otherCart">
+                    <span class="cart" :data-id="selectedone.opId" id="otherCart">購買</span>
+                    <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :data-id="selectedone.opId" id="otherCart"> -->
                 </div>
             </div>
             <div class="buy_card3">
@@ -244,12 +284,13 @@
                 <img v-else :src="selectedtwo.opImage"  width="200" height="200">
                 <p v-if ="selectedtwo == 1">&nbsp;</p>
                 <p v-else>NT$ {{selectedtwo.opPrice}}</p>
-                <select v-model="selectedtwo">
+                <select v-model="selectedtwo" class="shortselect">
                 <option selectedtwo value="1">請選擇水果</option>
                     <option v-for="item in other" v-if="item.opClass == 1" :value="{opId:item.opId,opName:item.opName,opImage:item.opImage,opPrice:item.opPrice}">{{item.opName}}</option>
                 </select>
                 <div><button class="orderbutton" :id="'otherplus'+selectedtwo.opId" @click='otherplus2'>+</button><span :id="'othercount'+selectedtwo.opId">{{othercount2}}</span><button class="orderbutton" :id="'otherminus'+selectedtwo.opId"  @click='otherminus2'>-</button>
-                    <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :data-id="selectedtwo.opId" id="otherCart2">
+                    <span class="cart" :data-id="selectedtwo.opId" id="otherCart2">購買</span>
+                    <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :data-id="selectedtwo.opId" id="otherCart2"> -->
                 </div>
             </div>
             <div class="buy_card3">
@@ -257,12 +298,13 @@
                 <img v-else :src="selectedthree.opImage"  width="200" height="200">
                 <p v-if ="selectedthree == 1">&nbsp;</p>
                 <p v-else>NT$ {{selectedthree.opPrice}}</p>
-                <select v-model="selectedthree">
+                <select v-model="selectedthree" class="shortselect">
                 <option selectedthree value="1">請選擇養生產品</option>
                     <option v-for="item in other" v-if="item.opClass == 2" :value="{opId:item.opId,opName:item.opName,opImage:item.opImage,opPrice:item.opPrice}">{{item.opName}}</option>
                 </select>
                 <div><button class="orderbutton" :id="'otherplus'+selectedthree.opId" @click='otherplus3'>+</button><span :id="'othercount'+selectedthree.opId">{{othercount3}}</span><button class="orderbutton" :id="'otherminus'+selectedthree.opId"  @click='otherminus3'>-</button>
-                    <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :data-id="selectedthree.opId" id="otherCart3">
+                    <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :data-id="selectedthree.opId" id="otherCart3"> -->
+                    <span class="cart"  :data-id="selectedthree.opId" id="otherCart3">購買</span>
                 </div>
             </div>
 
@@ -276,7 +318,7 @@
       </div>   
 
       @@include('./layout/shoppingcart.html',{})
-
+      <!-- @@include('./layout/footer.html',{}) -->
       
       <script src="../dev/js/order.js"></script>
       <script src="../dev/js/layout/shoppingcart.js"></script>

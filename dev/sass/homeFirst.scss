@@ -1,531 +1,528 @@
 @import "./main";
+@import "./base/font";
+@import "./mixins/mixin";
+@import "./base/color";
 
+// ---------------------------------------------------------------homefirst.scss
 @mixin border-radius($radius) {
-   border-radius: $radius;
+  border-radius: $radius;
 }
 
 @mixin transition($transition) {
   transition: all $transition ease;
 }
 
-// --------------------手機板
-@media (min-width: 375px) and (max-width: 576px){
-  .eff{
-    border: 3px solid yellow;
-    background-position: bottom;
-    .homeVideo-xs{
-      right:30px !important;
-      top:-650px !important
-    }
-    .homeLove-Fish,.homeLove-Pg,.homeLove-Gt{
-      // border: 3px solid yellow;
-      width: 100px !important;
-      height: 100px!important;
-      background-size: cover;
-    }
-    .homeLove-Fish{  //鱈魚
-      top: 40px !important;
-      left:0px !important;
-    }
-    .homeLove-Pg{ //排骨
-      top: 68px !important;
-      left:200px !important;
-    }
-    .homeLove-Gt{  //雞腿
-      top:-20px !important;
-      left:200px !important;
-    }
-    .homeCoverflow-xs{
-      position: static !important;
-      border: 3px solid green;
-      a > img{
-        max-width: 80% !important;
-        position: relative;
-        left:0px;
-        top:50px;
-      }
-    }
-  }
-  .homeTextBox{
-    max-width: 100% !important;
-    /* top: 35% !important; */
-    left:0% !important;
-    margin: 0 2rem;
-    .homeSelectBox {
-      // width: 60%;
-      // right: -15%;
-      position: relative;
-      .homeControl-btn-Delivery-xs{ //外送 Bbutton
-        top: 170px!important; 
-        left: 0px!important;
-      }
-      .homeControl-btn-Takeaway-xs{ //外帶 Bbutton
-        left: 0 !important;
-        top:105px!important;
-      }
-    }
-    h1,h2{
-      font-size:$fzSubtitle !important;
-    }
-    .tab-content{
-      // width: 55% !important;
-      // margin: 0 3rem;
-      .homeCalendar{
-        left: 10px;
-      }
-      .homeDate-xs{
-        right: 0 !important;
-        width:100% !important;
-      }
-      .homeGps{
-        top:0!important;
-        left: 10px;
-      }
-      .homeAdd-xs{
-        top:-30px !important;
-        width:100% !important;
-        left: 0;
-      }
-    }
-    .homeHeight-160-xs{  //外送 input 高度增高為160px
-      height:160px !important;
-    }
-  }
-}
-
-// --------------------end 手機板
-
 section {
-// text-align: center;
-font-size: 0;
-margin: 0;
-overflow: hidden;
-.eff{
-  height:100%;
-  width: 100%;
-  max-width: 100%;
-  background-image: url(../images/homeFirst/homeRiceBg.jpg);
-  background-repeat: no-repeat;
-  position: relative;
-  background-size: cover;
-   .homeLove-Fish{  //鱈魚
+  // text-align: center;
+  font-size: 0;
+  margin: 0;
+  overflow: hidden;
+
+  .eff {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    background-image: url(../images/homeFirst/homeRiceBg.jpg);
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
+
+    .homeLove-Fish {
+      //鱈魚的菜名
       transform: none;
       opacity: 1;
       position: absolute;
-      top:150px;
-      left:60%;
+      top: 150px;
+      left: 60%;
       width: 133px;
       height: 135px;
       background-image: url(../images/homeFirst/love-Fish.png);
       z-index: 99999;
-      animation-duration:3s;  //執行動畫長度
+      animation-duration: 3s; //執行動畫長度
       animation-fill-mode: both;
       animation-name: loveElement-Fish;
       animation-delay: 5s; //延遲2s
-     .loveElement-Fish{
+
+      .loveElement-Fish {
         animation: loveElement-Fish 3s;
         animation-iteration-count: 1;
         transform-origin: 50% 50%;
       }
-      @keyframes loveElement-Fish{
+
+      @keyframes loveElement-Fish {
         0% {
-          transform:  translate(-160px,0px);
-          opacity:0;
+          transform: translate(-160px, 0px);
+          opacity: 0;
         }
+
         20% {
-          opacity:1;
+          opacity: 1;
         }
+
         99% {
-          opacity:1;
+          opacity: 1;
         }
+
         100% {
-          transform: translate(200px,0px)  ;
-          opacity:0;
+          transform: translate(200px, 0px);
+          opacity: 0;
         }
       }
     }
-    .homeLove-Pg{ //排骨
+
+    .homeLove-Pg {
+      //排骨的菜名
       transform: none;
       opacity: 1;
       position: absolute;
-      top:150px;
-      left:70%;
+      top: 150px;
+      left: 70%;
       width: 133px;
       height: 135px;
       z-index: 99999;
       background-image: url(../images/homeFirst/love-Pg.png);
-      animation-duration:3s; //執行動畫長度
+      animation-duration: 3s; //執行動畫長度
       animation-fill-mode: both;
-      animation-name:loveElement-Pg;
-      animation-delay:0s;
+      animation-name: loveElement-Pg;
+      animation-delay: 0s;
 
-      .loveElement-Pg{
+      .loveElement-Pg {
         animation: loveElement-Pg 4s;
         animation-iteration-count: 1;
         transform-origin: 50% 50%;
       }
-      @keyframes loveElement-Pg{
+
+      @keyframes loveElement-Pg {
         0% {
-          transform:  translate(0px,220px);
-          opacity:0;
+          transform: translate(0px, 220px);
+          opacity: 0;
         }
+
         20% {
-          opacity:1;
+          opacity: 1;
         }
+
         99% {
-          opacity:1;
+          opacity: 1;
         }
+
         100% {
-          transform: translate(0px,-30px)  ;
-          opacity:0;
+          transform: translate(0px, -30px);
+          opacity: 0;
         }
       }
     }
-    .homeLove-Gt{  //雞腿
+
+    .homeLove-Gt {
+      //雞腿的菜名
       transform: none;
       opacity: 1;
       position: absolute;
-      top:90px;
-      left:70%;
+      top: 90px;
+      left: 70%;
       width: 133px;
       height: 135px;
       z-index: 99999;
       background-image: url(../images/homeFirst/love-Gt.png);
-      animation-duration:3s;  //執行動畫長度
+      animation-duration: 3s; //執行動畫長度
       animation-fill-mode: both;
       animation-name: loveElement-Gt;
-      animation-delay:10s;
-      .loveElement-Gt{
+      animation-delay: 10s;
+
+      .loveElement-Gt {
         animation: loveElement-Gt 3s;
         animation-iteration-count: 1;
         transform-origin: 50% 50%;
       }
-      @keyframes loveElement-Gt{
+
+      @keyframes loveElement-Gt {
         0% {
-          transform:  translate(0,-100px);
-          opacity:0;
+          transform: translate(0, -100px);
+          opacity: 0;
         }
+
         20% {
-          opacity:1;
+          opacity: 1;
         }
+
         99% {
-          opacity:1;
+          opacity: 1;
         }
+
         100% {
-          transform: translate(0px,60px)  ;
-          opacity:0;
+          transform: translate(0px, 60px);
+          opacity: 0;
         }
       }
     }
-    .homeShowSmoke{
+
+    .homeShowSmoke {
       mix-blend-mode: screen;
       height: 1000px;
-      width:500px;
+      width: 500px;
       transform: translate(calc(80 / var(--height) * 100vmin), calc(-80 / var(--height) * 100vmin));
       position: relative;
-      left: 500px;
-      z-index: 99999;
+      left: 650px;
+      z-index: 9;
       top: -400px;
-      // animation-delay:5s; //延遲
-      animation-duration:4s;  //執行長度
+      animation-delay: 10s; //延遲
+      animation-duration: 4s; //執行長度
+      animation-name: homeShowSmokeAction linear 10s;
+      animation-iteration-count: 1;
+      transform-origin: 50% 50%;
+
+      @keyframes homeShowSmokeAction {
+
+        //煙的動畫
+        0% {
+          transform: translate(0px, 0px);
+          opacity: 0;
+        }
+
+        100% {
+          transform: translate(0px, 0px);
+          opacity: 1;
+        }
+      }
     }
-   .homeCoverflow{
+
+    .homeCoverflow {
       position: relative;
       text-align: center;
-      bottom:100%;
-      width:35%;
+      bottom: 90%;
+      width: 35%;
       max-width: 100%;
       height: auto;
-      left:52%;
-      animation-duration:10s;
-      animation-name:animationFrames;
-      a{
+      left: 50%;
+
+      // animation-duration:10s;
+      // animation-name:animationFrames;
+      a {
         display: block;
         position: absolute;
-        top:0;
-        left:0;
+        top: 0;
+        left: 0;
         opacity: 0;
         filter: alpha(opacity=100);
-        /*當圖片數量增加，影片長度需更改，變為5s*圖片數量*/
-        // animation: silder 8s linear infinite;
         animation: silder 10s infinite;
-        img{
+
+        img {
           max-width: 100%;
         }
-        /*動畫關鍵影格*/
+
         @keyframes silder {
           4% {
             opacity: 1;
             filter: alpha(opacity=100);
             /* 0 - 1秒 淡入*/
           }
+
           24% {
-              opacity: 1;
-              filter: alpha(opacity=100);
-              /* 1- 5秒靜止*/
+            opacity: 1;
+            filter: alpha(opacity=100);
+            /* 1- 5秒靜止*/
           }
+
           30% {
-              opacity:0.95;
-              filter: alpha(opacity=100);
-              /* 5-6秒淡出*/
-             }
+            opacity: 1;
+            filter: alpha(opacity=100);
+            /* 5-6秒淡出*/
+          }
         }
+
         /*每個圖片各延遲5秒*/
-        &:nth-child(3){animation-delay: 10s;}
-        &:nth-child(2) {animation-delay: 5s;}
-        &:nth-child(1) {animation-delay: 0s;}
+        &:nth-child(3) {
+          animation-delay: 10s;
+        }
+
+        &:nth-child(2) {
+          animation-delay: 5s;
+        }
+
+        &:nth-child(1) {
+          animation-delay: 0s;
+        }
       }
-     
-   }
-    /*滑入時停止播放 圖片、菜名標籤*/
-   .homeCoverflow:hover a,
-   .homeCoverflow:hover .homeLove-Fish,
-   .homeCoverflow:hover .homeLove-Gt,
-   .homeCoverflow:hover .homeLove-Gt{
-    animation-play-state: paused;
-    cursor: pointer;
-  }
-    .element-animation{
-      animation: animationFrames linear 1s;
+    }
+
+    .homeCoverflow:hover img {
+      //滑入時旋轉
+      cursor: pointer;
+      animation: homeFoodDegAction linear 5s;
       animation-iteration-count: 1;
       transform-origin: 50% 50%;
-    }
-    @keyframes animationFrames{
-      0% {
-        transform:  translate(400px,0px) ;
-        opacity: 1;
+
+      @keyframes homeFoodDegAction {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(200deg);
+        }
       }
-      100% {
-        transform:  translate(0px,0px) ;
-        opacity:0 ;
-      }
     }
-}   
-.homeTextBox{
-  z-index: 1;
-  position: absolute;
-  top: 30%;
-  left:14%;
-  text-align: left;
-  transform: translateY(-50%);
-  right: 0;
-  max-width:32%;
-  // border: 1px solid red;
-  animation-duration:3s;
-  animation-fill-mode: both;
-  animation-name: fadeInUp;
-  h1,h2{
-    font-size:$fzBig;
-    color: $white;
-    font-weight: 900;
-    text-align: left;
   }
-  .homeRow{
-    display: flex;
-    flex-wrap: wrap;
-    .homeCol{
-      -webkit-box-flex: 0;
-      -ms-flex: 0 0 100%;
-      flex: 0 0 100%;
-      max-width: 100%;
-      .homeSelectBox{
-        text-align: center !important;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        padding-left: 0;
-        margin-bottom: 0;
-        list-style: none;
-        .tab {
-          display: none;
-        }
-        .tab:checked + label {
-          cursor: default;
-          background: $yellow;
-          transition: all 0.3s ease;
-          border: 1px solid transparent;
-          padding: 10px 30px !important;
-          font-size:$fzMd;
-          font-weight: 400;
-          position: relative;
-          display: inline-block;
-          border-radius: 5px;
-          margin-right: 0.25rem !important;
-        }
-        .tab + label {
-          cursor: pointer;
-          display: block;
-          text-decoration: none;
-          text-align: center;
-          transition: 0.3s background-color ease;
-          padding: 15px;
-          margin-right: 0.25rem;
-          &:hover{
-            color:$grey;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            background:$white;
-            background:$yellow;
-          }
-        }
-        .tab-content {
-          padding: 10px;
-          background-color: transparent;
-          position: absolute;
-          width: 100%;
-          z-index: -1;
-          opacity: 0;
-          left: 0;
-          transform: translateY(-3px);
-        }
-        .tab:checked:nth-of-type(1) ~ .tab-content:nth-of-type(1),
-        .tab:checked:nth-of-type(2) ~ .tab-content:nth-of-type(2) {
-          opacity: 1;
-          transition: 0.5s opacity ease-in, 0.8s transform ease;
-          position: relative;
-          top: 0;
-          z-index: 1;
-          transform: translateY(0px);
-          border-radius: 7px;
-          margin-top: -9px;
-          background:$yellow;
-          padding: 1.5rem !important;
-          font-size:$fzContent;
-          line-height: 1.8;
-          font-weight: 400;
-          color: $greyGrey;
-          height:95px;
-        }
-        .homeDelivery,.homeTakeaway{
-          padding: 10px 30px !important;
-          border-radius: 0;
+
+  .homeTextBox {
+    z-index: 1;
+    position: absolute;
+    top: 30%;
+    left: 14%;
+    text-align: left;
+    transform: translateY(-50%);
+    right: 0;
+    max-width: 32%;
+    // border: 1px solid red;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-name: fadeInUp;
+
+    h1,
+    h2 {
+      font-size: $fzBig;
+      color: $white;
+      font-weight: 900;
+      text-align: left;
+    }
+
+    .homeRow {
+      display: flex;
+      flex-wrap: wrap;
+
+      .homeCol {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        .homeSelectBox {
+          text-align: center !important;
+          display: flex;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          padding-left: 0;
           margin-bottom: 0;
-          color: $black;
-          font-size:$fzMd;
-          font-weight: 400;
-          position: relative;
-          display: inline-block;
-          border: 1px solid transparent;
-          background:$white;
-          border-radius: 5px; 
-          text-decoration: none;
-          &:hover{
-            color:$black;
-            color:$white;
+          list-style: none;
+
+          .tab {
+            display: none;
+          }
+
+          .tab:checked+label {
+            cursor: default;
+            background: $yellow;
             transition: all 0.3s ease;
             border: 1px solid transparent;
-            background: white;
-            background: #FFD23F;
+            padding: 10px 30px !important;
+            font-size: $fzMd;
+            font-weight: 400;
+            position: relative;
+            display: inline-block;
+            border-radius: 5px;
+            margin-right: 0.25rem !important;
+          }
+
+          .tab+label {
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s background-color ease;
+            padding: 15px;
+            margin-right: 0.25rem;
+
+            &:hover {
+              color: $grey;
+              transition: all 0.3s ease;
+              border: 1px solid transparent;
+              background: $white;
+              background: $yellow;
+            }
+          }
+
+          .tab-content {
+            padding: 10px;
+            background-color: transparent;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+            opacity: 0;
+            left: 0;
+            transform: translateY(-3px);
+          }
+
+          .tab:checked:nth-of-type(1)~.tab-content:nth-of-type(1),
+          .tab:checked:nth-of-type(2)~.tab-content:nth-of-type(2) {
+            opacity: 1;
+            transition: 0.5s opacity ease-in, 0.8s transform ease;
+            position: relative;
+            top: 0;
+            z-index: 1;
+            transform: translateY(0px);
+            border-radius: 7px;
+            margin-top: -9px;
+            background: $yellow;
+            padding: 1.5rem !important;
+            font-size: $fzContent;
+            line-height: 1.8;
+            font-weight: 400;
+            color: $greyGrey;
+            height: 95px;
+          }
+
+          .homeDelivery,
+          .homeTakeaway {
+            padding: 10px 30px !important;
+            border-radius: 0;
+            margin-bottom: 0;
+            color: $black;
+            font-size: $fzMd;
+            font-weight: 400;
+            position: relative;
+            display: inline-block;
+            border: 1px solid transparent;
+            background: $white;
+            border-radius: 5px;
+            text-decoration: none;
+
+            &:hover {
+              color: $black;
+              color: $white;
+              transition: all 0.3s ease;
+              border: 1px solid transparent;
+              background: white;
+              background: #FFD23F;
+              outline: none !important;
+              text-decoration: none;
+            }
+          }
+
+          .active {
+            color: $black;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            background: $yellow;
             outline: none !important;
             text-decoration: none;
-            }
-        }
-        .active{
-          color: $black;
-          transition: all 0.3s ease;
-          border: 1px solid transparent;
-          background:$yellow;
-          outline: none !important;
-          text-decoration: none;
-        }
-        div{
-          .homeTab-pane{
-            display: none;
-            .homeCalendar{
-              font-size:$fzContent;
-              position: relative;
-              
-              display: inline-block;
-              font: normal normal normal 14px/1 FontAwesome;
-              font-size: inherit;
-              text-rendering: auto;
-              border: 1px solid red;
-            }
-            .homeGps{
-              font-size:$fzContent;
-              position: relative;
-              display: inline-block;
-              font: normal normal normal 14px/1 FontAwesome;
-              font-size: inherit;
-              text-rendering: auto;
-              border: 1px solid green;
-            }
-            .datepickerDemo {
-              padding: 40px;
-            }
-            .datepickerDemo md-content {
-              padding-bottom: 200px;
-            }
-            
-            .datepickerDemo .validation-messages {
-              font-size:$fzXmall;
-              color:$darkred;
-              margin: 10px 0 0 25px;
-            }
           }
-          .fade {
-            transition: opacity 0.15s linear;
-          }
-          @media (prefers-reduced-motion: reduce) {
+
+          div {
+            .homeTab-pane {
+              display: none;
+
+              .homeCalendar {
+                font-size: $fzContent;
+                position: relative;
+
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                font-size: inherit;
+                text-rendering: auto;
+                border: 1px solid red;
+              }
+
+              .homeGps {
+                font-size: $fzContent;
+                position: relative;
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                font-size: inherit;
+                text-rendering: auto;
+                border: 1px solid green;
+              }
+
+              .datepickerDemo {
+                padding: 40px;
+              }
+
+              .datepickerDemo md-content {
+                padding-bottom: 200px;
+              }
+
+              .datepickerDemo .validation-messages {
+                font-size: $fzXmall;
+                color: $darkred;
+                margin: 10px 0 0 25px;
+              }
+            }
+
             .fade {
-              transition: none;
+              transition: opacity 0.15s linear;
             }
-          }
-          .homeTab-content > .active {
-            display: block;
+
+            @media (prefers-reduced-motion: reduce) {
+              .fade {
+                transition: none;
+              }
+            }
+
+            .homeTab-content>.active {
+              display: block;
+            }
           }
         }
       }
-    }
 
+    }
   }
 }
-}
+
+//動畫 從左飛到右
 .fadeInUp {
--webkit-animation-name: fadeInUp;
-animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
 }
+
 @keyframes fadeInUp {
-from {
-  opacity: 0;
-  visibility: hidden;
-  transform: translate3d(-100%,0,0);
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
 }
-to {
-  visibility: visible;
-  opacity: 1;
-  transform: none;
-}
-}
+
 //向下導引button
-.nextl,.nextr{
+.nextl,
+.nextr {
   position: absolute;
-  
+
 }
 
-.next:hover .nextl, .next:hover .nextr{
-  animation:Downanimate 1.8s infinite;
+.next:hover .nextl,
+.next:hover .nextr {
+  animation: Downanimate 1.8s infinite;
 }
 
 
-@keyframes Downanimate{
-  0%{
-   
+@keyframes Downanimate {
+  0% {
+
     transform: translateY(-125%);
   }
-  50%{
+
+  50% {
     /* transform: translateX(50%); */
   }
-  75%{
+
+  75% {
     transform: translateY(100%);
     /* opacity: 0.6; */
   }
-  100%{
-    
+
+  100% {
+
     opacity: 0;
   }
 }
- /* next的HOVER效果 */
+
+/* next的HOVER效果 */
 $dotSize: 4px;
 $mouseWidth: 18px;
 $mouseHeight: $mouseWidth * 2;
@@ -537,10 +534,11 @@ $animationDuration: 1.5s;
   border-radius: 100px;
   position: relative;
   height: $mouseHeight;
-  width:$mouseWidth;
+  width: $mouseWidth;
   margin: 0 auto;
   top: -120px;
   cursor: pointer;
+
   &:before,
   &:after {
     animation: homeMouse-wheel $animationDuration ease-in-out infinite;
@@ -554,20 +552,1999 @@ $animationDuration: 1.5s;
     left: $mouseWidth / 2 - $dotSize / 2;
     top: $mouseHeight / 2 - $dotSize / 2;
   }
+
   &:after {
     animation-delay: $animationDuration / 2;
   }
+
   @keyframes homeMouse-wheel {
     0% {
       transform: translateY(-$mouseHeight / 2 + ($mouseWidth / 2 - $dotSize / 2));
-    } 
+    }
+
     50% {
       opacity: 1;
       transform: translateY(0);
     }
+
     100% {
       transform: translateY($mouseHeight / 2 - ($mouseWidth / 2 - $dotSize / 2));
     }
   }
 }
 
+
+
+
+
+// --------------------手機板
+@media (min-width: 375px) and (max-width: 576px) {
+  .eff {
+    background-position: bottom;
+
+    .homeVideo-xs {
+      right: 30px !important;
+      top: -720px !important
+    }
+
+    .homeLove-Fish,
+    .homeLove-Pg,
+    .homeLove-Gt {
+      // border: 3px solid yellow;
+      width: 100px !important;
+      height: 100px !important;
+      background-size: cover;
+    }
+
+    .homeLove-Fish {
+      //鱈魚
+      top: 40px !important;
+      left: 0px !important;
+    }
+
+    .homeLove-Pg {
+      //排骨
+      top: 68px !important;
+      left: 200px !important;
+    }
+
+    .homeLove-Gt {
+      //雞腿
+      top: -20px !important;
+      left: 200px !important;
+    }
+
+    .homeCoverflow-xs {
+      position: static !important;
+      border: 3px solid green;
+
+      a>img {
+        max-width: 80% !important;
+        position: relative;
+        left: 0px;
+        top: 50px;
+      }
+    }
+  }
+
+  .homeTextBox {
+    max-width: 100% !important;
+    left: 0% !important;
+    margin: 0 2rem;
+    top: 40% !important;
+
+    .homeSelectBox {
+      position: relative;
+
+      .homeControl-btn-Delivery-xs {
+        //外送 Bbutton
+        top: 170px !important;
+        left: 0px !important;
+      }
+
+      .homeControl-btn-Takeaway-xs {
+        //外帶 Bbutton
+        left: 0 !important;
+        top: 105px !important;
+      }
+    }
+
+    h1,
+    h2 {
+      font-size: $fzSubtitle !important;
+    }
+
+    h2 {
+      margin-bottom: -10px;
+    }
+
+    .tab-content {
+      .homeCalendar {
+        left: 10px;
+      }
+
+      .homeDate-xs {
+        right: 0 !important;
+        width: 100% !important;
+      }
+
+      .homeGps {
+        top: 0 !important;
+        left: 10px;
+      }
+
+      .homeAdd-xs {
+        top: -30px !important;
+        width: 100% !important;
+        left: 0;
+      }
+    }
+
+    .homeHeight-160-xs {
+      //外送 input 高度增高為160px
+      height: 160px !important;
+    }
+  }
+
+  .homeMouse {
+    top: -80px;
+  }
+}
+
+// --------------------end 手機板
+
+// ---------------------------------------------------------------homefirst.scss
+
+
+
+// ---------------------------------------------------------------home_menu.scss
+
+
+
+#canvas {
+  display: block;
+  position: absolute;
+  transform: translate3d(0%, -20%, 0);
+}
+
+$vertPad: 20px;
+$sidePad: 18px;
+$numOfEls: 5;
+$elMrg: 1%;
+
+$initAT: 1s;
+$initDelayStep: 0.1s;
+$fullInitAT: $initAT+$initDelayStep * ($numOfEls - 1);
+$moveAT: 0.6s;
+$expandAT: 0.7s;
+$expandDelay: 0.1s;
+$bgScaleAT: 0.8s;
+$fadeoutAT: $moveAT+$expandAT/2;
+$indexHoverAT: 0.5s;
+$closeBtnAT: 0.3s;
+$closeBtnLineDelay: 0.15s;
+$fullExpandAT: $moveAT+$expandDelay+$expandAT;
+$contentFadeinAT: 0.5s;
+
+@mixin myaction {
+  //這是點擊後展開的內容與動畫
+  z-index: 1;
+  width: 100%;
+  transform: translate3d(0, 0, 0);
+  transition: transform $moveAT, width $expandAT $moveAT + $expandDelay, z-index 0s, clip-path .5s;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  margin-left: 0%; //使打開後的畫面置中，用外圍的padding撐
+
+
+  .el__bg {
+    transform: translate3d(0, 0, 0);
+    transition: transform $moveAT;
+
+    &:before {
+      transition-delay: $moveAT;
+      transform: scale(1.1);
+      opacity: 1;
+      transition: background-image $moveAT, opacity .5s,
+        transform .5s;
+    }
+  }
+
+  @content;
+}
+
+@mixin fontPos {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  bottom: $vertPad * 0.2;
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  text-align: left;
+  font-size: calc(100vw / 25);
+  line-height: 11.5;
+  font-weight: bold;
+  transition: transform $indexHoverAT, opacity $moveAT/2 $expandAT + $expandDelay + $moveAT;
+  transform: translate3d(0, -1vw, 0);
+  @content;
+}
+
+@mixin top_img_size {
+
+  background-size: center;
+  background-position: 0 0;
+  width: 350px;
+  height: 200px;
+
+  @content;
+}
+
+@mixin LB_content {
+  font-size: $fzSubtitle;
+  @content;
+}
+
+@mixin elHover {
+  .el:hover & {
+    // 這種寫法可以讓include時在該類別前多一個css，常用於互動
+    @content;
+  }
+}
+
+@mixin elActive {
+  .el.s--active & {
+    @content;
+  }
+}
+
+@mixin contInactive {
+  .cont.s--inactive & {
+    @content;
+  }
+}
+
+@mixin contElActive {
+  .cont.s--el-active & {
+    @content;
+  }
+}
+
+.cont {
+  position: relative;
+  overflow: hidden;
+  height: 91vh;
+  background-color: black;
+
+  &__inner {
+    position: relative;
+    height: 100%;
+
+    &:hover .el__bg:after {
+      /* 不在其規定區塊時全亮，到大區塊時全暗 opacity0.3，hover到的其中區塊變亮 opacity 0 */
+      opacity: 1;
+    }
+  }
+}
+
+.el {
+  $elW: (100% - $elMrg * ($numOfEls - 1)) / $numOfEls;
+  $elMrgRel: percentage($elMrg / $elW);
+  // width: calc(100%/3);
+  position: absolute;
+  left: 0;
+  top: 0;
+  // width: $elW;
+  height: 100%;
+  background: #252525;
+  transition: transform $moveAT $expandAT, width $expandAT, opacity $moveAT $expandAT, z-index 0s $moveAT + $expandAT, clip-path $moveAT;
+  will-change: transform, width, opacity;
+
+  &:not(.s--active) {
+    cursor: pointer;
+  }
+
+  &__overflow {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+  }
+
+  &__inner {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    transition: transform $initAT;
+
+    @include contInactive {
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+
+  &__bg {
+    position: relative;
+    width: calc(100vw - #{$sidePad * 2});
+    height: 100%;
+    transition: transform $moveAT $expandAT;
+    will-change: transform;
+
+    &:before {
+      /* 這裡用來放圖片位置設定(圖片另外用) */
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -5%;
+      width: 100%;
+      height: 110%;
+      background-size: cover;
+      background-position: center center;
+      transition: transform $initAT;
+      transform: translate3d(0, 0, 0) scale(1);
+
+      @include contInactive {
+        transform: translate3d(0, -100%, 0) scale(1.2);
+
+      }
+
+      @include elActive {
+        transition: transform $bgScaleAT;
+      }
+    }
+
+    &:after {
+      /* 這裡是圖片遮罩 */
+      $opacityAT: 0.5s;
+      content: "";
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity $opacityAT;
+
+      @include contElActive {
+        transition: opacity $opacityAT $fullExpandAT;
+        // opacity: 1 !important;(它會讓打開後的內部變暗)
+      }
+    }
+  }
+
+  &__preview-cont {
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s $fullInitAT - 0.2s;
+
+    @include contInactive {
+      /* 出場時的效果 */
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    @include contElActive {
+      /* 點擊後套用文字向下消失 */
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.5s;
+    }
+  }
+
+  &__heading {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+
+  &__content {
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 50px 0;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s;
+
+    @include elActive {
+      z-index: 2;
+      opacity: 1;
+      pointer-events: auto;
+      transition: all $contentFadeinAT $fullExpandAT;
+    }
+  }
+
+  &__leaderBoards {
+    @include flexStyle(space-around, center);
+    height: 40vw;
+    transition: all 0.1s;
+
+    a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+    }
+
+    ul {
+      width: 100%;
+      @include flexStyle(space-around, center);
+      list-style: none;
+
+      li {
+        @include flexStyle(center, center, column-reverse);
+        color: black;
+        font-size: $fzSubtitle;
+
+        .benton_price,
+        .benton_name {
+          cursor: pointer;
+        }
+
+        img {
+          margin-bottom: 30%;
+        }
+      }
+    }
+
+    .leaderBoard {
+      // height: 500px;
+      // background-color: red;
+      width: 350px;
+      // height: 200px;
+
+
+      &.sec,
+      &.first,
+      &.third {
+        opacity: 0;
+
+        @include elActive {
+          opacity: 1;
+          pointer-events: auto;
+          transform: translate3d(0, 0, 0);
+        }
+
+        .content {
+          text-align: left;
+
+          #menu_ndgroup {
+            display: flex;
+            font-size: 20px;
+            justify-content: space-between;
+            align-items: center;
+            // border: 1px solid #000;
+
+            #menu_name_sec {
+              font-size: 30px;
+            }
+
+          }
+        }
+      }
+
+
+
+      &.sec {
+        transform: translate3d(-10vw, 3vw, 0);
+
+
+        @include elActive {
+          transition: all $contentFadeinAT $fullExpandAT +.5;
+        }
+
+        .top_img {
+          @include top_img_size {}
+        }
+
+        .content {
+          @include LB_content {
+            margin-top: 40%;
+
+          }
+        }
+      }
+
+      &.first {
+        transform: translate3d(0, -3vw, 0);
+        position: relative;
+
+        @include elActive {
+          transition: all $contentFadeinAT $fullExpandAT +.8;
+        }
+
+        .top_img {
+          position: absolute;
+
+          @include top_img_size {}
+        }
+
+        .content {
+          @include LB_content {
+            margin-top: 100%;
+          }
+        }
+      }
+
+      &.third {
+        transform: translate3d(10vw, 5vw, 0);
+
+        @include elActive {
+          transition: all $contentFadeinAT $fullExpandAT +1;
+        }
+
+        .top_img {
+          @include top_img_size {}
+        }
+
+        .content {
+          @include LB_content {
+            margin-top: 50%;
+          }
+        }
+      }
+    }
+
+  }
+
+  &__text {
+    text-transform: uppercase;
+    font-size: 40px;
+    color: rgb(36, 36, 36);
+  }
+
+  &__close-btn {
+
+    z-index: -1;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0s $closeBtnAT + $closeBtnLineDelay;
+    cursor: pointer;
+
+    @include elActive {
+      z-index: 5;
+      opacity: 1;
+      pointer-events: auto;
+      transition: all 0s $fullExpandAT;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 8px;
+      margin-top: -4px;
+      background: rgb(36, 36, 36);
+      opacity: 0;
+      transition: opacity 0s;
+
+      @include elActive {
+        opacity: 1;
+      }
+    }
+
+    &:before {
+      transform: rotate(45deg) translateX(100%);
+
+      @include elActive {
+        transition: all $closeBtnAT $fullExpandAT cubic-bezier(.72, .09, .32, 1.57);
+        transform: rotate(45deg) translateX(0);
+      }
+    }
+
+    &:after {
+      transform: rotate(-45deg) translateX(100%);
+
+      @include elActive {
+        transition: all $closeBtnAT $fullExpandAT + $closeBtnLineDelay cubic-bezier(.72, .09, .32, 1.57);
+        transform: rotate(-45deg) translateX(0);
+      }
+    }
+  }
+
+  &__index {
+    @include fontPos {}
+
+
+
+    @include elHover {
+      /* hover後出現 位置從-1vw到0 */
+      transform: translate3d(0, 0, 0);
+    }
+
+    @include contElActive {
+      transition: transform $indexHoverAT, opacity $moveAT/2;
+      opacity: 0;
+    }
+
+    &-back,
+    &-front {
+      /* 重疊的兩組文字定位 */
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    &-back {
+      /* 背後文字底色 */
+      color: #2f3840;
+      opacity: 0;
+      transition: opacity $indexHoverAT/2 $indexHoverAT/2;
+
+      @include elHover {
+        /* hover後的效果未出現到出現 */
+        transition: opacity $indexHoverAT/2;
+        opacity: 1;
+      }
+    }
+
+    &-overlay {
+      /* 遮罩色層 */
+      overflow: hidden;
+      position: relative;
+      transform: translate3d(0, 100%, 0);
+      transition: transform $indexHoverAT 0.1s;
+      color: transparent;
+      /* 全透明黑色，不加的話會多層黑影 */
+
+      &:before {
+        /* 填色層，增加白色效果 */
+        content: attr(data-index);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        transform: translate3d(0, -100%, 0);
+        /* 先把顏色藏起 */
+        transition: transform $indexHoverAT 0.1s;
+      }
+
+      @include elHover {
+        /* hover 使顏色填滿 */
+        transform: translate3d(0, 0, 0);
+
+        &:before {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    }
+  }
+
+  &__index.left {
+    text-align: left;
+    margin-left: 5%;
+  }
+
+  &__index.mid {
+    text-align: center;
+  }
+
+  &__index.right {
+    text-align: right;
+    margin-left: -5%;
+  }
+
+  @for $i from 0 to $numOfEls {
+    &:nth-child(#{$i + 1}) {
+      $x: (100% + $elMrgRel) * $i;
+      transform: translate3d($x, 0, 0);
+      transform-origin: $x + 50% 50%;
+
+      @include contElActive {
+
+        &:not(.s--active) {
+          transform: scale(0.5) translate3d($x, 0, 0); //讓沒被選到的變小
+          opacity: 0;
+          transition: transform $fadeoutAT, opacity $fadeoutAT;
+          z-index: 0; //因為一開始必須切和多邊形 這邊要補上才不會其他塊再背景點到
+        }
+      }
+
+      .el__inner {
+        transition-delay: $initDelayStep * $i;
+      }
+
+      .el__bg {
+        transform: translate3d($elW * $i * -1, 0, 0);
+
+        &:before {
+          transition-delay: 0.1s * $i;
+          background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-#{$i + 3}.jpg');
+        }
+      }
+    }
+  }
+
+  &:hover {
+
+    .el__bg:after {
+      opacity: 0;
+    }
+  }
+
+  &.first.s--active,
+  &.sec.s--active,
+  &.third.s--active {
+    @include myaction {
+      .el__bg:before {
+        background-image: url(../../dest/images/homepage/BG.png);
+
+      }
+    }
+  }
+
+
+
+  // &.s--active {
+  //   // 這邊不include的因是上面就是el了
+  //   z-index: 1;
+  //   width: 100%;
+  //   transform: translate3d(0, 0, 0);
+  //   transition: transform $moveAT, width $expandAT $moveAT + $expandDelay, z-index 0s, clip-path $moveAT;
+
+
+
+  //   .el__bg {
+  //     transform: translate3d(0, 0, 0);
+  //     transition: transform $moveAT;
+
+  //     &:before {
+  //       transition-delay: $moveAT;
+  //       transform: scale(1.1);
+  //     }
+  //   }
+  // }
+}
+
+.el.first {
+  background-color: #fff;
+  z-index: 11;
+  clip-path: polygon(0 0, 78% 0, 53% 100%, 0% 100%);
+  width: 40%;
+
+}
+
+.el.sec {
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  width: 50%;
+  z-index: 10;
+  // margin-left: -45%;
+  transform: translateX(50%);
+}
+
+.el.third {
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 40% 100%);
+  width: 35%;
+  margin-left: -8.5%;
+  z-index: 11;
+}
+
+@media(max-width: 1200px) {
+  @mixin fontPos {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    bottom: $vertPad * 0.2;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    text-align: left;
+    font-size: calc(100vw / 25);
+    line-height: 18;
+    font-weight: bold;
+    transition: transform $indexHoverAT, opacity $moveAT/2 $expandAT + $expandDelay + $moveAT;
+    transform: translate3d(0, -1vw, 0);
+    @content;
+  }
+
+  .cont {
+    position: relative;
+    overflow: hidden;
+    height: 92vh;
+    background-color: black;
+
+    &__inner {
+      position: relative;
+      height: 100%;
+
+      &:hover .el__bg:after {
+        /* 不在其規定區塊時全亮，到大區塊時全暗 opacity0.3，hover到的其中區塊變亮 opacity 0 */
+        opacity: 1;
+      }
+    }
+  }
+
+  .el {
+    $elW: (100% - $elMrg * ($numOfEls - 1)) / $numOfEls;
+    $elMrgRel: percentage($elMrg / $elW);
+    // width: calc(100%/3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    // width: $elW;
+    height: 100%;
+    background: #252525;
+    transition: transform $moveAT $expandAT, width $expandAT, opacity $moveAT $expandAT, z-index 0s $moveAT + $expandAT, clip-path $moveAT;
+    will-change: transform, width, opacity;
+
+    &:not(.s--active) {
+      cursor: pointer;
+    }
+
+    &__overflow {
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+    }
+
+    &__inner {
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      transition: transform $initAT;
+
+      @include contInactive {
+        transform: translate3d(0, 100%, 0);
+      }
+    }
+
+    &__bg {
+      position: relative;
+      width: calc(100vw - #{$sidePad * 2});
+      height: 100%;
+      transition: transform $moveAT $expandAT;
+      will-change: transform;
+
+      &:before {
+        /* 這裡用來放圖片位置設定(圖片另外用) */
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -5%;
+        width: 100%;
+        height: 110%;
+        background-size: cover;
+        background-position: center center;
+        transition: transform $initAT;
+        transform: translate3d(0, 0, 0) scale(1);
+
+        @include contInactive {
+          transform: translate3d(0, -100%, 0) scale(1.2);
+
+        }
+
+        @include elActive {
+          transition: transform $bgScaleAT;
+        }
+      }
+
+      &:after {
+        /* 這裡是圖片遮罩 */
+        $opacityAT: 0.5s;
+        content: "";
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transition: opacity $opacityAT;
+
+        @include contElActive {
+          transition: opacity $opacityAT $fullExpandAT;
+          // opacity: 1 !important;(它會讓打開後的內部變暗)
+        }
+      }
+    }
+
+    &__preview-cont {
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transition: all 0.3s $fullInitAT - 0.2s;
+
+      @include contInactive {
+        /* 出場時的效果 */
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      @include contElActive {
+        /* 點擊後套用文字向下消失 */
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.5s;
+      }
+    }
+
+    &__heading {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+
+    &__content {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      padding: 50px 0;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.1s;
+
+      @include elActive {
+        z-index: 2;
+        opacity: 1;
+        pointer-events: auto;
+        transition: all $contentFadeinAT $fullExpandAT;
+      }
+    }
+
+    &__leaderBoards {
+      @include flexStyle(space-around, center);
+      // background-color: $orange;
+      height: 35vw;
+      transition: all 0.1s;
+
+      a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+      }
+
+      ul {
+        width: 100%;
+        @include flexStyle(space-around, none);
+        list-style: none;
+
+        li {
+          @include flexStyle(center, center, column-reverse);
+          color: black;
+          font-size: $fzSubtitle;
+
+          .benton_price,
+          .benton_name {
+            cursor: pointer;
+          }
+
+          img {
+            margin-bottom: 30%;
+          }
+        }
+      }
+
+      .leaderBoard {
+        // height: 500px;
+        // background-color: red;
+        width: 300px;
+
+        &.sec,
+        &.first,
+        &.third {
+          opacity: 0;
+
+          @include elActive {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate3d(0, 0, 0);
+          }
+        }
+
+        &.sec {
+          transform: translate3d(-10vw, 3vw, 0);
+
+
+          @include elActive {
+            transition: all $contentFadeinAT $fullExpandAT +.5;
+          }
+
+          .top_img {
+            @include top_img_size {}
+          }
+
+          .content {
+            @include LB_content {
+              margin-top: 50%;
+            }
+          }
+        }
+
+        &.first {
+          transform: translate3d(0, -3vw, 0);
+          position: relative;
+
+          @include elActive {
+            transition: all $contentFadeinAT $fullExpandAT +.8;
+          }
+
+          .top_img {
+            position: absolute;
+
+            @include top_img_size {}
+          }
+
+          .content {
+            @include LB_content {
+              margin-top: 150%;
+            }
+          }
+        }
+
+        &.third {
+          transform: translate3d(10vw, 5vw, 0);
+
+          @include elActive {
+            transition: all $contentFadeinAT $fullExpandAT +1;
+          }
+
+          .top_img {
+            @include top_img_size {}
+          }
+
+          .content {
+            @include LB_content {
+              margin-top: 50%;
+            }
+          }
+        }
+      }
+
+    }
+
+    &__text {
+      text-transform: uppercase;
+      font-size: 40px;
+      color: rgb(36, 36, 36);
+    }
+
+    &__close-btn {
+
+      z-index: -1;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 60px;
+      height: 60px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0s $closeBtnAT + $closeBtnLineDelay;
+      cursor: pointer;
+
+      @include elActive {
+        z-index: 5;
+        opacity: 1;
+        pointer-events: auto;
+        transition: all 0s $fullExpandAT;
+      }
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 8px;
+        margin-top: -4px;
+        background: rgb(36, 36, 36);
+        opacity: 0;
+        transition: opacity 0s;
+
+        @include elActive {
+          opacity: 1;
+        }
+      }
+
+      &:before {
+        transform: rotate(45deg) translateX(100%);
+
+        @include elActive {
+          transition: all $closeBtnAT $fullExpandAT cubic-bezier(.72, .09, .32, 1.57);
+          transform: rotate(45deg) translateX(0);
+        }
+      }
+
+      &:after {
+        transform: rotate(-45deg) translateX(100%);
+
+        @include elActive {
+          transition: all $closeBtnAT $fullExpandAT + $closeBtnLineDelay cubic-bezier(.72, .09, .32, 1.57);
+          transform: rotate(-45deg) translateX(0);
+        }
+      }
+    }
+
+    &__index {
+      @include fontPos {}
+
+
+
+      @include elHover {
+        /* hover後出現 位置從-1vw到0 */
+        transform: translate3d(0, 0, 0);
+      }
+
+      @include contElActive {
+        transition: transform $indexHoverAT +0.5, opacity $moveAT/2;
+        opacity: 0;
+      }
+
+      &-back,
+      &-front {
+        /* 重疊的兩組文字定位 */
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+      }
+
+      &-back {
+        /* 背後文字底色 */
+        color: #2f3840;
+        opacity: 0;
+        transition: opacity $indexHoverAT/2 $indexHoverAT/2;
+
+        @include elHover {
+          /* hover後的效果未出現到出現 */
+          transition: opacity $indexHoverAT/2;
+          opacity: 1;
+        }
+      }
+
+      &-overlay {
+        /* 遮罩色層 */
+        overflow: hidden;
+        position: relative;
+        transform: translate3d(0, 100%, 0);
+        transition: transform $indexHoverAT 0.1s;
+        color: transparent;
+        /* 全透明黑色，不加的話會多層黑影 */
+
+        &:before {
+          /* 填色層，增加白色效果 */
+          content: attr(data-index);
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          color: #fff;
+          transform: translate3d(0, -100%, 0);
+          /* 先把顏色藏起 */
+          transition: transform $indexHoverAT 0.1s;
+        }
+
+        @include elHover {
+          /* hover 使顏色填滿 */
+          transform: translate3d(0, 0, 0);
+
+          &:before {
+            transform: translate3d(0, 0, 0);
+          }
+        }
+      }
+    }
+
+    &__index.left {
+      text-align: left;
+      margin-left: 5%;
+    }
+
+    &__index.mid {
+      text-align: center;
+    }
+
+    &__index.right {
+      text-align: right;
+      margin-left: -5%;
+    }
+
+    @for $i from 0 to $numOfEls {
+      &:nth-child(#{$i + 1}) {
+        $x: (100% + $elMrgRel) * $i;
+        transform: translate3d($x, 0, 0);
+        transform-origin: $x + 50% 50%;
+
+        @include contElActive {
+
+          &:not(.s--active) {
+            transform: scale(0.5) translate3d($x, 0, 0); //讓沒被選到的變小
+            opacity: 0;
+            transition: transform $fadeoutAT, opacity $fadeoutAT;
+            z-index: 0; //因為一開始必須切和多邊形 這邊要補上才不會其他塊再背景點到
+          }
+        }
+
+        .el__inner {
+          transition-delay: $initDelayStep * $i;
+        }
+
+        .el__bg {
+          transform: translate3d($elW * $i * -1, 0, 0);
+
+          &:before {
+            transition-delay: 0.1s * $i;
+            background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-#{$i + 3}.jpg');
+          }
+        }
+      }
+    }
+
+    &:hover {
+
+      .el__bg:after {
+        opacity: 0;
+      }
+    }
+
+    &.first.s--active,
+    &.sec.s--active,
+    &.third.s--active {
+      @include myaction {
+        .el__bg:before {
+          background-image: url(../../dest/images/homepage/BG.png);
+        }
+      }
+    }
+
+
+
+    // &.s--active {
+    //   // 這邊不include的因是上面就是el了
+    //   z-index: 1;
+    //   width: 100%;
+    //   transform: translate3d(0, 0, 0);
+    //   transition: transform $moveAT, width $expandAT $moveAT + $expandDelay, z-index 0s, clip-path $moveAT;
+
+
+
+    //   .el__bg {
+    //     transform: translate3d(0, 0, 0);
+    //     transition: transform $moveAT;
+
+    //     &:before {
+    //       transition-delay: $moveAT;
+    //       transform: scale(1.1);
+    //     }
+    //   }
+    // }
+  }
+
+  .el.first {
+    background-color: #fff;
+    z-index: 11;
+    clip-path: polygon(0 0, 78% 0, 53% 100%, 0% 100%);
+    width: 40%;
+
+  }
+
+  .el.sec {
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    width: 50%;
+    z-index: 10;
+    // margin-left: -45%;
+    transform: translateX(50%);
+  }
+
+  .el.third {
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 40% 100%);
+    width: 35%;
+    margin-left: -8.5%;
+    z-index: 11;
+  }
+}
+
+// ---------------------------------------------------------------home_menu.scss
+
+
+// ---------------------------------------------------------------homeHealth.scss
+
+
+
+.homeSection-3 {
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+  height: 100vh;
+
+  .homeBlackBoardContainer {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/homeHealth/homeBlackBoard.jpg");
+
+    .homeTapUp {
+      position: relative;
+      right: -250px;
+      width: 280px;
+      height: auto;
+      top: -80vh;
+      opacity: 1;
+    }
+
+    .homeTwBoy {
+      position: relative;
+      right: -69%;
+      width: 230px;
+      height: auto;
+      top: -125vh;
+      animation: homeTwBoyAction ease-out 1s;
+      animation-iteration-count: 1;
+      transform-origin: 50% 50%;
+      animation-fill-mode: forwards;
+    }
+
+    .homeBlackBoardTit {
+      width: 1200px;
+      margin: 0 auto;
+      padding-top: 2%;
+
+      h1 {
+        width: 100%;
+        color: white;
+        margin: 10px auto;
+        font-size: $fzTitle;
+        letter-spacing: 5px;
+        text-align: left;
+        font-weight: 900;
+      }
+
+      p {
+        color: $white;
+        width: 100%;
+        font-size: $fzMd;
+        letter-spacing: 1px;
+        padding: 40px 0;
+      }
+    }
+
+    .homeOrder {
+      width: 85%;
+      margin: 0 auto;
+      height: 50%;
+      border-radius: 10px;
+      border: 1px solid $white;
+      box-shadow: 5px 5px 10px $black;
+      background: $white;
+      opacity: 0.8;
+      padding: 20px;
+
+      .homeNum,
+      .homeSeparate,
+      #numberTotal {
+        display: inline-block;
+      }
+
+      .homeSeparate {
+        width: 10px;
+      }
+
+      .homeQuestionTitle {
+        width: 100%;
+        font-size: $fzSubtitle;
+        margin: auto;
+        text-align: left;
+        color: $green;
+        font-weight: 900;
+        margin: 3rem;
+      }
+
+      .homeQuesionBox {
+        color: $white;
+        font-size: 1rem;
+        padding: 30px 0;
+
+        .homeTest {
+          margin-left: 50px;
+          width: 200px;
+          display: inline-block;
+          color: $green;
+          font-size: $fzSubtitle;
+          font-weight: 900;
+          line-height: 26px;
+
+          &:hover {
+            transform: scale(1.2);
+            color: $orange;
+            cursor: pointer;
+          }
+
+          &:nth-child(2) {
+            background: $white;
+            font-size: $fzSubtitle;
+            animation: homeQTextBig 0.4s infinite alternate;
+            transform-origin: center;
+            animation-delay: 0s;
+
+            @keyframes homeQTextBig {
+              to {
+                transform: scale(1.1);
+              }
+            }
+          }
+
+          .homeQinput {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    .homeIceBox {
+      .homeIceOne {
+        width: 150px;
+        height: auto;
+        position: relative;
+        top: -285px;
+        left: 300px;
+        animation: homeIceOneAction linear 2s;
+        animation-iteration-count: 1;
+        transform-origin: 50% 50%;
+        animation-delay: 2s;
+
+        @keyframes homeIceOneAction {
+          0% {
+            transform: translate(300px, 0px) rotate(180deg);
+            opacity: 0;
+          }
+
+          100% {
+            transform: translate(0px, 0px) rotate(0deg);
+            opacity: 1;
+          }
+        }
+
+        &:hover {
+          transform: rotate(30deg);
+        }
+      }
+
+      .homeIceTwo {
+        width: 350px;
+        height: auto;
+        position: relative;
+        top: -300px;
+        left: 300px;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .homeIceThree {
+        width: 450px;
+        height: auto;
+        position: relative;
+        top: -190px;
+        left: 350px;
+        z-index: 9999;
+
+        &:hover {
+          transform: translate(1px, 0px) rotate(-15deg);
+        }
+      }
+    }
+
+    .homeTapBox {
+      .homeTapUp {
+        position: relative;
+        right: -250px;
+        width: 280px;
+        height: auto;
+        top: -80vh;
+        opacity: 1;
+        animation: homeTwBoyAction ease-out 1s;
+      }
+    }
+
+    .homeTwBoy {
+      position: relative;
+      right: -69%;
+      width: 230px;
+      height: auto;
+      top: -125vh;
+      animation: homeTwBoyAction ease-out 1s;
+      animation-iteration-count: 1;
+      transform-origin: 50% 50%;
+      animation-fill-mode: forwards;
+
+      @keyframes homeTwBoyAction {
+        0% {
+          opacity: 0;
+          transform: translate(300px, 0px) skewX(-30deg);
+        }
+
+        60% {
+          opacity: 1;
+          transform: translate(-40px, 0px) skewX(30deg);
+        }
+
+        80% {
+          opacity: 1;
+          transform: translate(0px, 0px) skewX(-15deg);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translate(0px, 0px) skewX(0deg);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+// --------------------手機板
+@media (min-width: 375px) and (max-width: 576px) {
+  .homeSection-3 {
+    height: 100%;
+
+    .homeBlackBoardContainer {
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      background-image: url("../images/homeHealth/homeBlackBoard.jpg");
+
+      .homeBlackBoardTit {
+        width: 90% !important;
+
+        p {
+          padding: 0px 0 20px !important;
+        }
+      }
+
+      .homeOrder {
+        margin-top: 30px;
+
+        .homeQuestionTitle {
+          margin: 0 !important;
+        }
+      }
+
+      .homeTest {
+        line-height: 50px !important;
+        margin-left: 10px !important;
+      }
+
+      .homeIceBox {
+        .homeIceOne {
+          width: 20%;
+          top: -430px;
+          left: 20px;
+        }
+
+        .homeIceTwo {
+          top: -450px;
+          left: 95px;
+          width: 45%;
+        }
+
+        .homeIceThree {
+          width: 80%;
+          left: 40px;
+          top: -130px;
+        }
+      }
+
+      .homeTapBox {
+        .homeTapUp {
+          //隱藏敲黑板
+          right: 0px !important;
+          top: -400px !important;
+          width: 30% !important;
+          display: none;
+        }
+      }
+
+      .homeTwBoy {
+        //隱藏敲黑板人物
+        right: -60% !important;
+        width: 30% !important;
+        top: -680px !important;
+        border: 3px solid yellow;
+        display: none;
+      }
+    }
+  }
+}
+
+// --------------------end 手機板
+
+// ---------------------------------------------------------------homeHealth.scss
+
+
+// ---------------------------------------------------------------home_am.scss
+
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 800px;
+  /* margin-top: -50px; */
+  /* margin-top: -310px; */
+  /* background-color: black; */
+}
+
+svg {
+  display: block;
+  overflow: visible;
+}
+
+.slider-container {
+  width: 80%;
+  /* margin-top: 150px; */
+  /* margin: 20% 10%; */
+  overflow: hidden;
+  position: relative;
+  height: 60%;
+  user-select: none;
+  cursor: all-scroll;
+  border-radius: 10px;
+}
+
+.slider-control {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  width: 12%;
+  height: 100%;
+
+  transition: opacity 0.3s;
+  will-change: opacity;
+  opacity: 0;
+}
+
+.slider-control.inactive:hover {
+  cursor: auto;
+}
+
+.slider-control:not(.inactive):hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.slider-control.left {
+  left: 0;
+
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.slider-control.right {
+  right: 0;
+
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.18) 100%);
+}
+
+.slider-pagi {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  font-size: 0;
+  list-style-type: none;
+}
+
+.slider-pagi__elem {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0.5rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+.slider-pagi__elem:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.slider-pagi__elem.active:before,
+.slider-pagi__elem:hover:before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.slider {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+}
+
+.slider.animating {
+  transition: transform 0.5s;
+  will-change: transform;
+}
+
+.slider.animating .slide__bg {
+  transition: transform 0.5s;
+  will-change: transform;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide.active .slide__overlay,
+.slide.active .slide__text {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.slide__bg {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  will-change: transform;
+}
+
+.slide:nth-child(1) {
+  left: 0;
+}
+
+.slide:nth-child(1) .slide__bg {
+  left: 0;
+  background-image: url("https://i.picsum.photos/id/155/200/300.jpg?hmac=nG5WHfEXcJmld5FbH0N9bGciE9a57S0bgIHHTpxag7o");
+  background-position: center;
+}
+
+.slide:nth-child(1) .slide__overlay-path {
+  fill: #e99c7e;
+}
+
+/* 這是縮小後的半透明屏幕 */
+/*  */
+.slide:nth-child(1) .slide__text {
+  background-color: rgba(233, 156, 126, 0.8);
+}
+
+.slide:nth-child(2) {
+  left: 100%;
+}
+
+.slide:nth-child(2) .slide__bg {
+  left: -50%;
+  background-image: url("https://i.picsum.photos/id/155/200/300.jpg?hmac=nG5WHfEXcJmld5FbH0N9bGciE9a57S0bgIHHTpxag7o");
+
+}
+
+.slide:nth-child(2) .slide__overlay-path {
+  fill: #e1ccae;
+}
+
+.slide:nth-child(2) .slide__text {
+  background-color: rgba(225, 204, 174, 0.8);
+}
+
+.slide:nth-child(3) {
+  left: 200%;
+}
+
+.slide:nth-child(3) .slide__bg {
+  left: -100%;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/3d-slider-4.jpg");
+}
+
+.slide:nth-child(3) .slide__overlay-path {
+  fill: #adc5cd;
+}
+
+.slide:nth-child(3) .slide__text {
+  background-color: rgba(173, 197, 205, 0.8);
+}
+
+.slide:nth-child(4) {
+  left: 300%;
+}
+
+.slide:nth-child(4) .slide__bg {
+  left: -150%;
+  background-image: url("https://i.picsum.photos/id/155/400/400.jpg?hmac=nG5WHfEXcJmld5FbH0N9bGciE9a57S0bgIHHTpxag7o");
+  background-position: 50% 50%;
+}
+
+.slide:nth-child(4) .slide__overlay-path {
+  fill: #cbc6c3;
+}
+
+.slide:nth-child(4) .slide__text {
+  background-color: rgba(203, 198, 195, 0.8);
+}
+
+
+.slide:nth-child(5) {
+  left: 400%;
+}
+
+.slide:nth-child(5) .slide__bg {
+  left: -200%;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/3d-slider-4.jpg");
+  background-position: 50% 50%;
+}
+
+.slide:nth-child(5) .slide__overlay-path {
+  fill: #cbc6c3;
+}
+
+.slide:nth-child(5) .slide__text {
+  background-color: rgba(203, 198, 195, 0.8);
+}
+
+
+.slide__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* .slide__overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        min-height: 810px;
+        transition: transform 0.5s 0.5s, opacity 0.2s 0.5s;
+        will-change: transform, opacity;
+        transform: translate3d(-20%, 0, 0);
+        opacity: 0;
+      } */
+
+.slide__overlay {
+  display: none;
+}
+
+.slide__overlay path {
+  opacity: 0.8;
+}
+
+.slide__text {
+  position: absolute;
+
+
+
+  color: #fff;
+  will-change: transform, opacity;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.slide__text {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 20rem;
+  text-align: center;
+
+  transform: translateY(50%);
+  transition: opacity 0.5s 0.5s;
+  transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
+  transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
+  padding: 0 1rem;
+}
+
+.slide__text-heading {
+  font-family: "Polar", Helvetica, Arial, sans-serif;
+  /* margin-bottom: 4rem; */
+}
+
+.slide__text-heading {
+  line-height: 5rem;
+  font-size: 3.5rem;
+}
+
+
+
+.slide__text-desc {
+  width: 80%;
+  margin: -45px auto;
+  /* border: 1px solid #000; */
+  font-size: 1.8rem;
+  line-height: 2rem;
+  /* display: none; */
+}
+
+/* .slide__text-link {
+        z-index: 5;
+        display: inline-block;
+        position: relative;
+        padding: 0.5rem;
+        cursor: pointer;
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        font-size: 2.3rem;
+        -webkit-perspective: 1000px;
+                perspective: 1000px;
+      }
+       */
+.slide__text-link {
+  display: none;
+}
+
+.slide__text-link:before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transform: rotateX(-85deg);
+  transform: rotateX(-85deg);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  will-change: transform;
+}
+
+.slide__text-link:hover:before {
+  -webkit-transform: rotateX(0);
+  transform: rotateX(0);
+}
+
+
+// ---------------------------------------------------------------home_am.scss

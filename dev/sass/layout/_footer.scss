@@ -1,46 +1,89 @@
-.homeFooter{
-    background-color:$grey;
-    font-size:$fzContent;
+@import "../base/font";
+
+.homeFooter {
+    background-color: $grey;
+    font-size: $fzContent;
     line-height: 50px;
     height: 50px;
     margin-top: -50px;
-    padding: 0 5%;
+    // padding: 0 5%;
     width: 100%;
-    .homeFooterBox{
+
+    .homeFooterBox {
         margin: 0 auto;
-        ul{
-            li{
-                display:inline;
+
+        ul {
+            li {
+                display: inline;
                 letter-spacing: 5px;
                 margin: 0 3%;
-                &:hover{
-                    color:$lightGrey;
-                }
-                &:first-child{
-                letter-spacing:1px;
-                float: left;
-                padding-right: 25%;
+
+                &:hover {
+                    color: $lightGrey;
                 }
 
-                .homePhone{
+                &:first-child {
+                    letter-spacing: 1px;
+                    float: left;
+                    padding-right: 25%;
+                }
+
+                .homePhone {
                     letter-spacing: 2px;
                     float: right;
                     width: 24px;
                     height: auto;
                     z-index: 999;
                 }
-                .homeAdd{
+
+                .homeAdd {
                     letter-spacing: 2px;
                     float: right;
                     width: 24px;
                     height: auto;
                 }
-                img{
+
+                img {
                     top: 6px;
                     position: relative;
                     padding: 0 10px;
                 }
             }
         }
-      }
     }
+}
+
+
+
+// --------------------手機板
+@media (min-width: 375px) and (max-width: 576px) {
+    .homeFooter {
+        .homeFooterBox {
+            ul {
+                width: 100%;
+                height: 50px;
+                overflow: hidden;
+
+                li {
+                    a {
+                        color: #fff;
+                        font-size: 1rem;
+                        position: absolute;
+                        width: calc(100% - 65px);
+                        text-align: center;
+                    }
+
+                    &:nth-child(2) {
+                        display: none;
+                    }
+
+                    &:last-child {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ------------------- end 手機板
