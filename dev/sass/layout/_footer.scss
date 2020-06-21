@@ -6,28 +6,26 @@
     line-height: 50px;
     height: 50px;
     margin-top: -50px;
-    // padding: 0 5%;
     width: 100%;
-
     .homeFooterBox {
         margin: 0 auto;
-
         ul {
             li {
                 display: inline;
                 letter-spacing: 5px;
                 margin: 0 3%;
-
-                &:hover {
-                    color: $lightGrey;
+                a{
+                    color: $white;
+                    text-decoration: none;
+                    &:hover {
+                        color: $lightGrey;
+                    }
                 }
-
                 &:first-child {
                     letter-spacing: 1px;
                     float: left;
                     padding-right: 25%;
                 }
-
                 .homePhone {
                     letter-spacing: 2px;
                     float: right;
@@ -42,7 +40,6 @@
                     width: 24px;
                     height: auto;
                 }
-
                 img {
                     top: 6px;
                     position: relative;
