@@ -25,19 +25,18 @@ img:not([src]) {
   display: flex;
 }
 
-.ordercart {
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 300px;
-  height: auto;
-  border: 1px solid blue;
+// .ordercart {
+  //   position: fixed;
+  //   right: 0;
+  //   top: 0;
+  //   width: 300px;
+  //   height: auto;
+  //   border: 1px solid blue;
 
-  table {
-    width: 300px;
-  }
-}
-
+  //   table {
+  //     width: 300px;
+  //   }
+  // }
 
 #ordertitle1 {
   transform: scale(1.5);

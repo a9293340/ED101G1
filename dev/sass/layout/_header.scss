@@ -1,107 +1,125 @@
 @import '../mixins/mixin';
 
+
 @mixin span {
-    position: absolute;
-    width: 90%;
-    height: 5px;
-    bottom: 10px;
-    transition: 1s;
-    z-index: -1;
+  position: absolute;
+  width: 90%;
+  height: 5px;
+  bottom: 10px;
+  transition: 1s;
+  z-index: -1;
+  @content;
+}
+
+// @mixin aHover {
+//   a:hover {
+//     @content
+//   }
+// }
+@mixin icHover {
+
+  //不寫&在hover後面會有空格導致無法運作
+  &:hover {
     @content;
   }
-  
-  // @mixin aHover {
-  //   a:hover {
-  //     @content
-  //   }
-  // }
-  @mixin icHover {
-  
-    //不寫&在hover後面會有空格導致無法運作
-    &:hover {
-      @content;
-    }
+}
+
+#homeTwoScreen {
+  width: 100%;
+  position: relative;
+  opacity: 1;
+  transition: all ease 1s;
+
+  overflow: hidden;
+
+  &.fixed {
+    position: fixed;
+    top: 0px;
+    z-index: 30;
+    opacity: 1;
+    transition: all ease .1s;
   }
-  
-  #homeTwoScreen {
+
+  @include flexStyle(center, center, column);
+
+  .top_group {
     width: 100%;
     position: relative;
     opacity: 1;
     transition: all ease 1s;
-    z-index: 30;
-    padding: 10px 0;
-    overflow: hidden;
-  
-    &.fixed {
-      position: fixed;
-      top: 0;
-      z-index: 30;
-      opacity: 1;
-      transition: all ease .1s;
-    }
-  
-    @include flexStyle(center, center, column);
-  
-    .top_group {
-      width: 100%;
-      position: relative;
-      opacity: 1;
-      transition: all ease 1s;
-      background-color: rgb(255, 255, 255);
-      z-index: 30;
-      @include flexStyle(space-evenly, center);
-  
-      .logo {
-        width: 20%;
-        display: block;
-        display: flex;
-        min-width: 200px;
-  
-        img {
-          width: 85%;
-          max-width: 100%;
-          height: auto;
-          margin-left: 7%;
-        }
+    background-color: rgb(255, 255, 255);
+
+    @include flexStyle(space-evenly, center);
+
+    .logo {
+      width: 20%;
+      display: block;
+      display: flex;
+      min-width: 200px;
+      padding: 10px 0;
+
+      img {
+        width: 85%;
+        max-width: 100%;
+        height: auto;
+        margin-left: 7%;
       }
-  
-      .navgroup {
-        width: 80%;
-        display: flex;
-        font-size: 1.2rem;
-        margin-left: 10%;
-        justify-content: center;
-        // border: 1px solid red;
-  
-  
-        .book,
-        .analysis,
-        .showbento,
-        .aboutus {
-          text-decoration: none;
-          width: 200px;
-          color: #000;
-          position: relative;
-  
-          @include icHover {
-            color: $orange;
-          }
-  
-          @include flexStyle(center, center);
-  
-          &:before {
-            content: "";
-            overflow: hidden;
-            position: absolute;
-            transform: translate3d(0, 0, 0);
-            // display: block;
-            left: 3%;
-            background-image: url(../../dest/images/header/faultc_01.png);
-            width: 50px;
-            height: 50px;
-            transition: .5s;
-          }
-  
+    }
+
+    .navgroup {
+      width: 80%;
+      display: flex;
+      font-size: 1.2rem;
+      margin-left: 10%;
+      justify-content: center;
+      // border: 1px solid red;
+
+
+      .book,
+      .analysis,
+      .showbento,
+      .aboutus {
+        text-decoration: none;
+        width: 200px;
+        color: #000;
+        position: relative;
+
+        @include icHover {
+          color: $orange;
+        }
+
+        @include flexStyle(center, center);
+
+        &:before {
+          content: "";
+          overflow: hidden;
+          position: absolute;
+          transform: translate3d(0, 0, 0);
+          // display: block;
+          left: 3%;
+          background-image: url(../../dest/images/header/faultc_01.png);
+          width: 50px;
+          height: 50px;
+          transition: .5s;
+        }
+
+        &:after {
+          content: "";
+          // display: block;
+          position: absolute;
+          left: 3%;
+          background-color: #fff;
+          width: 50px;
+          height: 50px;
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+
+
+        }
+
+        @include icHover {
+          //這邊的&也要加不然也會有空格
+
           &:after {
             content: "";
             // display: block;
@@ -110,20 +128,169 @@
             background-color: #fff;
             width: 50px;
             height: 50px;
+            transform: translate3d(0, -5vw, 0);
+            opacity: 1;
+            transition: .8s ease-out;
+          }
+        }
+
+
+      }
+
+      .showbento {
+        &:before {
+          left: -2%;
+        }
+
+        &:after {
+          left: -2%;
+        }
+
+        @include icHover {
+          &:after {
+            left: -2%;
+          }
+        }
+      }
+    }
+
+    .navgroup_rwd {
+      display: none;
+    }
+
+    .membergroup {
+      width: 30%;
+      display: flex;
+      font-size: 1.5rem;
+      justify-content: space-evenly;
+      align-items: center;
+
+      a {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #000;
+        position: relative;
+      }
+    }
+
+    // .btn_switch {
+    //   display: none;
+    // }
+
+    // @include aHover {
+    //   .span0,
+    //   .span1,
+    //   .span2,
+    //   .span3 {
+    //     height: 80px;
+    //   }
+    // }
+
+  }
+}
+
+@media (min-width: 576px) and (max-width: 1200px) {
+  #homeTwoScreen {
+    width: 100%;
+    position: relative;
+    opacity: 1;
+    transition: all ease 1s;
+
+
+    &.fixed {
+      position: fixed;
+      top: 0;
+      opacity: 1;
+      transition: all ease .1s;
+      // top: -10px;
+    }
+
+    @include flexStyle(center, center, column);
+
+    .top_group {
+      width: 100%;
+      position: relative;
+      opacity: 1;
+      transition: all ease 1s;
+      background-color: rgb(255, 255, 255);
+      z-index: 30;
+      @include flexStyle(space-evenly, center);
+
+      .logo {
+        width: 25%;
+        display: block;
+        display: flex;
+        min-width: 250px;
+        padding: 10px 0;
+
+        img {
+          width: 85%;
+          max-width: 100%;
+          height: auto;
+          margin-left: 7%;
+        }
+      }
+
+      .navgroup {
+        width: 80%;
+        display: flex;
+        font-size: 1.2rem;
+        margin-left: 10%;
+        justify-content: center;
+        // border: 1px solid red;
+
+
+        .book,
+        .analysis,
+        .showbento,
+        .aboutus {
+          text-decoration: none;
+          width: 200px;
+          color: #000;
+          position: relative;
+          margin-left: -50px;
+
+          @include flexStyle(center, center);
+
+          &:before {
+            content: "";
+            overflow: hidden;
+            position: absolute;
+            transform: translate3d(0, 0, 0);
+            // display: block;
+            left: 6%;
+            background-image: url(../../dest/images/header/faultc_01.png);
+            width: 50px;
+            height: 50px;
+            transition: .5s;
+            transform: scale(0.8);
+          }
+
+          &:after {
+            content: "";
+            // display: block;
+            position: absolute;
+            left: 6%;
+            background-color: #fff;
+            width: 50px;
+            height: 50px;
             transform: translate3d(0, 0, 0);
             opacity: 1;
-  
-  
+
+
           }
-  
+
           @include icHover {
             //這邊的&也要加不然也會有空格
-  
+
             &:after {
               content: "";
               // display: block;
               position: absolute;
-              left: 3%;
+              left: 0%;
               background-color: #fff;
               width: 50px;
               height: 50px;
@@ -132,34 +299,34 @@
               transition: .8s ease-out;
             }
           }
-  
-  
+
+
         }
-  
+
         .showbento {
           &:before {
-            left: -2%;
+            left: -3%;
           }
-  
+
           &:after {
-            left: -2%;
+            left: -3%;
           }
-  
+
           @include icHover {
             &:after {
-              left: -2%;
+              left: -3%;
             }
           }
         }
       }
-  
+
       .membergroup {
         width: 30%;
         display: flex;
         font-size: 1.5rem;
         justify-content: space-evenly;
         align-items: center;
-  
+
         a {
           text-decoration: none;
           display: flex;
@@ -168,13 +335,18 @@
           align-items: center;
           color: #000;
           position: relative;
+
+          img {
+            width: 25px;
+            height: 25px;
+          }
         }
       }
-  
+
       .btn_switch {
         display: none;
       }
-  
+
       // @include aHover {
       //   .span0,
       //   .span1,
@@ -183,174 +355,209 @@
       //     height: 80px;
       //   }
       // }
-  
+
     }
   }
-  
-  @media(max-width: 1200px) {
-    nav {
-      width: 100%;
+}
+
+@media (min-width: 375px) and (max-width: 576px) {
+  #homeTwoScreen {
+    justify-content: space-between;
+    /* margin-left: -5%; */
+    max-height: 110px;
+    z-index: 20;
+    overflow: visible;
+
+    .top_group {
       position: relative;
-      opacity: 1;
-      transition: all ease 1s;
-      z-index: 30;
-      padding: 10px 0;
-  
-      &.fixed {
-        position: fixed;
-        top: 0;
-        z-index: 30;
-        opacity: 1;
-        transition: all ease .1s;
-      }
-  
-      @include flexStyle(center, center, column);
-  
-      .top_group {
-        width: 100%;
+
+      .btn_switch {
+        display: flex;
+        /* width: 120px; */
         position: relative;
-        opacity: 1;
-        transition: all ease 1s;
-        background-color: rgb(255, 255, 255);
-        z-index: 30;
-        @include flexStyle(space-evenly, center);
-  
-        .logo {
-          width: 25%;
-          display: block;
+        z-index: 31;
+        justify-content: center;
+        cursor: pointer;
+        /* align-items: flex-start; */
+        height: 20px;
+        padding-top: 20px;
+
+        .bgl {
+          position: relative;
+          flex: none;
+          width: 30px;
+          height: 3px;
+          background: rgb(255, 93, 93);
           display: flex;
-          min-width: 250px;
-  
-          img {
-            width: 85%;
-            max-width: 100%;
-            height: auto;
-            margin-left: 7%;
-          }
-        }
-  
-        .navgroup {
-          width: 80%;
-          display: flex;
-          font-size: 1.2rem;
-          margin-left: 10%;
-          justify-content: center;
-          // border: 1px solid red;
-  
-  
-          .book,
-          .analysis,
-          .showbento,
-          .aboutus {
-            text-decoration: none;
-            width: 200px;
-            color: #000;
-            position: relative;
-            margin-left: -50px;
-  
-            @include flexStyle(center, center);
-  
-            &:before {
-              content: "";
-              overflow: hidden;
-              position: absolute;
-              transform: translate3d(0, 0, 0);
-              // display: block;
-              left: 6%;
-              background-image: url(../../dest/images/header/faultc_01.png);
-              width: 50px;
-              height: 50px;
-              transition: .5s;
-              transform: scale(0.8);
-            }
-  
-            &:after {
-              content: "";
-              // display: block;
-              position: absolute;
-              left: 6%;
-              background-color: #fff;
-              width: 50px;
-              height: 50px;
-              transform: translate3d(0, 0, 0);
-              opacity: 1;
-  
-  
-            }
-  
-            @include icHover {
-              //這邊的&也要加不然也會有空格
-  
-              &:after {
-                content: "";
-                // display: block;
-                position: absolute;
-                left: 0%;
-                background-color: #fff;
-                width: 50px;
-                height: 50px;
-                transform: translate3d(0, -5vw, 0);
-                opacity: 1;
-                transition: .8s ease-out;
-              }
-            }
-  
-  
-          }
-  
-          .showbento {
-            &:before {
-              left: 3%;
-            }
-  
-            &:after {
-              left: 3%;
-            }
-  
-            @include icHover {
-              &:after {
-                left: 3%;
-              }
-            }
-          }
-        }
-  
-        .membergroup {
-          width: 30%;
-          display: flex;
-          font-size: 1.5rem;
-          justify-content: space-evenly;
           align-items: center;
-  
-          a {
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #000;
-            position: relative;
-  
-            img {
-              width: 25px;
-              height: 25px;
+          justify-content: center;
+          transition: all 0.4s ease;
+        }
+
+        .bgl.bottom {
+          position: absolute;
+          z-index: 1;
+          top: 30px;
+          height: 3px;
+          background: inherit;
+          background: rgb(255, 93, 93);
+        }
+
+        .bgl.top {
+          position: absolute;
+          top: 10px;
+          /* background: blue; */
+          height: 3px;
+          z-index: 1;
+        }
+      }
+
+      .logo {
+        width: 45%;
+        margin-left: 10%;
+      }
+
+      .navgroup {
+        display: none;
+      }
+
+      .navgroup_rwd {
+        width: 100%;
+        display: flex;
+        font-size: 1.2rem;
+        // margin-left: 10%;
+        justify-content: space-evenly;
+        align-items: center;
+        opacity: 1;
+        z-index: 20;
+        background-color: rgba(0, 0, 0, 0.897);
+        height: 1000%;
+        flex-direction: column;
+        position: absolute;
+        left: -100%;
+        top: 80px;
+
+
+        .book,
+        .analysis,
+        .showbento,
+        .aboutus {
+          text-decoration: none;
+          width: 200px;
+          color: rgb(255, 255, 255);
+          position: relative;
+          // margin-left: 20%;
+          @include flexStyle(center, center);
+
+          &:before {
+            content: "";
+            overflow: hidden;
+            position: absolute;
+            transform: translate3d(0, 0, 0);
+            // display: block;
+            left: -10%;
+            background-image: url(../../dest/images/header/faultc_01.png);
+            width: 50px;
+            height: 50px;
+            transition: .5s;
+            transform: scale(0.8);
+          }
+
+          // &:after {
+          //   content: "";
+          //   // display: block;
+          //   position: absolute;
+          //   left: -10%;
+          //   // background-color: rgb(31, 31, 31);
+          //   width: 50px;
+          //   height: 50px;
+          //   transform: translate3d(0, 0, 0);
+          //   opacity: 1;
+          // }
+
+          @include icHover {
+            //這邊的&也要加不然也會有空格
+            color: rgb(253, 164, 112);
+
+            &:after {
+              content: "";
+              // display: block;
+              position: absolute;
+              left: 0%;
+              // background-color: #fff;
+              width: 50px;
+              height: 50px;
+              transform: translate3d(0, -5vw, 0);
+              opacity: 1;
+              transition: .8s ease-out;
             }
           }
         }
-  
-        .btn_switch {
-          display: none;
+      }
+
+      .membergroup {
+        width: 20%;
+
+        a {
+          padding: 0 5px;
+
+          img {
+            width: 25px;
+            height: 25px;
+          }
         }
-  
-        // @include aHover {
-        //   .span0,
-        //   .span1,
-        //   .span2,
-        //   .span3 {
-        //     height: 80px;
-        //   }
-        // }
-  
       }
     }
   }
+
+
+}
+
+
+
+.translateY {
+  top: 0px;
+  transform: rotate(135deg);
+
+}
+
+.turnX {
+  margin-top: 10px;
+  transform: rotate(45deg);
+}
+
+.turnN {
+  opacity: 0;
+}
+
+
+@keyframes openS {
+  0% {
+    left: -200;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes test1 {
+  0% {
+    margin-left: -200px;
+
+  }
+
+  100% {}
+}
+
+.open {
+  animation: openS ease-in 0.5s;
+  animation-fill-mode: both;
+
+
+}
+
+.test {
+  animation: test1 ease 1s 0.2s;
+  animation-fill-mode: both;
+}

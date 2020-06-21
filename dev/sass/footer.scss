@@ -1,41 +1,36 @@
-@import "./main";
+@import "./base/font";
+@import "./base/color";
+@import "./mixins/mixin";
 
-// .homeFooter{
-//     background-color:$grey;
-//     font-size:$fzContent;
-//     line-height: 50px;
-//     height: 50px;
-//     margin-top: -50px;
-//     padding: 0 5%;
-//     width: 100%;
-//     .homeFooterBox{
-//         margin: 0 auto;
-//         ul{
-//             li{
-//                 display:inline;
-//                 letter-spacing: 5px;
-//                 margin: 0 3%;
-//                 &:first-child{
-//                 letter-spacing: 2px;
-//                 float: left;
-//                 }
-//                 .homePhone{
-//                     letter-spacing: 2px;
-//                     float: right;
-//                     width: 24px;
-//                     height: auto;
-//                     z-index: 999;
-//                     top: 6px;
-//                     position: relative;
-//                     padding: 0 10px;
-//                 }
-//                 .homeAdd{
-//                     letter-spacing: 2px;
-//                     float: right;
-//                     width: 24px;
-//                     height: auto;
-//                 }
-//             }
-//         }
-//       }
-//     }
+.homeFooter {
+    background-color: $grey;
+    font-size: $fzContent;
+    line-height: 50px;
+    height: 50px;
+    margin-top: -50px;
+    padding: 0 5%;
+    width: 100%;
+
+    .homeFooterBox {
+        margin: 0 auto;
+        border: 1px solid red;
+
+        ul {
+            li {
+                display: inline;
+                border: 1px solid green;
+                letter-spacing: 5px;
+                margin: 0 3%;
+
+                &:first-child {
+                    border: 1px solid red;
+                    letter-spacing: 2px;
+                }
+
+                &:hover {
+                    color: #a5b7c6;
+                }
+            }
+        }
+    }
+}
