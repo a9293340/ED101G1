@@ -1,90 +1,107 @@
-@import "./main";
+@import "./base/font";
+@import "./base/color";
+@import "./mixins/mixin";
 
-.homeSection-3{
-  padding:0;
-  margin:0;
+.homeSection-3 {
+  padding: 0;
+  margin: 0;
   font-size: 0;
   height: 100vh;
+
   .homeBlackBoardContainer {
     max-width: 100%;
     width: 100%;
-    height:100%;
+    height: 100%;
     background-image: url("../images/homeHealth/homeBlackBoard.jpg");
-    .homeBlackBoardTit{
+
+    .homeBlackBoardTit {
       // border: 1px solid greenyellow;
       width: 1200px;
       // height: 100px;
       margin: 0 auto;
       padding-top: 2%;
-      h1{
-      width: 100%;
-      color: white;
-      margin: 10px auto;
-      font-size: $fzTitle;
-      letter-spacing: 5px;
-      text-align: left;
-      font-weight: 900;
+
+      h1 {
+        width: 100%;
+        color: white;
+        margin: 10px auto;
+        font-size: $fzTitle;
+        letter-spacing: 5px;
+        text-align: left;
+        font-weight: 900;
       }
-      p{
-      color:$white;
-      width: 100%;
-      font-size: $fzMd;
-      letter-spacing: 1px;
-      padding: 40px 0;
+
+      p {
+        color: $white;
+        width: 100%;
+        font-size: $fzMd;
+        letter-spacing: 1px;
+        padding: 40px 0;
       }
     }
-    .homeOrder{
+
+    .homeOrder {
       width: 1200px;
       margin: 0 auto;
       height: 50%;
       border-radius: 10px;
       border: 1px solid $white;
       box-shadow: 5px 5px 10px $black;
-      background:$white;
+      background: $white;
       opacity: 0.8;
       padding: 20px;
-      .homeNum,.homeSeparate,#numberTotal{
-      display: inline-block;
+
+      .homeNum,
+      .homeSeparate,
+      #numberTotal {
+        display: inline-block;
       }
-      .homeSeparate{
+
+      .homeSeparate {
         width: 10px;
       }
-      .homeQuestionTitle{
-      width: 100%;
-      // border: 1px solid red;
-      font-size:$fzSubtitle;
-      margin: auto;
-      text-align: left;
-      color:$green;
-      font-weight: 900;
-      margin: 3rem;
-    }
-    .homeQuesionBox{
-      color: $white;
-      font-size: 1rem;
-      padding: 30px 0;
-      .homeTest{
-      margin-left: 50px;
-      width: 200px;
-      display: inline-block;
-      color:$green;
-      font-size:$fzSubtitle;
-      font-weight: 900;
-      line-height: 26px;
-      .homeQinput{
-        width: 30px;
-        height: 30px;
-        border: 5px solid red;
-        background: $white;
-        .homeQcheck{
-          color:$yellow;
-        }
-       }
+
+      .homeQuestionTitle {
+        width: 100%;
+        // border: 1px solid red;
+        font-size: $fzSubtitle;
+        margin: auto;
+        text-align: left;
+        color: $green;
+        font-weight: 900;
+        margin: 3rem;
       }
-     }
+
+      .homeQuesionBox {
+        color: $white;
+        font-size: 1rem;
+        padding: 30px 0;
+
+        .homeTest {
+          margin-left: 50px;
+          width: 200px;
+          display: inline-block;
+          color: $green;
+          font-size: $fzSubtitle;
+          font-weight: 900;
+          line-height: 26px;
+
+          .homeQinput {
+            width: 30px;
+            height: 30px;
+            border: 5px solid red;
+            background: $white;
+
+            .homeQcheck {
+              color: $yellow;
+            }
+          }
+        }
+      }
     }
-    .homeTapBox{
-      .homeTapUp{
+
+    .homeTapBox {
+      .homeTapUp {
         // border: 1px solid yellow;
         position: relative;
         right: -250px;
@@ -92,9 +109,10 @@
         height: auto;
         top: -40vh;
         opacity: 1;
-       }
       }
-    .homeTwBoy{
+    }
+
+    .homeTwBoy {
       // border: 1px solid red;
       position: relative;
       right: -61%;
