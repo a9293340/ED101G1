@@ -56,7 +56,7 @@
                 <div id='rice'>
                         <div class="single_card" v-for="(item, index) in orderRice" >
                               
-                            <img :id="'riceimg'+item.spId"  :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
+                            <img :id="'riceimg'+item.spId" class="orderRicePic" :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
                             <div class="buy_name">{{item.spName}}</div>
                             <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
                             <div><p>Cal: {{item.spCalories}}</p></div>
@@ -81,7 +81,7 @@
                    <div id='meat'> 
                         <div class="single_card" v-for="(item, index) in orderMeat" > 
                               
-                            <img :id="'meatimg'+item.spId"  :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
+                            <img :id="'meatimg'+item.spId" class="orderRicePic"  :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
                             <div class="buy_name">{{item.spName}}</div>
                             <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
                             <div><p>Cal: {{item.spCalories}}</p></div>
@@ -104,7 +104,7 @@
                     <div id='single'>  
                           <div class="single_card" v-for="(item, index) in orderSingle" >
                        
-                              <img :id="'img'+item.spId"  :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
+                              <img :id="'img'+item.spId" class="orderRicePic"  :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
                               <div class="buy_name">{{item.spName}}</div>
                               <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
                               <div><p>Cal: {{item.spCalories}}</p></div>

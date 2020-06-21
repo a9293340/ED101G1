@@ -768,41 +768,72 @@ function ricescale(){
 
 //自選換頁
  function riceshow(){
+    if($(window).width() < 576){
+        document.getElementById('meat').style.display="none";
+        document.getElementById('single').style.display="none";
+        document.getElementById('rice').style.display="flex";
+        document.getElementById('rice').style.overflowY="hidden";
+        document.getElementById('rice').style.overflowx=" auto";
+        document.getElementById('rice').style.flexWrap="nowrap";
+        document.getElementById('rice').style.justifyContent="space-between";
+        document.getElementById('order_text').innerText="請選擇一道米飯";
+
+    }else{
     document.getElementById('meat').style.display="none";
     document.getElementById('single').style.display="none";
     document.getElementById('rice').style.display="flex";
-    // document.getElementById('rice').style.width="1200px";
-    // document.getElementById('rice').style.height="400px";
     document.getElementById('rice').style.overflowY="auto";
     document.getElementById('rice').style.overflowx=" hidden";
     document.getElementById('rice').style.flexWrap="wrap";
     document.getElementById('rice').style.justifyContent="space-between";
     document.getElementById('order_text').innerText="請選擇一道米飯";
+    }
 }
 function meatshow(){
+    if($(window).width() < 576){
+        document.getElementById('rice').style.display="none";
+        document.getElementById('single').style.display="none";
+        document.getElementById('meat').style.display="flex";
+        document.getElementById('meat').style.overflowY="hidden";
+        document.getElementById('meat').style.overflowx=" auto";
+        document.getElementById('meat').style.flexWrap="nowrap";
+        document.getElementById('meat').style.justifyContent="space-between";
+        document.getElementById('order_text').innerText="請選擇一道主食";
+    }else{
     document.getElementById('rice').style.display="none";
     document.getElementById('single').style.display="none";
     document.getElementById('meat').style.display="flex";
-    // document.getElementById('meat').style.width="1200px";
-    // document.getElementById('meat').style.height="400px";
     document.getElementById('meat').style.overflowY="auto";
     document.getElementById('meat').style.overflowx=" hidden";
     document.getElementById('meat').style.flexWrap="wrap";
     document.getElementById('meat').style.justifyContent="space-between";
     document.getElementById('order_text').innerText="請選擇一道主食";
+    }
 }
 function singleshow(){
+    if($(window).width() < 576){
+        
     document.getElementById('meat').style.display="none";
     document.getElementById('rice').style.display="none";
     document.getElementById('single').style.display="flex";
-    // document.getElementById('single').style.width="1200px";
-    // document.getElementById('single').style.height="400px";
-    document.getElementById('single').style.overflowY="auto";
-    document.getElementById('single').style.overflowx=" hidden";
-    document.getElementById('single').style.flexWrap="wrap";
+    document.getElementById('single').style.overflowY="hidden";
+    document.getElementById('single').style.overflowx=" auto";
+    document.getElementById('single').style.flexWrap="nowrap";
     document.getElementById('single').style.justifyContent="space-between";
     document.getElementById('order_text').innerText="請任選三道配菜(可重複)";
-   
+    }else{
+        document.getElementById('meat').style.display="none";
+        document.getElementById('rice').style.display="none";
+        document.getElementById('single').style.display="flex";
+        document.getElementById('single').style.overflowY="auto";
+        document.getElementById('single').style.overflowx=" hidden";
+        document.getElementById('single').style.flexWrap="wrap";
+        document.getElementById('single').style.justifyContent="space-between";
+        document.getElementById('order_text').innerText="請任選三道配菜(可重複)";
+       }
+
+
+
 }
 
 
