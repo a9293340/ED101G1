@@ -603,25 +603,24 @@ $animationDuration: 1.5s;
       }
     }
   }
-
   .homeTextBox {
     max-width: 100% !important;
     left: 0% !important;
     margin: 0 2rem;
-    top: 40% !important;
+    top: 44% !important;
 
     .homeSelectBox {
       position: relative;
       .homeControl-btn-Delivery-xs {
         //外送 Bbutton
-        top: 170px !important;
-        left: 0px !important;
+        top: 150px !important;
+        left: 30px !important;
       }
 
       .homeControl-btn-Takeaway-xs {
         //外帶 Bbutton
-        left: 0 !important;
-        top: 105px !important;
+        left: 25px !important;
+        top: 85px !important;
       }
     }
 
@@ -629,29 +628,27 @@ $animationDuration: 1.5s;
     h2 {
       font-size: $fzSubtitle !important;
     }
-
     h2 {
-      margin-bottom: -10px;
+      margin-bottom: 10px;
     }
-
     .tab-content {
-      .homeCalendar {
-        left: 10px;
+      .homeCalendar-xs {
+        left: 15px;
       }
 
       .homeDate-xs {
         right: 0 !important;
-        width: 100% !important;
+        width: 75% !important;
       }
 
-      .homeGps {
-        top: 0 !important;
-        left: 10px;
+      .homeGps-xs {
+        top: 5px !important;
+        left: 15px;
       }
 
       .homeAdd-xs {
         top: -30px !important;
-        width: 100% !important;
+        width: 75% !important;
         left: 0;
       }
     }
@@ -660,10 +657,14 @@ $animationDuration: 1.5s;
       //外送 input 高度增高為160px
       height: 160px !important;
     }
+    .homeHeight-100-xs {
+      //外帶 input 高度增高為100px
+      height: 100px !important;
+    }
   }
-
   .homeMouse {
-    top: -80px;
+    // top: -80px;
+    display: none;
   }
 }
 

@@ -27,7 +27,7 @@
             <div class="homeLove-Fish loveElement-Fish"></div>
             <div class="homeLove-Pg loveElement-Pg"></div>
             <div class="homeLove-Gt loveElement-Gt"></div>
-            <div class="homeCoverflow element-animation">
+            <div class="homeCoverflow homeCoverflow-xs">
                 <a href="#">
                     <img src="./images/homeFirst/homeFoodPg.png"></a>
                 <a href="#">
@@ -44,23 +44,23 @@
             <div class="homeRow">
                 <div class="homeCol">
                     <div class="homeSelectBox">
-                        <input class="tab" id="tab1" type="radio" name="group1" checked="checked" />
+                        <input class="tab" id="tab1" type="radio" name="group1"  />
                         <label for="tab1" class="homeDelivery">外送</label>
-                        <input class="tab" id="tab2" type="radio" name="group1" />
+                        <input class="tab" id="tab2" type="radio" name="group1"  checked="checked" />
                         <label for="tab2" class="homeTakeaway">外帶</label>
                         <!-- 外送表單 -->
-                        <div class="homeTab-pane fade tab-content">
+                        <div class="homeTab-pane fade tab-content homeHeight-160-xs">
                             <form action="#">
-                                <div class="homeCalendar" style="position: relative;top:10px;z-index:2;color:#ff6347;background-image: url(./images/homeFirst/homeCalendar.png); width:24px;height:24px;"></div>
+                                <div class="homeCalendar homeCalendar-xs" style="position: relative;top:10px;z-index:2;color:#ff6347;background-image: url(./images/homeFirst/homeCalendar.png); width:24px;height:24px;"></div>
                                 <!-- 日曆 -->
-                                <input type="text" id="datepicker" placeholder="送達日期"
+                                <input type="text" id="datepicker" placeholder="送達日期"  class="homeDate-xs"
                                     style="right:180px;position: relative;padding: 1rem;border-radius: 7px;border: 0;z-index:1;padding-left:40px;top:-24px;">
                                 <!-- end 日曆 -->
                                 <div class="icon">
-                                    <div class="homeGps"
+                                    <div class="homeGps homeGps-xs"
                                         style="position: relative;right:-250px;z-index:2;top:-60px;color:#ff6347;background-image: url(./images/homeFirst/homeGps.png);width:24px;height:24px;"></div>
                                 </div>
-                                <input type="text" placeholder="輸入您的地址"
+                                <input type="text" placeholder="輸入您的地址" class="homeAdd-xs"
                                     style="right:-70px;position: relative;padding: 1rem;border-radius: 7px;border: 0;z-index:1;padding-left:40px;top:-95px;">
                                 <button type="submit" class="homeControl-btn homeControl-btn-Delivery-xs"
                                     style="padding: 0.8rem 1rem;color: #fff;background: #ff6347;border-radius: 5px;display: block;border: 1px solid #ff6347;font-weight: 400;position: absolute;top: 25px;left: 500px;z-index: 99;font-size: 1rem;">前往訂餐</button>
@@ -68,12 +68,12 @@
                         </div>
                         <!-- end 外送表單 -->
                         <!-- 外帶表單 -->
-                        <div class="homeTab-pane fade tab-content">
+                        <div class="homeTab-pane fade tab-content homeHeight-100-xs">
                             <form action="#">
-                                <div class="homeCalendar"
+                                <div class="homeCalendar homeCalendar-xs"
                                     style="position: relative;right:-10px;top:12px;z-index:2;color:#ff6347;background-image: url(./images/homeFirst/homeCalendar.png);width:24px;height:24px;"></div>
                                 <!-- 日曆 -->
-                                <input type="text" id="datepickerTakeway" placeholder="取餐日期"
+                                <input type="text" id="datepickerTakeway" placeholder="取餐日期" class="homeDate-xs"
                                     style="right:60px;position: relative;padding: 1rem;border-radius:7px;border: 0;z-index:1;padding-left:50px;width:70%;top:-25px;">
                                 <!-- end 日曆 -->
                                 <button type="submit" class="homeControl-btn homeControl-btn-Takeaway-xs"
