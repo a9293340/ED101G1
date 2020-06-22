@@ -2859,7 +2859,7 @@ svg {
   height: 2rem;
   margin: 0 0.5rem;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 2px solid black;
   cursor: pointer;
 }
 
@@ -2870,7 +2870,7 @@ svg {
   top: 50%;
   width: 1.2rem;
   height: 1.2rem;
-  background: #fff;
+  background: black;
   border-radius: 50%;
   transition: transform 0.3s;
   transform: translate(-50%, -50%) scale(0);
@@ -2928,6 +2928,7 @@ svg {
 
 .slide:nth-child(1) .slide__bg {
   left: 0;
+
   background-image:url("../images/homepage/four_bg.png");
   background-position: bottom;
   // transform:scale(0.5) ;
@@ -3025,27 +3026,68 @@ svg {
   height: 100%;
   color: black;
   display: flex;
+  position: relative;
 
   .slider_1_left{
     // border: 1px solid red;
-   flex: 1;
-   
+  //  flex: 1;
   
+  .location{
+    background-image: url("../images/homepage/location.png");
+    width: 110px;
+    height: 160px;
+    background-size: cover;
+    position: absolute;
+    transform: scale(0.3);
+    left: 190px;
+    top: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .lada{
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      animation: lada 3s ease-out infinite alternate;
+    }
+  }
+  }
+  .slider_1_right_bg{
+     overflow: hidden;
+    //  width: 1020px;
+     position: relative;
+     right: -448px;
+    //  z-index: -1;
   }
   .slider_1_right{
-    // border: 1px solid yellow;
     height: 480px;
-    position: absolute;
-    width: 500px;
-    right: 0;
+    position: relative;
+    width: 1160px;
+    // right: 440px;
+    background-image: url("../images/homepage/driver_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    // animation: bgcity 5s ;
+  }
+  .slider_1_right.driver{
+    // border: 1px solid yellow;
+    height: 344px;
+    position: relative;
+    width: 382px;
+    right: -200px;
+    bottom: 346px;
     background-image: url("../images/homepage/driver.png");
     background-size: cover;
-    &.driver{
-      position: absolute;
-      // background-color: red;
+    background-repeat: no-repeat;
+    animation: driver linear 6s infinite;
+    // &.driver{
+    //   position: absolute;
+    //   // background-color: red;
       
 
-    }
+    // }
   }
      
 }
@@ -3156,6 +3198,113 @@ svg {
   -webkit-transform: rotateX(0);
   transform: rotateX(0);
 }
+// @keyframes bgcity{
+//   from{
+//     right: 0px;
+//   }
+//   to{
+//     right: 1200px;
+//   }
+// }
+@keyframes driver{
+  from{
+    right: 370px;
+  }
+  to{
+    right: -1200px;
+  }
+};
+@keyframes lada{
+  from{
+    width: 25px;
+    height: 25px;
+    background-color: rgba(236, 54, 54, 1);
+  }
+  to{
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background-color: rgba(236, 54, 54, .5);
+  }
+};
 
+@media (min-width: 1000px) and (max-width: 1200px){
 
+  .slide__content{
+    .slider_1_left{
+      // border: 1px solid red;
+    //  flex: 1;
+    .location{
+      background-image: url("../images/homepage/location.png");
+      width: 110px;
+      height: 160px;
+      background-size: cover;
+      position: absolute;
+      transform: scale(0.3);
+      left: 95px;
+      top: 235px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .lada{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+        animation: lada 3s ease-out infinite alternate;
+      }
+    }
+    
+   .slider_1_right_bg{
+     overflow: hidden;
+    //  width: 1020px;
+     position: relative;
+     right: -266px;
+    //  z-index: -1;
+    .slider_1_right{
+    height: 514px;
+    position: relative;
+    width: 1160px;
+    right: 440px;
+    // background-image: url("../images/homepage/driver_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    // animation: bgcity 5s ;
+  }
+  .slider_1_right.driver{
+    // border: 1px solid yellow;
+    height: 310px;
+    position: relative;
+    width: 341px;
+    right: -200px;
+    bottom: 346px;
+    background-image: url("../images/homepage/driver.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: driver 5s infinite;
+    // &.driver{
+    //   position: absolute;
+    //   // background-color: red;
+      
+
+    // }
+  }
+  }
+  
+  }
+  @keyframes lada{
+    from{
+      width: 25px;
+      height: 25px;
+      background-color: rgba(236, 54, 54, 1);
+    }
+    to{
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background-color: rgba(236, 54, 54, .5);
+    }
+}
+  }}
 // ---------------------------------------------------------------home_am.scss
