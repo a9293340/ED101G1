@@ -130,7 +130,7 @@
             <img src="./images/member/memFileUse.png" alt="" class="memGoGoTestQuickly">
         </div>
         <div class="memContent memContentNone" id="memContentOrder">
-            <div class="memOrderBox" v-for="item in memOrder">
+            <div class="memOrderBox" v-for="item in memOrder" v-if='memOrder.length >= 1'>
                 <div class="memOrderInfo">
                     <p class="memOrderNum">訂單編號：{{item.orderId}}</p>
                     <div class="memOrderSta">
@@ -181,6 +181,7 @@
                     <div class="memOrderGoToListBtn" :data-order='item.orderId' @click='showOrderList'>查看訂單</div>
                 </div>
             </div>
+            <div class="memOrderBox" v-if='memOrder.length == 0'>您尚未有任何訂單喔，<a href="./health.html">快來買吧！</a></div>
         </div>
         <div class="memContent memContentNone" id="memContentFile">
             <div class="memFileBox">
@@ -341,7 +342,7 @@
                         <div class="memOrderListRealSomething">
                             <p>自選便當</p>
                             <p class="memFontSmall">規格:{{single.soRice}}/{{single.sideDishes1}}/{{single.sideDishes2}}/{{single.sideDishes3}}/{{single.mainfood}}</p>
-                            <p class="memFontSmall">X {{single.soAmount}}</p>
+                            <p class="memFontSmall">數量： {{single.soAmount}}</p>
                         </div>
                     </div>
                     <p class="memOrderPirceShow">${{single.soPrice}}</p>
@@ -352,7 +353,7 @@
                         <div class="memOrderListRealSomething">
                             <p v-if='set.setClass == 0'>經典便當-{{set.setName}}</p>
                             <p v-if='set.setClass == 1'>季節便當-{{set.setName}}</p>
-                            <p class="memFontSmall">X {{set.setoAmount}}</p>
+                            <p class="memFontSmall">數量： {{set.setoAmount}}</p>
                         </div>
                     </div>
                     <p class="memOrderPirceShow">${{set.setoPrice}}</p>
@@ -362,7 +363,7 @@
                         <img :src="other.opImage">
                         <div class="memOrderListRealSomething">
                             <p>{{other.opName}}</p>
-                            <p class="memFontSmall">X {{other.ooAmount}}</p>
+                            <p class="memFontSmall">數量： {{other.ooAmount}}</p>
                         </div>
                     </div>
                     <p class="memOrderPirceShow">${{other.ooPrice}}</p>

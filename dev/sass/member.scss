@@ -310,6 +310,7 @@ $bgcgrey: #c4c0c0;
                     }
                     .memOrderPirceShow{
                         // border: 1px solid red;
+                        margin-top: 40px;
                         @include fontStyle($black,1.4rem);
                     }
                 }
