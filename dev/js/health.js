@@ -36,9 +36,9 @@ function doFirst() {
             },
             {
                 "examTitle": "請問您每日的飲水情況？",
-                "option1": "500 cc以下",
-                "option2": "500~1400 cc",
-                "option3": "1400以上",
+                "option1": "500cc 以下",
+                "option2": "500~1400cc",
+                "option3": "1400cc 以上",
                 "optionNum1": 10,
                 "optionNum2": 50,
                 "optionNum3": 100

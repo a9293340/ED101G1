@@ -117,6 +117,9 @@ div.overlay {
             
 
     }
+    button.btnClose{
+        cursor: pointer;
+    }
 }
 
 
@@ -201,14 +204,17 @@ p.separate,
 
 #questionOptions {
     #a1:hover {
+        cursor: pointer;
         background-color: #ffd23f;
     }
 
     #a2:hover {
+        cursor: pointer;
         background-color: #ffd23f;
     }
 
     #a3:hover {
+        cursor: pointer;
         background-color: #ffd23f;
     }
 
@@ -616,6 +622,9 @@ ul.bento {
             width: 50px;
             margin: auto;
         }
+        button.btnClose{
+            cursor: pointer;
+        }
     }
 
 
@@ -653,6 +662,9 @@ ul.bento {
     p.btn{
         width: 50px;
         margin: auto;
+    }
+    button.btnClose{
+        cursor: pointer;
     }
    }
 }
