@@ -697,6 +697,7 @@ $(function () {
 
 <<<<<<< HEAD
 //塞進購物車
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 // function showbentonShoppingCart() {
@@ -719,6 +720,9 @@ $(function () {
 // }
 =======
 >>>>>>> 034d54ea1818969cc1b5af8bb8b0d85df129c8a6
+=======
+
+>>>>>>> show
 function showbentonShoppingCart() {
   showbentonOrderList = {
     sNum: `${singleNum}`,
