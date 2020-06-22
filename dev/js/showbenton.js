@@ -462,6 +462,8 @@ $(function () {
         $(".showbentonCover").css("display", "none");
       },
     },
+
+    //引入會員
     mounted() {
       // ajax memData
       //FROM DB
@@ -473,6 +475,7 @@ $(function () {
 });
 
 //塞進購物車
+
 function showbentonShoppingCart() {
   showbentonOrderList = {
     sNum: `${singleNum}`,
