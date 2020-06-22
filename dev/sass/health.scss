@@ -20,8 +20,7 @@ div.wrapper {
     border: 1px solid red;
     width: 100%;
     min-width: 1200px;
-    
-
+    min-height: calc(100vh - 50px); // footer置底
 }
 
 .content {
