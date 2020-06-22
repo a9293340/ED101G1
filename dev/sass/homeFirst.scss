@@ -556,8 +556,13 @@ $animationDuration: 1.5s;
 
 // --------------------手機板
 @media (min-width:1200px){
-  a{
-    color: red;
+  .homeSection-3 {
+     .homeBlackBoardContainer{
+       padding: 0 2%;
+       .homeIceOne{
+         left: 120px;
+       }
+     } 
   }
 }
 @media (min-width: 375px) and (max-width: 576px) {
