@@ -1,10 +1,13 @@
 <div id="list">
-  <div class="ordercart">
+  <div class="ordercart" id="ordercart">
+    <span id="orderCartClose" onclick="orderclose()">X</span>
     <h3>自選便當</h3>
     <div class="selfbenton" v-for="(item, index) in finalsinglelist">
       <span :id="'b'+item.sNum" :data-num="item.sNum">
-        <img src="../../dest/images/showbenton/close.png" alt="">
+        <img class="orderclose" src="./images/showbenton/close.png" alt=""> 
       </span>
+      <div class="selfbento_box">
+        <div class="selimg"><img src="https://fakeimg.pl/100/" width="102" height="102"></div>
       <table>
         <tr>
           <td>{{item.rice}}</td>
@@ -42,10 +45,12 @@
         </tr>
       </table>
     </div>
+    </div>
     <h3>經典便當</h3>
     <div class="classicalbento" v-for="(item, index) in finalsetdolist">
-      <span :id="'setdodelete'+ item.setdoId" :data-num="item.setdoId"><img src="../../dest/images/showbenton/close.png"
-          alt=""></span>
+      <span :id="'setdodelete'+ item.setdoId" :data-num="item.setdoId"><img class="orderclose" src="./images/showbenton/close.png" alt=""></span>
+          <div class="other_box">
+            <div class="selimg"><img :src="item.setdoImg" width="102" height="102"></div>  
       <table>
         <tr>
           <td>{{item.setdoName}}</td>
@@ -55,10 +60,12 @@
         </tr>
       </table>
     </div>
+    </div>
     <h3>其他商品</h3>
     <div class="otherproduct" v-for="(item, index) in finalorderlist">
-      <span :id="'orderdelete'+item.otherId" :data-num="item.otherId"><img src="../../dest/images/showbenton/close.png"
-          alt=""></span>
+      <span :id="'orderdelete'+item.otherId" :data-num="item.otherId"><img class="orderclose" src="./images/showbenton/close.png" alt=""></span>
+          <div class="other_box">
+            <div class="selimg"><img :src="item.otherImg" width="102" height="102"></div>  
       <table>
         <tr>
           <td>{{item.otherName}}</td>
@@ -67,11 +74,12 @@
           <td>x{{item.otherMany}}</td>
         </tr>
       </table>
+      </div>
     </div>
     <div class="finaltotal">
       <div class="total">總價：</div>
       <div class="price">123元</div>
     </div>
-    <div class="buy">立即結帳</div>
+    <button class="buy">立即結帳</button>
   </div>
 </div>

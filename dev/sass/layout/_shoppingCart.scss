@@ -4,13 +4,14 @@
 
 .ordercart {
   position: fixed;
-  right: 0;
+  right: 0; 
   top: 0;
   width: 350px;
   height: 100%;
   background-color: rgb(225, 226, 138);
   overflow-y: scroll;
   padding: 10px;
+  z-index: 5;
 
   .selfbenton,
   .classicalbento,
@@ -30,34 +31,48 @@
     &:hover {
       box-shadow: 3px 3px 10px #000;
       cursor: pointer;
-    }
+ }
+    .selfbento_box{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      .selimg{ 
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
 
-    &::before {
-      content: "";
-      width: 100px;
-      height: 100px;
-      border: 1px solid #000;
-      position: absolute;
-      left: 10px;
+      }}  
+      .other_box{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        
+        .selimg{
+          width: 100px;
+          height: 100px;
+          // border: 1px solid #000;
+          margin-bottom: 25px;
+        }
+      }
+    
+   
 
-
-    }
+    // &::before {
+    //   content: "";
+    //   width: 100px;
+    //   height: 100px;
+    //   border: 1px solid #000;
+    //   position: absolute;
+    //   left: 10px;
+    // }
   }
 
   h3 {
     margin-top: 15px;
   }
 
-  img {
-    width: 20px;
-    height: 20px;
-    transition: .5s;
-
-    &:hover {
-      transform: rotate(360deg);
-      content: url(../../../dest/images/homepage/close_red.png);
-    }
-  }
 
   .selfbenton {
     // display: flex;
@@ -96,7 +111,7 @@
     margin-top: 5%;
 
     span {
-      margin-bottom: 5%;
+      margin-bottom: -5%;
     }
 
     table {
@@ -133,5 +148,16 @@
     &:hover {
       background-color: rgb(218, 148, 68);
     }
+  }
+}
+
+.orderclose {
+  width: 20px;
+  height: 20px;
+  transition: .5s;
+
+  &:hover {
+    transform: rotate(360deg);
+    content: url(../images/homepage/close_red.png);
   }
 }

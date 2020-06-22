@@ -555,6 +555,11 @@ $animationDuration: 1.5s;
 
 
 // --------------------手機板
+@media (min-width:1200px){
+  a{
+    color: red;
+  }
+}
 @media (min-width: 375px) and (max-width: 576px) {
   .eff {
     background-position: bottom;
@@ -2256,7 +2261,10 @@ $contentFadeinAT: 0.5s;
     }
 
     &__index {
-      @include fontPos {}
+      @include fontPos {
+        line-height: 25;
+        font-size: 24px;
+      }
 
 
 
@@ -2328,7 +2336,7 @@ $contentFadeinAT: 0.5s;
 
     &__index.left {
       text-align: left;
-      margin-left: 5%;
+      margin-left: 0%;
     }
 
     &__index.mid {
@@ -2337,7 +2345,7 @@ $contentFadeinAT: 0.5s;
 
     &__index.right {
       text-align: right;
-      margin-left: -5%;
+      margin-left: 0%;
     }
 
     @for $i from 0 to $numOfEls {
@@ -2920,8 +2928,9 @@ svg {
 
 .slide:nth-child(1) .slide__bg {
   left: 0;
-  background-image: url("https://i.picsum.photos/id/155/200/300.jpg?hmac=nG5WHfEXcJmld5FbH0N9bGciE9a57S0bgIHHTpxag7o");
-  background-position: center;
+  background-image:url("../images/homepage/four_bg.png");
+  background-position: bottom;
+  // transform:scale(0.5) ;
 }
 
 .slide:nth-child(1) .slide__overlay-path {
@@ -2940,7 +2949,8 @@ svg {
 
 .slide:nth-child(2) .slide__bg {
   left: -50%;
-  background-image: url("https://i.picsum.photos/id/155/200/300.jpg?hmac=nG5WHfEXcJmld5FbH0N9bGciE9a57S0bgIHHTpxag7o");
+  background-image:
+  url("https://i.picsum.photos/id/155/200/300.jpg?hmac=nG5WHfEXcJmld5FbH0N9bGciE9a57S0bgIHHTpxag7o");
 
 }
 
@@ -3013,6 +3023,31 @@ svg {
   left: 0;
   width: 100%;
   height: 100%;
+  color: black;
+  display: flex;
+
+  .slider_1_left{
+    // border: 1px solid red;
+   flex: 1;
+   
+  
+  }
+  .slider_1_right{
+    // border: 1px solid yellow;
+    height: 480px;
+    position: absolute;
+    width: 500px;
+    right: 0;
+    background-image: url("../images/homepage/driver.png");
+    background-size: cover;
+    &.driver{
+      position: absolute;
+      // background-color: red;
+      
+
+    }
+  }
+     
 }
 
 /* .slide__overlay {

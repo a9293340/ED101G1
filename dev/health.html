@@ -13,7 +13,6 @@
 <body>
     @@include('./layout/header.html',{})
     <div class="wrapper">
-
         <div class="content" id="exam">
             <h1 class="title">便當健康吃</h1>
             <p class="title2">此問卷以生活作習、目前體質及腸胃狀況之隨機題庫，依據您目前的健康狀態，提供適合您的便當類型喔!趕快來測驗吧!</p>
@@ -43,9 +42,12 @@
                 <label>請輸入您的體重</label>
                 <input type="text" name=" weight" id="weight"><br>
                 <p class="resultTitle">BMI
-                <p id="result"></p>
+
+                <p id="result">
+                <p class="btn"><button type="button" class="btnClose">送出</button></p>
                 </p>
-                <button type="button" class="btnClose">送出</button>
+
+
             </div>
         </div>
         <!-- 以下為測驗結果 -->
@@ -53,13 +55,13 @@
             <div class="content">
                 <h1 class="title1">健康自己看</h1>
                 <p class="title3"></p>
-                <ul class="mainFood" id="mainFood">
-
-                </ul>
+                <p class="healMainFood">米飯 ＆ 主食</p>
+                <ul class="mainFood" id="mainFood"></ul>
+                <p class="healCooks">配菜</p>
                 <ul class="cooks" id="cooks">
 
                 </ul>
-
+                <p class="healBento">完整便當圖</p>
                 <ul class="bento">
                     <li><img src="https://via.placeholder.com/200.png/09f/fff"></li>
                     <li class="dish" id="dish"></li>
