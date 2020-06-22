@@ -325,6 +325,9 @@ new Vue({
 
       //物件塞進陣列
       this.bentonArray.push(step2Package);
+      $("#Step2TitlText").empty();
+      $("#Step2ContentText").val("");
+
       $(".box1").css("display", "none");
       $(".showbentonCover").css("display", "none");
       this.showBentonImgList = true;
@@ -466,6 +469,20 @@ $(function () {
         $(".showBentonContentbox").css("display", "none");
         $(".showbentonCover").css("display", "none");
       },
+      change(e) {
+        let num = Number(e.target.dataset.num);
+        if (e.target.dataset.check == "0") {
+          e.target.src = "./images/showbenton/like1.png";
+          console.log("aaa");
+          this.bentonArray[num].liketimes += 1;
+          e.target.dataset.check = "1";
+        } else if (e.target.dataset.check == "1") {
+          e.target.src = "./images/showbenton/like.png";
+          console.log("bbb");
+          this.bentonArray[num].liketimes -= 1;
+          e.target.dataset.check = "0";
+        }
+      },
     },
     mounted() {
       // ajax memData
@@ -477,6 +494,7 @@ $(function () {
   });
 });
 
+<<<<<<< HEAD
 //塞進購物車
 
 // function showbentonShoppingCart() {
@@ -498,6 +516,8 @@ $(function () {
 //   setcart();
 // }
 
+=======
+>>>>>>> show
 function showbentonShoppingCart() {
   showbentonOrderList = {
     sNum: `${singleNum}`,
@@ -528,3 +548,5 @@ function getNowFormat() {
 
   return `${year}-${month}-${date} ${hour}:${minutes}:${seconds}`;
 }
+
+//輸入發文標題、內文的預設
