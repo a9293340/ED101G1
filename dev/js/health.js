@@ -288,7 +288,7 @@ function doFirst() {
             return;
         } else {
             healthTitle.innerHTML = `
-            您屬於<h3>幸褔樂樂型</h3> 請繼續保持下去唷，詳細的健康分析請點擊<a id="healthBody"
+            您屬於<h3>幸褔樂樂型</h3> 請繼續保持下去唷!詳細的健康分析請點擊<a id="healthBody"
             href="#">健康檔案</a>觀看，以下是我們推薦的餐點
             `
             console.log('快樂')
