@@ -33,7 +33,7 @@
   overflow: hidden;
 
   &.fixed {
-    position: fixed;
+    position: fixed;  
     top: 0px;
     z-index: 30;
     opacity: 1;
@@ -165,7 +165,7 @@
       justify-content: space-evenly;
       align-items: center;
 
-      a {
+      #shoppingcart,#member{
         text-decoration: none;
         display: flex;
         flex-direction: column;
@@ -173,6 +173,11 @@
         align-items: center;
         color: #000;
         position: relative;
+        cursor: pointer;
+        // img {
+        //   width: 25px;
+        //   height: 25px;
+        // }
       }
     }
 
@@ -327,7 +332,7 @@
         justify-content: space-evenly;
         align-items: center;
 
-        a {
+        #shoppingcart,#member{
           text-decoration: none;
           display: flex;
           flex-direction: column;
@@ -335,11 +340,11 @@
           align-items: center;
           color: #000;
           position: relative;
-
-          img {
-            width: 25px;
-            height: 25px;
-          }
+          cursor: pointer;
+          // img {
+          //   width: 25px;
+          //   height: 25px;
+          // }
         }
       }
 
