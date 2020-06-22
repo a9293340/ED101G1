@@ -257,8 +257,9 @@ $bgcgrey: #c4c0c0;
             box-shadow: 3px 3px 30px rgba(0, 0, 0, .3);
             background-color: #f8f7ea;
             .memOrderInfo{
+                // border: 1px solid red;
                 @include flexStyle(space-between,center);
-                width: 100%;
+                width: 90%;
                 .memOrderNum{
                     @include fontStyle($grey,1.2rem);
                 }
@@ -266,9 +267,10 @@ $bgcgrey: #c4c0c0;
                     @include flexStyle(space-between,center);
                     img{
                         margin-right: 10px;
+                        width: 18px;
                     }
                     p{
-                        @include fontStyle($grey,1.4rem);
+                        @include fontStyle($green,1.4rem);
                     }
                 }
             }
@@ -288,7 +290,7 @@ $bgcgrey: #c4c0c0;
                     }
                     .memFlexRight{
                         // border: 1px solid red;
-                        @include flexStyle(flex-start,center);
+                        @include flexStyle(flex-start,flex-start);
                         overflow: hidden;
                         height: 130px;
                         width: 90%;
@@ -307,7 +309,8 @@ $bgcgrey: #c4c0c0;
                         }
                     }
                     .memOrderPirceShow{
-                        @include fontStyle($black,1.2rem);
+                        // border: 1px solid red;
+                        @include fontStyle($black,1.4rem);
                     }
                 }
             }
@@ -387,11 +390,14 @@ $bgcgrey: #c4c0c0;
             border-radius: 10px;
             // border: 1px solid $memgrey;
             padding: 20px 40px;
+            padding-bottom: 0;
             margin: 30px 0;
+            margin-bottom: 0;
             box-shadow: 3px 3px 30px rgba(0, 0, 0, .1);
             background-color: #f8f7ea;
             .memHealthContentInfoBox{
                 width: 60%;
+                // border: 1px solid red;
                 @include flexStyle(center,flex-start,column);
                 p{
                     @include fontStyle($memgrey);
@@ -402,10 +408,15 @@ $bgcgrey: #c4c0c0;
                 .memHealthImgAndIntrudBox{
                     @include flexStyle(flex-start,center);
                     margin: 10px 0;
+                    // margin-bottom: 0;
+                    // border: 1px solid red;
+                    height: 150px;
+                    overflow: hidden;
                     width: 100%;
                     img{
-                        // width: 30%;
-                        width: 120px;
+                        margin-top: 100px;
+                        width: 40%;
+                        // width: 120px;
                     }
                     .memHealthIntruBox{
                         @include flexStyle(flex-start,flex-start,column);
@@ -413,8 +424,9 @@ $bgcgrey: #c4c0c0;
                         h2{
                             @include fontStyle($memgrey,1.2rem);
                             span{
-                                @include fontStyle($black,1.4rem);
+                                @include fontStyle($black,2rem);
                             }
+                            margin-bottom: 5px;
                         }
                         p{
                             @include fontStyle($memgrey,1rem);
@@ -428,18 +440,21 @@ $bgcgrey: #c4c0c0;
             .memHealthContentGoToListBox{
                 height: 200px;
                 // border: 1px solid red;
-                @include flexStyle(flex-end,center,column);
+                @include flexStyle(flex-start,center,column);
                 width: 30%;
                 // border: 1px solid red;
                 .memHealthContentGoToListBtn{
                     @include btn(100px,40px);
-                    
+                    margin-top: 40px;
+                    // margin-bottom: 20px;
                 }
                 p{
-                    margin-top: 50px;
-                    @include fontStyle($memgrey,.7rem);
+                    // margin-top: 20px;
+                    margin-bottom: 10px;
+                    margin-top: 5px;
+                    @include fontStyle($memgrey,1rem);
                     span{
-                        @include fontStyle($black,.9rem);
+                        @include fontStyle($black,1rem);
                     }
                 }
             }
@@ -1014,6 +1029,12 @@ $bgcgrey: #c4c0c0;
                             h2{
                                 font-size: 1rem;
                                 margin-bottom: 10px;
+                                span{
+                                    font-size: 1.2rem;
+                                }
+                            }
+                            p{
+                                font-size: .8rem;
                                 span{
                                     font-size: 1.2rem;
                                 }
