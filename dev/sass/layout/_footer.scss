@@ -1,15 +1,5 @@
 @import "../base/font";
 
-//引用注意 : 請在自己的主體內容上，加上一段  min-height: calc(100vh - 50px); 以便footer置底
-
-// .content {
-//   min-height: calc(100vh - 70px);
-// }
-// .footer {
-//   height: 50px;
-// }
-
-
 .homeFooter {
     background-color: $grey;
     font-size: $fzContent;
@@ -19,6 +9,8 @@
     width: 100%;
     .homeFooterBox {
         margin: 0 auto;
+        margin-top: -50px;
+        position: absolute;
         ul {
             li {
                 display: inline;
