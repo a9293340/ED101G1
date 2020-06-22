@@ -8,21 +8,19 @@
 
 body {
     margin: 0;
+    background-image: url("../images/healthImages/blackBoard.jpg");
+    background-size: 100%;
+    background-repeat: repeat;
+    background-size: cover;
 }
 
-// header {
-//     border: 2px solid rgb(8, 8, 8);
-//     height: 80px;
-// }
+
 
 div.wrapper {
     border: 1px solid red;
     width: 100%;
     min-width: 1200px;
-    background-image: url("../images/healthImages/blackBoard.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    
 
 }
 
@@ -56,9 +54,7 @@ p.title2 {
     padding: 10px;
 }
 
-button {
-    cursor: pointer;
-}
+
 
 div.overlay {
     position: fixed;
@@ -74,65 +70,57 @@ div.overlay {
     opacity: 1;
     line-height: 50px;
 
+        div.overlay.-opacity-zero {
+            opacity: 0;
+    }
+        form>h2 {
+            text-align: center;
+    }
+        .bmiContent {
+            width: 100%;
+    }
+        div.bmiForm {
+            color: black;
+            width: 400px;
+            padding: 15px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+        div.overlay>div.bmiForm {
+            width: 60%;
+            margin: 0 auto;
+            max-width: 800px;
+            border-radius: 5px;
+            padding: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 35px;
+    }
+        p.resultTitle {
+            width: 74px;
+            font-size: 1.5rem;
+
+    }
+
+        #result {
+            color: red;
+    }
+
+        p,#result {
+            width: 150px;
+            margin: 0;
+            display: inline-block;
+    }
+        p.btn {
+            width: 45px;
+            cursor: pointer;
+            
+
+    }
 }
 
-div.overlay.-opacity-zero {
-    opacity: 0;
-}
-
-form>h2 {
-    text-align: center;
-}
-
-.bmiContent {
-    width: 100%;
-}
-
-span.healBmiBtn>button.btnClose {
-    width: 45px;
-    margin-left: 35%;
-
-}
-
-div.bmiForm {
-    color: black;
-    width: 400px;
-    padding: 15px;
-    margin: 0 auto;
-    font-size: 1.2rem;
-
-
-}
-
-div.overlay>div.bmiForm {
-    width: 60%;
-    margin: 0 auto;
-    max-width: 800px;
-    border-radius: 5px;
-    padding: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    line-height: 35px;
-}
-
-p.resultTitle {
-    width: 85px;
-    font-size: 1.5rem;
-
-}
-
-#result {
-    color: red;
-}
-
-p,
-#result {
-    width: 150px;
-    margin: 0;
-    display: inline-block;
-}
 
 div.board {
     // border: 1px solid black;
@@ -256,8 +244,8 @@ h1.title1 {
     color: white;
     font-family: 'Noto Sans TC';
     margin-left: auto;
-    
     font-size: 2.5rem;
+    
 
 }
 
@@ -269,6 +257,9 @@ p.title3 {
     font-size: 1.5rem;
     margin-bottom: 50px;
     text-align: center;
+    h3{
+        color: white;
+    }
     a {
         text-decoration: none;
         color: white;
@@ -278,22 +269,22 @@ p.title3 {
 
 
 
-span.healCooks {
+p.healMainFood {
+    width: 126px;
+    margin-right: auto;
+    color: white;
+    font-size: 1.4rem;
+}
+
+p.healCooks {
     width: 80px;
     margin-right: auto;
     color: white;
     font-size: 1.4rem;
 }
 
-span.healOthers {
-    width: 80px;
-    margin-right: auto;
-    color: white;
-    font-size: 1.4rem;
-}
-
-span.healBento {
-    width: 80px;
+p.healBento {
+    width: 120px;
     margin-right: auto;
     color: white;
     font-size: 1.4rem;
@@ -310,13 +301,16 @@ ul.mainFood {
     li{
         border: 1px solid blue;
         margin: 20px auto;
+
     }
     li>img{
-        width: 100%;
+        width: 280px;
+        height: 300px;
     }
-    li>img,p{
+    li>p{
         display: flex;
         justify-content: center;
+        color: #ffd23f;
     }
 }
 
@@ -337,12 +331,16 @@ ul.cooks {
     }
 
     li>img{
-        width: 100%;
+        width: 280px;
+        height: 250px;
+        background-color: whitesmoke;
+        
     }
 
-    li>img,p{
+    li>p{
         display: flex;
         justify-content: center;
+        color: #ffd23f;
     }
 }
 
@@ -393,17 +391,9 @@ ul.bento {
 
 
 
-footer {
-    border: 1px solid green;
-    height: 50px;
-}
-
-
-
 
 // RWD
-
-@media screen and (max-width: 576px) {
+@media screen and ( max-width: 576px ) and ( min-width: 375px ){
     div.wrapper {
         border: 3px solid red;
         width: 100%;
@@ -417,7 +407,7 @@ footer {
 
     h1.title {
         width: 100%;
-        font-size: 2rem;
+        font-size: 1.5rem;
         text-align: center;
     }
 
@@ -440,7 +430,7 @@ footer {
     }
 
     #questionOptions {
-        width: 90%;
+        width: 100%;
         font-size: .5rem;
         vertical-align: bottom;
     }
@@ -460,8 +450,10 @@ footer {
     }
 
     h1.title1 {
-        width: 18%;
+        width: 30%;
         margin: 0 auto;
+        padding-top: 5px;
+        text-align: center;
         font-size: 1.2rem;
     }
 
@@ -470,16 +462,20 @@ footer {
         margin: 0 auto;
         font-size: .5rem;
         padding: 10px;
-        text-align: left;
-    }
-
-    p.title3>a {
+        text-align: center;
+         a {
         font-size: 1rem;
+        }
+        h3{
+        color: white;
+        }
     }
 
-    span.healCooks,
-    span.healOthers,
-    span.healBento {
+   
+
+    p.healMainFood,
+    p.healCooks,
+    p.healBento {
         font-size: 1rem;
         padding-left: 20px;
     }
@@ -487,12 +483,18 @@ footer {
     ul.mainFood{
         width: 100%;
         margin-bottom: 20px;
-        li>img{
-            width: 100%;
+        padding: 20px;
+        li{
+            margin: auto;
         }
-        li>img,p{
+        li>img{
+            width: 145px;
+            height:200px;
+        }
+        li>p{
             display: flex;
             justify-content: center;
+            color: #ffd23f;
         }
     }
 
@@ -502,15 +504,16 @@ footer {
         width: 100%;
         margin-bottom: 20px;
         li>img{
-            width: 100%;
+            width: 100px;
+            height: 80px;
         }
-        li>img,p{
+        li>p{
             display: flex;
             justify-content: center;
+            color: #ffd23f;
         }
     }
 
-    
 
     ul.bento {
         width: 100%;
@@ -540,213 +543,75 @@ footer {
             }
 
             #healthCart {
-                width: 26%;
-                font-size: 12px;
-                left: 80px;
+                width: 38%;
+                font-size: 10px;
+                left: 65px;
             }
     }
 
     
 
     div.overlay {
-        width: 70%;
-        transform: translateX(60px);
-    }
+            width: 70%;
+            transform: translateX(60px);
 
-    div.overlay>div.bmiForm {
-        width: 88%;
-        font-size: x-small;
-    }
-
-    div.overlay>div.bmiForm>h2 {
-        width: 100%;
-        font-size: 1.2rem;
-        margin-top: 30px;
-    }
-
-    div.overlay>div.bmiForm>.bmiContent {
-        font-size: 1rem;
-    }
-
-    div.overlay>div.bmiForm>p.resultTitle {
-        font-size: small;
-    }
-
-    span.healBmiBtn>button.btnClose {
-        width: 45px;
-        margin-left: 0;
-
-    }
-}
-
-@media screen and (max-width: 375px) {
-    div.wrapper {
-        border: 3px solid red;
-        width: 100%;
-        min-width: 100%;
-    }
-
-    .content {
-        width: 100%;
-
-    }
-
-    h1.title {
-        width: 100%;
-        font-size: 2rem;
-        text-align: center;
-    }
-
-    p.title2 {
-        width: 100%;
-        margin: 0 auto;
-        font-size: .5rem;
-        padding: 40px;
-    }
-
-    div.board {
-        width: 80%;
-        font-size: 1rem;
-    }
-
-    #questionPanel {
-        width: 90%;
-        font-size: 1rem;
-        text-align: center;
-    }
-
-    #questionOptions {
-        width: 90%;
-        font-size: .5rem;
-    }
-
-    div.imgLogo>img {
-        width: 100%;
-    }
-
-    div.wrapper2 {
-        width: 100%;
-        min-width: 100%;
-    }
-
-    h1.title1 {
-        width: 30%;
-        margin: 0 auto;
-        font-size: 1.2rem;
-    }
-
-    p.title3 {
-        width: 100%;
-        margin: 0 auto;
-        font-size: .5rem;
-        padding: 25px;
-        text-align: left;
-    }
-
-    p.title3>a {
-        font-size: 1rem;
-    }
-
-    span.healCooks,
-    span.healOthers,
-    span.healBento {
-        font-size: 1rem;
-        padding-left: 20px;
-    }
-
-    ul.mainFood{
-        width: 100%;
-        margin-bottom: 20px;
-        li>img{
+        div.bmiForm {
+            width: 95%;
+            font-size: xx-small;
+            line-height: 45px;
+            }
+        div.bmiForm>h2 {
             width: 100%;
-        }
-        li>p{
-            display: flex;
-            justify-content: center;
-        }
-    }
-
-    
-
-    ul.cooks{
-        width: 100%;
-        margin-bottom: 20px;
-        li{
-            width: 100px;
-        }
-        li>img{
-            width: 100%;
-            
+            font-size: 1.2rem;
+            margin-top: 30px;
+            }
+        .bmiContent {
+            font-size: 1rem;
+            }
+        p.resultTitle {
+            font-size: small;
+            }
+        p.btn{
+            width: 50px;
             margin: auto;
         }
-        li>p{
-            width: 100px;
-            display: flex;
-            justify-content: center;
-        }
     }
 
-    ul.bento {
-        width: 100%;
-        display: block;
 
-            li {
-                width: 45%;
-                margin: 0 auto;
-            }
 
-            img {
-                width: 45%;
-            }
+    
 
-            li.dish {
-                width: 80%;
-                font-size: .5rem;
-            }
+    
 
-            li.img {
-                width: 55%;
-                margin: 0 auto;
-            }
-
-            li.img>img.rader {
-                width: 70%;
-            }
-
-            #healthCart {
-                width: 40%;
-                font-size: 12px;
-                left: 60px;
-            }
-    }
-
+}
+@media screen and (max-width:376px){
     div.overlay {
-        width: 70%;
-        transform: translateX(40px);
-    }
+        width: 85%;
+        transform: translateX(66px);
 
-    div.overlay>div.bmiForm {
+    div.bmiForm {
+        width: 94%;
+        font-size: xx-small;
+        padding: 3%;
+        line-height: 40px;
+        }
+    div.bmiForm>h2 {
         width: 100%;
-        font-size: x-small;
-    }
-
-    div.overlay>div.bmiForm>h2 {
-        width: 100%;
-        font-size: 1.2rem;
-        margin-top: 30px;
-    }
-
-    div.overlay>div.bmiForm>.bmiContent {
         font-size: 1rem;
-    }
-
-    div.overlay>div.bmiForm>p.resultTitle {
+       
+        }
+    .bmiContent {
+        font-size: .5rem;
+        }
+    p.resultTitle {
         font-size: small;
+        }
+        #result{
+            width: 125px;
+        }
+    p.btn{
+        width: 50px;
+        margin: auto;
     }
-
-    span.healBmiBtn {
-        width: 60px;
-        margin-left: -20%;
-    }
-
+   }
 }
