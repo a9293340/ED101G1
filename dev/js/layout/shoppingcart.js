@@ -132,7 +132,13 @@ function deleteordercart() {
 
 
 
+function orderclose() {
+    document.getElementById("ordercart").style.width = "0";
+  }
 
+  function orderopen() {
+    document.getElementById("ordercart").style.width = "350";
+  }
 
 
 
