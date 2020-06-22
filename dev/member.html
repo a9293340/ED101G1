@@ -87,7 +87,7 @@
                         <img src="./images/taiwanHealth/happyTaiwan.png" v-if='health.healClass == 5'>
                         <!-- 要改成台灣六種圖 -->
                         <div class="memHealthIntruBox">
-                            <h2>你是屬於：
+                            <h2>
                                 <span v-if='health.healClass == 0'>冷吱吱體質</span>
                                 <span v-if='health.healClass == 1'>燥呼呼體質</span>
                                 <span v-if='health.healClass == 2'>胖嘟嘟體質</span>
@@ -100,12 +100,14 @@
                                 <span v-if='Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) > 18.5 && Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) < 24'>標準</span>
                                 <span v-if='Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) < 18.5' style="color: brown;">過瘦</span>
                                 <span v-if='Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) > 24' style="color: brown;">過胖</span>
-                                /體質：
+                            </p>
+                            <p>體質：
                                 <!-- 體質判斷 -->
                                 <span v-if='health.healColdHot >= 60' style="color: red;">偏燥</span>
                                 <span v-if='health.healColdHot <= 30' style="color: royalblue;">偏寒</span>
                                 <span v-if='health.healColdHot < 60 && health.healColdHot > 30'>正常</span>
-                                /健康狀況：
+                            </p>
+                            <p>健康狀況：
                                 <!-- 健康狀況判斷 -->
                                 <span v-if='(health.healhealth + health.healStomach)/2 >= 40 && (health.healhealth + health.healStomach)/2 <= 60'>正常</span>
                                 <span v-if='(health.healhealth + health.healStomach)/2 < 40' style="color: brown;">略差</span>
@@ -115,9 +117,9 @@
                     </div>
                 </div>
                 <div class="memHealthContentGoToListBox">
-                    <div class="memHealthContentGoToListBtn" :data-healthid="health.healId" @click='showHealthList'>查看分析</div>
                     <p>測驗分析日期：<span>{{health.healLastTime}}</span>
                     </p>
+                    <div class="memHealthContentGoToListBtn" :data-healthid="health.healId" @click='showHealthList'>查看分析</div>
                 </div>
             </div>
         </div>
@@ -147,7 +149,7 @@
                             <div class="memOrderSomethingBox">
                                 <p>自選便當</p>
                                 <p class="memFontSmall">規格:{{single.soRice}}/{{single.sideDishes1}}/{{single.sideDishes2}}/{{single.sideDishes3}}/{{single.mainfood}}</p>
-                                <p class="memFontSmall">X {{single.soAmount}}</p>
+                                <p class="memFontSmall">數量： {{single.soAmount}}</p>
                             </div>
                         </div>
                         <p class="memOrderPirceShow">${{single.soPrice}}</p>
@@ -158,7 +160,7 @@
                             <div class="memOrderSomethingBox">
                                 <p v-if='set.setClass == 0'>經典便當-{{set.setName}}</p>
                                 <p v-if='set.setClass == 1'>季節便當-{{set.setName}}</p>
-                                <p class="memFontSmall">X {{set.setoAmount}}</p>
+                                <p class="memFontSmall">數量： {{set.setoAmount}}</p>
                             </div>
                         </div>
                         <p class="memOrderPirceShow">${{set.setoPrice}}</p>
@@ -168,7 +170,7 @@
                             <img :src="other.opImage" alt="">
                             <div class="memOrderSomethingBox">
                                 <p>{{other.opName}}</p>
-                                <p class="memFontSmall">X {{other.ooAmount}}</p>
+                                <p class="memFontSmall">數量： {{other.ooAmount}}</p>
                             </div>
                         </div>
                         <p class="memOrderPirceShow">${{other.ooPrice}}</p>
@@ -532,13 +534,13 @@
         </div>
     </div>
 
-    @@include('./layout/shoppingcart.html',{})
+    <!-- @@include('./layout/shoppingcart.html',{}) -->
     <!-- @@include('./layout/loginSignup.html',{}) -->
     <!-- footer -->
     @@include('./layout/footer.html',{})
 
     <!-- Login、Signup、ShoppingCart -->
-    <script src="../dev/js/layout/shoppingcart.js"></script>
+    <!-- <script src="../dev/js/layout/shoppingcart.js"></script> -->
     <!-- <script src="../dev//js/layout/loginSignup.js"></script> -->
     <!-- Member -->
     <script type="module" src="../dev/js/member.js"></script>
