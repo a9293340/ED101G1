@@ -555,6 +555,11 @@ $animationDuration: 1.5s;
 
 
 // --------------------手機板
+@media (min-width:1200px){
+  a{
+    color: red;
+  }
+}
 @media (min-width: 375px) and (max-width: 576px) {
   .eff {
     background-position: bottom;

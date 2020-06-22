@@ -36,9 +36,9 @@ function doFirst() {
             },
             {
                 "examTitle": "請問您每日的飲水情況？",
-                "option1": "500 cc以下",
-                "option2": "500~1400 cc",
-                "option3": "1400以上",
+                "option1": "500cc 以下",
+                "option2": "500~1400cc",
+                "option3": "1400cc 以上",
                 "optionNum1": 10,
                 "optionNum2": 50,
                 "optionNum3": 100
@@ -288,7 +288,7 @@ function doFirst() {
             return;
         } else {
             healthTitle.innerHTML = `
-            您屬於<h3>幸褔樂樂型</h3> 請繼續保持下去唷，詳細的健康分析請點擊<a id="healthBody"
+            您屬於<h3>幸褔樂樂型</h3> 請繼續保持下去唷!詳細的健康分析請點擊<a id="healthBody"
             href="#">健康檔案</a>觀看，以下是我們推薦的餐點
             `
             console.log('快樂')

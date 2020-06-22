@@ -6,19 +6,17 @@
     <title>SHOW便當</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../dest/css/showbenton.css" />
-    <!-- 不是我的CSS -->
-    <!-- <link rel="stylesheet" href="./css/order.css" /> -->
 
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Vue -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
   </head>
-  
+
   <body>
     <!------------------header---------------->
     @@include('./layout/header.html',{})
-    <header></header>
+
     <div id="add" class="showBlock">
       <p class="showTitle">
         SHOW便當
@@ -42,7 +40,7 @@
         <div class="bentoncarTitle">
           <span>請選擇喜愛的自選便當</span>
           <img @click="showCloselightbox" src="./images/showbenton/close.png" />
-        </di v>
+        </div>
         <ul class="bentoncardBox">
           <li
             :id="'bentonLi'+item.id"
@@ -146,7 +144,11 @@
       <!----------點擊分享便當裡面的畫面------------>
       <div class="showBentonContentbox" id="mainBuyBenton">
         <div v-bind:class="currentBenton.cls">
-<<<<<<< HEAD
+          <img
+            class="closebox"
+            @click="showContentCloselightbox"
+            src="./images/showbenton/close.png"
+          />
           <!--發文者大區塊-->
           <div class="shareBlock">
             <img
@@ -158,40 +160,12 @@
             />
             <button class="buyMore" id="buyMore">我也要吃</button>
             <div class="memTextBlock">
-=======
-          <img
-            class="showBentonContentImg"
-            v-bind:src="currentBenton.bentonImg"
-            alt=""
-            width="300"
-            height="260"
-          />
-<<<<<<< HEAD
-          <button  id="buyMore" class="buyMore" @click="showbentonShoppingCart">我也要吃</button>
-=======
-          <button id="showbtn" class="buyMore">我也要吃</button>
->>>>>>> 3b9881dfea1aad89aad1400607f1a8141c8bf4a3
-          <div class="memTextBlock">
-          <p id="ContentTitlText">{{currentBenton.title}}</p>
-          <p style="font-size:18px; text-align: left;">{{currentBenton.content}}</p>
-          <p class="member">by {{memData.memName}}</p>
-        </div>
-        </hr>
-        <div class="mesTalks">───────── 留言區 ──────────</div>
-          <!--討論區-->
-          <div style="height:80px; overflow:auto; border:1px solid black;">
-            <div
-              v-for="talks in talkArray"
-              id="show_msg"
-              class="showmsg"
-             
-            >
->>>>>>> 034d54ea1818969cc1b5af8bb8b0d85df129c8a6
               <img :src="memData.memImage" class="memPicture" />
               <p class="member">{{memData.memName}}</p>
               <p id="ContentTitlText">{{currentBenton.title}}</p>
               <p
                 style="
+                  word-break: break-all;
                   font-size: 14px;
                   text-align: left;
                   font-weight: 400;
@@ -203,7 +177,6 @@
               <p class="talkDateTime">{{currentBenton.postDateTime}}</p>
             </div>
           </div>
-<<<<<<< HEAD
           <div class="messageBoard">
             <!--留言大區塊 -->
             <div class="mesTalks">──────── 留言區 ─────────</div>
@@ -218,27 +191,6 @@
                 <p class="talkDateTime">{{talks.dateTime}}</p>
               </div>
             </div>
-=======
-        
-          <form id="demo">
-            <div></div>
-            <p style="font-size:16px; text-align: left; padding-left:13px;">歡迎留下你的想法和意見：</p>
-            <textarea
-              class="comment"
-              cols="40"
-              rows="3" 
-              id="content" 
-            ></textarea>  
-            <button 
-              type="button"
-              id="showbtn"
-              style="display: block;"
-
-            >
-              送出
-            </button>
-          </form>
->>>>>>> 034d54ea1818969cc1b5af8bb8b0d85df129c8a6
 
             <form id="demo">
               <div></div>
@@ -270,34 +222,13 @@
             </form>
           </div>
           <p id="result"></p>
-        </div> 
+        </div>
       </div>
     </div>
-    <!-- @@include('./layout/shoppingcart.html',{}) -->
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    <!-- <script src="../dev/js/layout/shoppingcart.js"></script> -->
-    <script src="../dev/js/showbenton.js"></script> 
-=======
-    <!----------------click跳出便當強詳細內容--------------->
-
-    <!----------footer------------>
-    <!-- <footer>我是footer</footer> -->
-    <!------------------按讚數--------------------->
-    <!-- <div>
-      <img
-        id="like_img"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Windows_Settings_app_icon.png/768px-Windows_Settings_app_icon.png"
-      />
-      <span id="like_num">0</span>
-    </div> -->
->>>>>>> 034d54ea1818969cc1b5af8bb8b0d85df129c8a6
     @@include('./layout/shoppingcart.html',{})
-    @@include('./layout/footer.html',{})
+    <!-- @@include('./layout/footer.html',{}) -->
     <script src="../dev/js/layout/shoppingcart.js"></script>
     <script src="../dev/js/showbenton.js"></script>
->>>>>>> 3b9881dfea1aad89aad1400607f1a8141c8bf4a3
   </body>
 </html>
