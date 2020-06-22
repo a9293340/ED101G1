@@ -131,14 +131,27 @@ function deleteordercart() {
 }
 
 
+// shoppingcart 出現消失
+document.getElementById('shoppingcart').addEventListener('click',()=>{
+    // alert('a')
+    document.getElementById('ordercart').classList.toggle('ordercartOpen');
+})
 
-function orderclose() {
-    document.getElementById("ordercart").style.width = "0";
-  }
+document.getElementById('orderCartClose').addEventListener('click',()=>{
+    document.getElementById('ordercart').classList.toggle('ordercartOpen');
+})
 
-  function orderopen() {
-    document.getElementById("ordercart").style.width = "350";
-  }
+
+//login signup
+$('#homeContainderBgc').hide();
+$('#member').click(function (e) { 
+    e.preventDefault();
+    $('#homeContainderBgc').show(500);
+});
+$('#homeContainderBgc').click(function (e) { 
+    e.preventDefault();
+    $('#homeContainderBgc').hide(500);
+});
 
 
 
