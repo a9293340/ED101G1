@@ -246,6 +246,7 @@ new Vue({
   methods: {
     showBentonList() {
       $(".box1").css("display", "block");
+      $(".showbentonCover").css("display", "block");
     },
   },
 });
@@ -270,11 +271,11 @@ new Vue({
     },
     //輸入標題字數限制
     checkTitle() {
-      let maxLength = 10;
+      let maxLength = 20;
       let textLength = this.message.length;
       if (textLength > maxLength) {
-        this.message = this.message.substr(0, 10);
-        alert("已超過輸入字數限制囉!");
+        this.message = this.message.substr(0, 20);
+        alert("已超過20個字數限制囉!");
       }
     },
 
@@ -284,19 +285,34 @@ new Vue({
       let textLength = this.messageContent.length;
       if (textLength > maxLength) {
         this.messageContent = this.messageContent.substr(0, 50);
-        alert("已超過輸入字數限制囉!");
+        alert("已超過50個字數限制囉!");
       }
     },
 
     showBentonStep1(isShow) {
-      this.showBentonImgList = isShow;
+      if (this.img === "") {
+        alert("你還沒選擇喜愛的自選便當喔!!");
+        return;
+      } else {
+        this.showBentonImgList = isShow;
+      }
     },
     showCloselightbox() {
       $(".box1").css("display", "none");
+      $(".showbentonCover").css("display", "none");
     },
     SendBenton() {
       let step2Title = $("#Step2TitlText").val();
       let step2Content = $("#Step2ContentText").val();
+      if (step2Title === "") {
+        alert("你還沒填寫標題喔!");
+        return;
+      }
+      if (step2Content === "") {
+        alert("你還沒填寫內容喔!");
+        return;
+      }
+      let now = getNowFormat();
 
       //要先變成物件
       let step2Package = {
@@ -304,96 +320,99 @@ new Vue({
         content: step2Content,
         bentonImg: this.img,
         liketimes: 0,
+        postDateTime: now,
       };
 
       //物件塞進陣列
       this.bentonArray.push(step2Package);
       $(".box1").css("display", "none");
+      $(".showbentonCover").css("display", "none");
       this.showBentonImgList = true;
     },
-
-    //-----------產出便當便貼
-
-    // document.getElementById("showBentonImg").innerHTML = "";
-    // for (let i = 0; i < this.bentonArray.length; i++) {
-    //   let arrBentonImg = this.bentonArray[i].bentonImg; //arr圖片
-    //   let arrBentonTitle = this.bentonArray[i].title; //arr標題
-    //   let arrBentonContent = this.bentonArray[i].content; //arr內文
-    //   document.getElementById("showBentonImg").innerHTML += `
-    //   <div class='shareBenton'>
-    //   <img src='${arrBentonImg}' class='shareBentonImg'/>
-    //   <p class='shareBentonText'>${arrBentonTitle}</p>
-    //   <p class='shareBentonContent'>${arrBentonContent}</p>
-    //   <img src='./images/showbenton/conversation.png' class='conversation'/>
-    //   <img src='./images/showbenton/like.png' class='like' data-index='${i}'/>
-    //   <span class='liketimes'>0<span>
-    // </div>`;
-
-    // $(".shareBenton").remove();
-    // $("#showBentonImg").append(
-    // `<div class='shareBenton'>
-    //   <img src='${arrBentonImg}' class='shareBentonImg'/>
-    //   <p class='shareBentonText'>${arrBentonTitle}</p>
-    //   <p class='shareBentonContent'>${arrBentonContent}</p>
-    //   <img src='./images/showbenton/conversation.png' class='conversation'/>
-    //   <img src='./images/showbenton/like.png' class='like' @click='showbentonLikeTimes'/>
-    //   <span class='liketimes'>0<span>
-
-    // </div>`
-    // );
-
-    // $("#showBentonImg div")
-    //   .eq(i)
-    //   .addClass("group" + i);
-    //新增分享便當的標題
-    // $(`#showBentonImg div.group${i} p`).eq(0).addClass("shareBentonText");
-    // $(`#showBentonImg div.group${i} p`)
-    //   .eq(1)
-    //   .addClass("shareBentonContent");
-    //讚圖
-    // $(`#showBentonImg div.group${i} img`).eq(2).addClass("like");
-    //對話圖
-    // $(`#showBentonImg div.group${i} img`).eq(1).addClass("conversation");
-    // }
-    // //按讚圖
-    // for (let j = 0; j < document.getElementsByClassName("like").length; j++) {
-    //   document
-    //     .getElementsByClassName("like")
-    //     [j].addEventListener("click", showbentonLikeTimes);
-    // }
-    //內容物如下
-    //新增分享便當的圖片
-    // $("#showBentonImg img").addClass("shareBentonImg");
-    //新增分享便當的便貼區塊
-    // $("#showBentonImg div").addClass("shareBenton");
-    //新增按讚數
-    // $("#showBentonImg span").addClass("liketimes");
   },
-  //   },
-  // });
-  //---------------------------------------按讚數
-  // $("#like_img").click(function () {
-  //   let like_num = $("#like_num").text();
-  //   let like_num1 = parseInt(like_num) + 1;
-  //   $("#like_num").text(like_num1);
-
-  // });
-
-  // function showbentonLikeTimes(e) {
-  // let like_num = $(".liketimes").text();
-  // let like_num1 = parseInt(like_num) + 1;
-  // $(".liketimes").text(like_num1);
-  // console.log("a");
-  //   console.log(parseInt(e.target.dataset.index));
-  //   document.getElementsByClassName("liketimes")[
-  //     parseInt(e.target.dataset.index)
-  //   ].innerText =
-  //     parseInt(
-  //       document.getElementsByClassName("liketimes")[
-  //         parseInt(e.target.dataset.index)
-  //       ].innerText
-  //     ) + 1;
 });
+
+//-----------產出便當便貼
+
+// document.getElementById("showBentonImg").innerHTML = "";
+// for (let i = 0; i < this.bentonArray.length; i++) {
+//   let arrBentonImg = this.bentonArray[i].bentonImg; //arr圖片
+//   let arrBentonTitle = this.bentonArray[i].title; //arr標題
+//   let arrBentonContent = this.bentonArray[i].content; //arr內文
+//   document.getElementById("showBentonImg").innerHTML += `
+//   <div class='shareBenton'>
+//   <img src='${arrBentonImg}' class='shareBentonImg'/>
+//   <p class='shareBentonText'>${arrBentonTitle}</p>
+//   <p class='shareBentonContent'>${arrBentonContent}</p>
+//   <img src='./images/showbenton/conversation.png' class='conversation'/>
+//   <img src='./images/showbenton/like.png' class='like' data-index='${i}'/>
+//   <span class='liketimes'>0<span>
+// </div>`;
+
+// $(".shareBenton").remove();
+// $("#showBentonImg").append(
+// `<div class='shareBenton'>
+//   <img src='${arrBentonImg}' class='shareBentonImg'/>
+//   <p class='shareBentonText'>${arrBentonTitle}</p>
+//   <p class='shareBentonContent'>${arrBentonContent}</p>
+//   <img src='./images/showbenton/conversation.png' class='conversation'/>
+//   <img src='./images/showbenton/like.png' class='like' @click='showbentonLikeTimes'/>
+//   <span class='liketimes'>0<span>
+
+// </div>`
+// );
+
+// $("#showBentonImg div")
+//   .eq(i)
+//   .addClass("group" + i);
+//新增分享便當的標題
+// $(`#showBentonImg div.group${i} p`).eq(0).addClass("shareBentonText");
+// $(`#showBentonImg div.group${i} p`)
+//   .eq(1)
+//   .addClass("shareBentonContent");
+//讚圖
+// $(`#showBentonImg div.group${i} img`).eq(2).addClass("like");
+//對話圖
+// $(`#showBentonImg div.group${i} img`).eq(1).addClass("conversation");
+// }
+// //按讚圖
+// for (let j = 0; j < document.getElementsByClassName("like").length; j++) {
+//   document
+//     .getElementsByClassName("like")
+//     [j].addEventListener("click", showbentonLikeTimes);
+// }
+//內容物如下
+//新增分享便當的圖片
+// $("#showBentonImg img").addClass("shareBentonImg");
+//新增分享便當的便貼區塊
+// $("#showBentonImg div").addClass("shareBenton");
+//新增按讚數
+// $("#showBentonImg span").addClass("liketimes");
+
+//   },
+// });
+//---------------------------------------按讚數
+// $("#like_img").click(function () {
+//   let like_num = $("#like_num").text();
+//   let like_num1 = parseInt(like_num) + 1;
+//   $("#like_num").text(like_num1);
+
+// });
+
+// function showbentonLikeTimes(e) {
+// let like_num = $(".liketimes").text();
+// let like_num1 = parseInt(like_num) + 1;
+// $(".liketimes").text(like_num1);
+// console.log("a");
+//   console.log(parseInt(e.target.dataset.index));
+//   document.getElementsByClassName("liketimes")[
+//     parseInt(e.target.dataset.index)
+//   ].innerText =
+//     parseInt(
+//       document.getElementsByClassName("liketimes")[
+//         parseInt(e.target.dataset.index)
+//       ].innerText
+//     ) + 1;
 
 $(function () {
   new Vue({
@@ -414,29 +433,33 @@ $(function () {
       openLightBox(note, index) {
         this.currentBenton = { ...note, cls: "mainBenton" + index };
         $("#mainBuyBenton").css("display", "block");
+        $(".showbentonCover").css("display", "block");
+
+        $("#buyMore").click(function () {
+          alert("已加入選購，可至購物車查看");
+        });
+        //加入購物車事件
         document
-          .getElementById("showbtn")
+          .getElementById("buyMore")
           .addEventListener("click", showbentonShoppingCart);
       },
-      //討論區
+      //留言、發文時間
       talk() {
-        let now = new Date();
-        let year = now.getFullYear();
-        let month = now.getMonth() + 1;
-        let date = now.getDate();
-        let hour = now.getHours();
-        let minutes = now.getMinutes();
-        let seconds = now.getSeconds();
         let talkContent = $("#content").val();
-
+        let now = getNowFormat();
         //要先變成物件
         let talkPackage = {
           talkmessage: talkContent,
-          dateTime: `${year}-${month}-${date} ${hour}:${minutes}:${seconds}`,
+          dateTime: now,
         };
 
         //物件塞進陣列
         this.talkArray.push(talkPackage);
+      },
+
+      showCloselightbox() {
+        $(".showBentonContentbox").css("display", "none");
+        $(".showbentonCover").css("display", "none");
       },
     },
     mounted() {
@@ -449,6 +472,7 @@ $(function () {
   });
 });
 
+//塞進購物車
 function showbentonShoppingCart() {
   showbentonOrderList = {
     sNum: `${singleNum}`,
@@ -465,4 +489,17 @@ function showbentonShoppingCart() {
   var showOrder = JSON.stringify(orderCart);
   localStorage.setItem("singleOrder", showOrder);
   setcart();
+}
+
+//發文、留言共用時間
+function getNowFormat() {
+  let now = new Date();
+  let year = now.getFullYear();
+  let month = now.getMonth() + 1;
+  let date = now.getDate();
+  let hour = now.getHours();
+  let minutes = now.getMinutes();
+  let seconds = now.getSeconds();
+
+  return `${year}-${month}-${date} ${hour}:${minutes}:${seconds}`;
 }
