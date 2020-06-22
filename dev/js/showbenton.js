@@ -16,7 +16,7 @@ let benton = [
     name: "清蒸鱈魚",
     img: "./images/order/fish.jpg",
   },
-  {
+  { 
     id: "4",
     name: "清蒸鱈魚",
     img: "./images/order/fish.jpg",
