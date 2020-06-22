@@ -248,7 +248,7 @@ function doFirst() {
         console.log('BMI:', BMIbox, "avgScore:", avgScoreBox);
         if (BMIbox > 24) {
             healthTitle.innerHTML = `
-            您屬於<a id="healthBody" href="#">胖嘟嘟體質</a>，請注意您的飲食狀況，詳細的健康分析，請至<a
+            您屬於<h3>胖嘟嘟體質</h3>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
             href="#">健康檔案</a>觀看，以下是我們推薦的餐點
             `
             console.log('過胖');
@@ -256,7 +256,7 @@ function doFirst() {
             return;
         } else if (BMIbox < 18) {
             healthTitle.innerHTML = `
-            您屬於<a id="healthBody" href="#">三比八體質</a>，請注意您的飲食狀況，詳細的健康分析，請至<a
+            您屬於<h3>三比八體質</h3>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
             href="#">健康檔案</a>觀看，以下是我們推薦的餐點
             `
             console.log('過瘦')
@@ -264,7 +264,7 @@ function doFirst() {
             return;
         } else if (avgScoreBox[2] >= 51) {
             healthTitle.innerHTML = `
-            您屬於<a id="healthBody" href="#">燥呼呼體質</a>，請注意您的飲食狀況，詳細的健康分析，請至<a
+            您屬於<h3>燥呼呼體質</h3>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
             href="#">健康檔案</a>觀看，以下是我們推薦的餐點
             `
             console.log('燥熱')
@@ -272,7 +272,7 @@ function doFirst() {
             return;
         } else if (avgScoreBox[2] < 50) {
             healthTitle.innerHTML = `
-            您屬於<a id="healthBody" href="#">冷吱吱體質</a>，請注意您的飲食狀況，詳細的健康分析，請至<a
+            您屬於<h3>冷吱吱體質</h3>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
             href="#">健康檔案</a>觀看，以下是我們推薦的餐點
             `
             console.log('虛寒')
@@ -280,7 +280,7 @@ function doFirst() {
             return;
         } else if ((avgScoreBox[0] + avgScoreBox[1]) / 2 < 50) {
             healthTitle.innerHTML = `
-            您屬於<a id="healthBody" href="#">煩惱憂憂型</a>，請注意您的飲食狀況，詳細的健康分析，請至<a
+            您屬於<h3>煩惱憂憂型</h3>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
             href="#">健康檔案</a>觀看，以下是我們推薦的餐點
             `
             console.log('身體欠佳')
@@ -288,7 +288,7 @@ function doFirst() {
             return;
         } else {
             healthTitle.innerHTML = `
-            您屬於<a id="healthBody" href="#">幸褔樂樂型</a>，請注意您的飲食狀況，詳細的健康分析，請至<a
+            您屬於<h3>幸褔樂樂型</h3> 請繼續保持下去唷，詳細的健康分析請點擊<a id="healthBody"
             href="#">健康檔案</a>觀看，以下是我們推薦的餐點
             `
             console.log('快樂')
