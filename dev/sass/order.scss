@@ -57,13 +57,13 @@ img:not([src]) {
 
   P {
     margin: 0;
-    line-height: 52px;
+    line-height: 70px;
   }
 
   .orderCirle {
     margin-top: 20px;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     // border: 1px solid black;
     background-color: $green;
     border-radius: 50%;
@@ -132,7 +132,7 @@ img:not([src]) {
 .buy_other_container {
   width: 1050px;
   margin: 0 auto;
-  height: 350px;
+  height: 400px;
   display: flex;
   justify-content: space-between;
 }
@@ -175,14 +175,19 @@ img:not([src]) {
   }
  
   .cart {
-    position: absolute;
-    right: 30px;
-    bottom: 22px;
-    font-size: 18px;
-    cursor: pointer;
-    &:hover{
-      color: $green;
-    }
+    @include btn(auto, auto);
+    font-family: "Noto Sans TC";
+    font-size: 14px;
+    width:180px;
+    
+    // position: absolute;
+    // right: 30px;
+    // bottom: 22px;
+    // font-size: 18px;
+    // cursor: pointer;
+    // &:hover{
+    //   color: $green;
+    // }
   }
 
   img {
@@ -214,7 +219,9 @@ img:not([src]) {
     font-size: 18px;
   }
 }
-
+.othercard{
+  height: 335px;
+}
 #buy_card4 {
   width: 250px;
   height: 308px;

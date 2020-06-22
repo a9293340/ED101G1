@@ -212,10 +212,11 @@
       
                       <div class="buy_card3" v-for="item in orderSetdo.slice(0,3)" >
                            <img :id="'setdoimg'+item.setId"  :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200" height="200">
-                          <div class="buy_name">{{item.setName}}</div>
-                           <div class="buy_price"><span>$</span>{{item.setPrice}}</div>
+                          <div class="buy_name">{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}</div>
+                           <!-- <div class="buy_price"><span>$</span>{{item.setPrice}}</div> -->
                             <div><button class="orderbutton" :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button><span class="ordercount" :id="'setdocount'+item.setId">0</span><button class="orderbutton" :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button>
-                                <span :id="'setdocart'+item.setId" :data-id="item.setId" class="cart">購買</span>
+                                <!-- <span :id="'setdocart'+item.setId" :data-id="item.setId" class="cart">購買</span> -->
+                                <button  :id="'setdocart'+item.setId" :data-id="item.setId" class="cart">加入購物車</button>
                             <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.setId" :data-id="item.setId"> -->
                             </div>
                            <!-- <button-counter></button-counter> -->
@@ -236,10 +237,10 @@
                 </div>  -->
                       <div class="buy_card3" v-for="item in orderSetdo.slice(3,6)" >
                         <img :id="'setdoimg'+item.setId"  :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200" height="200">
-                       <div class="buy_name">{{item.setName}}</div>
-                        <div class="buy_price"><span>$</span>{{item.setPrice}}</div>
+                       <div class="buy_name">{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}</div>
+                        <!-- <div class="buy_price"><span>$</span>{{item.setPrice}}</div> -->
                          <div><button class="orderbutton" :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button><span class="ordercount" :id="'setdocount'+item.setId">0</span><button class="orderbutton" :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button>
-                            <span :id="'setdocart'+item.setId" :data-id="item.setId" class="cart">購買</span>
+                            <button :id="'setdocart'+item.setId" :data-id="item.setId" class="cart">加入購物車</button>
                          <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.setId" :data-id="item.setId"> -->
                          </div>
                         <!-- <button-counter></button-counter> -->
@@ -265,7 +266,7 @@
               </div>   
     <div id="orderOther">
           <div class="buy_other_container">
-            <div class="buy_card3">
+            <div class="buy_card3 othercard">
                 
                <img v-if="selectedone == 1" src="./images/bandon_include/vegjucice.png"  width="200" height="200">
                <img v-else :src="selectedone.opImage"  width="200" height="200">
@@ -276,11 +277,11 @@
                 <option  v-for="item in other" v-if="item.opClass == 0" :value="{opId:item.opId,opName:item.opName,opImage:item.opImage,opPrice:item.opPrice}">{{item.opName}}</option>
                 </select>
                 <div><button class="orderbutton" :id="'otherplus'+selectedone.opId" @click='otherplus'>+</button><span :id="'othercount'+selectedone.opId">{{othercount1}}</span><button class="orderbutton" :id="'otherminus'+selectedone.opId"  @click='otherminus'>-</button>
-                    <span class="cart" :data-id="selectedone.opId" id="otherCart">購買</span>
+                    <button class="cart" :data-id="selectedone.opId" id="otherCart">加入購物車</button>
                     <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :data-id="selectedone.opId" id="otherCart"> -->
                 </div>
             </div>
-            <div class="buy_card3">
+            <div class="buy_card3 othercard">
                 <img v-if="selectedtwo == 1" src="./images/bandon_include/apple.png"  width="200" height="200">
                 <img v-else :src="selectedtwo.opImage"  width="200" height="200">
                 <p v-if ="selectedtwo == 1">&nbsp;</p>
@@ -290,11 +291,11 @@
                     <option v-for="item in other" v-if="item.opClass == 1" :value="{opId:item.opId,opName:item.opName,opImage:item.opImage,opPrice:item.opPrice}">{{item.opName}}</option>
                 </select>
                 <div><button class="orderbutton" :id="'otherplus'+selectedtwo.opId" @click='otherplus2'>+</button><span :id="'othercount'+selectedtwo.opId">{{othercount2}}</span><button class="orderbutton" :id="'otherminus'+selectedtwo.opId"  @click='otherminus2'>-</button>
-                    <span class="cart" :data-id="selectedtwo.opId" id="otherCart2">購買</span>
+                    <button class="cart" :data-id="selectedtwo.opId" id="otherCart2">加入購物車</button>
                     <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :data-id="selectedtwo.opId" id="otherCart2"> -->
                 </div>
             </div>
-            <div class="buy_card3">
+            <div class="buy_card3 othercard" >
                 <img v-if="selectedthree == 1" src="./images/bandon_include/checkendrink.png"  width="200" height="200">
                 <img v-else :src="selectedthree.opImage"  width="200" height="200">
                 <p v-if ="selectedthree == 1">&nbsp;</p>
@@ -305,7 +306,7 @@
                 </select>
                 <div><button class="orderbutton" :id="'otherplus'+selectedthree.opId" @click='otherplus3'>+</button><span :id="'othercount'+selectedthree.opId">{{othercount3}}</span><button class="orderbutton" :id="'otherminus'+selectedthree.opId"  @click='otherminus3'>-</button>
                     <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :data-id="selectedthree.opId" id="otherCart3"> -->
-                    <span class="cart"  :data-id="selectedthree.opId" id="otherCart3">購買</span>
+                    <button class="cart"  :data-id="selectedthree.opId" id="otherCart3">加入購物車</button>
                 </div>
             </div>
 
@@ -319,6 +320,7 @@
       </div>   
 
       @@include('./layout/shoppingcart.html',{})
+      @@include('./layout/footer.html',{})
       <!-- @@include('./layout/footer.html',{}) -->
       
       <script src="../dev/js/order.js"></script>
