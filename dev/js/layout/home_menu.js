@@ -468,3 +468,4 @@ $(document).on("click", ".slider-pagi__elem", function () {
   changeSlides();
 });
 // 這塊是下方小按鈕的點擊和左右邊的點擊觸發效果
+
