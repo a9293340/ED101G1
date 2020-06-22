@@ -30,10 +30,10 @@
   opacity: 1;
   transition: all ease 1s;
 
-  overflow: hidden;
+  // overflow: hidden;
 
   &.fixed {
-    position: fixed;  
+    position: fixed;
     top: 0px;
     z-index: 30;
     opacity: 1;
@@ -165,7 +165,8 @@
       justify-content: space-evenly;
       align-items: center;
 
-      #shoppingcart,#member{
+      #shoppingcart,
+      #member {
         text-decoration: none;
         display: flex;
         flex-direction: column;
@@ -178,6 +179,65 @@
         //   width: 25px;
         //   height: 25px;
         // }
+      }
+
+      #member_aflogin {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        // height: 200px;
+        transition: .5s;
+        position: relative;
+
+        img {
+          border-radius: 50%;
+          border: 1px solid #000;
+        }
+
+        .member_menu {
+          display: none;
+          position: absolute;
+          width: 120px;
+          // height: 50px;
+          // border: 1px solid #000;
+          top: 40px;
+          padding: 5px;
+          z-index: 99;
+          background-color: rgb(243, 238, 169);
+
+          &:hover {
+            .member_menu {
+              display: block;
+            }
+          }
+
+          .member_club {
+            background-color: rgb(247, 184, 113);
+            color: white;
+            padding: 5px;
+          }
+
+          .log_out {
+            padding: 5px;
+            margin-top: 5px;
+            background-color: rgb(247, 184, 113);
+            color: white;
+          }
+        }
+
+        &:hover {
+
+          .member_menu {
+            display: block;
+          }
+        }
+
+
+
+
       }
     }
 
@@ -332,7 +392,8 @@
         justify-content: space-evenly;
         align-items: center;
 
-        #shoppingcart,#member{
+        #shoppingcart,
+        #member {
           text-decoration: none;
           display: flex;
           flex-direction: column;
@@ -341,6 +402,7 @@
           color: #000;
           position: relative;
           cursor: pointer;
+
           // img {
           //   width: 25px;
           //   height: 25px;

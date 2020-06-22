@@ -304,9 +304,11 @@ section {
           padding-left: 0;
           margin-bottom: 0;
           list-style: none;
+
           .tab {
             display: none;
           }
+
           .tab:checked+label {
             cursor: default;
             background: $yellow;
@@ -320,6 +322,7 @@ section {
             border-radius: 5px;
             margin-right: 0.25rem !important;
           }
+
           .tab+label {
             cursor: pointer;
             display: block;
@@ -337,6 +340,7 @@ section {
               background: $yellow;
             }
           }
+
           .tab-content {
             padding: 10px;
             background-color: transparent;
@@ -347,6 +351,7 @@ section {
             left: 0;
             transform: translateY(-3px);
           }
+
           .tab:checked:nth-of-type(1)~.tab-content:nth-of-type(1),
           .tab:checked:nth-of-type(2)~.tab-content:nth-of-type(2) {
             opacity: 1;
@@ -365,6 +370,7 @@ section {
             color: $greyGrey;
             height: 48px;
           }
+
           .homeDelivery,
           .homeTakeaway {
             padding: 10px 30px !important;
@@ -391,6 +397,7 @@ section {
               text-decoration: none;
             }
           }
+
           .active {
             color: $black;
             transition: all 0.3s ease;
@@ -399,10 +406,12 @@ section {
             outline: none !important;
             text-decoration: none;
           }
+
           div {
             .homeTab-pane {
               display: none;
-              form{
+
+              form {
                 div.homeCalendar {
                   font-size: $fzContent;
                   position: relative;
@@ -412,9 +421,10 @@ section {
                   text-rendering: auto;
                   border: 3px solid red;
                   width: 24px;
-                  height:auto;
+                  height: auto;
                 }
-                .icon{
+
+                .icon {
                   .homeGps {
                     font-size: $fzContent;
                     position: relative;
@@ -426,14 +436,17 @@ section {
                   }
                 }
               }
+
               .fade {
                 transition: opacity 0.15s linear;
               }
+
               @media (prefers-reduced-motion: reduce) {
                 .fade {
                   transition: none;
                 }
               }
+
               .homeTab-content>.active {
                 display: block;
               }
@@ -555,6 +568,7 @@ $animationDuration: 1.5s;
 
 
 // --------------------手機板
+<<<<<<< HEAD
 @media (min-width:1366px) and (max-width:1680px){
   .homeTextBox{
     .homeCalendar-xl{
@@ -577,6 +591,16 @@ $animationDuration: 1.5s;
     }
     .homeControl-btn-Takeaway-xl{
       left: 82%!important;
+=======
+@media (min-width:1200px) {
+  .homeSection-3 {
+    .homeBlackBoardContainer {
+      padding: 0 2%;
+
+      .homeIceOne {
+        left: 120px;
+      }
+>>>>>>> 05775a3e67381702238cbc52b09027adf0f632fd
     }
   }
 
@@ -635,6 +659,7 @@ $animationDuration: 1.5s;
   }
  }
 }
+
 @media (min-width: 375px) and (max-width: 576px) {
   .eff {
     background-position: bottom;
@@ -683,14 +708,16 @@ $animationDuration: 1.5s;
       }
     }
   }
+
   .homeTextBox {
     max-width: 100% !important;
     left: 0% !important;
     margin: 0 2rem;
-    top:47% !important;
+    top: 47% !important;
 
     .homeSelectBox {
       position: relative;
+
       .homeControl-btn-Delivery-xs {
         //外送 Bbutton
         top: 150px !important;
@@ -708,9 +735,11 @@ $animationDuration: 1.5s;
     h2 {
       font-size: $fzSubtitle !important;
     }
+
     h2 {
       margin-bottom: 10px;
     }
+
     .tab-content {
       .homeCalendar-xs {
         left: 8%;
@@ -738,11 +767,13 @@ $animationDuration: 1.5s;
       //外送 input 高度增高為160px
       height: 160px !important;
     }
+
     .homeHeight-100-xs {
       //外帶 input 高度增高為100px
       height: 100px !important;
     }
   }
+
   .homeMouse {
     // top: -80px;
     display: none;
@@ -2995,7 +3026,7 @@ svg {
 .slide:nth-child(1) .slide__bg {
   left: 0;
 
-  background-image:url("../images/homepage/four_bg.png");
+  background-image: url("../images/homepage/four_bg.png");
   background-position: bottom;
   // transform:scale(0.5) ;
 }
@@ -3017,7 +3048,7 @@ svg {
 .slide:nth-child(2) .slide__bg {
   left: -50%;
   background-image:
-  url("https://i.picsum.photos/id/155/200/300.jpg?hmac=nG5WHfEXcJmld5FbH0N9bGciE9a57S0bgIHHTpxag7o");
+    url("https://i.picsum.photos/id/155/200/300.jpg?hmac=nG5WHfEXcJmld5FbH0N9bGciE9a57S0bgIHHTpxag7o");
 
 }
 
@@ -3094,40 +3125,43 @@ svg {
   display: flex;
   position: relative;
 
-  .slider_1_left{
+  .slider_1_left {
     // border: 1px solid red;
-  //  flex: 1;
-  
-  .location{
-    background-image: url("../images/homepage/location.png");
-    width: 110px;
-    height: 160px;
-    background-size: cover;
-    position: absolute;
-    transform: scale(0.3);
-    left: 190px;
-    top: 140px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .lada{
+    //  flex: 1;
+
+    .location {
+      background-image: url("../images/homepage/location.png");
+      width: 110px;
+      height: 160px;
+      background-size: cover;
       position: absolute;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: red;
-      animation: lada 3s ease-out infinite alternate;
+      transform: scale(0.3);
+      left: 190px;
+      top: 140px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .lada {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+        animation: lada 3s ease-out infinite alternate;
+      }
     }
   }
-  }
-  .slider_1_right_bg{
-     overflow: hidden;
+
+  .slider_1_right_bg {
+    overflow: hidden;
     //  width: 1020px;
-     position: relative;
-     right: -448px;
+    position: relative;
+    right: -448px;
     //  z-index: -1;
   }
-  .slider_1_right{
+
+  .slider_1_right {
     height: 480px;
     position: relative;
     width: 1160px;
@@ -3137,7 +3171,8 @@ svg {
     background-repeat: no-repeat;
     // animation: bgcity 5s ;
   }
-  .slider_1_right.driver{
+
+  .slider_1_right.driver {
     // border: 1px solid yellow;
     height: 344px;
     position: relative;
@@ -3151,11 +3186,11 @@ svg {
     // &.driver{
     //   position: absolute;
     //   // background-color: red;
-      
+
 
     // }
   }
-     
+
 }
 
 /* .slide__overlay {
@@ -3264,6 +3299,7 @@ svg {
   -webkit-transform: rotateX(0);
   transform: rotateX(0);
 }
+
 // @keyframes bgcity{
 //   from{
 //     right: 0px;
@@ -3272,105 +3308,120 @@ svg {
 //     right: 1200px;
 //   }
 // }
-@keyframes driver{
-  from{
+@keyframes driver {
+  from {
     right: 370px;
   }
-  to{
+
+  to {
     right: -1200px;
   }
-};
-@keyframes lada{
-  from{
+}
+
+;
+
+@keyframes lada {
+  from {
     width: 25px;
     height: 25px;
     background-color: rgba(236, 54, 54, 1);
   }
-  to{
+
+  to {
     width: 800px;
     height: 800px;
     border-radius: 50%;
     background-color: rgba(236, 54, 54, .5);
   }
-};
+}
 
-@media (min-width: 1000px) and (max-width: 1200px){
+;
 
-  .slide__content{
-    .slider_1_left{
+@media (min-width: 1000px) and (max-width: 1200px) {
+
+  .slide__content {
+    .slider_1_left {
+
       // border: 1px solid red;
-    //  flex: 1;
-    .location{
-      background-image: url("../images/homepage/location.png");
-      width: 110px;
-      height: 160px;
-      background-size: cover;
-      position: absolute;
-      transform: scale(0.3);
-      left: 95px;
-      top: 235px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .lada{
+      //  flex: 1;
+      .location {
+        background-image: url("../images/homepage/location.png");
+        width: 110px;
+        height: 160px;
+        background-size: cover;
         position: absolute;
-        width: 50px;
-        height: 50px;
+        transform: scale(0.3);
+        left: 95px;
+        top: 235px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .lada {
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: red;
+          animation: lada 3s ease-out infinite alternate;
+        }
+      }
+
+      .slider_1_right_bg {
+        overflow: hidden;
+        //  width: 1020px;
+        position: relative;
+        right: -266px;
+
+        //  z-index: -1;
+        .slider_1_right {
+          height: 514px;
+          position: relative;
+          width: 1160px;
+          right: 440px;
+          // background-image: url("../images/homepage/driver_bg.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          // animation: bgcity 5s ;
+        }
+
+        .slider_1_right.driver {
+          // border: 1px solid yellow;
+          height: 310px;
+          position: relative;
+          width: 341px;
+          right: -200px;
+          bottom: 346px;
+          background-image: url("../images/homepage/driver.png");
+          background-size: cover;
+          background-repeat: no-repeat;
+          animation: driver 5s infinite;
+          // &.driver{
+          //   position: absolute;
+          //   // background-color: red;
+
+
+          // }
+        }
+      }
+
+    }
+
+    @keyframes lada {
+      from {
+        width: 25px;
+        height: 25px;
+        background-color: rgba(236, 54, 54, 1);
+      }
+
+      to {
+        width: 600px;
+        height: 600px;
         border-radius: 50%;
-        background-color: red;
-        animation: lada 3s ease-out infinite alternate;
+        background-color: rgba(236, 54, 54, .5);
       }
     }
-    
-   .slider_1_right_bg{
-     overflow: hidden;
-    //  width: 1020px;
-     position: relative;
-     right: -266px;
-    //  z-index: -1;
-    .slider_1_right{
-    height: 514px;
-    position: relative;
-    width: 1160px;
-    right: 440px;
-    // background-image: url("../images/homepage/driver_bg.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    // animation: bgcity 5s ;
   }
-  .slider_1_right.driver{
-    // border: 1px solid yellow;
-    height: 310px;
-    position: relative;
-    width: 341px;
-    right: -200px;
-    bottom: 346px;
-    background-image: url("../images/homepage/driver.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    animation: driver 5s infinite;
-    // &.driver{
-    //   position: absolute;
-    //   // background-color: red;
-      
-
-    // }
-  }
-  }
-  
-  }
-  @keyframes lada{
-    from{
-      width: 25px;
-      height: 25px;
-      background-color: rgba(236, 54, 54, 1);
-    }
-    to{
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background-color: rgba(236, 54, 54, .5);
-    }
 }
-  }}
+
 // ---------------------------------------------------------------home_am.scss
