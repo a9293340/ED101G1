@@ -108,37 +108,41 @@
         :id="'bentonDiv'+index"
         :key="index"
       >
-        <div class="ranking">
-          <img
-            @click="openLightBox(notes, index)"
-            :id="'bentonimg'+index"
-            :data-id="index"
-            v-bind:src="notes.bentonImg"
-            alt=""
-          />
-        </div>
-        <p id="Step2TitlText">{{notes.title}}</p>
         <img
-          class="conversation"
           @click="openLightBox(notes, index)"
-          src="./images/showbenton/conversation.png"
-          width="30px"
-          height="30px"
+          :id="'bentonimg'+index"
+          :data-id="index"
+          v-bind:src="notes.bentonImg"
+          alt=""
         />
 
-        <img
-          class="like"
-          src="./images/showbenton/like.png"
-          width="30px"
-          height="30px"
-        />
-        <img
-          class="like1"
-          @click="addLikeTimes(notes)"
-          src="./images/showbenton/like1.png"
-        />
+        <p id="Step2TitlText">{{notes.title}}</p>
+        <div style="margin: 20px 0 5px; text-align: right;">
+          <img
+            class="conversation"
+            @click="openLightBox(notes, index)"
+            src="./images/showbenton/conversation.png"
+            width="30px"
+            height="30px"
+          />
 
-        <span class="liketimes">{{notes.liketimes}}</span>
+          <img
+            class="like"
+            src="./images/showbenton/like.png"
+            width="30px"
+            height="30px"
+            :data-num="index"
+            :data-check="0"
+            @click="change"
+          />
+          <!-- <img
+            class="like1"
+            @click="addLikeTimes(notes)"
+            src="./images/showbenton/like1.png"
+          /> -->
+
+          <span class="liketimes">{{notes.liketimes}}</span>
+        </div>
       </div>
 
       <!----------點擊分享便當裡面的畫面------------>
@@ -156,9 +160,9 @@
               v-bind:src="currentBenton.bentonImg"
               alt="where is mybenton"
               width="340"
-              height="300"
+              height="260"
             />
-            <button class="buyMore" id="buyMore">我也要吃</button>
+            <button class="buyMore" id="buyMore">加入購物車</button>
             <div class="memTextBlock">
               <img :src="memData.memImage" class="memPicture" />
               <p class="member">{{memData.memName}}</p>
@@ -200,12 +204,18 @@
                   text-align: left;
                   padding-left: 13px;
                   padding: 5px 0;
+                  font-weight: bold;
                 "
               >
                 我想說：
               </p>
               <textarea
-                style="resize: none; font-size: 16px; width: 335px;"
+                style="
+                  resize: none;
+                  font-size: 16px;
+                  width: 335px;
+                  background-color: #eeeeee;
+                "
                 class="comment"
                 cols="45"
                 rows="4"
@@ -226,7 +236,7 @@
       </div>
     </div>
 
-    @@include('./layout/shoppingcart.html',{})
+    <!-- @@include('./layout/shoppingcart.html',{}) -->
     <!-- @@include('./layout/footer.html',{}) -->
     <script src="../dev/js/layout/shoppingcart.js"></script>
     <script src="../dev/js/showbenton.js"></script>
