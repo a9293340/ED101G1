@@ -10,10 +10,10 @@ body {
     margin: 0;
 }
 
-header {
-    border: 2px solid rgb(8, 8, 8);
-    height: 80px;
-}
+// header {
+//     border: 2px solid rgb(8, 8, 8);
+//     height: 80px;
+// }
 
 div.wrapper {
     border: 1px solid red;
@@ -224,6 +224,7 @@ p.separate,
     width: 150px;
     margin-left: auto;
     margin-right: 40px;
+    margin-bottom: 100px;
 }
 
 
@@ -255,7 +256,7 @@ h1.title1 {
     color: white;
     font-family: 'Noto Sans TC';
     margin-left: auto;
-    ;
+    
     font-size: 2.5rem;
 
 }
@@ -268,13 +269,14 @@ p.title3 {
     font-size: 1.5rem;
     margin-bottom: 50px;
     text-align: center;
+    a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.8rem;
+    }
 }
 
-a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.8rem;
-}
+
 
 span.healCooks {
     width: 80px;
@@ -297,7 +299,7 @@ span.healBento {
     font-size: 1.4rem;
 }
 
-ul.healCooks1 {
+ul.mainFood {
     border: 1px solid red;
     width: 1000px;
     display: flex;
@@ -305,67 +307,91 @@ ul.healCooks1 {
     margin: auto;
     margin-bottom: 50px;
     padding: 0;
+    li{
+        border: 1px solid blue;
+        margin: 20px auto;
+    }
+    li>img{
+        width: 100%;
+    }
+    li>img,p{
+        display: flex;
+        justify-content: center;
+    }
 }
 
-li {
-    border: 1px solid blue;
-    margin: 20px auto;
 
+
+ul.cooks {
+        border: 1px solid red;
+        width: 1000px;
+        display: flex;
+        list-style: none;
+        margin: auto;
+        margin-bottom: 50px;
+        padding: 0;
+
+    li{
+        border: 1px solid blue;
+        margin: 20px auto;
+    }
+
+    li>img{
+        width: 100%;
+    }
+
+    li>img,p{
+        display: flex;
+        justify-content: center;
+    }
 }
 
-ul.healCooks2 {
-    border: 1px solid red;
-    width: 1000px;
-    display: flex;
-    list-style: none;
-    margin: auto;
-    margin-bottom: 50px;
-    padding: 0;
-}
 
-li {
-    border: 1px solid blue;
-    margin: 20px auto;
 
-}
-
-ul.bentoContent {
+ul.bento {
     border: 1px solid red;
     width: 1000px;
     margin: 0 auto;
     list-style: none;
     display: flex;
+    margin-bottom: 100px;
+
+    li.dish {
+        border: 1px solid gray;
+        width: 230px;
+        margin-left: auto;
+        
+        color: #ffd23f;
+        font-size: 1.2rem;
+    }
+    
+    li.img {
+        margin-right: auto;
+        
+    
+    }
+    
+    #healthCart {
+        position: relative;
+        z-index: 99;
+        margin-left: auto;
+        padding-top: 3px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        background-color: #ea6627;
+        color: white;
+    }
+    img.rader{
+        margin: 20px;
+    }
+    li.img,
+    button.cart {
+        display: block;
+        margin: auto;
+    }
 }
 
-li.dish {
-    border: 1px solid gray;
-    width: 230px;
-    white-space: pre-wrap;
-    color: #ffd23f;
-    font-size: 1.2rem;
-}
 
-li.img {
-    margin-right: auto;
-
-}
-
-#healthCart {
-    position: relative;
-    z-index: 99;
-    margin-left: auto;
-    padding-top: 3px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    background-color: #ea6627;
-    color: white;
-}
-
-li.img,
-button.cart {
-    display: block;
-    margin: auto;
-}
 
 footer {
     border: 1px solid green;
@@ -458,66 +484,69 @@ footer {
         padding-left: 20px;
     }
 
-    ul.healCooks1 {
-        width: 90%;
+    ul.mainFood{
+        width: 100%;
         margin-bottom: 20px;
+        li>img{
+            width: 100%;
+        }
+        li>img,p{
+            display: flex;
+            justify-content: center;
+        }
     }
 
-    ul.healCookVegs {
-        width: 90%;
+    
+
+    ul.cooks{
+        width: 100%;
+        margin-bottom: 20px;
+        li>img{
+            width: 100%;
+        }
+        li>img,p{
+            display: flex;
+            justify-content: center;
+        }
     }
 
-    ul.healCooks1>li {
-        margin: 0 auto;
-    }
+    
 
-    ul.healCooks1>li>img {
-        width: 90%;
-    }
-
-    ul.healCooks2 {
-        width: 90%;
-    }
-
-    ul.healCooks2>li {
-        margin: 0 auto;
-    }
-
-    ul.healCooks2>li>img {
-        width: 90%;
-    }
-
-    ul.bentoContent {
-        width: 80%;
+    ul.bento {
+        width: 100%;
         display: block;
+
+            li {
+                width: 45%;
+                margin: 0 auto;
+            }
+
+            img {
+                width: 90%;
+            }
+
+            li.dish {
+                width: 80%;
+                font-size: .5rem;
+            }
+
+            li.img {
+                width: 55%;
+                margin: 0 auto;
+            }
+
+            li.img>img.rader {
+                width: 70%;
+            }
+
+            #healthCart {
+                width: 26%;
+                font-size: 12px;
+                left: 80px;
+            }
     }
 
-    ul.bentoContent>li {
-        width: 55%;
-    }
-
-    ul.bentoContent>li>img {
-        width: 90%;
-    }
-
-    li.dish {
-        width: 80%;
-        font-size: .5rem;
-    }
-
-    li.img {
-        width: 55%;
-        margin: 0 auto;
-    }
-
-    li.img>img.rader {
-        width: 70%;
-    }
-
-    button.cart {
-        width: 40%;
-        font-size: 12px;
-    }
+    
 
     div.overlay {
         width: 70%;
@@ -610,7 +639,7 @@ footer {
         width: 100%;
         margin: 0 auto;
         font-size: .5rem;
-        padding: 10px;
+        padding: 25px;
         text-align: left;
     }
 
@@ -625,61 +654,70 @@ footer {
         padding-left: 20px;
     }
 
-    ul.healCooks1 {
-        width: 70%;
+    ul.mainFood{
+        width: 100%;
         margin-bottom: 20px;
+        li>img{
+            width: 100%;
+        }
+        li>p{
+            display: flex;
+            justify-content: center;
+        }
     }
 
-    ul.healCookVegs {
-        width: 90%;
+    
+
+    ul.cooks{
+        width: 100%;
+        margin-bottom: 20px;
+        li{
+            width: 100px;
+        }
+        li>img{
+            width: 100%;
+            
+            margin: auto;
+        }
+        li>p{
+            width: 100px;
+            display: flex;
+            justify-content: center;
+        }
     }
 
-    ul.healCooks1>li {
-        margin: 0 auto;
-    }
-
-    ul.healCooks1>li>img {
-        width: 90%;
-    }
-
-    ul.healCooks2 {
-        width: 90%;
-    }
-
-    ul.healCooks2>li {
-        margin: 0 auto;
-    }
-
-    ul.healCooks2>li>img {
-        width: 90%;
-    }
-
-    ul.bentoContent {
+    ul.bento {
         width: 100%;
         display: block;
-    }
 
-    ul.bentoContent>li {
-        width: 70%;
-        margin: 0 auto;
-    }
+            li {
+                width: 45%;
+                margin: 0 auto;
+            }
 
-    ul.bentoContent>li>img {
-        width: 90%;
-    }
+            img {
+                width: 45%;
+            }
 
-    li.dish {
-        width: 80%;
-        font-size: .5rem;
-    }
+            li.dish {
+                width: 80%;
+                font-size: .5rem;
+            }
 
-    li.img>img.rader {
-        width: 70%;
-    }
+            li.img {
+                width: 55%;
+                margin: 0 auto;
+            }
 
-    button.cart {
-        width: 45%;
-        font-size: 12px;
+            li.img>img.rader {
+                width: 70%;
+            }
+
+            #healthCart {
+                width: 40%;
+                font-size: 12px;
+                left: 60px;
+            }
     }
 
     div.overlay {

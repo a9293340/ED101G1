@@ -1,76 +1,97 @@
-<!-- 第 1 屏 -->
-<section style="height: 100vh;">
-    <header class="eff">
-        <video class="element-animation"
-            style="clip-path: url(#smoke-clip);border: 0;right:-800px;top:-600px;z-index: 99999;mix-blend-mode: screen;position: relative;"
-            width="500" height="1100" src="./images/homeFirst/smoke.mp4" muted="" autoplay="" loop=""></video>
-        <video class="homeShowSmoke element-animation" style="clip-path: url(#smoke-clip);" width="500" height="1100"
-            src="./images/homeFirst/smoke.mp4" muted="" autoplay="" loop=""></video>
-        <!-- 菜色輪播 -->
-        <div class="homeLove-Fish loveElement-Fish"></div>
-        <div class="homeLove-Pg loveElement-Pg"></div>
-        <div class="homeLove-Gt loveElement-Gt"></div>
-        <div class="homeCoverflow element-animation">
-            <a href="#">
-                <img src="./images/homeFirst/homeFoodPg.png"></a>
-            <a href="#">
-                <img src="./images/homeFirst/homeFoodFish.png"></a>
-            <a href="#">
-                <img src="./images/homeFirst/homeFoodGt.png">
-            </a>
-        </div>
-        <!-- end 菜色輪播 -->
-    </header>
-    <div class="homeTextBox fadeInUp">
-        <h1>寶島食堂</h1>
-        <h2>你中餐晚餐的好選擇</h2>
-        <div class="homeRow">
-            <div class="homeCol">
-                <div class="homeSelectBox">
-                    <input class="tab" id="tab1" type="radio" name="group1" checked="checked" />
-                    <label for="tab1" class="homeDelivery">外送</label>
-                    <input class="tab" id="tab2" type="radio" name="group1" />
-                    <label for="tab2" class="homeTakeaway">外帶</label>
-                    <!-- 外送表單 -->
-                    <div class="homeTab-pane fade tab-content">
-                        <form action="#">
-                            <div class="homeCalendar"
-                            style="position: relative;z-index:2;background-image: url(./images/homeFirst/homeCalendar.png);width: 24px;height: 24px;top: 10px;box-sizing: border-box;"></div>
-                    <!-- 日曆 -->
-                            <input type="text" id="datepicker" placeholder="送達日期"
-                                style="right:180px;position: relative;padding: 1rem;border-radius: 7px;border: 0;z-index: -1;padding-left:40px;top: -25px;">
-                            <!-- end 日曆 -->
-                            <div class="icon">
-                                <div class="homeGps"
-                                style="position: relative;right: -250px;z-index:2;top: -60px;color:#ff6347;background-image: url(./images/homeFirst/homeGps.png);width: 24px;height: 24px;"></div>
-                            </div>
-                            <input type="text" placeholder="輸入您的地址"
-                                style="right:-70px;position: relative;padding: 1rem;border-radius: 7px;border: 0;z-index: -1;padding-left:40px;top: -95px;">
-                            <button type="submit" class="homeControl-btn"
-                                style="padding: 0.8rem 1rem;color: #fff;background: #ff6347;border-radius: 5px;display: block;border: 1px solid #ff6347;font-weight: 400;position: absolute;top: 25px;left: 500px;z-index: 99;font-size: 1rem;">前往訂餐</button>
-                        </form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁</title>
+    <!-- favicon.ico -->
+    <link rel="icon" href="./images/homeFirst/favicon.ico">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/homeFisrt.css">
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+    <!-- ICON -->
+    <script src="https://use.fontawesome.com/2287e04f65.js"></script>
+</head>
+
+<body>
+    <!-- 第 1 屏 -->
+    <section style="height: 100vh;">
+        <header class="eff">
+            <video class="element-animation homeVideo-xs"
+                style="clip-path: url(#smoke-clip);border: 0;right:-900px;top:-600px;z-index: 99999;mix-blend-mode: screen;position: relative;"
+                width="500" height="1100" src="./images/homeFirst/smoke.mp4" muted="" autoplay="" loop=""></video>
+            <video class="homeShowSmoke element-animation  homeVideo-xs" style="clip-path: url(#smoke-clip);"
+                width="500" height="1100" src="./images/homeFirst/smoke.mp4" muted="" autoplay="" loop=""></video>
+            <!-- 菜色輪播 -->
+            <div class="homeLove-Fish loveElement-Fish"></div>
+            <div class="homeLove-Pg loveElement-Pg"></div>
+            <div class="homeLove-Gt loveElement-Gt"></div>
+            <div class="homeCoverflow homeCoverflow-xs">
+                <a href="#">
+                    <img src="./images/homeFirst/homeFoodPg.png"></a>
+                <a href="#">
+                    <img src="./images/homeFirst/homeFoodFish.png"></a>
+                <a href="#">
+                    <img src="./images/homeFirst/homeFoodGt.png">
+                </a>
+            </div>
+            <!-- end 菜色輪播 -->
+        </header>
+        <div class="homeTextBox fadeInUp">
+            <h1>寶島食堂</h1>
+            <h2>你中餐晚餐的好選擇</h2>
+            <div class="homeRow">
+                <div class="homeCol">
+                    <div class="homeSelectBox">
+                        <input class="tab" id="tab1" type="radio" name="group1"  />
+                        <label for="tab1" class="homeDelivery">外送</label>
+                        <input class="tab" id="tab2" type="radio" name="group1"  checked="checked" />
+                        <label for="tab2" class="homeTakeaway">外帶</label>
+                        <!-- 外送表單 -->
+                        <div class="homeTab-pane fade tab-content homeHeight-160-xs">
+                            <form action="#">
+                                <div class="homeCalendar homeCalendar-xs" style="position: relative;top:10px;z-index:2;color:#ff6347;background-image: url(./images/homeFirst/homeCalendar.png); width:24px;height:24px;"></div>
+                                <!-- 日曆 -->
+                                <input type="text" id="datepicker" placeholder="送達日期"  class="homeDate-xs"
+                                    style="right:180px;position: relative;padding: 1rem;border-radius: 7px;border: 0;z-index:1;padding-left:40px;top:-24px;">
+                                <!-- end 日曆 -->
+                                <div class="icon">
+                                    <div class="homeGps homeGps-xs"
+                                        style="position: relative;right:-250px;z-index:2;top:-60px;color:#ff6347;background-image: url(./images/homeFirst/homeGps.png);width:24px;height:24px;"></div>
+                                </div>
+                                <input type="text" placeholder="輸入您的地址" class="homeAdd-xs"
+                                    style="right:-70px;position: relative;padding: 1rem;border-radius: 7px;border: 0;z-index:1;padding-left:40px;top:-95px;">
+                                <button type="submit" class="homeControl-btn homeControl-btn-Delivery-xs"
+                                    style="padding: 0.8rem 1rem;color: #fff;background: #ff6347;border-radius: 5px;display: block;border: 1px solid #ff6347;font-weight: 400;position: absolute;top: 25px;left: 500px;z-index: 99;font-size: 1rem;">前往訂餐</button>
+                            </form>
+                        </div>
+                        <!-- end 外送表單 -->
+                        <!-- 外帶表單 -->
+                        <div class="homeTab-pane fade tab-content homeHeight-100-xs">
+                            <form action="#">
+                                <div class="homeCalendar homeCalendar-xs"
+                                    style="position: relative;right:-10px;top:12px;z-index:2;color:#ff6347;background-image: url(./images/homeFirst/homeCalendar.png);width:24px;height:24px;"></div>
+                                <!-- 日曆 -->
+                                <input type="text" id="datepickerTakeway" placeholder="取餐日期" class="homeDate-xs"
+                                    style="right:60px;position: relative;padding: 1rem;border-radius:7px;border: 0;z-index:1;padding-left:50px;width:70%;top:-25px;">
+                                <!-- end 日曆 -->
+                                <button type="submit" class="homeControl-btn homeControl-btn-Takeaway-xs"
+                                    style="padding: 0.8rem 1rem;color: #fff;background: #ff6347;border-radius: 5px;display: block;border: 1px solid #ff6347;font-weight: 400;position: absolute;top: 24px;left: 495px;z-index: 99;font-size: 1rem;">前往訂餐</button>
+                            </form>
+                        </div>
+                        <!-- end 外帶表單 -->
                     </div>
-                    <!-- end 外送表單 -->
-                    <!-- 外帶表單 -->
-                    <div class="homeTab-pane fade tab-content">
-                        <form action="#">
-                            <div class="homeCalendar"
-                            style="position: relative;right: -15px;z-index:2;color:#ff6347;background-image: url(./images/homeFirst/homeCalendar.png);width: 24px;height: 24px;top: 10px;"></div>
-                             <!-- 日曆 -->
-                            <input type="text" id="datepickerTakeway" placeholder="取餐日期"
-                                style="right: 50px;position: relative;padding: 1rem;border-radius:7px;border: 0;z-index: -1;padding-left: 50px;width: 83%;top: -23px;">
-                            <!-- end 日曆 -->
-                            <button type="submit" class="homeControl-btn"
-                                style="padding: 0.8rem 1rem;color: #fff;background: #ff6347;border-radius: 5px;display: block;border: 1px solid #ff6347;font-weight: 400;position: absolute;top: 25px;left: 500px;z-index: 99;font-size: 1rem;">前往訂餐</button>
-                        </form>
-                    </div>
-                    <!-- end 外帶表單 -->
                 </div>
             </div>
         </div>
-    </div>
-    <!-- 導引按鈕 -->
-    <div class="homeMouse" id="homeNext"></div>
-    <!-- end 導引按鈕 -->
-</section>
-<!-- end 第 1 屏 -->
+        <!-- 導引按鈕 -->
+        <div class="homeMouse" id="homeNext"></div>
+        <!-- end 導引按鈕 -->
+    </section>
+    <!-- end 第 1 屏 -->
+
+    <!-- 第 2 屏 -->
+</body>
+
+</html>

@@ -7,7 +7,7 @@
        "setColdHot":21,
        "setHealth":96,
        "setClass":0,
-       "setImage":"https://fakeimg.pl/110/",
+       "setImage":"./images/bandon_include/setdo1.jpg",
        "setInfo":"寶島食堂嚴選冰島鱈魚，無細刺，肉質滑嫩鮮甜，如雪花般入口即化的綿密感魚肉更富含OMEGA-3即DHA、EPA適合成長中的孩子食用。"
     },
     {
@@ -18,7 +18,7 @@
        "setColdHot":83,
        "setHealth":18,
        "setClass":0,
-       "setImage":"https://fakeimg.pl/100/",
+       "setImage":"./images/bandon_include/setdo2.jpg",
        "setInfo":"很多人說寶島食堂的雞腿很好吃，汁非常多，肉鮮美不柴，外皮金黃酥脆，那是因為我們池上木片便當使用了國產黃金雞，最後再經由師傅的油炸功力讓一隻金黃酥脆多汁又鮮嫩的雞腿能夠送到您的手中。"
     },
     {
@@ -29,7 +29,7 @@
        "setColdHot":83,
        "setHealth":98,
        "setClass":0,
-       "setImage":"https://fakeimg.pl/100/",
+       "setImage":"./images/bandon_include/setdo3.jpg",
        "setInfo":"寶島食堂獨特的排骨醃料配方，醃料採用數十種配料，醃製入味，再採用大吟釀醬油的醬汁滷出新味道，軟嫩可口。"
     },
     {
@@ -40,7 +40,7 @@
        "setColdHot":96,
        "setHealth":63,
        "setClass":1,
-       "setImage":"https://fakeimg.pl/100/",
+       "setImage":"./images/bandon_include/active1.jpg",
        "setInfo":"獨特的里肌醃料配方，當日醃製完畢即放入冷凍庫並在隔日清晨直送各店家，油炸後香濃可口，且無骨，適合小孩子食用。古法秘製，真空加速入味，裹上一層白面紗進入油炸鍋，3分鐘起鍋金黃外皮，肉質扎實"
     },
     {
@@ -51,7 +51,7 @@
        "setColdHot":57,
        "setHealth":44,
        "setClass":1,
-       "setImage":"https://fakeimg.pl/100/",
+       "setImage":"./images/bandon_include/active2.jpg",
        "setInfo":"使用乾淨的冷油下去油炸，外觀紅潤有光澤，內部更是口感扎實，不禁讓人懷念起兒時的好味道。"
     },
     {
@@ -62,7 +62,7 @@
        "setColdHot":41,
        "setHealth":89,
        "setClass":1,
-       "setImage":"https://fakeimg.pl/130/",
+       "setImage":"./images/bandon_include/active3.jpg",
        "setInfo":"鮭魚飯便當：嚴選智利紅鮭，令人食指大動的粉橘色魚肉咬下去清爽健康的魚油在口腔裡娉然散開餘韻纏繞，欲罷不能，一口接著一口！非常適合正在發育的小朋友品嘗。"
     }
  ]
