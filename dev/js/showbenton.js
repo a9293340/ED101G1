@@ -478,10 +478,7 @@ $(function () {
 });
 
 //塞進購物車
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 // function showbentonShoppingCart() {
 //   showbentonOrderList = {
 //     sNum: `${singleNum}`,
@@ -500,13 +497,7 @@ $(function () {
 //   localStorage.setItem("qqq", "123");
 //   setcart();
 // }
-=======
->>>>>>> 034d54ea1818969cc1b5af8bb8b0d85df129c8a6
-=======
 
->>>>>>> show
-=======
->>>>>>> show
 function showbentonShoppingCart() {
   showbentonOrderList = {
     sNum: `${singleNum}`,

@@ -128,9 +128,9 @@
                     <div class="buy_bando"> 
                         <div class="buy_bandoImg">
                             <!-- <img src="./images/bandon_include/bentoBox.png"  width="450" height="450"> -->
-                            <img id='orderHappyTaiwan' src="./images/bandon_include/OrderhappyTaiwan.png" width="180" height="220">
-                            <img id='orderFat' src="./images/bandon_include/orderfat.png" width="200" height="220">
-                            <img id='orderHappy' src="./images/bandon_include/orderHappy.png" width="220" height="220">
+                            <img id='orderHappyTaiwan' src="./images/order/OrderhappyTaiwan.png" width="180" height="220">
+                            <img id='orderFat' src="./images/order/orderfat.png" width="200" height="220">
+                            <img id='orderHappy' src="./images/order/orderHappy.png" width="220" height="220">
                             <img id='orderBentoBottom' src="./images/bandon_include/bentobottom.png">
                             <img id="orderRicePic">
                             <img id="orderMeatPic">
@@ -266,7 +266,7 @@
           <div class="buy_other_container">
             <div class="buy_card3">
                 
-               <img v-if="selectedone == 1" src="./images/bandon_include/vegjuice.png"  width="200" height="200">
+               <img v-if="selectedone == 1" src="./images/bandon_include/vegjucice.png"  width="200" height="200">
                <img v-else :src="selectedone.opImage"  width="200" height="200">
                <p v-if ="selectedone == 1">&nbsp;</p>
                <p v-else>NT$ {{selectedone.opPrice}}</p>
@@ -280,7 +280,7 @@
                 </div>
             </div>
             <div class="buy_card3">
-                <img v-if="selectedtwo == 1" src="./images/bandon_include/apple.jpg"  width="200" height="200">
+                <img v-if="selectedtwo == 1" src="./images/bandon_include/apple.png"  width="200" height="200">
                 <img v-else :src="selectedtwo.opImage"  width="200" height="200">
                 <p v-if ="selectedtwo == 1">&nbsp;</p>
                 <p v-else>NT$ {{selectedtwo.opPrice}}</p>
@@ -294,7 +294,7 @@
                 </div>
             </div>
             <div class="buy_card3">
-                <img v-if="selectedthree == 1" src="./images/bandon_include/check.jpg"  width="200" height="200">
+                <img v-if="selectedthree == 1" src="./images/bandon_include/checkendrink.png"  width="200" height="200">
                 <img v-else :src="selectedthree.opImage"  width="200" height="200">
                 <p v-if ="selectedthree == 1">&nbsp;</p>
                 <p v-else>NT$ {{selectedthree.opPrice}}</p>

@@ -62,7 +62,7 @@ let sgproduct=[
        "spHealth":96,
        "spClass":1,
        "spInfo":"深海魚富含歐米伽3不飽和脂肪酸，而且魚肉細嫩鮮美，無大骨刺。好吃營養的深海魚，對大腦、身體成長發育有輔助作用。來自阿拉斯加的銀鱈魚作為優質深海魚，深海油脂含量特別豐富，鮮嫩美味。",
-       "spImage":"./images/order/fish.jpg",
+       "spImage":"./images/bandon_include/fish.jpg",
        "spMeat":1,
        "spStatus":1
     },
@@ -75,7 +75,7 @@ let sgproduct=[
        "spHealth":14,
        "spClass":1,
        "spInfo":"島食堂嚴選牛里脊肉，是切割自牛背部的柔嫩瘦肉，適合燒烤。牛肉蛋白質含量高，而脂肪含量低，葱是一种很普遍的调味品或蔬菜，在炒菜前將它和薑切碎一起下油鍋中炒至金黄後再將其他蔬菜倒入鍋中炒。",
-       "spImage":"./images/order/beef.jpg",
+       "spImage":"./images/bandon_include/beef.jpg",
        "spMeat":1,
        "spStatus":1
     },
@@ -313,7 +313,7 @@ let other=[
        opName:"蔬果汁",
        opPrice:'45',
        opClass:'0',
-       opImage:"./images/bandon_include/vegjuice.png"
+       opImage:"./images/bandon_include/vegjucice.png"
     },
     {
        opId:'1003',
