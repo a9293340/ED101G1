@@ -28,7 +28,18 @@ let homeLoginSignup = new Vue({
                 if(homeCool){
                     e.preventDefault();
                 }
+                $('#member_aflogin').show(500);
+                $('#homeContainderBgc').hide(500);
+                $('#homeContainer').hide(500);
+                $('#member').hide(500);
             }
+        },
+        homeCheckLoginBtn(e){
+            e.preventDefault();
+            $('#member_aflogin').show(500);
+            $('#homeContainderBgc').hide(500);
+            $('#homeContainer').hide(500);
+            $('#member').hide(500);
         }
     },
     computed: {

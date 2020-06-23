@@ -1,95 +1,95 @@
 
 <div class="homeContainderBgc" id="homeContainderBgc">
-    <div class="homeContainer" id="homeContainer">
-        <div class="homeTab-wrap">
-    
-            <!-- 註冊/登入 按鈕-->
-            <input class="homeTab" id="homeTab1" type="radio" name="group1" />
-            <label for="homeTab1">註冊</label>
-            <input class="homeTab" id="homeTab2" type="radio" name="group1" checked="checked"/>
-            <label for="homeTab2">登入</label>
-            <!-- end 註冊/登入 按鈕-->
-    
-            <div class="homeTab-content">
-                <!-- 註冊表單-->
-                <form action="/" method="post">
-                    <div class="homeTop-row">
-                        <div class="homeField-wrap">
-                            <div class="homeNameBox">
-                                <label>
-                                    姓名<span class="homeReq">*</span>
-                                </label>
-                                <input type="text" required autocomplete="off" v-model='homeSignupName'/>
-                                <!-- <input class="homeName-1" type="text" required autocomplete="off" />
-                    <input class="homeName-2" type="text" required autocomplete="off" /> -->
-                            </div>
+</div>
+<div class="homeContainer" id="homeContainer">
+    <div class="homeTab-wrap">
+
+        <!-- 註冊/登入 按鈕-->
+        <input class="homeTab" id="homeTab1" type="radio" name="group1" />
+        <label for="homeTab1">註冊</label>
+        <input class="homeTab" id="homeTab2" type="radio" name="group1" checked="checked"/>
+        <label for="homeTab2">登入</label>
+        <!-- end 註冊/登入 按鈕-->
+
+        <div class="homeTab-content">
+            <!-- 註冊表單-->
+            <form action="/" method="post">
+                <div class="homeTop-row">
+                    <div class="homeField-wrap">
+                        <div class="homeNameBox">
+                            <label>
+                                姓名<span class="homeReq">*</span>
+                            </label>
+                            <input type="text" required autocomplete="off" v-model='homeSignupName'/>
+                            <!-- <input class="homeName-1" type="text" required autocomplete="off" />
+                <input class="homeName-2" type="text" required autocomplete="off" /> -->
                         </div>
                     </div>
-                    <p :class="homeSignupNameClass">{{homeSignupNameWarning}}</p>
-                    <div class="homeField-wrap">
-                        <label>
-                            信箱<span class="homeReq">*</span>
-                        </label>
-                        <input type="email" required autocomplete="off" v-model='homeSignupMail'/>
-                    </div>
-                    <p :class="homeSignupMailClass">{{homeSignupMailWarning}}</p>
-                    <div class="homeField-wrap">
-                        <label>
-                            密碼<span class="homeReq">*</span>
-                        </label>
-                        <input type="password" required autocomplete="off" v-model='homeSignupPsw'/>
-                    </div>
-                    <p :class="homeSignupPswClass">{{homeSignupPswWarning}}</p>
-                    <div class="homeField-wrap">
-                        <label>
-                            確定密碼<span class="homeReq">*</span>
-                        </label>
-                        <input type="password" required autocomplete="off" v-model='homeSignupPsw2'/>
-                    </div>
-                    <p :class="homeSignupPsw2Class">{{homeSignupPsw2Warning}}</p>
-                    <div class="homeField-wrap">
-                        <label>
-                            電話<span class="homeReq">*</span>
-                        </label>
-                        <input type="phone" required autocomplete="off" v-model='homeSignupPhone'/>
-                    </div>
-                    <p :class="homeSignupPhoneClass">{{homeSignupPhoneWarning}}</p>
-                    <div class="homeField-wrap">
-                        <label>
-                            地址<span class="homeReq">*</span>
-                        </label>
-                        <input type="text" required autocomplete="off" />
-                    </div>
-                    <button type="submit" class="homeButton homeButton-block" @click='homeCheckSignupBtn'>建立帳號</button>
-                </form>
-                <!-- end 註冊表單-->
-            </div>
-    
-            <div class="homeTab-content">
-                <!-- 登入表單-->
-                <form action="/" method="post">
-                    <div class="homeField-wrap">
-                        <label>
-                            信箱<span class="homeReq">*</span>
-                        </label>
-                        <input type="email" required autocomplete="off" v-model="homeLoginMail"/>
-                    </div>
-                    <p :class="homeLoginMailClass">{{homeLoginMailWarning}}</p>
-                    <div class="homeField-wrap">
-                        <label>
-                            密碼<span class="homeReq">*</span>
-                        </label>
-                        <input type="password" required autocomplete="off" v-model='homeLoginPsw'/>
-                    </div>
-                    <p :class="homeLoginPswClass">{{homeLoginPswWarning}}</p>
-    
-                    <p class="homeForgot"><a href="#">忘記密碼?</a></p>
-    
-                    <button class="homeButton homeButton-block" />登入</button>
-                </form>
-                <!-- end 登入表單-->
-    
-            </div>
+                </div>
+                <p :class="homeSignupNameClass">{{homeSignupNameWarning}}</p>
+                <div class="homeField-wrap">
+                    <label>
+                        信箱<span class="homeReq">*</span>
+                    </label>
+                    <input type="email" required autocomplete="off" v-model='homeSignupMail'/>
+                </div>
+                <p :class="homeSignupMailClass">{{homeSignupMailWarning}}</p>
+                <div class="homeField-wrap">
+                    <label>
+                        密碼<span class="homeReq">*</span>
+                    </label>
+                    <input type="password" required autocomplete="off" v-model='homeSignupPsw'/>
+                </div>
+                <p :class="homeSignupPswClass">{{homeSignupPswWarning}}</p>
+                <div class="homeField-wrap">
+                    <label>
+                        確定密碼<span class="homeReq">*</span>
+                    </label>
+                    <input type="password" required autocomplete="off" v-model='homeSignupPsw2'/>
+                </div>
+                <p :class="homeSignupPsw2Class">{{homeSignupPsw2Warning}}</p>
+                <div class="homeField-wrap">
+                    <label>
+                        電話<span class="homeReq">*</span>
+                    </label>
+                    <input type="phone" required autocomplete="off" v-model='homeSignupPhone'/>
+                </div>
+                <p :class="homeSignupPhoneClass">{{homeSignupPhoneWarning}}</p>
+                <div class="homeField-wrap">
+                    <label>
+                        地址<span class="homeReq">*</span>
+                    </label>
+                    <input type="text" required autocomplete="off" />
+                </div>
+                <button type="submit" id='signUpBtn' class="homeButton homeButton-block" @click='homeCheckSignupBtn'>建立帳號</button>
+            </form>
+            <!-- end 註冊表單-->
+        </div>
+
+        <div class="homeTab-content">
+            <!-- 登入表單-->
+            <form action="/" method="post">
+                <div class="homeField-wrap">
+                    <label>
+                        信箱<span class="homeReq">*</span>
+                    </label>
+                    <input type="email" required autocomplete="off" v-model="homeLoginMail"/>
+                </div>
+                <p :class="homeLoginMailClass">{{homeLoginMailWarning}}</p>
+                <div class="homeField-wrap">
+                    <label>
+                        密碼<span class="homeReq">*</span>
+                    </label>
+                    <input type="password" required autocomplete="off" v-model='homeLoginPsw'/>
+                </div>
+                <p :class="homeLoginPswClass">{{homeLoginPswWarning}}</p>
+
+                <p class="homeForgot"><a href="#">忘記密碼?</a></p>
+
+                <button class="homeButton homeButton-block" @click='homeCheckLoginBtn'/>登入</button>
+            </form>
+            <!-- end 登入表單-->
+
         </div>
     </div>
 </div>
