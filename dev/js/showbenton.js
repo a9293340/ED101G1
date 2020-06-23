@@ -494,7 +494,6 @@ $(function () {
   });
 });
 
-<<<<<<< HEAD
 //塞進購物車
 
 // function showbentonShoppingCart() {
@@ -516,8 +515,6 @@ $(function () {
 //   setcart();
 // }
 
-=======
->>>>>>> show
 function showbentonShoppingCart() {
   showbentonOrderList = {
     sNum: `${singleNum}`,
