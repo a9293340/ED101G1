@@ -568,7 +568,6 @@ $animationDuration: 1.5s;
 
 
 // --------------------手機板
-<<<<<<< HEAD
 @media (min-width:1366px) and (max-width:1680px){
   .homeTextBox{
     .homeCalendar-xl{
@@ -591,7 +590,9 @@ $animationDuration: 1.5s;
     }
     .homeControl-btn-Takeaway-xl{
       left: 82%!important;
-=======
+    }
+  }
+}    
 @media (min-width:1200px) {
   .homeSection-3 {
     .homeBlackBoardContainer {
@@ -600,7 +601,6 @@ $animationDuration: 1.5s;
       .homeIceOne {
         left: 120px;
       }
->>>>>>> 05775a3e67381702238cbc52b09027adf0f632fd
     }
   }
 
