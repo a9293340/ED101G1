@@ -27,6 +27,10 @@
 </head>
 
 <body>
+    <!-- 購物車 -->
+    @@include('./layout/shoppingcart.html')
+    <!-- 會員登入 -->
+    @@include('./layout/loginSignup.html')
     <!-- 第一屏 homeFirst -->
     @@include('./layout/homeFirst.html',{})
 
@@ -39,9 +43,8 @@
     @@include('./layout/footer.html',{})
 
     <!-- Login、Signup、ShoppingCart -->
-    <script src="../dev/js/layout/login.js"></script>
     <script src="../dev/js/layout/shoppingcart.js"></script>
-    <script src="../dev/js/layout/signup.js"></script>
+    <script src="../dev/js/layout/loginSignup.js"></script>
     <!-- homepage -->
     <script src="../dev/js/homepage.js"></script>
     <script src="../dev/js/layout/home_menu.js"></script>
