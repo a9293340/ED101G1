@@ -144,14 +144,27 @@ document.getElementById('orderCartClose').addEventListener('click',()=>{
 
 //login signup
 $('#homeContainderBgc').hide();
+$('#homeContainer').hide();
+$('#member_aflogin').hide();
 $('#member').click(function (e) { 
     e.preventDefault();
     $('#homeContainderBgc').show(500);
+    $('#homeContainer').show(500);
 });
 $('#homeContainderBgc').click(function (e) { 
     e.preventDefault();
     $('#homeContainderBgc').hide(500);
+    $('#homeContainer').hide(500);
+
 });
+
+
+//登出  php 刪除session
+$('#log_out').click(function(e){
+    e.preventDefault();
+    $('#member_aflogin').hide();
+    $('#member').show(500);
+})
 
 
 
