@@ -263,7 +263,7 @@ section {
     }
   }
 
-  .homeTextBox {
+  .homeTextBox { //表單飛進來
     z-index: 1;
     position: absolute;
     top: 30%;
@@ -273,7 +273,7 @@ section {
     right: 0;
     max-width: 32%;
     // border: 1px solid red;
-    animation-duration: 3s;
+    animation-duration:3s;
     animation-fill-mode: both;
     animation-name: fadeInUp;
 
@@ -333,7 +333,7 @@ section {
 
             &:hover {
               color: $grey;
-              transition: all 0.3s ease;
+              transition: all 0.1s ease;
               border: 1px solid transparent;
               background: $white;
               background: $yellow;
@@ -354,7 +354,7 @@ section {
           .tab:checked:nth-of-type(1)~.tab-content:nth-of-type(1),
           .tab:checked:nth-of-type(2)~.tab-content:nth-of-type(2) {
             opacity: 1;
-            transition: 0.5s opacity ease-in, 0.8s transform ease;
+            // transition: 0.5s opacity ease-in, 0.8s transform ease; //切換TAB的速度
             position: relative;
             top: 0;
             z-index: 1;
@@ -567,46 +567,65 @@ $animationDuration: 1.5s;
 
 
 // --------------------手機板
-@media (min-width:1366px) and (max-width:1680px){
+@media (min-width:1680px) and (max-width:1920px){
   .homeTextBox{
-    .homeCalendar-xl{
-      right: -3%;
+    max-width: 41% !important;
+    left: 8%!important;
+    .homeCalendar-xxl{
+      left: 2%!important;
     }
-    .homeDate-xl{
-      right: 31% !important;
-      padding-left: 13% !important;
+    .homeDate-xxl{
+      right: 30% !important;
+      padding-left: 8% !important;
+      width: 30% !important;
     }
-    .homeAdd-xl{
-      padding-left: 60px!important;
+    .homeAdd-xxl{
+      right: -14% !important;
+      padding-left: 8% !important;
+      width: 30% !important;
     }
-    .homeGps-xl{
-      right: -44%!important;
+    .homeGps-xxl{
+      right: -45% !important;
     }
-  }
-  .homeTab-pane {
-    .homeControl-btn-Delivery-xl{
-      left: 580px!important;
+    .homeDate-Takeaway-xxl{
+      right: 10% !important;
+      width: 72% !important;
+    }
+    .homeControl-btn-Delivery-xxl{
+      left: 84%!important;
     }
     .homeControl-btn-Takeaway-xl{
       left: 82%!important;
     }
   }
-}    
-@media (min-width:1200px) {
-  .homeSection-3 {
-    .homeBlackBoardContainer {
-      padding: 0 2%;
-
-      .homeIceOne {
-        left: 120px;
+}
+@media (min-width:1440px) and (max-width:1600px){
+  .homeTextBox{
+    max-width: 50% !important;
+    left: 2% !important;
+      .homeCalendar-xl{
+        right: -3% !important;
+      }
+      .homeDate-xl{
+      right: 31% !important;
+      padding-left: 13% !important;
+     }
+     .homeGps-xl{
+      right: -44%!important;
+    }
+     .homeAdd-xl{
+      padding-left: 10%!important;
+    }
+    .homeTab-pane {
+      .homeControl-btn-Delivery-xl{
+        left: 580px!important;
+       }
+       .homeControl-btn-Takeaway-xl{
+        left: 82%!important;
       }
     }
   }
-
 }
-
-
-
 @media (min-width:1200px) and (max-width:1366px){
   section{
   .eff{
@@ -648,7 +667,6 @@ $animationDuration: 1.5s;
         top: 90px !important;
         left: 15px !important;
       }
-
       .homeControl-btn-Takeaway-md {
         //外帶 Bbutton
         left: 25px !important;
@@ -2640,9 +2658,6 @@ to{
 
 
 // ---------------------------------------------------------------homeHealth.scss
-
-
-
 .homeSection-3 {
   padding: 0;
   margin: 0;
@@ -2877,6 +2892,58 @@ to{
 }
 
 // --------------------手機板
+@media (min-width:1600px) and (max-width:1920px){
+  .homeSection-3 {
+    .homeBlackBoardContainer {
+      padding: 0 2%;
+      .homeIceOne {
+        left: 5% !important;
+      }
+      .homeIceTwo{
+        left: 8% !important;
+      }
+      .homeIceThree{
+        left: 10% !important;
+      }
+      .homeTapUp{
+        width: 20% !important;
+        top:-90vh !important;
+        right:-18% !important;
+      }
+      .homeTwBoy {
+        right: -75%;
+        width: 17%;
+        top: -140vh;
+      }  
+    }
+  }
+}
+@media (min-width:1200px) and (max-width:1440px){
+  .homeSection-3 {
+    .homeBlackBoardContainer {
+      padding: 0 2%;
+      .homeIceOne {
+        left: 5% !important;
+      }
+      .homeIceTwo{
+        left: 8% !important;
+      }
+      .homeIceThree{
+        left: -5% !important;
+      }
+      .homeTapUp{
+        width: 20% !important;
+        top:-90vh !important;
+        right:-18% !important;
+      }
+      .homeTwBoy {
+        right: -75%;
+        width: 20%;
+        top: -140vh;
+      }  
+    }
+  }
+}
 @media (min-width: 375px) and (max-width: 576px) {
   .homeSection-3 {
     height: 100%;
@@ -2949,7 +3016,6 @@ to{
     }
   }
 }
-
 // --------------------end 手機板
 
 // ---------------------------------------------------------------homeHealth.scss
