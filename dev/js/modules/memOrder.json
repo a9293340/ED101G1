@@ -7,7 +7,9 @@
         "orderTime":"2020-05-15 10:06:20",
         "mealTime":"2020-05-15 11:06:20",
         "arrivalTime":"2020-05-15 11:33:20",
-        "finishTime":"2020-05-15 11:50:20"
+        "finishTime":"2020-05-15 11:50:20",
+        "deliveryAddr":"桃園市中大路200號",
+        "orderRemark":"欸欸欸，給我錢"
     },
     {
         "orderId":10001,
@@ -16,6 +18,8 @@
         "orderClass":1,
         "orderTime":"2020-05-14 10:06:20",
         "mealTime":"2020-05-14 11:06:20",
-        "finishTime":"2020-05-14 11:50:20"
+        "finishTime":"2020-05-14 11:50:20",
+        "deliveryAddr":"",
+        "orderRemark":"拜託給我錢"
     }
 ]

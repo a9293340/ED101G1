@@ -326,12 +326,13 @@
                     </div>
                 </div>
             </div>
-            <div class="memContentOrderListMailBox">
+            <div class="memContentOrderListMailBox" v-for='order in memOrder' v-if='order.orderId == nowDataSetNumber'>
                 <div class="memMailLine"></div>
                 <h3>收件地址</h3>
-                <p>{{memData.memSurname}}{{memData.memName}}</p>
+                <p>{{memData.memName}}</p>
                 <p>{{memData.memPhone}}</p>
-                <p>{{memData.memAddr}}</p>
+                <p>{{order.deliveryAddr}}</p>
+                <p style="color:#37AB64;">訂單備註：{{order.orderRemark}}</p>
                 <div class="memMailLine"></div>
             </div>
             <div class="memContentOrderListBox">
