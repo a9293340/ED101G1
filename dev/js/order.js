@@ -75,7 +75,7 @@ let sgproduct=[
        "spHealth":14,
        "spClass":1,
        "spInfo":"島食堂嚴選牛里脊肉，是切割自牛背部的柔嫩瘦肉，適合燒烤。牛肉蛋白質含量高，而脂肪含量低，葱是一种很普遍的调味品或蔬菜，在炒菜前將它和薑切碎一起下油鍋中炒至金黄後再將其他蔬菜倒入鍋中炒。",
-       "spImage":"./images/bandon_include/beef.jpg",
+       "spImage":"./images/bandon_include/beef.png",
        "spMeat":1,
        "spStatus":1
     },
