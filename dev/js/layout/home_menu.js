@@ -339,9 +339,9 @@ var $slider = $(".slider"),
   curSlide = 0,
   numOfSlides = $(".slide").length - 1,
   animating = false,
-  animTime = 1000,
+  animTime = 100,
   autoSlideTimeout,
-  autoSlideDelay = 4000,
+  autoSlideDelay = 5000,
   $pagination = $(".slider-pagi");
 
 // 自動根據文章數產生下方圓點
@@ -356,31 +356,31 @@ function createBullets() {
 createBullets();
 // 自動根據文章數產生下方圓點
 
-
-function manageControls() {
-  $(".slider-control").removeClass("inactive");
-  if (!curSlide) $(".slider-control.left").addClass("inactive");
-  if (curSlide === numOfSlides)
-    $(".slider-control.right").addClass("inactive");
-}
+//控制管理hover後的(這裡沒有)黑邊框 去除inactive邊框
+// function manageControls() {
+//   $(".slider-control").removeClass("inactive");
+//   if (!curSlide) $(".slider-control.left").addClass("inactive");
+//   if (curSlide === numOfSlides)
+//     $(".slider-control.right").addClass("inactive");
+// }
 
 
 // 這裡是自動輪播
-// function autoSlide() {
-//   autoSlideTimeout = setTimeout(function () {
-//     curSlide++;
-//     if (curSlide > numOfSlides) curSlide = 0;
-//     changeSlides();
-//   }, autoSlideDelay);
-// }
+function autoSlide() {
+  autoSlideTimeout = setTimeout(function () {
+    curSlide++;
+    if (curSlide > numOfSlides) curSlide = 0;
+    changeSlides();
+  }, autoSlideDelay);
+}
 
-// autoSlide();
+autoSlide();
 // 這裡是自動輪播
 
 function changeSlides(instant) {
   if (!instant) {
     animating = true;
-    manageControls();
+    // manageControls();
     $slider.addClass("animating");
     $slider.css("top");
     $(".slide").removeClass("active");
@@ -399,6 +399,7 @@ function changeSlides(instant) {
   autoSlide();
 }
 
+//如果拖一畫面大於一定寬度直接切換
 function navigateLeft() {
   if (animating) return;
   if (curSlide > 0) curSlide--;
