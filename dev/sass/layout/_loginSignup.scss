@@ -18,8 +18,7 @@
   transform: translate(-50%);
   max-width: 500px;
   margin: 40px auto 0;
-  // padding: 0 10px;
-  z-index: 999999;
+  z-index: 999999!important;  //提高註冊/登入 為最高層級
   @include lightBoxMd; //燈箱(中)
 }
 
