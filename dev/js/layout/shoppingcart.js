@@ -9,6 +9,10 @@ let setdoMenu = [];
 let singleNum = 0;
 let setdoNum = 0;
 
+var SinglePrice = 0 ;
+var SetdoPrice = 0; 
+var OtherPrice = 0 ;
+var OrTotalPrice = 0;
 
 var singleorderlist = new Vue({   //購物車 vue
     el: '#list',
@@ -24,12 +28,20 @@ var singleorderlist = new Vue({   //購物車 vue
 
 
 function setcart() {          //一開始自選購物車重新渲染
+    SinglePrice = 0 ;
     var finalsinglelist = JSON.parse(localStorage.getItem('singleOrder'));
     singleorderlist.$data.finalsinglelist = finalsinglelist;
     orderCart = finalsinglelist; //整個的重點
     singleNum = localStorage.getItem('singleNum');
     console.log(singleorderlist.$data.finalsinglelist);
-
+    // SinglePrice = 0 ;
+    // if(singleorderlist.$data.finalsinglelist.length>0){
+    // for(var i=0; i < singleorderlist.$data.finalsinglelist.length;i++){
+    //     SinglePrice = parseInt(SinglePrice) + parseInt(singleorderlist.$data.finalsinglelist[i].soPrice);
+    // }
+    // }
+    console.log(SinglePrice);
+    OrderTotalPrice();
     setTimeout(function () {
         for (var h = 0; h < singleNum; h++) {
             if (document.getElementById(`b${h}`)) {
@@ -47,11 +59,19 @@ if (localStorage.getItem('singleOrder')) { //重點2
 }
 //...................................
 function setsetdocart() {       //一開始套餐購物車重新渲染
+   
     var finalsetdolist = JSON.parse(localStorage.getItem('setdoMenuList'));
     singleorderlist.$data.finalsetdolist = finalsetdolist;
     setdoMenu = finalsetdolist;
     console.log(singleorderlist.$data.finalsetdolist);
-
+    // SetdoPrice = 0; 
+    // if(singleorderlist.$data.finalsetdolist.length>0){
+    // for(var i = 0; i<singleorderlist.$data.finalsetdolist.length; i++){
+    //     SetdoPrice = parseInt(SetdoPrice)+parseInt(singleorderlist.$data.finalsetdolist[i].setdoPrice)*parseInt(singleorderlist.$data.finalsetdolist[i].setdoMany);
+    // }
+    // }
+    console.log(SetdoPrice);
+    OrderTotalPrice();
     setTimeout(function () {
         for (let g = 0; g < finalsetdolist.length; g++) {
             document.getElementById(`setdodelete${finalsetdolist[g].setdoId}`).addEventListener('click', deletesetdocart);
@@ -62,11 +82,19 @@ if (localStorage.getItem('setdoMenuList')) {
     setsetdocart();
 }
 
-function setordercart() {          //一開始其他購物車重新渲染
+function setordercart() {      //一開始其他購物車重新渲染
+    
     var finalorderlist = JSON.parse(localStorage.getItem('otherOrder'));
     singleorderlist.$data.finalorderlist = finalorderlist;
     otherMenu = finalorderlist;
-
+    // OtherPrice = 0;  
+    // if( singleorderlist.$data.finalorderlist.length>0){
+    //     for(var i=0;i < singleorderlist.$data.finalorderlist.length ; i++){
+    //         OtherPrice = parseInt(OtherPrice) + parseInt(singleorderlist.$data.finalorderlist[i].otherPrice)* parseInt(singleorderlist.$data.finalorderlist[i].otherMany);
+    //     }
+    // }
+    console.log(OtherPrice);
+    OrderTotalPrice();
     setTimeout(function () {
         for (let g = 0; g < finalorderlist.length; g++) {
             document.getElementById(`orderdelete${finalorderlist[g].otherId}`).addEventListener('click', deleteordercart);
@@ -96,6 +124,7 @@ function deletesinglecart() {       //刪除購物車
     console.log(finalsinglelist);
     singleorderlist.$data.finalsinglelist = finalsinglelist;
     localStorage.setItem('singleOrder', JSON.stringify(finalsinglelist));
+    OrderTotalPrice();
 
 }
 
@@ -112,6 +141,7 @@ function deletesetdocart() {
     }
     singleorderlist.$data.finalsetdolist = finalsetdolist;
     localStorage.setItem('setdoMenuList', JSON.stringify(finalsetdolist));
+    OrderTotalPrice();
 }
 
 
@@ -128,8 +158,38 @@ function deleteordercart() {
     }
     singleorderlist.$data.finalorderlist = finalorderlist;
     localStorage.setItem('otherOrder', JSON.stringify(finalorderlist));
+    OrderTotalPrice();
 }
 
+function OrderTotalPrice(){
+    SinglePrice = 0 ;
+    if(singleorderlist.$data.finalsinglelist.length>0){
+    for(var i=0; i < singleorderlist.$data.finalsinglelist.length;i++){
+        SinglePrice = parseInt(SinglePrice) + parseInt(singleorderlist.$data.finalsinglelist[i].soPrice);
+    }
+    }
+    SetdoPrice = 0; 
+    if(singleorderlist.$data.finalsetdolist.length>0){
+    for(var i = 0; i<singleorderlist.$data.finalsetdolist.length; i++){
+        SetdoPrice = parseInt(SetdoPrice)+parseInt(singleorderlist.$data.finalsetdolist[i].setdoPrice)*parseInt(singleorderlist.$data.finalsetdolist[i].setdoMany);
+    }
+    }
+    OtherPrice = 0;  
+    if( singleorderlist.$data.finalorderlist.length>0){
+        for(var i=0;i < singleorderlist.$data.finalorderlist.length ; i++){
+            OtherPrice = parseInt(OtherPrice) + parseInt(singleorderlist.$data.finalorderlist[i].otherPrice)* parseInt(singleorderlist.$data.finalorderlist[i].otherMany);
+        }
+    }
+
+
+    OrTotalPrice = 0;
+    console.log(SetdoPrice);
+   OrTotalPrice = parseInt(SinglePrice)+parseInt(SetdoPrice)+parseInt(OtherPrice);
+   var OrYourScore = parseInt(OrTotalPrice/100);
+    document.getElementById('orderYourSorce').innerText=`獲得積分: ${OrYourScore}點`;
+   document.getElementById('OrTotal').innerText=`總價: ${OrTotalPrice}元`;
+
+}
 
 // shoppingcart 出現消失
 document.getElementById('shoppingcart').addEventListener('click',()=>{
