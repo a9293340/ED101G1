@@ -2,7 +2,6 @@
     {
         "healId":10009,
         "healClass":1,
-        "healReview":"有點熱喔你有點熱喔你有點熱喔你有點熱喔你",
         "healColdHot":85,
         "healhealth":84,
         "healStomach":77,
@@ -13,7 +12,6 @@
     {
         "healId":10003,
         "healClass":1,
-        "healReview":"有點熱喔你有點熱喔你有點熱喔你有點熱喔你",
         "healColdHot":77,
         "healhealth":48,
         "healStomach":82,
@@ -24,7 +22,6 @@
     {
         "healId":10001,
         "healClass":2,
-        "healReview":"有點肥喔你有點肥喔你有點肥喔你有點肥喔你",
         "healColdHot":63,
         "healhealth":27,
         "healStomach":42,
