@@ -19,6 +19,7 @@
   max-width: 500px;
   margin: 40px auto 0;
   // padding: 0 10px;
+  z-index: 999999;
   @include lightBoxMd; //燈箱(中)
 }
 
