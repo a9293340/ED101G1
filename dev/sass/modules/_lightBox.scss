@@ -5,3 +5,11 @@
     width: $width;
     z-index: 999;
 }
+
+// 燈箱(中)
+@mixin lightBoxMd($width:500px) {
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, .3);
+    width: $width;
+    z-index: 999;
+}

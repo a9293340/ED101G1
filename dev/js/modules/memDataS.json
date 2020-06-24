@@ -1,0 +1,53 @@
+[
+    {
+        "memId":10001,
+        "memEmail":"f1020@gmail.com",
+        "memPsw":"a1234567A",
+        "memName":"黃阿炳",
+        "memScore":1020,
+        "memImage":"./images/member/rcc_author3.jpg",
+        "memAddr":"桃園市中大路200號",
+        "memPhone":"0922222222",
+        "memHeight":178.1,
+        "memWeight":65.4,
+        "memGender":"男",
+        "memSignIntime":"2020-06-12 15:20:00",
+        "memPlaytime":"2020-06-12 15:20:00",
+        "memLastVote":"2020-06-12 15:20:00",
+        "memHealth":1
+    },
+    {
+        "memId":10002,
+        "memEmail":"f1050@gmail.com",
+        "memPsw":"a1234340807A",
+        "memName":"路人甲",
+        "memScore":1700,
+        "memImage":"./images/member/rcc_author3.jpg",
+        "memAddr":"桃園市中大路220號",
+        "memPhone":"0922222444",
+        "memHeight":155.1,
+        "memWeight":87.4,
+        "memGender":"男",
+        "memSignIntime":"2020-06-17 15:20:00",
+        "memPlaytime":"2020-06-16 15:20:00",
+        "memLastVote":"2020-06-15 15:20:00",
+        "memHealth":0
+    },
+    {
+        "memId":10003,
+        "memEmail":"A1050@gmail.com",
+        "memPsw":"1be0807A",
+        "memName":"孫小美",
+        "memScore":100,
+        "memImage":"./images/member/rcc_author3.jpg",
+        "memAddr":"桃園市中北路220號",
+        "memPhone":"0922666444",
+        "memHeight":155.1,
+        "memWeight":43.4,
+        "memGender":"女",
+        "memSignIntime":"2020-06-17 19:20:00",
+        "memPlaytime":"2020-06-12 20:20:00",
+        "memLastVote":"2020-06-17 19:20:00",
+        "memHealth":0
+    }
+]

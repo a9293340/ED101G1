@@ -6,12 +6,10 @@
 @import "base/body";
 
 // import layout
-@import "layout/header";
-@import "layout/footer";
-@import "layout/login";
-@import "layout/signup";
+@import "layout/loginSignup";
 @import "layout/shoppingCart";
-
+@import 'layout/header';
+@import 'layout/footer';
 // import mixin
 @import "mixins/mixin";
 
@@ -21,5 +19,3 @@
 @import "modules/lightBox";
 @import "modules/lightBoxTitle";
 @import "modules/cover";
-
-

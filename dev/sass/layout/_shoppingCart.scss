@@ -1,0 +1,137 @@
+@import '../mixins/mixin';
+
+
+
+.ordercart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 350px;
+  height: 100%;
+  background-color: rgb(225, 226, 138);
+  overflow-y: scroll;
+  padding: 10px;
+
+  .selfbenton,
+  .classicalbento,
+  .otherproduct {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin-right: 5%;
+    margin-top: 5%;
+    // border: 1px solid #000;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: .5s;
+
+    &:hover {
+      box-shadow: 3px 3px 10px #000;
+      cursor: pointer;
+    }
+
+    &::before {
+      content: "";
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      position: absolute;
+      left: 10px;
+
+
+    }
+  }
+
+  h3 {
+    margin-top: 15px;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    transition: .5s;
+
+    &:hover {
+      transform: rotate(360deg);
+      content: url(../../../dest/images/homepage/close_red.png);
+    }
+  }
+
+  .selfbenton {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: flex-end;
+    // margin-right: 5%;
+    height: 200px;
+
+    table {
+      tr {
+        td:nth-child(1) {
+          width: 101px;
+
+        }
+      }
+    }
+  }
+
+  span {
+    color: burlywood;
+    cursor: pointer;
+    // margin: 15px;
+    margin-right: 5%;
+  }
+
+  table {
+    // width: 300px;
+    // border: 1px solid #000;
+    width: 180px;
+    margin-right: 3%;
+  }
+
+  .classicalbento,
+  .otherproduct {
+    height: 150px;
+    margin-top: 5%;
+
+    span {
+      margin-bottom: 5%;
+    }
+
+    table {
+      margin-bottom: 10%;
+
+
+    }
+  }
+
+  .finaltotal {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 0;
+
+    .total {
+      font-size: $fzMd;
+    }
+  }
+
+  .buy {
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: rgb(255, 174, 82);
+    margin-top: 20px;
+    margin-left: 20%;
+    text-align: center;
+    line-height: 50px;
+    margin-bottom: 10%;
+    color: white;
+    cursor: pointer;
+    transition: .5s;
+
+    &:hover {
+      background-color: rgb(218, 148, 68);
+    }
+  }
+}
