@@ -321,7 +321,7 @@ div.healManBox{
     img.healMan{
     position: absolute;
     right: -650px;
-    top: -300px;
+    top: -240px;
     width: 90%;  
     // border: 1px solid red;
     z-index: 9;
@@ -605,7 +605,7 @@ ul.cooks {
             width: 80%;
             position: relative;
             z-index: 9;
-            border: 1px solid black;
+            // border: 1px solid black;
         }
         li>p{
             position: relative;
@@ -628,7 +628,7 @@ ul.cooks {
             width: 80%;
             position: relative;
             z-index: 9;
-            border: 1px solid black;
+            // border: 1px solid black;
         }
         li>p{
             position: relative;
@@ -641,7 +641,7 @@ ul.cooks {
     #healthCart {
         @include btn(93px,32px,$fz:12px); 
         line-height: 25px;
-        margin-left: -23%;
+        left: 16%;
         // position: relative;
         // top:-50px;
         // left: 100px;
@@ -794,11 +794,11 @@ ul.cooks {
     p.title3 {
         // border: 1px solid orange;
         color: #595959;
-        width: 54%;
+        width: 58%;
         font-size: 1rem;
         position: absolute;
         top: 76%;
-        left: 5%;
+        left: 3%;
         text-align: left;
     
         h1{
@@ -849,7 +849,7 @@ ul.cooks {
             width: 80%;
             position: relative;
             z-index: 9;
-            border: 1px solid black;
+            // border: 1px solid black;
         }
         li>p{
             position: relative;
@@ -872,7 +872,7 @@ ul.cooks {
             width: 80%;
             position: relative;
             z-index: 9;
-            border: 1px solid black;
+            // border: 1px solid black;
         }
         li>p{
             position: relative;
@@ -885,7 +885,8 @@ ul.cooks {
     #healthCart {
         @include btn(93px,32px,$fz:12px); 
         line-height: 25px;
-        margin-left: -27%;
+        margin: 0 auto !important;
+        left: -5%;
     }
     #healthCart:hover{
         background-color: #f08351;
