@@ -11,7 +11,6 @@
 @mixin transition($transition) {
   transition: all $transition ease;
 }
-
 section {
   // text-align: center;
   font-size: 0;
@@ -264,7 +263,7 @@ section {
     }
   }
 
-  .homeTextBox {
+  .homeTextBox { //表單飛進來
     z-index: 1;
     position: absolute;
     top: 30%;
@@ -274,7 +273,7 @@ section {
     right: 0;
     max-width: 32%;
     // border: 1px solid red;
-    animation-duration: 3s;
+    animation-duration:3s;
     animation-fill-mode: both;
     animation-name: fadeInUp;
 
@@ -334,7 +333,7 @@ section {
 
             &:hover {
               color: $grey;
-              transition: all 0.3s ease;
+              transition: all 0.1s ease;
               border: 1px solid transparent;
               background: $white;
               background: $yellow;
@@ -355,7 +354,7 @@ section {
           .tab:checked:nth-of-type(1)~.tab-content:nth-of-type(1),
           .tab:checked:nth-of-type(2)~.tab-content:nth-of-type(2) {
             opacity: 1;
-            transition: 0.5s opacity ease-in, 0.8s transform ease;
+            // transition: 0.5s opacity ease-in, 0.8s transform ease; //切換TAB的速度
             position: relative;
             top: 0;
             z-index: 1;
@@ -568,46 +567,65 @@ $animationDuration: 1.5s;
 
 
 // --------------------手機板
-@media (min-width:1366px) and (max-width:1680px){
+@media (min-width:1680px) and (max-width:1920px){
   .homeTextBox{
-    .homeCalendar-xl{
-      right: -3%;
+    max-width: 41% !important;
+    left: 8%!important;
+    .homeCalendar-xxl{
+      left: 2%!important;
     }
-    .homeDate-xl{
-      right: 31% !important;
-      padding-left: 13% !important;
+    .homeDate-xxl{
+      right: 30% !important;
+      padding-left: 8% !important;
+      width: 30% !important;
     }
-    .homeAdd-xl{
-      padding-left: 60px!important;
+    .homeAdd-xxl{
+      right: -14% !important;
+      padding-left: 8% !important;
+      width: 30% !important;
     }
-    .homeGps-xl{
-      right: -44%!important;
+    .homeGps-xxl{
+      right: -45% !important;
     }
-  }
-  .homeTab-pane {
-    .homeControl-btn-Delivery-xl{
-      left: 580px!important;
+    .homeDate-Takeaway-xxl{
+      right: 10% !important;
+      width: 72% !important;
+    }
+    .homeControl-btn-Delivery-xxl{
+      left: 84%!important;
     }
     .homeControl-btn-Takeaway-xl{
       left: 82%!important;
     }
   }
-}    
-@media (min-width:1200px) {
-  .homeSection-3 {
-    .homeBlackBoardContainer {
-      padding: 0 2%;
-
-      .homeIceOne {
-        left: 120px;
+}
+@media (min-width:1440px) and (max-width:1600px){
+  .homeTextBox{
+    max-width: 50% !important;
+    left: 2% !important;
+      .homeCalendar-xl{
+        right: -3% !important;
+      }
+      .homeDate-xl{
+      right: 31% !important;
+      padding-left: 13% !important;
+     }
+     .homeGps-xl{
+      right: -44%!important;
+    }
+     .homeAdd-xl{
+      padding-left: 10%!important;
+    }
+    .homeTab-pane {
+      .homeControl-btn-Delivery-xl{
+        left:80% !important;
+       }
+       .homeControl-btn-Takeaway-xl{
+        left: 82%!important;
       }
     }
   }
-
 }
-
-
-
 @media (min-width:1200px) and (max-width:1366px){
   section{
   .eff{
@@ -649,7 +667,6 @@ $animationDuration: 1.5s;
         top: 90px !important;
         left: 15px !important;
       }
-
       .homeControl-btn-Takeaway-md {
         //外帶 Bbutton
         left: 25px !important;
@@ -902,7 +919,7 @@ $contentFadeinAT: 0.5s;
   position: relative;
   overflow: hidden;
   height: 91vh;
-  background-color: black;
+  background-color: rgb(36,31,31);
 
   &__inner {
     position: relative;
@@ -970,7 +987,7 @@ to{
       content: "";
       position: absolute;
       left: 0;
-      top: -10%;
+      top: 0%;
       width: 100%;
       height: 110%;
       background-size: cover;
@@ -1405,10 +1422,29 @@ to{
         &:before {
           transition-delay: 0.1s * $i;
           background-image: url('../../dest/images/homepage/menu-#{$i + 3}.jpg');
+          height: 125%;
         }
       }
     }
+    &.el:nth-child(1){
+      .el__bg:before{
+        top: -10%;
+      }
+    }
+    &.el:nth-child(2){
+      .el__bg:before{
+
+        top: 0%;
+      }
+    }
+    &.el:nth-child(3){
+      .el__bg:before{
+        top: -3%;
+        background-position: 400px -200px;
+      }
+    }
   }
+
 
   &:hover {
 
@@ -1504,7 +1540,7 @@ to{
     position: relative;
     overflow: hidden;
     height: 92vh;
-    background-color: black;
+    background-color: rgb(36,31,31);
 
     &__inner {
       position: relative;
@@ -1978,6 +2014,12 @@ to{
           }
         }
       }
+      &.el:nth-child(3){
+        .el__bg:before{
+          top: -3%;
+          background-position: 0px -200px;
+        }
+      }
     }
 
     &:hover {
@@ -2070,7 +2112,7 @@ to{
     position: relative;
     overflow: hidden;
     height: 92vh;
-    background-color: black;
+    background-color:rgb(36,31,31);
 
     &__inner {
       position: relative;
@@ -2616,14 +2658,11 @@ to{
 
 
 // ---------------------------------------------------------------homeHealth.scss
-
-
-
 .homeSection-3 {
   padding: 0;
   margin: 0;
   font-size: 0;
-  height: 100vh;
+  height: 800px;
 
   .homeBlackBoardContainer {
     max-width: 100%;
@@ -2853,6 +2892,58 @@ to{
 }
 
 // --------------------手機板
+@media (min-width:1600px) and (max-width:1920px){
+  .homeSection-3 {
+    .homeBlackBoardContainer {
+      padding: 0 2%;
+      .homeIceOne {
+        left: 5% !important;
+      }
+      .homeIceTwo{
+        left: 8% !important;
+      }
+      .homeIceThree{
+        left: 10% !important;
+      }
+      .homeTapUp{
+        width: 13% !important;
+        top:-90vh !important;
+        right:-18% !important;
+      }
+      .homeTwBoy {
+        right: -73%!important;
+        width: 12%!important;
+        top: -135vh !important;
+      }  
+    }
+  }
+}
+@media (min-width:1200px) and (max-width:1440px){
+  .homeSection-3 {
+    .homeBlackBoardContainer {
+      padding: 0 2%;
+      .homeIceOne {
+        left: 5% !important;
+      }
+      .homeIceTwo{
+        left: 8% !important;
+      }
+      .homeIceThree{
+        left: -5% !important;
+      }
+      .homeTapUp{
+        width: 15% !important;
+        top:-100vh !important;
+        right:-18% !important;
+      }
+      .homeTwBoy {
+        right: -74%!important;
+        width: 15%!important;
+        top: -150vh!important;
+      }  
+    }
+  }
+}
 @media (min-width: 375px) and (max-width: 576px) {
   .homeSection-3 {
     height: 100%;
@@ -2925,7 +3016,6 @@ to{
     }
   }
 }
-
 // --------------------end 手機板
 
 // ---------------------------------------------------------------homeHealth.scss
@@ -3082,22 +3172,18 @@ svg {
 
 .slide:nth-child(1) .slide__bg {
   left: 0;
-
   background-image: url("../images/homepage/four_bg.png");
   background-position: bottom;
   // transform:scale(0.5) ;
+  .content{
+    color: rgb(0, 0, 0);
+    position: absolute;
+    font-size: 30px;
+    background-color: rgb(249,249,249);
+    top: 7%;
+    left: 2%;
+  }
 }
-
-// .slide:nth-child(1) .slide__overlay-path {
-//   fill: #e99c7e;
-// }
-
-/* 這是縮小後的半透明屏幕 */
-/*  */
-// .slide:nth-child(1) .slide__text {
-//   background-color: rgba(233, 156, 126, 0.8);
-// }
-
 .slide:nth-child(2) {
   left: 100%;
 }
@@ -3116,62 +3202,6 @@ svg {
 .slide:nth-child(2) .slide__text {
   background-color: rgba(225, 204, 174, 0.8);
 }
-
-// .slide:nth-child(3) {
-//   left: 200%;
-// }
-
-// .slide:nth-child(3) .slide__bg {
-//   left: -100%;
-//   background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/3d-slider-4.jpg");
-// }
-
-// .slide:nth-child(3) .slide__overlay-path {
-//   fill: #adc5cd;
-// }
-
-// .slide:nth-child(3) .slide__text {
-//   background-color: rgba(173, 197, 205, 0.8);
-// }
-
-// .slide:nth-child(4) {
-//   left: 300%;
-// }
-
-// .slide:nth-child(4) .slide__bg {
-//   left: -150%;
-//   background-image: url("https://i.picsum.photos/id/155/400/400.jpg?hmac=nG5WHfEXcJmld5FbH0N9bGciE9a57S0bgIHHTpxag7o");
-//   background-position: 50% 50%;
-// }
-
-// .slide:nth-child(4) .slide__overlay-path {
-//   fill: #cbc6c3;
-// }
-
-// .slide:nth-child(4) .slide__text {
-//   background-color: rgba(203, 198, 195, 0.8);
-// }
-
-
-// .slide:nth-child(5) {
-//   left: 400%;
-// }
-
-// .slide:nth-child(5) .slide__bg {
-//   left: -200%;
-//   background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/3d-slider-4.jpg");
-//   background-position: 50% 50%;
-// }
-
-// .slide:nth-child(5) .slide__overlay-path {
-//   fill: #cbc6c3;
-// }
-
-// .slide:nth-child(5) .slide__text {
-//   background-color: rgba(203, 198, 195, 0.8);
-// }
-
-
 .slide__content {
   position: absolute;
   top: 0;
@@ -3221,38 +3251,71 @@ svg {
     position: relative;
     right: -30%;
     //  z-index: -1;
-  }
-
+ 
+    .slider_1_right1 {
+      height: 480px;
+     position: absolute;
+      width: 2400px;
+      // right: 440px;
+      background-image: url("../images/homepage/drive_bg.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation: tree1 linear 12s  infinite;
+      height: 100%;
+      // animation: bgcity 5s ;
+    }
+  
   .slider_1_right {
     height: 480px;
     position: relative;
-    width: 1160px;
+    width: 2400px;
     // right: 440px;
-    background-image: url("../images/homepage/driver_bg.jpg");
+    background-image: url("../images/homepage/drive_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
+    animation:  tree linear 12s 6s  infinite;
     // animation: bgcity 5s ;
   }
 
   .slider_1_right.driver {
     // border: 1px solid yellow;
-    height: 344px;
+    height: 43%;
     position: relative;
-    width: 382px;
+    width: 16%;
+    min-width: 245px;
     right: -30%;
-    bottom: 73%;
+    bottom: 42%;
     background-image: url("../images/homepage/driver.png");
     background-size: cover;
     background-repeat: no-repeat;
-    animation: driver linear 6s infinite;
+    animation: driver linear 8s infinite;
     // &.driver{
     //   position: absolute;
     //   // background-color: red;
-
-
     // }
   }
-
+  .slider_1_right{
+    &.tree{
+      height: 76%;
+    position: absolute;
+    width: 119%;
+    /* right: -19%; */
+    bottom: 11%;
+      opacity: 0;
+      background-image: url("../images/homepage/tree.png");
+      animation: tree linear 16s 8s infinite;
+    }
+    &.tree1{
+      height: 76%;
+      position: absolute;
+      width: 119%;
+      /* right: -19%; */
+      bottom: 11%;
+      background-image: url("../images/homepage/tree.png");
+      animation: tree1 linear 16s 0.5s infinite;
+    }
+  }
+}
 }
 
 /* .slide__overlay {
@@ -3379,6 +3442,26 @@ svg {
     right: -1200px;
   }
 }
+@keyframes tree {
+  from {
+    transform: translate(100%,0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(-100%,0);
+    opacity: 1;
+  }
+}
+@keyframes tree1 {
+  from {
+    transform: translate(100%,0);
+  }
+
+  to {
+    transform: translate(-100%,0);
+  }
+}
 
 ;
 
@@ -3429,43 +3512,76 @@ svg {
         }
       }
     }
-      .slider_1_right_bg {
-        overflow: hidden;
-        //  width: 1020px;
-        position: relative;
-        right: -272px;
-
-        //  z-index: -1;
-        .slider_1_right {
-          height: 514px;
-          position: relative;
-          width: 1160px;
-          right: 440px;
-          // background-image: url("../images/homepage/driver_bg.jpg");
-          background-size: cover;
-          background-repeat: no-repeat;
-          // animation: bgcity 5s ;
-        }
-
-        .slider_1_right.driver {
-          // border: 1px solid yellow;
-          height: 310px;
-          position: relative;
-          width: 341px;
-          right: -200px;
-          bottom: 346px;
-          background-image: url("../images/homepage/driver.png");
-          background-size: cover;
-          background-repeat: no-repeat;
-          animation: driver 5s infinite;
-          // &.driver{
-          //   position: absolute;
-          //   // background-color: red;
-
-
-          // }
-        }
+    .slider_1_right_bg {
+      overflow: hidden;
+      //  width: 1020px;
+      position: relative;
+      right: -30%;
+      //  z-index: -1;
+   
+      .slider_1_right1 {
+        height: 480px;
+       position: absolute;
+        width: 2400px;
+        // right: 440px;
+        background-image: url("../images/homepage/drive_bg.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: tree1 linear 12s  infinite;
+        height: 100%;
+        // animation: bgcity 5s ;
       }
+    
+    .slider_1_right {
+      height: 480px;
+      position: relative;
+      width: 2400px;
+      // right: 440px;
+      background-image: url("../images/homepage/drive_bg.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation:  tree linear 12s 6s  infinite;
+      // animation: bgcity 5s ;
+    }
+  
+    .slider_1_right.driver {
+      // border: 1px solid yellow;
+      height: 43%;
+      position: relative;
+      width: 26%;
+      right: -30%;
+      bottom: 42%;
+      background-image: url("../images/homepage/driver.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation: driver linear 8s infinite;
+      // &.driver{
+      //   position: absolute;
+      //   // background-color: red;
+      // }
+    }
+    .slider_1_right{
+      &.tree{
+        height: 76%;
+      position: absolute;
+      width: 119%;
+      /* right: -19%; */
+      bottom: 11%;
+        opacity: 0;
+        background-image: url("../images/homepage/tree.png");
+        animation: tree linear 16s 8s infinite;
+      }
+      &.tree1{
+        height: 76%;
+        position: absolute;
+        width: 119%;
+        /* right: -19%; */
+        bottom: 11%;
+        background-image: url("../images/homepage/tree.png");
+        animation: tree1 linear 16s 0.5s infinite;
+      }
+    }
+  }
 
     
 

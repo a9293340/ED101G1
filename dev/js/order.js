@@ -355,7 +355,7 @@ let other=[
        opName:"人參雞精",
        opPrice:'80',
        opClass:'2',
-       opImage:"./images/bandon_include/chickendrink.png"
+       opImage:"./images/bandon_include/checkendrink.png"
     }
  ]
 
@@ -1020,3 +1020,34 @@ function setdoCart(){      //套餐的加入購物車
 }
 
 
+document.getElementById('orderClean').addEventListener("click",orderlistclean)
+
+function orderlistclean(){
+    singlecount = 0;
+    document.getElementById('list_ricename').innerText = '';
+    document.getElementById('list_riceNum').innerText = '';
+    document.getElementById('list_ricenamePrice').innerText = '';
+   
+    document.getElementById('list_meatname').innerText = '';
+    document.getElementById('list_meatNum').innerText = '';
+    document.getElementById('list_meatPrice').innerText = '';
+    document.getElementById('list_singlename1').innerText = '';
+    document.getElementById('list_singleNum1').innerText = '';
+    document.getElementById('list_singleNum2').innerText = '';
+    document.getElementById('list_singleNum3').innerText = '';
+    document.getElementById('list_singlePrice1').innerText = '';
+    document.getElementById('list_singlePrice2').innerText = '';
+    document.getElementById('list_singlePrice3').innerText = '';
+    document.getElementById('list_singlename2').innerText = '';
+    document.getElementById('list_singlename3').innerText = '';
+   
+    document.getElementById('orderRicePic').src = ``;
+    document.getElementById('orderMeatPic').src = ``;
+    document.getElementById('orderSinglPic1').src = ``;
+    document.getElementById('orderSinglPic2').src = ``;
+    document.getElementById('orderSinglPic3').src = ``;
+
+
+    riceshow();
+   
+}

@@ -356,12 +356,24 @@ img:not([src]) {
 }
 
 .buy_list {
+  position: relative;
   height: 150px;
   width: 50%;
   margin-left:160px;
   margin-top: 40px;
     table td{
      padding: 0px 10px; 
+    }
+    #orderClean{
+      position: absolute;
+      right: -30px;
+      top:-30px;
+      cursor: pointer;
+      color:$grey;
+      &:hover{
+        color:$lightGrey;
+      }
+
     }
     
 #incart {
@@ -696,4 +708,10 @@ HEAD .count {
           }
   }
   
+}
+
+
+
+.orderBlock{
+  height: 100px;
 }

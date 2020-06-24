@@ -261,19 +261,21 @@ new Vue({
     img: "", //初始值字串給空的
     message: "",
     messageContent: "",
+    chooseImgID: "",
   },
   methods: {
     showChooseBenton(item) {
       $(".bentonCard").css("border-color", "white");
       $(`#bentonLi${item.id}`).css("border-color", "rgb(231, 70, 21)");
       this.img = item.img; //變成全域變數
+      this.chooseImgID = `bentonLi${item.id}`; //變成全域變數，以便上一步記得選擇的benton
     },
     //輸入標題字數限制
     checkTitle() {
-      let maxLength = 20;
+      let maxLength = 25;
       let textLength = this.message.length;
       if (textLength > maxLength) {
-        this.message = this.message.substr(0, 20);
+        this.message = this.message.substr(0, 25);
         alert("已超過20個字數限制囉!");
       }
     },
@@ -289,7 +291,7 @@ new Vue({
     },
 
     showBentonStep1(isShow) {
-      if (this.img === "") {
+      if (this.img == "" || this.chooseImgID == "") {
         alert("你還沒選擇喜愛的自選便當喔!!");
         return;
       } else {
@@ -299,15 +301,17 @@ new Vue({
     showCloselightbox() {
       $(".box1").css("display", "none");
       $(".showbentonCover").css("display", "none");
+
+      this.showBentonImgList = true;
     },
     SendBenton() {
       let step2Title = $("#Step2TitlText").val();
       let step2Content = $("#Step2ContentText").val();
-      if (step2Title === "") {
+      if (step2Title == "") {
         alert("你還沒填寫標題喔!");
         return;
       }
-      if (step2Content === "") {
+      if (step2Content == "") {
         alert("你還沒填寫內容喔!");
         return;
       }
@@ -328,10 +332,18 @@ new Vue({
       $("#Step2TitlText").empty();
       $("#Step2ContentText").val("");
 
+      this.message = "";
+      this.messageContent = "";
+      this.chooseImgID = "";
       $(".box1").css("display", "none");
       $(".showbentonCover").css("display", "none");
       this.showBentonImgList = true;
     },
+  },
+  updated() {
+    if (this.showBentonImgList === true && this.chooseImgID !== "") {
+      $(`#${this.chooseImgID}`).css("border-color", "rgb(231, 70, 21)");
+    }
   },
 });
 
@@ -426,6 +438,7 @@ $(function () {
       talkArray,
       currentBenton: {},
       now: "",
+      talkBlockMessage: "",
     },
     methods: {
       //按讚數
@@ -458,27 +471,27 @@ $(function () {
 
         //物件塞進陣列
         this.talkArray.push(talkPackage);
+        this.talkBlockMessage = "";
       },
 
       showContentCloselightbox() {
-        $(".showBentonImg").css("display", "none");
+        $(".showBentonContentbox").css("display", "none");
         $(".showbentonCover").css("display", "none");
       },
 
       showCloselightbox() {
-        $(".showBentonContentbox").css("display", "none");
+        $(".box1").css("display", "none");
         $(".showbentonCover").css("display", "none");
       },
+      //按讚數
       change(e) {
         let num = Number(e.target.dataset.num);
         if (e.target.dataset.check == "0") {
           e.target.src = "./images/showbenton/like1.png";
-          console.log("aaa");
           this.bentonArray[num].liketimes += 1;
           e.target.dataset.check = "1";
         } else if (e.target.dataset.check == "1") {
           e.target.src = "./images/showbenton/like.png";
-          console.log("bbb");
           this.bentonArray[num].liketimes -= 1;
           e.target.dataset.check = "0";
         }
@@ -494,27 +507,7 @@ $(function () {
   });
 });
 
-//塞進購物車
-
-// function showbentonShoppingCart() {
-//   showbentonOrderList = {
-//     sNum: `${singleNum}`,
-//     rice: `${showrice}`,
-//     meat: `${showmeat}`,
-//     single1: `${showsingle1}`,
-//     single2: `${showsingle2}`,
-//     single3: `${showsingle3}`,
-//     soPrice: `${showTotalPrice}`,
-//   };
-//   singleNum++;
-//   localStorage.setItem("singleNum", singleNum);
-//   orderCart.push(showbentonOrderList);
-//   var showOrder = JSON.stringify(orderCart);
-//   localStorage.setItem("singleOrder", showbentonOrderList);
-//   localStorage.setItem("qqq", "123");
-//   setcart();
-// }
-
+//加入購物車
 function showbentonShoppingCart() {
   showbentonOrderList = {
     sNum: `${singleNum}`,
@@ -545,5 +538,3 @@ function getNowFormat() {
 
   return `${year}-${month}-${date} ${hour}:${minutes}:${seconds}`;
 }
-
-//輸入發文標題、內文的預設
