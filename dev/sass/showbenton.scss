@@ -6,6 +6,8 @@
 }
 
 body {
+  $notoSans: "Noto Sans", sans-serif;
+  $notoSansTC: "Noto Sans TC", sans-serif;
   background-color: #f9e8d4;
   box-sizing: border-box;
 }
@@ -76,7 +78,7 @@ div.addBenton {
 div.showBentonImg {
   border: 1px solid transparent;
   margin: 0 auto 45px;
-  width: 1200px;
+  width: 70%;
   z-index: 9999;
 }
 
@@ -105,7 +107,6 @@ div.kitchenTool {
   width: 250px;
   height: 200px;
   margin-top: 55px;
-  border: 1px solid rgba(134, 134, 134, 0.63);
   cursor: pointer;
 }
 
@@ -119,6 +120,34 @@ p.shareBentonContent {
   font-size: 16px;
   word-break: break-word;
   margin-top: 5px;
+}
+
+.shareBenton:first-child {
+  position: relative;
+}
+.shareBenton:first-child .ranking::before {
+  content: "";
+  position: absolute;
+  background-image: url("../images/showbenton/no1new.png");
+  background-repeat: no-repeat;
+  background-size: 90%;
+  width: 100px;
+  height: 110px;
+  left: 170px;
+  top: -60px;
+  transform: rotate(10deg);
+}
+
+div.WallSharebentonImg::before {
+  content: "";
+  position: absolute;
+  background-image: url("../images/showbenton/nail.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  width: 100px;
+  height: 100px;
+  top: -20px;
+  left: 10px;
 }
 
 //便利貼的讚圖
@@ -139,7 +168,6 @@ p.shareBentonContent {
   display: inline-block;
   width: 30px;
   height: 30px;
-
   &:hover {
     cursor: pointer;
   }
@@ -165,14 +193,7 @@ span.liketimes {
 
 //第四名之後
 [class^="mainBenton"] {
-  background-image: linear-gradient(to bottom right, #f3f3f3, #f8f8f8, #fafafa);
-}
-
-.mainBenton0,
-.mainBenton1,
-.mainBenton2 {
-  background-image: linear-gradient(to bottom right, #f3f3f3, #f8f8f8, #fafafa);
-  padding: 15px;
+  background-color: #fdfbfd;
 }
 
 //便利貼的個體
@@ -187,48 +208,38 @@ span.liketimes {
   text-align: center;
   padding: 15px;
   border-radius: 8px;
+  background-color: #f6f6f6;
 }
 
-.shareBenton:first-child,
-.shareBenton:nth-child(2),
-.shareBenton:nth-child(3) {
-  background-image: linear-gradient(to bottom right, #ebebeb, #fafafa, #fdfbfd);
+.shareBenton:nth-child(2)::before,
+.mainBenton1::before,
+.shareBenton:nth-child(3)::before,
+.mainBenton2::before,
+.shareBenton:first-child::before,
+.mainBenton0::before {
+  font-size: 27px;
+  position: absolute;
+  left: 50px;
+  top: 25px;
+  color: $black;
+  font-weight: bold;
+  border-radius: 20%;
+  padding: 3px;
 }
 
 .shareBenton:first-child::before,
 .mainBenton0::before {
-  content: " 天下第一菜";
-  font-size: 30px;
-  position: absolute;
-  left: 70px;
-  color: $black;
-  font-weight: bold;
-  border-radius: 20%;
-  padding: 3px;
+  content: " No.1 天下第一菜";
 }
 
 .shareBenton:nth-child(2)::before,
 .mainBenton1::before {
-  content: "新一代食神";
-  font-size: 30px;
-  position: absolute;
-  left: 70px;
-  color: $black;
-  font-weight: bold;
-  border-radius: 20%;
-  padding: 3px;
+  content: "No.2 新一代食神";
 }
 
 .shareBenton:nth-child(3)::before,
 .mainBenton2::before {
-  content: "明日小當家";
-  font-size: 30px;
-  position: absolute;
-  left: 70px;
-  color: $black;
-  font-weight: bold;
-  border-radius: 20%;
-  padding: 3px;
+  content: "No.3 明日小當家";
 }
 
 p.showMyself {
@@ -270,11 +281,11 @@ p.showMyself {
 
   //便當圖片
   .showBentonContentImg {
-    border-radius: 20px;
+    border-radius: 5px;
     display: block;
     margin: 40px auto 0;
-    width: 310px;
-    height: 240px;
+    width: 325px;
+    height: 250px;
   }
   //我也要買按鈕
   .buyMore {
@@ -299,7 +310,7 @@ p.showMyself {
       text-align: left;
       font-size: $fzMd;
       font-weight: bold;
-      color: rgb(6, 41, 3);
+      color: rgb(98, 72, 9);
       margin-bottom: 5px;
     }
   }
@@ -312,6 +323,7 @@ p.showMyself {
   line-height: 20px;
   margin: 1px 0 5px;
   margin-left: auto;
+  outline: none;
 }
 
 //-------------共用樣式-------------
@@ -320,6 +332,7 @@ p.showMyself {
   text-align: right;
   font-size: $fzSmall;
   font-weight: 300;
+  margin-top: 5px;
 }
 //會員圖片
 .memPicture {
@@ -327,7 +340,6 @@ p.showMyself {
   height: 40px;
   display: inline-block;
   border-radius: 100%;
-
   vertical-align: middle;
 }
 
@@ -350,7 +362,7 @@ p.showMyself {
   text-align: left;
   .talksBlock {
     width: 340px;
-    height: 300px;
+    height: 280px;
     overflow: auto;
     border: 1px inset transparent;
     border-radius: 5px;
@@ -451,16 +463,16 @@ ul.bentoncardBox {
 }
 
 li.bentonCard {
-  margin: 16px;
   display: inline-block;
   border: 4px solid transparent;
   border-radius: 10px;
   overflow: hidden;
+  margin: 10px 15px;
   img {
     cursor: pointer;
     vertical-align: bottom;
     width: 220px;
-    height: 200px;
+    height: 190px;
   }
 }
 
@@ -480,11 +492,9 @@ button.Send {
 
 button.Next {
   @include btnChoose(90px, 60px, $fz: 18px);
-  width: 90px;
-  height: 60px;
   line-height: 50px;
   cursor: pointer;
-  margin: 15px 0;
+  margin: 15px -10px 20px;
   border: transparent;
   outline-style: none;
 }
@@ -502,14 +512,20 @@ div.bentonContentForm {
 label.Step2Title,
 label.Step2Content {
   vertical-align: top;
-  font-size: 24px;
+  font-size: 25px;
 }
 
 #Step2TitlText {
-  font-size: 20px;
+  font-size: 18px;
   width: 100%;
-  height: 40px;
   margin-top: 5px;
+  color: #624809;
+  padding: 5px;
+}
+
+.Step2TitlStyle {
+  font-size: 16px;
+  color: $black !important;
 }
 
 .Step2Space {
@@ -539,21 +555,24 @@ button.Pre {
   position: absolute;
   right: 15px;
   top: 15px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 //-------------便當牆-------------
 .shareBenton {
   font-size: 18px;
   font-weight: 600;
+  border-radius: 10px;
   text-align: center;
   margin: 60px 30px 100px 80px;
   box-shadow: 0px 2px 4px rgb(114, 114, 114);
   width: 260px;
   vertical-align: top;
   display: inline-block;
-  background-image: linear-gradient(to bottom right, #f8ee96, #eef5b3, #f3f8c8);
+  background-color: #fdfbfd;
   transform: rotate(5deg);
-  position: relative;
-  padding: 5px 10px;
+  padding: 15px 10px;
   transition: transform 0.8s;
   &:hover {
     transform: rotate(0deg);
@@ -573,32 +592,15 @@ button.Pre {
   transform: rotate(5deg);
 }
 
-#bentonDiv0 > div.ranking::before {
-  content: "";
-  background-image: url("../images/showbenton/no1.png");
-  background-size: 100%;
-  top: -60px;
-  left: 10px;
-  position: absolute;
-  width: 80px;
-  height: 75px;
-  background-repeat: no-repeat;
-}
-
-.ranking {
-  cursor: pointer;
-  width: 260px;
-  left: 10px;
-}
 //---------------------RWD
 
-@media screen and (max-width: 576px) and (min-width: 375px) {
+@media screen and (max-width: 576px) {
   div.kitchenTool {
     background-image: url("../images/showbenton/kitchenTool_576\(1\).psd.png");
     position: fixed;
     bottom: 0;
     left: 0;
-    background-position: right;
+    background-position: left;
     background-size: cover;
   }
 
@@ -614,9 +616,24 @@ button.Pre {
   }
 
   div.showBentonImg {
-    width: 100%;
-    margin: 0;
+    margin: 0px auto;
     box-sizing: border-box;
+    margin-bottom: 0px;
+  }
+
+  ul.bentoncardBox {
+    border: 1px inset rgb(211, 210, 210);
+    list-style: none;
+    display: inline-block;
+    overflow: auto;
+    height: 400px;
+    li.bentonCard {
+      margin: 8px;
+      img {
+        width: 160px;
+        height: 130px;
+      }
+    }
   }
 
   .showBentonListLightbox {
@@ -652,34 +669,26 @@ button.Pre {
   }
 
   div.shareBenton {
-    width: 220px;
-    margin-left: 100px;
+    margin-left: 40px;
+    margin-bottom: 20px;
     .liketimes {
       right: 28px;
     }
 
-    .ranking {
-      width: 220px;
-    }
-
     .conversation {
-      margin-right: 40px;
-    }
-    [id^="bentonimg"] {
-      width: 180px;
-      height: 160px;
+      margin-right: 20px;
     }
 
     #Step2TitlText {
       width: 100%;
       word-break: break-all;
+      margin: 20px 0;
     }
     .like {
       right: 45px;
-    }
-
-    .like1 {
-      right: 45px;
+      &:hover {
+        filter: brightness(100%);
+      }
     }
   }
 
@@ -689,6 +698,14 @@ button.Pre {
     height: 500px;
     overflow: auto;
     padding: 10px;
+    .shareBenton:first-child::before,
+    .mainBenton0::before,
+    .shareBenton:nth-child(2)::before,
+    .mainBenton1::before,
+    .shareBenton:nth-child(3)::before,
+    .mainBenton2::before {
+      left: 30px;
+    }
   }
 
   .shareBlock {
@@ -715,5 +732,28 @@ button.Pre {
         margin-left: 150px;
       }
     }
+  }
+}
+
+@media screen and (max-width: 414px) and (min-width: 375px) {
+  .shareBenton:first-child,
+  .mainBenton0,
+  .shareBenton:nth-child(2),
+  .mainBenton1,
+  .shareBenton:nth-child(3),
+  .mainBenton2,
+  .shareBenton {
+    margin: 20px 20px 40px;
+  }
+
+  .shareBenton {
+    width: 220px;
+  }
+
+  [id^="bentonimg"] {
+    width: 220px;
+    height: 180px;
+    margin-top: 55px;
+    cursor: pointer;
   }
 }

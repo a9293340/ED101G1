@@ -54,8 +54,6 @@
               :data-id="item.id"
               v-bind:src="item.img"
               alt=""
-              width="210px"
-              height="210px"
             />
           </li>
         </ul>
@@ -75,6 +73,8 @@
           <label class="Step2Title" for="Step2TitlText">標題：</label>
           <input
             id="Step2TitlText"
+            class="Step2TitlStyle"
+            placeholder="請輸入標題(最大字數20)"
             type="text"
             v-on:input="checkTitle"
             v-model="message"
@@ -82,6 +82,7 @@
           <div class="Step2Space">
             <label class="Step2Content" for="Step2ContentText">內容：</label>
             <textarea
+              placeholder="請輸入內容(最大字數50)"
               id="Step2ContentText"
               rows="15"
               cols="30"
@@ -108,16 +109,17 @@
         :id="'bentonDiv'+index"
         :key="index"
       >
-        <img
-          @click="openLightBox(notes, index)"
-          :id="'bentonimg'+index"
-          :data-id="index"
-          v-bind:src="notes.bentonImg"
-          alt=""
-        />
-
+        <div class="WallSharebentonImg">
+          <img
+            @click="openLightBox(notes, index)"
+            :id="'bentonimg'+index"
+            :data-id="index"
+            v-bind:src="notes.bentonImg"
+            alt=""
+          />
+        </div>
         <p id="Step2TitlText">{{notes.title}}</p>
-        <div style="margin: 20px 0 5px; text-align: right;">
+        <div class="ranking" style="margin: 30px 0 5px; text-align: right;">
           <img
             class="conversation"
             @click="openLightBox(notes, index)"
@@ -135,11 +137,6 @@
             :data-check="0"
             @click="change"
           />
-          <!-- <img
-            class="like1"
-            @click="addLikeTimes(notes)"
-            src="./images/showbenton/like1.png"
-          /> -->
 
           <span class="liketimes">{{notes.liketimes}}</span>
         </div>
@@ -198,28 +195,22 @@
 
             <form id="demo">
               <div></div>
-              <p
-                style="
-                  font-size: 16px;
-                  text-align: left;
-                  padding-left: 13px;
-                  padding: 5px 0;
-                  font-weight: bold;
-                "
-              >
-                我想說：
-              </p>
+
               <textarea
+                placeholder="我要留言.."
                 style="
+                  border-radius: 5px;
+                  margin-top: 25px;
                   resize: none;
                   font-size: 16px;
                   width: 335px;
-                  background-color: #eeeeee;
+                  background-color: #f5f6e9;
                 "
                 class="comment"
                 cols="45"
                 rows="4"
                 id="content"
+                v-model="talkBlockMessage"
               ></textarea>
               <button
                 type="button"
@@ -236,7 +227,7 @@
       </div>
     </div>
 
-    <!-- @@include('./layout/shoppingcart.html',{}) -->
+    @@include('./layout/shoppingcart.html',{})
     <!-- @@include('./layout/footer.html',{}) -->
     <script src="../dev/js/layout/shoppingcart.js"></script>
     <script src="../dev/js/showbenton.js"></script>
