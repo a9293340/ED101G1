@@ -355,7 +355,7 @@ let other=[
        opName:"人參雞精",
        opPrice:'80',
        opClass:'2',
-       opImage:"./images/bandon_include/chickendrink.png"
+       opImage:"./images/bandon_include/checkendrink.png"
     }
  ]
 
