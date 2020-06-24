@@ -59,10 +59,10 @@ p.title2 {
 
 div.overlay {
     position: fixed;
-    right: 25%;
+    right: 30%;
     top: 25%;
-    width: 50%;
-    height: 50%;
+    width: 40%;
+    padding: 1%;
     background-color: rgba(199, 198, 198, 1);
     box-shadow: 0 0 10px rgb(104, 104, 104);
     border-radius: 5px;
@@ -85,7 +85,6 @@ div.overlay {
             padding: 15px;
             margin: 0 auto;
             font-size: 1rem;
-            margin-top: 30px;
         }
         div.overlay>div.bmiForm {
             width: 60%;
@@ -234,7 +233,6 @@ p.separate,
     #a2:hover {
         cursor: pointer;
         background-color: #f5da7f;
-       
     }
 
     #a3:hover {
@@ -244,9 +242,6 @@ p.separate,
     }
 
 }
-
-
-
 .imgLogo {
     width: 150px;
     margin-left: auto;
@@ -323,10 +318,6 @@ p.title3 {
 div.healManBox{
     position: relative;
     width: 450px;
-    // right: -750px;
-    // top: -300px;
-    margin-top: 2%;
-
     img.healMan{
     position: absolute;
     right: -650px;
@@ -335,31 +326,9 @@ div.healManBox{
     // border: 1px solid red;
     z-index: 9;
     
-
-   }
+    }
 }
 
-
-// p.healMainFood {
-//     width: 126px;
-//     margin-right: auto;
-//     color: black;
-//     font-size: 1.4rem;
-// }
-
-// p.healCooks {
-//     width: 80px;
-//     margin-right: auto;
-//     color: black;
-//     font-size: 1.4rem;
-// }
-
-// p.healBento {
-//     width: 120px;
-//     margin-right: auto;
-//     color: white;
-//     font-size: 1.4rem;
-// }
 
 div.healFoodBox{
     position: relative;
@@ -444,15 +413,15 @@ ul.cooks {
         left: 5px;
     }
 }
-div.healthCartBox{
-    width: 200px;
-    position: relative;
-}
+// div.healthCartBox{
+//     width: 200px;
+//     position: relative;
+// }
 #healthCart {
     @include btn(135px,60px,$fz:20px); 
-     position: absolute;
-     left: 240px;
-     line-height: 40px;
+     position: relative;
+     left: 228px;
+     line-height: 50px;
     // padding: 10px 20px;
     // border-radius: 5px;
     // font-size: 1.2rem;
@@ -561,24 +530,21 @@ div.healthCartBox{
         width: 100%;
         min-width: 100%;
     }
-
+    .content2{
+        width: 100%;
+    }
     h1.title1 {
         width: 30%;
-        margin: 0 auto;
-        padding-top: 5px;
-        text-align: center;
+        padding: 20px;
         font-size: 1.2rem;
     }
 
     div.healBentoBox{
-        width: 50%;
+        width: 100%;
         display: inline-block;
         img{
             width: 45%;
         }
-    }
-    div.healBentoBox,p.title3{
-        display: inline-block;
     }
     p.title3 {
         // border: 1px solid orange;
@@ -602,17 +568,14 @@ div.healthCartBox{
             // border-radius: 5px;
             // background-color: #ea6627;
             // color: white;
-             margin: 0 2%;
+            margin: 0 2%;
             // border: 0;
             // cursor: pointer;
         }
     }
     div.healManBox{
         position: relative;
-        width: 450px;
-        // right: -750px;
-        // top: -300px;
-        margin-top: 2%;
+        margin: 0;
     
         img.healMan{
         position: absolute;
@@ -622,133 +585,85 @@ div.healthCartBox{
         // border: 1px solid red;
         z-index: 9;
         
-    
-       }
+        }
     }
 
-   
-
-   
-
     ul.mainFood{
-        width: 100%;
+        width: 60%;
         margin-bottom: 20px;
         padding: 20px;
-        margin-left: 40px;
         li{
             margin: auto;
         }
         #healPlate{
             width: 80%;
             position: relative;
-            top:-96px;
+            top:-43px;
             z-index: 2;
         }
         li>#healFood{
-            width: 100px;
-            height: 100px;
+            width: 80%;
             position: relative;
             z-index: 9;
             border: 1px solid black;
         }
         li>p{
             position: relative;
-            top: -95px;
+            top: -45px;
             left: 27px;
             color: black;
         }
     }
-
-    
-
     ul.cooks{
-        width: 100%;
-        margin-bottom: 20px;
+        width: 90%;
+        margin-bottom: 40px;
         margin-left: 30px;
         #healPlate{
             width: 80%;
             position: relative;
-            top:-96px;
+            top:-43px;
             z-index: 2;
         }
         li>#healFood{
-            width: 100px;
-            height: 100px;
+            width: 80%;
             position: relative;
             z-index: 9;
             border: 1px solid black;
         }
         li>p{
             position: relative;
-            top: -95px;
+            top: -45px;
             left: 27px;
             color: black;
         }
     }
 
     #healthCart {
-        position: relative;
-        top:-50px;
-        left: 100px;
-        padding-top: 3px;
-        border-radius: 5px;
-        font-size: 1rem;
-        background-color: #ea6627;
-        color: white;
-        border: 0;
-        cursor: pointer;
-        transition-duration: 0.2s;
-        transition-property: all;
-        transform-origin: 80% 80%;
-        transform: scale(1);
+        @include btn(93px,32px,$fz:12px); 
+        line-height: 25px;
+        margin-left: -23%;
+        // position: relative;
+        // top:-50px;
+        // left: 100px;
+        // padding-top: 3px;
+        // border-radius: 5px;
+        // font-size: 1rem;
+        // background-color: #ea6627;
+        // color: white;
+        // border: 0;
+        // cursor: pointer;
+        // transition-duration: 0.2s;
+        // transition-property: all;
+        // transform-origin: 80% 80%;
+        // transform: scale(1);
     }
     #healthCart:hover{
         background-color: #f08351;
         color: #000000;
     }
-
-
-    // ul.bento {
-    //     width: 100%;
-    //     display: block;
-
-    //         li {
-    //             width: 45%;
-    //             margin: 0 auto;
-    //         }
-
-    //         img {
-    //             width: 100%;
-    //         }
-
-    //         li.dish {
-    //             width: 60%;
-    //             font-size: .5rem;
-    //             line-height: 20px;
-    //         }
-
-    //         li.img {
-    //             width: 55%;
-    //             margin: 0 auto;
-    //         }
-
-    //         li.img>img.rader {
-    //             width: 70%;
-    //         }
-
-    //         #healthCart {
-    //             width: 38%;
-    //             font-size: 10px;
-    //             left: 65px;
-    //         }
-    // }
-
-    
-
     div.overlay {
         width: 400px;
         left: 60px;
-
         div.bmiForm {
             width: 67%;
         font-size: xx-small;
@@ -773,162 +688,234 @@ div.healthCartBox{
             cursor: pointer;
         }
     }
-
-
-
-    
-
-    
-
 }
 @media screen and (max-width:376px){
-    div.wrapper2 {
+    div.wrapper {
+        // border: 3px solid red;
         width: 100%;
         min-width: 100%;
     }
 
-    h1.title1 {
-        width: 30%;
-        margin: 0 auto;
-        padding-top: 5px;
+    .content {
+        width: 100%;
+
+    }
+
+    h1.title {
+        width: 100%;
+        font-size: 1.5rem;
         text-align: center;
+    }
+
+    p.title2 {
+        width: 100%;
+        margin: 0 auto;
+        font-size: .5rem;
+        padding: 40px;
+    }
+
+    div.board {
+        width: 90%;
+        height: 400px;
+        font-size: 1rem;
+        
+    }
+
+    #questionPanel {
+        width: 100%;
+        font-size: 1rem;
+        text-align: center;
+        color:#37AB64;
+    }
+
+    #questionOptions {
+        width: 100%;
+        display: block;
+        font-size: .5rem;
+        // vertical-align: bottom;
+        color:#37AB64;
+        #a1{
+            
+            color:#37AB64;
+            width: 200px;
+            font-size: .5rem;
+        }
+        #a2{
+            
+            color:#37AB64;
+            width: 200px;
+            font-size: .5rem;
+        }
+        #a3{
+            color:#37AB64;
+            width: 200px; 
+            font-size: .5rem;
+        }
+    }
+
+    #questionOptions>button {
+        margin: auto;
+    }
+
+    .imgLogo {
+        width: 150px;
+        left: 20px;
+        margin-right: 40px;
+        margin-bottom: 100px;
+        top: -26px;
+        position: relative;
+        z-index: 1;
+    }
+    div.imgLogo>img {
+        width: 100%;
+    }
+
+
+    div.wrapper2 {
+        width: 100%;
+        min-width: 100%;
+    }
+    .content2{
+        width: 100%;
+    }
+    h1.title1 {
+        width: 60%;
+        padding: 20px;
         font-size: 1.2rem;
     }
 
-    p.title3 {
-        width: 45%;
-        margin: 0 auto;
-        font-size: .2rem;
-        padding: 10px;
-        text-align: left;
-        position: relative;
-        top:-53px;
-         a {
-        font-size: .5rem;
+    div.healBentoBox{
+        width: 100%;
+        display: inline-block;
+        img{
+            width: 100%;
         }
-        h3{
-        color: white;
+    }
+    p.title3 {
+        // border: 1px solid orange;
+        color: #595959;
+        width: 54%;
+        font-size: 1rem;
+        position: absolute;
+        top: 76%;
+        left: 5%;
+        text-align: left;
+    
+        h1{
+            color:#EA6227;
+            font-size: 1rem;
+        }
+        a {
+            @include btn(70px,30px,$fz:16px); 
+             text-decoration: none;
+            // color: black;
+            // font-size: 1.8rem;
+            // border-radius: 5px;
+            // background-color: #ea6627;
+            // color: white;
+            margin: 0 2%;
+            // border: 0;
+            // cursor: pointer;
+        }
+    }
+    div.healManBox{
+        position: relative;
+        margin: 0;
+        img.healMan{
+        position: absolute;
+        right: -56px;
+        margin-top: 17%;
+        width: 35%;
+        // border: 1px solid red;
+        z-index: 9;
+        left: 45%;
         }
     }
 
-   
-
-   
-
     ul.mainFood{
-        width: 100%;
-        margin-bottom: 20px;
+        width: 80%;
+        margin-top: 33%;
         padding: 20px;
-        margin-left: 40px;
         li{
             margin: auto;
         }
         #healPlate{
             width: 80%;
             position: relative;
-            top:-96px;
+            top:-43px;
             z-index: 2;
         }
         li>#healFood{
-            width: 100px;
-            height: 100px;
+            width: 80%;
             position: relative;
             z-index: 9;
-            left: 10px;
-            bottom: -20px;
             border: 1px solid black;
         }
         li>p{
             position: relative;
-            top: -95px;
+            top: -45px;
             left: 27px;
             color: black;
         }
     }
-
-    
-
     ul.cooks{
-        width: 100%;
-        margin-bottom: 20px;
+        width: 90%;
+        margin-bottom: 40px;
         margin-left: 30px;
         #healPlate{
             width: 80%;
             position: relative;
-            top:-96px;
+            top:-43px;
             z-index: 2;
         }
         li>#healFood{
-            width: 70px;
-            height: 70px;
+            width: 80%;
             position: relative;
             z-index: 9;
-            left: 10px;
-            bottom: -20px;
             border: 1px solid black;
         }
         li>p{
             position: relative;
-            top: -95px;
+            top: -45px;
             left: 27px;
             color: black;
         }
     }
 
     #healthCart {
-        position: relative;
-        top:-38px;
-        left: 60px;
-        padding-top: 3px;
-        border-radius: 5px;
-        font-size: .5rem;
-        background-color: #ea6627;
-        color: white;
-        border: 0;
-        cursor: pointer;
-        transition-duration: 0.2s;
-        transition-property: all;
-        transform-origin: 80% 80%;
-        transform: scale(1);
+        @include btn(93px,32px,$fz:12px); 
+        line-height: 25px;
+        margin-left: -27%;
     }
     #healthCart:hover{
         background-color: #f08351;
         color: #000000;
     }
-
-
-
-
     div.overlay {
-        width: 72%;
-        transform: translateX(40px);
-
-    div.bmiForm {
-        width: 100%;
+        width: 93%;
+        margin-left: -13%;
+        div.bmiForm {
+            width: 86%;
         font-size: xx-small;
-        padding: 3%;
         line-height: 40px;
+            }
+        div.bmiForm>h2 {
+            width: 100%;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            }
+        .bmiContent {
+            font-size: 1rem;
+            }
+        p.resultTitle {
+            font-size: small;
+            }
+        p.btn{
+            width: 50px;
+            margin: auto;
         }
-    div.bmiForm>h2 {
-        width: 100%;
-        font-size: 1rem;
-       margin-bottom: 15px;
+        button.btnClose{
+            cursor: pointer;
         }
-    .bmiContent {
-        font-size: .5rem;
-        }
-    p.resultTitle {
-        font-size: small;
-        }
-        #result{
-            width: 125px;
-        }
-    p.btn{
-        width: 50px;
-        margin: auto;
     }
-    button.btnClose{
-        cursor: pointer;
-    }
-   }
 }
