@@ -618,7 +618,7 @@ $animationDuration: 1.5s;
     }
     .homeTab-pane {
       .homeControl-btn-Delivery-xl{
-        left: 580px!important;
+        left:80% !important;
        }
        .homeControl-btn-Takeaway-xl{
         left: 82%!important;
@@ -2662,7 +2662,7 @@ to{
   padding: 0;
   margin: 0;
   font-size: 0;
-  height: 100vh;
+  height: 800px;
 
   .homeBlackBoardContainer {
     max-width: 100%;
@@ -2906,14 +2906,14 @@ to{
         left: 10% !important;
       }
       .homeTapUp{
-        width: 20% !important;
+        width: 13% !important;
         top:-90vh !important;
         right:-18% !important;
       }
       .homeTwBoy {
-        right: -75%;
-        width: 17%;
-        top: -140vh;
+        right: -73%!important;
+        width: 12%!important;
+        top: -135vh !important;
       }  
     }
   }
@@ -2932,14 +2932,14 @@ to{
         left: -5% !important;
       }
       .homeTapUp{
-        width: 20% !important;
-        top:-90vh !important;
+        width: 15% !important;
+        top:-100vh !important;
         right:-18% !important;
       }
       .homeTwBoy {
-        right: -75%;
-        width: 20%;
-        top: -140vh;
+        right: -74%!important;
+        width: 15%!important;
+        top: -150vh!important;
       }  
     }
   }
