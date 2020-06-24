@@ -1,5 +1,6 @@
 // import shopCart from '../../dev/js/layout/shoppingcart.js';
 import charLine from '../../dev/js/modules/chartLine.js';
+import nextDay from '../../dev/js/modules/findDays.js';
 window.addEventListener('load',gogoPower);
 
 function gogoPower(){
@@ -763,10 +764,10 @@ function gogoPower(){
     }
 
     //找明天
-    const nextDay = function(n){
-        var temp = new Date();
-        return new Date(temp.setDate(temp.getDate() + n));
-    }
+    // const nextDay = function(n){
+    //     var temp = new Date();
+    //     return new Date(temp.setDate(temp.getDate() + n));
+    // }
 
 }
 

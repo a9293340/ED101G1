@@ -1,1 +1,39 @@
-<p id="xxx">test111</p>
+<div class="backEndBox" id="bkMemberBox">
+    <div class="container">
+        <table class="table">
+            <thead>
+            <th>會員編號</th>
+            <th>會員帳號</th>
+            <th>會員姓名</th>
+            <th>帳號狀態</th>
+            <th>是否有被檢舉紀錄</th>
+            <th>是否停權</th>
+            </thead>
+            <tbody>
+            <tr v-for='member in members'>
+                <td>{{member.memId}}</td>
+                <td>{{member.memEmail}}</td>
+                <td>{{member.memName}}</td>
+                <td v-if='member.memStatus == 1'>使用中</td>
+                <td v-else>停權中</td>
+                <td v-if='member.memReportCount == 0'>未被檢舉</td>
+                <td v-else style="color: brown;">有被檢舉</td>
+                <td><button>確認停權</button></td>
+            </tr>
+            <tbody>
+        </table>  
+        </div>      
+</div>
+<div class="backEndBox backEndBoxNone">2</div>
+<div class="backEndBox backEndBoxNone">3</div>
+<div class="backEndBox backEndBoxNone">4</div>
+<div class="backEndBox backEndBoxNone">5</div>
+<div class="backEndBox backEndBoxNone">6</div>
+<div class="backEndBox backEndBoxNone">7</div>
+<div class="backEndBox backEndBoxNone">8</div>
+<div class="backEndBox backEndBoxNone">9</div>
+<div class="backEndBox backEndBoxNone">10</div>
+<div class="backEndBox backEndBoxNone">11</div>
+<div class="backEndBox backEndBoxNone">12</div>
+<div class="backEndBox backEndBoxNone">13</div>
+<div class="backEndBox backEndBoxNone">14</div>
