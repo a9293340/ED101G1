@@ -14,7 +14,9 @@
         "memSignIntime":"2020-06-12 15:20:00",
         "memPlaytime":"2020-06-12 15:20:00",
         "memLastVote":"2020-06-12 15:20:00",
-        "memHealth":1
+        "memHealth":1,
+        "memStatus":1,
+        "memReportCount":0
     },
     {
         "memId":10002,
@@ -31,7 +33,9 @@
         "memSignIntime":"2020-06-17 15:20:00",
         "memPlaytime":"2020-06-16 15:20:00",
         "memLastVote":"2020-06-15 15:20:00",
-        "memHealth":0
+        "memHealth":0,
+        "memStatus":1,
+        "memReportCount":0
     },
     {
         "memId":10003,
@@ -48,6 +52,8 @@
         "memSignIntime":"2020-06-17 19:20:00",
         "memPlaytime":"2020-06-12 20:20:00",
         "memLastVote":"2020-06-17 19:20:00",
-        "memHealth":0
+        "memHealth":0,
+        "memStatus":1,
+        "memReportCount":0
     }
 ]
