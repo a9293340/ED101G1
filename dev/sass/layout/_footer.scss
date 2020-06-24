@@ -8,13 +8,14 @@
     margin-top: -50px;
     width: 100%;
     text-align: center;
-    //置底
-    // position: absolute;
-    // bottom: 0;
     .homeFooterBox {
         margin: 0 auto;
         margin-top: -50px;
         // position: absolute;
+         //置底
+        bottom: 0;
+        position: fixed;
+        right: 0;
         ul {
             margin: 0 auto;
             li {
