@@ -16,7 +16,8 @@ let homeLoginSignup = new Vue({
         check:false,
         doubleCheck:false,
         homeSignupPhone:'',
-        homeSignupPhoneWarning:''
+        homeSignupPhoneWarning:'',
+        homeSignupAddr:'',
     },
     methods: {
         homeCheckSignupBtn(e){
@@ -28,18 +29,76 @@ let homeLoginSignup = new Vue({
                 if(homeCool){
                     e.preventDefault();
                 }
-                $('#member_aflogin').show(500);
-                $('#homeContainderBgc').hide(500);
-                $('#homeContainer').hide(500);
-                $('#member').hide(500);
+                // $('#member_aflogin').show(500);
+                // $('#homeContainderBgc').hide(500);
+                // $('#homeContainer').hide(500);
+                // $('#member').hide(500);
             }
         },
         homeCheckLoginBtn(e){
             e.preventDefault();
-            $('#member_aflogin').show(500);
-            $('#homeContainderBgc').hide(500);
-            $('#homeContainer').hide(500);
-            $('#member').hide(500);
+            $.ajax({
+                type: "POST",
+                url: "./php/login.php",
+                data: {
+                    memEmail: this.homeLoginMail,
+                    memPsw: this.homeLoginPsw
+                },
+                success: function (response) {
+                    member = JSON.parse(response);
+                    console.log(member);
+                    localStorage['memId'] = 'good';
+                    $('#member_aflogin').show(500);
+                    $('#homeContainderBgc').hide(500);
+                    $('#homeContainer').hide(500);
+                    $('#member').hide(500);
+                }
+            });
+        },
+        checkEmail(){
+            // alert('aaa')
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                    // document.getElementById('idMsg').innerText = xhr.responseText;
+                    // if(xhr.responseText == '此帳號可使用'){
+                    //     document.getElementById('idMsg').classList.remove('homeWarningWordsOrange');
+                    //     document.getElementById('idMsg').classList.add('homeWarningWordsGreen');
+                    // }else{
+                    //     document.getElementById('idMsg').classList.add('homeWarningWordsOrange');
+                    //     document.getElementById('idMsg').classList.remove('homeWarningWordsGreen');
+                    // }
+                    if(/^([A-Za-z0-9_\-\.])+\@[A-Za-z]{2,6}\.com(\.[A-Za-z]{2,6})?$/.test(document.getElementById('memSignupEmail').value)){
+                        if(xhr.responseText == '此帳號可使用'){
+                            document.getElementById('idMsg').innerText = `此信箱格式正確且可以使用`;
+                            document.getElementById('idMsg').classList.remove('homeWarningWordsOrange');
+                            document.getElementById('idMsg').classList.add('homeWarningWordsGreen');
+                        }else{
+                            document.getElementById('idMsg').innerText = `此信箱已被使用過`;
+                            document.getElementById('idMsg').classList.add('homeWarningWordsOrange');
+                            document.getElementById('idMsg').classList.remove('homeWarningWordsGreen');
+                        }
+                    }else{
+                        if(xhr.responseText == '此帳號可使用'){
+                            document.getElementById('idMsg').innerText = `請輸入正確信箱格式`;
+                            document.getElementById('idMsg').classList.add('homeWarningWordsOrange');
+                            document.getElementById('idMsg').classList.remove('homeWarningWordsGreen');
+                        }else{
+                            document.getElementById('idMsg').innerText = `請輸入正確信箱格式`;
+                            document.getElementById('idMsg').classList.add('homeWarningWordsOrange');
+                            document.getElementById('idMsg').classList.remove('homeWarningWordsGreen');
+                        }
+                    }
+                }else{
+                    alert(xhr.status);
+                }
+            }
+            }
+            let url = `./php/checkemail.php?memEmail=${document.getElementById('memSignupEmail').value}`;
+            xhr.open("get",url,true);
+            xhr.send(null);
         }
     },
     computed: {
@@ -72,17 +131,17 @@ let homeLoginSignup = new Vue({
                 return 'homeWarningWords homeWarningWordsOrange';
             }
         },
-        homeSignupMailClass(){
-            if(/^([A-Za-z0-9_\-\.])+\@[A-Za-z]{2,6}\.com(\.[A-Za-z]{2,6})?$/.test(this.homeSignupMail)){
-                this.homeSignupMailWarning = '信箱格式正確';
-                this.check = true;
-                return 'homeWarningWords homeWarningWordsGreen';
-            }else{
-                this.homeSignupMailWarning = '請填寫正確電子信箱格式';
-                this.check = false;
-                return 'homeWarningWords homeWarningWordsOrange';
-            }
-        },
+        // homeSignupMailClass(){
+        //     if(/^([A-Za-z0-9_\-\.])+\@[A-Za-z]{2,6}\.com(\.[A-Za-z]{2,6})?$/.test(this.homeSignupMail)){
+        //         this.homeSignupMailWarning = '信箱格式正確';
+        //         this.check = true;
+        //         return 'homeWarningWords homeWarningWordsGreen';
+        //     }else{
+        //         this.homeSignupMailWarning = '請填寫正確電子信箱格式';
+        //         this.check = false;
+        //         return 'homeWarningWords homeWarningWordsOrange';
+        //     }
+        // },
         homeSignupPswClass(){
             let score = this.homeSignupPsw.length;
             if(/[A-Z].*[A-Z]/.test(this.homeSignupPsw)) score *= 2;

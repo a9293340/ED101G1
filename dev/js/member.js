@@ -46,19 +46,6 @@ function gogoPower(){
                 memContent[Number(changeCount)].classList.remove('memContentNone');
                 memHeaderBtn[Number(changeCount)].classList.add('memHeaderBtnOrange');
                 if(Number(changeCount) == 1){
-                    // 第二次Ajax 取得套餐等orderList資訊並丟入Vue的data內
-                    $.getJSON("../dev/js/modules/memSetOrder.json")
-                    .then((data)=>{
-                        this.memSetOrder = data;
-                    });
-                    $.getJSON("../dev/js/modules/memOtherOrder.json")
-                    .then((data)=>{
-                        this.memOtherOrder = data;
-                    });
-                    $.getJSON("../dev/js/modules/memSingleOrder.json")
-                    .then((data)=>{
-                        this.memSingleOrder = data;
-                    });
 
                 }
                 if(Number(changeCount) == 2){
@@ -67,8 +54,9 @@ function gogoPower(){
                     charLine(memHealthColdHot,memHealthHealth,memHealthStomach);
                 }
                 if(Number(changeCount) == 3){
-                    let now = new Date();
-                    if(new Date(this.memData.memPlaytime) > now){
+                    // let now = new Date();
+                    if(new Date(this.memData.memPlayTime) > new Date()){
+                        // alert('aaa')
                         $(".infoText").html("遊玩次數達到本日上線囉~明日請早");
                         $("button").hide();
                     }
@@ -109,48 +97,38 @@ function gogoPower(){
                 let healthId = e.target.dataset.healthid;
                 console.log(healthId);
                 this.nowDataHealthNumber = Number(healthId);
-                // ajax 套餐及其他商品資料 並丟入vue的data內
-                $.getJSON("../dev/js/modules/memSetProduct.json")
-                .then((data)=>{
-                    this.memSetProduct = data;
-                    // 找出Set中 冷、熱、健康好壞、BMI高低的東西
-                    let cold = 100;
-                    let hot = 0;
-                    let sad = 100;
-                    let happy = 0;
-                    let fat = 0;
-                    let thin = 10000;
-                    for(let i =0;i<this.memSetProduct.length;i++){
-                        if(this.memSetProduct[i].setColdHot < cold){
-                            this.memCold = this.memSetProduct[i].setId
-                            cold = this.memSetProduct[i].setColdHot
-                        }
-                        if(this.memSetProduct[i].setColdHot > hot){
-                            this.memHot = this.memSetProduct[i].setId
-                            hot = this.memSetProduct[i].setColdHot
-                        }
-                        if(this.memSetProduct[i].setHealth < sad){
-                            this.memSad = this.memSetProduct[i].setId
-                            sad = this.memSetProduct[i].setHealth
-                        }
-                        if(this.memSetProduct[i].setHealth > happy){
-                            this.memHappy = this.memSetProduct[i].setId
-                            happy = this.memSetProduct[i].setHealth
-                        }
-                        if(this.memSetProduct[i].setCalories > fat){
-                            this.memFat = this.memSetProduct[i].setId
-                            fat = this.memSetProduct[i].setCalories
-                        }
-                        if(this.memSetProduct[i].setCalories < thin){
-                            this.memThin = this.memSetProduct[i].setId
-                            thin = this.memSetProduct[i].setCalories
-                        }
+                let cold = 100;
+                let hot = 0;
+                let sad = 100;
+                let happy = 0;
+                let fat = 0;
+                let thin = 10000;
+                for(let i =0;i<this.memSetProduct.length;i++){
+                    if(this.memSetProduct[i].setColdHot < cold){
+                        this.memCold = this.memSetProduct[i].setId
+                        cold = this.memSetProduct[i].setColdHot
                     }
-                });
-                $.getJSON("../dev/js/modules/memOtherProduct.json")
-                .then((data)=>{
-                    this.memOtherProduct = data;
-                });
+                    if(this.memSetProduct[i].setColdHot > hot){
+                        this.memHot = this.memSetProduct[i].setId
+                        hot = this.memSetProduct[i].setColdHot
+                    }
+                    if(this.memSetProduct[i].setHealth < sad){
+                        this.memSad = this.memSetProduct[i].setId
+                        sad = this.memSetProduct[i].setHealth
+                    }
+                    if(this.memSetProduct[i].setHealth > happy){
+                        this.memHappy = this.memSetProduct[i].setId
+                        happy = this.memSetProduct[i].setHealth
+                    }
+                    if(this.memSetProduct[i].setCalories > fat){
+                        this.memFat = this.memSetProduct[i].setId
+                        fat = this.memSetProduct[i].setCalories
+                    }
+                    if(this.memSetProduct[i].setCalories < thin){
+                        this.memThin = this.memSetProduct[i].setId
+                        thin = this.memSetProduct[i].setCalories
+                    }
+                }
                 // console.log(this.memCold,this.memHot,this.memSad,this.memHappy,this.memFat,this.memThin)
                 // 跳轉至healthList的content
                 document.getElementById('memContentHealthList').classList.remove('memContentNone');
@@ -310,6 +288,7 @@ function gogoPower(){
                 setcart()
                 setsetdocart()
                 setordercart()
+                alert('已加入購物車');
             },
             AddOtherToCart(e){
                 let id = Number(e.target.dataset.count)
@@ -355,6 +334,8 @@ function gogoPower(){
                 setcart()
                 setsetdocart()
                 setordercart()
+                alert('已加入購物車');
+
             },
             AddSetToCart(e){
                 let id = Number(e.target.dataset.count)
@@ -399,6 +380,8 @@ function gogoPower(){
                 setcart()
                 setsetdocart()
                 setordercart()
+                alert('已加入購物車');
+
             },
             memChangeBigHead(e){
                 let file = e.target.files[0];
@@ -515,36 +498,56 @@ function gogoPower(){
             },
         },
         mounted() {
-            // ajax memData
-            $.getJSON("../dev/js/modules/memData.json")
-            .then((data)=>{
-                this.memData = data;
-            });
-            // ajax memOrder
-            $.getJSON("../dev/js/modules/memOrder.json")
-            .then((data)=>{
-                this.memOrder = data;
-                // console.log(data)
-            });
-            // ajax memHealth 並且 畫折線圖
-            $.getJSON("../dev/js/modules/memHealth.json")
-            .then((data)=>{
-                this.memHealth = data;
-                for(let i = 0; i<this.memHealth.length;i++){
-                    let objColdHot = {x:new Date(this.memHealth[i].healLastTime),y:this.memHealth[i].healColdHot};
-                    let objhealth = {x:new Date(this.memHealth[i].healLastTime),y:this.memHealth[i].healhealth};
-                    let objStomach = {x:new Date(this.memHealth[i].healLastTime),y:this.memHealth[i].healStomach};
-                    memHealthColdHot.push(objColdHot);
-                    memHealthHealth.push(objhealth);
-                    memHealthStomach.push(objStomach);
-                }
-                // 生成折線圖
-                setTimeout(() => {
-                    document.getElementById("myChart").innerHTML = '';
-                    charLine(memHealthColdHot,memHealthHealth,memHealthStomach);
-                }, 100);
-                // console.log(this.memHealth)
-            });
+            this.$nextTick(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "./php/memajax1.php",
+                    success: function (response) {
+                        memVm.$data.memData = JSON.parse(response)[0][0];
+                        memVm.$data.memOrder = JSON.parse(response)[1];
+                        memVm.$data.memHealth = JSON.parse(response)[2];
+                        // this.memData = JSON.parse(response)[0][0];
+                        // this.memOrder = JSON.parse(response)[1];
+                        // this.memHealth = JSON.parse(response)[2];
+                        for(let i = 0; i<memVm.$data.memHealth.length;i++){
+                            let objColdHot = {x:new Date(memVm.$data.memHealth[i].healLastTime),y:memVm.$data.memHealth[i].healColdHot};
+                            let objhealth = {x:new Date(memVm.$data.memHealth[i].healLastTime),y:memVm.$data.memHealth[i].healhealth};
+                            let objStomach = {x:new Date(memVm.$data.memHealth[i].healLastTime),y:memVm.$data.memHealth[i].healStomach};
+                            memHealthColdHot.push(objColdHot);
+                            memHealthHealth.push(objhealth);
+                            memHealthStomach.push(objStomach);
+                        }
+                        // 生成折線圖
+                        if(memVm.$data.memHealth.length != 0){
+                            setTimeout(() => {
+                                document.getElementById("myChart").innerHTML = '';
+                                charLine(memHealthColdHot,memHealthHealth,memHealthStomach);
+                            }, 100);
+                        }
+                        $.ajax({
+                            type: "GET",
+                            url: "./php/memajax2.php",
+                            success: function (response) {
+                                memVm.$data.memSingleOrder = JSON.parse(response)[0];
+                                memVm.$data.memSetOrder = JSON.parse(response)[1];
+                                memVm.$data.memOtherOrder = JSON.parse(response)[2];
+                                console.log(JSON.parse(response));
+                                console.log(memVm.$data.memSingleOrder);
+                                $.ajax({
+                                    type: "GET",
+                                    url: "./php/memajax3.php",
+                                    success: function (response) {
+                                        memVm.$data.memSetProduct = JSON.parse(response)[0];
+                                        memVm.$data.memOtherProduct = JSON.parse(response)[1];
+                                        console.log(memVm.$data.memOtherProduct);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            })
+
         },
     })
 
@@ -698,6 +701,7 @@ function gogoPower(){
         },30)
     }
     Game.prototype.endGame = function(result){
+        let _this = this;
         clearInterval(this.timer);
         $(".info").show();
         // 把今日遊玩紀錄寫入資料庫
@@ -710,9 +714,25 @@ function gogoPower(){
         memVm.$data.memData.memPlaytime = today;
         console.log('aaa'+memVm.$data.memData.memPlaytime);
         // 要加入積分
-        memVm.$data.memData.memScore += this.grade;
+        memVm.$data.memData.memScore = Number(memVm.$data.memData.memScore) + Number(this.grade);
+        let Score = Number(memVm.$data.memData.memScore) + Number(this.grade);
         console.log('bbb'+memVm.$data.memData.memScore);
         // 將 memData.memScore 與 memData.memPlaytime回傳資料庫
+        _this.ajaxGame(Score,today);
+    }
+
+    Game.prototype.ajaxGame = function(Score,today){
+        var xhr = new XMLHttpRequest();
+        xhr.onload=function (){
+            if( xhr.status == 200 ){
+                alert('恭喜～')
+            }else{
+                alert( xhr.status );
+            }
+        }
+        var url = `./php/memPlayGameScoreAndTimePlus.php?memScore=${Score}&memPlayTime=${today}`;
+        xhr.open("Get", url, true);
+        xhr.send( null );
     }
 
     var ball = new Ball();

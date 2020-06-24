@@ -130,37 +130,53 @@ $bgcgrey: #c4c0c0;
             // width: 200px;
             margin-top: 60px;
             position: relative;
-            .memImage{
-                width: 200px;
-                height: 200px;
-                border-radius: 50%;
-                background-color: $bgcgrey;
-                overflow: hidden;
-                position: relative;
-                .memPicture{
-                    width: 100%;
-                }
-                .changeImage{
-                    position: absolute;
+            #memImgForm{
+                // border: 1px solid red;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                // margin: 10px 0;
+                // margin-left: 50px;
+                .memImage{
                     width: 200px;
-                    height: 100px;
-                    background-color: $memgrey;
-                    opacity: .8;
-                    bottom: -100px;
-                    @include transitionSet(.3s);
-                    cursor: pointer;
-                    @include textCenter(50px);
-                    @include fontStyle($black,1.2rem);
-                }
-                &:hover{
-                    .changeImage{
-                        bottom: -40px;
+                    height: 200px;
+                    border-radius: 50%;
+                    background-color: $bgcgrey;
+                    overflow: hidden;
+                    position: relative;
+                    margin-bottom: 10px;
+                    .memPicture{
+                        width: 100%;
                     }
+                    .changeImage{
+                        position: absolute;
+                        width: 200px;
+                        height: 100px;
+                        background-color: $memgrey;
+                        opacity: .8;
+                        bottom: -100px;
+                        @include transitionSet(.3s);
+                        cursor: pointer;
+                        @include textCenter(50px);
+                        @include fontStyle($black,1.2rem);
+                    }
+                    &:hover{
+                        .changeImage{
+                            bottom: -40px;
+                        }
+                    }
+                }
+                .memImgBtn{
+                    @include btn(100px,50px,20px);
+                    font-size: 1rem;
+                    line-height: 1.1rem;
                 }
             }
             .memImgLimitBox{
                 width: 160px;
                 margin-left: 30px; 
+                margin-top: 10px;
                 margin-bottom: 20px;
                 @include flexStyle(flex-start,flex-start,column);
                 .memImgLimit{
@@ -256,6 +272,12 @@ $bgcgrey: #c4c0c0;
             margin: 30px 0;
             box-shadow: 3px 3px 30px rgba(0, 0, 0, .3);
             background-color: #f8f7ea;
+            .memGoToOrder{
+                text-decoration: none;
+                color: $orange;
+                font-size: 1.6rem;
+                cursor: pointer;
+            }
             .memOrderInfo{
                 // border: 1px solid red;
                 @include flexStyle(space-between,center);
@@ -330,6 +352,10 @@ $bgcgrey: #c4c0c0;
                 }
             }
         }
+        .memGoToOrderX{
+            color: $black;
+            font-size: 1.4rem;
+        }
 
     }
     #memContentHealth{
@@ -339,6 +365,7 @@ $bgcgrey: #c4c0c0;
         position: relative;
         .memYouHaveNotDoAnyHealthAnalysis{
             @include fontStyle($black,2rem);
+            margin-bottom: 700px;
             a{
                 text-decoration : none;
                 color: $orange;

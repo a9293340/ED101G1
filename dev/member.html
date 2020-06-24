@@ -181,12 +181,12 @@
                     <div class="memOrderGoToListBtn" :data-order='item.orderId' @click='showOrderList'>查看訂單</div>
                 </div>
             </div>
-            <div class="memOrderBox" v-if='memOrder.length == 0'>您尚未有任何訂單喔，<a href="./health.html">快來買吧！</a></div>
+            <div class="memOrderBox memGoToOrderX" v-if='memOrder.length == 0'>您尚未有任何訂單喔，<a href="./health.html" class="memGoToOrder">快來買吧！</a></div>
         </div>
         <div class="memContent memContentNone" id="memContentFile">
             <div class="memFileBox">
                 <h2>◆修改基本資料</h2>
-                <form action="" class="memFileForm">
+                <form method="POST" enctype="multipart/form-data" action="./php/memFileUpdate.php" class="memFileForm">
                     <label>使用者帳號
                         <p>{{memData.memEmail}}</p>
                     </label>
@@ -216,21 +216,22 @@
                         地址
                         <input type="text" class="memAddr" name="memAddr" id="memAddr" v-model='memData.memAddr'>
                     </label>
-                    <button class="memFormBtn">確認送出</button>
+                    <input value="確認送出" type="submit" class="memFormBtn"></input>
                 </form>
             </div>
             <div class="memFileLine"></div>
             <div class="memFileImg">
                 <!-- <h2>◆修改頭像</h2> -->
-                <div class="memImage">
-                    <label for="memImage">
-                        <img :src="memData.memImage" class="memPicture" id="memPicture">
-                        <div class="changeImage">點選更換圖片</div>
-                    </label>
-                    <form action="">
-                        <input type="file" id="memImage" name="memImage" style="display: none;" @change='memChangeBigHead'>
-                    </form>
-                </div>
+                <form action="./php/fileUpload.php" method="POST" enctype="multipart/form-data" id="memImgForm">
+                    <div class="memImage">
+                        <label for="memImage">
+                            <img :src="memData.memImage" class="memPicture" id="memPicture">
+                            <div class="changeImage">點選更換圖片</div>
+                        </label>
+                    </div>
+                    <input type="file" id="memImage" name="memImage" style="display: none;" @change='memChangeBigHead'>
+                    <input type="submit" value="送出圖片" class="memImgBtn">
+                </form>
                 <div class="memImgLimitBox">
                     <p class="memImgLimit">檔案大小：最大1MB檔案限制：.JPG,.PNG</p>
                 </div>
@@ -477,7 +478,7 @@
                         <h2>◆推薦其他餐點</h2>
                     </div>
                     <div class="memHealthListOtherBox" v-if='health.healClass == 0'>
-                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1001 || other.opId == 1006 || other.opId == 1008'>
+                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1000 || other.opId == 1005 || other.opId == 1007'>
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
@@ -486,7 +487,7 @@
                         </div>
                     </div>
                     <div class="memHealthListOtherBox" v-if='health.healClass == 1'>
-                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1005'>
+                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1004'>
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
@@ -495,7 +496,7 @@
                         </div>
                     </div>
                     <div class="memHealthListOtherBox" v-if='health.healClass == 2'>
-                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1003 || other.opId == 1006 || other.opId == 1007'>
+                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1002 || other.opId == 1005 || other.opId == 1006'>
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
@@ -504,7 +505,7 @@
                         </div>
                     </div>
                     <div class="memHealthListOtherBox" v-if='health.healClass == 3'>
-                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1002'>
+                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1001'>
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
@@ -513,7 +514,7 @@
                         </div>
                     </div>
                     <div class="memHealthListOtherBox" v-if='health.healClass == 4'>
-                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1002 || other.opId == 1007'>
+                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1001 || other.opId == 1006'>
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
@@ -522,7 +523,7 @@
                         </div>
                     </div>
                     <div class="memHealthListOtherBox" v-if='health.healClass == 5'>
-                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1003'>
+                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1002'>
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>

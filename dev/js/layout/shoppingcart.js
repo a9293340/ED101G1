@@ -143,18 +143,26 @@ document.getElementById('orderCartClose').addEventListener('click',()=>{
 
 
 //login signup
-$('#homeContainderBgc').hide();
-$('#homeContainer').hide();
-$('#member_aflogin').hide();
+if(localStorage['memId'] === 'good'){
+    $('#homeContainderBgc').hide();
+    $('#homeContainer').hide();
+    $('#member').hide();
+}else{
+    $('#homeContainderBgc').hide();
+    $('#homeContainer').hide();
+    $('#member_aflogin').hide();
+}
+
+
 $('#member').click(function (e) { 
     e.preventDefault();
-    $('#homeContainderBgc').show(500);
-    $('#homeContainer').show(500);
+    $('#homeContainderBgc').show(550);
+    $('#homeContainer').show(550);
 });
 $('#homeContainderBgc').click(function (e) { 
     e.preventDefault();
-    $('#homeContainderBgc').hide(500);
-    $('#homeContainer').hide(500);
+    $('#homeContainderBgc').hide(550);
+    $('#homeContainer').hide(550);
 
 });
 
@@ -162,8 +170,16 @@ $('#homeContainderBgc').click(function (e) {
 //登出  php 刪除session
 $('#log_out').click(function(e){
     e.preventDefault();
-    $('#member_aflogin').hide();
-    $('#member').show(500);
+    $.ajax({
+        type: "GET",
+        url: "./php/clearSession.php",
+        success: function (response) {
+            localStorage['memId'] = 'bad';
+            location.href='./order.html';
+            // $('#member_aflogin').hide();
+            // $('#member').show(500);
+        }
+    });
 })
 
 

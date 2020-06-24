@@ -1,7 +1,7 @@
 
 <div class="homeContainderBgc" id="homeContainderBgc">
 </div>
-<div class="homeContainer" id="homeContainer">
+<div class="homeContainer" id="homeContainer" style="z-index: 99999;">
     <div class="homeTab-wrap">
 
         <!-- 註冊/登入 按鈕-->
@@ -13,16 +13,14 @@
 
         <div class="homeTab-content">
             <!-- 註冊表單-->
-            <form action="/" method="post">
+            <form id="mySignupForm" method="post" action="./php/signup.php" enctype="multipart/form-data">
                 <div class="homeTop-row">
                     <div class="homeField-wrap">
                         <div class="homeNameBox">
                             <label>
                                 姓名<span class="homeReq">*</span>
                             </label>
-                            <input type="text" required autocomplete="off" v-model='homeSignupName'/>
-                            <!-- <input class="homeName-1" type="text" required autocomplete="off" />
-                <input class="homeName-2" type="text" required autocomplete="off" /> -->
+                            <input type="text" required autocomplete="off" v-model='homeSignupName' name="memName"/>
                         </div>
                     </div>
                 </div>
@@ -31,14 +29,15 @@
                     <label>
                         信箱<span class="homeReq">*</span>
                     </label>
-                    <input type="email" required autocomplete="off" v-model='homeSignupMail'/>
+                    <input type="email" required autocomplete="off" v-model='homeSignupMail' id="memSignupEmail" name="memEmail" @keyup='checkEmail'/>
                 </div>
-                <p :class="homeSignupMailClass">{{homeSignupMailWarning}}</p>
+                <!-- <p :class="homeSignupMailClass">{{homeSignupMailWarning}}</p> -->
+                <p class="homeWarningWords homeWarningWordsOrange" style="margin-top: 5px;" id="idMsg">請輸入正確信箱格式</p>
                 <div class="homeField-wrap">
                     <label>
                         密碼<span class="homeReq">*</span>
                     </label>
-                    <input type="password" required autocomplete="off" v-model='homeSignupPsw'/>
+                    <input type="password" required autocomplete="off" v-model='homeSignupPsw' name="memPsw"/>
                 </div>
                 <p :class="homeSignupPswClass">{{homeSignupPswWarning}}</p>
                 <div class="homeField-wrap">
@@ -52,41 +51,42 @@
                     <label>
                         電話<span class="homeReq">*</span>
                     </label>
-                    <input type="phone" required autocomplete="off" v-model='homeSignupPhone'/>
+                    <input type="phone" required autocomplete="off" v-model='homeSignupPhone' name="memPhone"/>
                 </div>
                 <p :class="homeSignupPhoneClass">{{homeSignupPhoneWarning}}</p>
                 <div class="homeField-wrap">
                     <label>
                         地址<span class="homeReq">*</span>
                     </label>
-                    <input type="text" required autocomplete="off" />
+                    <input type="text" required autocomplete="off" v-model='homeSignupAddr' name="memAddr"/>
                 </div>
-                <button type="submit" id='signUpBtn' class="homeButton homeButton-block" @click='homeCheckSignupBtn'>建立帳號</button>
+                <input type="submit" value="建立帳號" id='signUpBtn' class="homeButton homeButton-block" @click='homeCheckSignupBtn'>
+                <!-- <button type="submit" id='signUpBtn' class="homeButton homeButton-block" @click='homeCheckSignupBtn'>建立帳號</button> -->
             </form>
             <!-- end 註冊表單-->
         </div>
 
         <div class="homeTab-content">
             <!-- 登入表單-->
-            <form action="/" method="post">
+            <form id="myLoginForm">
                 <div class="homeField-wrap">
                     <label>
                         信箱<span class="homeReq">*</span>
                     </label>
-                    <input type="email" required autocomplete="off" v-model="homeLoginMail"/>
+                    <input type="email" required autocomplete="off" v-model="homeLoginMail" name="memEmail"/>
                 </div>
                 <p :class="homeLoginMailClass">{{homeLoginMailWarning}}</p>
                 <div class="homeField-wrap">
                     <label>
                         密碼<span class="homeReq">*</span>
                     </label>
-                    <input type="password" required autocomplete="off" v-model='homeLoginPsw'/>
+                    <input type="password" required autocomplete="off" v-model='homeLoginPsw' name="memPsw"/>
                 </div>
                 <p :class="homeLoginPswClass">{{homeLoginPswWarning}}</p>
 
                 <p class="homeForgot"><a href="#">忘記密碼?</a></p>
-
-                <button class="homeButton homeButton-block" @click='homeCheckLoginBtn'/>登入</button>
+                <input type="button" value="登入" class="homeButton homeButton-block" @click='homeCheckLoginBtn'>
+                <!-- <button class="homeButton homeButton-block" @click='homeCheckLoginBtn'/>登入</button> -->
             </form>
             <!-- end 登入表單-->
 
