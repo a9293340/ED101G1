@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康分析</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <link rel="stylesheet" href="./css/health.css">
+</head>
+
+<body>
+    <nav id="homeTwoScreen">
+  <div class="top_group">
+    <div class="btn_switch">
+      <div class="bgl top"></div>
+      <div class="bgl"></div>
+      <div class="bgl bottom"></div>
+    </div>
+    <a href="./homePage.html" class="logo">
+      <img src="./images/header/寶島食堂LOGO_v3-02.png" alt="">
+    </a>
+    <div class="navgroup">
+      <a href="./order.html" class="book">我要訂餐</a>
+      <a href="./health.html" class="analysis">健康分析</a>
+      <a href="./showbenton.html" class="showbento">SHOW便當</a>
+      <a href="#" class="aboutus">關於我們</a>
+    </div>
+    <div class="navgroup_rwd">
+      <a href="#" class="book">我要訂餐</a>
+      <a href="#" class="analysis">健康分析</a>
+      <a href="#" class="showbento">SHOW便當</a>
+      <a href="#" class="aboutus">關於我們</a>
+    </div>
+    <div class="membergroup">
+      <div id="shoppingcart"><img src="./images/header/shopping-cart.png" width="30" height="30" alt=""></div>
+      <div id="member"><img src="./images/header/user.png" width="30" height="30" alt=""></div>
+      <div id="member_aflogin">
+        <img src="./images/header/user.png" width="40" height="40" alt="">
+        <div class="member_menu">
+          <div class="member_club"><a href="./member.html">會員專區</a></div>
+          <div class="log_out" id="log_out">登出</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</nav>
+    <div class="wrapper">
+        <div class="content" id="exam">
+            <h1 class="title">便當健康吃</h1>
+            <p class="title2">此問卷以生活作習、目前體質及腸胃狀況之隨機題庫，依據您目前的健康狀態，提供適合您的便當類型喔!趕快來測驗吧!</p>
+            <div class="board">
+                <div class="order">
+                    <h2 id="number"></h2>
+                    <p class="separate">/</p>
+                    <h2 id="numberTotal">6</h2>
+                </div>
+                <!-- <p class="questionTitle" id="question"></p> -->
+                <div id="questionPanel"></div>
+                <div id="questionOptions"></div>
+
+                <h3 id='score'></h3>
+            </div>
+            <div class="imgLogo"><img src="./images/healthImages/logo.png"></div>
+        </div>
+
+        <div class="overlay">
+            <div class="bmiForm">
+                <h2>您的BMI</h2>
+                <p class="bmiContent">為了讓測驗更加準確，BMI值也是重要的參考值</p><br>
+                <label>您的性別</label>
+                <input type="radio" name="gender" id="genders">男 <input type="radio" name="gender" id="genders">女<br>
+                <label>請輸入您的身高</label>
+                <input type="text" name=" height" id="height"><br>
+                <label>請輸入您的體重</label>
+                <input type="text" name=" weight" id="weight"><br>
+                <p class="resultTitle">BMI
+
+                <p id="result">
+                <div class="btn"><button type="button" class="btnClose" id="send">送出</button></div>
+                </p>
+
+
+            </div>
+        </div>
+        <!-- 以下為測驗結果 -->
+
+
+    </div>
+    <div class="wrapper2" id="examResult">
+        <div class="content2">
+            <h1 class="title1">健康自己看</h1>
+            <div class="healBentoBox"><img src="./images/healthImages/bentoBox.png">
+            </div>
+            <p class="title3"></p>
+            <div class="healManBox">
+                <img class="healMan" src="./images/healthImages/healthfat.png">
+            </div>
+            <div class="healthCartBox"><button id="healthCart">加入購物車</button></div>
+            <!-- <p class="healMainFood">米飯 ＆ 主食</p> -->
+
+            <ul class="mainFood" id="mainFood">
+                <li><img class="healPlate" src="./images/healthImages/plate.png"></li>
+                <li><img class="healPlate" src="./images/healthImages/plate.png"></li>
+            </ul>
+            <!-- <p class="healCooks">配菜</p> -->
+            <ul class="cooks" id="cooks">
+                <li><img class="healPlate" src="./images/healthImages/plate.png"></li>
+                <li><img class="healPlate" src="./images/healthImages/plate.png"></li>
+                <li><img class="healPlate" src="./images/healthImages/plate.png"></li>
+            </ul>
+            <!-- <p class="healBento">完整便當圖</p>
+            <ul class="bento">
+                <li><img src="https://via.placeholder.com/200.png/09f/fff"></li>
+                <li class="dish" id="dish"></li>
+                <li class="img"><img class="rader" src="https://via.placeholder.com/200.png/09f/fff"></li>
+            </ul> -->
+        </div>
+    </div>
+
+    <div id="list">
+  <div class="ordercart" id="ordercart">
+    <img src="./images/showbenton/close.png" id="orderCartClose"  width="20" height="20">
+    <h3>自選便當</h3>
+    <div class="selfbenton" v-for="(item, index) in finalsinglelist">
+      <span :id="'b'+item.sNum" :data-num="item.sNum" width="15" height="15">
+        <img class="orderclose" src="./images/showbenton/close.png" alt=""> 
+      </span>
+      <div class="selfbento_box">
+        <div class="selimg"><img src="https://fakeimg.pl/100/" width="102" height="102"></div>
+      <table>
+        <tr>
+          <td>{{item.rice}}</td>
+          <td>x1</td>
+          <td></td>
+          <!-- <td>NT${{item.riceprice}}</td> -->
+        </tr>
+        <tr>
+          <td>{{item.meat}}</td>
+          <td>x1</td>
+          <td></td>
+          <!-- <td>NT${{item.meatprice}}</td> -->
+        </tr>
+        <tr>
+          <td>{{item.single1}}</td>
+          <td>x1</td>
+          <td></td>
+          <!-- <td>NT${{item.single1price}}</td> -->
+        </tr>
+        <tr>
+          <td>{{item.single2}}</td>
+          <td>x1</td>
+          <td></td>
+          <!-- <td>NT${{item.single2price}}</td> -->
+        </tr>
+        <tr>
+          <td>{{item.single3}}</td>
+          <td>x1</td>
+          <td></td>
+          <!-- <td>NT${{item.single3price}}</td>   -->
+        </tr>
+        <tr>
+          <td>價格:</td>
+          <td>NT$ {{item.soPrice}}</td>
+        </tr>
+      </table>
+    </div>
+    </div>
+    <h3>經典便當</h3>
+    <div class="classicalbento" v-for="(item, index) in finalsetdolist">
+      <span :id="'setdodelete'+ item.setdoId" :data-num="item.setdoId" width="15" height="15"><img class="orderclose" src="./images/showbenton/close.png" alt=""></span>
+          <div class="other_box">
+            <div class="selimg"><img :src="item.setdoImg" width="102" height="102"></div>  
+      <table>
+        <tr>
+          <td>{{item.setdoName}}</td>
+          <td>NT${{item.setdoPrice}}</td>
+          <td></td>
+          <td>x{{item.setdoMany}}</td>
+        </tr>
+      </table>
+    </div>
+    </div>
+    <h3>其他商品</h3>
+    <div class="otherproduct" v-for="(item, index) in finalorderlist">
+      <span :id="'orderdelete'+item.otherId" :data-num="item.otherId" width="15" height="15"><img class="orderclose" src="./images/showbenton/close.png" alt=""></span>
+          <div class="other_box">
+            <div class="selimg"><img :src="item.otherImg" width="102" height="102"></div>  
+      <table>
+        <tr>
+          <td>{{item.otherName}}</td>
+          <td>NT${{item.otherPrice}}</td>
+          <td></td>
+          <td>x{{item.otherMany}}</td>
+        </tr>
+      </table>
+      </div>
+    </div>
+    <div class="finaltotal">
+      <div class="total">總價：</div>
+      <div class="price">123元</div>
+    </div>
+    <button class="buy">立即結帳</button>
+  </div>
+</div>
+    
+<div class="homeContainderBgc" id="homeContainderBgc">
+</div>
+<div class="homeContainer" id="homeContainer" style="z-index: 99999;">
+    <div class="homeTab-wrap">
+
+        <!-- 註冊/登入 按鈕-->
+        <input class="homeTab" id="homeTab1" type="radio" name="group1" />
+        <label for="homeTab1">註冊</label>
+        <input class="homeTab" id="homeTab2" type="radio" name="group1" checked="checked"/>
+        <label for="homeTab2">登入</label>
+        <!-- end 註冊/登入 按鈕-->
+
+        <div class="homeTab-content">
+            <!-- 註冊表單-->
+            <form id="mySignupForm" method="post" action="./php/signup.php" enctype="multipart/form-data">
+                <div class="homeTop-row">
+                    <div class="homeField-wrap">
+                        <div class="homeNameBox">
+                            <label>
+                                姓名<span class="homeReq">*</span>
+                            </label>
+                            <input type="text" required autocomplete="off" v-model='homeSignupName' name="memName"/>
+                        </div>
+                    </div>
+                </div>
+                <p :class="homeSignupNameClass">{{homeSignupNameWarning}}</p>
+                <div class="homeField-wrap">
+                    <label>
+                        信箱<span class="homeReq">*</span>
+                    </label>
+                    <input type="email" required autocomplete="off" v-model='homeSignupMail' id="memSignupEmail" name="memEmail" @keyup='checkEmail'/>
+                </div>
+                <!-- <p :class="homeSignupMailClass">{{homeSignupMailWarning}}</p> -->
+                <p class="homeWarningWords homeWarningWordsOrange" style="margin-top: 5px;" id="idMsg">請輸入正確信箱格式</p>
+                <div class="homeField-wrap">
+                    <label>
+                        密碼<span class="homeReq">*</span>
+                    </label>
+                    <input type="password" required autocomplete="off" v-model='homeSignupPsw' name="memPsw"/>
+                </div>
+                <p :class="homeSignupPswClass">{{homeSignupPswWarning}}</p>
+                <div class="homeField-wrap">
+                    <label>
+                        確定密碼<span class="homeReq">*</span>
+                    </label>
+                    <input type="password" required autocomplete="off" v-model='homeSignupPsw2'/>
+                </div>
+                <p :class="homeSignupPsw2Class">{{homeSignupPsw2Warning}}</p>
+                <div class="homeField-wrap">
+                    <label>
+                        電話<span class="homeReq">*</span>
+                    </label>
+                    <input type="phone" required autocomplete="off" v-model='homeSignupPhone' name="memPhone"/>
+                </div>
+                <p :class="homeSignupPhoneClass">{{homeSignupPhoneWarning}}</p>
+                <div class="homeField-wrap">
+                    <label>
+                        地址<span class="homeReq">*</span>
+                    </label>
+                    <input type="text" required autocomplete="off" v-model='homeSignupAddr' name="memAddr"/>
+                </div>
+                <input type="submit" value="建立帳號" id='signUpBtn' class="homeButton homeButton-block" @click='homeCheckSignupBtn'>
+                <!-- <button type="submit" id='signUpBtn' class="homeButton homeButton-block" @click='homeCheckSignupBtn'>建立帳號</button> -->
+            </form>
+            <!-- end 註冊表單-->
+        </div>
+
+        <div class="homeTab-content">
+            <!-- 登入表單-->
+            <form id="myLoginForm">
+                <div class="homeField-wrap">
+                    <label>
+                        信箱<span class="homeReq">*</span>
+                    </label>
+                    <input type="email" required autocomplete="off" v-model="homeLoginMail" name="memEmail"/>
+                </div>
+                <p :class="homeLoginMailClass">{{homeLoginMailWarning}}</p>
+                <div class="homeField-wrap">
+                    <label>
+                        密碼<span class="homeReq">*</span>
+                    </label>
+                    <input type="password" required autocomplete="off" v-model='homeLoginPsw' name="memPsw"/>
+                </div>
+                <p :class="homeLoginPswClass">{{homeLoginPswWarning}}</p>
+
+                <p class="homeForgot"><a href="#">忘記密碼?</a></p>
+                <input type="button" value="登入" class="homeButton homeButton-block" @click='homeCheckLoginBtn'>
+                <!-- <button class="homeButton homeButton-block" @click='homeCheckLoginBtn'/>登入</button> -->
+            </form>
+            <!-- end 登入表單-->
+
+        </div>
+    </div>
+</div>
+    <div class="homeFooter" style="color: #fff;">
+    <div class="homeFooterBox">
+        <ul>
+            <li><a href="#">Copyright ©  2020 寶島食堂</a></li>
+            <li class="homePhone"><img src="./images/homepage/homePhone_af.png">電話 : +886-4286688</li>
+            <li class="homeAdd"><img src="./images/homepage/homeAdd_af.png">地址 : 桃園市中壢區中大路300號</li>
+        </ul>
+    </div>
+</div>
+    <script src="../dev/js/health.js"></script>
+    <script src="../dev//js/layout/loginSignup.js"></script>
+    <script src="../dev/js/layout/shoppingcart.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHOW便當</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../dest/css/showbenton.css" />
+
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Vue -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+  </head>
+
+  <body>
+    <!------------------header---------------->
+    <nav id="homeTwoScreen">
+  <div class="top_group">
+    <div class="btn_switch">
+      <div class="bgl top"></div>
+      <div class="bgl"></div>
+      <div class="bgl bottom"></div>
+    </div>
+    <a href="./homePage.html" class="logo">
+      <img src="./images/header/寶島食堂LOGO_v3-02.png" alt="">
+    </a>
+    <div class="navgroup">
+      <a href="./order.html" class="book">我要訂餐</a>
+      <a href="./health.html" class="analysis">健康分析</a>
+      <a href="./showbenton.html" class="showbento">SHOW便當</a>
+      <a href="#" class="aboutus">關於我們</a>
+    </div>
+    <div class="navgroup_rwd">
+      <a href="#" class="book">我要訂餐</a>
+      <a href="#" class="analysis">健康分析</a>
+      <a href="#" class="showbento">SHOW便當</a>
+      <a href="#" class="aboutus">關於我們</a>
+    </div>
+    <div class="membergroup">
+      <div id="shoppingcart"><img src="./images/header/shopping-cart.png" width="30" height="30" alt=""></div>
+      <div id="member"><img src="./images/header/user.png" width="30" height="30" alt=""></div>
+      <div id="member_aflogin">
+        <img src="./images/header/user.png" width="40" height="40" alt="">
+        <div class="member_menu">
+          <div class="member_club"><a href="./member.html">會員專區</a></div>
+          <div class="log_out" id="log_out">登出</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</nav>
+
+    <div id="add" class="showBlock">
+      <p class="showTitle">
+        SHOW便當
+      </p>
+      <p class="showTitle1">美味便當Top3</p>
+    </div>
+    <!----------------新增按鈕--------------->
+    <div id="addBenton" class="addBenton" @click="showBentonList">
+      <img src="./images/showbenton/addition.png" />
+    </div>
+
+    <div class="kitchenTool"></div>
+
+    <!------------------格線------------------>
+    <!-- <div class="grid"></div> -->
+    <!----------------跳出燈箱--------------->
+    <div class="showbentonCover"></div>
+    <div id="lightbox" class="showBentonListLightbox box1">
+      <!-------Step1-------->
+      <div v-if="showBentonImgList === true">
+        <div class="bentoncarTitle">
+          <span>請選擇喜愛的自選便當</span>
+          <img @click="showCloselightbox" src="./images/showbenton/close.png" />
+        </div>
+        <ul class="bentoncardBox">
+          <li
+            :id="'bentonLi'+item.id"
+            class="bentonCard"
+            v-for="(item, index) in benton"
+            :key="item.id"
+            @click="showChooseBenton(item)"
+          >
+            <img
+              :id="'riceimg'+item.id"
+              :data-id="item.id"
+              v-bind:src="item.img"
+              alt=""
+              width="210px"
+              height="210px"
+            />
+          </li>
+        </ul>
+        <div class="confirmBentonBox1">
+          <button class="Next" @click="showBentonStep1(false)">
+            下一步
+          </button>
+        </div>
+      </div>
+      <!-------Step2-------->
+      <div v-else>
+        <div class="bentoncarTitle">
+          <span> 請填寫便當內容</span>
+          <img @click="showCloselightbox" src="./images/showbenton/close.png" />
+        </div>
+        <div class="bentonContentForm">
+          <label class="Step2Title" for="Step2TitlText">標題：</label>
+          <input
+            id="Step2TitlText"
+            type="text"
+            v-on:input="checkTitle"
+            v-model="message"
+          />
+          <div class="Step2Space">
+            <label class="Step2Content" for="Step2ContentText">內容：</label>
+            <textarea
+              id="Step2ContentText"
+              rows="15"
+              cols="30"
+              v-on:input="checkContent"
+              v-model="messageContent"
+            ></textarea>
+            <div class="confirmBentonBox2">
+              <button class="Pre" @click="showBentonStep1(true)">
+                上一步
+              </button>
+              <button class="Send" @click="SendBenton">
+                送出
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="showBentonImg" id="bentonWall">
+      <div
+        class="shareBenton"
+        v-for="(notes,index) in bentonArray"
+        :id="'bentonDiv'+index"
+        :key="index"
+      >
+        <img
+          @click="openLightBox(notes, index)"
+          :id="'bentonimg'+index"
+          :data-id="index"
+          v-bind:src="notes.bentonImg"
+          alt=""
+        />
+
+        <p id="Step2TitlText">{{notes.title}}</p>
+        <div style="margin: 20px 0 5px; text-align: right;">
+          <img
+            class="conversation"
+            @click="openLightBox(notes, index)"
+            src="./images/showbenton/conversation.png"
+            width="30px"
+            height="30px"
+          />
+
+          <img
+            class="like"
+            src="./images/showbenton/like.png"
+            width="30px"
+            height="30px"
+            :data-num="index"
+            :data-check="0"
+            @click="change"
+          />
+          <!-- <img
+            class="like1"
+            @click="addLikeTimes(notes)"
+            src="./images/showbenton/like1.png"
+          /> -->
+
+          <span class="liketimes">{{notes.liketimes}}</span>
+        </div>
+      </div>
+
+      <!----------點擊分享便當裡面的畫面------------>
+      <div class="showBentonContentbox" id="mainBuyBenton">
+        <div v-bind:class="currentBenton.cls">
+          <img
+            class="closebox"
+            @click="showContentCloselightbox"
+            src="./images/showbenton/close.png"
+          />
+          <!--發文者大區塊-->
+          <div class="shareBlock">
+            <img
+              class="showBentonContentImg"
+              v-bind:src="currentBenton.bentonImg"
+              alt="where is mybenton"
+              width="340"
+              height="260"
+            />
+            <button class="buyMore" id="buyMore">加入購物車</button>
+            <div class="memTextBlock">
+              <img :src="memData.memImage" class="memPicture" />
+              <p class="member">{{memData.memName}}</p>
+              <p id="ContentTitlText">{{currentBenton.title}}</p>
+              <p
+                style="
+                  word-break: break-all;
+                  font-size: 14px;
+                  text-align: left;
+                  font-weight: 400;
+                  letter-spacing: 1px;
+                "
+              >
+                {{currentBenton.content}}
+              </p>
+              <p class="talkDateTime">{{currentBenton.postDateTime}}</p>
+            </div>
+          </div>
+          <div class="messageBoard">
+            <!--留言大區塊 -->
+            <div class="mesTalks">──────── 留言區 ─────────</div>
+            <!--留言區-->
+            <div class="talksBlock">
+              <div v-for="talks in talkArray" id="show_msg" class="showmsg">
+                <img :src="memData.memImage" class="memPicture" />
+                <p class="member">{{memData.memName}}</p>
+                <div class="report">檢舉</div>
+                <div class="talkmessage">{{talks.talkmessage}}</div>
+
+                <p class="talkDateTime">{{talks.dateTime}}</p>
+              </div>
+            </div>
+
+            <form id="demo">
+              <div></div>
+              <p
+                style="
+                  font-size: 16px;
+                  text-align: left;
+                  padding-left: 13px;
+                  padding: 5px 0;
+                  font-weight: bold;
+                "
+              >
+                我想說：
+              </p>
+              <textarea
+                style="
+                  resize: none;
+                  font-size: 16px;
+                  width: 335px;
+                  background-color: #eeeeee;
+                "
+                class="comment"
+                cols="45"
+                rows="4"
+                id="content"
+              ></textarea>
+              <button
+                type="button"
+                id="showSend"
+                style="display: block;"
+                @click="talk"
+              >
+                送出
+              </button>
+            </form>
+          </div>
+          <p id="result"></p>
+        </div>
+      </div>
+    </div>
+
+    
+    
+    <script src="../dev/js/layout/shoppingcart.js"></script>
+    <script src="../dev/js/showbenton.js"></script>
+  </body>
+</html>
