@@ -366,15 +366,15 @@ createBullets();
 
 
 // 這裡是自動輪播
-function autoSlide() {
-  autoSlideTimeout = setTimeout(function () {
-    curSlide++;
-    if (curSlide > numOfSlides) curSlide = 0;
-    changeSlides();
-  }, autoSlideDelay);
-}
+// function autoSlide() {
+//   autoSlideTimeout = setTimeout(function () {
+//     curSlide++;
+//     if (curSlide > numOfSlides) curSlide = 0;
+//     changeSlides();
+//   }, autoSlideDelay);
+// }
 
-autoSlide();
+// autoSlide();
 // 這裡是自動輪播
 
 function changeSlides(instant) {
