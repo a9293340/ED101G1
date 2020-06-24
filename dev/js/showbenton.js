@@ -507,31 +507,7 @@ $(function () {
   });
 });
 
-<<<<<<< HEAD
-//塞進購物車
-
-// function showbentonShoppingCart() {
-//   showbentonOrderList = {
-//     sNum: `${singleNum}`,
-//     rice: `${showrice}`,
-//     meat: `${showmeat}`,
-//     single1: `${showsingle1}`,
-//     single2: `${showsingle2}`,
-//     single3: `${showsingle3}`,
-//     soPrice: `${showTotalPrice}`,
-//   };
-//   singleNum++;
-//   localStorage.setItem("singleNum", singleNum);
-//   orderCart.push(showbentonOrderList);
-//   var showOrder = JSON.stringify(orderCart);
-//   localStorage.setItem("singleOrder", showbentonOrderList);
-//   localStorage.setItem("qqq", "123");
-//   setcart();
-// }
-
-=======
 //加入購物車
->>>>>>> show
 function showbentonShoppingCart() {
   showbentonOrderList = {
     sNum: `${singleNum}`,
