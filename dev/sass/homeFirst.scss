@@ -3252,35 +3252,70 @@ svg {
     right: -30%;
     //  z-index: -1;
  
-  }
+    .slider_1_right1 {
+      height: 480px;
+     position: absolute;
+      width: 2400px;
+      // right: 440px;
+      background-image: url("../images/homepage/drive_bg.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation: tree1 linear 12s  infinite;
+      height: 100%;
+      // animation: bgcity 5s ;
+    }
   
   .slider_1_right {
     height: 480px;
     position: relative;
-    width: 1160px;
+    width: 2400px;
     // right: 440px;
-    background-image: url("../images/homepage/driver_bg.jpg");
+    background-image: url("../images/homepage/drive_bg.png");
     background-size: cover;
     background-repeat: no-repeat;
+    animation:  tree linear 12s 6s  infinite;
     // animation: bgcity 5s ;
   }
 
   .slider_1_right.driver {
     // border: 1px solid yellow;
-    height: 344px;
+    height: 43%;
     position: relative;
-    width: 382px;
+    width: 16%;
+    min-width: 245px;
     right: -30%;
-    bottom: 73%;
+    bottom: 42%;
     background-image: url("../images/homepage/driver.png");
     background-size: cover;
     background-repeat: no-repeat;
-    animation: driver linear 6s infinite;
+    animation: driver linear 8s infinite;
     // &.driver{
     //   position: absolute;
     //   // background-color: red;
     // }
   }
+  .slider_1_right{
+    &.tree{
+      height: 76%;
+    position: absolute;
+    width: 119%;
+    /* right: -19%; */
+    bottom: 11%;
+      opacity: 0;
+      background-image: url("../images/homepage/tree.png");
+      animation: tree linear 16s 8s infinite;
+    }
+    &.tree1{
+      height: 76%;
+      position: absolute;
+      width: 119%;
+      /* right: -19%; */
+      bottom: 11%;
+      background-image: url("../images/homepage/tree.png");
+      animation: tree1 linear 16s 0.5s infinite;
+    }
+  }
+}
 }
 
 /* .slide__overlay {
@@ -3407,6 +3442,26 @@ svg {
     right: -1200px;
   }
 }
+@keyframes tree {
+  from {
+    transform: translate(100%,0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(-100%,0);
+    opacity: 1;
+  }
+}
+@keyframes tree1 {
+  from {
+    transform: translate(100%,0);
+  }
+
+  to {
+    transform: translate(-100%,0);
+  }
+}
 
 ;
 
@@ -3457,43 +3512,76 @@ svg {
         }
       }
     }
-      .slider_1_right_bg {
-        overflow: hidden;
-        //  width: 1020px;
-        position: relative;
-        right: -272px;
-
-        //  z-index: -1;
-        .slider_1_right {
-          height: 514px;
-          position: relative;
-          width: 1160px;
-          right: 440px;
-          // background-image: url("../images/homepage/driver_bg.jpg");
-          background-size: cover;
-          background-repeat: no-repeat;
-          // animation: bgcity 5s ;
-        }
-
-        .slider_1_right.driver {
-          // border: 1px solid yellow;
-          height: 310px;
-          position: relative;
-          width: 341px;
-          right: -200px;
-          bottom: 346px;
-          background-image: url("../images/homepage/driver.png");
-          background-size: cover;
-          background-repeat: no-repeat;
-          animation: driver 5s infinite;
-          // &.driver{
-          //   position: absolute;
-          //   // background-color: red;
-
-
-          // }
-        }
+    .slider_1_right_bg {
+      overflow: hidden;
+      //  width: 1020px;
+      position: relative;
+      right: -30%;
+      //  z-index: -1;
+   
+      .slider_1_right1 {
+        height: 480px;
+       position: absolute;
+        width: 2400px;
+        // right: 440px;
+        background-image: url("../images/homepage/drive_bg.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: tree1 linear 12s  infinite;
+        height: 100%;
+        // animation: bgcity 5s ;
       }
+    
+    .slider_1_right {
+      height: 480px;
+      position: relative;
+      width: 2400px;
+      // right: 440px;
+      background-image: url("../images/homepage/drive_bg.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation:  tree linear 12s 6s  infinite;
+      // animation: bgcity 5s ;
+    }
+  
+    .slider_1_right.driver {
+      // border: 1px solid yellow;
+      height: 43%;
+      position: relative;
+      width: 26%;
+      right: -30%;
+      bottom: 42%;
+      background-image: url("../images/homepage/driver.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation: driver linear 8s infinite;
+      // &.driver{
+      //   position: absolute;
+      //   // background-color: red;
+      // }
+    }
+    .slider_1_right{
+      &.tree{
+        height: 76%;
+      position: absolute;
+      width: 119%;
+      /* right: -19%; */
+      bottom: 11%;
+        opacity: 0;
+        background-image: url("../images/homepage/tree.png");
+        animation: tree linear 16s 8s infinite;
+      }
+      &.tree1{
+        height: 76%;
+        position: absolute;
+        width: 119%;
+        /* right: -19%; */
+        bottom: 11%;
+        background-image: url("../images/homepage/tree.png");
+        animation: tree1 linear 16s 0.5s infinite;
+      }
+    }
+  }
 
     
 
