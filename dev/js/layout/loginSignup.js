@@ -45,13 +45,19 @@ let homeLoginSignup = new Vue({
                     memPsw: this.homeLoginPsw
                 },
                 success: function (response) {
-                    member = JSON.parse(response);
-                    console.log(member);
-                    localStorage['memId'] = 'good';
-                    $('#member_aflogin').show(500);
-                    $('#homeContainderBgc').hide(500);
-                    $('#homeContainer').hide(500);
-                    $('#member').hide(500);
+                    if(response == 'sad'){
+                        alert('帳號或密碼輸入錯誤！');
+                    }else if(response == 'bad'){
+                        alert('該帳號已被停權，請來電聯繫詢問～')
+                    }else{
+                        member = JSON.parse(response);
+                        console.log(member);
+                        sessionStorage['memId'] = 'good';
+                        $('#member_aflogin').show(500);
+                        $('#homeContainderBgc').hide(500);
+                        $('#homeContainer').hide(500);
+                        $('#member').hide(500);
+                    }
                 }
             });
         },

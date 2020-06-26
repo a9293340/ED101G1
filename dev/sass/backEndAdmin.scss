@@ -5,6 +5,7 @@
     // width: 96%;
     border-collapse: collapse;
     border: solid 1px lighten(black, 70%);
+    overflow: auto;
     th {
     color: $green;
     font-size: 1.5rem;
@@ -26,6 +27,7 @@
             // padding: 0 24px 0 24px;
             text-align: center;
             padding-left: 12px;
+            vertical-align: middle;
         }
     }
 }
@@ -35,13 +37,67 @@ button{
     font-size: 1rem;
     line-height: 1rem;
     transform: scale(.8);
-    &:hover{
-        transform: scale(1);
+    // &:hover{
+    //     transform: scale(1);
+    // }
+}
+
+label{
+    @include fontStyle($black,1.2rem);
+    // border: 1px solid red;
+    margin-right: 30px;
+    input[type="text"]{
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 3px;
+        box-sizing: border-box;
+        background:none;
+        background-image:none;
+        border:1px solid $lightGrey;
+        transition:border-color .25s ease, box-shadow .25s ease;
+        border-radius: 5px;
+        &:focus {
+            outline:0;
+            border-color:$green;
+        }
+    }
+    input[type="file"]{
+        width: 230px;
+    }
+    #spId,#setId{
+        border: none;
+        background-color: $lightGrey;
+        margin-bottom: 20px;
+    }
+    select{
+        margin-left: 5px;
+        width: 100px;
+        padding: 3px;
+        box-sizing: border-box;
+        border-radius: 3px;
+        border:1px solid $lightGrey;
+        &:focus {
+            outline:0;
+            border-color:$green;
+        }
+    }
+    textarea{
+        width: 500px;
+        height: 150px;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 3px;
+        border:1px solid $lightGrey;
+        &:focus {
+            outline:0;
+            border-color:$green;
+        }
     }
 }
 
 .backEndBox{
     // border: 1px solid red;
+    // display: flex;
     width: 1300px;
     margin: 0 auto;
     height: 800px;
@@ -52,7 +108,200 @@ button{
         padding: 50px;
     }
 }
+#bkOrderFix{
+    .bkOrderBtnBox{
+        margin-top: 60px;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        .bkOrderBtn{
+            @include btnChoose(150px,50px);
+            font-size: 1.5rem;
+            line-height: 2.2rem;
+        }
+    }
+    .container {
+        margin-top: 50px;
+    }
+}
 
+#bkSingleNew{
+    #bkSingleNewForm{
+        margin-top: 60px;
+        width: 90%;
+        box-sizing: border-box;
+        padding: 10px;
+        @include flexStyle(center,center,column);
+        .bkRow{
+            width: 100%;
+            @include flexStyle(flex-start,flex-end);
+            margin-bottom: 60px;
+            .spPrice{
+                margin-right: 50px;
+            }
+            .spMeat{
+                margin-right: 172px;
+            }
+            .bkSingleNewBtn{
+                @include btn(120px,50px);
+                line-height: 1.2rem;
+            }
+        }
+    }
+}
+
+#bkSingleFix{
+    // width: 100%;
+    .bkSingleFind{
+        margin-top: 60px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        // border: 1px solid red;
+        .bkOrderBtnBox{
+            margin-top: 20px;
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 40px;
+            .bkOrderBtn{
+                @include btnChoose(150px,50px);
+                font-size: 1.5rem;
+                line-height: 2.2rem;
+            }
+        }
+        .bkSingleProductToList{
+            margin: 0 auto;
+            @include btn(90px,35px);
+            font-size: 1rem;
+            line-height: 1.6rem;
+        }
+    }
+    .bkSingleSet{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        // border: 1px solid red;
+        #bkGoToSingleProduct{
+            @include btn(150px,50px);
+            font-size: 1.5rem;
+            line-height: 2.2rem;
+            margin-bottom: 50px;
+        }
+        .bkRow{
+            width: 100%;
+            @include flexStyle(flex-start,flex-end);
+            margin-bottom: 60px;
+            .spPrice{
+                margin-right: 50px;
+            }
+            .spMeat{
+                margin-right: 172px;
+            }
+            .bkSingleNewBtn{
+                @include btn(120px,50px);
+                line-height: 1.2rem;
+            }
+        }
+    }
+    .backEndBoxNoneI{
+        display: none;
+    }
+    margin-bottom: 500px;
+}
+#bkSetNew{
+    #bkSetNewForm{
+        margin-top: 60px;
+        width: 90%;
+        box-sizing: border-box;
+        padding: 10px;
+        @include flexStyle(center,center,column);
+        .bkRow{
+            width: 100%;
+            @include flexStyle(flex-start,flex-end);
+            margin-bottom: 60px;
+            .spPrice{
+                margin-right: 50px;
+            }
+            #setClass{
+                width: 120px;
+            }
+            .bkSingleNewBtn{
+                @include btn(120px,50px);
+                line-height: 1.2rem;
+            }
+        }
+    }
+}
+#bkSetFix{
+    .bkSetFind{
+        margin-top: 60px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        // border: 1px solid red;
+        .bkOrderBtnBox{
+            margin-top: 20px;
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 40px;
+            .bkOrderBtn{
+                @include btnChoose(150px,50px);
+                font-size: 1.5rem;
+                line-height: 2.2rem;
+            }
+        }
+        .bkSetProductToList{
+            margin: 0 auto;
+            @include btn(90px,35px);
+            font-size: 1rem;
+            line-height: 1.6rem;
+        }
+    }
+    .bkSetSet{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        // border: 1px solid red;
+        #bkGoToSetProduct{
+            @include btn(150px,50px);
+            font-size: 1.5rem;
+            line-height: 2.2rem;
+            margin-bottom: 50px;
+        }
+        .bkRow{
+            width: 100%;
+            @include flexStyle(flex-start,flex-end);
+            margin-bottom: 60px;
+            .spPrice{
+                margin-right: 50px;
+            }
+            .bkSetNewBtn{
+                @include btn(120px,50px);
+                line-height: 1.2rem;
+            }
+        }
+    }
+    .backEndBoxNoneI{
+        display: none;
+    }
+}
 .backEndBoxNone{
     display: none;
 }
+

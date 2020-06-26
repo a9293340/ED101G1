@@ -1,4 +1,4 @@
-<div class="backEndBox" id="bkMemberBox">
+<div class="backEndBox backEndBoxNone" id="bkMemberBox">
     <div class="container">
         <table class="table">
             <thead>
@@ -15,23 +15,412 @@
                 <td>{{member.memEmail}}</td>
                 <td>{{member.memName}}</td>
                 <td v-if='member.memStatus == 1'>使用中</td>
-                <td v-else>停權中</td>
+                <td v-else style="color: red;">停權中</td>
                 <td v-if='member.memReportCount == 0'>未被檢舉</td>
-                <td v-else style="color: brown;">有被檢舉</td>
-                <td><button>確認停權</button></td>
+                <td v-else style="color: red;">有被檢舉</td>
+                <td v-if='member.memReportCount == 1'>
+                    <button 
+                    :data-memId='member.memId'
+                    @click='bkMemberToGG'
+                    >
+                        確認停權
+                    </button>
+                </td>
+                <td v-else>他是乖寶寶！</td>
             </tr>
             <tbody>
         </table>  
-        </div>      
+    </div>      
 </div>
 <div class="backEndBox backEndBoxNone">2</div>
 <div class="backEndBox backEndBoxNone">3</div>
-<div class="backEndBox backEndBoxNone">4</div>
-<div class="backEndBox backEndBoxNone">5</div>
-<div class="backEndBox backEndBoxNone">6</div>
-<div class="backEndBox backEndBoxNone">7</div>
-<div class="backEndBox backEndBoxNone">8</div>
-<div class="backEndBox backEndBoxNone">9</div>
+<div class="backEndBox backEndBoxNone" id="bkOrderFix">
+    <div id="bkOrder">
+        <div class="bkOrderBtnBox">
+            <div class="bkOrderBtn" @click='bkShowAllOrder'>所有訂單</div>
+            <div class="bkOrderBtn" @click='bkShow0Order'>外送訂單</div>
+            <div class="bkOrderBtn" @click='bkShow1Order'>外帶訂單</div>
+        </div>
+        <div class="container">
+            <table class="table">
+                <thead>
+                <th>訂單編號</th>
+                <th>購買方式</th>
+                <th>會員姓名</th>
+                <th>地址</th>
+                <th>總價格</th>
+                <th>訂單狀態</th>
+                <th>訂單備註</th>
+                </thead>
+                <tbody>
+                    <tr v-for='(order,index) in orders'>
+                        <td>{{order.orderId}}</td>
+                        <td v-if='order.orderClass == 0'>外送</td>
+                        <td v-else>外帶</td>
+                        <td>{{order.memName}}</td>
+                        <td>{{order.deliveryAddr}}</td>
+                        <td>{{order.orderTotalPrice}}</td>
+                        <td>
+                            <select 
+                            name="bkOrderStatus" class="bkOrderStatus" v-model='order.orderStatus'>
+                                <option value="0">確認中</option>
+                                <option value="1">已確認</option>
+                                <option value="2">已出餐</option>
+                                <option value="3">已送達</option>
+                                <option value="4">完成訂單</option>
+                                <option value="5">已取消</option>
+                                <option value="6">已歸檔</option>
+                            </select>
+                            <button 
+                            :data-orderid='order.orderId'
+                            :data-index='index'
+                            @click='bkOrderChangeStatus'>更改</button>
+                        </td>
+                        <td>{{order.orderRemark}}</td>
+                    </tr>
+                <tbody>
+            </table>  
+        </div>     
+    </div>
+</div>
+<div class="backEndBox backEndBoxNone" id="bkSingleNew">
+    <form id="bkSingleNewForm" method="post" action="./php/bkSingleNew.php" enctype="multipart/form-data">
+        <div class="bkRow">
+            <label for="spName">套餐名稱:
+                <input type="text" name="spName" id="spName">
+            </label>
+            <label for="spPrice" class="spPrice">單品價格:
+                <input type="text" name="spPrice" id="spPrice">
+            </label>
+            <label for="spClass">單品類別:
+                <select name="spClass" id="spClass">
+                    <option value="0">米飯</option>
+                    <option value="1">主食</option>
+                    <option value="2">配菜</option>
+                </select>
+            </label>
+        </div>
+        <div class="bkRow">
+            <label for="spCalories">單品熱量:
+                <input type="text" name="spCalories" id="spCalories">
+            </label>
+            <label for="spHealth">單品健康值:
+                <input type="text" name="spHealth" id="spHealth">
+            </label>
+            <label for="spColdHot">單品冷暖值:
+                <input type="text" name="spColdHot" id="spColdHot">
+            </label>
+        </div>
+        <div class="bkRow">
+            <label for="spImage">單品圖片:
+                <input type="file" name="spImage" id="spImage">
+            </label>
+            <label for="spMeat" class="spMeat">單品葷素:
+                <select name="spMeat" id="spMeat">
+                    <option value="0">素</option>
+                    <option value="1">葷</option>
+                </select>
+            </label>
+            <label for="spStatus">單品狀態:
+                <select name="spStatus" id="spStatus">
+                    <option value="0">下架</option>
+                    <option value="1">上架</option>
+                </select>
+            </label>
+        </div>
+        <div class="bkRow">
+            <label for="spInfo">單品敘述:
+                <textarea name="spInfo" id="spInfo" cols="50" rows="10"></textarea>
+            </label>
+            <input type="submit" class="bkSingleNewBtn">
+        </div>
+    </form>
+</div>
+<div class="backEndBox backEndBoxNone" id="bkSingleFix">
+    <div class="bkSingleFind">
+        <div class="bkOrderBtnBox">
+            <div class="bkOrderBtn" @click='bkChangeToAll'>所有品項</div>
+            <div class="bkOrderBtn" @click='bkChangeToRice' >米飯類</div>
+            <div class="bkOrderBtn" @click='bkChangeToMain' >主食類</div>
+            <div class="bkOrderBtn" @click='bkChangeToSide' >配菜類</div>
+        </div>
+        <div class="container">
+            <table class="table" height='400px'>
+                <thead>
+                    <th>單品編號</th>
+                    <th>單品名稱</th>
+                    <th>單品類別</th>
+                    <th>單品狀態</th>
+                    <th>單品圖片</th>
+                    <th>修改</th>
+                </thead>
+                <tbody>
+                    <tr v-for='single in singleProducts'>
+                        <td>{{single.spId}}</td>
+                        <td>{{single.spName}}</td>
+                        <td v-if='single.spClass == 0'>米飯</td>
+                        <td v-if='single.spClass == 1'>主食</td>
+                        <td v-if='single.spClass == 2'>配菜</td>
+                        <td v-if='single.spStatus == 0'>下架</td>
+                        <td v-else>上架</td>
+                        <td>
+                            <img 
+                                :src="single.spImage"
+                                width="50px"
+                            >
+                        </td>
+                        <td>
+                            <div 
+                            class="bkSingleProductToList"
+                            :data-spid='single.spId'
+                            @click='bkSingleProductToListBtn'
+                            >修改</div>
+                        </td>
+                    </tr>
+                <tbody>
+            </table>  
+        </div>    
+    </div>
+    <div class="bkSingleSet backEndBoxNoneI">
+        <div 
+            id="bkGoToSingleProduct"
+            @click='bkGoSingleBack'
+        >回上一頁</div>
+        <form id="bkSingleFIxForm" method="post" action="./php/bkSingleFix.php" enctype="multipart/form-data"
+        v-for='single in singleProducts'
+        v-if='single.spId == nowId'
+        >
+            <label for="spId">
+                單品編號:<input type="text" v-model="single.spId" id="spId" name="spId" readonly>
+            </label>
+            <div class="bkRow">
+                <label for="spNameF">單品名稱:
+                    <input type="text" name="spName" id="spNameF" v-model='single.spName'>
+                </label>
+                <label for="spPriceF" class="spPrice">單品價格:
+                    <input type="text" name="spPrice" id="spPriceF" v-model='single.spPrice'>
+                </label>
+                <label for="spClassF">單品類別:
+                    <select 
+                    name="spClass" 
+                    id="spClassF"
+                    v-model='single.spClass'
+                    >
+                        <option value="0">米飯</option>
+                        <option value="1">主食</option>
+                        <option value="2">配菜</option>
+                    </select>
+                </label>
+            </div>
+            <div class="bkRow">
+                <label for="spCaloriesF">單品熱量:
+                    <input type="text" name="spCalories" id="spCaloriesF" v-model='single.spCalories'>
+                </label>
+                <label for="spHealthF">單品健康值:
+                    <input type="text" name="spHealth" id="spHealthF" v-model='single.spHealth'>
+                </label>
+                <label for="spColdHotF">單品冷暖值:
+                    <input type="text" name="spColdHot" id="spColdHotF" v-model='single.spColdHot'>
+                </label>
+            </div>
+            <div class="bkRow">
+                <label for="spImageF">單品圖片:
+                    <input type="file" name="spImage" id="spImageF" 
+                    style="display: none;"
+                    @change='bkChangeSingleImg'
+                    >
+                    <img :src="single.spImage" width="50px"
+                    id="bkSingleImg"
+                    style="cursor: pointer;">
+                </label>
+                <label for="spMeat" class="spMeatF">單品葷素:
+                    <select name="spMeat" id="spMeatF" v-model='single.spMeat'>
+                        <option value="0">素</option>
+                        <option value="1">葷</option>
+                    </select>
+                </label>
+                <label for="spStatusF">單品狀態:
+                    <select name="spStatus" id="spStatusF" v-model='single.spStatus'>
+                        <option value="0">下架</option>
+                        <option value="1">上架</option>
+                    </select>
+                </label>
+            </div>
+            <div class="bkRow">
+                <label for="spInfoF">單品敘述:
+                    <textarea name="spInfo" id="spInfoF" cols="50" rows="10" v-model='single.spInfo'></textarea>
+                </label>
+                <input type="submit" class="bkSingleNewBtn"
+                @click='bkNoImg'>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="backEndBox backEndBoxNone" id="bkSetNew">
+    <form id="bkSetNewForm" method="post" action="./php/bkSetNew.php" enctype="multipart/form-data">
+        <div class="bkRow">
+            <label for="setName">套餐名稱:
+                <input type="text" name="setName" id="setName">
+            </label>
+            <label for="setPrice" class="setPrice">套餐價格:
+                <input type="text" name="setPrice" id="setPrice">
+            </label>
+            <label for="setClass">套餐類別:
+                <select name="setClass" id="setClass">
+                    <option value="0">經典套餐</option>
+                    <option value="1">季節套餐</option>
+                </select>
+            </label>
+        </div>
+        <div class="bkRow">
+            <label for="setCalories">套餐熱量:
+                <input type="text" name="setCalories" id="setCalories">
+            </label>
+            <label for="setHealth">套餐健康值:
+                <input type="text" name="setHealth" id="setHealth">
+            </label>
+            <label for="setColdHot">套餐冷暖值:
+                <input type="text" name="setColdHot" id="setColdHot">
+            </label>
+        </div>
+        <div class="bkRow">
+            <label for="setImage">套餐圖片:
+                <input type="file" name="setImage" id="setImage">
+            </label>
+            <label for="setStatus">套餐狀態:
+                <select name="setStatus" id="setStatus">
+                    <option value="0">下架</option>
+                    <option value="1">上架</option>
+                </select>
+            </label>
+        </div>
+        <div class="bkRow">
+            <label for="setInfo">套餐敘述:
+                <textarea name="setInfo" id="setInfo" cols="50" rows="10"></textarea>
+            </label>
+            <input type="submit" class="bkSingleNewBtn">
+        </div>
+    </form>
+</div>
+<div class="backEndBox backEndBoxNone" id="bkSetFix">
+    <div class="bkSetFind">
+        <div class="bkOrderBtnBox">
+            <div 
+                class="bkOrderBtn"
+                @click='bkSetAll'
+            >所有套餐</div>
+            <div 
+                class="bkOrderBtn"
+                @click='bkSetMain'
+            >經典套餐</div>
+            <div 
+                class="bkOrderBtn"
+                @click='bkSetSession'
+            >季節套餐</div>
+        </div>
+        <div class="container">
+            <table class="table" height='400px'>
+                <thead>
+                    <th>單品編號</th>
+                    <th>單品名稱</th>
+                    <th>單品類別</th>
+                    <th>單品狀態</th>
+                    <th>單品圖片</th>
+                    <th>修改</th>
+                </thead>
+                <tbody>
+                    <tr v-for='set in setProducts'>
+                        <td>{{set.setId}}</td>
+                        <td>{{set.setName}}</td>
+                        <td v-if='set.setClass == 0'>經典</td>
+                        <td v-else>季節</td>
+                        <td v-if='set.setStatus == 0'>下架</td>
+                        <td v-else>上架</td>
+                        <td>
+                            <img 
+                                :src="set.setImage"
+                                width="50px"
+                            >
+                        </td>
+                        <td>
+                            <div 
+                            class="bkSetProductToList"
+                            :data-setid='set.setId'
+                            @click='GoToSetList'
+                            >修改</div>
+                        </td>
+                    </tr>
+                <tbody>
+            </table>  
+        </div>    
+    </div>
+    <div class="bkSetSet backEndBoxNoneI">
+        <div 
+        id="bkGoToSetProduct"
+        @click='bkGoSetBack'
+        >回上一頁</div>
+        <form id="bkSetFIxForm" method="post" action="./php/bkSetFix.php" enctype="multipart/form-data"
+        v-for='set in setProducts'
+        v-if='set.setId == nowId'
+        >
+            <label for="setId">
+                套餐編號:<input type="text" v-model="set.setId" id="setId" name="setId" readonly>
+            </label>
+            <div class="bkRow">
+                <label for="setNameF">套餐名稱:
+                    <input type="text" name="setName" id="setNameF" v-model='set.setName'>
+                </label>
+                <label for="setPriceF" class="setPrice">套餐價格:
+                    <input type="text" name="setPrice" id="setPriceF" v-model='set.setPrice'>
+                </label>
+                <label for="setClassF">套餐類別:
+                    <select 
+                    name="setClass" 
+                    id="setClassF"
+                    v-model='set.setClass'
+                    >
+                        <option value="0">經典</option>
+                        <option value="1">季節</option>
+                    </select>
+                </label>
+            </div>
+            <div class="bkRow">
+                <label for="setCaloriesF">套餐熱量:
+                    <input type="text" name="setCalories" id="setCaloriesF" v-model='set.setCalories'>
+                </label>
+                <label for="setHealthF">套餐健康值:
+                    <input type="text" name="setHealth" id="setHealthF" v-model='set.setHealth'>
+                </label>
+                <label for="setColdHotF">套餐冷暖值:
+                    <input type="text" name="setColdHot" id="setColdHotF" v-model='set.setColdHot'>
+                </label>
+            </div>
+            <div class="bkRow">
+                <label for="setImageF">套餐圖片:
+                    <input type="file" name="setImage" id="setImageF" 
+                    style="display: none;"
+                    @change='bkChangeSetImg'
+                    >
+                    <img :src="set.setImage" width="50px"
+                    id="bkSetImg"
+                    style="cursor: pointer;">
+                </label>
+                <label for="setStatusF">套餐狀態:
+                    <select name="setStatus" id="setStatusF" v-model='set.setStatus'>
+                        <option value="0">下架</option>
+                        <option value="1">上架</option>
+                    </select>
+                </label>
+            </div>
+            <div class="bkRow">
+                <label for="setInfoF">套餐敘述:
+                    <textarea name="setInfo" id="setInfoF" cols="50" rows="10" v-model='set.setInfo'></textarea>
+                </label>
+                <input type="submit" class="bkSetNewBtn">
+            </div>
+        </form>
+    </div>
+</div>
 <div class="backEndBox backEndBoxNone">10</div>
 <div class="backEndBox backEndBoxNone">11</div>
 <div class="backEndBox backEndBoxNone">12</div>

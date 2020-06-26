@@ -7,23 +7,24 @@
         $member->bindValue(":memEmail", $_REQUEST["memEmail"]);
         $member->bindValue(":memPsw", $_REQUEST["memPsw"]);
         $member->execute();
+
     
         if( $member->rowCount()==0){ //查無此人
-            echo "{}";
+            echo "sad";
         }else{ //登入成功
-        //自資料庫中取回資料
             $memRow = $member->fetch(PDO::FETCH_ASSOC);
-
-            //將登入者的資訊寫入SESSION
-            $_SESSION["memId"] = $memRow["memId"];
-
-        //送出登入者的姓名資料
-        // echo $memRow["memName"];
-
-            $memberInfo = array("memId"=>$memRow["memId"],"memEmail"=>$memRow["memEmail"], "memName"=>$memRow["memName"]);
-
-
-            echo json_encode($memberInfo);
+            if($memRow["memStatus"] == 1){
+                //將登入者的資訊寫入SESSION
+                $_SESSION["memId"] = $memRow["memId"];
+    
+    
+                $memberInfo = array("memId"=>$memRow["memId"],"memEmail"=>$memRow["memEmail"], "memName"=>$memRow["memName"]);
+    
+    
+                echo json_encode($memberInfo);
+            }else{
+                echo 'bad';
+            }
         }
     }catch(PDOException $e){
         echo $e->getMessage();

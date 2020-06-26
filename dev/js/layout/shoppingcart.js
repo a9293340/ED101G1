@@ -203,7 +203,7 @@ document.getElementById('orderCartClose').addEventListener('click',()=>{
 
 
 //login signup
-if(localStorage['memId'] === 'good'){
+if(sessionStorage['memId'] === 'good'){
     $('#homeContainderBgc').hide();
     $('#homeContainer').hide();
     $('#member').hide();
@@ -234,7 +234,7 @@ $('#log_out').click(function(e){
         type: "GET",
         url: "./php/clearSession.php",
         success: function (response) {
-            localStorage['memId'] = 'bad';
+            sessionStorage['memId'] = 'bad';
             location.href='./order.html';
             // $('#member_aflogin').hide();
             // $('#member').show(500);
