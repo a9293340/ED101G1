@@ -11,9 +11,14 @@
     $setdoSql->execute();
     $setdo = $setdoSql->fetchAll(PDO::FETCH_ASSOC);
 
+    $sqlother = "SELECT * FROM `other_product`";
+    $otherSql = $pdo->prepare($sqlother); 
+    $otherSql->execute();
+    $other = $otherSql->fetchAll(PDO::FETCH_ASSOC);
 
 
-    $totalProduct=[$single,$setdo];
+
+    $totalProduct=[$single,$setdo,$other];
 
     echo json_encode($totalProduct);
 
