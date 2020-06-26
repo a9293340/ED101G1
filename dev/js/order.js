@@ -2,7 +2,7 @@
 
     function single(){
         var singleRequest = new XMLHttpRequest();
-        singleRequest.open('GET','../dest/php/singletest.php')
+        singleRequest.open('GET','../dest/php/orderGet.php')
         singleRequest.onload=function(){
             // console.log(singleRequest.responseText);
             var singleData = JSON.parse(singleRequest.responseText);
@@ -207,75 +207,6 @@ document.getElementById('otherCart3').addEventListener('click',otherIncart);
 }, 500);
 
 
-
-// console.log(orderOther.$data.othercount1);
-
-// function otherIncart(){
-//     otherright = 0;
-//    let A = this.dataset.id;
-//    console.log(A);
-//    for(var i = 0; i<other.length ;i++ ){
-//        if(other[i].opId == Number(A)){
-//            otherright=1;
-//            otherImg =other[i].opImage;
-//            otherId = other[i].opId;
-//            otherName = other[i].opName;
-//            otherPrice = other[i].opPrice;
-//            if(other[i].opClass == 0){
-//            otherMany  = orderOther.$data.othercount1;
-//            }else if(other[i].opClass == 1){
-//             otherMany  = orderOther.$data.othercount2;
-//            }else if(other[i].opClass == 2){
-//             otherMany  = orderOther.$data.othercount3;   
-//            }
-//            console.log(otherMany);
-//            if(otherMany==0){
-//                alert('還沒選數量喔')
-//            }
-//        }
-      
-//    }
-//             if(otherright==0){
-//                  alert('請選擇品項喔')
-//              }
-
-//         if(otherright!==0 && otherMany!==0){
-
-//             otherList={
-//                 otherImg:`${otherImg}`,
-//                 otherId:`${otherId}`,
-//                 otherName:`${otherName}`,
-//                 otherPrice:`${otherPrice}`,
-//                 otherMany:`${otherMany}`,
-//             }
-//             var othersamename = 0;
-//             if(otherMenu.length>0){
-//                  for(var c =0  ;c < otherMenu.length; c++){
-//                         if(otherMenu[c].otherName == otherList.otherName){
-//                             othersamename=1;
-//                             otherMenu[c].otherMany = parseInt(otherMenu[c].otherMany)+parseInt(otherList.otherMany);
-//                         } 
-//                  }
-//                 if(othersamename!=1){
-//                     otherMenu.push(otherList);
-                   
-//                 }
-//             }
-//             else
-//             {
-//                 otherMenu.push(otherList);
-//             }
-
-//            otherOrder = JSON.stringify(otherMenu);
-//            localStorage.setItem('otherOrder',otherOrder);
-
-//            setordercart();
-//         }
- 
-// }
-
-
-
 let icon =[{
     id:"1",
     img:'./images/order/rice.png',
@@ -314,15 +245,6 @@ var app2 = new Vue({
 })
 
 
-// document.getElementById('otherCart').addEventListener('click',otherIncart);
-// document.getElementById('otherCart2').addEventListener('click',otherIncart);
-// document.getElementById('otherCart3').addEventListener('click',otherIncart);
-
-
-// 
-
-
-// }
 
 //錨點 js
 
