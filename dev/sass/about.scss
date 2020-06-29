@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Stalemate');
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
+
+body {}
+
+
+.container {
+  // overflow: hidden;
+  // margin-top: 3%;
+
+}
+
+.book-wrapper {
+  position: relative;
+  margin: 2% auto;
+  width: 595px;
+}
+
+.book-wrapper img {
+  filter: drop-shadow(15px 5px 5px #494338);
+  max-width: 120%;
+  height: 545px;
+}
+
+.pages-container {
+  position: absolute;
+  top: 4%;
+  left: -13%;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  // transform: scale(1.1);
+}
+
+.pages {
+  position: relative;
+  left: 20%;
+}
+
+.pages [class^="page-num-"] {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url(../images/about_me/page.png);
+  background-size: auto 100%;
+  position: relative;
+}
+
+
+.pages-content {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: table;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10%;
+}
+
+.content-inner {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
+.book-wrapper {
+  user-select: none;
+}
+
+
+.page-num-1 .pages-background {
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url("../images/about_me/menu.png");
+  background-size: cover;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
