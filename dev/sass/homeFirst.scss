@@ -267,14 +267,8 @@ section {
     text-align: left;
     transform: translateY(-50%);
     right: 0;
-<<<<<<< HEAD
     max-width:40%;
     animation-duration:3s;
-=======
-    max-width: 32%;
-    // border: 1px solid red;
-    animation-duration: 3s;
->>>>>>> 67bd46443d652d0ef6dbd27c4d2e2273c2f42598
     animation-fill-mode: both;
     animation-name: fadeInUp;
     h1,
@@ -325,7 +319,7 @@ section {
           font-size: 1rem;
           vertical-align:inherit;
         }
-        .homeAddBtn{
+        .homeAddBtn{ 
           padding: 0.8rem 1rem;
           color: $white;
           background: $orange;
@@ -448,7 +442,6 @@ $animationDuration: 1.5s;
   }
 }
 // --------------------手機板
-<<<<<<< HEAD
 @media (min-width:1440px) and (max-width:1920px){
   .homeTextBox{
     // max-width: 50% !important;
@@ -458,49 +451,10 @@ $animationDuration: 1.5s;
           left: 45%!important;
         }
       }
-=======
-@media (min-width:1680px) and (max-width:1920px) {
-  .homeTextBox {
-    max-width: 41% !important;
-    left: 8% !important;
-
-    .homeCalendar-xxl {
-      left: 2% !important;
-    }
-
-    .homeDate-xxl {
-      right: 30% !important;
-      padding-left: 8% !important;
-      width: 30% !important;
-    }
-
-    .homeAdd-xxl {
-      right: -14% !important;
-      padding-left: 8% !important;
-      width: 30% !important;
-    }
-
-    .homeGps-xxl {
-      right: -45% !important;
-    }
-
-    .homeDate-Takeaway-xxl {
-      right: 10% !important;
-      width: 72% !important;
-    }
-
-    .homeControl-btn-Delivery-xxl {
-      left: 84% !important;
-    }
-
-    .homeControl-btn-Takeaway-xl {
-      left: 82% !important;
->>>>>>> 67bd46443d652d0ef6dbd27c4d2e2273c2f42598
     }
   }
 }
 
-<<<<<<< HEAD
 @media (min-width:1440px) and (max-width:1680px){
   .eff{
     .homeCoverflow {
@@ -537,42 +491,10 @@ $animationDuration: 1.5s;
             padding:0 !important;
           }
         }
-=======
-@media (min-width:1440px) and (max-width:1600px) {
-  .homeTextBox {
-    max-width: 50% !important;
-    left: 2% !important;
-
-    .homeCalendar-xl {
-      right: -3% !important;
-    }
-
-    .homeDate-xl {
-      right: 31% !important;
-      padding-left: 13% !important;
-    }
-
-    .homeGps-xl {
-      right: -44% !important;
-    }
-
-    .homeAdd-xl {
-      padding-left: 10% !important;
-    }
-
-    .homeTab-pane {
-      .homeControl-btn-Delivery-xl {
-        left: 80% !important;
-      }
-
-      .homeControl-btn-Takeaway-xl {
-        left: 82% !important;
->>>>>>> 67bd46443d652d0ef6dbd27c4d2e2273c2f42598
       }
     }
   }
 }
-<<<<<<< HEAD
 @media (min-width:1200px) and (max-width:1366px){
   section{
   .eff{
@@ -619,67 +541,11 @@ $animationDuration: 1.5s;
           height: 64px!important;
           padding:0 !important;
           width: 15% !important;
-=======
-
-@media (min-width:1200px) and (max-width:1366px) {
-  section {
-    .eff {
-      .homeVideo-md {
-        right: -50% !important;
-        top: -500px;
-      }
-
-      .homeCoverflow {
-        position: relative;
-        text-align: center;
-        bottom: 100%;
-        width: 35%;
-        max-width: 100%;
-        height: auto;
-        left: 55%;
-      }
-    }
-
-    .homeTextBox {
-      top: 25% !important;
-      left: 2% !important;
-      max-width: 52% !important;
-
-      .homeDate-md {
-        right: 31% !important;
-        padding-left: 40px !important;
-      }
-
-      .homeAdd-md {
-        // right: -8% !important;
-      }
-
-      .homeGps-md {
-        right: -280px;
-      }
-
-      .homeSelectBox {
-        position: relative;
-
-        .homeCalendar-md {
-          left: 2.1%;
-        }
-
-        .homeControl-btn-Delivery-md {
-          //外送 Bbutton
-          top: 90px !important;
-          left: 15px !important;
-        }
-
-        .homeControl-btn-Takeaway-md {
-          //外帶 Bbutton
-          left: 25px !important;
-          top: 85px !important;
->>>>>>> 67bd46443d652d0ef6dbd27c4d2e2273c2f42598
         }
       }
     }
   }
+}
 }
 @media (min-width: 375px) and (max-width: 576px) {
   .eff {
@@ -785,24 +651,11 @@ $animationDuration: 1.5s;
       background-size: cover;
     }
 
-<<<<<<< HEAD
     .homeLove-Fish {
       //鱈魚
       top: 40px !important;
       left: 0px !important;
     }
-=======
-      .homeDate-xs {
-        right: 0 !important;
-        width: 70% !important;
-        padding-left: 20% !important;
-      }
-
-      .homeGps-xs {
-        top: 5px !important;
-        left: 8%;
-      }
->>>>>>> 67bd46443d652d0ef6dbd27c4d2e2273c2f42598
 
     .homeLove-Pg {
       //排骨
@@ -3132,12 +2985,9 @@ $contentFadeinAT: 0.5s;
   }
 }
 
-<<<<<<< HEAD
 @media (min-width: 320px) {
   
 }
-=======
->>>>>>> 67bd46443d652d0ef6dbd27c4d2e2273c2f42598
 // --------------------end 手機板
 
 // ---------------------------------------------------------------homeHealth.scss
