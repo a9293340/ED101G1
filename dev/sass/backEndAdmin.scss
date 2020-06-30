@@ -64,7 +64,7 @@ label{
     input[type="file"]{
         width: 230px;
     }
-    #spId,#setId{
+    #spId,#setId,#opId,#examId{
         border: none;
         background-color: $lightGrey;
         margin-bottom: 20px;
@@ -124,6 +124,55 @@ label{
     }
     .container {
         margin-top: 50px;
+    }
+}
+#bkAdminNew{
+    #bkAdminNewForm{
+        margin-top: 60px;
+        width: 90%;
+        box-sizing: border-box;
+        padding: 10px;
+        @include flexStyle(center,center,column);
+        .bkRow{
+            width: 100%;
+            @include flexStyle(flex-start,flex-end);
+            margin-bottom: 60px;
+        }
+        .bkAdminNewBtn{
+            @include btn(120px,50px);
+            line-height: 1.2rem;
+        }
+    }
+}
+#bkAdminFix{
+    .bkAdminFind{
+        margin-top: 60px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        // border: 1px solid red;
+        .bkOrderBtnBox{
+            margin-top: 20px;
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 40px;
+            .bkOrderBtn{
+                @include btnChoose(150px,50px);
+                font-size: 1.5rem;
+                line-height: 2.2rem;
+            }
+        }
+        .bkAdminGo{
+            margin: 0 auto;
+            @include btn(90px,35px);
+            font-size: 1rem;
+            line-height: 1.6rem;
+        }
     }
 }
 
@@ -300,6 +349,141 @@ label{
     .backEndBoxNoneI{
         display: none;
     }
+}
+
+#bkOtherNew{
+    #bkOtherNewForm{
+        margin-top: 60px;
+        width: 90%;
+        box-sizing: border-box;
+        padding: 10px;
+        @include flexStyle(center,center,column);
+        .bkRow{
+            width: 100%;
+            @include flexStyle(flex-start,flex-end);
+            margin-bottom: 60px;
+            .bkSingleNewBtn{
+                @include btn(120px,50px);
+                line-height: 1.2rem;
+            }
+        }
+    }
+}
+
+#bkOtherFix{
+    .bkOhterFind{
+        margin-top: 60px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        // border: 1px solid red;
+        .bkOrderBtnBox{
+            margin-top: 20px;
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 40px;
+            .bkOrderBtn{
+                @include btnChoose(150px,50px);
+                font-size: 1.5rem;
+                line-height: 2.2rem;
+            }
+        }
+        .bkOtherProductToList{
+            margin: 0 auto;
+            @include btn(90px,35px);
+            font-size: 1rem;
+            line-height: 1.6rem;
+        }
+    }
+    .bkOtherSet{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        // border: 1px solid red;
+        #bkGoToOtherProduct{
+            @include btn(150px,50px);
+            font-size: 1.5rem;
+            line-height: 2.2rem;
+            margin-bottom: 50px;
+        }
+        .bkRow{
+            width: 100%;
+            @include flexStyle(flex-start,flex-end);
+            margin-bottom: 60px;
+            .bkSetNewBtn{
+                @include btn(120px,50px);
+                line-height: 1.2rem;
+            }
+        }
+    }
+    .backEndBoxNoneI{
+        display: none;
+    }
+}
+#bkHealthFix{
+    .bkExamFind{
+        margin-top: 60px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        // border: 1px solid red;
+        .bkOrderBtnBox{
+            margin-top: 20px;
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 40px;
+            .bkOrderBtn{
+                @include btnChoose(150px,50px);
+                font-size: 1.5rem;
+                line-height: 2.2rem;
+            }
+        }
+        .bkExamToList{
+            margin: 0 auto;
+            @include btn(90px,35px);
+            font-size: 1rem;
+            line-height: 1.6rem;
+        }
+    }
+    .bkExamSet{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        // border: 1px solid red;
+        #bkGoToExam{
+            @include btn(150px,50px);
+            font-size: 1.5rem;
+            line-height: 2.2rem;
+            margin-bottom: 50px;
+        }
+        .bkRow{
+            width: 100%;
+            @include flexStyle(flex-start,flex-end);
+            margin-bottom: 60px;
+        }
+        .bkExamNewBtn{
+            @include btn(120px,50px);
+            line-height: 1.2rem;
+        }
+    }
+    .backEndBoxNoneI{
+        display: none;
+    }
+    margin-bottom: 500px;
 }
 .backEndBoxNone{
     display: none;
