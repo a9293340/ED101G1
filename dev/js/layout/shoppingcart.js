@@ -249,6 +249,8 @@ $('#log_out').click(function(e){
 document.getElementById('orderBuy').addEventListener('click',orderBuy);
 
 function orderBuy(){
+    memId = sessionStorage.getItem('mEmmEmId');
+    console.log(memId);
     var orderSin = [];
     var orderSet = [];
     var orderOth = [];
@@ -260,7 +262,7 @@ function orderBuy(){
 //    console.log(orderOth);
 
 
-    totalOrder=[orderSin,orderSet,orderOth];
+    totalOrder=[orderSin,orderSet,orderOth,memId];
     // console.log(totalOrder);
 
     var totalOrderPost = new XMLHttpRequest();
