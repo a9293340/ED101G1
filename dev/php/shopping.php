@@ -4,16 +4,29 @@ $totalOrder = json_decode($_POST["totalOrder"]);
 $orderSin = $totalOrder[0];
 $orderSet = $totalOrder[1];
 $orderOth = $totalOrder[2];
-$memId = $totalOrder[3];
+$memId = (int)$totalOrder[3];
 $orderAdr = $totalOrder[4];
 $orderLorderListTextPost = $totalOrder[5];
-$orderCla = $totalOrder[6];
-$OrTotalPrice = $totalOrder[7];
+$orderCla = (int)$totalOrder[6];
+$OrTotalPrice = (int)$totalOrder[7];
 $orderTime = $totalOrder[8];
-// echo json_encode($OrTotalPrice);
-// $singleId=[];
+$orderStatus = (int)0;
+$mealTime = $totalOrder[8];
+echo json_encode((int)$OrTotalPrice);
 
-foreach($orderSin[0] as $key => $value){
+try{
+    require_once("connect.php");
+    $sqlorder = "INSERT INTO `ORDER` (`orderer`, `orderTotalPrice`, `orderTime`, `orderClass`, `deliveryAddr`, `mealTime`,`orderStatus`,`orderRemark`) VALUES ('$memId','$OrTotalPrice','$orderTime','$orderCla','$orderAdr','$mealTime','$orderStatus','$orderLorderListTextPost');";
+    $order=$pdo->prepare($sqlorder);
+    $order->execute();
+
+    $lastId = $pdo->lastInsertId();
+
+    for($i=0;$i<count($orderSin); $i++){
+foreach($orderSin[$i] as $key => $value){
+    if($key == "soPrice"){
+        $soPrice = $value;
+    }
     if( $key == "riceId"){
         $riceId = $value;
     }
@@ -28,20 +41,16 @@ foreach($orderSin[0] as $key => $value){
     }
     if($key == 'singleId3'){
         $singleId3 = $value;
-        // echo json_encode( $singleId3);
     }
 }
+    $Sinorder = "INSERT INTO `single_order` (`soPrice`,`soAmount`,`soBelongOrd`,`soRice`,`mainFood`,`sideDishes1`,`sideDishes2`,`sideDishes3`,`soImg`)  VALUES ('$soPrice','1','$lastId','$riceId','$meatId','$singleId1','$singleId2','$singleId3','https://fakeimg.pl/100/')";
+    $order1=$pdo->prepare($Sinorder);
+    $order1->execute();
 
-    require_once("connect.php");
-    $sqlorder = "INSERT INTO `order` (`orderId`, `orderer`, `orderTotalPrice`, `orderTime`, `orderClass`, `deliveryAddr`, `mealTime`, `finishTime`, `arrivalTime`, `orderStatus`,`orderRemark`) VALUES ('',:memId,:OrTotalPrice,:orderTime ,:orderCla,:orderAdr,'','','0',:orderLorderListTextPost);";
-    $order=$pdo->prepare($sqlorder);
-    $order->bindValue(":memId", $memId);
-    $order->bindValue(":OrTotalPrice", $OrTotalPrice);
-    $order->bindValue(":orderTime", $orderTime);
-    $order->bindValue(":orderCla", $orderCla);
-    $order->bindValue(":orderAdr", $orderAdr);
-    $order->bindValue(":orderLorderListTextPost", $orderLorderListTextPost);
-    $order->execute();
-
+}
+    // echo  json_encode($lastId);
+}catch(PDOException $e){
+    echo $e->getMessage();
+  }
 
 ?>

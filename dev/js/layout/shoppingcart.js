@@ -281,10 +281,11 @@ function orderBuy(){
     totalOrderPost.open('POST','../dest/php/shopping.php',true);
     totalOrderPost.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     totalOrderPost.send("totalOrder=" + JSON.stringify(totalOrder));
-    // totalOrderPost.onload = function(){
-    //     var posttest = JSON.parse(totalOrderPost.responseText);
-    //     console.log(posttest);
-    // }
+    totalOrderPost.onload = function(){
+        // var posttest = JSON.parse(totalOrderPost.responseText);
+        var posttest = totalOrderPost.responseText;
+        console.log(posttest);
+    }
     
 }
 
