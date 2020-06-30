@@ -282,8 +282,8 @@ function orderBuy(){
     totalOrderPost.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     totalOrderPost.send("totalOrder=" + JSON.stringify(totalOrder));
     // totalOrderPost.onload = function(){
-    //     // var posttest = JSON.parse(totalOrderPost.responseText);
-    //     // console.log(posttest);
+    //     var posttest = JSON.parse(totalOrderPost.responseText);
+    //     console.log(posttest);
     // }
     
 }
