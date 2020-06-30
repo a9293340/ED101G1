@@ -1068,7 +1068,7 @@ $contentFadeinAT: 0.5s;
 
         .content {
           text-align: left;
-          margin-left: 25%;
+          margin-left: 20%;
 
           #menu_ndgroup {
             // display: flex;
@@ -1078,7 +1078,7 @@ $contentFadeinAT: 0.5s;
             // border: 1px solid #000;
 
             #menu_name_sec {
-              font-size: 30px;
+              font-size: 25px;
             }
 
             #menu_date_sec {
@@ -1115,7 +1115,7 @@ $contentFadeinAT: 0.5s;
 
         .content {
           @include LB_content {
-            margin-top: 40%;
+            margin-top: 20%;
 
           }
         }
@@ -1129,14 +1129,14 @@ $contentFadeinAT: 0.5s;
         #menu_name_sec {
           &:after {
             content: "";
-            position: relative;
-            background-image: url("../images/showbenton/no1.png");
+            position: relative ;
+            background-image: url("../images/showbenton/1ChefHat.png");
             background-size: contain;
             background-repeat: no-repeat;
             display: inline-block;
             width: 50px;
             height: 50px;
-            left: -10%;
+            
             // background-color: red;
             transform: rotate(0deg);
             opacity: 0;
@@ -1165,7 +1165,7 @@ $contentFadeinAT: 0.5s;
 
         .content {
           @include LB_content {
-            margin-top: 100%;
+            margin-top: 71%;
           }
         }
       }
@@ -1183,7 +1183,7 @@ $contentFadeinAT: 0.5s;
 
         .content {
           @include LB_content {
-            margin-top: 40%;
+            margin-top: 20%;
           }
         }
       }
