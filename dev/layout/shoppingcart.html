@@ -1,6 +1,10 @@
 <div id="list">
   <div class="ordercart" id="ordercart">
     <img src="./images/showbenton/close.png" id="orderCartClose"  width="20" height="20">
+    <input type="text" id="input" placeholder="請輸入地址">
+    <button id="btn">判斷距離</button>
+    <button id="gps">自動定位</button>
+    <p id='orderAddress'>外送地址</p>
     <h3>自選便當</h3>
     <div class="selfbenton" v-for="(item, index) in finalsinglelist">
       <!-- <span :id="'b'+item.sNum" :data-num="item.sNum" width="15" height="15"> -->
@@ -99,3 +103,7 @@
     <button class="buy" id="orderBuy">立即結帳</button>
   </div>
 </div>
+
+
+
+

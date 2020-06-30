@@ -246,23 +246,30 @@ $('#log_out').click(function(e){
     });
 })
 
+if(localStorage.getItem('address')){
+    let orad = localStorage.getItem('address');
+    document.getElementById('orderAddress').innerHTML = '外送地址 :'+ orad;
+}
+
+
 document.getElementById('orderBuy').addEventListener('click',orderBuy);
 
 function orderBuy(){
-    memId = sessionStorage.getItem('mEmmEmId');
-    console.log(memId);
     var orderSin = [];
     var orderSet = [];
     var orderOth = [];
+    var orderAdr = '';
+    var orderListTextPost = '';
+    memId = sessionStorage.getItem('mEmmEmId');
     orderSin = localStorage.getItem('singleOrder');
     orderSet = localStorage.getItem('setdoMenuList');
     orderOth = localStorage.getItem('otherOrder');
-//    console.log(orderSin);
-//    console.log(orderSet);
-//    console.log(orderOth);
+    orderAdr = localStorage.getItem('address');
+    orderListTextPost = orderListText.value;
 
+    
 
-    totalOrder=[orderSin,orderSet,orderOth,memId];
+    totalOrder=[orderSin,orderSet,orderOth,memId,orderAdr,orderListTextPost];
     // console.log(totalOrder);
 
     var totalOrderPost = new XMLHttpRequest();

@@ -1,0 +1,79 @@
+<input type="text" id="input">
+    <button id="btn">判斷距離</button>
+    <br>
+    <button id="gps">自動定位</button>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD02IgpgazAmzATKes-_caAbP71BqItLQc"></script>
+    <script>
+        let service = new google.maps.DistanceMatrixService();
+        let input = document.getElementById('input');
+        let btn = document.getElementById('btn');
+        let gps = document.getElementById('gps');
+        btn.addEventListener('click',()=>{
+
+            service.getDistanceMatrix(
+            {
+                origins: [input.value],
+                destinations: ['桃園市中壢區中大路300號'],
+                travelMode: google.maps.TravelMode["DRIVING"],
+                unitSystem: google.maps.UnitSystem.METRIC,
+            }, function(response, status) {
+                if (status !== google.maps.DistanceMatrixStatus.OK) {
+                window.alert('Error was' + status);
+                } else {
+                console.log(response);
+                if(response.rows[0].elements[0].distance.value > 5000 ){
+                    alert(`
+                        總共距離${response.rows[0].elements[0].distance.text}，超出外送範圍
+                        ${response}
+                        `);
+                }else{
+                    
+                    alert(`總共距離${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
+                }
+                }
+            });
+            input.value = '';
+        });
+        gps.addEventListener('click',()=>{
+            navigator.geolocation.getCurrentPosition(
+            succCallback,
+            errorCallback,
+            {
+                enableHighAccuracy: false,
+                timeout: 10000000,
+                maximumAge: 0,
+            });
+        });
+        function succCallback(e){
+        let lati = e.coords.latitude;
+        let longi = e.coords.longitude;
+        let accuracy = e.coords.accuracy;
+        service.getDistanceMatrix(
+            {
+                origins: [{lat: lati, lng: longi}],
+                destinations: ['桃園市中壢區中大路300號'],
+                travelMode: google.maps.TravelMode["DRIVING"],
+                unitSystem: google.maps.UnitSystem.METRIC,
+            }, function(response, status) {
+                if (status !== google.maps.DistanceMatrixStatus.OK) {
+                window.alert('Error was' + status);
+                } else {
+                console.log(response.originAddresses);
+                if(response.rows[0].elements[0].distance.value > 5000 ){
+                    alert(`
+                        總共距離${response.rows[0].elements[0].distance.text}，超出外送範圍
+                        ${response.originAddresses}
+                    
+                    `);
+                }else{
+                    alert(`總共距離${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
+                }
+                }
+            });
+        
+        }
+
+        function errorCallback(e){
+            document.getElementById('position').innerHTML = `錯誤碼: ${e.code}<br>錯誤訊息: ${e.message}`
+        }
+    </script>
