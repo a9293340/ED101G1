@@ -2618,7 +2618,7 @@ $contentFadeinAT: 0.5s;
   padding: 0;
   margin: 0;
   font-size: 0;
-  height: 800px;
+  height: 900px;
 
   .homeBlackBoardContainer {
     max-width: 100%;
@@ -2852,29 +2852,35 @@ $contentFadeinAT: 0.5s;
   .homeSection-3 {
     .homeBlackBoardContainer {
       padding: 0 2%;
-
       .homeIceOne {
         left: 5% !important;
+        width: 12%!important;
+        top:-250px!important;
       }
-
       .homeIceTwo {
         left: 8% !important;
+        width: 28%!important;
+        top:-250px!important;
       }
-
       .homeIceThree {
-        left: 10% !important;
+        left: -5% !important;
+        width: 30%!important;
+        top: -200px!important;
+        display: initial!important;
       }
-
-      .homeTapUp {
+      .homeTapBox{
+         display: initial!important;
+        .homeTapUp {
         width: 13% !important;
-        top: -90vh !important;
-        right: -18% !important;
+        top: -120vh !important;
+        right: -62% !important;
+        }
       }
-
       .homeTwBoy {
-        right: -73% !important;
-        width: 12% !important;
-        top: -135vh !important;
+        right: -60% !important;
+        width: 13% !important;
+        top: -110vh !important;
+        display: initial!important;
       }
     }
   }
@@ -2884,29 +2890,34 @@ $contentFadeinAT: 0.5s;
   .homeSection-3 {
     .homeBlackBoardContainer {
       padding: 0 2%;
-
       .homeIceOne {
         left: 5% !important;
+        width: 12%!important;
       }
-
       .homeIceTwo {
         left: 8% !important;
+        width: 28%!important;
       }
-
       .homeIceThree {
         left: -5% !important;
+        width: 30%!important;
+        top: -200px!important;
+        display: initial!important;
       }
-
-      .homeTapUp {
+      .homeTapBox{
+         display: initial!important;
+        .homeTapUp {
         width: 15% !important;
-        top: -100vh !important;
-        right: -18% !important;
+        top: -95vh !important;
+        right: -62% !important;
+        // display: initial!important;
+        }
       }
-
       .homeTwBoy {
-        right: -74% !important;
+        right: -60% !important;
         width: 15% !important;
-        top: -150vh !important;
+        top: -90vh !important;
+        display: initial!important;
       }
     }
   }
@@ -2921,7 +2932,6 @@ $contentFadeinAT: 0.5s;
       width: 100%;
       height: 100%;
       background-image: url("../images/homeHealth/homeBlackBoard.jpg");
-
       .homeBlackBoardTit {
         width: 90% !important;
 
@@ -2929,15 +2939,13 @@ $contentFadeinAT: 0.5s;
           padding: 0px 0 20px !important;
         }
       }
-
       .homeOrder {
-        margin-top: 20%;
+        margin-top: 10%;
 
         .homeQuestionTitle {
           margin: 0 !important;
         }
       }
-
       .homeTest {
         line-height: 50px !important;
         margin-left: 10px !important;
@@ -2945,40 +2953,29 @@ $contentFadeinAT: 0.5s;
 
       .homeIceBox {
         .homeIceOne {
-          width: 20%;
-          top: -430px;
-          left: 20px;
+          width: 20% !important;
+          top: -50px !important;
+          left: 20px !important;
         }
 
         .homeIceTwo {
-          top: -450px;
-          left: 95px;
-          width: 45%;
+          top: -65px !important;
+          left: 95px !important;
+          width: 45%!important;
         }
 
         .homeIceThree {
-          width: 80%;
-          left: 40px;
-          top: -130px;
+          display: none!important;
         }
       }
-
       .homeTapBox {
         .homeTapUp {
           //隱藏敲黑板
-          right: 0px !important;
-          top: -400px !important;
-          width: 30% !important;
           display: none;
         }
       }
-
       .homeTwBoy {
         //隱藏敲黑板人物
-        right: -60% !important;
-        width: 30% !important;
-        top: -680px !important;
-        border: 3px solid yellow;
         display: none;
       }
     }
@@ -2986,7 +2983,45 @@ $contentFadeinAT: 0.5s;
 }
 
 @media (min-width: 320px) {
-  
+  .homeSection-3{
+    .homeBlackBoardContainer{
+      .homeBlackBoardTit {
+      width: 90% !important;
+      }
+      .homeOrder {
+        width: 75%!important;
+        .homeQuestionTitle{
+          margin: 0!important;
+        }
+        .homeQuesionBox{
+          margin-left: -15px!important;
+        }
+      }
+      .homeIceBox{
+        .homeIceOne {
+        width: 30%;
+        height: auto;
+        position: relative;
+        top: -130px;
+        left: 40px;
+        } 
+        .homeIceTwo{
+          width: 50%;
+          top: -150px;
+          left:40px;
+        }  
+        .homeIceThree{
+          display: none;
+        }
+      }
+      .homeTapBox{
+         display: none ;
+      } 
+       .homeTwBoy{
+         display: none;
+      }
+    } 
+  }   
 }
 // --------------------end 手機板
 
