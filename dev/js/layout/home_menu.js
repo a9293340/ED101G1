@@ -75,107 +75,38 @@ let menu_sec = document.getElementById("first"),
   third_img = document.getElementById("third_img");
 
 
-//fake data
-let leaderBoardData = [
-  {
-    postTitle: "鮭魚便當",
-    postContent: "很好吃很好吃很好吃",
-    postData: "2020/08/07",
-    postLike: 50,
-    memName: "John",
-    soImg: "../../dest/images/bandon_include/curry.png",
-    soRice: "白飯",
-    mainFood: "鮭魚",
-    sideDishes1: "配菜1",
-    sideDishes1: "配菜2",
-    sideDishes1: "配菜3",
-  },
-  {
-    postTitle: "排骨便當",
-    postContent: "很好吃很好吃很好吃",
-    postData: "2020/08/07",
-    postLike: 140,
-    memName: "John",
-    soImg: "../../dest/images/bandon_include/friedShrimp.png",
-    soRice: "白飯",
-    mainFood: "排骨",
-    sideDishes1: "配菜1",
-    sideDishes1: "配菜2",
-    sideDishes1: "配菜3",
-  },
-  {
-    postTitle: "烤雞便當",
-    postContent: "很好吃很好吃很好吃",
-    postData: "2020/08/07",
-    postLike: 30,
-    memName: "John",
-    soImg: "../../dest/images/bandon_include/spoonVeg.png",
-    soRice: "白飯",
-    mainFood: "烤雞",
-    sideDishes1: "配菜1",
-    sideDishes1: "配菜2",
-    sideDishes1: "配菜3",
-  }
-]
-//排序成 [1,0,2]
-leaderBoardData.sort(function (a, b) {
-  return b.postLike - a.postLike;
-});
 
-// 自動根據leaderBoardData.length抓到並產生相對應leader_i
-function maker() {
-  let leader = [];
-  for (var i = 1; i < leaderBoardData.length + 1; i++) {
-    leader[i] = document.getElementById(`leader_${i}`);
-  }
-}
-maker();
+//JSON
+function leaderBoard(){
+  var leaderRequest = new XMLHttpRequest();
+  leaderRequest.open('GET','../dest/php/home_leaderBoard.php')
+  leaderRequest.onload = function(){
+  var leaderData = JSON.parse(leaderRequest.responseText);
+  // console.log(leaderData[0]);
+  // console.log(leaderData[1]); 
+  // console.log(leaderData[2]);  
+  var leaderArray = leaderData;
+  console.log(leaderArray);
 
-
-
-let leader_str = []; //用陣列當變數解決要丟入多個不同區域的相同內容
+  let leader_str = []; //用陣列當變數解決要丟入多個不同區域的相同內容
 function leader_order() {
-  for (var i = 0; i < leaderBoardData.length; i++) {
-    // if(i == 0){
-    //   first_img.src= leaderBoardData[i].soImg;
-    //   menu_name_sec.innerText = leaderBoardData[i].postTitle;
-    // }
+  for (var i = 0; i < leaderArray.length; i++) {
     leader_str[i] =
       `
       <div id="menu_ndgroup">
-      <div id="menu_name_sec"> ${leaderBoardData[i].postTitle} </div>
-      <div id="menu_date_sec">日期： ${leaderBoardData[i].postData} </div>
+      <div id="menu_name_sec"> ${leaderArray[i].title} </div>
+      <div id="menu_date_sec">日期： ${leaderArray[i].postdate} </div>
       </div>
-      <div id="menu_memname_sec">創作者： ${leaderBoardData[i].memName} </div>
-      <div id="menu_like_sec">獲得讚數：${leaderBoardData[i].postLike} </div>
+      <div id="menu_memname_sec">創作者： ${leaderArray[i].memname} </div>
+      <div id="menu_like_sec">獲得讚數：${leaderArray[i].like} </div>
       `;
-    // leader_2_str = `<div id="menu_name_sec"> ${leaderBoardData[i].postTitle} </div>
-    // <div id="menu_date_sec"> ${leaderBoardData[i].postData} </div>
-    // <div id="menu_memname_sec"> ${leaderBoardData[i].memName} </div>
-    // <div id="menu_like_sec"> ${leaderBoardData[i].postLike} </div>
-    // `;
-    // leader_3_str = `<div id="menu_name_sec"> ${leaderBoardData[i].postTitle} </div>
-    // <div id="menu_date_sec"> ${leaderBoardData[i].postData} </div>
-    // <div id="menu_memname_sec"> ${leaderBoardData[i].memName} </div>
-    // <div id="menu_like_sec"> ${leaderBoardData[i].postLike} </div>
-    // `;
     if (i == 0) {
-      first_img.src = leaderBoardData[i].soImg;
+      first_img.src = leaderArray[i].img;
 
     } else if (i == 1) {
-      sec_img.src = leaderBoardData[i].soImg;
-
-      // var test1 = `<div id="menu_date_sec"> ${leaderBoardData[i].postData} </div>`;
-      // var test2 = `<div id="menu_memname_sec"> ${leaderBoardData[i].memName} </div>`;
-      // var test3 = `<div id="menu_like_sec"> ${leaderBoardData[i].postLike} </div>`;
-      // leader_2_str+=test;
-      // leader_2_str+=test1;
-      // leader_2_str+=test2;
-      // leader_2_str+=test3;
-      // console.log(leader_2_str)
-
+      sec_img.src = leaderArray[i].img;
     } else {
-      third_img.src = leaderBoardData[i].soImg;
+      third_img.src = leaderArray[i].img;
     }
     leader_1.innerHTML = leader_str[0];
     leader_2.innerHTML = leader_str[1];
@@ -184,6 +115,69 @@ function leader_order() {
 
 };
 leader_order();
+
+  };
+  leaderRequest.send();
+}
+
+leaderBoard();
+
+
+
+
+
+
+
+
+//fake data
+// let leaderBoardData = [
+//   {
+//     postTitle: "鮭魚便當",
+//     postContent: "很好吃很好吃很好吃",
+//     postData: "2020/08/07",
+//     postLike: 50,
+//     memName: "John",
+//     soImg: "../../dest/images/bandon_include/curry.png",
+//     soRice: "白飯",
+//     mainFood: "鮭魚",
+//     sideDishes1: "配菜1",
+//     sideDishes1: "配菜2",
+//     sideDishes1: "配菜3",
+//   },
+//   {
+//     postTitle: "排骨便當",
+//     postContent: "很好吃很好吃很好吃",
+//     postData: "2020/08/07",
+//     postLike: 140,
+//     memName: "John",
+//     soImg: "../../dest/images/bandon_include/friedShrimp.png",
+//     soRice: "白飯",
+//     mainFood: "排骨",
+//     sideDishes1: "配菜1",
+//     sideDishes1: "配菜2",
+//     sideDishes1: "配菜3",
+//   },
+//   {
+//     postTitle: "烤雞便當",
+//     postContent: "很好吃很好吃很好吃",
+//     postData: "2020/08/07",
+//     postLike: 30,
+//     memName: "John",
+//     soImg: "../../dest/images/bandon_include/spoonVeg.png",
+//     soRice: "白飯",
+//     mainFood: "烤雞",
+//     sideDishes1: "配菜1",
+//     sideDishes1: "配菜2",
+//     sideDishes1: "配菜3",
+//   }
+// ]
+//排序成 [1,0,2]
+// leaderBoardData.sort(function (a, b) {
+//   return b.postLike - a.postLike;
+// });
+
+
+
 
 
 //third menu
