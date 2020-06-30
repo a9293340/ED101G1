@@ -5,6 +5,16 @@ function gogoPower(){
     for(let i = 0; i < collapseItem.length; i++){
         collapseItem[i].addEventListener('click',bkChangePage);
     }
+    if(sessionStorage['admAuthority'] == 0){
+        document.getElementById('adminSpan').innerText = `管理員:${sessionStorage['admAccount']}`
+    }else{
+        document.getElementById('adminSpan').innerText = `店員:${sessionStorage['admAccount']}`;
+        document.getElementsByClassName('nav-item')[1].style.display = 'none';
+        document.getElementsByClassName('nav-item')[3].style.display = 'none';
+        document.getElementsByClassName('nav-item')[4].style.display = 'none';
+        document.getElementsByClassName('nav-item')[5].style.display = 'none';
+        document.getElementsByClassName('nav-item')[6].style.display = 'none';
+    }
 
 }
 
@@ -60,6 +70,68 @@ function bkChangePage(e){
                     }
                 });
             },
+        })
+    }
+    if(count == 2){
+        let bkadminVM = new Vue({
+            el:'#bkAdminFix',
+            data:{
+                admins:[],
+                totalP:[],
+                mem:[],
+                nomem:[]
+            },
+            methods:{
+                bkMemGo(){
+                    this.admins = this.mem;
+                },
+                bkNoMemGo(){
+                    this.admins = this.nomem;
+                },
+                bkAllGo(){
+                    this.admins = this.totalP;
+                },
+                bkAdminGoChange(e){
+                    let admId = Number(e.target.dataset.admid);
+                    let index = Number(e.target.dataset.index);
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload=function (){
+                        if( xhr.status == 200 ){
+                            if(xhr.responseText == '1'){
+                                alert('設定成功！');
+                                // e.target.style.transform = 'scale(.8)';
+                            }
+                        }else{
+                            alert( xhr.status );
+                        }
+                    }
+                    var url = `./php/bkAdminSetStatus.php?admId=${admId}&admAuthority=${document.getElementsByClassName('admAuthority')[index].value}`;
+                    xhr.open("Get", url, true);
+                    xhr.send( null );
+                }
+            },
+            mounted(){
+                $.ajax({
+                    type: "GET",
+                    url: "./php/bkAdminFind.php",
+                    success: function (res) {
+                        let data = JSON.parse(res);
+                        bkadminVM.$data.admins = data;
+                        bkadminVM.$data.totalP = data;
+                        let box0 = [];
+                        let box1 = [];
+                        for(let i = 0 ;i<data.length;i++){
+                            if(data[i].admAuthority == 0){
+                                box0.push(data[i]);
+                            }else{
+                                box1.push(data[i]);
+                            }
+                        }
+                        bkadminVM.$data.mem = box0;
+                        bkadminVM.$data.nomem = box1;
+                    }
+                });
+            }
         })
     }
     if(count == 3){
@@ -277,6 +349,144 @@ function bkChangePage(e){
                         }
                         bksetVM.$data.main = box0;
                         bksetVM.$data.session = box1;
+                    }
+                });
+            },
+        })
+    }
+    if(count == 9){
+        console.log('aa');
+        let bkotherVM = new Vue({
+            el:'#bkOtherFix',
+            data:{
+                otherProducts:[],
+                totalP:[],
+                drink:[],
+                fruit:[],
+                other:[],
+                nowId:0
+            },
+            methods:{
+                bkOtherTotal(){
+                    this.otherProducts = this.totalP;
+                },
+                bkOtherDrink(){
+                    this.otherProducts = this.drink;
+                },
+                bkOtherFruit(){
+                    this.otherProducts = this.fruit;
+                },
+                bkOtherOther(){
+                    this.otherProducts = this.other;
+                },
+                bkGoToOtherList(e){
+                    let opId = Number(e.target.dataset.opid);
+                    console.log(opId)
+                    this.nowId = opId;
+                    document.getElementsByClassName('bkOhterFind')[0].classList.add('backEndBoxNoneI');
+                    document.getElementsByClassName('bkOtherSet')[0].classList.remove('backEndBoxNoneI');
+                },
+                bkGoOtherBack(){
+                    document.getElementsByClassName('bkOhterFind')[0].classList.remove('backEndBoxNoneI');
+                    document.getElementsByClassName('bkOtherSet')[0].classList.add('backEndBoxNoneI');
+                },
+                bkChangeOpImg(e){
+                    let file = e.target.files[0];
+                    let reader = new FileReader();
+                    reader.onload = function(){
+                        document.getElementById('bkopImg').src = reader.result;
+                        // ajax
+                    }
+                    reader.readAsDataURL(file);
+                }
+            },
+            mounted() {
+                $.ajax({
+                    type: "GET",
+                    url: "./php/bkOtherFind.php",
+                    success: function (res) {
+                        let data = JSON.parse(res);
+                        bkotherVM.$data.otherProducts = data;
+                        bkotherVM.$data.totalP = data;
+                        let box0 = [];
+                        let box1 = [];
+                        let box2 = [];
+                        for(let i = 0 ;i<data.length;i++){
+                            if(data[i].opClass == 0){
+                                box0.push(data[i]);
+                            }else if(data[i].opClass == 1){
+                                box1.push(data[i]);
+                            }else{
+                                box2.push(data[i]);
+                            }
+                        }
+                        bkotherVM.$data.drink = box0;
+                        bkotherVM.$data.fruit = box1;
+                        bkotherVM.$data.other = box2;
+                    }
+                });
+            },
+        })
+    }
+    if(count == 10){
+        let bkexamVM = new Vue({
+            el:'#bkHealthFix',
+            data:{
+                exams:[],
+                totalP:[],
+                stomach:[],
+                health:[],
+                hotcold:[],
+                nowId:0
+            },
+            methods:{
+                bkExamAll(){
+                    this.exams = this.totalP;
+                },
+                bkExamSto(){
+                    this.exams = this.stomach;
+                },
+                bkExamHea(){
+                    this.exams = this.health;
+                },
+                bkExamHoCo(){
+                    this.exams = this.hotcold;
+                },
+                bkGoToExamList(e){
+                    let examId = Number(e.target.dataset.examid);
+                    console.log(examId)
+                    this.nowId = examId;
+                    document.getElementsByClassName('bkExamFind')[0].classList.add('backEndBoxNoneI');
+                    document.getElementsByClassName('bkExamSet')[0].classList.remove('backEndBoxNoneI');
+                },
+                bkGoExamBack(){
+                    document.getElementsByClassName('bkExamFind')[0].classList.remove('backEndBoxNoneI');
+                    document.getElementsByClassName('bkExamSet')[0].classList.add('backEndBoxNoneI');
+                },
+            },
+            mounted() {
+                $.ajax({
+                    type: "GET",
+                    url: "./php/bkExamFind.php",
+                    success: function (res) {
+                        let data = JSON.parse(res);
+                        bkexamVM.$data.exams = data;
+                        bkexamVM.$data.totalP = data;
+                        let box0 = [];
+                        let box1 = [];
+                        let box2 = [];
+                        for(let i = 0 ;i<data.length;i++){
+                            if(data[i].examClass == 0){
+                                box0.push(data[i]);
+                            }else if(data[i].examClass == 1){
+                                box1.push(data[i]);
+                            }else{
+                                box2.push(data[i]);
+                            }
+                        }
+                        bkexamVM.$data.stomach = box0;
+                        bkexamVM.$data.health = box1;
+                        bkexamVM.$data.hotcold = box2;
                     }
                 });
             },

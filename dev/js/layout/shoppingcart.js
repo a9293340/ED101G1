@@ -204,6 +204,8 @@ document.getElementById('orderCartClose').addEventListener('click',()=>{
 
 //login signup
 if(sessionStorage['memId'] === 'good'){
+    console.log(sessionStorage['memImage']);
+    document.getElementById('memHead').src = sessionStorage['memImage'];
     $('#homeContainderBgc').hide();
     $('#homeContainer').hide();
     $('#member').hide();
@@ -230,11 +232,13 @@ $('#homeContainderBgc').click(function (e) {
 //登出  php 刪除session
 $('#log_out').click(function(e){
     e.preventDefault();
+    // console.log('aaa');
     $.ajax({
         type: "GET",
         url: "./php/clearSession.php",
         success: function (response) {
             sessionStorage['memId'] = 'bad';
+            sessionStorage['memImage'] = 'bad';
             location.href='./order.html';
             // $('#member_aflogin').hide();
             // $('#member').show(500);

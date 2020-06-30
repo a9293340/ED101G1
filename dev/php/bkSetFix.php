@@ -49,7 +49,7 @@
             
                     if(copy($from, $to)){
                         // 成功上傳後再去資料庫把image的資料修正為對的資料
-                        $sql2 = "update `SINGLE_PRODUCT` set setImage=:setImage where setId=:setId";
+                        $sql2 = "update `SET_PRODUCT` set setImage=:setImage where setId=:setId";
                         $fixImage = $pdo->prepare($sql2);
                         $fixImage->bindValue(":setId",$_POST["setId"] );
                         $fixImage->bindValue(":setImage",$imgSOL );
