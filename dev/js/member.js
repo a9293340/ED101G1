@@ -82,7 +82,7 @@ function gogoPower(){
                 $('#memContentOrderListQRCode').qrcode({
                     width: 120,
                     height: 120,
-                    text: '../php/memOrderList.php'
+                    text: `../php/memOrderList.php?orderId=${this.nowDataSetNumber}`
                 });
                 // 跳轉至orderList的content
                 document.getElementById('memContentOrderList').classList.remove('memContentNone');
@@ -763,11 +763,7 @@ function gogoPower(){
             .go();
     }
 
-    //找明天
-    // const nextDay = function(n){
-    //     var temp = new Date();
-    //     return new Date(temp.setDate(temp.getDate() + n));
-    // }
+
 
 }
 
