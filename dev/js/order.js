@@ -387,12 +387,14 @@ function riceincart(){
             var ricetext = orderRice[i].spInfo;
             var riceimg  = orderRice[i].spImage;
             var riceprice = orderRice[i].spPrice;
+            var riceId = orderRice[i].spId;
         }
     }
     localStorage.setItem('ricename', ricename);
     localStorage.setItem('ricetext', ricetext);
     localStorage.setItem('riceimg', riceimg);
     localStorage.setItem('riceprice', riceprice);
+    localStorage.setItem('riceId', riceId);
     var listrice = localStorage.getItem('ricename');
     var listriceprice = localStorage.getItem('riceprice');
     document.getElementById('list_ricename').innerText = `${listrice}`;
@@ -412,12 +414,14 @@ function meatincart(){
             var meattext = orderMeat[i].spInfo;
             var meatimg  = orderMeat[i].spImage;
             var meatprice = orderMeat[i].spPrice;
+            var meatId = orderMeat[i].spId;
         }
     }
     localStorage.setItem('meatname', meatname);
     localStorage.setItem('meattext', meattext);
     localStorage.setItem('meatimg', meatimg);
     localStorage.setItem('meatprice', meatprice);
+    localStorage.setItem('meatId', meatId);
     var listmeat = localStorage.getItem('meatname');
     var listmeatprice = localStorage.getItem('meatprice');
     document.getElementById('list_meatname').innerText = `${listmeat}`;
@@ -442,12 +446,14 @@ function singleincart()
                  var singletext = orderSingle[i].spInfo;
                  var singleimg  = orderSingle[i].spImage;
                  var singleprice = orderSingle[i].spPrice;
+                 var singleId = orderSingle[i].spId;
             }
         }
                 localStorage.setItem( 'singlename'+`${singlecount}`  , singlename);
                 localStorage.setItem('singletext'+`${singlecount}`, singletext);
                 localStorage.setItem('singleimg'+`${singlecount}`, singleimg);
                 localStorage.setItem('singleprice'+`${singlecount}`, singleprice);
+                localStorage.setItem('singleId'+`${singlecount}`, singleId);
                 var listsingle = localStorage.getItem('singlename'+`${singlecount}`);
                 var listsingleprice = localStorage.getItem('singleprice'+`${singlecount}`);
                 document.getElementById('list_singlename'+`${singlecount}`).innerText = `${listsingle}`;
@@ -602,14 +608,19 @@ function setdominus(){    //套餐數量--
 function shoppcar(){              //自選的加入購物車
 
     var rice = localStorage.getItem('ricename');
+    var riceId =localStorage.getItem('riceId');
     var riceprice = localStorage.getItem('riceprice')
     var meat = localStorage.getItem('meatname');
+    var meatId =localStorage.getItem('meatId');
     var meatprice = localStorage.getItem('meatprice');
     var single1 = localStorage.getItem('singlename1');
+    var singleId1= localStorage.getItem('singleId1');
     var singleprice1 = localStorage.getItem('singleprice1');
     var single2 = localStorage.getItem('singlename2');
+    var singleId2= localStorage.getItem('singleId2');
     var singleprice2 = localStorage.getItem('singleprice2');
     var single3 = localStorage.getItem('singlename3');
+    var singleId3= localStorage.getItem('singleId3');
     var singleprice3 = localStorage.getItem('singleprice3');
     var soPrice = parseInt(riceprice)+parseInt(meatprice)+parseInt(singleprice1)+parseInt(singleprice2)+parseInt(singleprice3);
 
@@ -617,10 +628,15 @@ var singleorder= {
     sNum:`${singleNum}`,
     rice:`${rice}`,
     meat:`${meat}`,
+    meatId:`${meatId}`,
     single1:`${single1}`,
+    singleId1:`${singleId1}`,
     single2:`${single2}`,
+    singleId2:`${singleId2}`,
     single3:`${single3}`,
-    soPrice:`${soPrice}`
+    singleId3:`${singleId3}`,
+    soPrice:`${soPrice}`,
+    riceId:`${riceId}`
  }
 if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!==null){
     singleNum++;

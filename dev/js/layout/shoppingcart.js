@@ -2,7 +2,7 @@
 //將自選setcart() 套餐setsetdocart() 其他setordercart() 加入你們的加入購物車事件中
 
 
-
+let totalOrder= [];
 let orderCart = [];
 let otherMenu = [];
 let setdoMenu = [];
@@ -242,6 +242,33 @@ $('#log_out').click(function(e){
     });
 })
 
+document.getElementById('orderBuy').addEventListener('click',orderBuy);
+
+function orderBuy(){
+    var orderSin = [];
+    var orderSet = [];
+    var orderOth = [];
+    orderSin = localStorage.getItem('singleOrder');
+    orderSet = localStorage.getItem('setdoMenuList');
+    orderOth = localStorage.getItem('otherOrder');
+//    console.log(orderSin);
+//    console.log(orderSet);
+//    console.log(orderOth);
+
+
+    totalOrder=[orderSin,orderSet,orderOth];
+    // console.log(totalOrder);
+
+    var totalOrderPost = new XMLHttpRequest();
+    totalOrderPost.open('POST','../dest/php/shopping.php',true);
+    totalOrderPost.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    totalOrderPost.send("totalOrder=" + JSON.stringify(totalOrder));
+    totalOrderPost.onload = function(){
+        var posttest = totalOrderPost.responseText;
+        console.log(posttest);
+    }
+    
+}
 
 
 
