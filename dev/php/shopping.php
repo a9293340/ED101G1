@@ -7,28 +7,40 @@ $orderOth = $totalOrder[2];
 $memId = $totalOrder[3];
 $orderAdr = $totalOrder[4];
 $orderLorderListTextPost = $totalOrder[5];
+$orderCla = $totalOrder[6];
+$OrTotalPrice = $totalOrder[7];
+$orderTime = $totalOrder[8];
+// echo json_encode($OrTotalPrice);
+// $singleId=[];
 
-if(is_array($orderSin)){
-foreach($orderSin as $key => $value){
+foreach($orderSin[0] as $key => $value){
     if( $key == "riceId"){
-        echo $value;
+        $riceId = $value;
+    }
+    if($key == 'meatId'){
+        $meatId =  $value;
+    }
+    if($key == 'singleId1'){
+        $singleId1 = $value;
+    }
+    if($key == 'singleId2'){
+        $singleId2 = $value;
+    }
+    if($key == 'singleId3'){
+        $singleId3 = $value;
+        // echo json_encode( $singleId3);
     }
 }
-}
-// for( $i=0; $i<6; $i++){ 
 
-// echo($orderSin[0]['riceId']);
-
-// echo ($orderSin);
-// foreach($orderSin[0] as $obj ){
-//     echo $obj-> riceId;
-//     }
-// }
-// foreach($orderSin as $obj){
-//     echo $obj->riceId;
-// }
-// var_dump($orderSin);
-// require_once("connect.php");
-// $sqlSin = "SELECT * FROM `single_product`";
+    require_once("connect.php");
+    $sqlorder = "INSERT INTO `order` (`orderId`, `orderer`, `orderTotalPrice`, `orderTime`, `orderClass`, `deliveryAddr`, `mealTime`, `finishTime`, `arrivalTime`, `orderStatus`,`orderRemark`) VALUES ('',:memId,:OrTotalPrice,:orderTime ,:orderCla,:orderAdr,'','','0',:orderLorderListTextPost);";
+    $order=$pdo->prepare($sqlorder);
+    $order->bindValue(":memId", $memId);
+    $order->bindValue(":OrTotalPrice", $OrTotalPrice);
+    $order->bindValue(":orderTime", $orderTime);
+    $order->bindValue(":orderCla", $orderCla);
+    $order->bindValue(":orderAdr", $orderAdr);
+    $order->bindValue(":orderLorderListTextPost", $orderLorderListTextPost);
+    $order->execute();
 
 ?>

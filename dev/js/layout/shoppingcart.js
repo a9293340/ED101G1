@@ -260,26 +260,31 @@ function orderBuy(){
     var orderOth = [];
     var orderAdr = '';
     var orderListTextPost = '';
+    var orderCla =''
+    var now = new Date();
+    var orderTime =`${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+    console.log(orderTime);
     memId = sessionStorage.getItem('mEmmEmId');
-    orderSin = localStorage.getItem('singleOrder');
-    orderSet = localStorage.getItem('setdoMenuList');
-    orderOth = localStorage.getItem('otherOrder');
+    orderSin = JSON.parse(localStorage.getItem('singleOrder'));
+    orderSet =  JSON.parse(localStorage.getItem('setdoMenuList'));
+    orderOth =  JSON.parse(localStorage.getItem('otherOrder'));
     orderAdr = localStorage.getItem('address');
+    orderCla = localStorage.getItem('orderClass');
     orderListTextPost = orderListText.value;
 
     
 
-    totalOrder=[orderSin,orderSet,orderOth,memId,orderAdr,orderListTextPost];
+    totalOrder=[orderSin,orderSet,orderOth,memId,orderAdr,orderListTextPost,orderCla,OrTotalPrice,orderTime];
     // console.log(totalOrder);
-
+    console.log(totalOrder);
     var totalOrderPost = new XMLHttpRequest();
     totalOrderPost.open('POST','../dest/php/shopping.php',true);
     totalOrderPost.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     totalOrderPost.send("totalOrder=" + JSON.stringify(totalOrder));
-    totalOrderPost.onload = function(){
-        var posttest = totalOrderPost.responseText;
-        console.log(posttest);
-    }
+    // totalOrderPost.onload = function(){
+    //     // var posttest = JSON.parse(totalOrderPost.responseText);
+    //     // console.log(posttest);
+    // }
     
 }
 

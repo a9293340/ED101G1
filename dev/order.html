@@ -358,7 +358,9 @@
                 //     `);
             }else{
                 document.getElementById('orderAddress').innerHTML = '外送地址 :'+response.originAddresses[0];
+                var orderClass = 0;
                 localStorage.setItem('address',response.originAddresses[0]);
+                localStorage.setItem('orderClass',orderClass);
                 // alert(`總共距離${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
             }
             }
@@ -400,7 +402,10 @@
                 // `)
                 ;
             }else{
+                document.getElementById('orderAddress').innerHTML = '外送地址 :'+response.originAddresses[0];
+                var orderClass = 0;
                 localStorage.setItem('address',response.originAddresses[0]);
+                localStorage.setItem('orderClass',orderClass);
                 // alert(`總共距離${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
             }
             }
