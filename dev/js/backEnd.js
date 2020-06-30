@@ -7,7 +7,7 @@ function gogoPower(){
     }
     if(sessionStorage['admAuthority'] == 0){
         document.getElementById('adminSpan').innerText = `管理員:${sessionStorage['admAccount']}`
-    }else{
+    }else if(sessionStorage['admAuthority'] == 1){
         document.getElementById('adminSpan').innerText = `店員:${sessionStorage['admAccount']}`;
         document.getElementsByClassName('nav-item')[1].style.display = 'none';
         document.getElementsByClassName('nav-item')[3].style.display = 'none';
@@ -15,6 +15,12 @@ function gogoPower(){
         document.getElementsByClassName('nav-item')[5].style.display = 'none';
         document.getElementsByClassName('nav-item')[6].style.display = 'none';
     }
+    
+    document.getElementById('adminSignout').addEventListener('click',()=>{
+        sessionStorage['admAuthority'] = '';
+        sessionStorage['admAccount'] = '';
+        location.href = './backEndlogin.html';
+    })
 
 }
 
