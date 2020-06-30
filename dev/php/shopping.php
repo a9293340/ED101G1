@@ -43,9 +43,44 @@ foreach($orderSin[$i] as $key => $value){
         $singleId3 = $value;
     }
 }
-    $Sinorder = "INSERT INTO `single_order` (`soPrice`,`soAmount`,`soBelongOrd`,`soRice`,`mainFood`,`sideDishes1`,`sideDishes2`,`sideDishes3`,`soImg`)  VALUES ('$soPrice','1','$lastId','$riceId','$meatId','$singleId1','$singleId2','$singleId3','https://fakeimg.pl/100/')";
+    $Sinorder = "INSERT INTO `single_order` (`soPrice`,`soAmount`,`soBelongOrder`,`soRice`,`mainFood`,`sideDishes1`,`sideDishes2`,`sideDishes3`,`soImg`)  VALUES ('$soPrice','1','$lastId','$riceId','$meatId','$singleId1','$singleId2','$singleId3','https://fakeimg.pl/100/')";
     $order1=$pdo->prepare($Sinorder);
     $order1->execute();
+
+}
+for($j=0;$j<count($orderSet); $j++){
+foreach($orderSet[$j] as $key => $value){
+    if($key == "setdoId"){
+        $setdoId = $value;
+    }
+    if($key == "setdoPrice"){
+        $setdoPrice = $value;
+    }
+    if($key == "setdoMany"){
+        $setdoMany = $value;
+    }
+ }
+ $Setorder = "INSERT INTO `set_order` (`setoName`,`setoPrice`,`setoAmount`,`setoBelongOrder`) VALUES ('$setdoId','$setdoPrice','$setdoMany','$lastId')";
+ $order2=$pdo->prepare($Setorder);
+ $order2->execute();
+}
+
+for($z=0;$z<count($orderOth); $z++){
+    foreach($orderOth[$z] as $key => $value){
+        if($key == "otherId"){
+            $otherId = $value;
+        }
+        if($key == "otherPrice"){
+            $otherPrice = $value;
+        }
+        if($key == "otherMany"){
+            $otherMany = $value;
+        }
+    }
+
+    $Otherorder = "INSERT INTO `other_order` (`ooName`,`ooPrice`,`ooAmount`,`ooBelongOrder`) VALUES ('$otherId','$otherPrice','$otherMany','$lastId')";
+    $order3=$pdo->prepare($Otherorder);
+    $order3->execute();
 
 }
     // echo  json_encode($lastId);
