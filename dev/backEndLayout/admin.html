@@ -32,8 +32,76 @@
         </table>  
     </div>      
 </div>
-<div class="backEndBox backEndBoxNone">2</div>
-<div class="backEndBox backEndBoxNone">3</div>
+<div class="backEndBox backEndBoxNone" id="bkAdminNew">
+    <form id="bkAdminNewForm" method="post" action="./php/bkAdminNew.php" enctype="multipart/form-data">
+        <div class="bkRow">
+            <label for="admAccount">後台管理員帳號:
+                <input type="text" name="admAccount" id="admAccount">
+            </label>
+            <label for="admPsw">後台管理員密碼:
+                <input type="password" name="admPsw" id="admPsw">
+            </label>
+            <label for="admAuthority">後台管理員權限:
+                <select name="admAuthority" id="admAuthority">
+                    <option value="0">管理員</option>
+                    <option value="1">店員</option>
+                </select>
+            </label>
+            <input type="submit" class="bkAdminNewBtn">
+        </div>
+    </form>
+</div>
+<div class="backEndBox backEndBoxNone" id="bkAdminFix">
+    <div class="bkAdminFind">
+        <div class="bkOrderBtnBox">
+            <div 
+                class="bkOrderBtn"
+                @click='bkAllGo'
+            >全部</div>
+            <div 
+                class="bkOrderBtn"
+                @click='bkMemGo'
+            >管理員</div>
+            <div 
+                class="bkOrderBtn"
+                @click='bkNoMemGo'
+            >店員</div>
+        </div>
+        <div class="container">
+            <table class="table" height='400px'>
+                <thead>
+                    <th>後台管理員編號</th>
+                    <th>後台管理員帳號</th>
+                    <th>後台管理員權限</th>
+                    <th>修改</th>
+                </thead>
+                <tbody>
+                    <tr v-for='(admin,index) in admins'>
+                        <td>{{admin.admId}}</td>
+                        <td>{{admin.admAccount}}</td>
+                        <td>
+                            <select 
+                                v-model='admin.admAuthority'
+                                class="admAuthority"
+                            >
+                                <option value="0">管理員</option>
+                                <option value="1">店員</option>
+                            </select>
+                        </td>
+                        <td>
+                            <div 
+                            class="bkAdminGo"
+                            :data-admid='admin.admId'
+                            :data-index='index'
+                            @click='bkAdminGoChange'
+                            >修改</div>
+                        </td>
+                    </tr>
+                <tbody>
+            </table>  
+        </div>    
+    </div>
+</div>
 <div class="backEndBox backEndBoxNone" id="bkOrderFix">
     <div id="bkOrder">
         <div class="bkOrderBtnBox">
@@ -421,8 +489,248 @@
         </form>
     </div>
 </div>
-<div class="backEndBox backEndBoxNone">10</div>
-<div class="backEndBox backEndBoxNone">11</div>
-<div class="backEndBox backEndBoxNone">12</div>
+<div class="backEndBox backEndBoxNone" id="bkOtherNew">
+    <form id="bkOtherNewForm" method="post" action="./php/bkOtherNew.php" enctype="multipart/form-data">
+        <div class="bkRow">
+            <label for="opName">其他名稱:
+                <input type="text" name="opName" id="opName">
+            </label>
+            <label for="opPrice" class="opPrice">其他價格:
+                <input type="text" name="opPrice" id="opPrice">
+            </label>
+            <label for="opClass">其他類別:
+                <select name="opClass" id="opClass">
+                    <option value="0">飲料</option>
+                    <option value="1">水果</option>
+                    <option value="2">保健食品</option>
+                </select>
+            </label>
+        </div>
+        <div class="bkRow">
+            <label for="opImage">其他圖片:
+                <input type="file" name="opImage" id="opImage">
+            </label>
+            <label for="opStatus">其他狀態:
+                <select name="opStatus" id="opStatus">
+                    <option value="0">下架</option>
+                    <option value="1">上架</option>
+                </select>
+            </label>
+            <input type="submit" class="bkSingleNewBtn">
+        </div>
+    </form>
+</div>
+<div class="backEndBox backEndBoxNone" id="bkOtherFix">
+    <div class="bkOhterFind">
+        <div class="bkOrderBtnBox">
+            <div 
+                class="bkOrderBtn"
+                @click='bkOtherTotal'
+            >所有類別</div>
+            <div 
+                class="bkOrderBtn"
+                @click='bkOtherDrink'
+            >飲料</div>
+            <div 
+                class="bkOrderBtn"
+                @click='bkOtherFruit'
+            >水果</div>
+            <div 
+                class="bkOrderBtn"
+                @click='bkOtherOther'
+            >保健食品</div>
+        </div>
+        <div class="container">
+            <table class="table" height='400px'>
+                <thead>
+                    <th>其他品項編號</th>
+                    <th>其他品項名稱</th>
+                    <th>其他品項類別</th>
+                    <th>其他品項狀態</th>
+                    <th>其他品項圖片</th>
+                    <th>修改</th>
+                </thead>
+                <tbody>
+                    <tr v-for='op in otherProducts'>
+                        <td>{{op.opId}}</td>
+                        <td>{{op.opName}}</td>
+                        <td v-if='op.opClass == 0'>飲料</td>
+                        <td v-if='op.opClass == 1'>水果</td>
+                        <td v-if='op.opClass == 2'>保健食品</td>
+                        <td v-if='op.opStatus == 0'>下架</td>
+                        <td v-else>上架</td>
+                        <td>
+                            <img 
+                                :src="op.opImage"
+                                width="50px"
+                            >
+                        </td>
+                        <td>
+                            <div 
+                                class="bkOtherProductToList"
+                                :data-opid='op.opId'
+                                @click='bkGoToOtherList'
+                            >修改</div>
+                        </td>
+                    </tr>
+                <tbody>
+            </table>  
+        </div>    
+    </div>
+    <div class="bkOtherSet backEndBoxNoneI">
+        <div 
+            id="bkGoToOtherProduct"
+            @click='bkGoOtherBack'
+        >回上一頁</div>
+        <form id="bkOtherFIxForm" method="post" action="./php/bkOtherFix.php" enctype="multipart/form-data"
+        v-for='op in otherProducts'
+        v-if='op.opId == nowId'
+        >
+            <label for="opId">
+                其他品項編號:<input type="text" v-model="op.opId" id="opId" name="opId" readonly>
+            </label>
+            <div class="bkRow">
+                <label for="opNameF">其他品項名稱:
+                    <input type="text" name="opName" id="opNameF" v-model='op.opName'>
+                </label>
+                <label for="opPriceF" class="opPrice">其他品項價格:
+                    <input type="text" name="opPrice" id="opPriceF" v-model='op.opPrice'>
+                </label>
+                <label for="opClassF">其他品項類別:
+                    <select 
+                    name="opClass" 
+                    id="opClassF"
+                    v-model='op.opClass'
+                    >
+                        <option value="0">飲料</option>
+                        <option value="1">水果</option>
+                        <option value="2">保健食品</option>
+                    </select>
+                </label>
+            </div>
+            <div class="bkRow">
+                <label for="opImageF">其他品項圖片:
+                    <input type="file" name="opImage" id="opImageF" 
+                    style="display: none;"
+                    @change='bkChangeOpImg'
+                    >
+                    <img :src="op.opImage" width="50px"
+                    id="bkopImg"
+                    style="cursor: pointer;">
+                </label>
+                <label for="opStatusF">其他品項狀態:
+                    <select name="opStatus" id="opStatusF" v-model='op.opStatus'>
+                        <option value="0">下架</option>
+                        <option value="1">上架</option>
+                    </select>
+                </label>
+                <input type="submit" class="bkopNewBtn">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="backEndBox backEndBoxNone" id="bkHealthFix">
+    <div class="bkExamFind">
+        <div class="bkOrderBtnBox">
+            <div 
+                class="bkOrderBtn"
+                @click='bkExamAll'
+            >所有類別</div>
+            <div 
+                class="bkOrderBtn"
+                @click='bkExamSto'
+            >腸胃類</div>
+            <div 
+                class="bkOrderBtn"
+                @click='bkExamHea'
+            >健康類</div>
+            <div 
+                class="bkOrderBtn"
+                @click='bkExamHoCo'
+            >體質類</div>
+        </div>
+        <div class="container">
+            <table class="table" height='400px'>
+                <thead>
+                    <th>題目編號</th>
+                    <th>題目內容</th>
+                    <th>題目類別</th>
+                    <th>修改</th>
+                </thead>
+                <tbody>
+                    <tr v-for='exam in exams'>
+                        <td>{{exam.examId}}</td>
+                        <td>{{exam.examTitle}}</td>
+                        <td v-if='exam.examClass == 0'>腸胃類</td>
+                        <td v-if='exam.examClass == 1'>健康類</td>
+                        <td v-if='exam.examClass == 2'>體質類</td>
+                        <td>
+                            <div 
+                                class="bkExamToList"
+                                :data-examid='exam.examId'
+                                @click='bkGoToExamList'
+                            >修改</div>
+                        </td>
+                    </tr>
+                <tbody>
+            </table>  
+        </div>    
+    </div>
+    <div class="bkExamSet backEndBoxNoneI">
+        <div 
+            id="bkGoToExam"
+            @click='bkGoExamBack'
+        >回上一頁</div>
+        <form id="bkExamFIxForm" method="post" action="./php/bkExamFix.php" enctype="multipart/form-data"
+        v-for='exam in exams'
+        v-if='exam.examId == nowId'
+        >
+            <label for="examId">
+                題目編號:<input type="text" v-model="exam.examId" id="examId" name="examId" readonly>
+            </label>
+            <div class="bkRow">
+                <label for="examTitle">題目標題:
+                    <textarea name="examTitle" id="examTitle" cols="50" rows="10" v-model='exam.examTitle'></textarea>
+                </label>
+                <label for="examClassF">題目類別:
+                    <select 
+                    name="examClass" 
+                    id="examClassF"
+                    v-model='exam.examClass'
+                    >
+                        <option value="0">腸胃類</option>
+                        <option value="1">健康類</option>
+                        <option value="2">體質類</option>
+                    </select>
+                </label>
+            </div>
+            <div class="bkRow">
+                <label for="option1">答案一:
+                    <textarea name="option1" id="option1" cols="50" rows="10" v-model='exam.option1'></textarea>
+                </label>
+                <label for="optionNum1">答案一分數:
+                    <input type="text" name="optionNum1" id="optionNum1" v-model='exam.optionNum1'>
+                </label>
+            </div>
+            <div class="bkRow">
+                <label for="option2">答案二:
+                    <textarea name="option2" id="option2" cols="50" rows="10" v-model='exam.option2'></textarea>
+                </label>
+                <label for="optionNum2">答案二分數:
+                    <input type="text" name="optionNum2" id="optionNum2" v-model='exam.optionNum2'>
+                </label>
+            </div>
+            <div class="bkRow">
+                <label for="option3">答案三:
+                    <textarea name="option3" id="option3" cols="50" rows="10" v-model='exam.option3'></textarea>
+                </label>
+                <label for="optionNum3">答案三分數:
+                    <input type="text" name="optionNum3" id="optionNum3" v-model='exam.optionNum3'>
+                </label>
+            </div>
+            <input type="submit" class="bkExamNewBtn">
+        </form>
+    </div>
+</div>
 <div class="backEndBox backEndBoxNone">13</div>
 <div class="backEndBox backEndBoxNone">14</div>
