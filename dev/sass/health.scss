@@ -21,7 +21,7 @@ div.wrapper {
     overflow: hidden;
     width: 100%;
     min-width: 1200px;
-    // min-height: calc(100vh - 50px); // footer置底
+    min-height: calc(100vh - 50px); // footer置底
     .content {
         // border: 1px solid blue;
         width: 1200px;
