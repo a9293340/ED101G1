@@ -39,7 +39,7 @@
       <div v-if="showBentonImgList === true">
         <div class="bentoncarTitle">
           <span>請選擇喜愛的自選便當</span>
-          <img @click="showCloselightbox" src="./images/showbenton/close.png" />
+          <img class="closebox" @click="showCloselightbox" src="./images/showbenton/close.png" />
         </div>
         <ul class="bentoncardBox">
           <li
@@ -67,7 +67,7 @@
       <div v-else>
         <div class="bentoncarTitle">
           <span> 請填寫便當內容</span>
-          <img @click="showCloselightbox" src="./images/showbenton/close.png" />
+          <img class="closebox" @click="showCloselightbox" src="./images/showbenton/close.png" />
         </div>
         <div class="bentonContentForm">
           <label class="Step2Title" for="Step2TitlText">標題：</label>
@@ -161,8 +161,8 @@
             />
             <button class="buyMore" id="buyMore">加入購物車</button>
             <div class="memTextBlock">
-              <img :src="memData.memImage" class="memPicture" />
-              <p class="member">{{memData.memName}}</p>
+              <img :src="currentBenton.memImage" class="memPicture" />
+              <p class="member">{{currentBenton.memName}}</p>
               <p id="ContentTitlText">{{currentBenton.title}}</p>
               <p
                 style="
@@ -180,13 +180,13 @@
           </div>
           <div class="messageBoard">
             <!--留言大區塊 -->
-            <div class="mesTalks">──────── 留言區 ─────────</div>
+            <div class="mesTalks">–––––––– 留言區 ––––––––</div>
             <!--留言區-->
             <div class="talksBlock">
               <div v-for="talks in talkArray" id="show_msg" class="showmsg">
-                <img :src="memData.memImage" class="memPicture" />
-                <p class="member">{{memData.memName}}</p>
-                <div class="report">檢舉</div>
+                <img :src="talks.memImage" class="memPicture" />
+                <p class="member">{{talks.memName}}</p>
+                <div class="report" @click="reportBox">檢舉</div>
                 <div class="talkmessage">{{talks.talkmessage}}</div>
 
                 <p class="talkDateTime">{{talks.dateTime}}</p>
@@ -198,14 +198,6 @@
 
               <textarea
                 placeholder="我要留言.."
-                style="
-                  border-radius: 5px;
-                  margin-top: 25px;
-                  resize: none;
-                  font-size: 16px;
-                  width: 335px;
-                  background-color: #f5f6e9;
-                "
                 class="comment"
                 cols="45"
                 rows="4"
@@ -224,12 +216,24 @@
           </div>
           <p id="result"></p>
         </div>
+        <div class="reportBox">
+          <p class="reportContent">檢舉留言</p>
+          <div class="reportChoose"> 
+            <input id="rep1" type="radio" name="reportMes" value="0" checked>色情或煽情露骨的內容</br></option>
+            <input id="rep2" type="radio" name="reportMes" value="1">仇恨言論或血腥暴力的內容</br></option>
+            <input id="rep3" type="radio" name="reportMes" value="2" >不請自來的廣告或垃圾內容</br></option>
+            <input id="rep4" type="radio" name="reportMes" value="3">騷擾或霸凌內容</br></option>
+          </div >
+          <p class="cancel" @click="reportBoxClose">取消</p>
+          <p class="confirmeRport">檢舉</p>
+        </div>
       </div>
     </div>
-
+    @@include('./layout/loginSignup.html',{})
     @@include('./layout/shoppingcart.html',{})
     <!-- @@include('./layout/footer.html',{}) -->
-    <script src="../dev/js/layout/shoppingcart.js"></script>
     <script src="../dev/js/showbenton.js"></script>
+    <script src="../dev//js/layout/loginSignup.js"></script>
+    <script src="../dev/js/layout/shoppingcart.js"></script>
   </body>
 </html>
