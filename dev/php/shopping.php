@@ -3,9 +3,9 @@ $orderSin=[];
 $orderSet=[];
 $orderOth=[];
 $totalOrder = json_decode($_POST["totalOrder"]);
-$orderSin = $totalOrder[0];
-$orderSet = $totalOrder[1];
-$orderOth = $totalOrder[2];
+(array)$orderSin = $totalOrder[0];
+(array)$orderSet = $totalOrder[1];
+(array)$orderOth = $totalOrder[2];
 $memId = (int)$totalOrder[3];
 $orderAdr = $totalOrder[4];
 $orderLorderListTextPost = $totalOrder[5];
@@ -23,7 +23,7 @@ try{
     $order->execute();
 
     $lastId = $pdo->lastInsertId();
-
+    if(is_array($orderSin)){
     for($i=0;$i<count($orderSin); $i++){
 foreach($orderSin[$i] as $key => $value){
     if($key == "soPrice"){
@@ -50,6 +50,9 @@ foreach($orderSin[$i] as $key => $value){
     $order1->execute();
 
 }
+}
+
+if(is_array($orderSet)){
 for($j=0;$j<count($orderSet); $j++){
 foreach($orderSet[$j] as $key => $value){
     if($key == "setdoId"){
@@ -66,7 +69,9 @@ foreach($orderSet[$j] as $key => $value){
  $order2=$pdo->prepare($Setorder);
  $order2->execute();
 }
+}
 
+if(is_array($orderOth)){
 for($z=0;$z<count($orderOth); $z++){
     foreach($orderOth[$z] as $key => $value){
         if($key == "otherId"){
@@ -84,6 +89,7 @@ for($z=0;$z<count($orderOth); $z++){
     $order3=$pdo->prepare($Otherorder);
     $order3->execute();
 
+}
 }
     // echo  json_encode($lastId);
 }catch(PDOException $e){

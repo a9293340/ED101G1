@@ -13,7 +13,7 @@ var SinglePrice = 0 ;
 var SetdoPrice = 0; 
 var OtherPrice = 0 ;
 var OrTotalPrice = 0;
-var orderStatus = -1;
+var orderClass = -1;
 
 var singleorderlist = new Vue({   //購物車 vue
     el: '#list',
@@ -255,12 +255,24 @@ if(localStorage.getItem('address')){
 
 document.getElementById('orderBuy').addEventListener('click',orderBuy);
 document.getElementById('orderDelivey').addEventListener('click',function(){
-    orderStatus=0;
-    console.log(orderStatus);
+    if(localStorage.getItem('address')){
+        document.getElementById('orderAddress').innerHTML = '外送地址 :'+ localStorage.getItem('address');
+        orderClass=0;
+        localStorage.setItem('orderClass',orderClass);
+    }
+    document.getElementById('orderAdress').style.display="block";
+    document.getElementById('orderDelivey').style.backgroundColor="#EA6227";
+    document.getElementById('orderOut').style.backgroundColor="#EFEFEF";
+    console.log(orderClass);
 })
 document.getElementById('orderOut').addEventListener('click',function(){
-    orderStatus=1;
-    console.log(orderStatus);
+    orderClass=1;
+    localStorage.setItem('orderClass',orderClass);
+    document.getElementById('orderAddress').innerHTML='外帶';
+    document.getElementById('orderAdress').style.display="none";
+    document.getElementById('orderOut').style.backgroundColor="#EA6227";
+    document.getElementById('orderDelivey').style.backgroundColor="#EFEFEF";
+    console.log(orderClass);
 })
 
 
@@ -292,7 +304,7 @@ function orderBuy(){
     // console.log(totalOrder);
     // console.log(totalOrder);
     console.log(OrTotalPrice);
-    if(OrTotalPrice==0 || memLogin=='bad' || orderCla==''){
+    if(OrTotalPrice==0 || memLogin=='bad' || orderCla==-1){
         alert('wrong');
     }else{
     var totalOrderPost = new XMLHttpRequest();
@@ -330,16 +342,16 @@ function orderBuy(){
             if(response.rows[0].elements[0].distance.value > 5000 ){
                 document.getElementById('orderAddress').innerHTML='超出外送範圍';
                 document.getElementById('orderAddress').style.color = 'red';
-                // alert(`
-                //     總共距離${response.rows[0].elements[0].distance.text}，超出外送範圍
-                //     ${response}
-                //     `);
+                alert(`
+                    總共距離${response.rows[0].elements[0].distance.text}，超出外送範圍
+                    ${response}
+                    `);
             }else{
                 document.getElementById('orderAddress').innerHTML = '外送地址 :'+response.originAddresses[0];
-                // var orderClass = 0;
+                orderClass=0;
                 localStorage.setItem('address',response.originAddresses[0]);
-                // localStorage.setItem('orderClass',orderClass);
-                // alert(`總共距離${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
+                localStorage.setItem('orderClass',orderClass);
+                alert(`總共距離${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
             }
             }
         });
@@ -373,18 +385,18 @@ function orderBuy(){
             if(response.rows[0].elements[0].distance.value > 5000 ){
                 document.getElementById('orderAddress').innerHTML='超出外送範圍';
                 document.getElementById('orderAddress').style.color = 'red';
-                // alert(`
-                //     總共距離${response.rows[0].elements[0].distance.text}，超出外送範圍
-                //     ${response.originAddresses}
+                alert(`
+                    總共距離${response.rows[0].elements[0].distance.text}，超出外送範圍
+                    ${response.originAddresses}
                     
-                // `)
+                `)
                 ;
             }else{
                 document.getElementById('orderAddress').innerHTML = '外送地址 :'+response.originAddresses[0];
-                // var orderClass = 0;
+                orderClass=0;
                 localStorage.setItem('address',response.originAddresses[0]);
-                // localStorage.setItem('orderClass',orderClass);
-                // alert(`總共距離${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
+                localStorage.setItem('orderClass',orderClass);
+                alert(`總共距離${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
             }
             }
         });
