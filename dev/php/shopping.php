@@ -1,5 +1,7 @@
 <?php
-
+$orderSin=[];
+$orderSet=[];
+$orderOth=[];
 $totalOrder = json_decode($_POST["totalOrder"]);
 $orderSin = $totalOrder[0];
 $orderSet = $totalOrder[1];

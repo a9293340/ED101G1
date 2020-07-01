@@ -13,6 +13,7 @@ var SinglePrice = 0 ;
 var SetdoPrice = 0; 
 var OtherPrice = 0 ;
 var OrTotalPrice = 0;
+var orderStatus = -1;
 
 var singleorderlist = new Vue({   //購物車 vue
     el: '#list',
@@ -253,6 +254,15 @@ if(localStorage.getItem('address')){
 
 
 document.getElementById('orderBuy').addEventListener('click',orderBuy);
+document.getElementById('orderDelivey').addEventListener('click',function(){
+    orderStatus=0;
+    console.log(orderStatus);
+})
+document.getElementById('orderOut').addEventListener('click',function(){
+    orderStatus=1;
+    console.log(orderStatus);
+})
+
 
 
 
@@ -268,6 +278,7 @@ function orderBuy(){
     var orderTime =`${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
     console.log(orderTime);
     memId = sessionStorage.getItem('mEmmEmId');
+    memLogin = sessionStorage.getItem('memId');
     orderSin = JSON.parse(localStorage.getItem('singleOrder'));
     orderSet =  JSON.parse(localStorage.getItem('setdoMenuList'));
     orderOth =  JSON.parse(localStorage.getItem('otherOrder'));
@@ -281,7 +292,7 @@ function orderBuy(){
     // console.log(totalOrder);
     // console.log(totalOrder);
     console.log(OrTotalPrice);
-    if(OrTotalPrice==0 || memId.length==0 || orderCla.length==0){
+    if(OrTotalPrice==0 || memLogin=='bad' || orderCla==''){
         alert('wrong');
     }else{
     var totalOrderPost = new XMLHttpRequest();
@@ -325,9 +336,9 @@ function orderBuy(){
                 //     `);
             }else{
                 document.getElementById('orderAddress').innerHTML = '外送地址 :'+response.originAddresses[0];
-                var orderClass = 0;
+                // var orderClass = 0;
                 localStorage.setItem('address',response.originAddresses[0]);
-                localStorage.setItem('orderClass',orderClass);
+                // localStorage.setItem('orderClass',orderClass);
                 // alert(`總共距離${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
             }
             }
@@ -370,9 +381,9 @@ function orderBuy(){
                 ;
             }else{
                 document.getElementById('orderAddress').innerHTML = '外送地址 :'+response.originAddresses[0];
-                var orderClass = 0;
+                // var orderClass = 0;
                 localStorage.setItem('address',response.originAddresses[0]);
-                localStorage.setItem('orderClass',orderClass);
+                // localStorage.setItem('orderClass',orderClass);
                 // alert(`總共距離${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
             }
             }

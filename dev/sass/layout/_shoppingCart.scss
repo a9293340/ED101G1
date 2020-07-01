@@ -1,6 +1,8 @@
 @import '../mixins/mixin';
 
-
+#orderAdress{
+  display: none; 
+}
 
 .ordercart {
   position: fixed;
