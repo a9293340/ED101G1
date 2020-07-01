@@ -1,18 +1,18 @@
 // let singleNum = 0;
 
-$(document).ready(function () {
-
-});
+let healthTitle = document.getElementById('title2');
+let memSingleProduct = [];
+let healthFinalAnswer = {};
+let BMIbox = '';
+let member;
+let exams = [];
+let singleProducts = [];
+let count = 0;
+let avgScoreBox = [];
+let scoreBox = [];
+let Questions = [];
+let Q = [[], [], []];
 function doFirst() {
-    let BMIbox = '';
-    let member;
-    let exams = [];
-    let singleProducts = [];
-    let count = 0;
-    let avgScoreBox = [];
-    let scoreBox = [];
-    let Questions = [];
-    let Q = [[], [], []];
     $.ajax({
         type: "GET",
         url: "./php/health.php",
@@ -26,9 +26,9 @@ function doFirst() {
                 console.log(member,exams,singleProducts);
                 // console.log(member.memWeight);
                 if(member[0].memGender == 0){
-                    $('genderM').attr("checked", true);
+                    $('#genderM').attr("checked", true);
                 }else{
-                    $('genderW').attr("checked", true);
+                    $('#genderW').attr("checked", true);
                 }
                 $('#weight').val(member[0].memWeight);
                 $('#height').val(member[0].memHeight);
@@ -151,8 +151,8 @@ function doFirst() {
         }
 
         if (count == 7) {
-            document.getElementById('exam').style.display = "none";
-            document.getElementById('examResult').style.display = "block";
+            document.getElementById('exam').classList.add('wrapper2None');
+            document.getElementById('examResult').classList.remove('wrapper2None');
             goToFinalHealthPage();
         }
 
@@ -160,289 +160,263 @@ function doFirst() {
 
 
 
-    let healthTitle = document.getElementsByClassName('title3')[0];
-    let memSingleProduct = [];
-    let healthFinalAnswer = {};
     function goToFinalHealthPage() {
         console.log('BMI:', BMIbox, "avgScore:", avgScoreBox);
         if (BMIbox > 24) {
-            healthTitle.innerHTML = `
-            您屬於<h1>胖嘟嘟體質</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
-            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
-            `
+            healthTitle.innerText = `胖嘟嘟體質`;
             console.log('過胖');
-            // healthChooseMenu('fat');
+            healthChooseMenu('fat');
             return;
         } else if (BMIbox < 18) {
-            healthTitle.innerHTML = `
-            您屬於<h1>三比八體質</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
-            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
-            `
+            healthTitle.innerText = `三比八體質`;
             console.log('過瘦')
-            // healthChooseMenu('thin');
+            healthChooseMenu('thin');
             return;
         } else if (avgScoreBox[2] >= 51) {
-            healthTitle.innerHTML = `
-            您屬於<h1>燥呼呼體質</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
-            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
-            `
+            healthTitle.innerText = `燥呼呼體質`;
             console.log('燥熱')
-            // healthChooseMenu('hot');
+            healthChooseMenu('hot');
             return;
         } else if (avgScoreBox[2] < 50) {
-            healthTitle.innerHTML = `
-            您屬於<h1>冷吱吱體質</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
-            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
-            `
+            healthTitle.innerText = `冷吱吱體質`;
             console.log('虛寒')
-            // healthChooseMenu('cold');
+            healthChooseMenu('cold');
             return;
         } else if ((avgScoreBox[0] + avgScoreBox[1]) / 2 < 50) {
-            healthTitle.innerHTML = `
-            您屬於<h1>煩惱憂憂型</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
-            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
-            `
+            healthTitle.innerText = `煩惱憂憂型`;
             console.log('身體欠佳')
-            // healthChooseMenu('bad');
+            healthChooseMenu('bad');
             return;
         } else {
-            healthTitle.innerHTML = `
-            您屬於<h1>幸褔樂樂型</h1> 請繼續保持下去唷!詳細的健康分析請點擊<a id="healthBody"
-            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
-            `
+            healthTitle.innerText = `幸褔樂樂型`;
             console.log('快樂')
-            // healthChooseMenu('good');
+            healthChooseMenu('good');
             return;
         }
     }
 
-    // function healthChooseMenu(healthStyle) {
-    //     // healthStyle : fat thin sad good hot cold
-    //     console.log(healthStyle);
-    //     let healthCooks = document.getElementById('cooks');
-    //     let healthDash = document.getElementById('dish');
-    //     let healthMainFood = document.getElementById('mainFood');
-    //     $.getJSON("../dev/js/modules/memSingleProduct.json")
-    //         .then((data) => {
-    //             memSingleProduct = data;
-    //             console.log(memSingleProduct);
-    //             healthFinalAnswer = healthFindData(memSingleProduct, healthStyle);
-    //             console.log(healthFinalAnswer);
+    function healthChooseMenu(healthStyle) {
+        // healthStyle : fat thin sad good hot cold
+        console.log(healthStyle);
+        let healthCooks = document.getElementById('healCooks');
+        // let healthDash = document.getElementById('dish');
+        let healthMainFood = document.getElementById('healMainFood');
+        console.log(singleProducts);
+        healthFinalAnswer = healthFindData(singleProducts, healthStyle);
+        console.log(healthFinalAnswer);
+        healthMainFood.innerHTML = `
+        <div class="mainFood">
+            <img class="meat"src="${healthFinalAnswer.rice.spImage}">
+            <img class="plate" src="./images/healthImages/plate.png">
+            <p class="healFoodName">${healthFinalAnswer.rice.spName}</p>
+        </div>
+        <div class="mainFood">
+            <img class="meat"src="${healthFinalAnswer.mainFood.spImage}">
+            <img class="plate" src="./images/healthImages/plate.png">
+            <p class="healFoodName">${healthFinalAnswer.mainFood.spName}</p>
+        </div>
+        `
+        healthCooks.innerHTML = `
+            <div class="cooks">
+                <img class="veg" src="${healthFinalAnswer.sideDashe1.spImage}">
+                <img class="plate" src="./images/healthImages/plate.png">
+                <p class="healFoodName">${healthFinalAnswer.sideDashe1.spName}</p>
+            </div>
+            <div class="cooks">
+                <img class="veg" src="${healthFinalAnswer.sideDashe2.spImage}">
+                <img class="plate" src="./images/healthImages/plate.png">
+                <p class="healFoodName">${healthFinalAnswer.sideDashe2.spName}</p>
+            </div>
+            <div class="cooks">
+                <img class="veg" src="${healthFinalAnswer.sideDashe3.spImage}">
+                <img class="plate" src="./images/healthImages/plate.png">
+                <p class="healFoodName">${healthFinalAnswer.sideDashe3.spName}</p>
+            </div>
+        `
 
+    }
 
-    //             healthMainFood.innerHTML = `
-    //             <li>
-    //                 <img id="healFood" src="${healthFinalAnswer.rice.spImage}">
-    //                 <img id="healPlate" src="./images/healthImages/plate.png">
-    //                 <p>${healthFinalAnswer.rice.spName}</p>
-    //             </li>
-    //             <li>
-    //                 <img id="healFood" src="${healthFinalAnswer.mainFood.spImage}">
-    //                 <img id="healPlate" src="./images/healthImages/plate.png">
-    //                 <p>${healthFinalAnswer.mainFood.spName}</p>
-    //             </li>
-    //             `
-    //             healthCooks.innerHTML = `
-    //                 <li>
-    //                     <img id="healFood" src="${healthFinalAnswer.sideDashe1.spImage}">
-    //                     <img id="healPlate" src="./images/healthImages/plate.png">
-    //                     <p>${healthFinalAnswer.sideDashe1.spName}</p>
-    //                 </li>
-    //                 <li>
-    //                     <img id="healFood" src="${healthFinalAnswer.sideDashe2.spImage}">
-    //                     <img id="healPlate" src="./images/healthImages/plate.png">
-    //                     <p>${healthFinalAnswer.sideDashe2.spName}</p>
-    //                 </li>
-    //                 <li>
-    //                     <img id="healFood" src="${healthFinalAnswer.sideDashe3.spImage}">
-    //                     <img id="healPlate" src="./images/healthImages/plate.png">
-    //                     <p>${healthFinalAnswer.sideDashe3.spName}</p>
-    //                 </li>
-    //             `
-    //             // console.log(healthFinalAnswer.rice.spName)
-    //             healthDash.innerHTML = `
-    //                 內容 : ${healthFinalAnswer.rice.spName}、${healthFinalAnswer.mainFood.spName}、${healthFinalAnswer.sideDashe1.spName}、${healthFinalAnswer.sideDashe2.spName}、${healthFinalAnswer.sideDashe3.spName}。<br>總卡路里 : ${healthFinalAnswer.rice.spCalories + healthFinalAnswer.mainFood.spCalories + healthFinalAnswer.sideDashe1.spCalories + healthFinalAnswer.sideDashe1.spCalories + healthFinalAnswer.sideDashe1.spCalories}大卡
-    //             `
-    //         });
+    function healthFindData(memSingleProduct, healthStyle) {
+        let riceBox = []
+        let mainBox = []
+        let sideDashBox = []
+        console.log("A",memSingleProduct)
+        for (let i = 0; i < memSingleProduct.length; i++) {
+            if (memSingleProduct[i].spClass == 0) {
+                riceBox.push(memSingleProduct[i])
+            }
+            if (memSingleProduct[i].spClass == 1) {
+                mainBox.push(memSingleProduct[i])
+            }
+            if (memSingleProduct[i].spClass == 2) {
+                sideDashBox.push(memSingleProduct[i])
+            }
+        }
+        // console.log(healthStyle,riceBox,mainBox,sideDashBox)
 
-    // }
+        // 過胖
+        if (healthStyle == 'fat') {
+            riceBox.sort(function (a, b) {
+                return a.spCalories > b.spCalories ? 1 : -1;
+            })
+            mainBox.sort(function (a, b) {
+                return a.spCalories > b.spCalories ? 1 : -1;
+            })
+            sideDashBox.sort(function (a, b) {
+                return a.spCalories > b.spCalories ? 1 : -1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice: riceBox[0],
+                mainFood: mainBox[0],
+                sideDashe1: sideDashBox[0],
+                sideDashe2: sideDashBox[1],
+                sideDashe3: sideDashBox[2],
 
-    // function healthFindData(memSingleProduct, healthStyle) {
+            }
+        }
 
-    //     let riceBox = []
-    //     let mainBox = []
-    //     let sideDashBox = []
-    //     // console.log("A",memSingleProduct.length)
-    //     for (let i = 0; i < memSingleProduct.length; i++) {
-    //         if (memSingleProduct[i].spClass == 0) {
-    //             riceBox.push(memSingleProduct[i])
-    //         }
-    //         if (memSingleProduct[i].spClass == 1) {
-    //             mainBox.push(memSingleProduct[i])
-    //         }
-    //         if (memSingleProduct[i].spClass == 2) {
-    //             sideDashBox.push(memSingleProduct[i])
-    //         }
-    //     }
-    //     // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+        // 過瘦
+        if (healthStyle == 'thin') {
+            riceBox.sort(function (a, b) {
+                return a.spCalories < b.spCalories ? 1 : -1;
+            })
+            mainBox.sort(function (a, b) {
+                return a.spCalories < b.spCalories ? 1 : -1;
+            })
+            sideDashBox.sort(function (a, b) {
+                return a.spCalories < b.spCalories ? 1 : -1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice: riceBox[0],
+                mainFood: mainBox[0],
+                sideDashe1: sideDashBox[0],
+                sideDashe2: sideDashBox[1],
+                sideDashe3: sideDashBox[2],
 
-    //     // 過胖
-    //     if (healthStyle == 'fat') {
-    //         riceBox.sort(function (a, b) {
-    //             return a.spCalories > b.spCalories ? 1 : -1;
-    //         })
-    //         mainBox.sort(function (a, b) {
-    //             return a.spCalories > b.spCalories ? 1 : -1;
-    //         })
-    //         sideDashBox.sort(function (a, b) {
-    //             return a.spCalories > b.spCalories ? 1 : -1;
-    //         })
-    //         // console.log(healthStyle,riceBox,mainBox,sideDashBox)
-    //         return {
-    //             rice: riceBox[0],
-    //             mainFood: mainBox[0],
-    //             sideDashe1: sideDashBox[0],
-    //             sideDashe2: sideDashBox[1],
-    //             sideDashe3: sideDashBox[2],
+            }
+        }
 
-    //         }
-    //     }
+        // 燥熱
+        if (healthStyle == 'hot') {
+            riceBox.sort(function (a, b) {
+                return a.spColdHot > b.spColdHot ? 1 : -1;
+            })
+            mainBox.sort(function (a, b) {
+                return a.spColdHot > b.spColdHot ? 1 : -1;
+            })
+            sideDashBox.sort(function (a, b) {
+                return a.spColdHot > b.spColdHot ? 1 : -1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice: riceBox[0],
+                mainFood: mainBox[0],
+                sideDashe1: sideDashBox[0],
+                sideDashe2: sideDashBox[1],
+                sideDashe3: sideDashBox[2],
 
-    //     // 過瘦
-    //     if (healthStyle == 'thin') {
-    //         riceBox.sort(function (a, b) {
-    //             return a.spCalories < b.spCalories ? 1 : -1;
-    //         })
-    //         mainBox.sort(function (a, b) {
-    //             return a.spCalories < b.spCalories ? 1 : -1;
-    //         })
-    //         sideDashBox.sort(function (a, b) {
-    //             return a.spCalories < b.spCalories ? 1 : -1;
-    //         })
-    //         // console.log(healthStyle,riceBox,mainBox,sideDashBox)
-    //         return {
-    //             rice: riceBox[0],
-    //             mainFood: mainBox[0],
-    //             sideDashe1: sideDashBox[0],
-    //             sideDashe2: sideDashBox[1],
-    //             sideDashe3: sideDashBox[2],
+            }
+        }
 
-    //         }
-    //     }
+        // 寒冷
+        if (healthStyle == 'cold') {
+            riceBox.sort(function (a, b) {
+                return a.spColdHot < b.spColdHot ? 1 : -1;
+            })
+            mainBox.sort(function (a, b) {
+                return a.spColdHot < b.spColdHot ? 1 : -1;
+            })
+            sideDashBox.sort(function (a, b) {
+                return a.spColdHot < b.spColdHot ? 1 : -1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice: riceBox[0],
+                mainFood: mainBox[0],
+                sideDashe1: sideDashBox[0],
+                sideDashe2: sideDashBox[1],
+                sideDashe3: sideDashBox[2],
 
-    //     // 燥熱
-    //     if (healthStyle == 'hot') {
-    //         riceBox.sort(function (a, b) {
-    //             return a.spColdHot > b.spColdHot ? 1 : -1;
-    //         })
-    //         mainBox.sort(function (a, b) {
-    //             return a.spColdHot > b.spColdHot ? 1 : -1;
-    //         })
-    //         sideDashBox.sort(function (a, b) {
-    //             return a.spColdHot > b.spColdHot ? 1 : -1;
-    //         })
-    //         // console.log(healthStyle,riceBox,mainBox,sideDashBox)
-    //         return {
-    //             rice: riceBox[0],
-    //             mainFood: mainBox[0],
-    //             sideDashe1: sideDashBox[0],
-    //             sideDashe2: sideDashBox[1],
-    //             sideDashe3: sideDashBox[2],
+            }
+        }
 
-    //         }
-    //     }
+        // 憂傷
+        if (healthStyle == 'sad') {
+            riceBox.sort(function (a, b) {
+                return a.spHealth > b.spHealth ? 1 : -1;
+            })
+            mainBox.sort(function (a, b) {
+                return a.spHealth > b.spHealth ? 1 : -1;
+            })
+            sideDashBox.sort(function (a, b) {
+                return a.spHealth > b.spHealth ? 1 : -1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice: riceBox[0],
+                mainFood: mainBox[0],
+                sideDashe1: sideDashBox[0],
+                sideDashe2: sideDashBox[1],
+                sideDashe3: sideDashBox[2],
 
-    //     // 寒冷
-    //     if (healthStyle == 'cold') {
-    //         riceBox.sort(function (a, b) {
-    //             return a.spColdHot < b.spColdHot ? 1 : -1;
-    //         })
-    //         mainBox.sort(function (a, b) {
-    //             return a.spColdHot < b.spColdHot ? 1 : -1;
-    //         })
-    //         sideDashBox.sort(function (a, b) {
-    //             return a.spColdHot < b.spColdHot ? 1 : -1;
-    //         })
-    //         // console.log(healthStyle,riceBox,mainBox,sideDashBox)
-    //         return {
-    //             rice: riceBox[0],
-    //             mainFood: mainBox[0],
-    //             sideDashe1: sideDashBox[0],
-    //             sideDashe2: sideDashBox[1],
-    //             sideDashe3: sideDashBox[2],
+            }
+        }
 
-    //         }
-    //     }
+        // 快樂
+        if (healthStyle == 'good') {
+            riceBox.sort(function (a, b) {
+                return a.spHealth < b.spHealth ? 1 : -1;
+            })
+            mainBox.sort(function (a, b) {
+                return a.spHealth < b.spHealth ? 1 : -1;
+            })
+            sideDashBox.sort(function (a, b) {
+                return a.spHealth < b.spHealth ? 1 : -1;
+            })
+            // console.log(healthStyle,riceBox,mainBox,sideDashBox)
+            return {
+                rice: riceBox[0],
+                mainFood: mainBox[0],
+                sideDashe1: sideDashBox[0],
+                sideDashe2: sideDashBox[1],
+                sideDashe3: sideDashBox[2],
 
-    //     // 憂傷
-    //     if (healthStyle == 'sad') {
-    //         riceBox.sort(function (a, b) {
-    //             return a.spHealth > b.spHealth ? 1 : -1;
-    //         })
-    //         mainBox.sort(function (a, b) {
-    //             return a.spHealth > b.spHealth ? 1 : -1;
-    //         })
-    //         sideDashBox.sort(function (a, b) {
-    //             return a.spHealth > b.spHealth ? 1 : -1;
-    //         })
-    //         // console.log(healthStyle,riceBox,mainBox,sideDashBox)
-    //         return {
-    //             rice: riceBox[0],
-    //             mainFood: mainBox[0],
-    //             sideDashe1: sideDashBox[0],
-    //             sideDashe2: sideDashBox[1],
-    //             sideDashe3: sideDashBox[2],
+            }
+        }
+    }
 
-    //         }
-    //     }
+    document.getElementById('healthCart').addEventListener('click', healthShoppingCart);
 
-    //     // 快樂
-    //     if (healthStyle == 'good') {
-    //         riceBox.sort(function (a, b) {
-    //             return a.spHealth < b.spHealth ? 1 : -1;
-    //         })
-    //         mainBox.sort(function (a, b) {
-    //             return a.spHealth < b.spHealth ? 1 : -1;
-    //         })
-    //         sideDashBox.sort(function (a, b) {
-    //             return a.spHealth < b.spHealth ? 1 : -1;
-    //         })
-    //         // console.log(healthStyle,riceBox,mainBox,sideDashBox)
-    //         return {
-    //             rice: riceBox[0],
-    //             mainFood: mainBox[0],
-    //             sideDashe1: sideDashBox[0],
-    //             sideDashe2: sideDashBox[1],
-    //             sideDashe3: sideDashBox[2],
+    function healthShoppingCart() {
+        healthTotalprice = parseInt(healthFinalAnswer.sideDashe1.spPrice) + parseInt(healthFinalAnswer.sideDashe2.spPrice) + parseInt(healthFinalAnswer.sideDashe3.spPrice) + parseInt(healthFinalAnswer.rice.spPrice) + parseInt(healthFinalAnswer.mainFood.spPrice);
+        console.log(healthTotalprice);
+        alert('已加入購物車');
+        healthList = {
+            sNum: `${singleNum}`,
+            rice: `${healthFinalAnswer.rice.spName}`,
+            riceId: `${healthFinalAnswer.rice.spId}`,
+            meat: `${healthFinalAnswer.mainFood.spName}`,
+            meatId: `${healthFinalAnswer.mainFood.spId}`,
+            single1: `${healthFinalAnswer.sideDashe1.spName}`,
+            singleId1: `${healthFinalAnswer.sideDashe1.spId}`,
+            single2: `${healthFinalAnswer.sideDashe2.spName}`,
+            singleId2: `${healthFinalAnswer.sideDashe2.spId}`,
+            single3: `${healthFinalAnswer.sideDashe3.spName}`,
+            singleId3: `${healthFinalAnswer.sideDashe3.spId}`,
+            soPrice: `${healthTotalprice}`
+        }
+        singleNum++;
+        localStorage.setItem('singleNum', singleNum);
+        console.log(singleNum);
+        orderCart.push(healthList);
+        var healthsOrderList = JSON.stringify(orderCart);
+        localStorage.setItem('singleOrder', healthsOrderList);
+        console.log(orderCart[0]);
 
-    //         }
-    //     }
-    // }
-
-    // document.getElementById('healthCart').addEventListener('click', healthShoppingCart);
-
-    // function healthShoppingCart() {
-    //     healthTotalprice = parseInt(healthFinalAnswer.sideDashe1.spPrice) + parseInt(healthFinalAnswer.sideDashe2.spPrice) + parseInt(healthFinalAnswer.sideDashe3.spPrice) + parseInt(healthFinalAnswer.rice.spPrice) + parseInt(healthFinalAnswer.mainFood.spPrice);
-    //     console.log(healthTotalprice);
-    //     healthList = {
-    //         sNum: `${singleNum}`,
-    //         rice: `${healthFinalAnswer.rice.spName}`,
-    //         meat: `${healthFinalAnswer.mainFood.spName}`,
-    //         single1: `${healthFinalAnswer.sideDashe1.spName}`,
-    //         single2: `${healthFinalAnswer.sideDashe2.spName}`,
-    //         single3: `${healthFinalAnswer.sideDashe3.spName}`,
-    //         soPrice: `${healthTotalprice}`
-    //     }
-    //     singleNum++;
-    //     localStorage.setItem('singleNum', singleNum);
-    //     console.log(singleNum);
-    //     orderCart.push(healthList);
-    //     var healthsOrderList = JSON.stringify(orderCart);
-    //     localStorage.setItem('singleOrder', healthsOrderList);
-    //     console.log(orderCart[0]);
-
-    //     setcart();
-    // }
+        setcart();
+    }
 
 };
 window.addEventListener('load', doFirst);
