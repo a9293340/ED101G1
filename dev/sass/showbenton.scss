@@ -141,12 +141,12 @@ p.shareBentonContent {
 div.WallSharebentonImg::before {
   content: "";
   position: absolute;
-  background-image: url("../images/showbenton/nail.png");
+  background-image: url("../images/showbenton/Iron_ring.png");
   background-repeat: no-repeat;
-  background-size: 50%;
-  width: 100px;
-  height: 100px;
-  top: -20px;
+  background-size: 100%;
+  width: 25px;
+  height: 25px;
+  top: 10px;
   left: 10px;
 }
 
@@ -194,6 +194,7 @@ span.liketimes {
 //第四名之後
 [class^="mainBenton"] {
   background-color: #fdfbfd;
+  text-align: center;
 }
 
 //便利貼的個體
@@ -206,7 +207,7 @@ span.liketimes {
   font-size: 18px;
   font-weight: 600;
   text-align: center;
-  padding: 15px;
+  padding: 15px 10px;
   border-radius: 8px;
   background-color: #f6f6f6;
 }
@@ -350,6 +351,45 @@ p.showMyself {
   display: inline-block;
   vertical-align: middle;
 }
+//檢舉
+.reportBox {
+  @include lightBox($width: 300px);
+  border: 1px solid rgb(236, 236, 236);
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  .reportContent {
+    font-size: $fzMd;
+    font-weight: bold;
+    margin: 20px 20px 10px;
+  }
+  .reportChoose {
+    width: 75%;
+    margin: 0 auto 10px;
+    [id^="rep"] {
+      margin: 10px;
+    }
+  }
+  .confirmeRport {
+    display: inline-block;
+    padding: 0 20px 20px;
+    &:hover {
+      color: orangered;
+      cursor: pointer;
+    }
+  }
+  .cancel {
+    display: inline-block;
+    margin-left: 170px;
+    &:hover {
+      color: orangered;
+      cursor: pointer;
+    }
+  }
+}
 
 //----------------------------------
 
@@ -357,11 +397,9 @@ p.showMyself {
 .messageBoard {
   display: inline-block;
   border: 1px solid transparent;
-  margin: 0 10px;
   vertical-align: middle;
   text-align: left;
   .talksBlock {
-    width: 340px;
     height: 280px;
     overflow: auto;
     border: 1px inset transparent;
@@ -380,7 +418,7 @@ p.showMyself {
     border: 1px dashed gray;
     background-color: rgb(245, 245, 244);
     width: 300px;
-    margin: 10px auto;
+    margin: 10px;
     padding: 5px 5px 5px 10px;
     border-radius: 10px;
 
@@ -409,8 +447,16 @@ p.showMyself {
       padding-top: 2px;
       word-break: break-all;
     }
+  }
 
-    //便當內容留言的會員留言時間
+  //我要留言KEY IN區塊
+  .comment {
+    border-radius: 5px;
+    margin-top: 25px;
+    resize: none;
+    font-size: 16px;
+    width: 330px;
+    background-color: #f5f6e9;
   }
 }
 //新增便當的遮罩
@@ -433,30 +479,32 @@ p.showMyself {
 }
 
 ul.bentoncardBox {
-  border: 1px inset rgb(211, 210, 210);
+  border: 1px inset #d3d2d2;
   list-style: none;
   display: inline-block;
   overflow: auto;
   height: 400px;
+  margin: 0 auto 0 20px;
+  width: 90%;
 }
 
 .bentoncarTitle {
   border-radius: 5px;
   padding: 5px;
   text-align: center;
-
   position: relative;
-  width: 300px;
+  width: 80%;
   margin: 10px auto;
   span {
     font-size: 28px;
     font-weight: 600;
     color: rgb(7, 90, 7);
   }
-  img {
+  .closebox {
     width: 30px;
     height: 30px;
-    right: -230px;
+    right: -65px;
+    top: 5px;
     position: absolute;
     cursor: pointer;
   }
@@ -467,7 +515,7 @@ li.bentonCard {
   border: 4px solid transparent;
   border-radius: 10px;
   overflow: hidden;
-  margin: 10px 15px;
+  margin: 5px;
   img {
     cursor: pointer;
     vertical-align: bottom;
@@ -535,7 +583,7 @@ label.Step2Content {
 #Step2ContentText {
   font-size: 18px;
   resize: none;
-  margin: 5px 0 10px 0;
+  margin: 5px 0px 10px 5px;
   width: 100%;
   border-radius: 5px;
 }
@@ -615,6 +663,17 @@ button.Pre {
     }
   }
 
+  .bentoncarTitle {
+    .closebox {
+      width: 30px;
+      height: 30px;
+      right: -25px;
+      top: 5px;
+      position: absolute;
+      cursor: pointer;
+    }
+  }
+
   div.showBentonImg {
     margin: 0px auto;
     box-sizing: border-box;
@@ -627,10 +686,11 @@ button.Pre {
     display: inline-block;
     overflow: auto;
     height: 400px;
+
     li.bentonCard {
       margin: 8px;
       img {
-        width: 160px;
+        width: 150px;
         height: 130px;
       }
     }
@@ -660,7 +720,7 @@ button.Pre {
   }
 
   button.Send {
-    margin: 0;
+    margin-right: 10px;
   }
 
   button.Pre {
@@ -669,7 +729,7 @@ button.Pre {
   }
 
   div.shareBenton {
-    margin-left: 40px;
+    margin-left: 80px;
     margin-bottom: 20px;
     .liketimes {
       right: 28px;
@@ -694,8 +754,8 @@ button.Pre {
 
   //便當內文
   .showBentonContentbox {
-    width: 375px;
-    height: 500px;
+    width: 365px;
+    height: 600px;
     overflow: auto;
     padding: 10px;
     .shareBenton:first-child::before,
@@ -705,15 +765,15 @@ button.Pre {
     .shareBenton:nth-child(3)::before,
     .mainBenton2::before {
       left: 30px;
+      padding: 0;
     }
   }
 
   .shareBlock {
-    padding-right: 25px;
-    margin: 0 auto;
+    margin: 0;
     border: transparent;
     padding: 0;
-    .showBentonContentImg {
+    .showBentonCont.messageBoard .commententImg {
       width: 320px;
       height: 260px;
     }
@@ -723,19 +783,34 @@ button.Pre {
     display: block;
     text-align: center;
     margin: 0 auto;
+
     .talksBlock {
-      margin: 0 auto;
+      width: 330px;
+
       div.showmsg {
         width: 290px;
       }
-      .showmsg .report {
-        margin-left: 150px;
-      }
     }
+  }
+  .comment {
+    width: 320px;
+  }
+  .reportBox {
+    position: fixed;
+    top: 150%;
   }
 }
 
 @media screen and (max-width: 414px) and (min-width: 375px) {
+  div.showBlock {
+    .showTitle {
+      font-size: 30px;
+    }
+    .showTitle1 {
+      margin-left: 20px;
+    }
+  }
+
   .shareBenton:first-child,
   .mainBenton0,
   .shareBenton:nth-child(2),
@@ -743,11 +818,29 @@ button.Pre {
   .shareBenton:nth-child(3),
   .mainBenton2,
   .shareBenton {
-    margin: 20px 20px 40px;
+    margin: 20px 20px 25px;
   }
 
-  .shareBenton {
-    width: 220px;
+  .shareBenton:first-child::before {
+    content: " No.1 天下第一菜";
+    font-size: 25px;
+  }
+  .shareBenton:nth-child(2)::before {
+    content: "No.2 新一代食神";
+    font-size: 25px;
+  }
+
+  .shareBenton:nth-child(3)::before {
+    content: "No.3 明日小當家";
+    font-size: 25px;
+  }
+
+  div.shareBenton {
+    width: 240px;
+    margin-left: 30px;
+    #Step2TitlText {
+      margin: 10px 0;
+    }
   }
 
   [id^="bentonimg"] {
@@ -756,4 +849,21 @@ button.Pre {
     margin-top: 55px;
     cursor: pointer;
   }
+
+  .shareBlock {
+    .memTextBlock,
+    .showBentonContentImg {
+      width: 300px;
+    }
+  }
+  .messageBoard {
+    .talksBlock {
+      margin: 0 auto;
+      width: 310px;
+    }
+  }
+}
+
+.comment {
+  width: 310px;
 }

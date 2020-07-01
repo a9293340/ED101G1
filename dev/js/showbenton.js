@@ -1,32 +1,7 @@
 let talkArray = [];
 let bentonArray = [];
-let benton = [
-  {
-    id: "1",
-    name: "炸雞腿",
-    img: "./images/order/chicken.jpg",
-  },
-  {
-    id: "2",
-    name: "滷排骨",
-    img: "./images/order/pork.jpg",
-  },
-  {
-    id: "3",
-    name: "清蒸鱈魚",
-    img: "./images/order/fish.jpg",
-  },
-  {
-    id: "4",
-    name: "清蒸鱈魚",
-    img: "./images/order/fish.jpg",
-  },
-  {
-    id: "5",
-    name: "清蒸鱈魚",
-    img: "./images/order/fish.jpg",
-  },
-];
+let benton = [];
+let lastLikeTime = "";
 
 let showbentonSingle = [
   {
@@ -246,12 +221,13 @@ new Vue({
     showBentonList() {
       $(".box1").css("display", "block");
       $(".showbentonCover").css("display", "block");
+      $("body").css("overflow", "hidden");
     },
   },
 });
 
 //--------------假設從JSON撈出的資料
-new Vue({
+let addBentonVm = new Vue({
   el: "#lightbox", //el:document.getElementById('app');
   data: {
     benton,
@@ -262,6 +238,7 @@ new Vue({
     message: "",
     messageContent: "",
     chooseImgID: "",
+    addBentonId: "", //與後端串要變全域變數(產出postSoId)
   },
   methods: {
     showChooseBenton(item) {
@@ -269,6 +246,7 @@ new Vue({
       $(`#bentonLi${item.id}`).css("border-color", "rgb(231, 70, 21)");
       this.img = item.img; //變成全域變數
       this.chooseImgID = `bentonLi${item.id}`; //變成全域變數，以便上一步記得選擇的benton
+      this.addBentonId = item.id;
     },
     //輸入標題字數限制
     checkTitle() {
@@ -301,6 +279,7 @@ new Vue({
     showCloselightbox() {
       $(".box1").css("display", "none");
       $(".showbentonCover").css("display", "none");
+      $("body").css("overflow", "auto");
 
       this.showBentonImgList = true;
     },
@@ -316,27 +295,30 @@ new Vue({
         return;
       }
 
-      let now = getNowFormat();
-
-      //要先變成物件
-      let step2Package = {
-        title: step2Title,
-        content: step2Content,
-        bentonImg: this.img,
-        liketimes: 0,
-        postDateTime: now,
-      };
-
-      //物件塞進陣列
-      this.bentonArray.push(step2Package);
-      $("#Step2TitlText").empty();
-      $("#Step2ContentText").val("");
+      //連結後端，將標題、內容可存在資料庫
+      $.ajax({
+        type: "POST",
+        url: "./php/addBenton.php", //傳送目的地 (之後統整要修改網址)
+        dataType: "script", //資料格式
+        data: {
+          titleText: this.message,
+          contentText: this.messageContent,
+          addBentonId: this.addBentonId,
+        },
+        success: function (data) {
+          console.log(data);
+        },
+        error: function (jqXHR) {
+          console.log(jqXHR, "error");
+        },
+      });
 
       this.message = "";
       this.messageContent = "";
       this.chooseImgID = "";
       $(".box1").css("display", "none");
       $(".showbentonCover").css("display", "none");
+      $("body").css("overflow", "auto");
       this.showBentonImgList = true;
     },
   },
@@ -344,6 +326,22 @@ new Vue({
     if (this.showBentonImgList === true && this.chooseImgID !== "") {
       $(`#${this.chooseImgID}`).css("border-color", "rgb(231, 70, 21)");
     }
+  },
+
+  mounted() {
+    //取自選便當圖片
+    $.ajax({
+      type: "GET",
+      url: "./php/showbentonImgByMemid.php",
+      dataType: "json",
+
+      success: function (data) {
+        addBentonVm.$data.benton = data;
+      },
+      error: function (jqXHR) {
+        console.log(jqXHR, "error");
+      },
+    });
   },
 });
 
@@ -429,82 +427,176 @@ new Vue({
 //       ].innerText
 //     ) + 1;
 
-$(function () {
-  new Vue({
-    el: "#bentonWall",
-    data: {
-      memData: {},
-      bentonArray,
-      talkArray,
-      currentBenton: {},
-      now: "",
-      talkBlockMessage: "",
+let bentonWallVm = new Vue({
+  el: "#bentonWall",
+  data: {
+    memData: {},
+    bentonArray,
+    talkArray,
+    currentBenton: {},
+    now: "",
+    talkBlockMessage: "",
+    addBentonmessPostId: "", //與後端串要變全域變數(產出messPostId)
+  },
+  methods: {
+    //按讚數
+    addLikeTimes(notes, index) {
+      notes.liketimes = notes.liketimes + 1;
     },
-    methods: {
-      //按讚數
-      addLikeTimes(notes, index) {
-        notes.liketimes = notes.liketimes + 1;
-      },
-      //選取的便當
-      openLightBox(note, index) {
-        this.currentBenton = { ...note, cls: "mainBenton" + index };
-        $("#mainBuyBenton").css("display", "block");
-        $(".showbentonCover").css("display", "block");
+    //選取的便當
+    openLightBox(note, index) {
+      let talkContent = $("#content").val();
+      let num = Number(index);
+      $("#mainBuyBenton").css("display", "block");
+      $(".showbentonCover").css("display", "block");
+      $("body").css("overflow", "hidden");
 
-        $("#buyMore").click(function () {
-          alert("已加入選購，可至購物車查看");
-        });
-        //加入購物車事件
-        document
-          .getElementById("buyMore")
-          .addEventListener("click", showbentonShoppingCart);
-      },
-      //留言、發文時間
-      talk() {
-        let talkContent = $("#content").val();
-        let now = getNowFormat();
-        //要先變成物件
-        let talkPackage = {
+      //加入購物車事件
+      document
+        .getElementById("buyMore")
+        .addEventListener("click", showbentonShoppingCart);
+      //留言要對應的發文編號
+      this.addBentonmessPostId = this.bentonArray[num].postId;
+
+      //showbentonContent---便當卡片發文內容
+      $.ajax({
+        type: "POST", //傳送方式
+        url: "./php/showbentonContent.php", //傳送目的地 (之後統整要修改網址)
+        dataType: "json", //資料格式
+        data: {
+          postId: this.bentonArray[num].postId,
+        },
+        success: function (data) {
+          bentonWallVm.$data.currentBenton = {
+            ...data[0],
+            cls: "mainBenton" + index,
+          };
+        },
+        error: function (jqXHR) {
+          console.log(jqXHR, "error");
+        },
+      });
+
+      //一開始就要顯示的留言區塊
+      $.ajax({
+        type: "POST",
+        url: "./php/showbentonReadTalkBlock.php", //傳送目的地 (之後統整要修改網址)
+        dataType: "json", //資料格式
+        data: {
           talkmessage: talkContent,
-          dateTime: now,
-        };
-
-        //物件塞進陣列
-        this.talkArray.push(talkPackage);
-        this.talkBlockMessage = "";
-      },
-
-      showContentCloselightbox() {
-        $(".showBentonContentbox").css("display", "none");
-        $(".showbentonCover").css("display", "none");
-      },
-
-      showCloselightbox() {
-        $(".box1").css("display", "none");
-        $(".showbentonCover").css("display", "none");
-      },
-      //按讚數
-      change(e) {
-        let num = Number(e.target.dataset.num);
-        if (e.target.dataset.check == "0") {
-          e.target.src = "./images/showbenton/like1.png";
-          this.bentonArray[num].liketimes += 1;
-          e.target.dataset.check = "1";
-        } else if (e.target.dataset.check == "1") {
-          e.target.src = "./images/showbenton/like.png";
-          this.bentonArray[num].liketimes -= 1;
-          e.target.dataset.check = "0";
-        }
-      },
-    },
-    mounted() {
-      // ajax memData
-      //FROM DB
-      $.getJSON("../dev/js/modules/memData.json").then((data) => {
-        this.memData = data;
+          messPostId: this.addBentonmessPostId,
+        },
+        success: function (data) {
+          bentonWallVm.$data.talkArray = data;
+        },
+        error: function (jqXHR) {
+          console.log(jqXHR, "error");
+        },
       });
     },
-  });
+
+    //留言、發文時間
+    talk() {
+      let talkContent = $("#content").val();
+      if (talkContent == "") {
+        alert("請輸入留言內容!");
+        return;
+      }
+      //連結後端，將留言者儲存後端並顯示
+      $.ajax({
+        type: "POST",
+        url: "./php/showbentonTalkBlock.php", //傳送目的地 (之後統整要修改網址)
+        dataType: "json", //資料格式
+        data: {
+          talkmessage: talkContent,
+          messPostId: this.addBentonmessPostId,
+        },
+        success: function (data) {
+          bentonWallVm.$data.talkArray = data;
+        },
+        error: function (jqXHR) {
+          console.log(jqXHR, "error");
+        },
+      });
+      //留言完清空
+      this.talkBlockMessage = "";
+    },
+
+    showContentCloselightbox() {
+      $(".showBentonContentbox").css("display", "none");
+      $(".showbentonCover").css("display", "none");
+      $("body").css("overflow", "auto");
+      this.talkArray = [];
+    },
+
+    showCloselightbox() {
+      $(".box1").css("display", "none");
+      $(".showbentonCover").css("display", "none");
+      $("body").css("overflow", "auto");
+    },
+    //按讚數
+    change(e) {
+      let num = Number(e.target.dataset.num);
+      if (e.target.dataset.check == "0") {
+        if (lastLikeTime !== "" && new Date() <= nextDay(lastLikeTime)) {
+          alert("已經按讚過囉,需24小時後才可以再點讚!");
+          return;
+        }
+
+        //加讚數
+        $.ajax({
+          type: "POST", //傳送方式
+          url: "./php/showbentonLiketimes.php", //傳送目的地 (之後統整要修改網址)
+          dataType: "json", //資料 格式
+          data: {
+            plus: "+",
+            postId: this.bentonArray[num].postId,
+          },
+          success: function (data) {
+            bentonWallVm.$data.bentonArray[num].liketimes = data[0].postLike;
+            lastLikeTime = data[0].memLastVoteTime;
+            e.target.src = "./images/showbenton/like1.png";
+            e.target.dataset.check = "1";
+            alert("感謝您投下神聖的一票!(每人一天可投一票)");
+          },
+          error: function (jqXHR) {
+            console.log(jqXHR, "error");
+          },
+        });
+      }
+    },
+    //檢舉
+    reportBox() {
+      $(".reportBox").css("display", "block");
+      $("body").css("overflow", "hidden");
+    },
+    reportBoxClose() {
+      $(".reportBox").css("display", "none");
+      $("body").css("overflow", "auto");
+    },
+  },
+  mounted() {
+    //一開始就要讀取的資料
+    //bentonWall---分享便當圖、標題、讚數
+    $.ajax({
+      type: "GET", //傳送方式
+      url: "./php/showbenton.php", //傳送目的地 (之後統整要修改網址)
+      dataType: "json", //資料格式
+      // data: {
+      //   傳送資料，如有變數的時候才用
+      //   content: $("#content").val(),
+      // },
+      success: function (data) {
+        bentonWallVm.$data.bentonArray = data[0];
+        if (data[1] != "") {
+          lastLikeTime = data[1][0].memLastVoteTime;
+        }
+      },
+      error: function (jqXHR) {
+        console.log(jqXHR, "error");
+      },
+    });
+  },
 });
 
 //加入購物車
@@ -537,4 +629,9 @@ function getNowFormat() {
   let seconds = now.getSeconds();
 
   return `${year}-${month}-${date} ${hour}:${minutes}:${seconds}`;
+}
+//判斷下讚天數
+function nextDay(lastDate) {
+  var last = new Date(lastDate);
+  return new Date(last.setDate(last.getDate() + 1));
 }
