@@ -33,43 +33,69 @@
                 <h2>您的BMI</h2>
                 <p class="bmiContent">為了讓測驗更加準確，BMI值也是重要的參考值</p><br>
                 <label>您的性別</label>
-                <input type="radio" name="gender" id="genderM" value="0">男 
+                <input type="radio" name="gender" id="genderM" value="0">男
                 <input type="radio" name="gender" id="genderW" value="1">女<br>
                 <label>請輸入您的身高</label>
                 <input type="text" name=" height" id="height"><br>
                 <label>請輸入您的體重</label>
                 <input type="text" name=" weight" id="weight"><br>
                 <p class="resultTitle">BMI
-
                 <p id="result">
                 <div class="btn"><button type="button" class="btnClose" id="send">送出</button></div>
                 </p>
-
-
             </div>
         </div>
-        <!-- 以下為測驗結果 -->
     </div>
+    <!-- 以下為測驗結果 -->
     <div class="wrapper2" id="examResult">
-        <div class="content2">
-            <h1 class="title1">健康自己看</h1>
-            <div class="healBentoBox"><img src="./images/healthImages/bentoBox.png">
+        <div class="healthLeftBox">
+            <h1>健康自己看</h1>
+            <div class="healBento">
+                <img class="imgBox" src="./images/healthImages/bentoBox.png" alt="">
             </div>
-            <p class="title3"></p>
-            <div class="healManBox">
-                <img class="healMan" src="./images/healthImages/healthfat.png">
+            <div class="healCartBtn"><a href="#" id="healthCart">加入購物車</a>
             </div>
-            <div class="healthCartBox" id="healthCart">加入購物車</div>
-
-            <ul class="mainFood" id="mainFood">
-                <li><img class="healPlate" src="./images/healthImages/plate.png"></li>
-                <li><img class="healPlate" src="./images/healthImages/plate.png"></li>
-            </ul>
-            <ul class="cooks" id="cooks">
-                <li><img class="healPlate" src="./images/healthImages/plate.png"></li>
-                <li><img class="healPlate" src="./images/healthImages/plate.png"></li>
-                <li><img class="healPlate" src="./images/healthImages/plate.png"></li>
-            </ul>
+        </div>
+        <div class="healthRightBox">
+            <p class="title3">你屬於</p>
+            <h1>胖嘟嘟體質</h1>
+            <p class="title3_content">請注意您的飲食狀況唷！詳細的健康分析內容請點擊<a id="healthBody" href="#">健康檔案</a>觀看，這是我們推薦給您的餐點</p>
+            <div class="healPieChart">
+                <img src="./images/healthImages/pieChart.png">
+            </div>
+        </div>
+        <div class="healthBottomBox">
+            <div class="bottomInner">
+                <div id="healMainFood">
+                    <div class="mainFood">
+                        <img class="meat" id="healFood" src="./images/healthImages/rice.png">
+                        <img class="plate" src="./images/healthImages/plate.png">
+                        <p class="healFoodName">白 飯</p>
+                    </div>
+                    <div class="mainFood">
+                        <img class="meat" id="healFood" src="./images/healthImages/fish.png">
+                        <img class="plate" src="./images/healthImages/plate.png">
+                        <p class="healFoodName">清蒸鱈魚</p>
+                    </div>
+                </div>
+                <div id="healCooks">
+                    <div class="cooks">
+                        <img class="veg" id="healFood" src="./images/healthImages/curry.png">
+                        <img class="plate" src="./images/healthImages/plate.png">
+                        <p class="healFoodName">馬鈴薯咖哩</p>
+                    </div>
+                    <div class="cooks">
+                        <img class="veg" id="healFood" src="./images/healthImages/bamboo.png">
+                        <img class="plate" src="./images/healthImages/plate.png">
+                        <p class="healFoodName">竹筍炒肉絲</p>
+                    </div>
+                    <div class="cooks">
+                        <img class="veg" id="healFood" src="./images/healthImages/kingMushroom.png">
+                        <img class="plate" src="./images/healthImages/plate.png">
+                        <p class="healFoodName">三杯杏鮑菇</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
