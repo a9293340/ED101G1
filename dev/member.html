@@ -20,6 +20,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <!-- typeitjs -->
     <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
+    <!-- googleAPI -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD02IgpgazAmzATKes-_caAbP71BqItLQc"></script>
 </head>
 <body>
     <!-- header -->
@@ -542,10 +544,15 @@
     <!-- footer -->
     @@include('./layout/footer.html',{})
 
+    <!-- google API -->
+    <script>
+        let service = new google.maps.DistanceMatrixService();
+    </script>
     <!-- Login、Signup、ShoppingCart -->
     <script src="../dev/js/layout/shoppingcart.js"></script>
     <!-- <script src="../dev//js/layout/loginSignup.js"></script> -->
     <!-- Member -->
     <script type="module" src="../dev/js/member.js"></script>
+
 </body>
 </html>
