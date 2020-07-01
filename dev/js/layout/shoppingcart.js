@@ -279,7 +279,11 @@ function orderBuy(){
 
     totalOrder=[orderSin,orderSet,orderOth,memId,orderAdr,orderListTextPost,orderCla,OrTotalPrice,orderTime];
     // console.log(totalOrder);
-    console.log(totalOrder);
+    // console.log(totalOrder);
+    console.log(OrTotalPrice);
+    if(OrTotalPrice==0 || memId.length==0 || orderCla.length==0){
+        alert('wrong');
+    }else{
     var totalOrderPost = new XMLHttpRequest();
     totalOrderPost.open('POST','../dest/php/shopping.php',true);
     totalOrderPost.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -288,7 +292,8 @@ function orderBuy(){
         // var posttest = JSON.parse(totalOrderPost.responseText);
         var posttest = totalOrderPost.responseText;
         console.log(posttest);
-    }
+        }
+    }    
     
 }
 
