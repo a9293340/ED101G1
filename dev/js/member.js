@@ -76,7 +76,8 @@ function gogoPower(){
                 let orderId = e.target.dataset.order;
                 // 現在的訂單4
                 this.nowDataSetNumber = Number(orderId);
-                console.log(orderId);
+                console.log(this.nowDataSetNumber);
+                console.log(this.memSetOrder)
                 //生成QRCode(要換成php網址)
                 $('#memContentOrderListQRCode').html('');
                 $('#memContentOrderListQRCode').qrcode({
@@ -166,10 +167,15 @@ function gogoPower(){
                         if(this.memSingleOrder[i].soBelongOrder == this.nowDataSetNumber){
                             single.push({
                                 "meat":this.memSingleOrder[i].mainfood,
+                                "meatId":this.memSingleOrder[i].mainfoodId,
                                 "rice":this.memSingleOrder[i].soRice,
+                                "riceId":this.memSingleOrder[i].soRiceId,
                                 "single1":this.memSingleOrder[i].sideDishes1,
+                                "singleId1":this.memSingleOrder[i].sideDishes1Id,
                                 "single2":this.memSingleOrder[i].sideDishes2,
+                                "singleId2":this.memSingleOrder[i].sideDishes2Id,
                                 "single3":this.memSingleOrder[i].sideDishes3,
+                                "singleId3":this.memSingleOrder[i].sideDishes3Id,
                                 "soPrice":this.memSingleOrder[i].soPrice,
                                 "soImg":this.memSingleOrder[i].soImg,
                                 "sNum":count
@@ -184,10 +190,15 @@ function gogoPower(){
                         if(this.memSingleOrder[i].soBelongOrder == this.nowDataSetNumber){
                             single.push({
                                 "meat":this.memSingleOrder[i].mainfood,
+                                "meatId":this.memSingleOrder[i].mainfoodId,
                                 "rice":this.memSingleOrder[i].soRice,
+                                "riceId":this.memSingleOrder[i].soRiceId,
                                 "single1":this.memSingleOrder[i].sideDishes1,
+                                "singleId1":this.memSingleOrder[i].sideDishes1Id,
                                 "single2":this.memSingleOrder[i].sideDishes2,
+                                "singleId2":this.memSingleOrder[i].sideDishes2Id,
                                 "single3":this.memSingleOrder[i].sideDishes3,
+                                "singleId3":this.memSingleOrder[i].sideDishes3Id,
                                 "soPrice":this.memSingleOrder[i].soPrice,
                                 "soImg":this.memSingleOrder[i].soImg,
                                 "sNum":count
@@ -507,6 +518,7 @@ function gogoPower(){
                         memVm.$data.memData = JSON.parse(response)[0][0];
                         memVm.$data.memOrder = JSON.parse(response)[1];
                         memVm.$data.memHealth = JSON.parse(response)[2];
+                        console.log(JSON.parse(response));
                         // this.memData = JSON.parse(response)[0][0];
                         // this.memOrder = JSON.parse(response)[1];
                         // this.memHealth = JSON.parse(response)[2];

@@ -153,7 +153,7 @@ function doFirst() {
         if (count == 7) {
             document.getElementById('exam').style.display = "none";
             document.getElementById('examResult').style.display = "block";
-            // goToFinalHealthPage();
+            goToFinalHealthPage();
         }
 
     }
@@ -163,58 +163,58 @@ function doFirst() {
     let healthTitle = document.getElementsByClassName('title3')[0];
     let memSingleProduct = [];
     let healthFinalAnswer = {};
-    // function goToFinalHealthPage() {
-    //     console.log('BMI:', BMIbox, "avgScore:", avgScoreBox);
-    //     if (BMIbox > 24) {
-    //         healthTitle.innerHTML = `
-    //         您屬於<h1>胖嘟嘟體質</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
-    //         href="#">健康檔案</a>觀看，以下是我們推薦的餐點
-    //         `
-    //         console.log('過胖');
-    //         healthChooseMenu('fat');
-    //         return;
-    //     } else if (BMIbox < 18) {
-    //         healthTitle.innerHTML = `
-    //         您屬於<h1>三比八體質</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
-    //         href="#">健康檔案</a>觀看，以下是我們推薦的餐點
-    //         `
-    //         console.log('過瘦')
-    //         healthChooseMenu('thin');
-    //         return;
-    //     } else if (avgScoreBox[2] >= 51) {
-    //         healthTitle.innerHTML = `
-    //         您屬於<h1>燥呼呼體質</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
-    //         href="#">健康檔案</a>觀看，以下是我們推薦的餐點
-    //         `
-    //         console.log('燥熱')
-    //         healthChooseMenu('hot');
-    //         return;
-    //     } else if (avgScoreBox[2] < 50) {
-    //         healthTitle.innerHTML = `
-    //         您屬於<h1>冷吱吱體質</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
-    //         href="#">健康檔案</a>觀看，以下是我們推薦的餐點
-    //         `
-    //         console.log('虛寒')
-    //         healthChooseMenu('cold');
-    //         return;
-    //     } else if ((avgScoreBox[0] + avgScoreBox[1]) / 2 < 50) {
-    //         healthTitle.innerHTML = `
-    //         您屬於<h1>煩惱憂憂型</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
-    //         href="#">健康檔案</a>觀看，以下是我們推薦的餐點
-    //         `
-    //         console.log('身體欠佳')
-    //         healthChooseMenu('bad');
-    //         return;
-    //     } else {
-    //         healthTitle.innerHTML = `
-    //         您屬於<h1>幸褔樂樂型</h1> 請繼續保持下去唷!詳細的健康分析請點擊<a id="healthBody"
-    //         href="#">健康檔案</a>觀看，以下是我們推薦的餐點
-    //         `
-    //         console.log('快樂')
-    //         healthChooseMenu('good');
-    //         return;
-    //     }
-    // }
+    function goToFinalHealthPage() {
+        console.log('BMI:', BMIbox, "avgScore:", avgScoreBox);
+        if (BMIbox > 24) {
+            healthTitle.innerHTML = `
+            您屬於<h1>胖嘟嘟體質</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
+            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
+            `
+            console.log('過胖');
+            // healthChooseMenu('fat');
+            return;
+        } else if (BMIbox < 18) {
+            healthTitle.innerHTML = `
+            您屬於<h1>三比八體質</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
+            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
+            `
+            console.log('過瘦')
+            // healthChooseMenu('thin');
+            return;
+        } else if (avgScoreBox[2] >= 51) {
+            healthTitle.innerHTML = `
+            您屬於<h1>燥呼呼體質</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
+            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
+            `
+            console.log('燥熱')
+            // healthChooseMenu('hot');
+            return;
+        } else if (avgScoreBox[2] < 50) {
+            healthTitle.innerHTML = `
+            您屬於<h1>冷吱吱體質</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
+            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
+            `
+            console.log('虛寒')
+            // healthChooseMenu('cold');
+            return;
+        } else if ((avgScoreBox[0] + avgScoreBox[1]) / 2 < 50) {
+            healthTitle.innerHTML = `
+            您屬於<h1>煩惱憂憂型</h1>請注意您的飲食狀況，詳細的健康分析請點擊<a id="healthBody"
+            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
+            `
+            console.log('身體欠佳')
+            // healthChooseMenu('bad');
+            return;
+        } else {
+            healthTitle.innerHTML = `
+            您屬於<h1>幸褔樂樂型</h1> 請繼續保持下去唷!詳細的健康分析請點擊<a id="healthBody"
+            href="#">健康檔案</a>觀看，以下是我們推薦的餐點
+            `
+            console.log('快樂')
+            // healthChooseMenu('good');
+            return;
+        }
+    }
 
     // function healthChooseMenu(healthStyle) {
     //     // healthStyle : fat thin sad good hot cold
