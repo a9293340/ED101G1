@@ -14,7 +14,9 @@ $OrTotalPrice = (int)$totalOrder[7];
 $orderTime = $totalOrder[8];
 $orderStatus = (int)0;
 $mealTime = $totalOrder[8];
-echo json_encode((int)$OrTotalPrice);
+$MemScore = $totalOrder[9];
+
+echo json_encode($MemScore);
 
 try{
     require_once("connect.php");
@@ -91,7 +93,11 @@ for($z=0;$z<count($orderOth); $z++){
 
 }
 }
-    // echo  json_encode($lastId);
+
+    $memScoreSql = "UPDATE `member` SET `memScore` = '$MemScore' WHERE `member`.`memId` = $memId";
+    $Score=$pdo->prepare($memScoreSql);
+    $Score->execute();
+
 }catch(PDOException $e){
     echo $e->getMessage();
   }

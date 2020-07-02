@@ -16,6 +16,7 @@ var OrTotalPrice = 0;
 var orderClass = -1;
 var MemScore= 0;
 var finalOrTotalPrice = 0;
+var OrYourScore = 0;
 
 var singleorderlist = new Vue({   //購物車 vue
     el: '#list',
@@ -187,13 +188,13 @@ function OrderTotalPrice(){
 
     OrTotalPrice = 0;
     console.log(SetdoPrice);
-   OrTotalPrice = parseInt(SinglePrice)+parseInt(SetdoPrice)+parseInt(OtherPrice);
-   var OrYourScore = parseInt(OrTotalPrice/100);
+    OrTotalPrice = parseInt(SinglePrice)+parseInt(SetdoPrice)+parseInt(OtherPrice);
+    OrYourScore = parseInt(OrTotalPrice/100);
     document.getElementById('orderYourSorce').innerText=`獲得積分: ${OrYourScore}點`;
-   document.getElementById('OrTotal').innerText=`總價: ${OrTotalPrice}元`;
-   finalOrTotalPrice = OrTotalPrice;
-   document.getElementById('orderUseScore').value =""
-   orederScoreAndPrice();
+    document.getElementById('OrTotal').innerText=`總價: ${OrTotalPrice}元`;
+    finalOrTotalPrice = OrTotalPrice;
+    document.getElementById('orderUseScore').value =""
+    orederScoreAndPrice();
 
 }
 
@@ -353,12 +354,12 @@ function orderBuy(){
 
     
 
-    totalOrder=[orderSin,orderSet,orderOth,memId,orderAdr,orderListTextPost,orderCla,finalOrTotalPrice,orderTime];
+    totalOrder=[orderSin,orderSet,orderOth,memId,orderAdr,orderListTextPost,orderCla,finalOrTotalPrice,orderTime,parseInt(MemScore)+parseInt(OrYourScore)];
     // console.log(totalOrder);
     // console.log(totalOrder);
-    console.log(finalOrTotalPrice);
+    console.log(MemScore);
     if(finalOrTotalPrice==0 || memLogin=='bad' || orderCla==-1){
-        alert('wrong');
+        alert('請登入 選擇品項 選擇外送外帶');
     }else{
     var totalOrderPost = new XMLHttpRequest();
     totalOrderPost.open('POST','../dest/php/shopping.php',true);
