@@ -406,3 +406,24 @@ function orderBuy(){
     function errorCallback(e){
         document.getElementById('position').innerHTML = `錯誤碼: ${e.code}<br>錯誤訊息: ${e.message}`
     }
+
+
+    // if(sessionStorage.getItem('memId')=='good'){
+    //     orderGetOrderScore();
+
+
+    // }
+
+    // function orderGetOrderScore(){
+    //     var MemmId = sessionStorage.getItem('mEmmEmId');
+    //     var memScore = new XMLHttpRequest();
+    //     memScore.open('POST','../dest/php/orderMemScore.php',true);
+    //     memScore.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //     memScore.send("MemmId=" + MemmId);
+    //     memScore.onload = function(){
+    //         var ScoreTest = JSON.parse(memScore.responseText);
+    //         console.log(ScoreTest.memScore);
+    //         orderMemScore = ScoreTest.memScore;
+    //         localStorage.setItem('orderMemScore',orderMemScore);
+    //         }
+    //     }
