@@ -180,8 +180,11 @@ lightbox();
 leaderBoard();
 
 
-
-
+//JSON content
+function messageContent(){
+  var contentRequest = new XMLHttpRequest();
+  contentRequest.open('GET','../dest/php/home_lBmessage.php')
+}
 
 //fake data
 // let leaderBoardData = [
