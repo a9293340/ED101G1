@@ -11,6 +11,8 @@ let count = 0;
 let avgScoreBox = [];
 let scoreBox = [];
 let Questions = [];
+let weight = 0;
+let height = 0;
 let Q = [[], [], []];
 function doFirst() {
     $.ajax({
@@ -32,8 +34,8 @@ function doFirst() {
                 }
                 $('#weight').val(member[0].memWeight);
                 $('#height').val(member[0].memHeight);
-                let height = parseInt($('#height').val());
-                let weight = parseInt($('#weight').val());
+                height = parseInt($('#height').val());
+                weight = parseInt($('#weight').val());
                 let BMI = weight / ((height / 100) * (height / 100));
                 BMI = BMI.toFixed(2);
                 $("#result").text(BMI);
@@ -44,8 +46,8 @@ function doFirst() {
             };
 
             $('#weight').keyup(function () {
-                let height = parseInt($('#height').val());
-                let weight = parseInt($('#weight').val());
+                // height = parseInt($('#height').val());
+                // weight = parseInt($('#weight').val());
                 // console.log(height);
                 let BMI = weight / ((height / 100) * (height / 100));
                 BMI = BMI.toFixed(2);
@@ -56,8 +58,8 @@ function doFirst() {
             });
         
             $('#height').keyup(function () {
-                let height = parseInt($('#height').val());
-                let weight = parseInt($('#weight').val());
+                // height = parseInt($('#height').val());
+                // weight = parseInt($('#weight').val());
                 // console.log(height);
                 let BMI = weight / ((height / 100) * (height / 100));
                 BMI = BMI.toFixed(2);
@@ -68,6 +70,8 @@ function doFirst() {
             });
             $("button.btnClose").on("click", function () {
                 let method = $("input[name=gender]:checked").val();
+                // let height = parseInt($('#height').val());
+                // let weight = parseInt($('#weight').val());
                 let close1 = $('#result').text();
                 if (close1 == "") {
                     alert("請輸入完整的身高,體重");
@@ -81,6 +85,17 @@ function doFirst() {
                         $('#homeContainderBgc').show(550);
                         $('#homeContainer').show(550);
                     }else{
+                        let xhr = new XMLHttpRequest();
+                        xhr.onload=function (){
+                            if( xhr.status == 200 ){
+                                // alert('恭喜～')
+                            }else{
+                                alert( xhr.status );
+                            }
+                        }
+                        var url = `./php/healthAjaxWAndH.php?memWeight=${weight}&memHeight=${height}`;
+                        xhr.open("Get", url, true);
+                        xhr.send( null );
                         $("div.overlay").css("display", "none");
                     }
                 }
@@ -151,7 +166,7 @@ function doFirst() {
         }
 
         if (count == 7) {
-            document.getElementById('exam').classList.add('wrapper2None');
+            document.getElementById('wrapper').classList.add('wrapper2None');
             document.getElementById('examResult').classList.remove('wrapper2None');
             goToFinalHealthPage();
         }
@@ -166,33 +181,72 @@ function doFirst() {
             healthTitle.innerText = `胖嘟嘟體質`;
             console.log('過胖');
             healthChooseMenu('fat');
+            pushDataToHealthAnalys(2);
             return;
         } else if (BMIbox < 18) {
             healthTitle.innerText = `三比八體質`;
             console.log('過瘦')
             healthChooseMenu('thin');
+            pushDataToHealthAnalys(3);
             return;
         } else if (avgScoreBox[2] >= 51) {
             healthTitle.innerText = `燥呼呼體質`;
             console.log('燥熱')
             healthChooseMenu('hot');
+            pushDataToHealthAnalys(1);
             return;
         } else if (avgScoreBox[2] < 50) {
             healthTitle.innerText = `冷吱吱體質`;
             console.log('虛寒')
             healthChooseMenu('cold');
+            pushDataToHealthAnalys(0);
             return;
         } else if ((avgScoreBox[0] + avgScoreBox[1]) / 2 < 50) {
             healthTitle.innerText = `煩惱憂憂型`;
             console.log('身體欠佳')
             healthChooseMenu('bad');
+            pushDataToHealthAnalys(4);
             return;
         } else {
             healthTitle.innerText = `幸褔樂樂型`;
             console.log('快樂')
             healthChooseMenu('good');
+            pushDataToHealthAnalys(5);
             return;
         }
+    }
+
+    function pushDataToHealthAnalys(healthClass) {
+        console.log('a',healthClass,height,weight);
+        let healthColdHot = avgScoreBox[2];
+        let healHealth = avgScoreBox[1];
+        let healStomach = avgScoreBox[0];
+        let now = new Date();
+        let healLastTime = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+        let total = JSON.stringify({
+            healthColdHot,
+            healHealth,
+            healStomach,
+            healthClass,
+            healNewWeight:weight,
+            healNewheight:height,
+            healLastTime
+        })
+        let xhr = new XMLHttpRequest();
+        xhr.onload=function (){
+            if( xhr.status == 200 ){
+                if(xhr.responseText == 'good'){
+                    alert('已經將您的測驗結果新增至健康紀錄！')
+                }
+            }else{
+                alert( xhr.status );
+            }
+        }
+        let url = `./php/healthAjaxAnalyses.php`;
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send("total="+total);
+
     }
 
     function healthChooseMenu(healthStyle) {

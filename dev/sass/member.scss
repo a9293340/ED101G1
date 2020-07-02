@@ -356,6 +356,17 @@ $bgcgrey: #c4c0c0;
             color: $black;
             font-size: 1.4rem;
         }
+        .memContentOrderPagesBox{
+            @include flexStyle(center,center);
+            padding: 10px;
+            // border: 1px solid red;
+            width: 80%;
+            // height: 50px;
+            .memContentOrderPages{
+                @include btn(30px,20px);
+                margin: 0 10px;
+            }
+        }
 
     }
     #memContentHealth{

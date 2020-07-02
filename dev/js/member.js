@@ -18,6 +18,7 @@ function gogoPower(){
         data: {
             memData:{},
             memOrder:[],
+            memOrderPageArr:[],
             memHealth:[],
             nowDataSetNumber:0,
             nowDataHealthNumber:0,
@@ -31,7 +32,9 @@ function gogoPower(){
             memSad:0,
             memHappy:0,
             memFat:0,
-            memThin:0
+            memThin:0,
+            memOrderPages:0,
+            memPage:2
         },
         methods: {
             changContentBtn(e){
@@ -403,7 +406,19 @@ function gogoPower(){
                     // ajax
                 }
                 reader.readAsDataURL(file);
-
+            },
+            //分頁 
+            memGoNextPage(e){
+                let index = Number(e.target.dataset.index);
+                this.memOrderPageArr = [];
+                // console.log('aaa',index);
+                for(let i = 0; i < this.memOrder.length; i++){
+                    if( i >= (index*this.memPage) && i <((index+1)*this.memPage)){
+                        // console.log('aaa',i);
+                        this.memOrderPageArr.push(this.memOrder[i]);
+                    }
+                }
+                console.log(this.memOrderPageArr);
             }
             
         },
@@ -517,14 +532,21 @@ function gogoPower(){
                     success: function (response) {
                         memVm.$data.memData = JSON.parse(response)[0][0];
                         memVm.$data.memOrder = JSON.parse(response)[1];
+                        for(let i = 0; i < memVm.$data.memOrder.length; i++){
+                            if(i <(memVm.$data.memPage)){
+                                // console.log('aaa',i);
+                                memVm.$data.memOrderPageArr.push(memVm.$data.memOrder[i]);
+                            }
+                        }
                         memVm.$data.memHealth = JSON.parse(response)[2];
+                        memVm.$data.memOrderPages = Math.ceil(memVm.$data.memOrder.length / memVm.$data.memPage);
                         console.log(JSON.parse(response));
                         // this.memData = JSON.parse(response)[0][0];
                         // this.memOrder = JSON.parse(response)[1];
                         // this.memHealth = JSON.parse(response)[2];
                         for(let i = 0; i<memVm.$data.memHealth.length;i++){
                             let objColdHot = {x:new Date(memVm.$data.memHealth[i].healLastTime),y:memVm.$data.memHealth[i].healColdHot};
-                            let objhealth = {x:new Date(memVm.$data.memHealth[i].healLastTime),y:memVm.$data.memHealth[i].healhealth};
+                            let objhealth = {x:new Date(memVm.$data.memHealth[i].healLastTime),y:memVm.$data.memHealth[i].healHealth};
                             let objStomach = {x:new Date(memVm.$data.memHealth[i].healLastTime),y:memVm.$data.memHealth[i].healStomach};
                             memHealthColdHot.push(objColdHot);
                             memHealthHealth.push(objhealth);
@@ -532,6 +554,7 @@ function gogoPower(){
                         }
                         // 生成折線圖
                         if(memVm.$data.memHealth.length != 0){
+                            console.log('b',memHealthHealth);
                             setTimeout(() => {
                                 document.getElementById("myChart").innerHTML = '';
                                 charLine(memHealthColdHot,memHealthHealth,memHealthStomach);
@@ -738,7 +761,7 @@ function gogoPower(){
         var xhr = new XMLHttpRequest();
         xhr.onload=function (){
             if( xhr.status == 200 ){
-                alert('恭喜～')
+                alert('遊戲結束')
             }else{
                 alert( xhr.status );
             }
