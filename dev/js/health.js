@@ -21,15 +21,15 @@ function doFirst() {
         success: function (response) {
             // console.log(response);
             responses = JSON.parse(response);
-            if(responses.length == 3){
+            if (responses.length == 3) {
                 member = responses[0];
                 exams = responses[1];
                 singleProducts = responses[2];
-                console.log(member,exams,singleProducts);
+                console.log(member, exams, singleProducts);
                 // console.log(member.memWeight);
-                if(member[0].memGender == 0){
+                if (member[0].memGender == 0) {
                     $('#genderM').attr("checked", true);
-                }else{
+                } else {
                     $('#genderW').attr("checked", true);
                 }
                 $('#weight').val(member[0].memWeight);
@@ -39,7 +39,7 @@ function doFirst() {
                 let BMI = weight / ((height / 100) * (height / 100));
                 BMI = BMI.toFixed(2);
                 $("#result").text(BMI);
-            }else{
+            } else {
                 exams = responses[0];
                 singleProducts = responses[1];
                 // console.log(exams,singleProducts);
@@ -56,7 +56,7 @@ function doFirst() {
                     $("#result").text(BMI);
                 }
             });
-        
+
             $('#height').keyup(function () {
                 // height = parseInt($('#height').val());
                 // weight = parseInt($('#weight').val());
@@ -81,26 +81,27 @@ function doFirst() {
                 } else {
                     BMIbox = Number(close1);
                     console.log(BMIbox);
-                    if(sessionStorage["memId"] != 'good'){
+                    if (sessionStorage["memId"] != 'good') {
                         $('#homeContainderBgc').show(550);
                         $('#homeContainer').show(550);
-                    }else{
+                    } else {
                         let xhr = new XMLHttpRequest();
-                        xhr.onload=function (){
-                            if( xhr.status == 200 ){
+                        xhr.onload = function () {
+                            if (xhr.status == 200) {
                                 // alert('恭喜～')
-                            }else{
-                                alert( xhr.status );
+                            } else {
+                                alert(xhr.status);
                             }
                         }
                         var url = `./php/healthAjaxWAndH.php?memWeight=${weight}&memHeight=${height}`;
                         xhr.open("Get", url, true);
-                        xhr.send( null );
+                        xhr.send(null);
                         $("div.overlay").css("display", "none");
                     }
                 }
             });
-            
+
+            //隨機選取題目
             for (let i = 0; i < 3; i++) {
                 for (let j = 0; j < 2; j++) {
                     let aRandom = Math.floor(Math.random() * 4);
@@ -112,26 +113,40 @@ function doFirst() {
                 }
             }
             console.log(Q);
-        
-        
+
+
             // for (let i = 0; i < 3; i++) {
             //     for (let j = 0; j < 2; j++) {
             //         Q_num = Q[i][j];
             //         // console.log(Questions[i][Q_num].q);
             //         console.log(Questions[i][Q_num].examTitle)
             //     }
-        
+
             //     console.log("-------------");
             // }
             healthFindQuestion(exams);
-        
-        
+
+
         }
     });
 
     //--------------------------
     function healthFindQuestion(exams) {
-        Questions = [[exams[0],exams[1],exams[2],exams[3]],[exams[4],exams[5],exams[6],exams[7]],[exams[8],exams[9],exams[10],exams[1]]];
+        // 
+        // let box1 = [];
+        // let box2 = [];
+        // let box3 = [];
+        // for(let i = 0; i < exams.length;i++){
+        //     if(exams[i].examClass == 0){
+        //         box1.push(exams[i])
+        //     }else if(exams[i].examClass ==1){
+        //         box2.push(exams[i])
+        //     }else{
+        //         box3.push(exams[i])
+        //     }
+        // }
+        // let Questions = [box1,box2,box3];
+        Questions = [[exams[0], exams[1], exams[2], exams[3]], [exams[4], exams[5], exams[6], exams[7]], [exams[8], exams[9], exams[10], exams[1]]];
         if (count < 6) {
             document.getElementById("questionPanel").innerText = '';
             document.getElementById("questionOptions").innerHTML = '';
@@ -217,35 +232,35 @@ function doFirst() {
     }
 
     function pushDataToHealthAnalys(healthClass) {
-        console.log('a',healthClass,height,weight);
+        // console.log('a', healthClass, height, weight);
         let healthColdHot = avgScoreBox[2];
         let healHealth = avgScoreBox[1];
         let healStomach = avgScoreBox[0];
         let now = new Date();
-        let healLastTime = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+        let healLastTime = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
         let total = JSON.stringify({
             healthColdHot,
             healHealth,
             healStomach,
             healthClass,
-            healNewWeight:weight,
-            healNewheight:height,
+            healNewWeight: weight,
+            healNewheight: height,
             healLastTime
         })
         let xhr = new XMLHttpRequest();
-        xhr.onload=function (){
-            if( xhr.status == 200 ){
-                if(xhr.responseText == 'good'){
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                if (xhr.responseText == 'good') {
                     alert('已經將您的測驗結果新增至健康紀錄！')
                 }
-            }else{
-                alert( xhr.status );
+            } else {
+                alert(xhr.status);
             }
         }
         let url = `./php/healthAjaxAnalyses.php`;
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send("total="+total);
+        xhr.send("total=" + total);
 
     }
 
@@ -294,7 +309,7 @@ function doFirst() {
         let riceBox = []
         let mainBox = []
         let sideDashBox = []
-        console.log("A",memSingleProduct)
+        console.log("A", memSingleProduct)
         for (let i = 0; i < memSingleProduct.length; i++) {
             if (memSingleProduct[i].spClass == 0) {
                 riceBox.push(memSingleProduct[i])
