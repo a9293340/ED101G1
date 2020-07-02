@@ -111,9 +111,9 @@
                             </p>
                             <p>健康狀況：
                                 <!-- 健康狀況判斷 -->
-                                <span v-if='(health.healhealth + health.healStomach)/2 >= 40 && (health.healhealth + health.healStomach)/2 <= 60'>正常</span>
-                                <span v-if='(health.healhealth + health.healStomach)/2 < 40' style="color: brown;">略差</span>
-                                <span v-if='(health.healhealth + health.healStomach)/2 > 60' style="color: green;">超棒</span>
+                                <span v-if='(Math.round(health.healHealth) + Math.round(health.healStomach))/2 >= 40 && (Math.round(health.healHealth) + Math.round(health.healStomach))/2 <= 60'>正常</span>
+                                <span v-if='(Math.round(health.healHealth) + Math.round(health.healStomach))/2 < 40' style="color: brown;">略差</span>
+                                <span v-if='(Math.round(health.healHealth) + Math.round(health.healStomach))/2 > 60' style="color: green;">超棒</span>
                             </p>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
             <img src="./images/member/memFileUse.png" alt="" class="memGoGoTestQuickly">
         </div>
         <div class="memContent memContentNone" id="memContentOrder">
-            <div class="memOrderBox" v-for="item in memOrder" v-if='memOrder.length >= 1'>
+            <div class="memOrderBox" v-for="item in memOrderPageArr" v-if='memOrder.length >= 1'>
                 <div class="memOrderInfo">
                     <p class="memOrderNum">訂單編號：{{item.orderId}}</p>
                     <div class="memOrderSta">
@@ -182,6 +182,14 @@
                     <p>訂單金額：<span>${{item.orderTotalPrice}}</span></p>
                     <div class="memOrderGoToListBtn" :data-order='item.orderId' @click='showOrderList'>查看訂單</div>
                 </div>
+            </div>
+            <!-- 分頁 -->
+            <div class="memContentOrderPagesBox">
+                <div class="memContentOrderPages" 
+                    v-for='(order,index) in memOrder' 
+                    v-if='index < memOrderPages'
+                    :data-index="index"
+                    @click='memGoNextPage'>{{index+1}}</div>
             </div>
             <div class="memOrderBox memGoToOrderX" v-if='memOrder.length == 0'>您尚未有任何訂單喔，<a href="./health.html" class="memGoToOrder">快來買吧！</a></div>
         </div>
