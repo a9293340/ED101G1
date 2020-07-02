@@ -624,7 +624,7 @@ function shoppcar(){              //自選的加入購物車
     var singleprice3 = localStorage.getItem('singleprice3');
     var soPrice = parseInt(riceprice)+parseInt(meatprice)+parseInt(singleprice1)+parseInt(singleprice2)+parseInt(singleprice3);
 
-var singleorder= {
+var singleorder= { 
     sNum:`${singleNum}`,
     rice:`${rice}`,
     meat:`${meat}`,

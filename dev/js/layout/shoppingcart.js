@@ -14,6 +14,8 @@ var SetdoPrice = 0;
 var OtherPrice = 0 ;
 var OrTotalPrice = 0;
 var orderClass = -1;
+var MemScore= 0;
+var finalOrTotalPrice = 0;
 
 var singleorderlist = new Vue({   //購物車 vue
     el: '#list',
@@ -25,7 +27,7 @@ var singleorderlist = new Vue({   //購物車 vue
 })
 
 
-
+localStorage.setItem('orderClass',orderClass);
 
 
 function setcart() {          //一開始自選購物車重新渲染
@@ -189,6 +191,9 @@ function OrderTotalPrice(){
    var OrYourScore = parseInt(OrTotalPrice/100);
     document.getElementById('orderYourSorce').innerText=`獲得積分: ${OrYourScore}點`;
    document.getElementById('OrTotal').innerText=`總價: ${OrTotalPrice}元`;
+   finalOrTotalPrice = OrTotalPrice;
+   document.getElementById('orderUseScore').value =""
+   orederScoreAndPrice();
 
 }
 
@@ -196,7 +201,12 @@ function OrderTotalPrice(){
 document.getElementById('shoppingcart').addEventListener('click',()=>{
     // alert('a')
     document.getElementById('ordercart').classList.toggle('ordercartOpen');
+    if(sessionStorage.getItem('memId')=='good'){
+         MemScore = sessionStorage.getItem('orderMemScore');
+        document.getElementById('orderScore').innerText = `我的積分：`+ MemScore + `點`;
+    }
 })
+
 
 document.getElementById('orderCartClose').addEventListener('click',()=>{
     document.getElementById('ordercart').classList.toggle('ordercartOpen');
@@ -251,6 +261,49 @@ if(localStorage.getItem('address')){
     let orad = localStorage.getItem('address');
     document.getElementById('orderAddress').innerHTML = '外送地址 :'+ orad;
 }
+if(sessionStorage.getItem('memId')=='good'){
+    MemScore = sessionStorage.getItem('orderMemScore');
+   document.getElementById('orderScore').innerText = `我的積分：`+ MemScore + `點`;
+}
+
+document.getElementById('orderUseScore').addEventListener('keyup',orederScoreAndPrice);
+
+function orederScoreAndPrice(){
+    // console.log('123');
+    MemScore = sessionStorage.getItem('orderMemScore');
+    finalOrTotalPrice = OrTotalPrice;
+    // OrTotalPrice = OrTotalPrice - document.getElementById('orderUseScore').value;
+    // MemScore= MemScore - document.getElementById('orderUseScore').value;
+    console.log(MemScore);
+    console.log(document.getElementById('orderUseScore').value);
+
+    // if(parseInt(document.getElementById('orderUseScore').value) <= parseInt(finalOrTotalPrice)){
+        // finalOrTotalPrice = finalOrTotalPrice - document.getElementById('orderUseScore').value;
+        // document.getElementById('OrTotal').innerText=`總價:`+ finalOrTotalPrice + `元`;
+    // }
+
+    if(parseInt(document.getElementById('orderUseScore').value) <= parseInt(MemScore) && parseInt(document.getElementById('orderUseScore').value) <= parseInt(finalOrTotalPrice) && document.getElementById('orderUseScore').value !== ""){
+    
+    MemScore = MemScore - document.getElementById('orderUseScore').value;
+    document.getElementById('orderScore').innerText = `我的積分：`+ MemScore + `點`;
+    finalOrTotalPrice = finalOrTotalPrice - document.getElementById('orderUseScore').value;
+        document.getElementById('OrTotal').innerText=`總價:`+ finalOrTotalPrice + `元`;
+    console.log(MemScore);
+    }else if(document.getElementById('orderUseScore').value ==""){
+        // document.getElementById('orderUseScore').value='0';
+        MemScore = MemScore - 0;
+    document.getElementById('orderScore').innerText = `我的積分：`+ MemScore + `點`;
+    finalOrTotalPrice = finalOrTotalPrice - 0;
+        document.getElementById('OrTotal').innerText=`總價:`+ finalOrTotalPrice + `元`;
+    }else{
+        alert('便當沒有那麼貴 請重新輸入');
+        MemScore = MemScore - 0;
+    document.getElementById('orderScore').innerText = `我的積分：`+ MemScore + `點`;
+    finalOrTotalPrice = finalOrTotalPrice - 0;
+        document.getElementById('OrTotal').innerText=`總價:`+ finalOrTotalPrice + `元`;
+        document.getElementById('orderUseScore').value ="";
+    }    
+}
 
 
 document.getElementById('orderBuy').addEventListener('click',orderBuy);
@@ -300,11 +353,11 @@ function orderBuy(){
 
     
 
-    totalOrder=[orderSin,orderSet,orderOth,memId,orderAdr,orderListTextPost,orderCla,OrTotalPrice,orderTime];
+    totalOrder=[orderSin,orderSet,orderOth,memId,orderAdr,orderListTextPost,orderCla,finalOrTotalPrice,orderTime];
     // console.log(totalOrder);
     // console.log(totalOrder);
-    console.log(OrTotalPrice);
-    if(OrTotalPrice==0 || memLogin=='bad' || orderCla==-1){
+    console.log(finalOrTotalPrice);
+    if(finalOrTotalPrice==0 || memLogin=='bad' || orderCla==-1){
         alert('wrong');
     }else{
     var totalOrderPost = new XMLHttpRequest();
@@ -406,24 +459,3 @@ function orderBuy(){
     function errorCallback(e){
         document.getElementById('position').innerHTML = `錯誤碼: ${e.code}<br>錯誤訊息: ${e.message}`
     }
-
-
-    // if(sessionStorage.getItem('memId')=='good'){
-    //     orderGetOrderScore();
-
-
-    // }
-
-    // function orderGetOrderScore(){
-    //     var MemmId = sessionStorage.getItem('mEmmEmId');
-    //     var memScore = new XMLHttpRequest();
-    //     memScore.open('POST','../dest/php/orderMemScore.php',true);
-    //     memScore.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //     memScore.send("MemmId=" + MemmId);
-    //     memScore.onload = function(){
-    //         var ScoreTest = JSON.parse(memScore.responseText);
-    //         console.log(ScoreTest.memScore);
-    //         orderMemScore = ScoreTest.memScore;
-    //         localStorage.setItem('orderMemScore',orderMemScore);
-    //         }
-    //     }
