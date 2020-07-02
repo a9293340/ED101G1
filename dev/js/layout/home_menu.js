@@ -72,9 +72,9 @@ let menu_Feature = new Vue({
 let menu_sec = document.getElementById("first"),
   sec_img = document.getElementById("sec_img"),
   first_img = document.getElementById("first_img"),
-  third_img = document.getElementById("third_img");
-
-
+  third_img = document.getElementById("third_img"),
+  light_box = document.getElementById("light_box"),
+  lb_lightBox = document.getElementById("lb_lightBox");
 
 //JSON
 function leaderBoard(){
@@ -83,47 +83,101 @@ function leaderBoard(){
   leaderRequest.onload = function(){
   var leaderData = JSON.parse(leaderRequest.responseText);
   // console.log(leaderData[0]);
-  // console.log(leaderData[1]); 
-  // console.log(leaderData[2]);  
-  var leaderArray = leaderData;
-  console.log(leaderArray);
+  console.log(leaderData);
 
   let leader_str = []; //用陣列當變數解決要丟入多個不同區域的相同內容
 function leader_order() {
-  for (var i = 0; i < leaderArray.length; i++) {
+  for (var i = 0; i < leaderData.length; i++) {
     leader_str[i] =
       `
       <div id="menu_ndgroup">
-      <div id="menu_name_sec"> ${leaderArray[i].title} </div>
-      <div id="menu_date_sec">日期： ${leaderArray[i].postdate} </div>
+      <div id="menu_name_sec"> ${leaderData[i].title} </div>
+      <div id="menu_date_sec">日期： ${leaderData[i].postdate} </div>
       </div>
-      <div id="menu_memname_sec">創作者： ${leaderArray[i].memname} </div>
-      <div id="menu_like_sec">獲得讚數：${leaderArray[i].like} </div>
+      <div id="menu_memname_sec">創作者： ${leaderData[i].memname} </div>
+      <div id="menu_like_sec">獲得讚數：${leaderData[i].like} </div>
       `;
     if (i == 0) {
-      first_img.src = leaderArray[i].img;
+      first_img.src = leaderData[i].img;
 
     } else if (i == 1) {
-      sec_img.src = leaderArray[i].img;
+      sec_img.src = leaderData[i].img;
     } else {
-      third_img.src = leaderArray[i].img;
+      third_img.src = leaderData[i].img;
     }
     leader_1.innerHTML = leader_str[0];
     leader_2.innerHTML = leader_str[1];
     leader_3.innerHTML = leader_str[2];
+    console.log(leader_str[0]);
   }
 
 };
 leader_order();
+//燈箱
+let lb_lightbox = [];
+function lightbox(){
+  for(var i = 0; i < leaderData.length; i++){
+    lb_lightbox[i] =
+    `
+    <!--缺留言區-->
+    <div class="left_group">
+    <div class="top_img">
+    <img width="248px" height="146px" id="first_img" src=" ${leaderData[i].img}">
+    </div>
+    <div class="buynow">馬上購買</div>
+    <div id="menu_ndgroup1">
+    <div id="menu_maker">
+    <div id="menu_memname_sec1">創作者： ${leaderData[i].memname} </div>
+    <div id="menu_image_sec1" src="${leaderData[i].mimg}"></div>
+    </div>
+    <div id="menu_name_sec1"> ${leaderData[i].title} </div>
+    <div id="menu_content_sec1"> ${leaderData[i].content} </div>
+    <div id="menu_date_sec1">日期： ${leaderData[i].postdate} </div>
+    <img id="closebtn" src="./images/showbenton/close.png">
+    </div>
+    </div>
+    <div class="right_group">
+    </div>
+    `;
+    
+  }
+
+
+  // for(var i =0; i < 3; i++ ){
+  //   let id = this.dataset.label_id;
+  //   console.log(id)
+  // }
+
+
+//--------------------------------------------------------------
+setTimeout(function(){
+for(let i =1; i < 4; i++ ){
+document.getElementById(`leader_${i}`).addEventListener('click',function(){
+  lb_lightBox.classList.toggle("lb-s--active");
+  light_box.innerHTML = lb_lightbox[i-1];
+  
+  setTimeout(function(){
+    var lb_closebtn = document.getElementById("closebtn");
+    lb_closebtn.addEventListener('click',function(){
+      lb_lightBox.classList.toggle("lb-s--active");
+  });
+  } ,1000);
+});
+
+}
+},1000)
+
+ 
+
+
+};
+lightbox();
 
   };
   leaderRequest.send();
 }
 
 leaderBoard();
-
-
-
 
 
 
@@ -215,6 +269,7 @@ var $cont = document.querySelector('.cont');
 var $elsArr = [].slice.call(document.querySelectorAll('.el')); //[].slice.call(arguments)能将具有length属性的对象转成数组。
 var $closeBtnsArr = [].slice.call(document.querySelectorAll('.el__close-btn'));
 
+//定時後，製造開場動畫效果
 setTimeout(function () {
   $cont.classList.remove('s--inactive');
 }, 200);
@@ -390,7 +445,7 @@ function changeSlides(instant) {
   $slider.css("transform", "translate3d(" + -curSlide * 100 + "%,0,0)");
   $slideBGs.css("transform", "translate3d(" + curSlide * 50 + "%,0,0)");
   diff = 0;
-  autoSlide();
+  // autoSlide();
 }
 
 //如果拖一畫面大於一定寬度直接切換
