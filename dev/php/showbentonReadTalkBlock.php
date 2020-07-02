@@ -4,7 +4,7 @@ try{
 session_start();
 require_once("connect.php");
 
-$sql ="SELECT memName,memImage,messContent as talkmessage,messTime as `dateTime`,messPostId
+$sql ="SELECT memName,memImage,messContent as talkmessage,messTime as `dateTime`,messPostId,messId
         from MESSAGE join MEMBER
         on MEMBER.memId = MESSAGE.messBelong
         where messPostId = :messPostId;";

@@ -437,6 +437,7 @@ let bentonWallVm = new Vue({
     now: "",
     talkBlockMessage: "",
     addBentonmessPostId: "", //與後端串要變全域變數(產出messPostId)
+    reportMessId: "", //與後端串要變全域變數(產出messId)
   },
   methods: {
     //按讚數
@@ -566,13 +567,35 @@ let bentonWallVm = new Vue({
       }
     },
     //檢舉
-    reportBox() {
+    reportBox(talks) {
       $(".reportBox").css("display", "block");
       $("body").css("overflow", "hidden");
+
+      this.reportMessId = talks.messId;
     },
+
     reportBoxClose() {
       $(".reportBox").css("display", "none");
-      $("body").css("overflow", "auto");
+    },
+
+    confirmRport() {
+      $.ajax({
+        type: "POST",
+        url: "./php/showbentonReport.php", //傳送目的地 (之後統整要修改網址)
+        dataType: "json", //資料格式
+        data: {
+          reportReason: $('input[name="reportMes"]:checked').val(),
+          messId: this.reportMessId,
+        },
+        success: function (data) {
+          console.log(data);
+          alert("謝謝你提出檢舉，我們日後將會進行審查檢舉的內容。");
+          $(".reportBox").css("display", "none");
+        },
+        error: function (jqXHR) {
+          console.log(jqXHR, "error");
+        },
+      });
     },
   },
   mounted() {
