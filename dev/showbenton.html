@@ -186,7 +186,7 @@
               <div v-for="talks in talkArray" id="show_msg" class="showmsg">
                 <img :src="talks.memImage" class="memPicture" />
                 <p class="member">{{talks.memName}}</p>
-                <div class="report" @click="reportBox">檢舉</div>
+                <div class="report" @click="reportBox(talks)">檢舉</div>
                 <div class="talkmessage">{{talks.talkmessage}}</div>
 
                 <p class="talkDateTime">{{talks.dateTime}}</p>
@@ -225,13 +225,13 @@
             <input id="rep4" type="radio" name="reportMes" value="3">騷擾或霸凌內容</br></option>
           </div >
           <p class="cancel" @click="reportBoxClose">取消</p>
-          <p class="confirmeRport">檢舉</p>
+          <p class="confirmRport"@click="confirmRport" >檢舉</p>
         </div>
       </div>
     </div>
     @@include('./layout/loginSignup.html',{})
     @@include('./layout/shoppingcart.html',{})
-    <!-- @@include('./layout/footer.html',{}) -->
+    @@include('./layout/footer.html',{})
     <script src="../dev/js/showbenton.js"></script>
     <script src="../dev//js/layout/loginSignup.js"></script>
     <script src="../dev/js/layout/shoppingcart.js"></script>
