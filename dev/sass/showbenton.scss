@@ -275,8 +275,8 @@ p.showMyself {
 .shareBlock {
   border-right: 1px dashed rgb(114, 114, 114);
   display: inline-block;
-  padding-right: 25px;
-  margin: 0 10px 0;
+  padding-right: 15px;
+  margin: 0;
   vertical-align: middle;
   text-align: center;
 
@@ -373,7 +373,7 @@ p.showMyself {
       margin: 10px;
     }
   }
-  .confirmeRport {
+  .confirmRport {
     display: inline-block;
     padding: 0 20px 20px;
     &:hover {
@@ -399,6 +399,7 @@ p.showMyself {
   border: 1px solid transparent;
   vertical-align: middle;
   text-align: left;
+
   .talksBlock {
     height: 280px;
     overflow: auto;
@@ -407,7 +408,6 @@ p.showMyself {
     background-color: rgb(231, 231, 231);
   }
   .mesTalks {
-    padding: 15px 0 0;
     color: rgb(109, 48, 7);
     font-size: 20px;
     text-align: center;
@@ -782,13 +782,17 @@ button.Pre {
   .messageBoard {
     display: block;
     text-align: center;
-    margin: 0 auto;
+    margin: 0 10px;
 
     .talksBlock {
       width: 330px;
 
       div.showmsg {
         width: 290px;
+        //檢舉按鈕
+        .report {
+          margin-left: 160px;
+        }
       }
     }
   }
@@ -797,7 +801,7 @@ button.Pre {
   }
   .reportBox {
     position: fixed;
-    top: 150%;
+    top: 100%;
   }
 }
 
