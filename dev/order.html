@@ -13,6 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Vue -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <!--canvas-->
+    <script src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 
 
 </head>
@@ -127,11 +129,12 @@
 
 
                     <div class="buy_bando"> 
-                        <div class="buy_bandoImg">
+                        <!-- <button id="praint">畫</button> -->
+                        <div class="buy_bandoImg" id="buy_bandoImg">
                             <!-- <img src="./images/bandon_include/bentoBox.png"  width="450" height="450"> -->
-                            <img id='orderHappyTaiwan' src="./images/order/OrderhappyTaiwan.png" width="180" height="220">
+                            <!-- <img id='orderHappyTaiwan' src="./images/order/OrderhappyTaiwan.png" width="180" height="220">
                             <img id='orderFat' src="./images/order/orderfat.png" width="200" height="220">
-                            <img id='orderHappy' src="./images/order/orderHappy.png" width="220" height="220">
+                            <img id='orderHappy' src="./images/order/orderHappy.png" width="220" height="220"> -->
                             <img id='orderBentoBottom' src="./images/bandon_include/bentobottom.png">
                             <img id="orderRicePic">
                             <img id="orderMeatPic">
@@ -182,6 +185,8 @@
                               <p id="list_singlename2">配菜:</p>
                               <p id="list_singlename3">配菜:</p> -->
                               <button id="incart">加入購物車</button>
+                            
+                              <!-- <img id="sss" width="100" height="100"> -->
                                 <!-- <img src="https://fakeimg.pl/300x400/" width="300" height="400"> -->
                             </div>          
                             <!-- <div class="buy_trangleImg">
@@ -335,5 +340,8 @@
 <script>
     let service = new google.maps.DistanceMatrixService();
 </script>
+
+
+
 </body> 
 </html>

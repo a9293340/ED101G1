@@ -1,5 +1,5 @@
 
-
+        
     function single(){
         var singleRequest = new XMLHttpRequest();
         singleRequest.open('GET','../dest/php/orderGet.php')
@@ -571,7 +571,7 @@ function singleshow(){
 
 //購物車
 
-document.getElementById('incart').addEventListener('click',shoppcar);
+document.getElementById('incart').addEventListener('click',praintAndshoppcar);
 
 
 
@@ -602,10 +602,17 @@ function setdominus(){    //套餐數量--
 
 }
 
-
+function praintAndshoppcar(){
+    document.getElementById('homeTwoScreen').scrollIntoView();
+    singleplant();
+    setTimeout(() => {
+        shoppcar();
+    }, 500);
+}
 
 
 function shoppcar(){              //自選的加入購物車
+  
 
     var rice = localStorage.getItem('ricename');
     var riceId =localStorage.getItem('riceId');
@@ -623,6 +630,16 @@ function shoppcar(){              //自選的加入購物車
     var singleId3= localStorage.getItem('singleId3');
     var singleprice3 = localStorage.getItem('singleprice3');
     var soPrice = parseInt(riceprice)+parseInt(meatprice)+parseInt(singleprice1)+parseInt(singleprice2)+parseInt(singleprice3);
+    var soImg = localStorage.getItem('orderImg');
+
+
+    console.log(soImg);
+ 
+
+    
+
+
+
 
 var singleorder= { 
     sNum:`${singleNum}`,
@@ -636,7 +653,8 @@ var singleorder= {
     single3:`${single3}`,
     singleId3:`${singleId3}`,
     soPrice:`${soPrice}`,
-    riceId:`${riceId}`
+    riceId:`${riceId}`,
+    soImg:`${soImg}`
  }
 if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!==null){
     singleNum++;
@@ -646,7 +664,11 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
 //  for(let i=0; i<orderCart.length; i++){
 //     console.log(orderCart[i]);
 //  }
-   
+
+
+
+
+
  singlecount = 0;
 
  document.getElementById('list_ricename').innerText = '';
@@ -666,11 +688,19 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
  document.getElementById('list_singlename2').innerText = '';
  document.getElementById('list_singlename3').innerText = '';
 
- document.getElementById('orderRicePic').src = ``;
- document.getElementById('orderMeatPic').src = ``;
- document.getElementById('orderSinglPic1').src = ``;
- document.getElementById('orderSinglPic2').src = ``;
- document.getElementById('orderSinglPic3').src = ``;
+
+    document.getElementById('orderRicePic').src = ``;
+    document.getElementById('orderMeatPic').src = ``;
+    document.getElementById('orderSinglPic1').src = ``;
+    document.getElementById('orderSinglPic2').src = ``;
+    document.getElementById('orderSinglPic3').src = ``;
+     
+
+//  document.getElementById('orderRicePic').src = ``;
+//  document.getElementById('orderMeatPic').src = ``;
+//  document.getElementById('orderSinglPic1').src = ``;
+//  document.getElementById('orderSinglPic2').src = ``;
+//  document.getElementById('orderSinglPic3').src = ``;
 
  var singleOrder = JSON.stringify(orderCart);
  localStorage.setItem('singleOrder', singleOrder);
@@ -791,3 +821,14 @@ function orderlistclean(){
     riceshow();
    
 }
+
+
+
+
+function singleplant() {
+    html2canvas($("#buy_bandoImg")[0]).then(function(canvas) {
+      var orderImg = canvas.toDataURL("image/png");
+      localStorage.setItem('orderImg',orderImg);
+        // console.log(canvas.toDataURL("image/png"));
+    });
+  };
