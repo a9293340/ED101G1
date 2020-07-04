@@ -368,8 +368,15 @@ function orderBuy(){
     totalOrderPost.onload = function(){
         // var posttest = JSON.parse(totalOrderPost.responseText);
         var posttest = totalOrderPost.responseText;
-        console.log(posttest);
+        // console.log(posttest);
+        if(totalOrderPost.responseText == "error"){
+            alert("Error");
+          }else{
+            alert('Succesfully uploaded');  
+    
+          }
         }
+        
     }    
     
 }

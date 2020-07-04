@@ -16,7 +16,7 @@ $orderStatus = (int)0;
 $mealTime = $totalOrder[8];
 $MemScore = $totalOrder[9];
 
-echo json_encode($MemScore);
+// echo json_encode($MemScore);
 
 try{
     require_once("connect.php");
@@ -46,8 +46,34 @@ foreach($orderSin[$i] as $key => $value){
     if($key == 'singleId3'){
         $singleId3 = $value;
     }
+    if($key == 'soImg'){
+        $soImg = $value;
+    }
 }
-    $Sinorder = "INSERT INTO `single_order` (`soPrice`,`soAmount`,`soBelongOrder`,`soRice`,`mainFood`,`sideDishes1`,`sideDishes2`,`sideDishes3`,`soImg`)  VALUES ('$soPrice','1','$lastId','$riceId','$meatId','$singleId1','$singleId2','$singleId3','https://fakeimg.pl/100/')";
+
+
+$upload_dir = "aaa//";  //檢查資料夾存不存在
+if( ! file_exists($upload_dir )){
+  mkdir($upload_dir);
+}
+
+
+$soImg = str_replace('data:image/png;base64,', '', $soImg);
+
+$data = base64_decode($soImg);
+
+$fileName = date("YmdHis"); 
+
+$file = $upload_dir . $fileName . ".png";
+$success = file_put_contents($file, $data);
+
+
+
+echo $success ? $file : 'error';
+
+
+
+    $Sinorder = "INSERT INTO `single_order` (`soPrice`,`soAmount`,`soBelongOrder`,`soRice`,`mainFood`,`sideDishes1`,`sideDishes2`,`sideDishes3`,`soImg`)  VALUES ('$soPrice','1','$lastId','$riceId','$meatId','$singleId1','$singleId2','$singleId3','$file')";
     $order1=$pdo->prepare($Sinorder);
     $order1->execute();
 
