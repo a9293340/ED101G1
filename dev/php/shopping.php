@@ -3,9 +3,9 @@ $orderSin=[];
 $orderSet=[];
 $orderOth=[];
 $totalOrder = json_decode($_POST["totalOrder"]);
-(array)$orderSin = $totalOrder[0];
-(array)$orderSet = $totalOrder[1];
-(array)$orderOth = $totalOrder[2];
+$orderSin = $totalOrder[0];
+$orderSet = $totalOrder[1];
+$orderOth = $totalOrder[2];
 $memId = (int)$totalOrder[3];
 $orderAdr = $totalOrder[4];
 $orderLorderListTextPost = $totalOrder[5];
@@ -48,32 +48,35 @@ foreach($orderSin[$i] as $key => $value){
     }
     if($key == 'soImg'){
         $soImg = $value;
+        
     }
 }
 
 
-$upload_dir = "aaa//";  //檢查資料夾存不存在
+$upload_dir = "../images/singlePiC/";  //檢查資料夾存不存在
 if( ! file_exists($upload_dir )){
   mkdir($upload_dir);
 }
 
-
+echo json_encode($soImg);
 $soImg = str_replace('data:image/png;base64,', '', $soImg);
+$soImg = str_replace(' ', '+', $soImg);
 
 $data = base64_decode($soImg);
 
 $fileName = date("YmdHis"); 
 
 $file = $upload_dir . $fileName . ".png";
+$imgRoad ="./images/singlePiC/" . $fileName . ".png";
 $success = file_put_contents($file, $data);
 
 
 
-echo $success ? $file : 'error';
+// echo $success ? $file : 'error';
 
 
 
-    $Sinorder = "INSERT INTO `single_order` (`soPrice`,`soAmount`,`soBelongOrder`,`soRice`,`mainFood`,`sideDishes1`,`sideDishes2`,`sideDishes3`,`soImg`)  VALUES ('$soPrice','1','$lastId','$riceId','$meatId','$singleId1','$singleId2','$singleId3','$file')";
+    $Sinorder = "INSERT INTO `single_order` (`soPrice`,`soAmount`,`soBelongOrder`,`soRice`,`mainFood`,`sideDishes1`,`sideDishes2`,`sideDishes3`,`soImg`)  VALUES ('$soPrice','1','$lastId','$riceId','$meatId','$singleId1','$singleId2','$singleId3','$imgRoad')";
     $order1=$pdo->prepare($Sinorder);
     $order1->execute();
 

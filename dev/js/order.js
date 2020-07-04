@@ -630,10 +630,10 @@ function shoppcar(){              //自選的加入購物車
     var singleId3= localStorage.getItem('singleId3');
     var singleprice3 = localStorage.getItem('singleprice3');
     var soPrice = parseInt(riceprice)+parseInt(meatprice)+parseInt(singleprice1)+parseInt(singleprice2)+parseInt(singleprice3);
-    var soImg = localStorage.getItem('orderImg');
+    var soImg = orderImg;
 
 
-    console.log(soImg);
+    console.log(orderImg);
  
 
     

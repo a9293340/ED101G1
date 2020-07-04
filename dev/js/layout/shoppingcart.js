@@ -367,14 +367,14 @@ function orderBuy(){
     totalOrderPost.send("totalOrder=" + JSON.stringify(totalOrder));
     totalOrderPost.onload = function(){
         // var posttest = JSON.parse(totalOrderPost.responseText);
-        var posttest = totalOrderPost.responseText;
+        // var posttest = totalOrderPost.responseText;
         // console.log(posttest);
-        if(totalOrderPost.responseText == "error"){
-            alert("Error");
-          }else{
-            alert('Succesfully uploaded');  
+        // if(totalOrderPost.responseText == "error"){
+        //     alert("Error");
+        //   }else{
+        //     alert('Succesfully uploaded');  
     
-          }
+        //   }
         }
         
     }    
