@@ -1,6 +1,8 @@
 let talkArray = [];
 let bentonArray = [];
 let benton = [];
+let bentonWallNumber = 9;
+let currentPager = 0;
 let lastLikeTime = "";
 
 let showbentonSingle = [
@@ -218,7 +220,31 @@ new Vue({
   el: "#addBenton", //el:document.getElementById('app');
   data: {},
   methods: {
+    loadSingelOrderImg() {
+      $.ajax({
+        type: "GET",
+        url: "./php/showbentonImgByMemid.php",
+        dataType: "json",
+
+        success: function (data) {
+          addBentonVm.$data.benton = data;
+        },
+        error: function (jqXHR) {
+          console.log(jqXHR, "error");
+        },
+      });
+    },
+
     showBentonList() {
+      this.loadSingelOrderImg();
+      let username = window.sessionStorage.getItem("memId");
+      if (username === "bad") {
+        alert("請先登入會員!");
+        $("#homeContainderBgc").show(550);
+        $("#homeContainer").show(550);
+        return;
+      }
+
       $(".box1").css("display", "block");
       $(".showbentonCover").css("display", "block");
       $("body").css("overflow", "hidden");
@@ -327,22 +353,6 @@ let addBentonVm = new Vue({
       $(`#${this.chooseImgID}`).css("border-color", "rgb(231, 70, 21)");
     }
   },
-
-  mounted() {
-    //取自選便當圖片
-    $.ajax({
-      type: "GET",
-      url: "./php/showbentonImgByMemid.php",
-      dataType: "json",
-
-      success: function (data) {
-        addBentonVm.$data.benton = data;
-      },
-      error: function (jqXHR) {
-        console.log(jqXHR, "error");
-      },
-    });
-  },
 });
 
 //-----------產出便當便貼
@@ -438,6 +448,10 @@ let bentonWallVm = new Vue({
     talkBlockMessage: "",
     addBentonmessPostId: "", //與後端串要變全域變數(產出messPostId)
     reportMessId: "", //與後端串要變全域變數(產出messId)
+    bentonWallPages: 0,
+    bentonWallNumber,
+    bentonCardArray: [],
+    currentPager,
   },
   methods: {
     //按讚數
@@ -447,7 +461,7 @@ let bentonWallVm = new Vue({
     //選取的便當
     openLightBox(note, index) {
       let talkContent = $("#content").val();
-      let num = Number(index);
+      let num = Number(this.currentPager * this.bentonWallNumber + index);
       $("#mainBuyBenton").css("display", "block");
       $(".showbentonCover").css("display", "block");
       $("body").css("overflow", "hidden");
@@ -468,9 +482,13 @@ let bentonWallVm = new Vue({
           postId: this.bentonArray[num].postId,
         },
         success: function (data) {
+          let realIndex =
+            bentonWallVm.$data.currentPager *
+              bentonWallVm.$data.bentonWallNumber +
+            index;
           bentonWallVm.$data.currentBenton = {
             ...data[0],
-            cls: "mainBenton" + index,
+            cls: "mainBenton" + realIndex,
           };
         },
         error: function (jqXHR) {
@@ -597,6 +615,32 @@ let bentonWallVm = new Vue({
         },
       });
     },
+
+    //分頁
+    bentonNextPage(e) {
+      let index = Number(e.target.dataset.index);
+      this.currentPager = index;
+      let startIndex = bentonWallNumber * index;
+      let endIndex = bentonWallNumber * (index + 1) - 1;
+      let showItems = this.bentonArray.filter(function (item, index) {
+        return index >= startIndex && index <= endIndex;
+      });
+      this.bentonCardArray = [];
+      // this.bentonCardArray = [...showItems];
+      for (let i = 0; i < showItems.length; i++) {
+        this.bentonCardArray.push(showItems[i]);
+      }
+
+      //for (let i = 0; i < this.bentonArray.length; i++) {
+      // if (
+      //   i >= index * this.bentonWallPages &&
+      //   i < (index + 1) * this.bentonWallPages
+      // ) {
+      //   this.bentonCardArray.push(this.bentonArray[i]);
+      // }
+      //}
+      console.log(this.bentonCardArray);
+    },
   },
   mounted() {
     //一開始就要讀取的資料
@@ -614,11 +658,22 @@ let bentonWallVm = new Vue({
         if (data[1] != "") {
           lastLikeTime = data[1][0].memLastVoteTime;
         }
+        //分頁計算方式
+        bentonWallVm.$data.bentonWallPages = Math.ceil(
+          bentonWallVm.$data.bentonArray.length /
+            bentonWallVm.$data.bentonWallNumber
+        );
       },
       error: function (jqXHR) {
         console.log(jqXHR, "error");
       },
     });
+  },
+  updated() {
+    let pager = $($(".bontonPagesBox")[0]).find(".bontonContentPages");
+    if (pager.length > 0 && this.bentonCardArray.length === 0) {
+      $(pager).eq(0).click();
+    }
   },
 });
 
