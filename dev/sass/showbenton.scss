@@ -76,14 +76,14 @@ div.addBenton {
 
 //放圖片便當的區域
 div.showBentonImg {
-  border: 1px solid transparent;
-  margin: 0 auto 45px;
+  border: 1px solid purple;
+  margin: 0 auto;
   width: 70%;
   z-index: 9999;
 }
 
 div.kitchenTool {
-  background-image: url("../images/showbenton/KitchenTool.png");
+  background-image: url("../images/showbenton/KitchenTool_V1.png");
   background-size: cover;
   position: fixed;
   bottom: 0;
@@ -125,7 +125,7 @@ p.shareBentonContent {
 .shareBenton:first-child {
   position: relative;
 }
-.shareBenton:first-child .ranking::before {
+#bentonDiv0 .ranking::before {
   content: "";
   position: absolute;
   background-image: url("../images/showbenton/no1new.png");
@@ -228,17 +228,17 @@ span.liketimes {
   padding: 3px;
 }
 
-.shareBenton:first-child::before,
+#bentonDiv0::before,
 .mainBenton0::before {
   content: " No.1 天下第一菜";
 }
 
-.shareBenton:nth-child(2)::before,
+#bentonDiv1::before,
 .mainBenton1::before {
   content: "No.2 新一代食神";
 }
 
-.shareBenton:nth-child(3)::before,
+#bentonDiv2::before,
 .mainBenton2::before {
   content: "No.3 明日小當家";
 }
@@ -640,6 +640,19 @@ button.Pre {
   transform: rotate(5deg);
 }
 
+//分頁
+.bontonPagesBox {
+  border: 1px solid red;
+  @include flexStyle(center, center);
+  margin: 0 auto;
+  padding-bottom: 60px;
+  width: 90%;
+  .bontonContentPages {
+    @include btn(30px, 20px);
+    margin: 0 10px;
+  }
+}
+
 //---------------------RWD
 
 @media screen and (max-width: 576px) {
@@ -825,16 +838,16 @@ button.Pre {
     margin: 20px 20px 25px;
   }
 
-  .shareBenton:first-child::before {
+  #bentonDiv0::before {
     content: " No.1 天下第一菜";
     font-size: 25px;
   }
-  .shareBenton:nth-child(2)::before {
+  #bentonDiv1::before {
     content: "No.2 新一代食神";
     font-size: 25px;
   }
 
-  .shareBenton:nth-child(3)::before {
+  #bentonDiv2::before {
     content: "No.3 明日小當家";
     font-size: 25px;
   }
