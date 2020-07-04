@@ -66,8 +66,8 @@ $data = base64_decode($soImg);
 
 $fileName = date("YmdHis"); 
 
-$file = $upload_dir . $fileName . ".png";
-$imgRoad ="./images/singlePiC/" . $fileName . ".png";
+$file = $upload_dir . $fileName . $i . ".png";
+$imgRoad ="./images/singlePiC/" . $fileName .  $i . ".png";
 $success = file_put_contents($file, $data);
 
 
