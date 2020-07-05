@@ -2,7 +2,7 @@
   <div class="ordercart" id="ordercart">
     <img src="./images/showbenton/close.png" id="orderCartClose"  width="20" height="20">
 
-    <div><button id="orderDelivey">外送</button> <button id="orderOut">外帶</button></div>
+    <div class="orderDeliverChoose"><button id="orderDelivey" class="orderbuy" >外送</button> <button id="orderOut"class="orderbuy">外帶</button></div>
     <div id='orderAdress'>
     <input type="text" id="input" placeholder="請輸入地址">
     <button id="btn">判斷距離</button>
@@ -119,14 +119,16 @@
   
     <div class="orderTextarea">
           <p>餐點備註:</p>
-          <textarea name="orderListText" id="orderListText" cols="30" rows="10"></textarea>
+          <textarea name="orderListText" id="orderListText" cols="40" rows="6" placeholder="特殊需求可備註在此..."></textarea>
     </div>  
     <div class="finaltotal">
-      <div class="" id='orderScore'></div>
-      <div><input type="text" id="orderUseScore" name="orderUseScore" value=""></div>
       <div id="OrTotal">總價:</div>
+      <div class="" id='orderScore'></div>
+      
+      <div><span>使用積分 : </span><input type="text" id="orderUseScore" name="orderUseScore" value=""></div>
+      
       <div id="orderYourSorce">獲得積分:</div>
-      <p id='orderAddress'>外送地址</p>
+      <div><p id='orderAddress'>外送地址</p></div>
       <!-- <div class="price">123元</div> -->
     </div>
     <button class="buy" id="orderBuy">立即結帳</button>

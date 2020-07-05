@@ -315,8 +315,8 @@ document.getElementById('orderDelivey').addEventListener('click',function(){
         localStorage.setItem('orderClass',orderClass);
     }
     document.getElementById('orderAdress').style.display="block";
-    document.getElementById('orderDelivey').style.backgroundColor="#EA6227";
-    document.getElementById('orderOut').style.backgroundColor="#EFEFEF";
+    document.getElementById('orderDelivey').style.backgroundColor="#37AB64";
+    document.getElementById('orderOut').style.backgroundColor="#FFD23F";
     console.log(orderClass);
 })
 document.getElementById('orderOut').addEventListener('click',function(){
@@ -324,8 +324,8 @@ document.getElementById('orderOut').addEventListener('click',function(){
     localStorage.setItem('orderClass',orderClass);
     document.getElementById('orderAddress').innerHTML='外帶';
     document.getElementById('orderAdress').style.display="none";
-    document.getElementById('orderOut').style.backgroundColor="#EA6227";
-    document.getElementById('orderDelivey').style.backgroundColor="#EFEFEF";
+    document.getElementById('orderOut').style.backgroundColor="#37AB64";
+    document.getElementById('orderDelivey').style.backgroundColor="#FFD23F";
     console.log(orderClass);
 })
 
