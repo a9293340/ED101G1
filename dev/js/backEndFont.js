@@ -7,7 +7,7 @@ function gogoPower(){
 
     bkLogin.addEventListener('click',(e)=>{
         e.preventDefault;
-        bkLoginLightBox.classList.toggle('bkNone');
+        bkLoginLightBox.classList.toggle('bk2None');
     })
     if(sessionStorage['admAuthority'] == 0 || sessionStorage['admAuthority'] == 1){
         bkLogin.classList.toggle('bkNone');
@@ -35,7 +35,7 @@ function checkBkLogin(e){
                 sessionStorage['admAuthority'] = member.admAuthority;
                 bkLogin.classList.toggle('bkNone');
                 bkGo.classList.toggle('bkNone');
-                bkLoginLightBox.classList.toggle('bkNone');
+                bkLoginLightBox.classList.toggle('bk2None');
             }
         }
     });
