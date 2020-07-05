@@ -193,7 +193,7 @@ function OrderTotalPrice(){
     document.getElementById('orderYourSorce').innerText=`獲得積分: ${OrYourScore}點`;
     document.getElementById('OrTotal').innerText=`總價: ${OrTotalPrice}元`;
     finalOrTotalPrice = OrTotalPrice;
-    document.getElementById('orderUseScore').value =""
+    document.getElementById('orderUseScore').value ="";
     orederScoreAndPrice();
 
 }
@@ -358,9 +358,17 @@ function orderBuy(){
     // console.log(totalOrder);
     // console.log(totalOrder);
     console.log(MemScore);
-    if(finalOrTotalPrice==0 || memLogin=='bad' || orderCla==-1){
+    console.log(OrYourScore);
+    
+    if(orderSin.length==0 && orderSet.length==0 && orderSet.length==0){
+        var orderEmpty = 0;
+    }else{
+        orderEmpty = 1;
+    }
+    if(orderEmpty==0 || memLogin=='bad' || orderCla==-1){
         alert('請登入 選擇品項 選擇外送外帶');
     }else{
+       
     var totalOrderPost = new XMLHttpRequest();
     totalOrderPost.open('POST','../dest/php/shopping.php',true);
     totalOrderPost.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -375,9 +383,38 @@ function orderBuy(){
         //     alert('Succesfully uploaded');  
     
         //   }
+       
         }
+        sessionStorage.setItem('orderMemScore',parseInt(MemScore)+parseInt(OrYourScore));
+
+        finalsinglelist = [];
+        singleorderlist.$data.finalsinglelist = finalsinglelist;
+        orderCart=finalsinglelist;
+        localStorage.setItem('singleOrder', JSON.stringify(finalsinglelist));
+    
+        finalsetdolist = [];
+        singleorderlist.$data.finalsetdolist = finalsetdolist;
+        setdoMenu = finalsetdolist;;
+        localStorage.setItem('setdoMenuList', JSON.stringify(finalsetdolist));
+    
+        finalorderlist = [];
+        singleorderlist.$data.finalorderlist = finalorderlist;
+        otherMenu=finalorderlist;
+        localStorage.setItem('otherOrder', JSON.stringify(finalorderlist));
         
-    }    
+        // 
+     
+        OrderTotalPrice();
+
+        orderListText.value="";
+        alert('已新增訂單 可至會員專區查看');
+        
+        
+
+        
+    }
+
+    
     
 }
 
