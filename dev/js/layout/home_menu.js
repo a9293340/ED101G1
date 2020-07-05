@@ -10,19 +10,22 @@ $(window).on('scroll', function (event) {
   }
   if ($(".fixed")) {
     if ($(window).scrollTop() > zero) {
-      $(".fixed").stop(true).animate({ opacity: 0 });
+      $(".fixed").stop(true).animate({
+        opacity: 0
+      });
       $(".fixed").css("display", "none");
 
     } else {
       $(".fixed").css("display", "flex");
-      $(".fixed").stop(true).animate({ opacity: 1 });
+      $(".fixed").stop(true).animate({
+        opacity: 1
+      });
 
 
     }
     zero = $(window).scrollTop()
   }
-}
-);
+});
 
 var btn_switch = $('.btn_switch'),
   navgroup_rwd = $('.navgroup_rwd'),
@@ -39,32 +42,49 @@ btn_switch.on('click', function () {
 
 //menu vue
 // first menu
+let feature_benton = []
 let menu_Feature = new Vue({
   el: '#first',
   data: {
-    list: [
-      {
-        id: '1',
-        benton: '雞腿便當',
-        img: '../../dest/images/order/pork.jpg',
-        price: 80,
-      },
-      {
-        id: '2',
-        benton: '排骨便當',
-        img: '../../dest/images/order/pork.jpg',
-        price: 180,
-      },
-      {
-        id: '3',
-        benton: '鮭魚便當',
-        img: '../../dest/images/order/pork.jpg',
-        price: 820,
-      },
+    feature_benton,
 
-    ],
+
+    // list: [
+    //   {
+    //     id: '1',
+    //     benton: '雞腿便當',
+    //     img: '../dest/images/bandon_include/active1.jpg',
+    //     price: 80,
+    //   },
+    //   {
+    //     id: '2',
+    //     benton: '排骨便當',
+    //     img: '../dest/images/bandon_include/active2.jpg',
+    //     price: 180,
+    //   },
+    //   {
+    //     id: '3',
+    //     benton: '鮭魚便當',
+    //     img: '../dest/images/bandon_include/active3.jpg',
+    //     price: 820,
+    //   },
+
+    // ],
 
   },
+  mounted() {
+    $.ajax({
+      type: "GET",
+      url: "./php/home_featureLB.php",
+      dataType: "json",
+      success: function (data) {
+        menu_Feature.$data.benton = data;
+      },
+      error: function (jqXHR) {
+        console.log(jqXHR, "error");
+      },
+    })
+  }
 });
 
 //sec menu
@@ -75,21 +95,24 @@ let menu_sec = document.getElementById("first"),
   third_img = document.getElementById("third_img"),
   light_box = document.getElementById("light_box"),
   lb_lightBox = document.getElementById("lb_lightBox");
+var leaderId_1 = "",
+  leaderId_2 = "",
+  leaderId_3 = "";
 
 //JSON
-function leaderBoard(){
+function leaderBoard() {
   var leaderRequest = new XMLHttpRequest();
-  leaderRequest.open('GET','../dest/php/home_leaderBoard.php')
-  leaderRequest.onload = function(){
-  var leaderData = JSON.parse(leaderRequest.responseText);
-  // console.log(leaderData[0]);
-  console.log(leaderData);
+  leaderRequest.open('GET', '../dest/php/home_leaderBoard.php')
+  leaderRequest.onload = function () {
+    var leaderData = JSON.parse(leaderRequest.responseText);
+    // console.log(leaderData[0]);
+    console.log(leaderData);
 
-  let leader_str = []; //用陣列當變數解決要丟入多個不同區域的相同內容
-function leader_order() {
-  for (var i = 0; i < leaderData.length; i++) {
-    leader_str[i] =
-      `
+    let leader_str = []; //用陣列當變數解決要丟入多個不同區域的相同內容
+    function leader_order() {
+      for (var i = 0; i < leaderData.length; i++) {
+        leader_str[i] =
+          `
       <div id="menu_ndgroup">
       <div id="menu_name_sec"> ${leaderData[i].title} </div>
       <div id="menu_date_sec">日期： ${leaderData[i].postdate} </div>
@@ -97,34 +120,38 @@ function leader_order() {
       <div id="menu_memname_sec">創作者： ${leaderData[i].memname} </div>
       <div id="menu_like_sec">獲得讚數：${leaderData[i].like} </div>
       `;
-    if (i == 0) {
-      first_img.src = leaderData[i].img;
+        if (i == 0) {
+          first_img.src = leaderData[i].img;
+          leaderId_1 = leaderData[i].bentonname;
 
-    } else if (i == 1) {
-      sec_img.src = leaderData[i].img;
-    } else {
-      third_img.src = leaderData[i].img;
-    }
-    leader_1.innerHTML = leader_str[0];
-    leader_2.innerHTML = leader_str[1];
-    leader_3.innerHTML = leader_str[2];
-    console.log(leader_str[0]);
-  }
+        } else if (i == 1) {
+          sec_img.src = leaderData[i].img;
+          leaderId_2 = leaderData[i].bentonname;
+        } else {
+          third_img.src = leaderData[i].img;
+          leaderId_3 = leaderData[i].bentonname;
+        }
+        leader_1.innerHTML = leader_str[0];
+        leader_2.innerHTML = leader_str[1];
+        leader_3.innerHTML = leader_str[2];
+      }
 
-};
-leader_order();
-//燈箱
-let lb_lightbox = [];
-function lightbox(){
-  for(var i = 0; i < leaderData.length; i++){
-    lb_lightbox[i] =
-    `
-    <!--缺留言區-->
+    };
+    leader_order();
+
+    //燈箱
+    let lb_lightbox = [];
+    let messageArray = [];
+    // 撈出所有左邊燈箱的資料
+    function lightbox() {
+      for (var i = 0; i < leaderData.length; i++) {
+        lb_lightbox[i] =
+          `
     <div class="left_group">
     <div class="top_img">
     <img width="248px" height="146px" id="first_img" src=" ${leaderData[i].img}">
     </div>
-    <div class="buynow">馬上購買</div>
+    <a href="./dest/showbenton.html" class="buynow">前往購買</a>
     <div id="menu_ndgroup1">
     <div id="menu_maker">
     <div id="menu_memname_sec1">創作者： ${leaderData[i].memname} </div>
@@ -136,103 +163,87 @@ function lightbox(){
     <img id="closebtn" src="./images/showbenton/close.png">
     </div>
     </div>
-    <div class="right_group">
-    </div>
     `;
-    
-  }
 
+      }
 
-  // for(var i =0; i < 3; i++ ){
-  //   let id = this.dataset.label_id;
-  //   console.log(id)
-  // }
+      function messageContent() {
+        let messPostId = leaderId_1;
+        var contentRequest = new XMLHttpRequest();
+        contentRequest.onload = function () {
+          var mgcontent = JSON.parse(contentRequest.responseText);
 
+          //將對應的mgcontent訊息撈出來存入messageArray陣列裡
 
-//--------------------------------------------------------------
-setTimeout(function(){
-for(let i =1; i < 4; i++ ){
-document.getElementById(`leader_${i}`).addEventListener('click',function(){
-  lb_lightBox.classList.toggle("lb-s--active");
-  light_box.innerHTML = lb_lightbox[i-1];
-  
-  setTimeout(function(){
-    var lb_closebtn = document.getElementById("closebtn");
-    lb_closebtn.addEventListener('click',function(){
-      lb_lightBox.classList.toggle("lb-s--active");
-  });
-  } ,1000);
-});
+          function messagebox() {
+            for (var i = 0; i < mgcontent.length; i++) {
+              // messPostId = mgcontent.messPostId;
+              messageArray[i] =
+                `
+         <div class="right_group">
+         <div id="mg_content"> ${mgcontent[i].content} </div>
+         <div id="mg_time"> ${mgcontent[i].mtime} </div>
+         <div id="mg_name"> ${mgcontent[i].mname} </div>
+         </div>
 
-}
-},1000)
+        `
+            }
+          };
+          messagebox();
+        };
+        contentRequest.open('POST', '../dest/php/home_lBmessage.php');
+        contentRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        contentRequest.send("messPostId=" + messPostId);
+        console.log(messPostId);
 
- 
+      };
+      console.log(789);
+      messageContent();
 
+      //--------------------------------------------------------------
 
-};
-lightbox();
+      //建立點擊事件，先等所有資料撈完後再點擊並顯示選取的資料
 
+      setTimeout(function () {
+        for (let i = 1; i < 4; i++) {
+          document.getElementById(`leader_${i}`).addEventListener('click', function () {
+            lb_lightBox.classList.toggle("lb-s--active");
+            light_box.innerHTML = lb_lightbox[i - 1];
+
+            setTimeout(function () {
+              var lb_closebtn = document.getElementById("closebtn");
+              lb_closebtn.addEventListener('click', function () {
+                lb_lightBox.classList.toggle("lb-s--active");
+              });
+            }, 1000);
+
+          });
+
+        }
+        console.log(123);
+      }, 1000)
+
+      //leader點開後撈出對應的留言貼文數量
+
+      setTimeout(function () {
+        for (var i = 1; i < 4; i++) {
+          document.getElementById(`leader_${i}`).addEventListener('click', function () {
+            for (var i = 0; i < messageArray.length; i++) {
+              // console.log(messPostId);
+              light_box.innerHTML += messageArray[i];
+            }
+          })
+        }
+        console.log(456);
+      }, 1000)
+    };
+    lightbox();
   };
+
   leaderRequest.send();
 }
 
 leaderBoard();
-
-
-//JSON content
-function messageContent(){
-  var contentRequest = new XMLHttpRequest();
-  contentRequest.open('GET','../dest/php/home_lBmessage.php')
-}
-
-//fake data
-// let leaderBoardData = [
-//   {
-//     postTitle: "鮭魚便當",
-//     postContent: "很好吃很好吃很好吃",
-//     postData: "2020/08/07",
-//     postLike: 50,
-//     memName: "John",
-//     soImg: "../../dest/images/bandon_include/curry.png",
-//     soRice: "白飯",
-//     mainFood: "鮭魚",
-//     sideDishes1: "配菜1",
-//     sideDishes1: "配菜2",
-//     sideDishes1: "配菜3",
-//   },
-//   {
-//     postTitle: "排骨便當",
-//     postContent: "很好吃很好吃很好吃",
-//     postData: "2020/08/07",
-//     postLike: 140,
-//     memName: "John",
-//     soImg: "../../dest/images/bandon_include/friedShrimp.png",
-//     soRice: "白飯",
-//     mainFood: "排骨",
-//     sideDishes1: "配菜1",
-//     sideDishes1: "配菜2",
-//     sideDishes1: "配菜3",
-//   },
-//   {
-//     postTitle: "烤雞便當",
-//     postContent: "很好吃很好吃很好吃",
-//     postData: "2020/08/07",
-//     postLike: 30,
-//     memName: "John",
-//     soImg: "../../dest/images/bandon_include/spoonVeg.png",
-//     soRice: "白飯",
-//     mainFood: "烤雞",
-//     sideDishes1: "配菜1",
-//     sideDishes1: "配菜2",
-//     sideDishes1: "配菜3",
-//   }
-// ]
-//排序成 [1,0,2]
-// leaderBoardData.sort(function (a, b) {
-//   return b.postLike - a.postLike;
-// });
-
 
 
 
@@ -241,8 +252,7 @@ function messageContent(){
 let menu_third = new Vue({
   el: '#third',
   data: {
-    list: [
-      {
+    list: [{
         id: '1',
         benton: '雞腿便當',
         img: '../../dest/images/order/pork.jpg',
@@ -277,7 +287,7 @@ setTimeout(function () {
   $cont.classList.remove('s--inactive');
 }, 200);
 
-$elsArr.forEach(function ($el) {   //click事件
+$elsArr.forEach(function ($el) { //click事件
   $el.addEventListener('click', function () {
     if (this.classList.contains('s--active')) return;
     $cont.classList.add('s--el-active');
@@ -521,4 +531,3 @@ $(document).on("click", ".slider-pagi__elem", function () {
   changeSlides();
 });
 // 這塊是下方小按鈕的點擊和左右邊的點擊觸發效果
-

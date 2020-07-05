@@ -7,6 +7,9 @@
     $sbentonSql -> execute();
     $ssbenton = $sbentonSql->fetchAll(PDO::FETCH_ASSOC);
 
-    // $leaderBoards=[$sbenton];
     echo json_encode($ssbenton);
+    // $leaderBoards=[$sbenton];
+
+
+
 ?>
