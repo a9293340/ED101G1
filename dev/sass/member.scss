@@ -349,8 +349,13 @@ $bgcgrey: #c4c0c0;
                 }
                 .memOrderGoToListBtn{
                     @include btn(100px,40px);
+                    margin: 0 5px;
                 }
             }
+        }
+        .memOrderBoxGrey{
+            background-color: #faeaea;
+            color: $white;
         }
         .memGoToOrderX{
             color: $black;
@@ -366,8 +371,10 @@ $bgcgrey: #c4c0c0;
                 @include btn(30px,20px);
                 margin: 0 10px;
             }
+            .memContentOrderPagesDark{
+                background-color: $green;
+            }
         }
-
     }
     #memContentHealth{
         justify-self: center;

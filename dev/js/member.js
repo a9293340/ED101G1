@@ -410,6 +410,10 @@ function gogoPower(){
             //分頁 
             memGoNextPage(e){
                 let index = Number(e.target.dataset.index);
+                for(let i = 0; i<document.getElementsByClassName('memContentOrderPages').length;i++){
+                    document.getElementsByClassName('memContentOrderPages')[i].classList.remove('memContentOrderPagesDark');
+                }
+                document.getElementsByClassName('memContentOrderPages')[index].classList.toggle('memContentOrderPagesDark');
                 this.memOrderPageArr = [];
                 // console.log('aaa',index);
                 for(let i = 0; i < this.memOrder.length; i++){
@@ -419,8 +423,24 @@ function gogoPower(){
                     }
                 }
                 console.log(this.memOrderPageArr);
+            },
+            cansolOrder(e){
+                let check = confirm('確定要取消訂單？');
+                if(check){
+                    let id = Number(e.target.dataset.order);
+                    fetch(`./php/cansolOrder.php?orderId=${id}`, {})
+                    .then((response) => {
+                        return response.text(); 
+                    }).then((Data) => {
+                        // console.log(Data);
+                        if(Data == 'good'){
+                            location.reload();
+                        }
+                    }).catch((err) => {
+                        console.log('錯誤:', err);
+                    });
+                };
             }
-            
         },
         computed: {
             memChooseCirleColor1(){
@@ -465,7 +485,7 @@ function gogoPower(){
             memChooseCirleColor4(){
                 for(let i = 0; i< this.memOrder.length;i++){
                     if(this.memOrder[i].orderId == this.nowDataSetNumber){
-                        if(this.memOrder[i].orderStatus == 4){
+                        if(this.memOrder[i].orderStatus == 4 || this.memOrder[i].orderStatus == 5){
                             return 'memContentOrderListCircle memContentOrderListCircleGreen';
                         }else{
                             return 'memContentOrderListCircle';
@@ -515,7 +535,7 @@ function gogoPower(){
             memChooseCircleFontColor4(){
                 for(let i = 0; i< this.memOrder.length;i++){
                     if(this.memOrder[i].orderId == this.nowDataSetNumber){
-                        if(this.memOrder[i].orderStatus == 4){
+                        if(this.memOrder[i].orderStatus == 4 || this.memOrder[i].orderStatus == 5){
                             return 'memContentOrderListCircleFont memContentOrderListCircleFontGreen';
                         }else{
                             return 'memContentOrderListCircleFont';
@@ -578,6 +598,7 @@ function gogoPower(){
                                         console.log(memVm.$data.memOtherProduct);
                                     }
                                 });
+                                document.getElementsByClassName('memContentOrderPages')[0].classList.toggle('memContentOrderPagesDark');
                             }
                         });
                     }
