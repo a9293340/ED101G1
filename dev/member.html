@@ -142,6 +142,8 @@
                         <p v-if="item.orderStatus == 2">運送中</p>
                         <p v-if="item.orderStatus == 3">已送達</p>
                         <p v-if="item.orderStatus == 4">完成訂單</p>
+                        <p v-if="item.orderStatus == 5" style="color: brown;">已取消</p>
+                        <p v-if="item.orderStatus == 6">已歸檔</p>
                     </div>
                 </div>
                 <div class="memOrderListBox">
@@ -181,6 +183,7 @@
                 <div class="memOrderTotalPriceBox">
                     <p>訂單金額：<span>${{item.orderTotalPrice}}</span></p>
                     <div class="memOrderGoToListBtn" :data-order='item.orderId' @click='showOrderList'>查看訂單</div>
+                    <div class="memOrderGoToListBtn" :data-order='item.orderId' v-if='item.orderStatus == 0' @click='cansolOrder'>取消訂單</div>
                 </div>
             </div>
             <!-- 分頁 -->
@@ -317,9 +320,11 @@
                 <div class="memContentOrderListCircleBox">
                     <div :class="memChooseCirleColor4">
                         <img src="./images/member/checkIconGreen.png" alt="" v-if='order.orderStatus == 4'>
-                        <img src="./images/member/checkIcon.png" alt="" v-else>
+                        <img src="./images/member/close_green.png" alt="" v-if='order.orderStatus == 5'>
+                        <img src="./images/member/checkIcon.png" alt="" v-if='order.orderStatus != 5 && order.orderStatus != 4'>
                     </div>
-                    <p :class='memChooseCircleFontColor4'>訂單已完成</p>
+                    <p :class='memChooseCircleFontColor4' v-if='order.orderStatus != 5'>訂單已完成</p>
+                    <p :class='memChooseCircleFontColor4' v-else>訂單已取消</p>
                 </div>
             </div>
             <div class="memContentOrderListQRCodeAndBuyAgainBox">
@@ -331,8 +336,11 @@
                 </div>
                 <div class="memContentOrderListBuyAgainBox" v-for='order in memOrder' v-if='order.orderId == nowDataSetNumber'>
                     <h3 v-if='order.orderStatus == 4'>訂單已完成，再次選購請點選下面按鈕</h3>
-                    <h3 v-else>訂單尚未完成，待完成後即可再次選購</h3>
-                    <div class="memContentOrderListBuyAgainBtn" v-if='order.orderStatus == 4' @click='memBuyAgain'>
+                    <h3 v-if='order.orderStatus == 5'>訂單已取消，再次選購請點選下面按鈕</h3>
+                    <h3 v-if='order.orderStatus == 1'>訂單尚未完成，待完成後即可再次選購</h3>
+                    <h3 v-if='order.orderStatus == 3'>訂單尚未完成，待完成後即可再次選購</h3>
+                    <h3 v-if='order.orderStatus == 2'>訂單尚未完成，待完成後即可再次選購</h3>
+                    <div class="memContentOrderListBuyAgainBtn" v-if='order.orderStatus == 4 || order.orderStatus == 5' @click='memBuyAgain'>
                         再買一次
                     </div>
                 </div>

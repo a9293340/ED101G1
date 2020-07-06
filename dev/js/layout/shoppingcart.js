@@ -193,7 +193,7 @@ function OrderTotalPrice(){
     document.getElementById('orderYourSorce').innerText=`獲得積分: ${OrYourScore}點`;
     document.getElementById('OrTotal').innerText=`總價: ${OrTotalPrice}元`;
     finalOrTotalPrice = OrTotalPrice;
-    document.getElementById('orderUseScore').value =""
+    document.getElementById('orderUseScore').value ="";
     orederScoreAndPrice();
 
 }
@@ -315,8 +315,8 @@ document.getElementById('orderDelivey').addEventListener('click',function(){
         localStorage.setItem('orderClass',orderClass);
     }
     document.getElementById('orderAdress').style.display="block";
-    document.getElementById('orderDelivey').style.backgroundColor="#EA6227";
-    document.getElementById('orderOut').style.backgroundColor="#EFEFEF";
+    document.getElementById('orderDelivey').style.backgroundColor="#37AB64";
+    document.getElementById('orderOut').style.backgroundColor="#FFD23F";
     console.log(orderClass);
 })
 document.getElementById('orderOut').addEventListener('click',function(){
@@ -324,8 +324,8 @@ document.getElementById('orderOut').addEventListener('click',function(){
     localStorage.setItem('orderClass',orderClass);
     document.getElementById('orderAddress').innerHTML='外帶';
     document.getElementById('orderAdress').style.display="none";
-    document.getElementById('orderOut').style.backgroundColor="#EA6227";
-    document.getElementById('orderDelivey').style.backgroundColor="#EFEFEF";
+    document.getElementById('orderOut').style.backgroundColor="#37AB64";
+    document.getElementById('orderDelivey').style.backgroundColor="#FFD23F";
     console.log(orderClass);
 })
 
@@ -358,19 +358,63 @@ function orderBuy(){
     // console.log(totalOrder);
     // console.log(totalOrder);
     console.log(MemScore);
-    if(finalOrTotalPrice==0 || memLogin=='bad' || orderCla==-1){
+    console.log(OrYourScore);
+    
+    if(orderSin.length==0 && orderSet.length==0 && orderSet.length==0){
+        var orderEmpty = 0;
+    }else{
+        orderEmpty = 1;
+    }
+    if(orderEmpty==0 || memLogin=='bad' || orderCla==-1){
         alert('請登入 選擇品項 選擇外送外帶');
     }else{
+       
     var totalOrderPost = new XMLHttpRequest();
     totalOrderPost.open('POST','../dest/php/shopping.php',true);
     totalOrderPost.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     totalOrderPost.send("totalOrder=" + JSON.stringify(totalOrder));
     totalOrderPost.onload = function(){
         // var posttest = JSON.parse(totalOrderPost.responseText);
-        var posttest = totalOrderPost.responseText;
-        console.log(posttest);
+        // var posttest = totalOrderPost.responseText;
+        // console.log(posttest);
+        // if(totalOrderPost.responseText == "error"){
+        //     alert("Error");
+        //   }else{
+        //     alert('Succesfully uploaded');  
+    
+        //   }
+       
         }
-    }    
+        sessionStorage.setItem('orderMemScore',parseInt(MemScore)+parseInt(OrYourScore));
+
+        finalsinglelist = [];
+        singleorderlist.$data.finalsinglelist = finalsinglelist;
+        orderCart=finalsinglelist;
+        localStorage.setItem('singleOrder', JSON.stringify(finalsinglelist));
+    
+        finalsetdolist = [];
+        singleorderlist.$data.finalsetdolist = finalsetdolist;
+        setdoMenu = finalsetdolist;;
+        localStorage.setItem('setdoMenuList', JSON.stringify(finalsetdolist));
+    
+        finalorderlist = [];
+        singleorderlist.$data.finalorderlist = finalorderlist;
+        otherMenu=finalorderlist;
+        localStorage.setItem('otherOrder', JSON.stringify(finalorderlist));
+        
+        // 
+     
+        OrderTotalPrice();
+
+        orderListText.value="";
+        alert('已新增訂單 可至會員專區查看');
+        
+        
+
+        
+    }
+
+    
     
 }
 

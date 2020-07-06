@@ -2,28 +2,51 @@
 
 #orderAdress{
   display: none;
+  margin: 10px 0;
+  button{
+    font-family: 'Noto Sans TC','Noto Sans', '微軟正黑體', "Times New Roman", sans-serif;
+    font-size: 13.3333px; 
+    padding: 0;
+    width: 76px;
+    border: none;
+    cursor: pointer;
+  }
+  input{
+    border-radius: 5px;
+    border: none;
+  }
+  
+  
 }
 
 .ordercart { 
+  
   position: fixed;
   right: -380px; 
   top: 0;
   width: 350px;
   height: 100%;
-  background-color: rgb(225, 226, 138);
+  // background-color: rgb(225, 226, 138);
+  // background-color:rgb(114, 156, 114);
+  // background-color:rgb(149, 194, 149);
+  background-color:#e4e0ab;
   overflow-y: scroll;
   padding: 10px;
   z-index: 500;
   transition-duration: .5s;
   transition-property: all;
   #orderListText{ 
-    margin-left: 50px;
+    margin-left: 15px;
     margin-top: 15px;
     resize : none;
   }
   .orderTextarea{
     p{
+      margin-top: 15px;
       margin-left: 10px;
+    }
+    textarea{
+      border-radius: 5px;
     }
   }
   .selfbenton,
@@ -106,14 +129,16 @@
     }
   }
 
-  span {
-    color: burlywood;
-    cursor: pointer;
-    // margin: 15px;
-    margin-right: 5%;
-    height: 50px;
-  }
-
+  // span {
+  //   color: burlywood;
+  //   cursor: pointer;
+  //   // margin: 15px;
+  //   margin-right: 5%;
+  //   height: 50px;
+  // }
+    #orderUseScore{
+      width: 30px;
+    }
   table {
     // width: 300px;
     // border: 1px solid #000;
@@ -149,6 +174,10 @@
         color: $grey;
       }
 
+      div{
+        margin-top: 5px;
+      }
+
     // .total {
     //   font-size: $fzMd;
     // }
@@ -158,20 +187,30 @@
     width: 200px;
     height: 50px;
     border-radius: 50px;
-    background-color: rgb(255, 174, 82);
+    // background-color: rgb(255, 174, 82);
+    background-color: rgb(218, 148, 68);
     margin-top: 20px;
     margin-left: 20%;
     text-align: center;
-    line-height: 50px;
+    line-height: 45px;
     margin-bottom: 10%;
     color: white;
     cursor: pointer;
     transition: .5s;
-
+    font-family: 'Noto Sans TC','Noto Sans', '微軟正黑體', "Times New Roman", sans-serif;
     &:hover {
-      background-color: rgb(218, 148, 68);
+      background-color: rgb(196, 125, 44);
     }
   }
+  .orderbuy{
+    font-family: 'Noto Sans TC','Noto Sans', '微軟正黑體', "Times New Roman", sans-serif;
+    width: 160px;
+    cursor: pointer;
+    background-color: #FFD23F;
+    border: none;
+    border-radius: 5px;
+  }
+ 
 }
 
 .orderclose { 
