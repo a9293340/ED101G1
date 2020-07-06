@@ -238,7 +238,7 @@ new Vue({
     showBentonList() {
       this.loadSingelOrderImg();
       let username = window.sessionStorage.getItem("memId");
-      if (username === "bad") {
+      if (username !== "good") {
         alert("請先登入會員!");
         $("#homeContainderBgc").show(550);
         $("#homeContainer").show(550);
@@ -321,7 +321,7 @@ let addBentonVm = new Vue({
         return;
       }
 
-      //連結後端，將標題、內容可存在資料庫
+      //連結後端，將標題、內容可存資料庫
       $.ajax({
         type: "POST",
         url: "./php/addBenton.php", //傳送目的地 (之後統整要修改網址)
@@ -466,10 +466,6 @@ let bentonWallVm = new Vue({
       $(".showbentonCover").css("display", "block");
       $("body").css("overflow", "hidden");
 
-      //加入購物車事件
-      document
-        .getElementById("buyMore")
-        .addEventListener("click", showbentonShoppingCart);
       //留言要對應的發文編號
       this.addBentonmessPostId = this.bentonArray[num].postId;
 
@@ -517,6 +513,15 @@ let bentonWallVm = new Vue({
     //留言、發文時間
     talk() {
       let talkContent = $("#content").val();
+      //判斷是否會員登入狀態
+      let username = window.sessionStorage.getItem("memId");
+      if (username !== "good") {
+        alert("請先登入會員!");
+        $("#homeContainderBgc").show(550);
+        $("#homeContainer").show(550);
+        return;
+      }
+
       if (talkContent == "") {
         alert("請輸入留言內容!");
         return;
@@ -556,6 +561,16 @@ let bentonWallVm = new Vue({
     //按讚數
     change(e) {
       let num = Number(e.target.dataset.num);
+
+      //判斷是否會員登入狀態
+      let username = window.sessionStorage.getItem("memId");
+      if (username !== "good") {
+        alert("請先登入會員!");
+        $("#homeContainderBgc").show(550);
+        $("#homeContainer").show(550);
+        return;
+      }
+
       if (e.target.dataset.check == "0") {
         if (lastLikeTime !== "" && new Date() <= nextDay(lastLikeTime)) {
           alert("已經按讚過囉,需24小時後才可以再點讚!");
@@ -641,6 +656,10 @@ let bentonWallVm = new Vue({
       //}
       console.log(this.bentonCardArray);
     },
+
+    buyMore(postSoId) {
+      showbentonShoppingCart(postSoId);
+    },
   },
   mounted() {
     //一開始就要讀取的資料
@@ -649,10 +668,6 @@ let bentonWallVm = new Vue({
       type: "GET", //傳送方式
       url: "./php/showbenton.php", //傳送目的地 (之後統整要修改網址)
       dataType: "json", //資料格式
-      // data: {
-      //   傳送資料，如有變數的時候才用
-      //   content: $("#content").val(),
-      // },
       success: function (data) {
         bentonWallVm.$data.bentonArray = data[0];
         if (data[1] != "") {
@@ -678,22 +693,25 @@ let bentonWallVm = new Vue({
 });
 
 //加入購物車
-function showbentonShoppingCart() {
-  showbentonOrderList = {
-    sNum: `${singleNum}`,
-    rice: `${showrice}`,
-    meat: `${showmeat}`,
-    single1: `${showsingle1}`,
-    single2: `${showsingle2}`,
-    single3: `${showsingle3}`,
-    soPrice: `${showTotalPrice}`,
-  };
-  singleNum++;
-  localStorage.setItem("singleNum", singleNum);
-  orderCart.push(showbentonOrderList);
-  var showOrder = JSON.stringify(orderCart);
-  localStorage.setItem("singleOrder", showOrder);
-  setcart();
+function showbentonShoppingCart(postSoId) {
+  $.ajax({
+    type: "GET", //傳送方式
+    url: "./php/showbentonBuyMore.php", //傳送目的地 (之後統整要修改網址)
+    dataType: "json", //資料格式
+    data: {
+      soId: postSoId,
+    },
+    success: function (data) {
+      orderCart.push({ ...data[0], sNum: singleNum });
+      localStorage.setItem("singleNum", ++singleNum);
+      var showOrder = JSON.stringify(orderCart);
+      localStorage.setItem("singleOrder", showOrder);
+      setcart();
+    },
+    error: function (jqXHR) {
+      console.log(jqXHR, "error");
+    },
+  });
 }
 
 //發文、留言共用時間
