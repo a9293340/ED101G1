@@ -235,10 +235,12 @@ div.overlay {
         margin-right: auto;
         vertical-align: top;
         h1{
+            width: 30%;
             font-size: 2rem;
             color: #595959;
             text-align: left;
             padding: 20px;
+            margin-left: 16%;
             margin-top: 1%;
         }
         .healBento{
@@ -321,12 +323,13 @@ div.overlay {
         height: 150px;
         margin: 0 auto;
         display: flex;
-        margin-top: 6%;
+        margin-top: 4%;
+        margin-bottom: 5%;
         .bottomInner{
             width: 100%;
             margin: 0 auto;
             display: flex;
-            margin-top:-6%;
+            margin-top: -3%;
             #healMainFood{
             display: flex;
             width: 27%;
@@ -531,7 +534,8 @@ div.overlay {
         .healthLeftBox{
             // border: 1px solid black;
             width: 100%;
-            h1{
+            h1{ 
+                width: 65%;
                 padding: 0;
                 margin-top: 5%;
                 text-align: center;
@@ -547,16 +551,19 @@ div.overlay {
         .healthRightBox{
             padding: 2%;
             width: 95%;
-            .title3{
-                width: 20% !important;
+            .titleBox{
+                width: 100%;
+                .title3{
+                width: 27% !important;
                 text-align: center;
-            }
+                }
             .title3_content{
                 // border: 1px solid maroon;
                 width: 90%;
                 margin-bottom: 5%;
                 margin-top: -5%;
                 margin-left: 5%;
+                font-size: 1rem;
                 #healthBody{
                     @include btn(100px,30px,$fz:16px);
                     text-decoration: none;
@@ -568,10 +575,13 @@ div.overlay {
                     // color:white;
                     // border-radius: 5px;
                     line-height: 33px;
-                    margin: 20px 4px;
                     padding: 5px 8px;
+                    white-space:pre-wrap;
                 }
             }
+            }
+            
+            
             .healPieChart{
                 width: 70%;
                 display: flex;
@@ -586,5 +596,8 @@ div.overlay {
         .healthBottomBox{
             display: none;
         }
+    }
+    .wrapper2None{
+        display: none;
     }
 }
