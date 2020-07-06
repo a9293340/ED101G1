@@ -41,7 +41,7 @@ p.showTitle1 {
 div.showBlock {
   @include border(20px, rgb(214, 191, 127), $rpx: 5px);
   width: 100%;
-  height: 130px;
+  height: 140px;
   margin: 20px auto 0;
   background-image: url("../images/showbenton/bulletinV1.png");
   background-size: cover;
@@ -481,7 +481,7 @@ p.showMyself {
 ul.bentoncardBox {
   border: 1px inset #d3d2d2;
   list-style: none;
-  display: inline-block;
+
   overflow: auto;
   height: 400px;
   margin: 0 auto 0 20px;
@@ -516,7 +516,7 @@ li.bentonCard {
   border: 4px solid transparent;
   border-radius: 10px;
   overflow: hidden;
-  margin: 5px;
+  margin: 5px 10px;
   img {
     cursor: pointer;
     vertical-align: bottom;
