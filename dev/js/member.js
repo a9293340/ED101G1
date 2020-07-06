@@ -227,7 +227,7 @@ function gogoPower(){
                             if(check > 0){
                                 for(let j = 0;j < setA.length;j++){
                                     if(setA[j].setdoName == this.memSetOrder[i].setName){
-                                        setA[j].setdoMany += this.memSetOrder[i].setoAmount
+                                        setA[j].setdoMany = Number(this.memSetOrder[i].setoAmount) + Number(setA[j].setdoMany)
                                     }
                                 }
                             }else{
@@ -271,7 +271,7 @@ function gogoPower(){
                             if(check > 0){
                                 for(let j = 0;j < other.length;j++){
                                     if(other[j].otherName == this.memOtherOrder[i].opName){
-                                        other[j].otherMany += this.memOtherOrder[i].ooAmount
+                                        other[j].otherMany = Number(this.memOtherOrder[i].ooAmount) + Number(other[j].otherMany)
                                     }
                                 }
                             }else{
