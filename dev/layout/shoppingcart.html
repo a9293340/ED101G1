@@ -1,36 +1,17 @@
 <div id="list">
   <div class="ordercart" id="ordercart">
-<<<<<<< HEAD
-    <img src="./images/showbenton/close.png" id="orderCartClose"  width="20" height="20">
+    <img src="./images/showbenton/close.png" id="orderCartClose" width="20" height="20">
 
     <div><button id="orderDelivey">外送</button> <button id="orderOut">外帶</button></div>
     <div id='orderAdress'>
-    <input type="text" id="input" placeholder="請輸入地址">
-    <button id="btn">判斷距離</button>
-    <button id="gps">自動定位</button>
+      <input type="text" id="input" placeholder="請輸入地址">
+      <button id="btn">判斷距離</button>
+      <button id="gps">自動定位</button>
     </div>
-=======
-    <img
-      src="./images/showbenton/close.png"
-      id="orderCartClose"
-      width="20"
-      height="20"
-    />
-    <input type="text" id="input" placeholder="請輸入地址" />
-    <button id="btn">判斷距離</button>
-    <button id="gps">自動定位</button>
-    <p id="orderAddress">外送地址</p>
->>>>>>> show
     <h3>自選便當</h3>
     <div class="selfbenton" v-for="(item, index) in finalsinglelist">
       <!-- <span :id="'b'+item.sNum" :data-num="item.sNum" width="15" height="15"> -->
-      <img
-        class="orderclose"
-        src="./images/showbenton/close.png"
-        alt=""
-        :id="'b'+item.sNum"
-        :data-num="item.sNum"
-      />
+      <img class="orderclose" src="./images/showbenton/close.png" alt="" :id="'b'+item.sNum" :data-num="item.sNum" />
       <!-- </span> -->
       <div class="selfbento_box">
         <div class="selimg">
@@ -81,13 +62,8 @@
     <h3>經典便當</h3>
     <div class="classicalbento" v-for="(item, index) in finalsetdolist">
       <!-- <span :id="'setdodelete'+ item.setdoId" :data-num="item.setdoId" width="15" height="15"> -->
-      <img
-        class="orderclose"
-        src="./images/showbenton/close.png"
-        alt=""
-        :id="'setdodelete'+ item.setdoId"
-        :data-num="item.setdoId"
-      />
+      <img class="orderclose" src="./images/showbenton/close.png" alt="" :id="'setdodelete'+ item.setdoId"
+        :data-num="item.setdoId" />
       <!-- </span> -->
       <div class="other_box">
         <div class="selimg">
@@ -106,13 +82,8 @@
     <h3>其他商品</h3>
     <div class="otherproduct" v-for="(item, index) in finalorderlist">
       <!-- <span :id="'orderdelete'+item.otherId" :data-num="item.otherId" width="15" height="15"> -->
-      <img
-        class="orderclose"
-        src="./images/showbenton/close.png"
-        alt=""
-        :id="'orderdelete'+item.otherId"
-        :data-num="item.otherId"
-      />
+      <img class="orderclose" src="./images/showbenton/close.png" alt="" :id="'orderdelete'+item.otherId"
+        :data-num="item.otherId" />
       <!-- </span> -->
       <div class="other_box">
         <div class="selimg">
@@ -128,16 +99,12 @@
         </table>
       </div>
     </div>
-<<<<<<< HEAD
-    
-  
-    <div class="orderTextarea">
-          <p>餐點備註:</p>
-          <textarea name="orderListText" id="orderListText" cols="30" rows="10"></textarea>
-    </div>  
-=======
 
->>>>>>> show
+
+    <div class="orderTextarea">
+      <p>餐點備註:</p>
+      <textarea name="orderListText" id="orderListText" cols="30" rows="10"></textarea>
+    </div>
     <div class="finaltotal">
       <div class="">積分： 0</div>
       <div id="OrTotal">總價:</div>
@@ -145,18 +112,6 @@
       <p id='orderAddress'>外送地址</p>
       <!-- <div class="price">123元</div> -->
     </div>
-<<<<<<< HEAD
-=======
-    <div class="orderTextarea">
-      <p>餐點備註:</p>
-      <textarea
-        name="orderListText"
-        id="orderListText"
-        cols="30"
-        rows="10"
-      ></textarea>
-    </div>
->>>>>>> show
     <button class="buy" id="orderBuy">立即結帳</button>
   </div>
 </div>

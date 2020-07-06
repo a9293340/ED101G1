@@ -57,10 +57,12 @@
             </div>
         </div>
         <div class="healthRightBox">
-            <p class="title3">你屬於</p>
-            <h1 id="title2"></h1>
-            <p class="title3_content">請注意您的飲食狀況唷！詳細的健康分析內容請點擊<a id="healthBody"
-                    href="./member.html">健康檔案</a>觀看，這是我們推薦給您的餐點</p>
+            <div class="titleBox">
+                <p class="title3">你屬於</p>
+                <h1 id="title2"></h1>
+                <p class="title3_content">請注意您的飲食狀況唷！詳細的健康分析內容請點擊<a id="healthBody"
+                        href="./member.html">健康檔案</a>觀看，這是我們推薦給您的餐點</p>
+            </div>
             <div class="healPieChart">
                 <img src="./images/healthImages/pieChart.png">
             </div>
@@ -107,7 +109,10 @@
     <script src="../dev//js/layout/loginSignup.js"></script>
     <script src="../dev/js/layout/shoppingcart.js"></script>
 
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD02IgpgazAmzATKes-_caAbP71BqItLQc"></script>
+    <script>
+        let service = new google.maps.DistanceMatrixService();
+    </script>
 </body>
 
 </html>
