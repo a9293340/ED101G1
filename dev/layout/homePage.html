@@ -85,7 +85,8 @@
               <!--這邊是燈箱-->
               <div id="lb_lightBox">
                 <div class="light_box" id="light_box">
-
+                  <div class="left_group" id="left_group"></div>
+                  <div class="right_group" id="right_group"></div>
 
                 </div>
 
@@ -117,11 +118,9 @@
             <div class="el__leaderBoards">
               <ul>
                 <li v-for="(menu, index) in list" @click="choosefeatured(item)">
-                  <!-- <a class="benton_price">{{menu.price}}</a> -->
+                  <a class="benton_price">{{menu.price}}</a>
                   <a class="benton_name">{{menu.benton}}</a>
-                  <a href="">
-                    <img class="featured_benton" data-id="menu.id" v-bind:src="menu.img" width="210px" height="210px">
-                  </a>
+                  <img class="featured_benton" data-id="menu.id" v-bind:src="menu.img" width="210px" height="210px">
 
                 </li>
               </ul>

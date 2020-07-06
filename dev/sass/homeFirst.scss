@@ -1288,6 +1288,7 @@ $base-size: 20rem;
       clip-path: circle(0.0% at 50% 50%);
       display: flex;
       transition: .5s;
+      z-index: 500;
 
       .light_box {
         position: absolute;
@@ -1297,10 +1298,11 @@ $base-size: 20rem;
         display: flex;
         justify-content: space-around;
         align-items: center;
-
+        top: 20%;
         .left_group {
           display: flex;
           flex-direction: column;
+          max-width: 248px;
 
           .buynow {
             height: 20px;
@@ -1321,9 +1323,47 @@ $base-size: 20rem;
         .right_group {
           display: flex;
           flex-direction: column;
-          width: 200px;
-          height: 200px;
-          background-color: red;
+          width: 500px;
+          height: 300px;
+          border: 1px dashed #000;
+          border-radius: 5px;
+          overflow: auto;
+         
+          .message_group{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+            padding: 10px;
+            border: dashed 2px;
+            border-radius: 5px;
+            justify-content: space-between;
+            .member_id{
+              display: flex;
+              align-items: center;
+            #mg_name{
+              padding-left: 10px;
+            }  
+            img{
+              border-radius: 50%;
+            }
+          }
+          .member_mgs{
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            #mg_content{
+              max-width: 280px;
+              text-align: left;
+            }
+            #mg_time{
+              font-size: 12px;
+              position: absolute;
+              right: 10px;
+              bottom: 5px;
+            }
+          }
+          }
         }
 
         #closebtn {
@@ -1346,22 +1386,29 @@ $base-size: 20rem;
           align-items: flex-start;
           padding: 5px;
           border: solid;
+          max-height: 150px;
+          overflow: auto;
           border-radius: 2%;
 
           #menu_name_sec1 {
             font-size: 16px;
             margin-top: 3%;
+            max-width: 200px;
           }
 
           #menu_content_sec1 {
             font-size: 12px;
             margin-top: 1%;
-
+            max-width: 200px;
+            position: relative;
+            text-align: left;
           }
 
           #menu_date_sec1 {
             margin-top: 5%;
             font-size: 12px;
+            position: relative;
+            right: -60px;
           }
         }
 
@@ -1375,6 +1422,7 @@ $base-size: 20rem;
             font-size: 15px;
             margin-top: 2%;
             margin-left: 5%;
+            text-align: left;
           }
 
           #menu_image_sec1 {
@@ -3407,23 +3455,23 @@ svg {
 
 }
 
-.slide.active {
+// .slide.active {
 
-  .slide__content .slider_2 .badge.am1 {
-    margin-top: 0%;
-    transition: margin-top .5s .3s ease-in, background-position .5s, transform .5s, box-shadow .5s;
-  }
+//   .slide__content .slider_2 .badge.am1 {
+//     margin-top: 0%;
+//     transition: margin-top .5s .3s ease-in, background-position .5s, transform .5s, box-shadow .5s;
+//   }
 
-  .slide__content .slider_2 .badge.am2 {
-    margin-top: 0%;
-    transition: margin-top .5s .5s ease-in, background-position .5s, transform .5s, box-shadow .5s;
-  }
+//   .slide__content .slider_2 .badge.am2 {
+//     margin-top: 0%;
+//     transition: margin-top .5s .5s ease-in, background-position .5s, transform .5s, box-shadow .5s;
+//   }
 
-  .slide__content .slider_2 .badge.am3 {
-    margin-top: 0%;
-    transition: margin-top .5s .7s ease-in, background-position .5s, transform .5s, box-shadow .5s;
-  }
-}
+//   .slide__content .slider_2 .badge.am3 {
+//     margin-top: 0%;
+//     transition: margin-top .5s .7s ease-in, background-position .5s, transform .5s, box-shadow .5s;
+//   }
+// }
 
 .slide__bg {
   position: absolute;
@@ -3610,9 +3658,9 @@ svg {
       border-radius: 50%;
       transition: $easing;
       box-shadow: 0px .5rem 1rem rgba(0, 0, 0, .75);
-      margin-left: 150px;
+      margin-left: 50px;
       transform: skew(59deg, -60deg) scale(0.4);
-
+      
       &:hover {
         box-shadow: 0px .5rem 2rem rgba(0, 0, 0, .75);
         background-position: 0% 45%;
@@ -3656,7 +3704,6 @@ svg {
         opacity: 0;
       }
 
-      margin-top: -100%;
 
       &.am1 {
         background: url(../images/order/orderfat.png) no-repeat 25% 40%;

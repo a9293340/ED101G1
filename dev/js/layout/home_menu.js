@@ -47,6 +47,7 @@ let menu_Feature = new Vue({
   el: '#first',
   data: {
     feature_benton,
+    list:[]
 
 
     // list: [
@@ -78,7 +79,9 @@ let menu_Feature = new Vue({
       url: "./php/home_featureLB.php",
       dataType: "json",
       success: function (data) {
-        menu_Feature.$data.benton = data;
+        menu_Feature.$data.list= data.slice(0,3);
+
+        // console.log(data);
       },
       error: function (jqXHR) {
         console.log(jqXHR, "error");
@@ -94,10 +97,13 @@ let menu_sec = document.getElementById("first"),
   first_img = document.getElementById("first_img"),
   third_img = document.getElementById("third_img"),
   light_box = document.getElementById("light_box"),
+  right_group = document.getElementById("right_group"),
+  left_group = document.getElementById("left_group"),
   lb_lightBox = document.getElementById("lb_lightBox");
 var leaderId_1 = "",
   leaderId_2 = "",
   leaderId_3 = "";
+
 
 //JSON
 function leaderBoard() {
@@ -107,6 +113,9 @@ function leaderBoard() {
     var leaderData = JSON.parse(leaderRequest.responseText);
     // console.log(leaderData[0]);
     console.log(leaderData);
+    leaderId_1 = leaderData[0].bentonname;
+    leaderId_2 = leaderData[1].bentonname;
+    leaderId_3 = leaderData[2].bentonname;
 
     let leader_str = []; //用陣列當變數解決要丟入多個不同區域的相同內容
     function leader_order() {
@@ -147,7 +156,6 @@ function leaderBoard() {
       for (var i = 0; i < leaderData.length; i++) {
         lb_lightbox[i] =
           `
-    <div class="left_group">
     <div class="top_img">
     <img width="248px" height="146px" id="first_img" src=" ${leaderData[i].img}">
     </div>
@@ -155,36 +163,61 @@ function leaderBoard() {
     <div id="menu_ndgroup1">
     <div id="menu_maker">
     <div id="menu_memname_sec1">創作者： ${leaderData[i].memname} </div>
-    <div id="menu_image_sec1" src="${leaderData[i].mimg}"></div>
+    <img id="menu_image_sec1" src="${leaderData[i].mimg}">
     </div>
     <div id="menu_name_sec1"> ${leaderData[i].title} </div>
     <div id="menu_content_sec1"> ${leaderData[i].content} </div>
     <div id="menu_date_sec1">日期： ${leaderData[i].postdate} </div>
     <img id="closebtn" src="./images/showbenton/close.png">
     </div>
-    </div>
     `;
 
       }
+        
 
+
+      //建立點擊事件，先等所有資料撈完後再點擊並顯示選取的資料
+
+      setTimeout(function () {
+        for (let i = 1; i < 4; i++) {
+          document.getElementById(`leader_${i}`).addEventListener('click', function () {
+            lb_lightBox.classList.toggle("lb-s--active");
+            left_group.innerHTML = lb_lightbox[i - 1];
+
+            setTimeout(function () {
+              var lb_closebtn = document.getElementById("closebtn");
+              lb_closebtn.addEventListener('click', function () {
+                lb_lightBox.classList.toggle("lb-s--active");
+                right_group.innerHTML="";
+                messageArray=[];
+                mgcontent=[];
+              });
+            }, 1000);
+
+            //click後觸發撈右邊AJAX的資料---------------
       function messageContent() {
-        let messPostId = leaderId_1;
+        // let messPostId = [leaderId_1,leaderId_2,leaderId_3];
+        // console.log(messPostId);
         var contentRequest = new XMLHttpRequest();
         contentRequest.onload = function () {
           var mgcontent = JSON.parse(contentRequest.responseText);
 
           //將對應的mgcontent訊息撈出來存入messageArray陣列裡
-
           function messagebox() {
             for (var i = 0; i < mgcontent.length; i++) {
               // messPostId = mgcontent.messPostId;
               messageArray[i] =
                 `
-         <div class="right_group">
-         <div id="mg_content"> ${mgcontent[i].content} </div>
-         <div id="mg_time"> ${mgcontent[i].mtime} </div>
+         <div class="message_group">
+         <div class="member_id">
+         <img src ="${mgcontent[i].img} " width="30" height="30">
          <div id="mg_name"> ${mgcontent[i].mname} </div>
          </div>
+         <div class="member_mgs">
+         <div id="mg_content"> ${mgcontent[i].content} </div>
+         <div id="mg_time"> ${mgcontent[i].mtime} </div>
+         </div>
+         </div>     
 
         `
             }
@@ -193,29 +226,30 @@ function leaderBoard() {
         };
         contentRequest.open('POST', '../dest/php/home_lBmessage.php');
         contentRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        contentRequest.send("messPostId=" + messPostId);
-        console.log(messPostId);
+        if(i == 1){
+          contentRequest.send("messPostId=" + leaderId_1);
+        }else if(i == 2){
+          contentRequest.send("messPostId=" + leaderId_2);
+        }else{
+          contentRequest.send("messPostId=" + leaderId_3);
+        }
+        // console.log(messPostId);
 
       };
-      console.log(789);
       messageContent();
-
-      //--------------------------------------------------------------
-
-      //建立點擊事件，先等所有資料撈完後再點擊並顯示選取的資料
-
       setTimeout(function () {
-        for (let i = 1; i < 4; i++) {
-          document.getElementById(`leader_${i}`).addEventListener('click', function () {
-            lb_lightBox.classList.toggle("lb-s--active");
-            light_box.innerHTML = lb_lightbox[i - 1];
+            for (var i = 0; i < messageArray.length; i++) {
+              // console.log(messPostId);
+              right_group.innerHTML += messageArray[i];
+            }
+        console.log(456);
+      }, 500)
+       //右邊AJAX的資料----------------------------------
 
-            setTimeout(function () {
-              var lb_closebtn = document.getElementById("closebtn");
-              lb_closebtn.addEventListener('click', function () {
-                lb_lightBox.classList.toggle("lb-s--active");
-              });
-            }, 1000);
+
+
+            //做第二次ajax
+            //ajax.onload => 抓右邊的資料 然後渲染
 
           });
 
@@ -225,17 +259,7 @@ function leaderBoard() {
 
       //leader點開後撈出對應的留言貼文數量
 
-      setTimeout(function () {
-        for (var i = 1; i < 4; i++) {
-          document.getElementById(`leader_${i}`).addEventListener('click', function () {
-            for (var i = 0; i < messageArray.length; i++) {
-              // console.log(messPostId);
-              light_box.innerHTML += messageArray[i];
-            }
-          })
-        }
-        console.log(456);
-      }, 1000)
+     
     };
     lightbox();
   };
@@ -252,28 +276,24 @@ leaderBoard();
 let menu_third = new Vue({
   el: '#third',
   data: {
-    list: [{
-        id: '1',
-        benton: '雞腿便當',
-        img: '../../dest/images/order/pork.jpg',
-        price: 80,
-      },
-      {
-        id: '2',
-        benton: '排骨便當',
-        img: '../../dest/images/order/pork.jpg',
-        price: 80,
-      },
-      {
-        id: '3',
-        benton: '鮭魚便當',
-        img: '../../dest/images/order/pork.jpg',
-        price: 80,
-      },
-
-    ],
+    list: []
 
   },
+  mounted() {
+    $.ajax({
+      type: "GET",
+      url: "./php/home_featureLB.php",
+      dataType: "json",
+      success: function (data) {
+        menu_third.$data.list= data.slice(3);
+
+        // console.log(data);
+      },
+      error: function (jqXHR) {
+        console.log(jqXHR, "error");
+      },
+    })
+  }
 });
 
 //第二幕主要效果控制
@@ -451,6 +471,19 @@ function changeSlides(instant) {
       $slider.removeClass("animating");
       animating = false;
     }, animTime);
+    
+    // TweenMax.from('.badge',graph, 3, {
+    //   y: -1200,
+    //   ease:"bounch.out",
+      
+    // });    
+
+    gsap.from(".badge",{
+      duration: 2.5,
+      y:-600,
+      ease: "bounce.out",
+    })
+
   }
   window.clearTimeout(autoSlideTimeout);
   $(".slider-pagi__elem").removeClass("active");
@@ -531,3 +564,7 @@ $(document).on("click", ".slider-pagi__elem", function () {
   changeSlides();
 });
 // 這塊是下方小按鈕的點擊和左右邊的點擊觸發效果
+
+
+
+
