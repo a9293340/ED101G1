@@ -160,7 +160,7 @@
               width="340"
               height="260"
             />
-            <button class="buyMore" id="buyMore">加入購物車</button>
+            <button class="buyMore" id="buyMore" @click="buyMore(currentBenton.postSoId)">加入購物車</button>
             <div class="memTextBlock">
               <img :src="currentBenton.memImage" class="memPicture" />
               <p class="member">{{currentBenton.memName}}</p>

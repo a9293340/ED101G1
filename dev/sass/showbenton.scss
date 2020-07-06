@@ -76,7 +76,7 @@ div.addBenton {
 
 //放圖片便當的區域
 div.showBentonImg {
-  border: 1px solid purple;
+  border: 1px solid transparent;
   margin: 0 auto;
   width: 70%;
   z-index: 9999;
@@ -104,6 +104,7 @@ div.kitchenTool {
 
 //便利貼圖片
 [id^="bentonimg"] {
+  border: 1px solid gray;
   width: 250px;
   height: 200px;
   margin-top: 55px;
@@ -262,7 +263,6 @@ p.showMyself {
 
 .showBentonContentbox {
   @include lightBox($width: 800px);
-  background-color: rgb(243, 243, 243);
   display: none;
   position: fixed;
   top: 50%;
@@ -350,6 +350,7 @@ p.showMyself {
   font-size: 14px;
   display: inline-block;
   vertical-align: middle;
+  width: 200px;
 }
 //檢舉
 .reportBox {
@@ -425,7 +426,6 @@ p.showMyself {
     //會員檢舉按鈕
     .report {
       display: inline-block;
-      margin-left: 170px;
       font-size: 14px;
       font-weight: 300;
       border-radius: 5px;
@@ -501,6 +501,7 @@ ul.bentoncardBox {
     color: rgb(7, 90, 7);
   }
   .closebox {
+    border-radius: 10px;
     width: 30px;
     height: 30px;
     right: -65px;
@@ -601,8 +602,8 @@ button.Pre {
 
 .closebox {
   position: absolute;
-  right: 15px;
-  top: 15px;
+  right: 30px;
+  top: 30px;
   &:hover {
     cursor: pointer;
   }
@@ -642,7 +643,7 @@ button.Pre {
 
 //分頁
 .bontonPagesBox {
-  border: 1px solid red;
+  border: 1px solid transparent;
   @include flexStyle(center, center);
   margin: 0 auto;
   padding-bottom: 60px;
@@ -651,6 +652,11 @@ button.Pre {
     @include btn(30px, 20px);
     margin: 0 10px;
   }
+}
+
+//會員登入遮罩
+.homeContainderBgc {
+  z-index: 99999;
 }
 
 //---------------------RWD
