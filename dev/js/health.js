@@ -247,6 +247,32 @@ function doFirst() {
             healNewheight: height,
             healLastTime
         })
+
+        var ctx = document.getElementById( "example" ),
+example = new Chart(ctx, {
+    // 參數設定[註1]
+    type: "pie", // 圖表類型
+    data: {
+        labels: [ "BMI", "腸胃＋生活做習", "寒燥" ], // 標題
+        datasets: [{
+            label: "# of Votes", // 標籤
+            data: [ healthColdHot, healHealth,healStomach ], // 資料
+            backgroundColor: [ // 背景色
+            "#FF0000",
+            "#00FF00",
+            "#0000FF",
+            ],
+            borderWidth: 1 // 外框寬度
+            // healthColdHot,
+            // healHealth,
+            // healStomach,
+        }]
+    }
+});
+
+
+
+
         let xhr = new XMLHttpRequest();
         xhr.onload = function () {
             if (xhr.status == 200) {
@@ -462,9 +488,27 @@ function doFirst() {
         }
     }
 
-    document.getElementById('healthCart').addEventListener('click', healthShoppingCart);
+    document.getElementById('healthCart').addEventListener('click', healthPraintAndShoppcar);
+
+
+    function healthplant() {
+        html2canvas($("#healBentoPic")[0]).then(function(canvas) {
+          var orderImg = canvas.toDataURL("image/png");
+          localStorage.setItem('orderImg',orderImg);
+            // console.log(canvas.toDataURL("image/png"));
+        });
+      };
+    
+      function healthPraintAndShoppcar(){
+        document.getElementById('homeTwoScreen').scrollIntoView();
+        healthplant();
+        setTimeout(() => {
+            healthShoppingCart();
+        }, 500);
+    }  
 
     function healthShoppingCart() {
+        orderImg = localStorage.getItem('orderImg');
         healthTotalprice = parseInt(healthFinalAnswer.sideDashe1.spPrice) + parseInt(healthFinalAnswer.sideDashe2.spPrice) + parseInt(healthFinalAnswer.sideDashe3.spPrice) + parseInt(healthFinalAnswer.rice.spPrice) + parseInt(healthFinalAnswer.mainFood.spPrice);
         console.log(healthTotalprice);
         alert('已加入購物車');
@@ -480,7 +524,8 @@ function doFirst() {
             singleId2: `${healthFinalAnswer.sideDashe2.spId}`,
             single3: `${healthFinalAnswer.sideDashe3.spName}`,
             singleId3: `${healthFinalAnswer.sideDashe3.spId}`,
-            soPrice: `${healthTotalprice}`
+            soPrice: `${healthTotalprice}`,
+            soImg:`${orderImg}`
         }
         singleNum++;
         localStorage.setItem('singleNum', singleNum);
@@ -495,3 +540,4 @@ function doFirst() {
 
 };
 window.addEventListener('load', doFirst);
+

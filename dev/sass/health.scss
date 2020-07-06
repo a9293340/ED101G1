@@ -230,6 +230,7 @@ div.overlay {
     height: auto;
     margin: 0 auto;
     .healthLeftBox{  //左盒子
+        text-align: center;
         // border: 1px solid green;
         width: 50%;
         display: inline-block;
@@ -245,7 +246,7 @@ div.overlay {
             margin-top: 1%;
         }
         .healBento{
-            width: 65%;
+            width: 605px;
             margin: 0 auto;
             text-align: center;
             position: relative;
@@ -287,6 +288,12 @@ div.overlay {
                 position: absolute;
                 top: 240px;
                 right: 70px;
+            }
+            #healthBentoBottom{
+                position: absolute;
+                bottom: 15px;
+                right: 5px;
+                width: 600px;
             }
         }
         .healCartBtn{
@@ -574,6 +581,7 @@ div.overlay {
         overflow: hidden;
         .healthLeftBox{
             // border: 1px solid black;
+           
             width: 100%;
             h1{ 
                 width: 65%;
