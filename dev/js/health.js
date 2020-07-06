@@ -46,8 +46,8 @@ function doFirst() {
             };
 
             $('#weight').keyup(function () {
-                // height = parseInt($('#height').val());
-                // weight = parseInt($('#weight').val());
+                height = parseInt($('#height').val());
+                weight = parseInt($('#weight').val());
                 // console.log(height);
                 let BMI = weight / ((height / 100) * (height / 100));
                 BMI = BMI.toFixed(2);
@@ -58,8 +58,8 @@ function doFirst() {
             });
 
             $('#height').keyup(function () {
-                // height = parseInt($('#height').val());
-                // weight = parseInt($('#weight').val());
+                height = parseInt($('#height').val());
+                weight = parseInt($('#weight').val());
                 // console.log(height);
                 let BMI = weight / ((height / 100) * (height / 100));
                 BMI = BMI.toFixed(2);
@@ -251,7 +251,7 @@ function doFirst() {
         xhr.onload = function () {
             if (xhr.status == 200) {
                 if (xhr.responseText == 'good') {
-                    alert('已經將您的測驗結果新增至健康紀錄！')
+                    // alert('已經將您的測驗結果新增至健康紀錄！')
                 }
             } else {
                 alert(xhr.status);
@@ -273,6 +273,12 @@ function doFirst() {
         console.log(singleProducts);
         healthFinalAnswer = healthFindData(singleProducts, healthStyle);
         console.log(healthFinalAnswer);
+        document.getElementById('healthRice').src = healthFinalAnswer.rice.spImage;
+        document.getElementById('healthMeat').src = healthFinalAnswer.mainFood.spImage;
+        document.getElementById('healthDish1').src = healthFinalAnswer.sideDashe1.spImage;
+        document.getElementById('healthDish2').src = healthFinalAnswer.sideDashe2.spImage;;
+        document.getElementById('healthDish3').src = healthFinalAnswer.sideDashe3.spImage;;
+
         healthMainFood.innerHTML = `
         <div class="mainFood">
             <img class="meat"src="${healthFinalAnswer.rice.spImage}">

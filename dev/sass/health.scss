@@ -2,7 +2,7 @@
 
 
 * {
-    box-sizing: border-box;
+    // box-sizing: border-box;
     @import "base/_fontStyle.scss";
 
 }
@@ -13,6 +13,7 @@ body {
     $notoSansTC: 'Noto Sans TC', sans-serif;
 }
 div.wrapper {
+   
     background-image: url("../images/healthImages/blackBoard.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -247,8 +248,45 @@ div.overlay {
             width: 65%;
             margin: 0 auto;
             text-align: center;
-            img{
+            position: relative;
+            .imgBox{
                 width: 100%;
+            }
+            #healthRice{
+                width:300px;
+                height: 380px;
+                position: absolute;
+                top:80px;
+                left:60px;
+            }
+            #healthMeat{
+                width:300px;
+                height: 350px;
+                position: absolute;
+                top:80px;
+                left:70px;
+                z-index: 2;
+            }
+            #healthDish1{
+                width: 220px;
+                height: 220px;
+                position: absolute;
+                top: 50px;
+                right: 70px;
+            }
+            #healthDish2{
+                width: 220px;
+                height: 220px;
+                position: absolute;
+                top: 130px;
+                right: 70px;
+            }
+            #healthDish3{
+                width: 220px;
+                height: 220px;
+                position: absolute;
+                top: 240px;
+                right: 70px;
             }
         }
         .healCartBtn{
@@ -334,8 +372,10 @@ div.overlay {
             display: flex;
             width: 27%;
             margin-left: 15%;
+           
             .mainFood{
                 //border: 1px solid black;
+                box-sizing: border-box;
                 width: 300px;
                 height: 20px;
                 padding: 6%;
@@ -381,6 +421,7 @@ div.overlay {
             padding: 4%;
             display: flex;
             position: relative;
+            box-sizing: border-box;
                 .veg{
                     // border: 1px solid blue;
                     position: absolute;
@@ -545,7 +586,9 @@ div.overlay {
                 width: 80%;
                 .imgBox{
                     width: 100%;
+                    position: relative;
                 }
+              
             }
         }
         .healthRightBox{
