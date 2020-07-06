@@ -46,8 +46,8 @@ function doFirst() {
             };
 
             $('#weight').keyup(function () {
-                // height = parseInt($('#height').val());
-                // weight = parseInt($('#weight').val());
+                height = parseInt($('#height').val());
+                weight = parseInt($('#weight').val());
                 // console.log(height);
                 let BMI = weight / ((height / 100) * (height / 100));
                 BMI = BMI.toFixed(2);
@@ -58,8 +58,8 @@ function doFirst() {
             });
 
             $('#height').keyup(function () {
-                // height = parseInt($('#height').val());
-                // weight = parseInt($('#weight').val());
+                height = parseInt($('#height').val());
+                weight = parseInt($('#weight').val());
                 // console.log(height);
                 let BMI = weight / ((height / 100) * (height / 100));
                 BMI = BMI.toFixed(2);
