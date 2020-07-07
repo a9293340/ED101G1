@@ -19,6 +19,7 @@ function gogoPower(){
     document.getElementById('adminSignout').addEventListener('click',()=>{
         sessionStorage['admAuthority'] = '';
         sessionStorage['admAccount'] = '';
+        sessionStorage["admOk"] = 'no';
         location.href = './backEndlogin.html';
     })
 

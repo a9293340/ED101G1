@@ -277,7 +277,7 @@ example = new Chart(ctx, {
         xhr.onload = function () {
             if (xhr.status == 200) {
                 if (xhr.responseText == 'good') {
-                    // alert('已經將您的測驗結果新增至健康紀錄！')
+                    alert('已經將您的測驗結果新增至健康紀錄！')
                 }
             } else {
                 alert(xhr.status);
