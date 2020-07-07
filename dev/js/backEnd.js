@@ -498,5 +498,43 @@ function bkChangePage(e){
             },
         })
     }
+    if(count == 11){
+        let bkreportVM = new Vue({
+            el:'#bkReportFix',
+            data:{
+                reports:[],
+            },
+            methods:{
+                bkReportGo(e){
+                    let reportId = Number(e.target.dataset.reportid);
+                    let xhr = new XMLHttpRequest();
+                    xhr.onload=function (){
+                        if( xhr.status == 200 ){
+                            if(xhr.responseText == '1'){
+                                alert('檢舉成功');
+                                // e.target.style.transform = 'scale(.8)';
+                            }
+                        }else{
+                            alert( xhr.status );
+                        }
+                    }
+                    let url = `./php/bkMemberSetReport.php?memId=${reportId}`;
+                    xhr.open("Get", url, true);
+                    xhr.send( null );
+                }
+            },
+            mounted(){
+                $.ajax({
+                    type: "GET",
+                    url: "./php/bkReportFind.php",
+                    success: function (res) {
+                        console.log(JSON.parse(res));
+                        let data = JSON.parse(res);
+                        bkreportVM.$data.reports = data;
+                    }
+                });
+            }
+        })
+    }
 }
 

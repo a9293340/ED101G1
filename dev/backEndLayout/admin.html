@@ -732,5 +732,39 @@
         </form>
     </div>
 </div>
-<div class="backEndBox backEndBoxNone">13</div>
-<div class="backEndBox backEndBoxNone">14</div>
+<div class="backEndBox backEndBoxNone" id="bkReportFix">
+    <div class="bkReportFind">
+        <div class="container">
+            <table class="table" height='400px'>
+                <thead>
+                    <th>檢舉編號</th>
+                    <th>留言內容</th>
+                    <th>檢舉類別</th>
+                    <th>被檢舉人</th>
+                    <th>是否檢舉</th>
+                    <th>是否處理</th>
+                </thead>
+                <tbody>
+                    <tr v-for='re in reports'>
+                        <td>{{re.reportId}}</td>
+                        <td>{{re.messContent}}</td>
+                        <td>{{re.memName}}</td>
+                        <td v-if='re.reportReason == 0'>色情暴力</td>
+                        <td v-if='re.reportReason == 1'>仇恨言論</td>
+                        <td v-if='re.reportReason == 2'>廣告</td>
+                        <td v-if='re.reportReason == 3'>非相關議題</td>
+                        <td>
+                            <div 
+                                class="bkReportToList"
+                                :data-reportid='re.memId'
+                                @click='bkReportGo'
+                            >檢舉</div>
+                        </td>
+                        <td v-if='re.memReportCount == 0'>未處理</td>
+                        <td v-if='re.memReportCount == 1' style="color: brown;">已被檢舉</td>
+                    </tr>
+                <tbody>
+            </table>  
+        </div>    
+    </div>
+</div>
