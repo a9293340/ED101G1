@@ -144,12 +144,19 @@ img:not([src]) {
   text-align: center;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+    .ordersingleplus{
+      position: absolute;
+      bottom: 20px;
+      right:25px;
+      cursor: pointer;
+    }
 
   &:hover {
     box-shadow: 2px 2px 10px $orange;
   }
 
-  img {
+  .orderRicePic {
     margin-top: 5px;
     cursor: pointer;
   }
@@ -280,10 +287,10 @@ img:not([src]) {
 
 .buy_bandoImg {
   margin: 0 auto;
-  background-image: url(../images/bandon_include/bentoBox.png);
-  width: 480px;
+  // background-image: url(../images/bandon_include/bentoBox.png);
+  width: 490px;
   height: 400px; 
-  background-size: cover;
+  // background-size: cover;
   position: relative;
   #orderHappy{
     position: absolute;
@@ -676,18 +683,24 @@ HEAD .count {
       }
     }
   }
-  .single_card{
-    box-sizing: border-box;
-    width: 150.6px;
-    height: 212.5px;
-    margin: 5px  17px;
-    flex-shrink:0;
+  // .single_card{
+  //   box-sizing: border-box;
+  //   width: 150.6px;
+  //   height: 212.5px;
+  //   margin: 5px  17px;
+  //   flex-shrink:0;
+  //   position: relative;
+  //   .ordersingleplus{
+  //     position: absolute;
+  //     bottom: 10px;
+  //     right:10px;
+  //   }
     
-    .orderRicePic{
-      width: 100px;
-      height:100px;
-    }
-  }
+  //   .orderRicePic{
+  //     width: 100px;
+  //     height:100px;
+  //   }
+  // }
   #buy_app3{
     height: 320px;
   
