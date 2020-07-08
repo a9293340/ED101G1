@@ -144,13 +144,16 @@ div.wrapper {
         
     }
     .imgLogo {
-        width: 150px;
+        width: 200px;
         margin-left: auto;
-        margin-right: 40px;
+        margin-right: 80px;
         margin-bottom: 100px;
-        margin-top: -20px;
+        margin-top: -70px;
         position: relative;
         z-index: 1;
+        img{
+            width: 100%;
+        }
     }
 }
 div.overlay {
@@ -356,7 +359,7 @@ div.overlay {
             width: 55%;
             display: inline-flex;
             margin-left: 15%;
-            img{
+            canvas{
                 // border: 1px solid black;
                 width: 90%;
             }
@@ -379,7 +382,7 @@ div.overlay {
             display: flex;
             width: 27%;
             margin-left: 15%;
-           
+            }
             .mainFood{
                 //border: 1px solid black;
                 box-sizing: border-box;
@@ -462,10 +465,11 @@ div.overlay {
         }
     }
 }
+
         .mainFood{
             width: 200px;
         }
-    }
+    
 .wrapper2None{
     display: none;
 }
@@ -534,9 +538,6 @@ div.overlay {
     }
     .imgLogo {
         width: 150px;
-        left: 20px;
-        margin-right: 40px;
-        margin-bottom: 30px;
         top: -26px;
         position: relative;
         z-index: 1;
@@ -581,7 +582,6 @@ div.overlay {
         overflow: hidden;
         .healthLeftBox{
             // border: 1px solid black;
-           
             width: 100%;
             h1{ 
                 width: 65%;
@@ -596,7 +596,47 @@ div.overlay {
                     width: 100%;
                     position: relative;
                 }
-              
+                #healthRice{
+                    width: 50%;
+                    height: 87%;
+                    position: absolute;
+                    top: 4%;
+                    left: 8%;
+                }
+                #healthMeat{
+                    width: 50%;
+                    height: 80%;
+                    position: absolute;
+                    top: 5%;
+                    left: 10%;
+                    z-index: 2;
+                }
+                #healthDish1{
+                    width: 47%;
+                    height: 40%;
+                    position: absolute;
+                    top: 6%;
+                    right: 3%;
+                }
+                #healthDish2{
+                    width: 47%;
+                    height: 40%;
+                    position: absolute;
+                    top: 27%;
+                    right: 3%;
+                }
+                #healthDish3{
+                    width: 42%;
+                    height: 40%;
+                    position: absolute;
+                    top: 53%;
+                    right: 3%;                
+                }
+                #healthBentoBottom{
+                    position: absolute;
+                    bottom: 3%;
+                    width: 99%;
+                }
             }
         }
         .healthRightBox{
@@ -637,9 +677,9 @@ div.overlay {
                 width: 70%;
                 display: flex;
                 margin: 0 auto;
-                img{
+                canvas{
                     // border: 1px solid black;
-                    width: 100%;
+                    width: 100% !important;
                     margin-bottom: 30%;
                 }
             }
