@@ -459,6 +459,34 @@ createBullets();
 // autoSlide();
 // 這裡是自動輪播
 
+var badges = [".badge.am1",".badge.am2",".badge.am3"];
+var badge = function badge1(){
+  var fa = gsap.to(badges,{
+    y:190,
+    ease: "bounce.out",
+    duration: 2,
+    repeat: -1,
+    yoyo: true,
+    // repeatDelay: 0.4,
+    stagger: 0.5,
+});
+$(".badge.am1").mouseenter(function(){
+  gsap.to(".badge.am1",{
+    x:190,
+    
+  });
+
+})
+$(".badge.am1").mouseleave(function(){
+  gsap.to(".badge.am1",{
+    x:0,
+  })
+})
+badge = function badge1(){};
+}
+
+
+
 function changeSlides(instant) {
   if (!instant) {
     animating = true;
@@ -471,20 +499,9 @@ function changeSlides(instant) {
       $slider.removeClass("animating");
       animating = false;
     }, animTime);
-    
-    // TweenMax.from('.badge',graph, 3, {
-    //   y: -1200,
-    //   ease:"bounch.out",
-      
-    // });    
-
-    gsap.from(".badge",{
-      duration: 2.5,
-      y:-600,
-      ease: "bounce.out",
-    })
-
+    badge();
   }
+  
   window.clearTimeout(autoSlideTimeout);
   $(".slider-pagi__elem").removeClass("active");
   $(".slider-pagi__elem-" + curSlide).addClass("active");
@@ -492,6 +509,7 @@ function changeSlides(instant) {
   $slideBGs.css("transform", "translate3d(" + curSlide * 50 + "%,0,0)");
   diff = 0;
   // autoSlide();
+  
 }
 
 //如果拖一畫面大於一定寬度直接切換
@@ -564,6 +582,7 @@ $(document).on("click", ".slider-pagi__elem", function () {
   changeSlides();
 });
 // 這塊是下方小按鈕的點擊和左右邊的點擊觸發效果
+
 
 
 

@@ -3373,3 +3373,32 @@ $(window).ready(function () {
   });
 });
 
+
+var bodys = ["#Capa_1 > path:nth-child(1)","#Capa_1 > path:nth-child(2)"
+,"#Capa_1 > path:nth-child(3)","#Capa_1 > g:nth-child(4)"];
+function body(){
+  gsap.from(bodys,{
+    scaleY: 0,
+    ease: "power1.out",
+    duration: 1,
+  })
+}
+body();
+
+
+var eyes = ["#Capa_1 > path.rightEye","#Capa_1 > path.leftEye"];
+function eye(){
+  gsap.to(eyes,{
+    x:30,
+    ease: "power1.out",
+    duration: 1,
+    repeat: -1,
+    yoyo: true,
+    delay: 1
+    // repeatDelay: 0.4,
+   
+})
+};
+eye();
+
+
