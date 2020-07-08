@@ -104,6 +104,13 @@ label{
 }
 
 #bkMemberBox{
+    .bkMemberBox{
+        margin-left: 150px;
+        margin-top: 50px;
+        .checkMemberReport{
+            margin: 0 10px;
+        }
+    }
     .container {
         padding: 50px;
     }

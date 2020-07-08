@@ -40,6 +40,9 @@ function bkChangePage(e){
             el:'#bkMemberBox',
             data:{
                 members:[],
+                index :'',
+                index2 :'',
+                nowMembers:[]
             },
             methods: {
                 bkMemberToGG(e){
@@ -63,6 +66,42 @@ function bkChangePage(e){
                     var url = `./php/bkMemberSetStatus.php?memId=${memId}`;
                     xhr.open("Get", url, true);
                     xhr.send( null );
+                },
+                bkFindMember(){
+                    let box = [];
+                    for(let i = 0 ; i < this.members.length;i++){
+                        // console.log(this.members[i].memId);
+                        if(this.members[i].memName.indexOf(this.index) != -1){
+                            box.push(this.members[i]);
+                            console.log(i);
+                        }
+                    }
+                    this.nowMembers = box;
+                },
+                bkFindMemberA(){
+                    let box = [];
+                    for(let i = 0 ; i < this.members.length;i++){
+                        // console.log(this.members[i].memId);
+                        if(this.members[i].memReportCount == 0){
+                            box.push(this.members[i]);
+                            console.log(i);
+                        }
+                    }
+                    this.nowMembers = box;
+                },
+                bkFindMemberB(){
+                    let box = [];
+                    for(let i = 0 ; i < this.members.length;i++){
+                        // console.log(this.members[i].memId);
+                        if(this.members[i].memReportCount == 1){
+                            box.push(this.members[i]);
+                            console.log(i);
+                        }
+                    }
+                    this.nowMembers = box;
+                },
+                bkFindMemberC(){
+                    this.nowMembers = this.members;
                 }
             },
             mounted() {
@@ -74,6 +113,7 @@ function bkChangePage(e){
                     url: "./php/bkMemberRp.php",
                     success: function (response) {
                         bkmemVM.$data.members = JSON.parse(response);
+                        bkmemVM.$data.nowMembers = bkmemVM.$data.members;
                     }
                 });
             },
