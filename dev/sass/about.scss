@@ -30,7 +30,7 @@
 
 .pages-container {
   position: absolute;
-  top: 2.5%;
+  top: 4.5%;
   left: -13%;
   right: 0;
   bottom: 0;
@@ -85,7 +85,7 @@ $color_back: #ffde6b; // background
 $color: #333; // the rest
 
 #cooking {
-  position: relative;
+  position: absolute;
 
   margin: 0 auto;
   top: -600px;
@@ -97,7 +97,7 @@ $color: #333; // the rest
 
 svg{
   width: 100px;
-  height: 100px;
+  height: 130px;
   margin-top: 50px;
 }
 #area {

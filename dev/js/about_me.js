@@ -3524,7 +3524,8 @@ function body() {
      scaleY:5,
     scaleX: 5,
     autoAlpha: 0,
-    transformOrigin: "center"
+    transformOrigin: "center",
+    
   },
   {
     scaleY:1,
@@ -3533,7 +3534,8 @@ function body() {
     duration: 1.5,
     autoAlpha: 1,
     ease: "bounce.inout",
-    delay: 3.5
+    delay: 3.5,
+    
   }
   )
  
@@ -3541,9 +3543,9 @@ function body() {
   gsap.timeline().from(face, {
     ease: "power1.out",
     duration: 1,
-    autoAlpha: 0,
     scaleY:0,
     scaleX: 0,
+    autoAlpha: 0,
     transformOrigin: "center"
   });
 
@@ -3575,17 +3577,40 @@ gsap.timeline().from(hat, {
     autoAlpha: 0,
     stagger: .5,
     transformOrigin: "right",
-    
+    onComplete: cooker_hover,
 
   },"+=0.5")
   gsap.timeline().to(eyes, {
     x: 25,
-    ease: "power1.inout",
+    ease:"ease.in",
     duration: 1,
-    repeat: -1,
+    repeat: -2,
     yoyo: true,
     // repeatDelay: 0.4,
+    stragger:{
+      amount: 10,
+   
+  }
   },"+=3.5")
-
+  
 }
 body();
+function cooker_hover(){
+  console.log("123"),
+  $(".cooker").mouseenter(function(){
+    gsap.to(".hat",{
+      y:-50
+      
+    });
+  
+  })
+  $(".cooker").mouseleave(function(){``
+    gsap.to(".hat",{
+      y:0
+      
+    });
+  
+  })
+}
+
+
