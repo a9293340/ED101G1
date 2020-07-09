@@ -21,6 +21,11 @@
         $member->bindValue(":healNewheight", $healNewheight);
         $member->bindValue(":healMember", $_SESSION["memId"]);
         $member->execute();
+
+        $sql='update `MEMBER` set memHealth = 1 where memId=:memId';
+        $member2 = $pdo->prepare($sql);
+        $member2->bindValue(":memId", $_SESSION["memId"]);
+        $member2->execute();
     
         echo 'good';
     }catch(PDOException $e){

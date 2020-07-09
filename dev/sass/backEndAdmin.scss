@@ -104,6 +104,13 @@ label{
 }
 
 #bkMemberBox{
+    .bkMemberBox{
+        margin-left: 150px;
+        margin-top: 50px;
+        .checkMemberReport{
+            margin: 0 10px;
+        }
+    }
     .container {
         padding: 50px;
     }
@@ -485,7 +492,26 @@ label{
     }
     margin-bottom: 500px;
 }
+#bkReportFix{
+    .bkReportFind{
+        margin-top: 60px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        // border: 1px solid red;
+        .bkReportToList{
+            margin: 0 auto;
+            @include btn(90px,35px);
+            font-size: 1rem;
+            line-height: 1.6rem;
+        }
+    }
+}
 .backEndBoxNone{
     display: none;
 }
+
+
 

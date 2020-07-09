@@ -19,6 +19,7 @@ function gogoPower(){
     document.getElementById('adminSignout').addEventListener('click',()=>{
         sessionStorage['admAuthority'] = '';
         sessionStorage['admAccount'] = '';
+        sessionStorage["admOk"] = 'no';
         location.href = './backEndlogin.html';
     })
 
@@ -39,6 +40,9 @@ function bkChangePage(e){
             el:'#bkMemberBox',
             data:{
                 members:[],
+                index :'',
+                index2 :'',
+                nowMembers:[]
             },
             methods: {
                 bkMemberToGG(e){
@@ -62,6 +66,42 @@ function bkChangePage(e){
                     var url = `./php/bkMemberSetStatus.php?memId=${memId}`;
                     xhr.open("Get", url, true);
                     xhr.send( null );
+                },
+                bkFindMember(){
+                    let box = [];
+                    for(let i = 0 ; i < this.members.length;i++){
+                        // console.log(this.members[i].memId);
+                        if(this.members[i].memName.indexOf(this.index) != -1){
+                            box.push(this.members[i]);
+                            console.log(i);
+                        }
+                    }
+                    this.nowMembers = box;
+                },
+                bkFindMemberA(){
+                    let box = [];
+                    for(let i = 0 ; i < this.members.length;i++){
+                        // console.log(this.members[i].memId);
+                        if(this.members[i].memReportCount == 0){
+                            box.push(this.members[i]);
+                            console.log(i);
+                        }
+                    }
+                    this.nowMembers = box;
+                },
+                bkFindMemberB(){
+                    let box = [];
+                    for(let i = 0 ; i < this.members.length;i++){
+                        // console.log(this.members[i].memId);
+                        if(this.members[i].memReportCount == 1){
+                            box.push(this.members[i]);
+                            console.log(i);
+                        }
+                    }
+                    this.nowMembers = box;
+                },
+                bkFindMemberC(){
+                    this.nowMembers = this.members;
                 }
             },
             mounted() {
@@ -73,6 +113,7 @@ function bkChangePage(e){
                     url: "./php/bkMemberRp.php",
                     success: function (response) {
                         bkmemVM.$data.members = JSON.parse(response);
+                        bkmemVM.$data.nowMembers = bkmemVM.$data.members;
                     }
                 });
             },
@@ -496,6 +537,44 @@ function bkChangePage(e){
                     }
                 });
             },
+        })
+    }
+    if(count == 11){
+        let bkreportVM = new Vue({
+            el:'#bkReportFix',
+            data:{
+                reports:[],
+            },
+            methods:{
+                bkReportGo(e){
+                    let reportId = Number(e.target.dataset.reportid);
+                    let xhr = new XMLHttpRequest();
+                    xhr.onload=function (){
+                        if( xhr.status == 200 ){
+                            if(xhr.responseText == '1'){
+                                alert('檢舉成功');
+                                // e.target.style.transform = 'scale(.8)';
+                            }
+                        }else{
+                            alert( xhr.status );
+                        }
+                    }
+                    let url = `./php/bkMemberSetReport.php?memId=${reportId}`;
+                    xhr.open("Get", url, true);
+                    xhr.send( null );
+                }
+            },
+            mounted(){
+                $.ajax({
+                    type: "GET",
+                    url: "./php/bkReportFind.php",
+                    success: function (res) {
+                        console.log(JSON.parse(res));
+                        let data = JSON.parse(res);
+                        bkreportVM.$data.reports = data;
+                    }
+                });
+            }
         })
     }
 }

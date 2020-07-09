@@ -64,7 +64,7 @@
                             <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
                             <div><p>Cal: {{item.spCalories}}</p></div>
                            
-                            <img :id="'plus'+item.spId" src="./images/order/plus.svg" width="20px" height="20px" :data-id="item.spId">
+                            <img :id="'plus'+item.spId" src="./images/order/plus.svg" width="25px" height="25px" :data-id="item.spId" class="ordersingleplus">
                             
                             <div class="buy_single_lightbox box1">
                                 <div class="orderrelitive">
@@ -89,7 +89,7 @@
                             <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
                             <div><p>Cal: {{item.spCalories}}</p></div>
                            
-                            <img :id="'meatplus'+item.spId" src="./images/order/plus.svg" width="20px" height="20px" :data-id="item.spId">
+                            <img :id="'meatplus'+item.spId" src="./images/order/plus.svg"  :data-id="item.spId"  width="25px" height="25px" :data-id="item.spId" class="ordersingleplus">
                          
                             <div class="buy_single_lightbox box0">
                                 <div class="orderrelitive">
@@ -112,7 +112,7 @@
                               <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
                               <div><p>Cal: {{item.spCalories}}</p></div>
                               <!-- <button-counter></button-counter> -->
-                              <img :id="'singleplus'+item.spId" src="./images/order/plus.svg" width="20px" height="20px" :data-id="item.spId">
+                              <img :id="'singleplus'+item.spId" src="./images/order/plus.svg"  :data-id="item.spId"  width="25px" height="25px" :data-id="item.spId" class="ordersingleplus">
                                 
                               <div class="buy_single_lightbox box2">
                                 <div class="orderrelitive">
@@ -135,6 +135,7 @@
                             <!-- <img id='orderHappyTaiwan' src="./images/order/OrderhappyTaiwan.png" width="180" height="220">
                             <img id='orderFat' src="./images/order/orderfat.png" width="200" height="220">
                             <img id='orderHappy' src="./images/order/orderHappy.png" width="220" height="220"> -->
+                            <img id="orderBentoImg" src="./images/bandon_include/bentoBox.png" width="480" width="400">
                             <img id='orderBentoBottom' src="./images/bandon_include/bentobottom.png">
                             <img id="orderRicePic">
                             <img id="orderMeatPic">

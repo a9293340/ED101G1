@@ -77,7 +77,7 @@
       .selimg{ 
         width: 100px;
         height: 100px;
-        border: 1px solid #000;
+        // border: 1px solid #000;
 
       }}  
       .other_box{
@@ -165,8 +165,8 @@
   .finaltotal {
     // display: flex;
     // justify-content: space-evenly; 
-    text-align: right;
-    margin: 10px 0;
+    text-align: left;
+    margin: 10px 20px;
       #OrTotal{
         color:red;
       }

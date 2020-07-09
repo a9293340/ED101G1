@@ -258,9 +258,9 @@ example = new Chart(ctx, {
             label: "# of Votes", // 標籤
             data: [ healthColdHot, healHealth,healStomach ], // 資料
             backgroundColor: [ // 背景色
-            "#FF0000",
-            "#00FF00",
-            "#0000FF",
+            "#FF3030",
+            "#FFAC12",
+            "#0aa3f5",
             ],
             borderWidth: 1 // 外框寬度
             // healthColdHot,
@@ -277,7 +277,7 @@ example = new Chart(ctx, {
         xhr.onload = function () {
             if (xhr.status == 200) {
                 if (xhr.responseText == 'good') {
-                    // alert('已經將您的測驗結果新增至健康紀錄！')
+                    alert('已經將您的測驗結果新增至健康紀錄！')
                 }
             } else {
                 alert(xhr.status);

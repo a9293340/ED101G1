@@ -9,9 +9,12 @@ function gogoPower(){
         e.preventDefault;
         bkLoginLightBox.classList.toggle('bk2None');
     })
-    if(sessionStorage['admAuthority'] == 0 || sessionStorage['admAuthority'] == 1){
-        bkLogin.classList.toggle('bkNone');
-        bkGo.classList.toggle('bkNone');
+    if(sessionStorage["admOk"] == 'ok'){
+        bkLogin.classList.add('bkNone');
+        bkGo.classList.remove('bkNone');
+    }else{
+        bkLogin.classList.remove('bkNone');
+        bkGo.classList.add('bkNone');
     }
     bkEndLogin.addEventListener('click',checkBkLogin);
 }
@@ -33,6 +36,7 @@ function checkBkLogin(e){
                 // console.log(member);
                 sessionStorage['admAccount'] = member.admAccount;
                 sessionStorage['admAuthority'] = member.admAuthority;
+                sessionStorage["admOk"] = 'ok';
                 bkLogin.classList.toggle('bkNone');
                 bkGo.classList.toggle('bkNone');
                 bkLoginLightBox.classList.toggle('bk2None');

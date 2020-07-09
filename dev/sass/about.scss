@@ -8,7 +8,6 @@
 
 
 
-body {}
 
 
 .container {
@@ -89,13 +88,18 @@ $color: #333; // the rest
   position: relative;
 
   margin: 0 auto;
-  top: -670px;
+  top: -600px;
   width: 45vh;
   height: 45vh;
   left: -150px;
   overflow: hidden;
 }
 
+svg{
+  width: 100px;
+  height: 100px;
+  margin-top: 50px;
+}
 #area {
   position: absolute;
   bottom: 0;
@@ -289,7 +293,7 @@ $color: #333; // the rest
 }
 
 .page-num-1 .pages-background {
-  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url("../images/about_me/menu.png");
+  // background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url("../images/about_me/menu.png");
   background-size: cover;
   opacity: 0.2;
   width: 100%;
