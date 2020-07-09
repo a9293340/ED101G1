@@ -261,6 +261,8 @@ $('#log_out').click(function(e){
 if(localStorage.getItem('address')){
     let orad = localStorage.getItem('address');
     document.getElementById('orderAddress').innerHTML = '外送地址 :'+ orad;
+    orderClass=0;
+    localStorage.setItem('orderClass',orderClass);
 }
 if(sessionStorage.getItem('memId')=='good'){
     MemScore = sessionStorage.getItem('orderMemScore');
@@ -305,6 +307,8 @@ function orederScoreAndPrice(){
         document.getElementById('orderUseScore').value ="";
     }    
 }
+
+
 
 
 document.getElementById('orderBuy').addEventListener('click',orderBuy);
@@ -440,6 +444,8 @@ function orderBuy(){
             if(response.rows[0].elements[0].distance.value > 5000 ){
                 document.getElementById('orderAddress').innerHTML='超出外送範圍';
                 document.getElementById('orderAddress').style.color = 'red';
+                orderClass=-1;
+                localStorage.setItem('orderClass',orderClass);
                 alert(`
                     總共距離${response.rows[0].elements[0].distance.text}，超出外送範圍
                     ${response}
@@ -481,6 +487,8 @@ function orderBuy(){
             } else {
             console.log(response.originAddresses);
             if(response.rows[0].elements[0].distance.value > 5000 ){
+                orderClass=-1;
+                localStorage.setItem('orderClass',orderClass);
                 document.getElementById('orderAddress').innerHTML='超出外送範圍';
                 document.getElementById('orderAddress').style.color = 'red';
                 alert(`
