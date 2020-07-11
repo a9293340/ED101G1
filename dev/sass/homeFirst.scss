@@ -27,134 +27,94 @@ section {
     position: relative;
     background-size: cover;
 
-    .homeLove-Fish {
-      //鱈魚的菜名
-      transform: none;
-      opacity: 1;
-      position: absolute;
-      top: 150px;
-      left: 60%;
-      width: 133px;
-      height: 135px;
-      background-image: url(../images/homeFirst/love-Fish.png);
-      z-index: 99999;
-      animation-duration: 3s; //執行動畫長度
-      animation-fill-mode: both;
-      animation-name: loveElement-Fish;
-      animation-delay: 5s; //延遲2s
+    //--------------- 隱藏菜名
+    // .homeLove-Fish {
+    //   //鱈魚的菜名
+    //   transform: none;
+    //   opacity: 1;
+    //   position: absolute;
+    //   top: 150px;
+    //   left: 60%;
+    //   width: 133px;
+    //   height: 135px;
+    //   background-image: url(../images/homeFirst/love-Fish.png);
+    //   z-index: 99999;
+    //   animation-duration: 3s; //執行動畫長度
+    //   animation-fill-mode: both;
+    //   animation-name: loveElement-Fish;
+    //   animation-delay: 10s; //延遲
 
-      .loveElement-Fish {
-        animation: loveElement-Fish 3s;
-        animation-iteration-count: 1;
-        transform-origin: 50% 50%;
-      }
+    //   .loveElement-Fish {
+    //     animation: loveElement-Fish 3s;
+    //     animation-iteration-count: 1;
+    //     transform-origin: 50% 50%;
+    //   }
 
-      @keyframes loveElement-Fish {
-        0% {
-          transform: translate(-160px, 0px);
-          opacity: 0;
-        }
+    //   @keyframes loveElement-Fish {
+    //     0% {
+    //       transform: translate(-160px, 0px);
+    //       opacity: 0;
+    //     }
 
-        20% {
-          opacity: 1;
-        }
+    //     20% {
+    //       opacity: 1;
+    //     }
 
-        99% {
-          opacity: 1;
-        }
+    //     99% {
+    //       opacity: 1;
+    //     }
 
-        100% {
-          transform: translate(200px, 0px);
-          opacity: 0;
-        }
-      }
-    }
+    //     100% {
+    //       transform: translate(200px, 0px);
+    //       opacity: 0;
+    //     }
+    //   }
+    // }
 
-    .homeLove-Pg {
-      //排骨的菜名
-      transform: none;
-      opacity: 1;
-      position: absolute;
-      top: 150px;
-      left: 70%;
-      width: 133px;
-      height: 135px;
-      z-index: 99999;
-      background-image: url(../images/homeFirst/love-Pg.png);
-      animation-duration: 3s; //執行動畫長度
-      animation-fill-mode: both;
-      animation-name: loveElement-Pg;
-      animation-delay: 0s;
+    // .homeLove-Pg {
+    //   //排骨的菜名
+    //   transform: none;
+    //   opacity: 1;
+    //   position: absolute;
+    //   top: 150px;
+    //   left: 70%;
+    //   width: 133px;
+    //   height: 135px;
+    //   z-index: 99999;
+    //   background-image: url(../images/homeFirst/love-Pg.png);
+    //   animation-duration: 3s; //執行動畫長度
+    //   animation-fill-mode: both;
+    //   animation-name: loveElement-Pg;
+    //   animation-delay: 0s;
 
-      .loveElement-Pg {
-        animation: loveElement-Pg 4s;
-        animation-iteration-count: 1;
-        transform-origin: 50% 50%;
-      }
+    //   .loveElement-Pg {
+    //     animation: loveElement-Pg 4s;
+    //     animation-iteration-count: 1;
+    //     transform-origin: 50% 50%;
+    //   }
 
-      @keyframes loveElement-Pg {
-        0% {
-          transform: translate(0px, 220px);
-          opacity: 0;
-        }
+    //   @keyframes loveElement-Pg {
+    //     0% {
+    //       transform: translate(0px, 220px);
+    //       opacity: 0;
+    //     }
 
-        20% {
-          opacity: 1;
-        }
+    //     20% {
+    //       opacity: 1;
+    //     }
 
-        99% {
-          opacity: 1;
-        }
+    //     99% {
+    //       opacity: 1;
+    //     }
 
-        100% {
-          transform: translate(0px, -30px);
-          opacity: 0;
-        }
-      }
-    }
+    //     100% {
+    //       transform: translate(0px, -30px);
+    //       opacity: 0;
+    //     }
+    //   }
+    // }
+    //end--------------- 隱藏菜名
 
-    .homeLove-Gt {
-      //雞腿的菜名
-      transform: none;
-      opacity: 1;
-      position: absolute;
-      top: 90px;
-      left: 70%;
-      width: 133px;
-      height: 135px;
-      z-index: 99999;
-      background-image: url(../images/homeFirst/love-Gt.png);
-      animation-duration: 3s; //執行動畫長度
-      animation-fill-mode: both;
-      animation-name: loveElement-Gt;
-      animation-delay: 10s;
-
-      .loveElement-Gt {
-        animation: loveElement-Gt 3s;
-        animation-iteration-count: 1;
-        transform-origin: 50% 50%;
-      }
-
-      @keyframes loveElement-Gt {
-        0% {
-          transform: translate(0, -100px);
-          opacity: 0;
-        }
-
-        20% {
-          opacity: 1;
-        }
-
-        99% {
-          opacity: 1;
-        }
-
-        100% {
-          transform: translate(0px, 60px);
-          opacity: 0;
-        }
-      }
-    }
 
     .homeCoverflow {
       position: relative;
@@ -201,50 +161,36 @@ section {
         position: absolute;
         top: 0;
         left: 0;
-        opacity: 0;
+        opacity:1; 
         filter: alpha(opacity=100);
         animation: silder 10s infinite;
 
         img {
           max-width: 100%;
         }
-
-        @keyframes silder {
-          4% {
+        @keyframes silder { 
+          10% {
             opacity: 1;
-            filter: alpha(opacity=100);
-            /* 0 - 1秒 淡入*/
           }
-
-          24% {
+          20%{
             opacity: 1;
-            filter: alpha(opacity=100);
-            /* 1- 5秒靜止*/
           }
-
-          30% {
-            opacity: 1;
-            filter: alpha(opacity=100);
-            /* 5-6秒淡出*/
+          30%{
+            opacity:0;
           }
         }
 
         /*每個圖片各延遲5秒*/
-        &:nth-child(3) {
-          animation-delay: 10s;
-        }
-
-        &:nth-child(2) {
-          animation-delay: 5s;
-        }
-
-        &:nth-child(1) {
+        &:first-child{
           animation-delay: 0s;
+        } 
+        &:last-child{
+          animation-delay: 5s;
         }
       }
     }
 
-    .homeCoverflow:hover img {
+    .homeCoverflow:hover img{
       //滑入時旋轉
       cursor: pointer;
       animation: homeFoodDegAction linear 5s;
@@ -518,7 +464,7 @@ $animationDuration: 1.5s;
   }
 }
 
-@media (min-width:1200px) and (max-width:1366px) {
+@media (min-width:1000px) and (max-width:1366px) {
   section {
     .eff {
       .homeShowSmoke-1200 {
@@ -3018,12 +2964,19 @@ $base-size: 20rem;
     }
 
     .homeIceBox {
+      position: relative;
+      bottom: 20%;
+      // border: 1px solid red;
+      // z-index: 1;
+      max-width: 90%;
+      width: 90%;
+      margin: 0 auto;
       .homeIceOne {
-        width: 150px;
+        width: 10%;
         height: auto;
         position: relative;
-        top: -285px;
-        left: 300px;
+        top: -20%;
+        left:0;
         animation: homeIceOneAction linear 2s;
         animation-iteration-count: 1;
         transform-origin: 50% 50%;
@@ -3047,73 +3000,65 @@ $base-size: 20rem;
       }
 
       .homeIceTwo {
-        width: 350px;
+        width: 20%;
         height: auto;
         position: relative;
-        top: -300px;
-        left: 300px;
+        top: -20%;
+        left:2%;
 
         &:hover {
           transform: scale(1.1);
         }
       }
-
-      .homeIceThree {
-        width: 450px;
-        height: auto;
-        position: relative;
-        top: -190px;
-        left: 350px;
-        z-index: 9999;
-
-        &:hover {
-          transform: translate(1px, 0px) rotate(-15deg);
-        }
-      }
-    }
-
-    .homeTapBox {
-      .homeTapUp {
-        position: relative;
-        right: -250px;
-        width: 280px;
-        height: auto;
-        top: -80vh;
-        opacity: 1;
-        animation: homeTwBoyAction ease-out 1s;
-      }
-    }
-
-    .homeTwBoy {
-      position: relative;
-      right: -69%;
-      width: 230px;
-      height: auto;
-      top: -125vh;
-      animation: homeTwBoyAction ease-out 1s;
-      animation-iteration-count: 1;
-      transform-origin: 50% 50%;
-      animation-fill-mode: forwards;
-
-      @keyframes homeTwBoyAction {
-        0% {
-          opacity: 0;
-          transform: translate(300px, 0px) skewX(-30deg);
-        }
-
-        60% {
+      //TW人物角色
+      .homeTapBox {
+        position: absolute;
+        // border: 2px solid green;
+        top: -100%;
+        left: 60%;
+        max-width: 50%;
+        width:50%;
+        height: 100%;
+        .homeTapUp {
+          position:absolute;
+          width: 25%;
+          left: 0;
+          top:0;
           opacity: 1;
-          transform: translate(-40px, 0px) skewX(30deg);
+          animation: homeTwBoyAction ease-out 1s;
         }
-
-        80% {
-          opacity: 1;
-          transform: translate(0px, 0px) skewX(-15deg);
-        }
-
-        100% {
-          opacity: 1;
-          transform: translate(0px, 0px) skewX(0deg);
+        .homeTwBoy {
+          position:absolute;
+          width:25%;
+          left: 23%;
+          top:0;
+          height: auto;
+          animation: homeTwBoyAction ease-out 1s;
+          animation-iteration-count: 1;
+          transform-origin: 50% 50%;
+          animation-fill-mode: forwards;
+    
+          @keyframes homeTwBoyAction {
+            0% {
+              opacity: 0;
+              transform: translate(300px, 0px) skewX(-30deg);
+            }
+    
+            60% {
+              opacity: 1;
+              transform: translate(-40px, 0px) skewX(30deg);
+            }
+    
+            80% {
+              opacity: 1;
+              transform: translate(0px, 0px) skewX(-15deg);
+            }
+    
+            100% {
+              opacity: 1;
+              transform: translate(0px, 0px) skewX(0deg);
+            }
+          }
         }
       }
     }
@@ -3121,88 +3066,28 @@ $base-size: 20rem;
 }
 
 // --------------------手機板
-@media (min-width:1600px) and (max-width:1920px) {
+@media (min-width:1000px) and (max-width:1920px) {
   .homeSection-3 {
     .homeBlackBoardContainer {
       padding: 0 2%;
-
-      .homeIceOne {
-        left: 5% !important;
-        width: 12% !important;
-        top: -250px !important;
-      }
-
-      .homeIceTwo {
-        left: 8% !important;
-        width: 28% !important;
-        top: -250px !important;
-      }
-
-      .homeIceThree {
-        left: -5% !important;
-        width: 30% !important;
-        top: -200px !important;
-        display: initial !important;
-      }
-
-      .homeTapBox {
-        display: initial !important;
-
-        .homeTapUp {
-          width: 13% !important;
-          top: -120vh !important;
-          right: -62% !important;
-        }
-      }
-
-      .homeTwBoy {
-        right: -60% !important;
-        width: 13% !important;
-        top: -110vh !important;
-        display: initial !important;
-      }
-    }
-  }
-}
-
-@media (min-width:1200px) and (max-width:1440px) {
-  .homeSection-3 {
-    .homeBlackBoardContainer {
-      padding: 0 2%;
-
-      .homeIceOne {
-        left: 5% !important;
-        width: 12% !important;
-      }
-
-      .homeIceTwo {
-        left: 8% !important;
-        width: 28% !important;
-      }
-
-      .homeIceThree {
-        left: -5% !important;
-        width: 30% !important;
-        top: -200px !important;
-        display: initial !important;
-      }
-
-      .homeTapBox {
-        display: initial !important;
-
-        .homeTapUp {
+      .homeIceBox{
+        // border: 1px solid yellow;
+        top: -33% !important;
+        .homeIceOne {
           width: 15% !important;
-          top: -95vh !important;
-          right: -62% !important;
-          // display: initial!important;
         }
-      }
-
-      .homeTwBoy {
-        right: -60% !important;
-        width: 15% !important;
-        top: -90vh !important;
-        display: initial !important;
+        .homeIceTwo {
+          width:35% !important;
+        }
+        .homeTapBox {
+          top: 10% !important;
+          .homeTapUp {
+            display: initial!important;
+          }
+          .homeTwBoy {
+            display: initial !important;
+          }
+        }
       }
     }
   }
@@ -3240,33 +3125,27 @@ $base-size: 20rem;
       }
 
       .homeIceBox {
+        // border: 1px solid red;
+        margin-bottom: 30px!important;
+        top: -30px!important;
         .homeIceOne {
-          width: 20% !important;
-          top: -50px !important;
-          left: 20px !important;
+          // top: -20% !important;
         }
-
         .homeIceTwo {
-          top: -65px !important;
-          left: 95px !important;
-          width: 45% !important;
+          // top: -65px !important;
+          // left: 95px !important;
+          // width: 45% !important;
         }
-
-        .homeIceThree {
-          display: none !important;
+        .homeTapBox {
+          .homeTapUp {
+            //隱藏敲黑板
+            display: none;
+          }
+          .homeTwBoy {
+            //隱藏敲黑板人物
+            display: none;
+          }
         }
-      }
-
-      .homeTapBox {
-        .homeTapUp {
-          //隱藏敲黑板
-          display: none;
-        }
-      }
-
-      .homeTwBoy {
-        //隱藏敲黑板人物
-        display: none;
       }
     }
   }
@@ -3278,45 +3157,35 @@ $base-size: 20rem;
       .homeBlackBoardTit {
         width: 90% !important;
       }
-
       .homeOrder {
         width: 75% !important;
-
         .homeQuestionTitle {
           margin: 0 !important;
         }
-
         .homeQuesionBox {
           margin-left: -15px !important;
         }
       }
-
       .homeIceBox {
+        bottom: 18%;
         .homeIceOne {
           width: 30%;
-          height: auto;
-          position: relative;
-          top: -130px;
-          left: 40px;
+          top: 10%;
         }
-
         .homeIceTwo {
-          width: 50%;
-          top: -150px;
-          left: 40px;
+          width:65%;
+          top: 20%;
         }
-
-        .homeIceThree {
-          display: none;
+        .homeTapBox {
+          .homeTapUp {
+            //隱藏敲黑板
+            display: none;
+          }
+          .homeTwBoy {
+            //隱藏敲黑板人物
+            display: none;
+          }
         }
-      }
-
-      .homeTapBox {
-        display: none;
-      }
-
-      .homeTwBoy {
-        display: none;
       }
     }
   }
