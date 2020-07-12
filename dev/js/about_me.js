@@ -3656,19 +3656,19 @@ function Animation() {
         "x": 150,
         "y": 150
       }, {
-        "x": 300,
-        "y": 50
+        "x": 300 + Math.random() * 100,
+        "y": 50 + Math.random() * 100
       }, {
         "x": 300,
         "y": 150
       }, {
-        "x": 25,
+        "x": 25 + Math.random() * 100,
         "y": 300
       }, {
         "x": 75,
-        "y": 300
+        "y": 300 + Math.random() * 100
       }, {
-        "x": 400,
+        "x": 400 + Math.random() * 100,
         "y": 350
       }],
 
@@ -3683,8 +3683,8 @@ function Animation() {
 
 function buildLine() {
   faultGroup = gsap.timeline({
-    repeat: 5,
-    repeatDelay: 7,
+    // repeat: 5,
+    // repeatDelay: 7,
 
   });
   for (i = 0; i < 10; i++) {
@@ -3869,14 +3869,14 @@ function Animation1() {
   bezLine1.to(fault1, {
 
     duration: 7,
-    stagger: 0.5,
+    stagger: 2.5,
     motionPath: {
       path: [{
         "x": 100,
         "y": 400
       }, {
-        "x": 150,
-        "y": 375
+        "x": 150 + Math.random() * 100,
+        "y": 375 + Math.random() * 100
       }, {
         "x": 250,
         "y": 350
@@ -3887,7 +3887,7 @@ function Animation1() {
         "x": 250,
         "y": 250
       }, {
-        "x": 50,
+        "x": 50 + Math.random() * 100,
         "y": 200
       }, {
         "x": 250,
@@ -3904,8 +3904,8 @@ function Animation1() {
 
 function buildLine1() {
   faultGroup1 = gsap.timeline({
-    repeat: 5,
-    repeatDelay: 7,
+    // repeat: 5,
+    // repeatDelay: 7,
     delay: 7
   });
   for (i = 0; i < 10; i++) {
@@ -3913,3 +3913,160 @@ function buildLine1() {
   }
 }
 buildLine1();
+
+
+
+var pot = ["#XMLID_896_", "#XMLID_1010_"],
+  handle = ["#XMLID_831_", "#XMLID_188_"],
+  fire = ["#XMLID_812_", "#XMLID_182_", "#XMLID_817_", "#XMLID_186_"],
+  mid_fire = ["#XMLID_182_", "#XMLID_817_"],
+  bottom = ["#XMLID_843_", "#XMLID_999_"],
+  smoke = ["#XMLID_990_", "#XMLID_996_", "#XMLID_1035_", "#XMLID_997_"],
+  custom = CustomEase.create("custom", "M0,0 C0.156,0 0.224,0.246 0.4,0.198 0.444,0.214 0.469,0.289 0.492,0.32 0.551,0.301 0.673,0.384 0.673,0.503 0.73,0.537 0.828,0.658 0.828,0.752 0.912,0.824 0.938,1 1,1 ");
+
+
+var cooking = gsap.timeline({
+  delay: 10,
+
+});
+cooking
+  .from(bottom, {
+    autoAlpha: 0,
+    scaleX: 0,
+    transformOrigin: "center",
+    ease: "bounce.out",
+    // skewX: "30deg"
+  })
+  
+  .from("#XMLID_896_", {
+    autoAlpha: 0,
+    rotation: 150,
+    ease: "elastic.out",
+    duration: 2
+  })
+  .from("#XMLID_1010_", {
+    autoAlpha: 0,
+    rotation: -45,
+    ease: "elastic.out",
+    duration: 2
+  }, '<')
+  .from("#XMLID_831_", {
+    autoAlpha: 0,
+    x: 50,
+  })
+  .from("#XMLID_188_", {
+    autoAlpha: 0,
+    x: -50,
+  }, '<')
+  .fromTo(smoke,{
+    autoAlpha: 0,
+    y: 150,
+  },{
+    autoAlpha: 1, 
+    y: 150,
+  })
+  .fromTo(fire, {
+    scale: 0,
+    transformOrigin: "50% 100%;",
+  }, {
+    scale: 0.6,
+    duration: 1,
+    ease: "elastic.out",
+  })
+    .fromTo(fire, {
+    scale: 0,
+    transformOrigin: "50% 100%;",
+  }, {
+    scale: 0.8,
+    duration: 1,
+    ease: "elastic.out",
+  })
+  
+    .fromTo(fire, {
+    scale: 0,
+    transformOrigin: "50% 100%;",
+  }, {
+    scale: 1,
+    duration: 1,
+    ease: "elastic.out",
+    onComplete: slider
+  })
+   
+  function slider(){
+  gsap.fromTo("#XMLID_812_",{
+    scale: 0.7,
+  },{
+    scale: 1,
+    repeat:-1,
+    duration: 1,
+    yoyo:1,
+    ease: custom
+  })
+  gsap.from("#XMLID_182_",{
+    scale: 0.9,
+    repeat:-1,
+    duration: .6,
+    yoyo:1,
+    stragger:.2,
+  },'<')
+   gsap.from("#XMLID_817_",{
+    scale: 0.9,
+    repeat:-1,
+    duration: .7,
+    yoyo:1,
+    stragger:.2,
+  },'<')
+  gsap.from("#XMLID_186_",{
+    scale: 0.8,
+    repeat:-1,
+    duration: 1.5,
+    yoyo:1,
+    ease: custom
+  },'<')
+   
+   gsap.fromTo("#XMLID_990_",{
+      y:100,
+    },{
+      y:-100,
+      ease: "power1.in",
+      duration:1,
+      repeat:-1,
+      // yoyo: 1,
+      repeatDelay:1.5,
+      autoAlpha: 0,
+    })
+
+    gsap.fromTo("#XMLID_996_",{
+      y:100,
+    },{
+      y:-100,
+      ease: "power1.in",
+      duration:1,
+      repeat:-1,
+      // yoyo: 1,
+      repeatDelay:2.5,
+      autoAlpha: 0,
+    })
+     gsap.fromTo("#XMLID_997_",{
+      y:150,
+    },{
+      y:-150,
+      ease: "power1.in",
+      duration:1,
+      repeat:-1,
+      // yoyo: 1,
+      autoAlpha: 0,
+      repeatDelay:1.5,
+    },'<')
+     gsap.fromTo("#XMLID_1035_",{
+      y:100,
+    },{
+      y:-100,
+      ease: "power1.in",
+      duration:1,
+      repeat:-1,
+      // yoyo: 1,
+      repeatDelay:3.5,
+      autoAlpha: 0,
+    })
+  };
