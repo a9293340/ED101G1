@@ -1,4 +1,11 @@
-
+    
+        let sgproduct=[];  
+        let orderRice=[];
+        let orderMeat=[];
+        let orderSingle=[];
+        let orderSetdo=[];
+        let other=[];
+        let setdocount=[];
         
     function single(){
         var singleRequest = new XMLHttpRequest();
@@ -16,12 +23,6 @@
         single();
         
     
-        let sgproduct=[];  
-        let orderRice=[];
-        let orderMeat=[];
-        let orderSingle=[];
-        let orderSetdo=[];
-        let other=[];
     function getsingle(data){
     // console.log(data[0]);
     sgproduct=data;
@@ -245,35 +246,6 @@ var app2 = new Vue({
 })
 
 
-
-//錨點 js
-
-// document.getElementsByClassName('1')[0].addEventListener('click',view)
-// function view(){
-//     document.getElementById('order_1').scrollIntoView();
-//     document.getElementsByClassName('1')[0].style.backgroundColor="#FFD23F";
-//     document.getElementsByClassName('2')[0].style.backgroundColor="#37AB64";
-//     document.getElementsByClassName('4')[0].style.backgroundColor="#37AB64";
-// }
-// document.getElementsByClassName('2')[0].addEventListener('click',view2)
-// function view2(){
-//     document.getElementById('order_2').scrollIntoView();
-//     document.getElementsByClassName('1')[0].style.backgroundColor="#37AB64";
-//     document.getElementsByClassName('2')[0].style.backgroundColor="#FFD23F";
-//     document.getElementsByClassName('4')[0].style.backgroundColor="#37AB64";
-// }
-// // document.getElementsByClassName('3')[0].addEventListener('click',view3)
-// // function view3(){
-// //     document.getElementById('order_3').scrollIntoView();
-// // }
-// document.getElementsByClassName('4')[0].addEventListener('click',view4)
-// function view4(){
-//     document.getElementById('orderOther').scrollIntoView();
-//     document.getElementsByClassName('1')[0].style.backgroundColor="#37AB64";
-//     document.getElementsByClassName('2')[0].style.backgroundColor="#37AB64";
-//     document.getElementsByClassName('4')[0].style.backgroundColor="#FFD23F";
-    
-// }
 
 
 document.getElementById('ordertitle1').addEventListener('click',riceshow)
@@ -576,13 +548,6 @@ document.getElementById('incart').addEventListener('click',praintAndshoppcar);
 
 
 
-let setdocount=[];
-// for(var j=0; j < orderSetdo.length;j++){    //套餐的+- 購物車   click事件
-//     setdocount[orderSetdo[j].setId]=0;
-//     document.getElementById(`setdocountplus${orderSetdo[j].setId}`).addEventListener('click',setdoplus)
-//     document.getElementById(`setdocountminus${orderSetdo[j].setId}`).addEventListener('click',setdominus)
-//     document.getElementById(`setdocart${orderSetdo[j].setId}`).addEventListener('click',setdoCart)
-// }     
 
 
 function setdoplus(){     //套餐數量++
@@ -661,12 +626,6 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
     localStorage.setItem('singleNum',singleNum);
  orderCart.push(singleorder);
 
-//  for(let i=0; i<orderCart.length; i++){
-//     console.log(orderCart[i]);
-//  }
-
-
-
 
 
  singlecount = 0;
@@ -695,12 +654,6 @@ if(rice!==null && meat!== null && single1!==null  && single2!==null  && single3!
     document.getElementById('orderSinglPic2').src = ``;
     document.getElementById('orderSinglPic3').src = ``;
      
-
-//  document.getElementById('orderRicePic').src = ``;
-//  document.getElementById('orderMeatPic').src = ``;
-//  document.getElementById('orderSinglPic1').src = ``;
-//  document.getElementById('orderSinglPic2').src = ``;
-//  document.getElementById('orderSinglPic3').src = ``;
 
  var singleOrder = JSON.stringify(orderCart);
  localStorage.setItem('singleOrder', singleOrder);

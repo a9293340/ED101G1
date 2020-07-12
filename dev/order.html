@@ -22,41 +22,29 @@
     <div class="orderCover box1 box0 box2 box3">
 </div>
     @@include('./layout/header.html',{})
-  
-    <!-- <div class="orderRoof"></div> --> 
+
     <div class="buy_main">
-<!-- 
-        <div class="orderLeft">
-            <div class="orderCirle 1"><p>自選</p></div>
-            <div class="orderCirle 2"><p>精選</p></div> -->
-            <!-- <div class="orderCirle 3"><p>活動</p></div> -->
-            <!-- <div class="orderCirle 4"><p>其他</p></div> 
-        </div> -->
+
 
         <div class="buy_single" id="order_1">   
             <img src="./images/order/3.svg" width="40" height="40"><h1>自選便當</h1>
         </div>
               
-                  <div id="buy_app2">
-                      <div class="buy_icon_containter scroll">
-                          <div class="buy_icon_card" v-for="(item, index) in icon" :key="item.id">
-                              <img v-bind:src="item.img" atl="" width="50px" height="50px" :id="'ordertitle'+item.id">
-                              <p :id="'ordertitletext'+item.id">{{item.text}}</p>
-                              <!-- <img src="https://fakeimg.pl/100/" alt="">
-                              <p>米飯</p> -->
-      
-                          </div>
-                      </div>
-      
-      
-                  </div>
-                  <div id="running" class="buy_single_main">
-                      <p id='order_text'>請選擇一種米飯</p>
-                   </div>
+            <div id="buy_app2">
+                <div class="buy_icon_containter scroll">
+                    <div class="buy_icon_card" v-for="(item, index) in icon" :key="item.id">
+                            <img v-bind:src="item.img" atl="" width="50px" height="50px" :id="'ordertitle'+item.id">
+                            <p :id="'ordertitletext'+item.id">{{item.text}}</p>
+                    </div>
+                </div>
+            </div>
+        <div id="running" class="buy_single_main">
+            <p id='order_text'>請選擇一種米飯</p>
+        </div>
        
             <div id="buy_app">
                 <div class="buy_single_containter scroll">
-                <div id='rice'>
+                    <div id='rice'>
                         <div class="single_card" v-for="(item, index) in orderRice" >
                               
                             <img :id="'riceimg'+item.spId" class="orderRicePic" :data-id="item.spId" v-bind:src="item.spImage" atl="" width="200" height="200">
@@ -74,10 +62,9 @@
                                 <img src="./images/order/close.svg" class="closelightbox1" width="15" height="15">
                                 </div>
                             </div>
-                           
-                       
+    
                         </div>    
-                </div>
+                    </div>
 
 
 
@@ -123,18 +110,14 @@
                                 </div>
                               </div>
                           </div>
-                        </div>     
-                    </div>
+                    </div>     
+                </div>
 
 
 
-                    <div class="buy_bando"> 
-                        <!-- <button id="praint">畫</button> -->
-                        <div class="buy_bandoImg" id="buy_bandoImg">
-                            <!-- <img src="./images/bandon_include/bentoBox.png"  width="450" height="450"> -->
-                            <!-- <img id='orderHappyTaiwan' src="./images/order/OrderhappyTaiwan.png" width="180" height="220">
-                            <img id='orderFat' src="./images/order/orderfat.png" width="200" height="220">
-                            <img id='orderHappy' src="./images/order/orderHappy.png" width="220" height="220"> -->
+                <div class="buy_bando"> 
+                  
+                    <div class="buy_bandoImg" id="buy_bandoImg">
                             <img id="orderBentoImg" src="./images/bandon_include/bentoBox.png" width="480" width="400">
                             <img id='orderBentoBottom' src="./images/bandon_include/bentobottom.png">
                             <img id="orderRicePic">
@@ -142,12 +125,11 @@
                             <img id="orderSinglPic1">
                             <img id="orderSinglPic2">
                             <img id="orderSinglPic3">
-                            
-                        </div>   
+                    </div>   
         
-                        <div class="buy_bandoLeft"> 
-                          <div class="buy_list">
-                              <p id="orderClean">清空訂單</p>
+                    <div class="buy_bandoLeft"> 
+                        <div class="buy_list">
+                            <p id="orderClean">清空訂單</p>
                               <table>
                                   <tr>
                                       <td>米食:</td>
@@ -180,25 +162,14 @@
                                     <td id="list_singlePrice3"></td>
                                 </tr>
                               </table>
-                              <!-- <p id="list_ricename">米食:</p> -->
-                              <!-- <p id="list_meatname">主食:</p>
-                              <p id="list_singlename1">配菜:</p>
-                              <p id="list_singlename2">配菜:</p>
-                              <p id="list_singlename3">配菜:</p> -->
-                              <button id="incart">加入購物車</button>
                             
-                              <!-- <img id="sss" width="100" height="100"> -->
-                                <!-- <img src="https://fakeimg.pl/300x400/" width="300" height="400"> -->
-                            </div>          
-                            <!-- <div class="buy_trangleImg">
-                                <img src="https://fakeimg.pl/300x200/" width="300" height="200">
-                            </div> -->
-                            <!-- <button id="incart">加入購物車</button> -->
+                              <button id="incart">加入購物車</button>
+                        </div>          
                            
-                        </div>
+                    </div>
                       
                                
-                    </div>
+                </div>
 
 
 
@@ -214,52 +185,44 @@
            <div class="buy_single" id="order_2"> 
             <img src="./images/order/2.png" width="40" height="40"><h1>精選便當</h1>
           </div>
-                  <div id="buy_app3">
-                      <div class="buy_setdo_containter scroll">
+            <div id="buy_app3">
+                <div class="buy_setdo_containter scroll">
       
-                      <div class="buy_card3" v-for="item in orderSetdo.slice(0,3)" >
-                           <img :id="'setdoimg'+item.setId"  :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200" height="200">
-                          <div class="buy_name">{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}</div>
-                           <!-- <div class="buy_price"><span>$</span>{{item.setPrice}}</div> -->
-                            <div><button class="orderbutton" :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button><span class="ordercount" :id="'setdocount'+item.setId">0</span><button class="orderbutton" :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button>
-                                <!-- <span :id="'setdocart'+item.setId" :data-id="item.setId" class="cart">購買</span> -->
-                                <button  :id="'setdocart'+item.setId" :data-id="item.setId" class="cart">加入購物車</button>
-                            <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.setId" :data-id="item.setId"> -->
-                            </div>
-                           <!-- <button-counter></button-counter> -->
-
-
-
-                           <div class="buy_single_lightbox box3">
-                            <div class="orderrelitive">
-                               <h3 id="setdolightTitle"></h3>  
-                            <img src="" alt="" width="200" height="200" id="setdolightImg">
-                            <p id="setdolightText"></p>
-                            <img src="./images/order/close.svg" class="closelightbox3" width="15" height="15">
-                          </div>
-                           </div>
-                      </div>
-                <!-- <div class="buy_single" id="order_3">
-                    <img src="./images/order/1.png" width="50px" height="50px"><h1>活動便當</h1>
-                </div>  -->
-                      <div class="buy_card3" v-for="item in orderSetdo.slice(3,6)" >
+                    <div class="buy_card3" v-for="item in orderSetdo.slice(0,3)" >
                         <img :id="'setdoimg'+item.setId"  :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200" height="200">
-                       <div class="buy_name">{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}</div>
-                        <!-- <div class="buy_price"><span>$</span>{{item.setPrice}}</div> -->
-                         <div><button class="orderbutton" :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button><span class="ordercount" :id="'setdocount'+item.setId">0</span><button class="orderbutton" :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button>
+                        <div class="buy_name">{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}</div>
+                        <div><button class="orderbutton" :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button><span class="ordercount" :id="'setdocount'+item.setId">0</span><button class="orderbutton" :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button>
+                                <button  :id="'setdocart'+item.setId" :data-id="item.setId" class="cart">加入購物車</button>
+                        </div>
+
+
+
+                        <div class="buy_single_lightbox box3">
+                            <div class="orderrelitive">
+                                <h3 id="setdolightTitle"></h3>  
+                                <img src="" alt="" width="200" height="200" id="setdolightImg">
+                                <p id="setdolightText"></p>
+                                <img src="./images/order/close.svg" class="closelightbox3" width="15" height="15">
+                            </div>
+                        </div>
+                    </div>
+           
+                    <div class="buy_card3" v-for="item in orderSetdo.slice(3,6)" >
+                        <img :id="'setdoimg'+item.setId"  :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200" height="200">
+                        <div class="buy_name">{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}</div>
+                      
+                        <div><button class="orderbutton" :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button><span class="ordercount" :id="'setdocount'+item.setId">0</span><button class="orderbutton" :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button>
                             <button :id="'setdocart'+item.setId" :data-id="item.setId" class="cart">加入購物車</button>
-                         <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :id="'setdocart'+item.setId" :data-id="item.setId"> -->
-                         </div>
-                        <!-- <button-counter></button-counter> -->
+                        </div>
 
 
 
                         <div class="buy_single_lightbox box3"> 
                             <div class="orderrelitive"> 
-                         <img src="" alt="" width="200" height="200" id="setdolightImg">
-                         <p id="setdolightText"></p>
-                         <img src="./images/order/close.svg" class="closelightbox3" width="15" height="15">
-                             </div>
+                                <img src="" alt="" width="200" height="200" id="setdolightImg">
+                                <p id="setdolightText"></p>
+                                <img src="./images/order/close.svg" class="closelightbox3" width="15" height="15">
+                            </div>
                         </div>
                    </div>
                  
@@ -270,7 +233,8 @@
         
               <div class="buy_single">
                 <img src="./images/order/875068.png" width="40" height="40"><h1>其他商品</h1>
-              </div>   
+              </div>
+                 
     <div id="orderOther">
           <div class="buy_other_container">
             <div class="buy_card3 othercard">
@@ -285,7 +249,7 @@
                 </select>
                 <div><button class="orderbutton" :id="'otherplus'+selectedone.opId" @click='otherplus'>+</button><span :id="'othercount'+selectedone.opId">{{othercount1}}</span><button class="orderbutton" :id="'otherminus'+selectedone.opId"  @click='otherminus'>-</button>
                     <button class="cart" :data-id="selectedone.opId" id="otherCart">加入購物車</button>
-                    <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :data-id="selectedone.opId" id="otherCart"> -->
+                    
                 </div>
             </div>
             <div class="buy_card3 othercard">
@@ -299,7 +263,7 @@
                 </select>
                 <div><button class="orderbutton" :id="'otherplus'+selectedtwo.opId" @click='otherplus2'>+</button><span :id="'othercount'+selectedtwo.opId">{{othercount2}}</span><button class="orderbutton" :id="'otherminus'+selectedtwo.opId"  @click='otherminus2'>-</button>
                     <button class="cart" :data-id="selectedtwo.opId" id="otherCart2">加入購物車</button>
-                    <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :data-id="selectedtwo.opId" id="otherCart2"> -->
+                    
                 </div>
             </div>
             <div class="buy_card3 othercard" >
@@ -312,7 +276,7 @@
                     <option v-for="item in other" v-if="item.opClass == 2" :value="{opId:item.opId,opName:item.opName,opImage:item.opImage,opPrice:item.opPrice}">{{item.opName}}</option>
                 </select>
                 <div><button class="orderbutton" :id="'otherplus'+selectedthree.opId" @click='otherplus3'>+</button><span :id="'othercount'+selectedthree.opId">{{othercount3}}</span><button class="orderbutton" :id="'otherminus'+selectedthree.opId"  @click='otherminus3'>-</button>
-                    <!-- <img src="./images/order/shopCart.png" width="20" height="20" class="cart" :data-id="selectedthree.opId" id="otherCart3"> -->
+                  
                     <button class="cart"  :data-id="selectedthree.opId" id="otherCart3">加入購物車</button>
                 </div>
             </div>
@@ -330,7 +294,7 @@
       @@include('./layout/shoppingcart.html',{}) 
       @@include('./layout/loginSignup.html',{})
       @@include('./layout/footer.html',{})
-      <!-- @@include('./layout/footer.html',{}) -->
+   
          
       <script src="../dev//js/layout/loginSignup.js"></script>
         <script src="../dev/js/layout/shoppingcart.js"></script>
