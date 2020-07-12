@@ -38,7 +38,7 @@
       <!-------Step1-------->
       <div v-if="showBentonImgList === true">
         <div class="bentoncarTitle">
-          <span>請選擇喜愛的自選便當</span>
+          <span>請選擇您喜愛的自選便當</span>
           <img class="closebox" @click="showCloselightbox" src="./images/showbenton/close.png" />
         </div>
         <ul class="bentoncardBox">
@@ -56,7 +56,7 @@
               alt=""
             />
           </li>
-          <div class="noBentonChoose" v-if='benton.length == 0'>您尚未訂購過自選便當喔!<a href="./health.html" class="makeBenton">123</a></div>
+          <div class="noBentonChoose" v-if='benton.length == 0'>您尚未訂購過自選便當喔!Q.Q <br>趕快到<span style="font-weight: 600;">我要訂餐>自選便當</span> 來搭配屬於自己的美味便當吧!</span> 請點選<a href="./order.html" class="makeBenton">這裡</a>。</div>
         </ul>
         <div class="confirmBentonBox1">
           <button class="Next" @click="showBentonStep1(false)">
@@ -102,7 +102,9 @@
         </div>
       </div>
     </div>
-
+<p style="font-size:34px;color:rgb(43, 102, 238); text-align: center;margin-top:20px;font-weight:bold;">營養好搭配　健康送到家</p>
+<div style="font-size:18px;padding: 15px 0 30px; text-align:center; color:rgb(158, 157, 157);" ><img style="width:20px; height:20px;" src="./images/showbenton/like.png"/>：會員一天可按一次讚，並於24小時後即可再執行。
+</div>
     <div class="showBentonImg" id="bentonWall">
       <div
         class="shareBenton"
@@ -166,15 +168,7 @@
               <img :src="currentBenton.memImage" class="memPicture" />
               <p class="member">{{currentBenton.memName}}</p>
               <p id="ContentTitlText">{{currentBenton.title}}</p>
-              <p
-                style="
-                  word-break: break-all;
-                  font-size: 14px;
-                  text-align: left;
-                  font-weight: 400;
-                  letter-spacing: 1px;
-                "
-              >
+              <p class="contentText">
                 {{currentBenton.content}}
               </p>
               <p class="talkDateTime">{{currentBenton.postDateTime}}</p>
@@ -197,7 +191,6 @@
 
             <form id="demo">
               <div></div>
-
               <textarea
                 placeholder="我要留言.."
                 class="comment"
@@ -239,6 +232,7 @@
             @click='bentonNextPage'>{{index+1}}</div>
       </div>
     </div>
+    <button id="myBtn" title="Gotop" onclick="gotop()">&#9650<br>Top</button>
     
     
     @@include('./layout/loginSignup.html',{})
@@ -248,6 +242,7 @@
     <script src="../dev//js/layout/loginSignup.js"></script>
     <script src="../dev/js/layout/shoppingcart.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD02IgpgazAmzATKes-_caAbP71BqItLQc"></script>
+    <script src="../dev/js/gotop.js"></script>
     <script>
         let service = new google.maps.DistanceMatrixService();
     </script>

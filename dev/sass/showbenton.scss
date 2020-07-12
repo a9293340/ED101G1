@@ -6,8 +6,10 @@
 }
 
 body {
-  $notoSans: "Noto Sans", sans-serif;
-  $notoSansTC: "Noto Sans TC", sans-serif;
+  font-family: "Noto Sans TC", "Noto Sans", "微軟正黑體", "Times New Roman",
+    sans-serif;
+  // $notoSans: "Noto Sans", sans-serif;
+  // $notoSansTC: "Noto Sans TC", sans-serif;
   background-color: #f9e8d4;
 }
 
@@ -328,6 +330,13 @@ p.showMyself {
       color: rgb(98, 72, 9);
       margin-bottom: 5px;
     }
+    .contentText {
+      word-break: break-all;
+      font-size: 14px;
+      text-align: left;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
   }
 }
 
@@ -501,6 +510,17 @@ ul.bentoncardBox {
   width: 90%;
 }
 
+.noBentonChoose {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  width: 48%;
+  font-size: 22px;
+  line-height: 35px;
+}
+
 .bentoncarTitle {
   border-radius: 5px;
   padding: 5px;
@@ -530,10 +550,11 @@ li.bentonCard {
   border-radius: 10px;
   overflow: hidden;
   margin: 10px 5px;
+
   img {
     cursor: pointer;
     vertical-align: bottom;
-    width: 220px;
+    width: 210px;
     height: 190px;
   }
 }
@@ -678,6 +699,30 @@ button.Pre {
 //會員登入遮罩
 .homeContainderBgc {
   z-index: 99999;
+}
+
+#myBtn {
+  border: solid 1px rgb(100, 99, 99);
+  height: 54px;
+  width: 54px;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  border-radius: 100%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(36, 36, 36);
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 100;
+  outline: none;
+  text-align: center;
+}
+
+#myBtn:hover {
+  background-color: rgb(8, 168, 75);
+  border-color: whitesmoke;
+  color: white;
 }
 
 //---------------------RWD

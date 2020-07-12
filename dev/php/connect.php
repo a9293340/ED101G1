@@ -3,6 +3,7 @@
 	$user = "root";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	$password = "0422";
 =======
 	$password = "may1234567";
@@ -10,6 +11,9 @@
 =======
 	$password = "root";
 >>>>>>> tina
+=======
+	$password = "0422";
+>>>>>>> show
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 	$pdo = new PDO( $dsn, $user, $password, $options); 
 ?>
