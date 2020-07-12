@@ -268,6 +268,7 @@
 
           // Remove pages out of range
           turnMethods._removeFromDOM.call(this);
+
         }
 
         return this;
@@ -793,6 +794,7 @@
                 delete data.pageZoom[page];
                 delete data.pageObjs[page];
                 delete data.pageWrap[page];
+
               }
 
             }
@@ -3379,6 +3381,7 @@
 
   function hasHardPage() {
     return (navigator.userAgent.indexOf('MSIE 9.0') == -1);
+
   }
 
   // Request an animation
@@ -3495,61 +3498,66 @@
 })(jQuery);
 
 $(window).ready(function () {
-  $('.pages').turn({
-    duration: 1500,
-    width: 620,
-    height: 445,
-    //  acceleration: true,
-    //  display: 'single',
-    // autoCenter: true,
-    turnCorners: "bl,br",
-    elevation: 300,
-    when: {
-      turned: function (e, page) {
-        console.log('Current view: ', $(this).turn('view'));
+    $('.pages').turn({
+
+      duration: 1500,
+      width: 620,
+      height: 445,
+      //  acceleration: true,
+      //  display: 'single',
+      // autoCenter: true,
+      turnCorners: "bl,br",
+      elevation: 300,
+      when: {
+        turned: function (e, page) {
+          console.log('Current view: ', $(this).turn('view'));
+        },
+
       }
-    }
-  });
-});
+
+    });
+
+  }
+
+);
 
 
 var bodys = ["#Capa_1 > path:nth-child(1)", "#Capa_1 > path:nth-child(2)"];
-var bodys2 =[ "#Capa_1 > path:nth-child(3)", "#Capa_1 > g:nth-child(4)"];
+var bodys2 = ["#Capa_1 > path:nth-child(3)", "#Capa_1 > g:nth-child(4)"];
 var eyes = ["#Capa_1 > path.rightEye", "#Capa_1 > path.leftEye"];
-var hat = ["#Capa_1 > path:nth-child(9)","#Capa_1 > g:nth-child(16)","#Capa_1 > rect","#Capa_1 > path:nth-child(10)"]
-var face = ["#Capa_1 > polygon","#Capa_1 > ellipse","#Capa_1 > ellipse","#Capa_1 > path:nth-child(8)","#Capa_1 > circle"]
+var hat = ["#Capa_1 > path:nth-child(9)", "#Capa_1 > g:nth-child(16)", "#Capa_1 > rect", "#Capa_1 > path:nth-child(10)"]
+var face = ["#Capa_1 > polygon", "#Capa_1 > ellipse", "#Capa_1 > ellipse", "#Capa_1 > path:nth-child(8)", "#Capa_1 > circle"]
+
 function body() {
 
-  gsap.fromTo("h1",{
-     scaleY:5,
+  gsap.fromTo("h1", {
+    scaleY: 5,
     scaleX: 5,
     autoAlpha: 0,
     transformOrigin: "center",
-    
-  },
-  {
-    scaleY:1,
+
+  }, {
+    scaleY: 1,
     scaleX: 1,
     transformOrigin: "center",
     duration: 1.5,
     autoAlpha: 1,
     ease: "bounce.inout",
     delay: 3.5,
-    
-  }
-  )
- 
-  
+
+  })
+
+
   gsap.timeline().from(face, {
     ease: "power1.out",
     duration: 1,
-    scaleY:0,
+    scaleY: 0,
     scaleX: 0,
     autoAlpha: 0,
     transformOrigin: "center"
   });
 
-  
+
 
   gsap.timeline().from(bodys, {
     scaleY: 0,
@@ -3558,8 +3566,8 @@ function body() {
     autoAlpha: 0,
     stagger: 1,
     transformOrigin: "right",
-    
-  },"+=1");
+
+  }, "+=1");
   gsap.timeline().from(bodys2, {
     x: -100,
     ease: "power1.out",
@@ -3567,10 +3575,10 @@ function body() {
     autoAlpha: 0,
     stagger: 1,
     transformOrigin: "right",
-    
-  },"+=1.5");
 
-gsap.timeline().from(hat, {
+  }, "+=1.5");
+
+  gsap.timeline().from(hat, {
     x: -100,
     ease: "elastic.out",
     duration: 1,
@@ -3579,38 +3587,329 @@ gsap.timeline().from(hat, {
     transformOrigin: "right",
     onComplete: cooker_hover,
 
-  },"+=0.5")
+  }, "+=0.5")
   gsap.timeline().to(eyes, {
     x: 25,
-    ease:"ease.in",
+    ease: "ease.in",
     duration: 1,
     repeat: -2,
     yoyo: true,
     // repeatDelay: 0.4,
-    stragger:{
+    stragger: {
       amount: 10,
-   
-  }
-  },"+=3.5")
-  
+
+    }
+  }, "+=3.5")
+
 }
 body();
-function cooker_hover(){
+
+function cooker_hover() {
   console.log("123"),
-  $(".cooker").mouseenter(function(){
-    gsap.to(".hat",{
-      y:-50
-      
+    $(".cooker").mouseenter(function () {
+      gsap.to(".hat", {
+        y: -50
+
+      });
+
+    })
+  $(".cooker").mouseleave(function () {
+    gsap.to(".hat", {
+      y: 0
+
     });
-  
+
   })
-  $(".cooker").mouseleave(function(){``
-    gsap.to(".hat",{
-      y:0
-      
-    });
-  
+};
+var food = $("#food"),
+  faultGroup;
+gsap.registerPlugin(MotionPathPlugin);
+
+function Animation() {
+  var fault = $('<div class="fault"/>');
+  food.append(fault);
+  //起始位置
+  gsap.set(fault, {
+    x: -500,
+    y: 100
+  });
+
+  var bezLine = gsap.timeline();
+  bezLine.to(fault, {
+
+    duration: 7,
+    stagger: 0.5,
+    motionPath: {
+      path: [{
+        "x": -200,
+        "y": 0
+      }, {
+        "x": 50,
+        "y": 50
+      }, {
+        "x": 100,
+        "y": 25
+      }, {
+        "x": 150,
+        "y": 50
+      }, {
+        "x": 150,
+        "y": 150
+      }, {
+        "x": 300,
+        "y": 50
+      }, {
+        "x": 300,
+        "y": 150
+      }, {
+        "x": 25,
+        "y": 300
+      }, {
+        "x": 75,
+        "y": 300
+      }, {
+        "x": 400,
+        "y": 350
+      }],
+
+      autoRotate: true,
+
+    },
+
+  });
+  return bezLine;
+
+};
+
+function buildLine() {
+  faultGroup = gsap.timeline({
+    repeat: 5,
+    repeatDelay: 7,
+
+  });
+  for (i = 0; i < 10; i++) {
+    faultGroup.add(Animation(), i * 0.17);
+  }
+}
+buildLine();
+
+
+var kitchen_time = gsap.timeline({
+  delay: 2,
+  // repeat: -1,
+  // repeatDelay: 5,
+  // yoyo: 1
+});
+var l_box = ["#Layer_1 > g > g:nth-child(7) > path", "#Layer_1 > g > g:nth-child(30) > path", "#Layer_1 > g > g:nth-child(26) > path"],
+  r_box = ["#Layer_1 > g > g:nth-child(8) > path", "#Layer_1 > g > g:nth-child(25) > path"],
+  kitchen_mainBody = ["#Layer_1 > g > g:nth-child(6) > path"],
+  button = ["#Layer_1 > g > g:nth-child(27) > path", "#Layer_1 > g > g:nth-child(28) > path"],
+  b_box = ["#Layer_1 > g > g:nth-child(9) > path", "#Layer_1 > g > g:nth-child(29) > path"],
+  stove = ["#Layer_1 > g > g:nth-child(22) > path", "#Layer_1 > g > g:nth-child(3) > path", "#Layer_1 > g > g:nth-child(23) > path"],
+  plate = ["#Layer_1 > g > g:nth-child(13) > path", "#Layer_1 > g > g:nth-child(14) > path", "#Layer_1 > g > g:nth-child(15) > path"],
+  machine = ["#Layer_1 > g > g:nth-child(21) > path", "#Layer_1 > g > g:nth-child(1) > path", "#Layer_1 > g > g:nth-child(20) > path"],
+  machine_1 = ["#Layer_1 > g > g:nth-child(17) > path", "#Layer_1 > g > g:nth-child(5) > path", "#Layer_1 > g > g:nth-child(16) > path"],
+  machine_2 = ["#Layer_1 > g > g:nth-child(4) > path", "#Layer_1 > g > g:nth-child(18) > path"],
+  shelf = ["#Layer_1 > g > g:nth-child(2) > path", "#Layer_1 > g > g:nth-child(12) > path"],
+  bottle = ["#Layer_1 > g > g:nth-child(10) > path", "#Layer_1 > g > g:nth-child(11) > path"]
+
+kitchen_time
+  .from(kitchen_mainBody, {
+    ease: "power1.out",
+    duration: 1,
+    scaleY: 0,
+    scaleX: 0,
+    autoAlpha: 0,
+    transformOrigin: "center",
+    // repeat: -1,
+  })
+  .from(l_box, {
+    ease: "bounce.out",
+    duration: 2,
+    scaleX: 0,
+    transformOrigin: "right",
+    autoAlpha: 0,
+    // repeat: -1,
+    stagger: .5,
+  })
+  .from(r_box, {
+    ease: "bounce.out",
+    duration: 2,
+    scaleX: 0,
+    transformOrigin: "left",
+    autoAlpha: 0,
+    // repeat: -1,
+    stagger: .5,
+  }, '<')
+  .from(button, {
+    ease: "bounce.out",
+    duration: .5,
+    scaleY: 0,
+    scaleX: 0,
+    transformOrigin: "center",
+  }, '>-1')
+  .from(b_box, {
+    ease: "bounce.out",
+    duration: 1,
+    y: 200,
+    rotate: 120,
+    stagger: .5,
+  })
+  .from(stove, {
+    ease: "power1.inout",
+    duration: 1,
+    y: 200,
+    stagger: .2,
+    autoAlpha: 0,
+  })
+  .from(plate, {
+    ease: "power1.inout",
+    duration: 1,
+    y: 200,
+    stagger: .3,
+    autoAlpha: 0,
+  }, '<')
+  .from(machine, {
+    ease: "bounce.out",
+    duration: .5,
+    scaleY: 0,
+    scaleX: 0,
+    transformOrigin: "center",
+    // stagger: .3,
+  })
+  .from(machine_1, {
+    ease: "bounce.out",
+    duration: .5,
+    scaleY: 0,
+    scaleX: 0,
+    transformOrigin: "center",
+    // stagger: .3,
+  })
+  .from(machine_2, {
+    ease: "bounce.out",
+    duration: .5,
+    scaleY: 0,
+    scaleX: 0,
+    transformOrigin: "center",
+    // stagger: .3,
+  })
+  .from(shelf, {
+    ease: "back.inOut",
+    duration: 1,
+    scaleY: 0,
+
+  }, '<')
+  .from("#Layer_1 > g > g:nth-child(10) > path", {
+    ease: "back.inOut",
+    duration: 5,
+    scaleY: 0,
+    motionPath: {
+      path: "#path1",
+      alignOrigin: [0.5, 0.5],
+      align: "#path",
+
+    }
+  }, '<-1')
+  .from("#Layer_1 > g > g:nth-child(11) > path", {
+    ease: "back.inOut",
+    duration: 5,
+    scaleY: 0,
+    onComplete: bjump,
+    motionPath: {
+      path: "#path2",
+      alignOrigin: [0.5, 0.5],
+      align: "#path",
+
+    }
+  }, '<-2')
+
+
+function bjump() {
+  gsap.to("#Layer_1 > g > g:nth-child(10) > path", {
+    y: -50,
+    repeat: -1,
+    yoyo: 1,
+    ease: "power2.out",
+    duration: .5,
+  })
+  gsap.to("#Layer_1 > g > g:nth-child(11) > path", {
+    y: -50,
+    repeat: -1,
+    yoyo: 1,
+    ease: "power2.out",
+    duration: .5,
+
+  }, '<1')
+  gsap.to(button, {
+    scaleY: 0,
+    repeat: -1,
+    stagger: .5,
+    duration: .5,
+    repeatDelay: 5,
+    transformOrigin: "center",
+    yoyo: 1,
+
   })
 }
 
+var food1 = $("#food1"),
+  faultGroup1;
+gsap.registerPlugin(MotionPathPlugin);
 
+function Animation1() {
+  var fault1 = $('<div class="fault1"/>');
+  food1.append(fault1);
+  //起始位置
+  gsap.set(fault1, {
+    x: -500,
+    y: 100
+  });
+
+  var bezLine1 = gsap.timeline();
+  bezLine1.to(fault1, {
+
+    duration: 7,
+    stagger: 0.5,
+    motionPath: {
+      path: [{
+        "x": 100,
+        "y": 400
+      }, {
+        "x": 150,
+        "y": 375
+      }, {
+        "x": 250,
+        "y": 350
+      }, {
+        "x": 250,
+        "y": 300
+      }, {
+        "x": 250,
+        "y": 250
+      }, {
+        "x": 50,
+        "y": 200
+      }, {
+        "x": 250,
+        "y": 50
+      }],
+
+      autoRotate: true,
+    },
+
+  });
+  return bezLine1;
+
+};
+
+function buildLine1() {
+  faultGroup1 = gsap.timeline({
+    repeat: 5,
+    repeatDelay: 7,
+    delay: 7
+  });
+  for (i = 0; i < 10; i++) {
+    faultGroup1.add(Animation1(), i * 0.17);
+  }
+}
+buildLine1();

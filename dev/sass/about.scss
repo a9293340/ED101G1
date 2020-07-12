@@ -10,9 +10,31 @@
 
 
 
-.container {
-  // overflow: hidden;
-  // margin-top: 3%;
+#food {
+  position: relative;
+  top: -350px;
+  left: -24px;
+}
+
+.fault {
+  background: url(//www.greensock.com/_img/codepen/bezierCreature/creature_red.png);
+  width: 27px;
+  height: 29px;
+  position: absolute;
+
+}
+
+#food1 {
+  position: relative;
+  top: -350px;
+  left: -24px;
+}
+
+.fault1 {
+  background: url(//www.greensock.com/_img/codepen/bezierCreature/creature_red.png);
+  width: 27px;
+  height: 29px;
+  position: absolute;
 
 }
 
@@ -95,11 +117,17 @@ $color: #333; // the rest
   overflow: hidden;
 }
 
-svg{
+.cooker {
   width: 100px;
   height: 130px;
   margin-top: 50px;
 }
+
+.kitchen {
+  width: 200px;
+  height: 230px;
+}
+
 #area {
   position: absolute;
   bottom: 0;
