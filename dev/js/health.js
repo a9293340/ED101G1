@@ -15,6 +15,7 @@ let weight = 0;
 let height = 0;
 let Q = [[], [], []];
 function doFirst() {
+    $("body").css('overflow', 'hidden');
     $.ajax({
         type: "GET",
         url: "./php/health.php",
@@ -97,6 +98,8 @@ function doFirst() {
                         xhr.open("Get", url, true);
                         xhr.send(null);
                         $("div.overlay").css("display", "none");
+                        $("div.healthCover").css("display", "none");
+                        $("body").css('overflow', 'auto');
                     }
                 }
             });
@@ -248,27 +251,27 @@ function doFirst() {
             healLastTime
         })
 
-        var ctx = document.getElementById( "example" ),
-example = new Chart(ctx, {
-    // 參數設定[註1]
-    type: "pie", // 圖表類型
-    data: {
-        labels: [ "BMI", "腸胃＋生活做習", "寒燥" ], // 標題
-        datasets: [{
-            label: "# of Votes", // 標籤
-            data: [ healthColdHot, healHealth,healStomach ], // 資料
-            backgroundColor: [ // 背景色
-            "#FF3030",
-            "#FFAC12",
-            "#0aa3f5",
-            ],
-            borderWidth: 1 // 外框寬度
-            // healthColdHot,
-            // healHealth,
-            // healStomach,
-        }]
-    }
-});
+        var ctx = document.getElementById("example"),
+            example = new Chart(ctx, {
+                // 參數設定[註1]
+                type: "pie", // 圖表類型
+                data: {
+                    labels: ["BMI", "腸胃＋生活做習", "寒燥"], // 標題
+                    datasets: [{
+                        label: "# of Votes", // 標籤
+                        data: [healthColdHot, healHealth, healStomach], // 資料
+                        backgroundColor: [ // 背景色
+                            "#FF3030",
+                            "#FFAC12",
+                            "#0aa3f5",
+                        ],
+                        borderWidth: 1 // 外框寬度
+                        // healthColdHot,
+                        // healHealth,
+                        // healStomach,
+                    }]
+                }
+            });
 
 
 
@@ -277,7 +280,7 @@ example = new Chart(ctx, {
         xhr.onload = function () {
             if (xhr.status == 200) {
                 if (xhr.responseText == 'good') {
-                    alert('已經將您的測驗結果新增至健康紀錄！')
+                    //alert('已經將您的測驗結果新增至健康紀錄！')
                 }
             } else {
                 alert(xhr.status);
@@ -492,20 +495,20 @@ example = new Chart(ctx, {
 
 
     function healthplant() {
-        html2canvas($("#healBentoPic")[0]).then(function(canvas) {
-          var orderImg = canvas.toDataURL("image/png");
-          localStorage.setItem('orderImg',orderImg);
+        html2canvas($("#healBentoPic")[0]).then(function (canvas) {
+            var orderImg = canvas.toDataURL("image/png");
+            localStorage.setItem('orderImg', orderImg);
             // console.log(canvas.toDataURL("image/png"));
         });
-      };
-    
-      function healthPraintAndShoppcar(){
+    };
+
+    function healthPraintAndShoppcar() {
         document.getElementById('homeTwoScreen').scrollIntoView();
         healthplant();
         setTimeout(() => {
             healthShoppingCart();
         }, 500);
-    }  
+    }
 
     function healthShoppingCart() {
         orderImg = localStorage.getItem('orderImg');
@@ -525,7 +528,7 @@ example = new Chart(ctx, {
             single3: `${healthFinalAnswer.sideDashe3.spName}`,
             singleId3: `${healthFinalAnswer.sideDashe3.spId}`,
             soPrice: `${healthTotalprice}`,
-            soImg:`${orderImg}`
+            soImg: `${orderImg}`
         }
         singleNum++;
         localStorage.setItem('singleNum', singleNum);

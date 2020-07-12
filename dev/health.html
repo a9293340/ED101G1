@@ -16,6 +16,7 @@
     @@include('./layout/header.html',{})
     <!-- <canvas id="example" width="400" height="200"></canvas> -->
     <div class="wrapper" id="wrapper">
+        <div class="healthCover"></div>
         <div class="content" id="exam">
             <h1 class="title">便當健康吃</h1>
             <p class="title2">此問卷以生活作習、目前體質及腸胃狀況之隨機題庫，依據您目前的健康狀態，提供適合您的便當類型喔!趕快來測驗吧!</p>
@@ -31,6 +32,7 @@
             </div>
             <div class="imgLogo"><img src="./images/healthImages/logo.png"></div>
         </div>
+
         <div class="overlay">
             <div class="bmiForm">
                 <h2>您的BMI</h2>
@@ -49,10 +51,11 @@
             </div>
         </div>
     </div>
+
     <!-- 以下為測驗結果 -->
     <div class="wrapper2 wrapper2None" id="examResult">
         <div class="healthLeftBox">
-            <h1>健康自己看</h1>
+            <h1>我的專屬便當</h1>
             <div class="healBento" id="healBentoPic">
                 <img class="imgBox" src="./images/healthImages/bentoBox.png" alt="">
                 <img id="healthRice">
@@ -112,6 +115,7 @@
             </div>
         </div>
     </div>
+
 
     @@include('./layout/shoppingcart.html',{})
     @@include('./layout/loginSignup.html',{})
