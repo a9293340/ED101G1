@@ -109,7 +109,7 @@
       <div id="OrTotal">總價:</div>
       <div class="" id='orderScore'></div>
       
-      <div><span>使用積分 : </span><input type="text" id="orderUseScore" name="orderUseScore" value=""></div>
+      <div><span>使用積分 : </span><input onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" id="orderUseScore" name="orderUseScore" value=""></div>
       
       <div id="orderYourSorce">獲得積分:</div>
       <div><p id='orderAddress'>外送地址</p></div>
