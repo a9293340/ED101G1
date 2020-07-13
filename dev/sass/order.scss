@@ -561,7 +561,7 @@ HEAD .count {
         width: 350px;
         height: 280px;
         #orderBentoImg{
-          width: 350px;
+          width: 320px;
         }
         #orderHappyTaiwan{
           display: none;
@@ -574,10 +574,10 @@ HEAD .count {
         }
         #orderBentoBottom{
           position: absolute;
-          bottom: -10px;
+          bottom: 10px;
           left: 5px;
-          width: 345px;
-          height: 55px;
+          width: 315px;
+          height: 45px;
           z-index: 1;
         }
         #orderRicePic {
@@ -592,33 +592,33 @@ HEAD .count {
           left: 40px;
           top: 45px;
           position: absolute;
-          width: 180px;
-          height: 200px;
+          width: 160px;
+          height: 180px;
           z-index: 1;
         }
       
         #orderSinglPic1 {
-          right: 40px;
-          top: 40px;
+          right: 60px;
+          top: 30px;
           position: absolute;
-          width: 130px;
-          height: 130px;
+          width: 110px;
+          height: 110px;
         }
       
         #orderSinglPic2 {
-          right: 40px;
+          right: 60px;
           top: 90px;
           position: absolute;
-          width: 130px;
-          height: 130px;
+          width: 110px;
+          height: 110px;
         }
       
         #orderSinglPic3 {
-          right: 40px;
+          right: 60px;
           top: 140px;
           position: absolute;
-          width: 130px;
-          height: 130px;
+          width: 110px;
+          height: 110px;
         }
       
 
@@ -650,7 +650,7 @@ HEAD .count {
     }
     #orderClean {
       position: absolute;
-      right: -30px;
+      right: 0px;
       top: -15px;
       cursor: pointer;
       color: #595959;
