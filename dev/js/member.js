@@ -49,9 +49,6 @@ function gogoPower(){
                 }
                 memContent[Number(changeCount)].classList.remove('memContentNone');
                 memHeaderBtn[Number(changeCount)].classList.add('memHeaderBtnOrange');
-                if(Number(changeCount) == 1){
-
-                }
                 if(Number(changeCount) == 2){
                     // 生成折線圖
                     document.getElementById("myChart").innerHTML = '';

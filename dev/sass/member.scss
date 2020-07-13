@@ -70,6 +70,8 @@ $bgcgrey: #c4c0c0;
         box-sizing: border-box;
     }
     #memContentFile{
+        margin-bottom: 100px;
+        // border: 1px solid red;
         .memFileBox,.memFileImg{
             width: 550px;
             // @include border(1px,green);
@@ -588,7 +590,7 @@ $bgcgrey: #c4c0c0;
                 p{
                     position: absolute;
                     width: 150px;
-                    bottom: 50px;
+                    bottom: 65px;
                     right: -15px;
                     animation: memShake 1.5s ease-in-out infinite;
                     @include fontStyle($memgrey,1rem);
@@ -602,6 +604,7 @@ $bgcgrey: #c4c0c0;
         // @include border(1px,red);
         padding: 20px;
         box-sizing: border-box;
+        margin-bottom: 30px;
         // border: 1px solid red;
         // display: none;
         .memContentOrderListHeader{

@@ -207,13 +207,13 @@ function doFirst() {
             healthChooseMenu('thin');
             pushDataToHealthAnalys(3);
             return;
-        } else if (avgScoreBox[2] >= 51) {
+        } else if (avgScoreBox[2] > 65) {
             healthTitle.innerText = `燥呼呼體質`;
             console.log('燥熱')
             healthChooseMenu('hot');
             pushDataToHealthAnalys(1);
             return;
-        } else if (avgScoreBox[2] < 50) {
+        } else if (avgScoreBox[2] < 45) {
             healthTitle.innerText = `冷吱吱體質`;
             console.log('虛寒')
             healthChooseMenu('cold');

@@ -194,7 +194,9 @@
                     :data-index="index"
                     @click='memGoNextPage'>{{index+1}}</div>
             </div>
-            <div class="memOrderBox memGoToOrderX" v-if='memOrder.length == 0'>您尚未有任何訂單喔，<a href="./health.html" class="memGoToOrder">快來買吧！</a></div>
+            <div class="memOrderBox memGoToOrderX" v-if='memOrder.length == 0'>您尚未有任何訂單喔，
+                <a href="./health.html" class="memGoToOrder">快來買吧！</a>
+            </div>
         </div>
         <div class="memContent memContentNone" id="memContentFile">
             <div class="memFileBox">
@@ -303,8 +305,8 @@
                 <div class="memContentOrderListLine"></div>
                 <div class="memContentOrderListCircleBox">
                     <div :class="memChooseCirleColor2">
-                        <img src="./images/member/orderIconGreen.png" alt="" v-if='order.orderStatus == 2'>
-                        <img src="./images/member/orderIcon.png" alt="" v-else>
+                        <img src="./images/member/shippingIconGreen.png" alt="" v-if='order.orderStatus == 2'>
+                        <img src="./images/member/shippingIcon.png" alt="" v-else>
                     </div>
                     <p :class='memChooseCircleFontColor2'>店家已出餐</p>
                 </div>
