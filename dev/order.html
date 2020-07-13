@@ -245,7 +245,7 @@
                <p v-else>NT$ {{selectedone.opPrice}}</p>
                <select v-model="selectedone" class="shortselect">
                    <option selectedone value="1">請選擇飲料</option>
-                <option  v-for="item in other" v-if="item.opClass == 0" :value="{opId:item.opId,opName:item.opName,opImage:item.opImage,opPrice:item.opPrice}">{{item.opName}}</option>
+                <option  v-for="item in other" v-if="item.opClass == 0 && item.opStatus==1" :value="{opId:item.opId,opName:item.opName,opImage:item.opImage,opPrice:item.opPrice}">{{item.opName}}</option>
                 </select>
                 <div><button class="orderbutton" :id="'otherminus'+selectedone.opId"  @click='otherminus'>-</button><span :id="'othercount'+selectedone.opId">{{othercount1}}</span><button class="orderbutton" :id="'otherplus'+selectedone.opId" @click='otherplus'>+</button>
                     <button class="cart" :data-id="selectedone.opId" id="otherCart">加入購物車</button>
@@ -259,7 +259,7 @@
                 <p v-else>NT$ {{selectedtwo.opPrice}}</p>
                 <select v-model="selectedtwo" class="shortselect">
                 <option selectedtwo value="1">請選擇水果</option>
-                    <option v-for="item in other" v-if="item.opClass == 1" :value="{opId:item.opId,opName:item.opName,opImage:item.opImage,opPrice:item.opPrice}">{{item.opName}}</option>
+                    <option v-for="item in other" v-if="item.opClass == 1 && item.opStatus==1" :value="{opId:item.opId,opName:item.opName,opImage:item.opImage,opPrice:item.opPrice}">{{item.opName}}</option>
                 </select>
                 <div>
                     <button class="orderbutton" :id="'otherminus'+selectedtwo.opId"  @click='otherminus2'>-</button><span :id="'othercount'+selectedtwo.opId">{{othercount2}}</span><button class="orderbutton" :id="'otherplus'+selectedtwo.opId" @click='otherplus2'>+</button>
@@ -274,7 +274,7 @@
                 <p v-else>NT$ {{selectedthree.opPrice}}</p>
                 <select v-model="selectedthree" class="shortselect">
                 <option selectedthree value="1">請選擇養生產品</option>
-                    <option v-for="item in other" v-if="item.opClass == 2" :value="{opId:item.opId,opName:item.opName,opImage:item.opImage,opPrice:item.opPrice}">{{item.opName}}</option>
+                    <option v-for="item in other" v-if="item.opClass == 2 && item.opStatus==1" :value="{opId:item.opId,opName:item.opName,opImage:item.opImage,opPrice:item.opPrice}">{{item.opName}}</option>
                 </select>
                 <div>
                     <button class="orderbutton" :id="'otherminus'+selectedthree.opId"  @click='otherminus3'>-</button><span :id="'othercount'+selectedthree.opId">{{othercount3}}</span><button class="orderbutton" :id="'otherplus'+selectedthree.opId" @click='otherplus3'>+</button>
