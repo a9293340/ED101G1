@@ -251,12 +251,17 @@ $('#log_out').click(function(e){
         success: function (response) {
             sessionStorage['memId'] = 'bad';
             sessionStorage['memImage'] = 'bad';
+            sessionStorage['memName'] = '';
             location.href='./order.html';
             // $('#member_aflogin').hide();
             // $('#member').show(500);
         }
     });
 })
+
+if(sessionStorage['memName'] != ''){
+    $('#member_name').text('HI~'+sessionStorage['memName']);
+}
 
 if(localStorage.getItem('address')){
     let orad = localStorage.getItem('address');

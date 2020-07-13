@@ -18,7 +18,7 @@
                 $_SESSION["memId"] = $memRow["memId"];
     
     
-                $memberInfo = array("memId"=>$memRow["memId"],"memEmail"=>$memRow["memEmail"], "memImage"=>$memRow["memImage"],"memScore"=>$memRow["memScore"]);
+                $memberInfo = array("memId"=>$memRow["memId"],"memName"=>$memRow["memName"],"memEmail"=>$memRow["memEmail"], "memImage"=>$memRow["memImage"],"memScore"=>$memRow["memScore"]);
     
     
                 echo json_encode($memberInfo);
