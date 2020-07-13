@@ -276,7 +276,13 @@ img:not([src]) {
 .buy_bando {
   width: 600px;
   margin: 0 auto;
-
+  position: relative;
+  #orderScoreText{
+    position: absolute;
+    top: -94px;
+    left: 75px;
+    text-align: center;
+  }
 }
 
 .buy_bandoImg {
