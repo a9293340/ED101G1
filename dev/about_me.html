@@ -18,11 +18,15 @@
   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MotionPathPlugin.min.js"></script>
   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollToPlugin3.min.js"></script>
    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CustomEase3.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script>
   <!-- Vue -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
 
 
 </head>
+<body>
+  @@include('./layout/header.html',{})
+
 <div class="container">
   <div class="book-wrapper">
     <div class="book-cover">
@@ -45,7 +49,7 @@
           <div class="pages-content">
             <!-- <div class="pages-background"></div> -->
             <div class="content-inner">
-              <h1>WELCOME</h1>
+              <h1 class="p1">WELCOME</h1>
               <svg class="cooker" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                 version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512"
                 style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -101,7 +105,7 @@
         <div class="page-num-2">
           <div class="pages-content">
             <div class="content-inner">
-              <h1>我們的廚房</h1>
+              <h1 class="p23">我們的廚房</h1>
               <path id="path1" fill="none" d="M 50 400 A 50 50 0 1 1 200 400 C 250 450 250 300 250 300 " />
               <path id="path2" fill="none" d="M 50 50 A 250 250 0 1 1 150 350 C 200 400 250 250 250 200 " />
               <svg class="kitchen" xmlns="http://www.w3.org/2000/svg" id="Layer_1" enable-background="new 0 0 256 256"
@@ -217,7 +221,7 @@
               </svg>
               <div class="text">
                 <div id="food"></div>
-                <p>不營直了我成英星的就全濟院化：招大強金一照長英。</p>
+                <p class="p23">乾淨衛生，每日清洗，讓您吃得安心。</p>
 
               </div>
             </div>
@@ -227,7 +231,7 @@
         <div class="page-num-3">
           <div class="pages-content">
             <div class="content-inner">
-              <h1>Chapter 3</h1>
+              <h1 class="p23">新鮮現做</h1>
               <div class="text">
                 <div id="food1"></div>
                 <svg class="cooking" xmlns="http://www.w3.org/2000/svg" id="Capa_1" enable-background="new 0 0 512 512"
@@ -269,7 +273,7 @@
                     <path id="XMLID_999_" d="m256 481.755h256v30h-256z" fill="#002c3c" />
                   </g>
                 </svg>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus in odio deserunt est hic minima.
+                <p class="p23">當日食材現點現做，給您百分百的營養~
                 </p>
               </div>
             </div>
@@ -278,7 +282,7 @@
         <div class="page-num-4">
           <div class="pages-content">
             <div class="content-inner">
-              <h1>The End</h1>
+              <h1>End</h1>
             </div>
           </div>
         </div>
@@ -287,14 +291,15 @@
   </div>
 
 </div>
-<!-- @@include('./layout/shoppingcart.html',{})
-@@include('./layout/loginSignup.html',{})
-@@include('./layout/footer.html',{}) -->
-<!-- @@include('./layout/footer.html',{}) -->
-
-<!-- <script src="../dev//js/layout/loginSignup.js"></script>
-<script src="../dev/js/layout/shoppingcart.js"></script> -->
 <script src="../dev/js/about_me.js"></script>
+
+@@include('./layout/shoppingcart.html',{}) 
+@@include('./layout/loginSignup.html',{})
+@@include('./layout/footer.html',{})
+
+   
+<script src="../dev//js/layout/loginSignup.js"></script>
+  <script src="../dev/js/layout/shoppingcart.js"></script>
 </body>
 
 </html>
