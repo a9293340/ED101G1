@@ -198,6 +198,7 @@ function otherIncart(){
            localStorage.setItem('otherOrder',otherOrder);
 
            setordercart();
+           alert('已加入購物車');
         }
  
 }
@@ -679,6 +680,8 @@ setcart();
  
  riceshow();
 
+ alert('已加入購物車');
+
 //  window.location.reload();
  }else{
      alert('請把便當裝滿喔')
@@ -735,6 +738,7 @@ function setdoCart(){      //套餐的加入購物車
 
                
                setsetdocart();
+               alert('已加入購物車');
             }else{
                 alert("還沒選數量喔");
             }

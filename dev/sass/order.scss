@@ -264,6 +264,9 @@ img:not([src]) {
   width: 490px;
   height: 400px; 
   position: relative;
+  #orderBentoImg{
+    width: 480px;
+  }
   #orderHappy{
     position: absolute;
     top: -100px;
@@ -537,6 +540,9 @@ HEAD .count {
       .buy_bandoImg{
         width: 350px;
         height: 280px;
+        #orderBentoImg{
+          width: 350px;
+        }
         #orderHappyTaiwan{
           display: none;
         }
@@ -622,24 +628,31 @@ HEAD .count {
     #running{ 
       width: 100%; 
     }
+    #orderClean {
+      position: absolute;
+      right: -30px;
+      top: -15px;
+      cursor: pointer;
+      color: #595959;
+    }
     .buy_single_containter{
       width: 100%;
-      height: 250px;
+      height: 330px;
      
     
       #rice{
         width: 100%;
-        height: 250px;
+        height: 330px;
         flex-wrap: nowrap;
-        justify-content:center;
+        // justify-content:center;
         overflow-x: auto;
 
       }
       #meat{
         width: 100%;
-        height: 250px;
+        height: 330px;
         flex-wrap: nowrap;
-        justify-content:center;
+        // justify-content:center;
         overflow-x: auto;
        
       }
