@@ -6,7 +6,23 @@
     @import "base/_fontStyle.scss";
 
 }
-
+#homeTwoScreen .top_group .navgroup .analysis{
+    color: $orange;
+    font: 12px;
+    &:before {
+    content: "";
+    overflow: hidden;
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+      // display: block;
+    left: 1%;
+    background-image: url(../../dest/images/header/faultc_01.png);
+    width: 50px;
+    height: 50px;
+    transition: .5s;
+    opacity: 1;
+        }
+    }
 body {
     margin: 0;
     $notoSans: 'Noto Sans', sans-serif;
@@ -374,10 +390,40 @@ div.wrapper {
         .healPieChart{
             width: 55%;
             display: inline-flex;
-            margin-left: 15%;
             canvas{
                 // border: 1px solid black;
                 width: 90%;
+            }
+            .healSelect{
+                ul.select{
+                    margin-top: 50px;
+                    padding: 0;
+                    list-style: none;
+                    }
+                p.select__title{
+                    font-size: 20px;
+                    font-weight: bold;
+                    width: 250px;
+                }
+                ul li p {
+                    display: block;
+                    text-decoration: none;
+                    color: #000;
+                    width: 250px;
+                    padding: 5px 15px 5px 15px; 
+                    background: #fff;
+                    }
+                ul li p{
+                    background: #EDEDED;
+                    }
+                li ul {
+                    display: none;
+                }
+                li ul {
+                    display: block;
+                    position: absolute;
+                    list-style: none;
+                }
             }
         }
     }
@@ -700,13 +746,49 @@ div.wrapper {
             
             .healPieChart{
                 width: 70%;
-                display: flex;
+                display: block;
                 margin: 0 auto;
                 canvas{
                     // border: 1px solid black;
                     width: 100% !important;
                     margin-bottom: 30%;
                 }
+                .healSelect{
+                    width: 100%;
+                    display: block;
+                    height: 300px;
+                    margin: -20% auto 2%;
+                    ul.select{
+                        margin-top: 50px;
+                        padding: 0;
+                        list-style: none;
+                        }
+                    p.select__title{
+                        font-size: 20px;
+                        font-weight: bold;
+                        width: 250px;
+                    }
+                    ul li p {
+                        display: block;
+                        text-decoration: none;
+                        color: #000;
+                        width: 250px;
+                        padding: 5px 15px 5px 15px; 
+                        background: #fff;
+                        }
+                    ul li p{
+                        background: #EDEDED;
+                        }
+                    li ul {
+                        display: none;
+                    }
+                    li ul {
+                        // display: block;
+                        // position: absolute;
+                        list-style: none;
+                    }
+                }
+                
             }
         }
         .healthBottomBox{
