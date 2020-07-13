@@ -413,19 +413,19 @@ img:not([src]) {
 }
 
 .buy_single_lightbox {
-  @include lightBox($width: 800px);
+  @include lightBox($width: 600px);
   display: none;
 
   position: fixed;
   background-color: $white;
   top: 50%;
   left: 50%;
-  margin-left: -400px;
+  margin-left: -300px;
   margin-top: -150px;
 
   .orderrelitive {
     position: relative;
-
+  
     img {
       cursor: auto;
     }
@@ -544,6 +544,20 @@ HEAD .count {
 } 
 
 @media screen and ( max-width: 576px ){
+
+
+  .buy_single_lightbox {
+    @include lightBox($width: 320px);
+    display: none;
+  
+    position: fixed;
+    background-color: $white;
+    top: 20%;
+    left: 50%;
+    margin-left: -160px;
+    margin-top: -50px;
+  }
+
   .buy_main{
     width: 100%;
     .orderLeft{
@@ -699,6 +713,20 @@ HEAD .count {
           }
   }
   
+}
+
+@media screen and ( max-width: 320px ){
+  .buy_single_lightbox {
+    @include lightBox($width: 300px);
+    display: none;
+  
+    position: fixed;
+    background-color: $white;
+    top: 20%;
+    left: 0%;
+    margin-left: 10px;
+    margin-top: 0px;
+  }
 }
 
 
