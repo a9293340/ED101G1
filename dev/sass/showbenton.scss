@@ -51,28 +51,48 @@ div.showBlock {
   background-color: #f9e8d4;
 }
 
+//新增便當動畫
+@keyframes card-float {
+  0% {
+    top: 30%;
+  }
+  25% {
+    top: 31%;
+  }
+  50% {
+    top: 32%;
+  }
+  75% {
+    top: 31%;
+  }
+  100% {
+    top: 30%;
+  }
+}
+
 div.addBenton {
   @include border(1px, transparent, $rpx: 2px);
-  background-color: $orange;
+  animation-name: card-float;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  background-color: transparent;
   width: 70px;
   padding: 10px 5px;
   margin-top: auto;
   position: fixed;
   top: 230px;
-
   &:hover {
+    width: 108px;
+    height: 130px;
     transform: scale(1.1);
-    opacity: 0.9;
     cursor: pointer;
   }
-
-  img {
-    height: 50px;
-    width: 50px;
-    opacity: 0.7;
-    display: block;
-    margin: auto;
-  }
+}
+.addBentonImg2 {
+  background-image: url("../images/showbenton/addBenton2.png");
+  width: 108px;
+  height: 130px;
 }
 
 //放圖片便當的區域
@@ -105,11 +125,17 @@ div.kitchenTool {
 
 //便利貼圖片
 [id^="bentonimg"] {
-  border: 1px solid gray;
+  border: 1px solid transparent;
   width: 250px;
   height: 200px;
   margin-top: 55px;
-  cursor: pointer;
+  transition: 0.5s;
+  &:hover {
+    cursor: pointer;
+    border: 1px solid gray;
+    transform: rotate(-25deg);
+    border-radius: 50%;
+  }
 }
 
 //便利貼的標題
@@ -170,9 +196,9 @@ div.WallSharebentonImg::before {
   display: inline-block;
   width: 30px;
   height: 30px;
-
   &:hover {
     cursor: pointer;
+    transform: scale(1.2);
   }
 }
 
@@ -193,6 +219,7 @@ div.WallSharebentonImg::before {
   margin-right: 10px;
   &:hover {
     cursor: pointer;
+    transform: scale(1.2);
   }
 }
 
@@ -277,6 +304,7 @@ p.showMyself {
 //便當內容的燈箱
 
 .showBentonContentbox {
+  background-color: whitesmoke;
   @include lightBox($width: 800px);
   display: none;
   position: fixed;
@@ -345,7 +373,7 @@ p.showMyself {
   @include btn(80px, 40px, $fz: 18px);
   cursor: pointer;
   line-height: 20px;
-  margin: 1px 0 5px;
+  margin: 1px 5px 5px;
   margin-left: auto;
   outline: none;
 }
@@ -420,9 +448,10 @@ p.showMyself {
 //會員留言大區塊
 .messageBoard {
   display: inline-block;
-  border: 1px solid transparent;
+  border: 1px solid blueviolet;
   vertical-align: middle;
   text-align: left;
+  margin: 0 10px;
 
   .talksBlock {
     height: 280px;
@@ -435,6 +464,7 @@ p.showMyself {
     color: rgb(109, 48, 7);
     font-size: 20px;
     text-align: center;
+    font-weight: bold;
   }
 
   //便當內容的會員留言區塊
@@ -478,7 +508,7 @@ p.showMyself {
     margin-top: 25px;
     resize: none;
     font-size: 16px;
-    width: 330px;
+    width: 350px;
     background-color: #f5f6e9;
   }
 }
@@ -636,13 +666,29 @@ button.Pre {
 
 .closebox {
   position: absolute;
-  right: 30px;
-  top: 30px;
+  right: 20px;
+  top: 20px;
   &:hover {
     cursor: pointer;
   }
 }
 //-------------便當牆-------------
+//營養好搭配　健康送到家
+.bentonWallTitle {
+  font-size: 34px;
+  color: rgb(43, 150, 238);
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+//會員一天可按一次讚，並於24小時後即可再執行
+.bentonWallNote {
+  font-size: 18px;
+  padding: 15px 0 30px;
+  text-align: center;
+  color: rgb(112, 109, 109);
+}
+
 .shareBenton {
   font-size: 18px;
   font-weight: 600;
@@ -660,20 +706,8 @@ button.Pre {
   transition: transform 0.8s;
   &:hover {
     transform: rotate(0deg);
+    box-shadow: 4px 4px 8px rgb(93, 93, 93);
   }
-}
-
-//---------------便當前三名背景---------------
-.group0 {
-  transform: rotate(5deg);
-}
-
-.group1 {
-  transform: rotate(5deg);
-}
-
-.group2 {
-  transform: rotate(5deg);
 }
 
 //分頁
@@ -688,23 +722,18 @@ button.Pre {
     margin: 10px;
     background-color: $yellow;
     color: $black;
-    &:hover,
-    &:focus {
-      opacity: 0.9;
-      background-color: $green;
-    }
   }
 }
 
 //會員登入遮罩
 .homeContainderBgc {
-  z-index: 99999;
+  z-index: 9999;
 }
 
 #myBtn {
   border: solid 1px rgb(100, 99, 99);
-  height: 54px;
-  width: 54px;
+  height: 65px;
+  width: 65px;
   display: none;
   position: fixed;
   bottom: 20px;
@@ -713,10 +742,11 @@ button.Pre {
   background-color: rgb(255, 255, 255);
   color: rgb(36, 36, 36);
   cursor: pointer;
-  font-size: 14px;
+  font-size: 18px;
   z-index: 100;
   outline: none;
   text-align: center;
+  opacity: 0.9;
 }
 
 #myBtn:hover {
@@ -733,7 +763,7 @@ button.Pre {
     position: fixed;
     bottom: 0;
     left: 0;
-    background-position: left;
+    background-position: left 20px;
     background-size: cover;
   }
 
@@ -741,11 +771,16 @@ button.Pre {
     transition: width 0.8s, height 0.8s;
     width: 45px;
     height: 40px;
-    img {
-      transition: width 0.8s, height 0.8s;
-      width: 40px;
-      height: 40px;
-    }
+    margin-top: 70px;
+  }
+
+  .addBentonImg2 {
+    margin-top: 70px;
+  }
+
+  //營養好搭配　健康送到家
+  .bentonWallTitle {
+    font-size: 30px;
   }
 
   .bentoncarTitle {
@@ -866,10 +901,11 @@ button.Pre {
   .messageBoard {
     display: block;
     text-align: center;
-    margin: 0 10px;
+    margin: 0;
 
     .talksBlock {
       width: 330px;
+      margin: 0 auto;
 
       div.showmsg {
         width: 290px;
@@ -879,10 +915,11 @@ button.Pre {
         }
       }
     }
+    .comment {
+      width: 320px;
+    }
   }
-  .comment {
-    width: 320px;
-  }
+
   .reportBox {
     position: fixed;
     top: 100%;
@@ -935,7 +972,6 @@ button.Pre {
     width: 220px;
     height: 180px;
     margin-top: 55px;
-    cursor: pointer;
   }
 
   .shareBlock {

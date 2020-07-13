@@ -452,6 +452,8 @@ let bentonWallVm = new Vue({
     bentonWallNumber,
     bentonCardArray: [],
     currentPager,
+    likeImgSrc: "./images/showbenton/like.png",
+    likedImgSrc: "./images/showbenton/like1.png",
   },
   methods: {
     //按讚數
@@ -559,9 +561,8 @@ let bentonWallVm = new Vue({
       $("body").css("overflow", "auto");
     },
     //按讚數
-    change(e) {
-      let num = Number(e.target.dataset.num);
-
+    change(num) {
+      //let num = Number(this.currentPager * this.bentonWallNumber + index);
       //判斷是否會員登入狀態
       let username = window.sessionStorage.getItem("memId");
       if (username !== "good") {
@@ -571,33 +572,35 @@ let bentonWallVm = new Vue({
         return;
       }
 
-      if (e.target.dataset.check == "0") {
-        if (lastLikeTime !== "" && new Date() <= nextDay(lastLikeTime)) {
-          alert("已經按讚過囉,需24小時後才可以再點讚!");
-          return;
-        }
-
-        //加讚數
-        $.ajax({
-          type: "POST", //傳送方式
-          url: "./php/showbentonLiketimes.php", //傳送目的地 (之後統整要修改網址)
-          dataType: "json", //資料 格式
-          data: {
-            plus: "+",
-            postId: this.bentonArray[num].postId,
-          },
-          success: function (data) {
-            bentonWallVm.$data.bentonArray[num].liketimes = data[0].postLike;
-            lastLikeTime = data[0].memLastVoteTime;
-            e.target.src = "./images/showbenton/like1.png";
-            e.target.dataset.check = "1";
-            alert("感謝您投下神聖的一票!(每人一天可投一票)");
-          },
-          error: function (jqXHR) {
-            console.log(jqXHR, "error");
-          },
-        });
+      //if (e.target.dataset.check == "0") {
+      if (lastLikeTime !== "" && new Date() <= nextDay(lastLikeTime)) {
+        alert("已經按讚過囉,需24小時後才可以再點讚!");
+        return;
       }
+
+      //加讚數
+      $.ajax({
+        type: "POST", //傳送方式
+        url: "./php/showbentonLiketimes.php", //傳送目的地 (之後統整要修改網址)
+        dataType: "json", //資料 格式
+        data: {
+          plus: "+",
+          postId: this.bentonArray[num].postId,
+        },
+        success: function (data) {
+          bentonWallVm.$data.bentonArray[num].liketimes = data[0].postLike;
+          lastLikeTime = data[0].memLastVoteTime;
+          bentonWallVm.$data.bentonArray[num].likeImgSrc =
+            bentonWallVm.$data.likedImgSrc;
+          //e.target.src = "./images/showbenton/like1.png";
+          //e.target.dataset.check = "1";
+          alert("感謝您投下神聖的一票!(每人一天可投一票)");
+        },
+        error: function (jqXHR) {
+          console.log(jqXHR, "error");
+        },
+      });
+      //}
     },
     //檢舉
     reportBox(talks) {
@@ -646,15 +649,11 @@ let bentonWallVm = new Vue({
         this.bentonCardArray.push(showItems[i]);
       }
 
-      //for (let i = 0; i < this.bentonArray.length; i++) {
-      // if (
-      //   i >= index * this.bentonWallPages &&
-      //   i < (index + 1) * this.bentonWallPages
-      // ) {
-      //   this.bentonCardArray.push(this.bentonArray[i]);
-      // }
-      //}
       console.log(this.bentonCardArray);
+
+      //改按鈕顏色
+      $(".bontonContentPages").css("background-color", "#FFD23F");
+      $(`#pagesIndex${index}`).css("background-color", "green");
     },
 
     buyMore(postSoId) {
@@ -669,6 +668,10 @@ let bentonWallVm = new Vue({
       url: "./php/showbenton.php", //傳送目的地 (之後統整要修改網址)
       dataType: "json", //資料格式
       success: function (data) {
+        //按讚圖片更換
+        for (let i = 0; i < data[0].length; i++) {
+          data[0][i].likeImgSrc = bentonWallVm.$data.likeImgSrc;
+        }
         bentonWallVm.$data.bentonArray = data[0];
         if (data[1] != "") {
           lastLikeTime = data[1][0].memLastVoteTime;
