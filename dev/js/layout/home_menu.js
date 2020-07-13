@@ -2,7 +2,7 @@
 
 var zero = 0;
 $(window).on('scroll', function (event) {
-  event.stopPropagation();
+  // event.stopPropagation();
   if ($(window).scrollTop() > 1000) {
     $('nav').addClass('fixed');
   } else {
@@ -10,22 +10,46 @@ $(window).on('scroll', function (event) {
   }
   if ($(".fixed")) {
     if ($(window).scrollTop() > zero) {
-      $(".fixed").stop(true).animate({
-        opacity: 0
-      });
-      $(".fixed").css("display", "none");
 
+      $(".fixed").css("transform", "translate3d(0px,-100px,0px)");
+      $(".fixed").css("opacity", "0");
     } else {
-      $(".fixed").css("display", "flex");
-      $(".fixed").stop(true).animate({
-        opacity: 1
-      });
+      $(".fixed").css("transform", "translate3d(0,0,0)");
+      $(".fixed").css("opacity", "1");
 
 
     }
     zero = $(window).scrollTop()
   }
 });
+
+// var zero = 0;
+// $(window).on('scroll', function (event) {
+//   // event.stopPropagation();
+//   if ($(window).scrollTop() > 1000) {
+//     $('nav').addClass('fixed');
+//   } else {
+//     $('nav').removeClass('fixed');
+//   }
+//   if ($(".fixed")) {
+//     if ($(window).scrollTop() > zero) {
+//       $(".fixed").stop(true).animate({
+//         opacity: 0
+//       });
+//       $(".fixed").css("display", "none");
+
+//     } else {
+//       $(".fixed").css("display", "flex");
+//       $(".fixed").stop(true).animate({
+//         opacity: 1
+//       });
+
+
+//     }
+//     zero = $(window).scrollTop()
+//   }
+// });
+
 
 var btn_switch = $('.btn_switch'),
   navgroup_rwd = $('.navgroup_rwd'),
@@ -47,7 +71,7 @@ let menu_Feature = new Vue({
   el: '#first',
   data: {
     feature_benton,
-    list:[]
+    list: []
 
 
     // list: [
@@ -79,7 +103,7 @@ let menu_Feature = new Vue({
       url: "./php/home_featureLB.php",
       dataType: "json",
       success: function (data) {
-        menu_Feature.$data.list= data.slice(0,3);
+        menu_Feature.$data.list = data.slice(0, 3);
 
         // console.log(data);
       },
@@ -168,12 +192,12 @@ function leaderBoard() {
     <div id="menu_name_sec1"> ${leaderData[i].title} </div>
     <div id="menu_content_sec1"> ${leaderData[i].content} </div>
     <div id="menu_date_sec1">日期： ${leaderData[i].postdate} </div>
-    <img id="closebtn" src="./images/showbenton/close.png">
     </div>
+    <img id ="closebtn" src = "./images/showbenton/close.png" >
     `;
 
       }
-        
+
 
 
       //建立點擊事件，先等所有資料撈完後再點擊並顯示選取的資料
@@ -188,26 +212,37 @@ function leaderBoard() {
               var lb_closebtn = document.getElementById("closebtn");
               lb_closebtn.addEventListener('click', function () {
                 lb_lightBox.classList.toggle("lb-s--active");
-                right_group.innerHTML="";
-                messageArray=[];
-                mgcontent=[];
+                right_group.innerHTML = "";
+                messageArray = [];
+                mgcontent = [];
               });
+
+
             }, 1000);
+            gsap.timeline().from("#menu_ndgroup1", {
+              ease: "power3.inOut",
+              duration: .7,
+              rotate: 90,
+              stagger: .5,
+              autoAlpha: 0,
+              delay: .3,
+              transformOrigin: "left"
+            })
 
             //click後觸發撈右邊AJAX的資料---------------
-      function messageContent() {
-        // let messPostId = [leaderId_1,leaderId_2,leaderId_3];
-        // console.log(messPostId);
-        var contentRequest = new XMLHttpRequest();
-        contentRequest.onload = function () {
-          var mgcontent = JSON.parse(contentRequest.responseText);
+            function messageContent() {
+              // let messPostId = [leaderId_1,leaderId_2,leaderId_3];
+              // console.log(messPostId);
+              var contentRequest = new XMLHttpRequest();
+              contentRequest.onload = function () {
+                var mgcontent = JSON.parse(contentRequest.responseText);
 
-          //將對應的mgcontent訊息撈出來存入messageArray陣列裡
-          function messagebox() {
-            for (var i = 0; i < mgcontent.length; i++) {
-              // messPostId = mgcontent.messPostId;
-              messageArray[i] =
-                `
+                //將對應的mgcontent訊息撈出來存入messageArray陣列裡
+                function messagebox() {
+                  for (var i = 0; i < mgcontent.length; i++) {
+                    // messPostId = mgcontent.messPostId;
+                    messageArray[i] =
+                      `
          <div class="message_group">
          <div class="member_id">
          <img src ="${mgcontent[i].img} " width="30" height="30">
@@ -220,31 +255,40 @@ function leaderBoard() {
          </div>     
 
         `
-            }
-          };
-          messagebox();
-        };
-        contentRequest.open('POST', '../dest/php/home_lBmessage.php');
-        contentRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        if(i == 1){
-          contentRequest.send("messPostId=" + leaderId_1);
-        }else if(i == 2){
-          contentRequest.send("messPostId=" + leaderId_2);
-        }else{
-          contentRequest.send("messPostId=" + leaderId_3);
-        }
-        // console.log(messPostId);
-
-      };
-      messageContent();
-      setTimeout(function () {
-            for (var i = 0; i < messageArray.length; i++) {
+                  }
+                };
+                messagebox();
+              };
+              contentRequest.open('POST', '../dest/php/home_lBmessage.php');
+              contentRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              if (i == 1) {
+                contentRequest.send("messPostId=" + leaderId_1);
+              } else if (i == 2) {
+                contentRequest.send("messPostId=" + leaderId_2);
+              } else {
+                contentRequest.send("messPostId=" + leaderId_3);
+              }
               // console.log(messPostId);
-              right_group.innerHTML += messageArray[i];
-            }
-        console.log(456);
-      }, 500)
-       //右邊AJAX的資料----------------------------------
+
+            };
+            messageContent();
+            setTimeout(function () {
+              for (var i = 0; i < messageArray.length; i++) {
+                // console.log(messPostId);
+                right_group.innerHTML += messageArray[i];
+              }
+              console.log(456);
+              gsap.timeline().from(".message_group", {
+                ease: "expo.inOut",
+                duration: 1.5,
+                x: -100,
+                stagger: .5,
+                autoAlpha: 0,
+                transformOrigin: "center",
+                delay: .5,
+              })
+            }, 500)
+            //右邊AJAX的資料----------------------------------
 
 
 
@@ -255,11 +299,12 @@ function leaderBoard() {
 
         }
         console.log(123);
+
       }, 1000)
 
       //leader點開後撈出對應的留言貼文數量
 
-     
+
     };
     lightbox();
   };
@@ -268,7 +313,6 @@ function leaderBoard() {
 }
 
 leaderBoard();
-
 
 
 
@@ -285,7 +329,7 @@ let menu_third = new Vue({
       url: "./php/home_featureLB.php",
       dataType: "json",
       success: function (data) {
-        menu_third.$data.list= data.slice(3);
+        menu_third.$data.list = data.slice(3);
 
         // console.log(data);
       },
@@ -459,30 +503,30 @@ createBullets();
 // autoSlide();
 // 這裡是自動輪播
 
-var badges = [".badge.am1",".badge.am2",".badge.am3"];
-var badge = function badge1(){
-  var fa = gsap.to(badges,{
-    y:190,
+var badges = [".badge.am1", ".badge.am2", ".badge.am3"];
+var badge = function badge1() {
+  var fa = gsap.to(badges, {
+    y: 190,
     ease: "bounce.out",
     duration: 2,
     repeat: -1,
     yoyo: true,
     // repeatDelay: 0.4,
     stagger: 0.5,
-});
-$(".badge.am1").mouseenter(function(){
-  gsap.to(".badge.am1",{
-    x:190,
-    
   });
+  $(".badge.am1").mouseenter(function () {
+    gsap.to(".badge.am1", {
+      x: 190,
 
-})
-$(".badge.am1").mouseleave(function(){
-  gsap.to(".badge.am1",{
-    x:0,
+    });
+
   })
-})
-badge = function badge1(){};
+  $(".badge.am1").mouseleave(function () {
+    gsap.to(".badge.am1", {
+      x: 0,
+    })
+  })
+  badge = function badge1() {};
 }
 
 
@@ -501,7 +545,7 @@ function changeSlides(instant) {
     }, animTime);
     badge();
   }
-  
+
   window.clearTimeout(autoSlideTimeout);
   $(".slider-pagi__elem").removeClass("active");
   $(".slider-pagi__elem-" + curSlide).addClass("active");
@@ -509,7 +553,7 @@ function changeSlides(instant) {
   $slideBGs.css("transform", "translate3d(" + curSlide * 50 + "%,0,0)");
   diff = 0;
   // autoSlide();
-  
+
 }
 
 //如果拖一畫面大於一定寬度直接切換
@@ -582,8 +626,3 @@ $(document).on("click", ".slider-pagi__elem", function () {
   changeSlides();
 });
 // 這塊是下方小按鈕的點擊和左右邊的點擊觸發效果
-
-
-
-
-

@@ -37,7 +37,7 @@
     top: 0px;
     z-index: 30;
     opacity: 1;
-    transition: all ease .1s;
+    transition: all ease .5s;
   }
 
   @include flexStyle(center, center, column);
@@ -195,6 +195,7 @@
           border-radius: 50%;
           border: 1px solid #000;
         }
+
         .member_menu {
           display: none;
           position: absolute;
@@ -291,7 +292,7 @@
       position: fixed;
       top: 0;
       opacity: 1;
-      transition: all ease .1s;
+      transition: all ease .5s;
       // top: -10px;
     }
 
