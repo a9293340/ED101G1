@@ -1,3 +1,4 @@
+@import "./main";
 @import url('https://fonts.googleapis.com/css?family=Stalemate');
 
 *,
@@ -39,8 +40,9 @@
 }
 
 .book-wrapper {
+  transform: scale(1.2);
   position: relative;
-  margin: 2% auto;
+  margin: 6% 25%;
   width: 595px;
 }
 

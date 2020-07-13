@@ -1408,7 +1408,7 @@ $base-size: 20rem;
   }
 
   &__text {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     font-size: 40px;
     color: rgb(36, 36, 36);
   }
@@ -1524,7 +1524,7 @@ $base-size: 20rem;
         bottom: 0;
         width: 100%;
         height: 100%;
-        color: #fff;
+        color: 	#50C878	;
         transform: translate3d(0, -100%, 0);
         /* 先把顏色藏起 */
         transition: transform $indexHoverAT 0.1s;
@@ -2006,7 +2006,7 @@ $base-size: 20rem;
     }
 
     &__text {
-      text-transform: uppercase;
+      // text-transform: uppercase;
       font-size: 40px;
       color: rgb(36, 36, 36);
     }
@@ -2122,7 +2122,7 @@ $base-size: 20rem;
           bottom: 0;
           width: 100%;
           height: 100%;
-          color: #fff;
+          color: 	#50C878	;
           transform: translate3d(0, -100%, 0);
           /* 先把顏色藏起 */
           transition: transform $indexHoverAT 0.1s;
@@ -2579,7 +2579,7 @@ $base-size: 20rem;
     }
 
     &__text {
-      text-transform: uppercase;
+      // text-transform: uppercase;
       font-size: 40px;
       color: rgb(36, 36, 36);
     }

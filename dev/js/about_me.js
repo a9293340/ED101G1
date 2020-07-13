@@ -3498,6 +3498,7 @@
 })(jQuery);
 
 $(window).ready(function () {
+  var count = 0;
     $('.pages').turn({
 
       duration: 1500,
@@ -3511,12 +3512,21 @@ $(window).ready(function () {
       when: {
         turned: function (e, page) {
           console.log('Current view: ', $(this).turn('view'));
+          count++;
+          if(count === 1){
+            $(".kitchen").css("opacity","0")
+            $(".cooking").css("opacity","0")
+            $(".p23").css("opacity","0")
+          }
+          if(count === 2){
+            buildLine()  
+          }
         },
+      
 
       }
 
     });
-
   }
 
 );
@@ -3528,24 +3538,41 @@ var eyes = ["#Capa_1 > path.rightEye", "#Capa_1 > path.leftEye"];
 var hat = ["#Capa_1 > path:nth-child(9)", "#Capa_1 > g:nth-child(16)", "#Capa_1 > rect", "#Capa_1 > path:nth-child(10)"]
 var face = ["#Capa_1 > polygon", "#Capa_1 > ellipse", "#Capa_1 > ellipse", "#Capa_1 > path:nth-child(8)", "#Capa_1 > circle"]
 
+
+var text = gsap.timeline(),
+  myText = new SplitText(".p1", {type:"words,chars"}),
+  chars = myText.chars;
+
+gsap.set(".p1", {perspective: 400});
+
+text.from(chars,
+  {duration: 2, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=1"
+  );  
+
+
+
+
+
+
+
 function body() {
 
-  gsap.fromTo("h1", {
-    scaleY: 5,
-    scaleX: 5,
-    autoAlpha: 0,
-    transformOrigin: "center",
+  // gsap.fromTo("h1", {
+  //   scaleY: 5,
+  //   scaleX: 5,
+  //   autoAlpha: 0,
+  //   transformOrigin: "center",
 
-  }, {
-    scaleY: 1,
-    scaleX: 1,
-    transformOrigin: "center",
-    duration: 1.5,
-    autoAlpha: 1,
-    ease: "bounce.inout",
-    delay: 3.5,
+  // }, {
+  //   scaleY: 1,
+  //   scaleX: 1,
+  //   transformOrigin: "center",
+  //   duration: 1.5,
+  //   autoAlpha: 1,
+  //   ease: "bounce.inout",
+  //   delay: 3.5,
 
-  })
+  // })
 
 
   gsap.timeline().from(face, {
@@ -3639,6 +3666,7 @@ function Animation() {
 
     duration: 7,
     stagger: 0.5,
+    // delay:4,
     motionPath: {
       path: [{
         "x": -200,
@@ -3682,20 +3710,33 @@ function Animation() {
 };
 
 function buildLine() {
+
   faultGroup = gsap.timeline({
     // repeat: 5,
     // repeatDelay: 7,
-
+    onStart:kitchenFn,
+    onComplete:buildLine1,
   });
   for (i = 0; i < 10; i++) {
     faultGroup.add(Animation(), i * 0.17);
   }
 }
-buildLine();
 
+
+function kitchenFn(){
+  var text = gsap.timeline(),
+  myText = new SplitText(".p23", {type:"words,chars"}),
+  chars = myText.chars;
+  
+  gsap.set(".p23", {perspective: 400});
+  
+  text.from(chars,
+    {duration: 2, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=1"
+    ); 
+  $(".p23").css("opacity","1")
 
 var kitchen_time = gsap.timeline({
-  delay: 2,
+  delay: 3,
   // repeat: -1,
   // repeatDelay: 5,
   // yoyo: 1
@@ -3822,7 +3863,10 @@ kitchen_time
 
     }
   }, '<-2')
+  //一開始先在翻頁前隱藏，觸發path線段動畫後再出現，在前面就出現會閃爍
+  $(".kitchen").css("opacity","1")
 
+}
 
 function bjump() {
   gsap.to("#Layer_1 > g > g:nth-child(10) > path", {
@@ -3840,16 +3884,27 @@ function bjump() {
     duration: .5,
 
   }, '<1')
-  gsap.to(button, {
+  gsap.to("#Layer_1 > g > g:nth-child(27) > path", {
     scaleY: 0,
     repeat: -1,
-    stagger: .5,
+    // stagger: .5,
+    duration: .8,
+    repeatDelay: 5,
+    transformOrigin: "center",
+    yoyo: 1,
+
+  })
+  gsap.to("#Layer_1 > g > g:nth-child(28) > path", {
+    scaleY: 0,
+    repeat: -1,
+    // stagger: .5,
     duration: .5,
     repeatDelay: 5,
     transformOrigin: "center",
     yoyo: 1,
 
   })
+  
 }
 
 var food1 = $("#food1"),
@@ -3906,13 +3961,14 @@ function buildLine1() {
   faultGroup1 = gsap.timeline({
     // repeat: 5,
     // repeatDelay: 7,
-    delay: 7
+    // delay: 9
+    onStart:cookings,
   });
   for (i = 0; i < 10; i++) {
     faultGroup1.add(Animation1(), i * 0.17);
   }
 }
-buildLine1();
+
 
 
 
@@ -3924,9 +3980,9 @@ var pot = ["#XMLID_896_", "#XMLID_1010_"],
   smoke = ["#XMLID_990_", "#XMLID_996_", "#XMLID_1035_", "#XMLID_997_"],
   custom = CustomEase.create("custom", "M0,0 C0.156,0 0.224,0.246 0.4,0.198 0.444,0.214 0.469,0.289 0.492,0.32 0.551,0.301 0.673,0.384 0.673,0.503 0.73,0.537 0.828,0.658 0.828,0.752 0.912,0.824 0.938,1 1,1 ");
 
-
+function cookings(){
 var cooking = gsap.timeline({
-  delay: 10,
+  delay: 3,
 
 });
 cooking
@@ -4070,3 +4126,5 @@ cooking
       autoAlpha: 0,
     })
   };
+  $(".cooking").css("opacity","1")
+}
