@@ -65,35 +65,44 @@ setTimeout(() => {
     document.getElementsByClassName('closelightbox2')[0].addEventListener('click',closelightBox2)
     
 for(var j=0; j < orderRice.length;j++){   //rice 的 click事件
+    if(orderRice[j].spStatus==1){
     document.getElementById(`riceimg${orderRice[j].spId}`).addEventListener('click',ricelightBox)
     document.getElementById(`plus${orderRice[j].spId}`).addEventListener('click',meatshow)
     document.getElementById(`plus${orderRice[j].spId}`).addEventListener('click',imgscale1)
     document.getElementById(`plus${orderRice[j].spId}`).addEventListener('click',riceincart)
+    }
 }
 
 for(var j=0; j < orderMeat.length;j++){  //meat 的 click事件
+    if(orderMeat[j].spStatus==1){
     document.getElementById(`meatimg${orderMeat[j].spId}`).addEventListener('click',meatlightBox)
     document.getElementById(`meatplus${orderMeat[j].spId}`).addEventListener('click',singleshow)
     document.getElementById(`meatplus${orderMeat[j].spId}`).addEventListener('click',imgscale2)
     document.getElementById(`meatplus${orderMeat[j].spId}`).addEventListener('click',meatincart)
+    }
 }
 
 for(var j=0; j < orderSingle.length;j++){  //自選 的 click事件
+    if(orderSingle[j].spStatus==1){
     document.getElementById(`singleplus${orderSingle[j].spId}`).addEventListener('click',singleincart)
     document.getElementById(`img${orderSingle[j].spId}`).addEventListener('click',lightBox)
+    }
 }
 
 for(var j=0; j < orderSetdo.length;j++){    //套餐的+- 購物車   click事件
+    if(orderSetdo[j].setStatus==1){
     setdocount[orderSetdo[j].setId]=0;
     document.getElementById(`setdocountplus${orderSetdo[j].setId}`).addEventListener('click',setdoplus)
     document.getElementById(`setdocountminus${orderSetdo[j].setId}`).addEventListener('click',setdominus)
     document.getElementById(`setdocart${orderSetdo[j].setId}`).addEventListener('click',setdoCart)
+    document.getElementById(`setdoimg${orderSetdo[j].setId}`).addEventListener('click',setdolightBox)
+    }
 }     
 document.getElementsByClassName('closelightbox3')[0].addEventListener('click',closelightbox3);
 
-for(var j=0; j < orderSetdo.length;j++){   //套餐燈箱 click 事件
-    document.getElementById(`setdoimg${orderSetdo[j].setId}`).addEventListener('click',setdolightBox)
-}
+// for(var j=0; j < orderSetdo.length;j++){   //套餐燈箱 click 事件
+//     document.getElementById(`setdoimg${orderSetdo[j].setId}`).addEventListener('click',setdolightBox)
+// }
 
 
 
@@ -198,6 +207,7 @@ function otherIncart(){
            localStorage.setItem('otherOrder',otherOrder);
 
            setordercart();
+           alert('已加入購物車');
         }
  
 }
@@ -679,6 +689,8 @@ setcart();
  
  riceshow();
 
+ alert('已加入購物車');
+
 //  window.location.reload();
  }else{
      alert('請把便當裝滿喔')
@@ -735,6 +747,7 @@ function setdoCart(){      //套餐的加入購物車
 
                
                setsetdocart();
+               alert('已加入購物車');
             }else{
                 alert("還沒選數量喔");
             }

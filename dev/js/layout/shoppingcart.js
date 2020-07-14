@@ -17,6 +17,10 @@ var orderClass = -1;
 var MemScore= 0;
 var finalOrTotalPrice = 0;
 var OrYourScore = 0;
+var orderCartNumSin = 0;
+var orderCartNumSet = 0;
+var orderCartNumOth = 0;
+var orderCartNum = 0;
 
 var singleorderlist = new Vue({   //購物車 vue
     el: '#list',
@@ -55,6 +59,7 @@ function setcart() {          //一開始自選購物車重新渲染
             }
         }
     }, 1000);
+    shoppingCartNum();
 
 }
 
@@ -81,6 +86,7 @@ function setsetdocart() {       //一開始套餐購物車重新渲染
             document.getElementById(`setdodelete${finalsetdolist[g].setdoId}`).addEventListener('click', deletesetdocart);
         }
     }, 1000);
+    shoppingCartNum();
 }
 if (localStorage.getItem('setdoMenuList')) {
     setsetdocart();
@@ -104,6 +110,7 @@ function setordercart() {      //一開始其他購物車重新渲染
             document.getElementById(`orderdelete${finalorderlist[g].otherId}`).addEventListener('click', deleteordercart);
         }
     }, 1000);
+    shoppingCartNum();
 
 }
 if (localStorage.getItem('otherOrder')) {
@@ -129,6 +136,7 @@ function deletesinglecart() {       //刪除購物車
     singleorderlist.$data.finalsinglelist = finalsinglelist;
     localStorage.setItem('singleOrder', JSON.stringify(finalsinglelist));
     OrderTotalPrice();
+    shoppingCartNum();
 
 }
 
@@ -146,6 +154,7 @@ function deletesetdocart() {
     singleorderlist.$data.finalsetdolist = finalsetdolist;
     localStorage.setItem('setdoMenuList', JSON.stringify(finalsetdolist));
     OrderTotalPrice();
+    shoppingCartNum();
 }
 
 
@@ -163,6 +172,7 @@ function deleteordercart() {
     singleorderlist.$data.finalorderlist = finalorderlist;
     localStorage.setItem('otherOrder', JSON.stringify(finalorderlist));
     OrderTotalPrice();
+    shoppingCartNum();
 }
 
 function OrderTotalPrice(){
@@ -343,6 +353,7 @@ document.getElementById('orderOut').addEventListener('click',function(){
 
 // 訂單傳到PHP
 function orderBuy(){
+    shoppingCartNum();
     var orderSin = [];
     var orderSet = [];
     var orderOth = [];
@@ -516,4 +527,20 @@ function orderBuy(){
 
     function errorCallback(e){
         document.getElementById('position').innerHTML = `錯誤碼: ${e.code}<br>錯誤訊息: ${e.message}`
+    }
+
+    function shoppingCartNum(){
+        if(localStorage.getItem('singleOrder')){
+            orderCartNumSin = JSON.parse(localStorage.getItem('singleOrder')).length;
+        }
+        if(localStorage.getItem('setdoMenuList')){
+            orderCartNumSet = JSON.parse(localStorage.getItem('setdoMenuList')).length;
+        }
+        if(localStorage.getItem('otherOrder')){
+            orderCartNumOth = JSON.parse(localStorage.getItem('otherOrder')).length;
+        }
+
+        orderCartNum = orderCartNumSin + orderCartNumSet + orderCartNumOth ;
+        document.getElementById('shoppingNum').innerText = orderCartNum;
+        console.log(orderCartNum);
     }
