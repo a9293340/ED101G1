@@ -279,10 +279,10 @@ function leaderBoard() {
               }
               console.log(456);
               gsap.timeline().from(".message_group", {
-                ease: "expo.inOut",
-                duration: 1.5,
+                ease: "power2.inOut",
+                duration: .8,
                 x: -100,
-                stagger: .5,
+                stagger: .2,
                 autoAlpha: 0,
                 transformOrigin: "center",
                 delay: .2,
@@ -350,25 +350,56 @@ var $closeBtnsArr = [].slice.call(document.querySelectorAll('.el__close-btn'));
 setTimeout(function () {
   $cont.classList.remove('s--inactive');
 }, 200);
-
 $elsArr.forEach(function ($el) { //click事件
   $el.addEventListener('click', function () {
     if (this.classList.contains('s--active')) return;
     $cont.classList.add('s--el-active');
     this.classList.add('s--active');
     console.log($el);
-    if(this.id === "sec"){
-        var medalAm = gsap.timeline();
-        medalAm 
-          .from("#Layer_1 > g",{
-            ease: "power1.out",
-            duration: 2,
-            scaleY: 0,
-            scaleX: 0,
-            delay:3,
-            transformOrigin: "center",
-          });
+    if (this.id === "sec") {
+
+      var out_circle = ["#Layer_1 > g > g:nth-child(6)"],
+        star = ["#Layer_1 > g > path:nth-child(7)"],
+        banner = ["#Layer_1 > g > path:nth-child(1)", "#Layer_1 > g > path:nth-child(2)", "#Layer_1 > g > g:nth-child(3)", "#Layer_1 > g > path:nth-child(4)", "#Layer_1 > g > path:nth-child(5)"],
+        colors = ["#164", "#350", "#350", "#088"];
+      var medalAm = gsap.timeline();
+      medalAm
+        .from(out_circle, {
+          ease: "power1.out",
+          duration: 2,
+          scaleX: 0,
+          scaleY: 0,
+          rotate: 1080,
+          delay: 3,
+          transformOrigin: "center",
+          autoAlpha: 0,
+
+        })
+        .from(star, {
+          ease: "power3.out",
+          duration: 2,
+          rotate: -1080,
+          transformOrigin: "center",
+          autoAlpha: 0,
+        }, "<")
+        .from(banner, {
+          // ease: "power3.out",
+          y: -100,
+          autoAlpha: 0,
+          duration: 1,
+          delay: 2,
+        }, "<")
+        .from(star, {
+          rotate: -360,
+          repeat: -1,
+          // yoyo: 1,
+          duration: 1,
+          repeatDelay: 10,
+          transformOrigin: "center",
+        })
+
     }
+
   });
 });
 
