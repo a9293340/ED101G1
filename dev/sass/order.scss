@@ -279,9 +279,12 @@ img:not([src]) {
   position: relative;
   #orderScoreText{
     position: absolute;
-    top: -94px;
+    top: -114px;
     left: 75px;
     text-align: center;
+    .oT{
+      margin-bottom: 20px;
+    }
   }
 }
 
@@ -577,6 +580,16 @@ HEAD .count {
     }
     .buy_bando{
       width: 100%; 
+      #orderScoreText{
+        display: none;
+        position: absolute;
+        top: -114px;
+        left: 75px;
+        text-align: center;
+        .oT{
+          margin-bottom: 20px;
+        }
+      }
       .buy_bandoImg{
         width: 350px;
         height: 280px;
