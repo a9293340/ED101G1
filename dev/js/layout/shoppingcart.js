@@ -136,6 +136,7 @@ function deletesinglecart() {       //刪除購物車
     singleorderlist.$data.finalsinglelist = finalsinglelist;
     localStorage.setItem('singleOrder', JSON.stringify(finalsinglelist));
     OrderTotalPrice();
+    shoppingCartNum();
 
 }
 
@@ -153,6 +154,7 @@ function deletesetdocart() {
     singleorderlist.$data.finalsetdolist = finalsetdolist;
     localStorage.setItem('setdoMenuList', JSON.stringify(finalsetdolist));
     OrderTotalPrice();
+    shoppingCartNum();
 }
 
 
@@ -170,6 +172,7 @@ function deleteordercart() {
     singleorderlist.$data.finalorderlist = finalorderlist;
     localStorage.setItem('otherOrder', JSON.stringify(finalorderlist));
     OrderTotalPrice();
+    shoppingCartNum();
 }
 
 function OrderTotalPrice(){
