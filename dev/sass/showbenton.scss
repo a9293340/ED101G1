@@ -78,7 +78,7 @@ div.addBenton {
   margin-top: auto;
   position: fixed;
   top: 230px;
-  z-index: 99999;
+  z-index: 99;
   &:hover {
     width: 108px;
     height: 130px;
@@ -90,6 +90,7 @@ div.addBenton {
   background-image: url("../images/showbenton/addBenton2.png");
   width: 108px;
   height: 130px;
+  position: absolute;
 }
 
 //放圖片便當的區域
@@ -248,7 +249,6 @@ span.liketimes {
   font-size: 18px;
   font-weight: 600;
   text-align: center;
-  padding: 15px 10px;
   border-radius: 8px;
   background-color: #f6f6f6;
 }
@@ -337,7 +337,7 @@ p.showMyself {
     outline: none;
     margin: 5px auto;
     line-height: 20px;
-    background-color: rgb(4, 124, 10);
+    background-color: $orange;
   }
   //作者發文區塊
   .memTextBlock {
@@ -371,7 +371,7 @@ p.showMyself {
   @include btn(80px, 40px, $fz: 18px);
   cursor: pointer;
   line-height: 20px;
-  margin: 1px 15px 5px;
+  // margin: 1px 15px 5px;
   margin-left: auto;
   outline: none;
 }
@@ -399,7 +399,7 @@ p.showMyself {
   font-size: 14px;
   display: inline-block;
   vertical-align: middle;
-  width: 200px;
+  width: 180px;
 }
 //檢舉
 .reportBox {
@@ -445,11 +445,11 @@ p.showMyself {
 
 //會員留言大區塊
 .messageBoard {
-  display: inline-block;
+  display: inline-block !important;
   border: 1px solid blueviolet;
   vertical-align: middle;
   text-align: left;
-  margin: 0 10px;
+  margin: 0 10px !important;
 
   .talksBlock {
     height: 280px;
@@ -735,7 +735,7 @@ button.Pre {
   display: none;
   position: fixed;
   bottom: 20px;
-  right: 30px;
+  right: 20px;
   border-radius: 100%;
   background-color: rgb(255, 255, 255);
   color: rgb(36, 36, 36);
@@ -769,11 +769,7 @@ button.Pre {
     transition: width 0.8s, height 0.8s;
     width: 45px;
     height: 40px;
-    margin-top: 60px;
-  }
-
-  .addBentonImg2 {
-    margin-top: 70px;
+    margin-top: 155px;
   }
 
   //營養好搭配　健康送到家
@@ -909,7 +905,7 @@ button.Pre {
         width: 285px;
       }
       .member {
-        width: 190px;
+        width: 200px;
       }
     }
     .comment {
@@ -924,6 +920,14 @@ button.Pre {
 }
 
 @media screen and (max-width: 414px) and (min-width: 375px) {
+  .bentonWallNote {
+    font-size: 15px;
+  }
+  .addBentonImg2 {
+    background-size: 85%;
+    background-repeat: no-repeat;
+  }
+
   div.showBlock {
     .showTitle {
       font-size: 30px;
@@ -933,32 +937,22 @@ button.Pre {
     }
   }
 
-  .shareBenton:first-child,
-  .mainBenton0,
-  .shareBenton:nth-child(2),
-  .mainBenton1,
-  .shareBenton:nth-child(3),
-  .mainBenton2,
-  .shareBenton {
-    margin: 20px 20px 25px;
-  }
-
   #bentonDiv0::before {
     content: " No.1 天下第一菜";
-    font-size: 25px;
+    font-size: 24px;
   }
   #bentonDiv1::before {
     content: "No.2 新一代食神";
-    font-size: 25px;
+    font-size: 24px;
   }
 
   #bentonDiv2::before {
     content: "No.3 明日小當家";
-    font-size: 25px;
+    font-size: 24px;
   }
 
   div.shareBenton {
-    width: 240px;
+    width: 225px;
     margin-left: 30px;
     #Step2TitlText {
       margin: 10px 0;
@@ -974,13 +968,13 @@ button.Pre {
   .shareBlock {
     .memTextBlock,
     .showBentonContentImg {
-      width: 300px;
+      width: 310px;
     }
   }
   .messageBoard {
     .talksBlock {
       margin: 0 auto;
-      width: 310px;
+      width: 320px;
     }
   }
 }
@@ -991,22 +985,22 @@ button.Pre {
   margin: 0;
 
   .talksBlock {
-    width: 310px;
+    width: 320px;
     margin: 0 auto;
 
     div.showmsg {
-      width: 265px;
+      width: 275px;
     }
     .member {
-      width: 160px;
+      width: 170px;
     }
-  }
-  .comment {
-    width: 300px;
   }
 }
 .comment {
   width: 310px;
+}
+.ranking::after {
+  left: 90px;
 }
 
 //header 效果
@@ -1025,5 +1019,32 @@ button.Pre {
     height: 50px;
     transition: 0.5s;
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  div.shareBenton {
+    width: 200px;
+  }
+
+  #bentonDiv0::before,
+  #bentonDiv1::before,
+  #bentonDiv2::before {
+    font-size: 20px;
+  }
+
+  [id^="bentonimg"] {
+    width: 200px;
+    height: 160px;
+  }
+
+  #Step2TitlText {
+    font-size: 18px;
+  }
+  div.ranking {
+    margin: 0 !important;
+  }
+  .ranking::after {
+    left: 70px;
   }
 }
