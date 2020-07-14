@@ -553,7 +553,9 @@ HEAD .count {
 } 
 
 @media screen and ( max-width: 576px ){
-
+  .buy_card3{
+    margin: 10px 20px;
+  }
 
   .buy_single_lightbox {
     @include lightBox($width: 320px);
