@@ -373,6 +373,8 @@ img:not([src]) {
   width: 50%;
   margin-left:160px;
   margin-top: 40px;
+  
+  
     table td{
      padding: 0px 10px; 
     }
@@ -406,6 +408,9 @@ img:not([src]) {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  background-image: url(../images/order/singerOrderNote.png);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 
