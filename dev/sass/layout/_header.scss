@@ -29,7 +29,7 @@
   position: relative;
   opacity: 1;
   transition: all ease 1s;
-
+  z-index: 999;
   // overflow: hidden;
 
   &.fixed {
@@ -70,7 +70,7 @@
       width: 80%;
       display: flex;
       font-size: 1.2rem;
-      margin-left: 10%;
+      margin-left: 5%;
       justify-content: center;
       // border: 1px solid red;
 
@@ -150,6 +150,10 @@
           &:after {
             left: 20%;
           }
+
+          &:before {
+            left: -5%;
+          }
         }
       }
     }
@@ -175,11 +179,12 @@
         color: #000;
         position: relative;
         cursor: pointer;
+
         // img {
         //   width: 25px;
         //   height: 25px;
         // }
-        #shoppingNum{
+        #shoppingNum {
           position: absolute;
           text-align: center;
           top: -10px;
@@ -203,10 +208,13 @@
         cursor: pointer;
         // height: 200px;
         position: relative;
+        transition: .5s;
 
         img {
           border-radius: 50%;
           border: 1px solid #000;
+          width: 50px;
+          height: 50px;
         }
 
         .member_menu {
@@ -215,11 +223,13 @@
           width: 120px;
           // height: 50px;
           // border: 1px solid #000;
-          top: 60px;
-          right: -55%;
+          top: 50px;
+          right: -70%;
           padding: 5px;
-          z-index: 99;
+          z-index: 999;
           background-color: rgb(243, 238, 169);
+          border-radius: 5px;
+
 
           // &:hover {
           //   .member_menu {
@@ -236,6 +246,7 @@
             // color: black;
             padding: 5px;
             overflow: hidden;
+            border-radius: 5px;
 
             a {
               display: block;
@@ -255,11 +266,17 @@
 
           }
 
+          #member_name {
+            font-size: 20px;
+            padding: 10px;
+          }
+
           .log_out {
             padding: 5px;
             margin-top: 5px;
             background-color: rgb(247, 184, 113);
             color: black;
+            border-radius: 5px;
 
             &:hover {
               background-color: rgb(247, 184, 3);
@@ -299,7 +316,7 @@
     position: relative;
     opacity: 1;
     transition: all ease 1s;
-
+    z-index: 999;
 
     &.fixed {
       position: fixed;
@@ -336,10 +353,10 @@
       }
 
       .navgroup {
-        width: 80%;
+        width: 60%;
         display: flex;
         font-size: 1.2rem;
-        margin-left: 10%;
+        margin-left: 5%;
         justify-content: center;
         // border: 1px solid red;
 
@@ -432,6 +449,7 @@
             &:before {
               left: 0%;
             }
+
           }
         }
       }
