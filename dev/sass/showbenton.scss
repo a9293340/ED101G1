@@ -78,6 +78,7 @@ div.addBenton {
   margin-top: auto;
   position: fixed;
   top: 230px;
+  z-index: 99999;
   &:hover {
     width: 108px;
     height: 130px;
@@ -107,6 +108,7 @@ div.kitchenTool {
   right: 0;
   width: 100%;
   height: 320px;
+  background-position: left 20px;
   background-repeat: no-repeat;
   border: 1px solid transparent;
 }
@@ -691,7 +693,7 @@ button.Pre {
   border-radius: 10px;
   border: 10px solid rgb(255, 255, 255);
   text-align: center;
-  margin: 60px 30px 100px 60px;
+  margin: 60px 20px 100px 60px;
   box-shadow: 0px 2px 4px rgb(114, 114, 114);
   width: 260px;
   vertical-align: top;
@@ -759,7 +761,7 @@ button.Pre {
     position: fixed;
     bottom: 0;
     left: 0;
-    background-position: left 20px;
+    background-position: left 28px;
     background-size: cover;
   }
 
@@ -767,7 +769,7 @@ button.Pre {
     transition: width 0.8s, height 0.8s;
     width: 45px;
     height: 40px;
-    margin-top: 70px;
+    margin-top: 60px;
   }
 
   .addBentonImg2 {
