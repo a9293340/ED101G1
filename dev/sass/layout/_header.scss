@@ -179,6 +179,19 @@
         //   width: 25px;
         //   height: 25px;
         // }
+        #shoppingNum{
+          position: absolute;
+          text-align: center;
+          top: -10px;
+          right: -12px;
+          background-color: rgb(235, 45, 45);
+          color: white;
+          height: 22px;
+          width: 22px;
+          line-height: 22px;
+          border-radius: 50%;
+          border: 1px;
+        }
       }
 
       #member_aflogin {

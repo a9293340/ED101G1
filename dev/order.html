@@ -200,7 +200,7 @@
             <div id="buy_app3">
                 <div class="buy_setdo_containter scroll">
       
-                    <div class="buy_card3" v-if="item.setStatus==1" v-for="item in orderSetdo.slice(0,3)" >
+                    <div class="buy_card3" v-if="item.setStatus==1 && item.setClass ==0" v-for="item in orderSetdo" >
                         <img :id="'setdoimg'+item.setId"  :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200" height="200">
                         <div class="buy_name">{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}</div>
                         <div><button class="orderbutton" :id ="'setdocountminus'+item.setId" :data-num="item.setId">-</button><span class="ordercount" :id="'setdocount'+item.setId">0</span><button class="orderbutton" :id ="'setdocountplus'+item.setId" :data-num="item.setId">+</button>
@@ -219,7 +219,7 @@
                         </div>
                     </div>
            
-                    <div class="buy_card3" v-if="item.setStatus==1" v-for="item in orderSetdo.slice(3,6)" >
+                    <div class="buy_card3" v-if="item.setStatus==1 && item.setClass ==1" v-for="item in orderSetdo" >
                         <img :id="'setdoimg'+item.setId"  :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200" height="200">
                         <div class="buy_name">{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}</div>
                       
