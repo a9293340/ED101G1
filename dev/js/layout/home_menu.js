@@ -148,10 +148,10 @@ function leaderBoard() {
           `
       <div id="menu_ndgroup">
       <div id="menu_name_sec"> ${leaderData[i].title} </div>
-      <div id="menu_date_sec">日期： ${leaderData[i].postdate} </div>
       </div>
       <div id="menu_memname_sec">創作者： ${leaderData[i].memname} </div>
-      <div id="menu_like_sec">獲得讚數：${leaderData[i].like} </div>
+      <img id="menu_like_sec" src="./images/showbenton/like1.png">${leaderData[i].like} </img>
+      <div id="menu_date_sec">日期： ${leaderData[i].postdate} </div>
       `;
         if (i == 0) {
           first_img.src = leaderData[i].img;
@@ -285,7 +285,7 @@ function leaderBoard() {
                 stagger: .5,
                 autoAlpha: 0,
                 transformOrigin: "center",
-                delay: .5,
+                delay: .2,
               })
             }, 500)
             //右邊AJAX的資料----------------------------------
@@ -356,6 +356,19 @@ $elsArr.forEach(function ($el) { //click事件
     if (this.classList.contains('s--active')) return;
     $cont.classList.add('s--el-active');
     this.classList.add('s--active');
+    console.log($el);
+    if(this.id === "sec"){
+        var medalAm = gsap.timeline();
+        medalAm 
+          .from("#Layer_1 > g",{
+            ease: "power1.out",
+            duration: 2,
+            scaleY: 0,
+            scaleX: 0,
+            delay:3,
+            transformOrigin: "center",
+          });
+    }
   });
 });
 
@@ -367,93 +380,97 @@ $closeBtnsArr.forEach(function ($btn) {
   });
 });
 
+//medal
 
-//變形蟲控制
-const c = document.getElementById("canvas");
-const ctx = c.getContext("2d"); //宣告用2d
-const canvasWidth = c.width = 350;
-const canvasCenterX = canvasWidth / 2;
-const canvasHeight = c.height = 350;
-const canvasCenterY = canvasHeight / 2;
-const radian = Math.PI / 180; //弧度
-const radius = 150; //半徑
-const points = [];
 
-let frames = 0;
 
-ctx.strokeStyle = "#f7fcaf"; //外框顏色
 
-class Point { //類別宣告,原型物件導向語法糖
-  constructor(a) {
-    this.rand = rnd() * 360;
-    this.a = a;
-    this.r = radius + radius / 5 * Math.sin(this.rand * radian);
-    this.x = canvasCenterX + this.r * Math.cos(a * radian);
-    this.y = canvasCenterY + this.r * Math.sin(a * radian);
-  }
-}
+// //變形蟲控制
+// const c = document.getElementById("canvas");
+// const ctx = c.getContext("2d"); //宣告用2d
+// const canvasWidth = c.width = 350;
+// const canvasCenterX = canvasWidth / 2;
+// const canvasHeight = c.height = 350;
+// const canvasCenterY = canvasHeight / 2;
+// const radian = Math.PI / 180; //弧度
+// const radius = 150; //半徑
+// const points = [];
 
-// how much points 決定要幾個點越多越不規則
-for (let a = 0; a < 360; a += 30) {
-  points.push(new Point(a));
-}
+// let frames = 0;
 
-function paintPoints(o) { //繪製圓點
-  const lastPointIndex = o.length - 1;
-  const pu0 = unionPoint(o, lastPointIndex, 0);
-  ctx.fillStyle = rGrd(canvasCenterX, canvasCenterY, 1.2 * radius);
-  ctx.beginPath();
-  ctx.moveTo(pu0.x, pu0.y);
-  for (var i = 0; i < o.length - 1; i++) {
-    var pui = unionPoint(o, i, i + 1);
-    ctx.quadraticCurveTo(o[i].x, o[i].y, pui.x, pui.y);
-  }
-  ctx.quadraticCurveTo(o[lastPointIndex].x, o[lastPointIndex].y, pu0.x, pu0.y);
-  ctx.fill();
-}
+// ctx.strokeStyle = "#f7fcaf"; //外框顏色
 
-function unionPoint(obj, a, b) {
-  var up = {};
-  up.x = (obj[a].x + obj[b].x) / 2;
-  up.y = (obj[a].y + obj[b].y) / 2;
-  return up;
-}
+// class Point { //類別宣告,原型物件導向語法糖
+//   constructor(a) {
+//     this.rand = rnd() * 360;
+//     this.a = a;
+//     this.r = radius + radius / 5 * Math.sin(this.rand * radian);
+//     this.x = canvasCenterX + this.r * Math.cos(a * radian);
+//     this.y = canvasCenterY + this.r * Math.sin(a * radian);
+//   }
+// }
 
-function renderFrame() {
-  frames++;
+// // how much points 決定要幾個點越多越不規則
+// for (let a = 0; a < 360; a += 30) {
+//   points.push(new Point(a));
+// }
 
-  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+// function paintPoints(o) { //繪製圓點
+//   const lastPointIndex = o.length - 1;
+//   const pu0 = unionPoint(o, lastPointIndex, 0);
+//   ctx.fillStyle = rGrd(canvasCenterX, canvasCenterY, 1.2 * radius);
+//   ctx.beginPath();
+//   ctx.moveTo(pu0.x, pu0.y);
+//   for (var i = 0; i < o.length - 1; i++) {
+//     var pui = unionPoint(o, i, i + 1);
+//     ctx.quadraticCurveTo(o[i].x, o[i].y, pui.x, pui.y);
+//   }
+//   ctx.quadraticCurveTo(o[lastPointIndex].x, o[lastPointIndex].y, pu0.x, pu0.y);
+//   ctx.fill();
+// }
 
-  for (let i = 0; i <= points.length - 1; i++) {
-    const p = points[i];
-    p.a += 0.1; // rotate speed
-    p.r = radius + (radius / 5.5) * Math.sin((frames + p.rand) * radian);
-    p.x = canvasCenterX + p.r * Math.cos(p.a * radian);
-    p.y = canvasCenterY + p.r * Math.sin(p.a * radian);
-  }
+// function unionPoint(obj, a, b) {
+//   var up = {};
+//   up.x = (obj[a].x + obj[b].x) / 2;
+//   up.y = (obj[a].y + obj[b].y) / 2;
+//   return up;
+// }
 
-  paintPoints(points);
+// function renderFrame() {
+//   frames++;
 
-  // loop the animation
-  window.requestAnimationFrame(renderFrame);
-}
+//   ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-// start the loop
-window.requestAnimationFrame(renderFrame);
+//   for (let i = 0; i <= points.length - 1; i++) {
+//     const p = points[i];
+//     p.a += 0.1; // rotate speed
+//     p.r = radius + (radius / 5.5) * Math.sin((frames + p.rand) * radian);
+//     p.x = canvasCenterX + p.r * Math.cos(p.a * radian);
+//     p.y = canvasCenterY + p.r * Math.sin(p.a * radian);
+//   }
 
-function rGrd(x, y, r) {
-  var gradient = ctx.createRadialGradient(x, y, 0, x, y, r);
-  gradient.addColorStop(0, "orange");
-  gradient.addColorStop(0.3, "orange");
-  gradient.addColorStop(1, "orange");
-  return gradient;
-}
+//   paintPoints(points);
 
-// alternative for Math.random();
-function rnd() {
-  Math.seed = (Math.seed * 108013 + 2531011) & 0xffffffff;
-  return Math.abs(Math.seed >> 16) / 32869;
-}
+//   // loop the animation
+//   window.requestAnimationFrame(renderFrame);
+// }
+
+// // start the loop
+// window.requestAnimationFrame(renderFrame);
+
+// function rGrd(x, y, r) {
+//   var gradient = ctx.createRadialGradient(x, y, 0, x, y, r);
+//   gradient.addColorStop(0, "orange");
+//   gradient.addColorStop(0.3, "orange");
+//   gradient.addColorStop(1, "orange");
+//   return gradient;
+// }
+
+// // alternative for Math.random();
+// function rnd() {
+//   Math.seed = (Math.seed * 108013 + 2531011) & 0xffffffff;
+//   return Math.abs(Math.seed >> 16) / 32869;
+// }
 
 
 
