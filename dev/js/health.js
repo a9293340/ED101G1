@@ -276,6 +276,7 @@ function doFirst() {
         $("#healthStandard").ready(function () {
             $("#healthShow").slideDown("slow");
         });
+        Chart.defaults.global.defaultFontSize = 16;
 
 
 
