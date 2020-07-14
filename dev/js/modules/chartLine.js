@@ -22,7 +22,7 @@ function memDrawChartLine(memHealthColdHot,memHealthHealth,memHealthStomach){
         responsive: false,
         data: {
             datasets: [{
-                label: 'ColdHot',
+                label: '冷暖值',
                 fill: false,
                 backgroundColor: '#ffffff',
                 pointBackgroundColor: colors.purple.stroke,
@@ -34,7 +34,7 @@ function memDrawChartLine(memHealthColdHot,memHealthHealth,memHealthStomach){
                 pointBorderWidth: 1,
                 data: memHealthColdHot,
             },{
-                label: 'Health',
+                label: '健康值',
                 fill: false,
                 backgroundColor: '#ffffff',
                 pointBackgroundColor: colors.darkBlue.stroke,
@@ -46,7 +46,7 @@ function memDrawChartLine(memHealthColdHot,memHealthHealth,memHealthStomach){
                 pointBorderWidth: 1,
                 data: memHealthHealth,
             },{
-                label: 'Stomach',
+                label: '腸胃值',
                 fill: false,
                 backgroundColor: '#ffffff',
                 pointBackgroundColor: colors.lightBlue.stroke,
@@ -90,6 +90,7 @@ function memDrawChartLine(memHealthColdHot,memHealthHealth,memHealthStomach){
             }
         }
     });
+    Chart.defaults.global.defaultFontSize = 16;
 }
 
 export default memDrawChartLine;

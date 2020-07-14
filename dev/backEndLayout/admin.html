@@ -164,7 +164,7 @@
 <div class="backEndBox backEndBoxNone" id="bkSingleNew">
     <form id="bkSingleNewForm" method="post" action="./php/bkSingleNew.php" enctype="multipart/form-data">
         <div class="bkRow">
-            <label for="spName">套餐名稱:
+            <label for="spName">單品名稱:
                 <input type="text" name="spName" id="spName">
             </label>
             <label for="spPrice" class="spPrice">單品價格:
@@ -345,7 +345,7 @@
             </label>
             <label for="setClass">套餐類別:
                 <select name="setClass" id="setClass">
-                    <option value="0">經典套餐</option>
+                    <option value="0">精選套餐</option>
                     <option value="1">季節套餐</option>
                 </select>
             </label>
@@ -390,7 +390,7 @@
             <div 
                 class="bkOrderBtn"
                 @click='bkSetMain'
-            >經典套餐</div>
+            >精選套餐</div>
             <div 
                 class="bkOrderBtn"
                 @click='bkSetSession'
@@ -410,7 +410,7 @@
                     <tr v-for='set in setProducts'>
                         <td>{{set.setId}}</td>
                         <td>{{set.setName}}</td>
-                        <td v-if='set.setClass == 0'>經典</td>
+                        <td v-if='set.setClass == 0'>精選</td>
                         <td v-else>季節</td>
                         <td v-if='set.setStatus == 0'>下架</td>
                         <td v-else>上架</td>
@@ -457,7 +457,7 @@
                     id="setClassF"
                     v-model='set.setClass'
                     >
-                        <option value="0">經典</option>
+                        <option value="0">精選</option>
                         <option value="1">季節</option>
                     </select>
                 </label>

@@ -16,7 +16,7 @@
   top: 5%;
   left: 50%;
   transform: translate(-50%);
-  max-width: 500px;
+  max-width: 375px;
   margin: 40px auto 0;
   @include lightBoxMd; //燈箱(中)
 }
@@ -114,7 +114,7 @@
         pointer-events: none;
         font-size:$fzContent;
         float: left;
-        width: 80px;
+        width: 84px;
       }
       .homeNameBox{
         display: inline-flex;
@@ -136,14 +136,16 @@
       border-radius: 3px;
       padding: 3px 10px;
       // margin: 2px 0;
-      margin-left: 100px;
-      width: 330px;
+      margin-left: 20px;
+      width: 300px;
+      letter-spacing: 2px;
+      font-size: 13px;
     }
     .homeWarningWordsGreen{
       background-color: $green;
     }
     .homeWarningWordsOrange{
-      background-color: $orange;
+      background-color: #b9b6b6;
     }
     .homeWarningWordsYellow{
       background-color: $yellow;

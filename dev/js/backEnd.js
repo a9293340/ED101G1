@@ -32,9 +32,10 @@ function bkChangePage(e){
     let backEndBox =document.getElementsByClassName('backEndBox');
     for(let i = 0; i < backEndBox.length; i++){
         backEndBox[i].classList.add('backEndBoxNone');
+        document.getElementsByClassName('collapse-item')[i].style.backgroundColor = '#FFFFFF'
     }
+    document.getElementsByClassName('collapse-item')[count].style.backgroundColor = '#EAECF4'
     backEndBox[count].classList.remove('backEndBoxNone');
-
     if(count == 0){
         let bkmemVM = new Vue({
             el:'#bkMemberBox',
