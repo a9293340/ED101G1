@@ -141,13 +141,13 @@
                         <td>
                             <select 
                             name="bkOrderStatus" class="bkOrderStatus" v-model='order.orderStatus'>
-                                <option value="0">確認中</option>
-                                <option value="1">已確認</option>
-                                <option value="2">已出餐</option>
-                                <option value="3">已送達</option>
-                                <option value="4">完成訂單</option>
-                                <option value="5">已取消</option>
-                                <option value="6">已歸檔</option>
+                                <option v-if='order.orderStatus <= 0' value="0">確認中</option>
+                                <option v-if='order.orderStatus <= 1' value="1">已確認</option>
+                                <option v-if='order.orderStatus <= 2' value="2">已出餐</option>
+                                <option v-if='order.orderStatus <= 3' value="3">已送達</option>
+                                <option v-if='order.orderStatus <= 4' value="4">完成訂單</option>
+                                <option v-if='order.orderStatus == 0 || order.orderStatus == 5' value="5">已取消</option>
+                                <option v-if='order.orderStatus == 4 || order.orderStatus == 6' value="6">已歸檔</option>
                             </select>
                             <button 
                             :data-orderid='order.orderId'
@@ -776,5 +776,55 @@
                 <tbody>
             </table>  
         </div>    
+    </div>
+</div>
+<div class="backEndBox backEndBoxNone" id="bkOrderAnalysis">
+    <div class="bigBox">
+        <div class="bkOderAnalysisBox">
+            <input type="date" id="beforeTime" v-model='beforeTime' :max="today">
+            <input type="date" id="afterTime" :max="today" v-model='afterTime'>
+            <input type="button" value="查詢" @click='bkSelectOderByTime' id="bkGoSearchTime">
+        </div>
+    </div>
+    <div class="canvasL">
+        <canvas id="myChart2"></canvas>
+    </div>
+</div>
+<div class="backEndBox backEndBoxNone" id="bkSetAnalysis">
+    <div class="bigBox">
+        <div class="bkOderAnalysisBox">
+            <input type="date" id="beforeTime" v-model='beforeTime' :max="today">
+            <input type="date" id="afterTime" :max="today" v-model='afterTime'>
+            <input type="button" value="查詢" @click='bkSelectOderByTime' id="bkGoSearchTime">
+        </div>
+    </div>
+    <div class="canvasL">
+        <canvas id="myChart1"></canvas>
+    </div>
+    <div class="bkSetSalesAna bkSetNone">
+        <div class="bkSetSalesBox">
+            <h3 class="progressTitle">鱈魚便當</h3>
+            <div class="progressBox" id="bkSetSalesPropress1"></div>
+        </div>
+        <div class="bkSetSalesBox">
+            <h3 class="progressTitle">雞腿便當</h3>
+            <div class="progressBox" id="bkSetSalesPropress2"></div>
+        </div>
+        <div class="bkSetSalesBox">
+            <h3 class="progressTitle">滷排骨便當</h3>
+            <div class="progressBox" id="bkSetSalesPropress3"></div>
+        </div>
+        <div class="bkSetSalesBox">
+            <h3 class="progressTitle">炸豬排便當</h3>
+            <div class="progressBox" id="bkSetSalesPropress4"></div>
+        </div>
+        <div class="bkSetSalesBox">
+            <h3 class="progressTitle">香腸便當</h3>
+            <div class="progressBox" id="bkSetSalesPropress5"></div>
+        </div>
+        <div class="bkSetSalesBox">
+            <h3 class="progressTitle">鮭魚便當</h3>
+            <div class="progressBox" id="bkSetSalesPropress6"></div>
+        </div>
     </div>
 </div>
