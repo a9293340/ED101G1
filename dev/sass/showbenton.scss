@@ -446,13 +446,14 @@ p.showMyself {
 //會員留言大區塊
 .messageBoard {
   display: inline-block !important;
-  border: 1px solid blueviolet;
+  border: 1px solid transparent;
   vertical-align: middle;
   text-align: left;
   margin: 0 10px !important;
 
   .talksBlock {
-    height: 280px;
+    width: 330px;
+    height: 300px;
     overflow: auto;
     border: 1px inset transparent;
     border-radius: 5px;
@@ -506,7 +507,7 @@ p.showMyself {
     margin-top: 25px;
     resize: none;
     font-size: 16px;
-    width: 350px;
+    width: 320px;
     background-color: #f5f6e9;
   }
 }
@@ -969,12 +970,6 @@ button.Pre {
     .memTextBlock,
     .showBentonContentImg {
       width: 310px;
-    }
-  }
-  .messageBoard {
-    .talksBlock {
-      margin: 0 auto;
-      width: 320px;
     }
   }
 }
