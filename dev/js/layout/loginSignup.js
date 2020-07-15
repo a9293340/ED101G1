@@ -57,7 +57,7 @@ let homeLoginSignup = new Vue({
                         sessionStorage['mEmmEmId'] = member.memId;
                         sessionStorage['orderMemScore'] = member.memScore;
                         sessionStorage['memName'] = member.memName;
-                        $('#member_name').text('HI~'+sessionStorage['memName']);
+                        $('#member_name').text('Hi~'+sessionStorage['memName']);
                         document.getElementById('memHead').src = sessionStorage['memImage'];
                         $('#member_aflogin').show(500);
                         $('#homeContainderBgc').hide(500);
