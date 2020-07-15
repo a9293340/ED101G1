@@ -256,7 +256,7 @@ function doFirst() {
                 // 參數設定[註1]
                 type: "pie", // 圖表類型
                 data: {
-                    labels: ["BMI", "腸胃&生活作習", "寒燥"], // 標題
+                    labels: ["BMI", "腸胃&生活作息", "寒燥"], // 標題
                     datasets: [{
                         label: "# of Votes", // 標籤
                         data: [healthColdHot, healHealth, healStomach], // 資料
