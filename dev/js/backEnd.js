@@ -1,5 +1,5 @@
 window.addEventListener('load',gogoPower);
-
+Chart.defaults.global.defaultFontColor = '#fff';
 function gogoPower(){
     let collapseItem =document.getElementsByClassName('collapse-item');
     for(let i = 0; i < collapseItem.length; i++){
@@ -14,6 +14,7 @@ function gogoPower(){
         document.getElementsByClassName('nav-item')[4].style.display = 'none';
         document.getElementsByClassName('nav-item')[5].style.display = 'none';
         document.getElementsByClassName('nav-item')[6].style.display = 'none';
+        document.getElementsByClassName('collapse-item')[4].style.display = 'none';
     }
     
     document.getElementById('adminSignout').addEventListener('click',()=>{
@@ -34,7 +35,15 @@ function bkChangePage(e){
         backEndBox[i].classList.add('backEndBoxNone');
         document.getElementsByClassName('collapse-item')[i].style.backgroundColor = '#FFFFFF'
     }
-    document.getElementsByClassName('collapse-item')[count].style.backgroundColor = '#EAECF4'
+    if(count == 12){
+        document.getElementsByClassName('collapse-item')[4].style.backgroundColor = '#EAECF4'
+    }else if(count == 13){
+        document.getElementsByClassName('collapse-item')[13].style.backgroundColor = '#EAECF4'
+    }else if(count >=4){
+        document.getElementsByClassName('collapse-item')[count+1].style.backgroundColor = '#EAECF4'
+    }else{
+        document.getElementsByClassName('collapse-item')[count].style.backgroundColor = '#EAECF4'
+    }
     backEndBox[count].classList.remove('backEndBoxNone');
     if(count == 0){
         let bkmemVM = new Vue({
@@ -204,6 +213,8 @@ function bkChangePage(e){
                 bkOrderChangeStatus(e){
                     let orderId = Number(e.target.dataset.orderid);
                     let index = Number(e.target.dataset.index);
+                    let now = new Date();
+                    let today = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
                     var xhr = new XMLHttpRequest();
                     xhr.onload=function (){
                         if( xhr.status == 200 ){
@@ -215,7 +226,7 @@ function bkChangePage(e){
                             alert( xhr.status );
                         }
                     }
-                    var url = `./php/bkOrderSetStatus.php?orderId=${orderId}&orderStatus=${document.getElementsByClassName('bkOrderStatus')[index].value}`;
+                    var url = `./php/bkOrderSetStatus.php?orderId=${orderId}&orderStatus=${document.getElementsByClassName('bkOrderStatus')[index].value}&time=${today}`;
                     xhr.open("Get", url, true);
                     xhr.send( null );
                 }
@@ -242,22 +253,6 @@ function bkChangePage(e){
                         bkorderVM.$data.orders1 = box1;
                     }
                 });
-                // $.getJSON("../dev/js/modules/memOrder.json")
-                // .then((data) => {
-                //     this.orders = data;
-                //     this.totalOrders = data;
-                //     let box0 = [];
-                //     let box1 = [];
-                //     for(let i = 0 ;i<data.length;i++){
-                //         if(data[i].orderClass == 0){
-                //             box0.push(data[i]);
-                //         }else{
-                //             box1.push(data[i]);
-                //         }
-                //     }
-                //     this.orders0 = box0;
-                //     this.orders1 = box1;
-                // })
             }
         })
     }
@@ -578,5 +573,428 @@ function bkChangePage(e){
             }
         })
     }
+    if(count == 12){
+        let now = new Date();
+        let today;
+        if(now.getMonth()+1 < 10 && now.getDate() < 10){
+            today = `${now.getFullYear()}-0${now.getMonth()+1}-0${now.getDate()}`;
+        }else if(now.getMonth()+1 < 10 && now.getDate() >= 10){
+            today = `${now.getFullYear()}-0${now.getMonth()+1}-${now.getDate()}`;
+        }else if(now.getMonth()+1 >= 10 && now.getDate() < 10){
+            today = `${now.getFullYear()}-${now.getMonth()+1}-0${now.getDate()}`;
+        }else{
+            today = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
+        }
+        let bkorderAvm = new Vue({
+            el:'#bkOrderAnalysis',
+            data:{
+                beforeTime: today,
+                afterTime: today,
+                today,
+            },
+            methods:{
+                bkSelectOderByTime(){
+                    // console.log(this.beforeTime,this.afterTime);
+                    let before = this.beforeTime + ' 00:00:00';
+                    let after = this.afterTime + ' 23:59:59';
+                    console.log(before,after);
+                    let xhr = new XMLHttpRequest();
+                    xhr.onload=function (){
+                        if( xhr.status == 200 ){
+                            // console.log(JSON.parse(xhr.responseText))
+                            let data = JSON.parse(xhr.responseText);
+                            let timeLabel =[];
+                            let timeObj=[];
+                            data.forEach(el=> el.finishTime = el.finishTime.split(' ')[0])                        
+                            for(let i = 0 ;i < data.length ;i++){
+                                // 判斷是否有重複
+                                let check = timeLabel.some(function(item){
+                                    return item == data[i].finishTime
+                                })
+                            
+                                if(check == false){ //沒重複 則新增
+                                    timeLabel.push(data[i].finishTime);
+                                    timeObj.push({
+                                        time:data[i].finishTime,
+                                        count:1,
+                                        price:Number(data[i].orderTotalPrice)
+                                    });
+                                }else{
+                                    timeObj.forEach((el)=>{ // 重複則累加
+                                        if(el.time == data[i].finishTime){
+                                            el.count ++;
+                                            el.price += Number(data[i].orderTotalPrice);
+                                        }
+                                    })
+                                }
+                            }
+                            chartBarOrder(timeLabel,timeObj);
+                            
+                            
+                        }else{
+                            alert( xhr.status );
+                        }
+                    }
+                    var url = `./php/bkorderSearchTime.php?bTime=${before}&aTime=${after}`;
+                    xhr.open("Get", url, true);
+                    xhr.send( null );
+                }
+            },
+        })
+    }
+    if(count == 13){
+        let now = new Date();
+        let today;
+        if(now.getMonth()+1 < 10 && now.getDate() < 10){
+            today = `${now.getFullYear()}-0${now.getMonth()+1}-0${now.getDate()}`;
+        }else if(now.getMonth()+1 < 10 && now.getDate() >= 10){
+            today = `${now.getFullYear()}-0${now.getMonth()+1}-${now.getDate()}`;
+        }else if(now.getMonth()+1 >= 10 && now.getDate() < 10){
+            today = `${now.getFullYear()}-${now.getMonth()+1}-0${now.getDate()}`;
+        }else{
+            today = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
+        }
+        let bksetAvm = new Vue({
+            el:'#bkSetAnalysis',
+            data:{
+                beforeTime: today,
+                afterTime: today,
+                today,
+                label:[]
+            },
+            methods:{
+                bkSelectOderByTime(){
+                    // console.log(this.beforeTime,this.afterTime);
+                    let before = this.beforeTime + ' 00:00:00';
+                    let after = this.afterTime + ' 23:59:59';
+                    console.log(before,after);
+                    let xhr = new XMLHttpRequest();
+                    xhr.onload=function (){
+                        if( xhr.status == 200 ){
+                            // console.log(JSON.parse(xhr.responseText))
+                            let label = JSON.parse(xhr.responseText)[0];
+                            this.label = label;
+                            let data = JSON.parse(xhr.responseText)[1];
+                            let box = [];
+                            let total = 0;
+                            let boxArv = [];
+                            label.forEach(()=>{
+                                box.push(0);
+                            })
+                            for (let i = 0; i < data.length; i++) {
+                                label.forEach((el,j)=>{
+                                    if(el == data[i].setName){
+                                        box[j] += Number(data[i].setoAmount);
+                                    }
+                                })
+                            }
+                            box.forEach((el)=>{
+                                total += el;
+                            })
+                            box.forEach((el)=>{
+                                boxArv.push((el/total).toFixed(2));
+                            })
+                            // console.log(total,boxArv);
+                            chartBarSet(label,box);
+
+                            progressBar(label,boxArv);
+                            document.getElementsByClassName('bkSetSalesAna')[0].classList.remove('bkSetNone')
+                            
+                            
+                        }else{
+                            alert( xhr.status );
+                        }
+                    }
+                    var url = `./php/bkSetSearchTime.php?bTime=${before}&aTime=${after}`;
+                    xhr.open("Get", url, true);
+                    xhr.send( null );
+                }
+            },
+        })
+    }
 }
 
+function chartBarOrder(timeLabel,timeObj){
+    // console.log(timeLabel,timeObj)
+    let count = [];
+    let price = [];
+    timeObj.forEach((el)=>{
+        count.push(Number(el.count)) 
+        price.push(Number(el.price)) 
+    })
+    console.log(timeLabel,count,price,Math.max(count))
+    var data7 = {
+        labels: timeLabel,
+        datasets: [
+        {
+            yAxisID: 'A',
+            type: "bar",
+            label: "當日訂單數量",
+            backgroundColor: "#e81760",
+            borderColor: "#e81760",
+            borderWidth: 3,
+            data: count 
+        },{
+            yAxisID: 'B',
+            type: "bar",
+            label: "當日總營收",
+            backgroundColor: "rgba(3, 169, 244)",
+            borderColor: "rgba(3, 169, 244)",
+            borderWidth: 3,
+            data:price
+        }
+        ]
+    };
+    
+    let ctx7 = document.getElementById("myChart2").getContext("2d");
+    let myBar = new Chart(ctx7, {
+    type: 'bar',
+    data: data7,
+    options: {
+        responsive: true,
+        title: {
+        display: false,
+        text: '每日訂單狀況'
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: true
+        }, 
+        legend:{  //小標題設定
+            display:true,
+            position:'right',
+            labels:{
+                fontColor:'#fff'
+            }
+        },
+        title:{  //標題設定
+            display:true,
+            text:'每日訂餐狀況',
+            fontSize:25,
+            position:'top'
+        },
+        scales: {
+            xAxes: [{
+                categoryPercentage: 0.6,
+                barPercentage: 0.85,
+                gridLines : {
+                    display: false,
+                    drawBorder: false,
+                    drawTicks: true,
+                    tickMarkLength: 15,
+                    borderDashOffset: 15
+                },
+                ticks: {
+                    fontStyle: 'bold',
+                    fontSize: 20,
+                    fontColor: "#fff",
+                    beginAtZero: true
+                }
+            }],
+            yAxes: [
+                {
+                    id: 'A',
+                    type: 'linear',
+                    position: 'left',
+                    gridLines: {
+                        display: true,
+                        drawBorder: true,
+                        drawTicks: true,
+                        tickMarkLength: 15,
+                        borderDashOffset: 15,
+                        color: "#FFFFFF"
+                    },
+                    ticks: {
+                        display: true,
+                        fontStyle: 'bold',
+                        fontSize: 13,
+                        beginAtZero: false,
+                        suggestedMin: 0,
+                    }
+                },
+                {
+                    id: 'B',
+                    type: 'linear',
+                    position: 'right',
+                    gridLines: {
+                        display: false,
+                        drawBorder: true,
+                        drawTicks: true,
+                        tickMarkLength: 15,
+                        borderDashOffset: 15,
+                        color: "#FFFFFF"
+                    },
+                    ticks: {
+                        display: true,
+                        fontStyle: 'bold',
+                        fontSize: 13,
+                        beginAtZero: false,
+                        suggestedMin: 0
+                    }
+                }
+            ]
+        }
+    }
+    });
+}
+
+function chartBarSet(label,box){
+    console.log(label,box);
+    let myChart1 = document.getElementById('myChart1').getContext('2d');
+    let massPopChart = new Chart(myChart1,{
+        type:'bar', //圖表類型 bar , horizontalBar, pie, line, doughnut, radar, polarArea
+        //--------------
+        data:{
+            labels: label, //項目
+            datasets: [{
+                label: '數量', //圖表標題
+                data: box, //資料內容
+                backgroundColor:['rgba(255, 235, 59)','rgba(3, 169, 244)','#e88e3c','#e81760','#2bab51','rgb(202,104,209)'],
+                borderWidth:0,
+                
+            }]
+        },
+        //--------------
+        options:{  //對各玩意兒設定
+            responsive: true,  //資料從0開始
+            legend: false,
+            scales:{
+                xAxes:[{
+                    barPercentage: 0.5,
+                    gridLines: {
+                        display: false ,
+                        color: "#FFFFFF"
+                    },
+                }],
+                yAxes:[{
+                    ticks:{
+                        beginAtZero:true
+                    },
+                    gridLines: {
+                        display: true ,
+                        color: "#FFFFFF"
+                    },
+                }]
+            },
+            title:{  //標題設定
+                display:true,
+                text:'套餐銷路分析',
+                fontSize:25,
+                position:'top'
+            },
+            layout:{  //整塊圖表範圍的調整
+                padding:{
+                    left:0,
+                    right:0,
+                    bottom:0,
+                    top:30
+                }
+            },
+            tooltips:{  //tooltip開關
+                enabled:true
+            }
+        }
+    });
+}
+
+
+function progressBar(label,boxArv){
+    var bkSetSalesPropress1 = new ProgressBar.Circle('#bkSetSalesPropress1', {
+        color: 'rgba(255, 235, 59)',
+        strokeWidth: 8,
+        trailWidth: 8,
+        duration: 1500,
+        text: {
+            value: '0%'
+        },
+        step: function(state, bar) {
+          bar.setText((bar.value() * 100).toFixed(0) + "%");
+        }
+    });
+    var bkSetSalesPropress2 = new ProgressBar.Circle('#bkSetSalesPropress2', {
+    color: 'rgba(3, 169, 244)',
+    strokeWidth: 8,
+    trailWidth: 8,
+    duration: 1500,
+    text: {
+        value: '0%'
+    },
+    step: function(state, bar) {
+        bar.setText((bar.value() * 100).toFixed(0) + "%");
+    }
+    });
+    var bkSetSalesPropress3 = new ProgressBar.Circle('#bkSetSalesPropress3', {
+    color: '#e88e3c',
+    strokeWidth: 8,
+    trailWidth: 8,
+    duration: 1500,
+    text: {
+        value: '0%'
+    },
+    step: function(state, bar) {
+        bar.setText((bar.value() * 100).toFixed(0) + "%");
+    }
+    });
+    var bkSetSalesPropress4 = new ProgressBar.Circle('#bkSetSalesPropress4', {
+        color: '#e81760',
+        strokeWidth: 8,
+        trailWidth: 8,
+        duration: 1500,
+        text: {
+            value: '0%'
+        },
+        step: function(state, bar) {
+          bar.setText((bar.value() * 100).toFixed(0) + "%");
+        }
+    });
+    var bkSetSalesPropress5 = new ProgressBar.Circle('#bkSetSalesPropress5', {
+    color: '#2bab51',
+    strokeWidth: 8,
+    trailWidth: 8,
+    duration: 1500,
+    text: {
+        value: '0%'
+    },
+    step: function(state, bar) {
+        bar.setText((bar.value() * 100).toFixed(0) + "%");
+    }
+    });
+    var bkSetSalesPropress6 = new ProgressBar.Circle('#bkSetSalesPropress6', {
+    color: 'rgb(202,104,209)',
+    strokeWidth: 8,
+    trailWidth: 8,
+    duration: 1500,
+    text: {
+        value: '0%'
+    },
+    step: function(state, bar) {
+        bar.setText((bar.value() * 100).toFixed(0) + "%");
+    }
+    });
+    bkSetSalesPropress1.animate(boxArv[0]);
+    bkSetSalesPropress2.animate(boxArv[1]);
+    bkSetSalesPropress3.animate(boxArv[2]);
+    bkSetSalesPropress4.animate(boxArv[3]);
+    bkSetSalesPropress5.animate(boxArv[4]);
+    bkSetSalesPropress6.animate(boxArv[5]);
+}
+
+
+//隨機顏色
+function randColors() {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+    return "rgba(" + r + "," + g + "," + b + ", 0.8)";
+}
+
+//產生陣列多個隨機顏色
+function gogoColors(a) {
+    let pool = [];
+
+    for(i = 0; i < a; i++) {
+        pool.push(randColors());
+    }
+    
+    return pool;
+}
