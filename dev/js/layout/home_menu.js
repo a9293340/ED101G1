@@ -186,7 +186,7 @@ function leaderBoard() {
     <a href="./dest/showbenton.html" class="buynow">前往購買</a>
     <div id="menu_ndgroup1">
     <div id="menu_maker">
-    <div id="menu_memname_sec1">創作者： ${leaderData[i].memname} </div>
+    <div id="menu_memname_sec1">${leaderData[i].memname} </div>
     <img id="menu_image_sec1" src="${leaderData[i].mimg}">
     </div>
     <div id="menu_name_sec1"> ${leaderData[i].title} </div>

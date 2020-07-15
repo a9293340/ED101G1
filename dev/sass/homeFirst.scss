@@ -1051,18 +1051,45 @@ $base-size: 20rem;
       list-style: none;
 
       li {
-        @include flexStyle(center, center, column-reverse);
+      
         color: black;
         font-size: $fzSubtitle;
-
+        width: 350px;
+        height: 475px;
+        border-radius: 50px;
+        background-color: #fff;
+        box-shadow: 10px 6px 15px 0px rgba(4, 4, 4, 0.2);
+        .benton_textgp{
+          max-width: 300px;
+          @include flexStyle(center, center, column-reverse);
+          margin: auto;
+        }
+        .NaP{
+          width: 100%;
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: space-between;
+          font-size: 26px;
+        }
         .benton_price,
-        .benton_name {
+        .benton_name,
+        .benton_introdunce{
           cursor: pointer;
         }
-
+        .benton_price{
+          color:#DECC5B;
+        }
+        .benton_introdunce{
+          font-size: 15px;
+          text-align: left;
+          margin-top: 20px;
+          letter-spacing: 1px;
+          font-weight: 300;
+        }
         img {
-          margin-bottom: 30%;
-          border-radius: 50%;
+          margin-bottom: 10%;
+          // border-radius: 50%;
+          margin-top: 8%;
         }
       }
     }
@@ -1269,6 +1296,7 @@ $base-size: 20rem;
         justify-content: space-around;
         align-items: center;
         top: 20%;
+        border-radius: 5px;
 
         .left_group {
           display: flex;
@@ -1548,7 +1576,7 @@ $base-size: 20rem;
         bottom: 0;
         width: 100%;
         height: 100%;
-        color: #50C878;
+        color: #7DC7A2;
         transform: translate3d(0, -100%, 0);
         /* 先把顏色藏起 */
         transition: transform $indexHoverAT 0.1s;
@@ -1618,7 +1646,7 @@ $base-size: 20rem;
 
     &.el:nth-child(2) {
       .el__bg:before {
-
+        height: 135%;
         top: 0%;
       }
     }
@@ -1896,14 +1924,31 @@ $base-size: 20rem;
           @include flexStyle(center, center, column-reverse);
           color: black;
           font-size: $fzSubtitle;
-
+          .NaP{
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            font-size: 26px;
+          }
           .benton_price,
-          .benton_name {
+          .benton_name,
+          .benton_introdunce{
             cursor: pointer;
           }
-
+          .benton_price{
+            color:#DECC5B;
+          }
+          .benton_introdunce{
+            font-size: 15px;
+            text-align: left;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            font-weight: 300;
+          }
           img {
-            margin-bottom: 30%;
+            margin-bottom: 10%;
+            margin-top: 8%;
           }
         }
       }
@@ -2479,16 +2524,40 @@ $base-size: 20rem;
           @include flexStyle(space-around, center, column-reverse);
           color: black;
           font-size: $fzSubtitle;
-          margin-bottom: 25%;
+          margin-bottom: 35%;
 
+          .benton_textgp{
+            max-width: 300px;
+            @include flexStyle(center, center, column-reverse);
+            margin: auto;
+          }
+          .NaP{
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            font-size: 26px;
+          }
           .benton_price,
-          .benton_name {
+          .benton_name,
+          .benton_introdunce{
             cursor: pointer;
-            margin-bottom: 30px;
+
+          }
+          .benton_price{
+            color:#DECC5B;
+          }
+          .benton_introdunce{
+            font-size: 15px;
+            text-align: left;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            font-weight: 300;
           }
 
+
           img {
-            margin-bottom: 25%;
+            margin-bottom: 8%;
           }
         }
       }
@@ -2511,10 +2580,13 @@ $base-size: 20rem;
             pointer-events: auto;
             transform: translate3d(0, 0, 0);
           }
-
+          img{
+            transform: scale(.9);
+          }
           .content {
             text-align: left;
-            margin-left: 30%;
+            margin-bottom: 6%;
+            // margin-left: 30%;
 
             #menu_ndgroup {
               // display: flex;
@@ -2524,7 +2596,7 @@ $base-size: 20rem;
               // border: 1px solid #000;
 
               #menu_name_sec {
-                font-size: 30px;
+                font-size: 20px;
               }
 
             }
@@ -2549,7 +2621,7 @@ $base-size: 20rem;
 
           .content {
             @include LB_content {
-              margin-top: 25%;
+              // margin-top: 25%;
 
             }
           }
@@ -2559,7 +2631,15 @@ $base-size: 20rem;
           transform: translate3d(0, -3vw, 0);
           position: relative;
           margin-top: 25%;
-
+          .medal {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            z-index: 100;
+            top: -10%;
+            left: 69%;
+            transform: scale(.7);
+          }
           @include elActive {
             transition: all $contentFadeinAT $fullExpandAT +.8;
 
@@ -2573,7 +2653,7 @@ $base-size: 20rem;
 
           .content {
             @include LB_content {
-              margin-top: 100%;
+              // margin-top: 100%;
             }
           }
         }
@@ -2620,7 +2700,7 @@ $base-size: 20rem;
       pointer-events: none;
       transition: all 0s $closeBtnAT + $closeBtnLineDelay;
       cursor: pointer;
-
+      transform: scale(.6);
       @include elActive {
         z-index: 5;
         opacity: 1;
