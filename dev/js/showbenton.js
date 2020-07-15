@@ -657,6 +657,7 @@ let bentonWallVm = new Vue({
     },
 
     buyMore(postSoId) {
+      alert("便當已成功加入購物車!");
       showbentonShoppingCart(postSoId);
     },
   },
