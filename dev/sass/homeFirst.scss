@@ -11,6 +11,7 @@
 @mixin transition($transition) {
   transition: all $transition ease;
 }
+
 // img:not([src]),img[src=""]{
 //   opacity: 0;
 // }
@@ -1053,7 +1054,7 @@ $base-size: 20rem;
       list-style: none;
 
       li {
-      
+
         color: black;
         font-size: $fzSubtitle;
         width: 330px;
@@ -1061,33 +1062,39 @@ $base-size: 20rem;
         border-radius: 50px;
         background-color: #fff;
         box-shadow: 10px 6px 15px 0px rgba(4, 4, 4, 0.2);
-        .benton_textgp{
+
+        .benton_textgp {
           max-width: 300px;
           @include flexStyle(center, center, column-reverse);
           margin: auto;
         }
-        .NaP{
+
+        .NaP {
           width: 100%;
           display: flex;
           flex-direction: row-reverse;
           justify-content: space-between;
           font-size: 26px;
         }
+
         .benton_price,
         .benton_name,
-        .benton_introdunce{
+        .benton_introdunce {
           cursor: pointer;
         }
-        .benton_price{
-          color:#DECC5B;
+
+        .benton_price {
+          color: #DECC5B;
         }
-        .benton_introdunce{
+
+        .benton_introdunce {
           font-size: 15px;
           text-align: left;
           margin-top: 20px;
           letter-spacing: 1px;
           font-weight: 300;
         }
+
         img {
           margin-bottom: 10%;
           // border-radius: 50%;
@@ -1927,28 +1934,33 @@ $base-size: 20rem;
           @include flexStyle(center, center, column-reverse);
           color: black;
           font-size: $fzSubtitle;
-          .NaP{
+
+          .NaP {
             width: 100%;
             display: flex;
             flex-direction: row-reverse;
             justify-content: space-between;
             font-size: 26px;
           }
+
           .benton_price,
           .benton_name,
-          .benton_introdunce{
+          .benton_introdunce {
             cursor: pointer;
           }
-          .benton_price{
-            color:#DECC5B;
+
+          .benton_price {
+            color: #DECC5B;
           }
-          .benton_introdunce{
+
+          .benton_introdunce {
             font-size: 15px;
             text-align: left;
             margin-top: 20px;
             letter-spacing: 1px;
             font-weight: 300;
           }
+
           img {
             margin-bottom: 10%;
             margin-top: 8%;
@@ -2334,9 +2346,10 @@ $base-size: 20rem;
 
 @media(min-width: 350px)and(max-width: 576px) {
 
-  .el__leaderBoards #lb_lightBox{
+  .el__leaderBoards #lb_lightBox {
     height: 170%;
   }
+
   @mixin fontPos {
     overflow: hidden;
     position: absolute;
@@ -2533,28 +2546,32 @@ $base-size: 20rem;
           font-size: $fzSubtitle;
           margin-bottom: 35%;
 
-          .benton_textgp{
+          .benton_textgp {
             max-width: 300px;
             @include flexStyle(center, center, column-reverse);
             margin: auto;
           }
-          .NaP{
+
+          .NaP {
             width: 100%;
             display: flex;
             flex-direction: row-reverse;
             justify-content: space-between;
             font-size: 26px;
           }
+
           .benton_price,
           .benton_name,
-          .benton_introdunce{
+          .benton_introdunce {
             cursor: pointer;
 
           }
-          .benton_price{
-            color:#DECC5B;
+
+          .benton_price {
+            color: #DECC5B;
           }
-          .benton_introdunce{
+
+          .benton_introdunce {
             font-size: 15px;
             text-align: left;
             margin-top: 20px;
@@ -2587,9 +2604,11 @@ $base-size: 20rem;
             pointer-events: auto;
             transform: translate3d(0, 0, 0);
           }
-          img{
+
+          img {
             transform: scale(.9);
           }
+
           .content {
             text-align: left;
             margin-bottom: 6%;
@@ -2638,6 +2657,7 @@ $base-size: 20rem;
           transform: translate3d(0, -3vw, 0);
           position: relative;
           margin-top: 25%;
+
           .medal {
             position: absolute;
             width: 150px;
@@ -2647,6 +2667,7 @@ $base-size: 20rem;
             left: 69%;
             transform: scale(.7);
           }
+
           @include elActive {
             transition: all $contentFadeinAT $fullExpandAT +.8;
 
@@ -2708,6 +2729,7 @@ $base-size: 20rem;
       transition: all 0s $closeBtnAT + $closeBtnLineDelay;
       cursor: pointer;
       transform: scale(.6);
+
       @include elActive {
         z-index: 5;
         opacity: 1;
@@ -2912,15 +2934,16 @@ $base-size: 20rem;
     // }
   }
 
-  .el__leaderBoards #lb_lightBox .light_box{
+  .el__leaderBoards #lb_lightBox .light_box {
     display: flex;
     flex-direction: column;
     width: 350px;
     height: 800px;
-    .right_group{
+
+    .right_group {
       width: 300px;
     }
-  } 
+  }
 
   .el.first {
     background-color: #fff;
@@ -3349,10 +3372,11 @@ $base-size: 20rem;
   width: 100%;
   height: 800px;
   position: relative;
+
   /* margin-top: -50px; */
   /* margin-top: -310px; */
   /* background-color: black; */
-  .about_title{
+  .about_title {
     position: absolute;
     left: 7%;
     top: 7%;
@@ -3481,9 +3505,7 @@ svg {
 
 }
 
-.slide.active {
-
-}
+.slide.active {}
 
 .slide__bg {
   position: absolute;
@@ -3559,9 +3581,11 @@ svg {
       display: flex;
       justify-content: center;
       align-items: center;
-      .ab_address{
+
+      .ab_address {
         font-size: 3rem;
       }
+
       .lada {
         position: absolute;
         width: 50px;
@@ -3662,49 +3686,62 @@ svg {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 25%;
+    top: 12%;
     width: 20%;
     height: 50%;
-    right: 0%;
-  
-// .phone{
-//   position: absolute;
-//   left: -5%;
-//   // top: -10%;
-// }
-  
+    right: 2%;
+    font-size: 2rem;
+
+    // .phone{
+    //   position: absolute;
+    //   left: -5%;
+    //   // top: -10%;
+    // }
+
   }
 
+  .arrow {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 83%;
+    top: 37%;
+  }
 
 }
-.store_group{
+
+.store_group {
 
   position: absolute;
   left: 35%;
   top: -2%;
-.cooker{
-  width: 170px;
-  height: 170px;
-  position: relative;
-  left: 157%;
-  bottom: -120px;
-}
-.standee{
-      width: 300px;
+
+  .cooker {
+    width: 170px;
+    height: 170px;
+    position: relative;
+    left: 157%;
+    bottom: -120px;
+  }
+
+  .standee {
+    width: 300px;
     height: 300px;
     position: absolute;
     left: -150%;
     bottom: -187%;
 
+  }
+
+  .kitchen {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 60%;
+    top: 5%;
+  }
 }
-.kitchen{
-  width: 500px;
-  height: 500px;
-  position: absolute;
-  left: 60%;
-  top: 5%;
-}
-}
+
 /* .slide__overlay {
         position: absolute;
         bottom: 0;
@@ -3890,9 +3927,11 @@ svg {
         display: flex;
         justify-content: center;
         align-items: center;
-        .ab_address{
+
+        .ab_address {
           font-size: 3rem;
         }
+
         .lada {
           position: absolute;
           width: 50px;
@@ -4026,11 +4065,13 @@ svg {
           background-color: red;
           animation: lada 3s ease-out infinite alternate;
         }
-        .ab_address{
+
+        .ab_address {
           font-size: 3rem;
           position: absolute;
           left: 500%;
         }
+
         .location_here {
           position: relative;
           left: -27%;
@@ -4044,7 +4085,8 @@ svg {
     .slide__bg {
       position: absolute;
       background-position: 0 0;
-      .content{
+
+      .content {
         display: none;
       }
     }

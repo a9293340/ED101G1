@@ -248,12 +248,15 @@
             padding: 5px;
             overflow: hidden;
             border-radius: 5px;
+
             &:hover {
               background-color: rgb(247, 184, 3);
-              a{
+
+              a {
                 color: white;
               }
             }
+
             a {
               display: block;
               width: 100%;
@@ -553,7 +556,8 @@
       .logo {
         width: 45%;
         margin-left: 6%;
-        img{
+
+        img {
           margin-left: 10%;
         }
       }
@@ -640,28 +644,35 @@
       }
 
       .membergroup {
-        width: 23%;   
+        width: 23%;
         justify-content: space-between;
-        #member_aflogin{
+
+        #member_aflogin {
           text-align: center;
-          .member_menu{
+
+          .member_menu {
             top: 40px;
             right: -24%;
-            #member_name{
+
+            #member_name {
               font-size: 15px;
             }
-            .member_club{
+
+            .member_club {
               font-size: 15px;
             }
-            .log_out{
+
+            .log_out {
               font-size: 15px;
             }
           }
-          img{
+
+          img {
             width: 35px;
             height: 35px;
           }
         }
+
         a {
           padding: 0 5px;
 
