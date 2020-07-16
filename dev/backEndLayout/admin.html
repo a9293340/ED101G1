@@ -802,29 +802,56 @@
         <canvas id="myChart1"></canvas>
     </div>
     <div class="bkSetSalesAna bkSetNone">
-        <div class="bkSetSalesBox">
-            <h3 class="progressTitle">鱈魚便當</h3>
-            <div class="progressBox" id="bkSetSalesPropress1"></div>
+        <div class="bkSetSalesBox" v-for='(la,index) in label'>
+            <h3 class="progressTitle">{{la}}</h3>
+            <div class="progressBox" :id="'bkSetSalesPropress'+(index+1)"></div>
         </div>
-        <div class="bkSetSalesBox">
-            <h3 class="progressTitle">雞腿便當</h3>
-            <div class="progressBox" id="bkSetSalesPropress2"></div>
+    </div>
+</div>
+<div class="backEndBox backEndBoxNone" id="bkSingleAnalysis">
+    <div class="bigBox">
+        <div class="bkOderAnalysisBox">
+            <input type="date" id="beforeTime" v-model='beforeTime' :max="today">
+            <input type="date" id="afterTime" :max="today" v-model='afterTime'>
+            <input type="button" value="查詢" @click='bkSelectOderByTime' id="bkGoSearchTime">
         </div>
-        <div class="bkSetSalesBox">
-            <h3 class="progressTitle">滷排骨便當</h3>
-            <div class="progressBox" id="bkSetSalesPropress3"></div>
+    </div>
+    <div class="bkSingleAnalysisBtnBox bkSingleAnalysisBtnNone">
+        <div class="bkSingleAnalysisBtn" @click='bkRice'>米飯</div>
+        <div class="bkSingleAnalysisBtn" @click='bkMain'>主食</div>
+        <div class="bkSingleAnalysisBtn" @click='bkSide'>配菜</div>
+    </div>
+    <div class="bkAbox bkSetNone">
+        <div class="canvasL">
+            <canvas id="myChart3"></canvas>
         </div>
-        <div class="bkSetSalesBox">
-            <h3 class="progressTitle">炸豬排便當</h3>
-            <div class="progressBox" id="bkSetSalesPropress4"></div>
+        <div class="bkSetSalesAna bkSetNone">
+            <div class="bkSingleSalesBox" v-for='(la,index) in labelRice'>
+                <h3 class="progressTitle">{{la}}</h3>
+                <div class="progressBox" :id="'bkRicePropress'+(index+1)"></div>
+            </div>
         </div>
-        <div class="bkSetSalesBox">
-            <h3 class="progressTitle">香腸便當</h3>
-            <div class="progressBox" id="bkSetSalesPropress5"></div>
+    </div>
+    <div class="bkAbox bkSetNone">
+        <div class="canvasL">
+            <canvas id="myChart4"></canvas>
         </div>
-        <div class="bkSetSalesBox">
-            <h3 class="progressTitle">鮭魚便當</h3>
-            <div class="progressBox" id="bkSetSalesPropress6"></div>
+        <div class="bkSetSalesAna bkSetNone">
+            <div class="bkSingleSalesBox" v-for='(la,index) in labelMain'>
+                <h3 class="progressTitle">{{la}}</h3>
+                <div class="progressBox" :id="'bkMainPropress'+(index+1)"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bkAbox bkSetNone">
+        <div class="canvasL">
+            <canvas id="myChart5"></canvas>
+        </div>
+        <div class="bkSetSalesAna bkSetNone">
+            <div class="bkSingleSalesBox" v-for='(la,index) in labelSide'>
+                <h3 class="progressTitle">{{la}}</h3>
+                <div class="progressBox" :id="'bkSidePropress'+(index+1)"></div>
+            </div>
         </div>
     </div>
 </div>
