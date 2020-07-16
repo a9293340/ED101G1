@@ -3539,15 +3539,15 @@ var hat = ["#Capa_1 > path:nth-child(9)", "#Capa_1 > g:nth-child(16)", "#Capa_1 
 var face = ["#Capa_1 > polygon", "#Capa_1 > ellipse", "#Capa_1 > ellipse", "#Capa_1 > path:nth-child(8)", "#Capa_1 > circle"]
 
 
-var text = gsap.timeline(),
-  myText = new SplitText(".p1", {type:"words,chars"}),
-  chars = myText.chars;
+// var text = gsap.timeline(),
+//   myText = new SplitText(".p1", {type:"words,chars"}),
+//   chars = myText.chars;
 
-gsap.set(".p1", {perspective: 400});
+// gsap.set(".p1", {perspective: 400});
 
-text.from(chars,
-  {duration: 2, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=1"
-  );  
+// text.from(chars,
+//   {duration: 2, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=1"
+//   );  
 
 
 
@@ -3724,16 +3724,16 @@ function buildLine() {
 
 
 function kitchenFn(){
-  var text = gsap.timeline(),
-  myText = new SplitText(".p23", {type:"words,chars"}),
-  chars = myText.chars;
+  // var text = gsap.timeline(),
+  // myText = new SplitText(".p23", {type:"words,chars"}),
+  // chars = myText.chars;
   
-  gsap.set(".p23", {perspective: 400});
+  // gsap.set(".p23", {perspective: 400});
   
-  text.from(chars,
-    {duration: 2, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=1"
-    ); 
-  $(".p23").css("opacity","1")
+  // text.from(chars,
+  //   {duration: 2, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=1"
+  //   ); 
+  // $(".p23").css("opacity","1")
 
 var kitchen_time = gsap.timeline({
   delay: 3,
