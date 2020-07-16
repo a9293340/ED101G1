@@ -183,7 +183,7 @@ function leaderBoard() {
     <div class="top_img">
     <img width="248px" height="146px" id="first_img" src=" ${leaderData[i].img}">
     </div>
-    <a href="./dest/showbenton.html" class="buynow">前往購買</a>
+    <a href="./showbenton.html" class="buynow">前往購買</a>
     <div id="menu_ndgroup1">
     <div id="menu_maker">
     <div id="menu_memname_sec1">${leaderData[i].memname} </div>
@@ -551,7 +551,7 @@ createBullets();
 // autoSlide();
 // 這裡是自動輪播
 
-var badges = [".badge.am1", ".badge.am2", ".badge.am3"];
+
 var badge = function badge1() {
   var fa = gsap.to(badges, {
     y: 190,
@@ -562,18 +562,6 @@ var badge = function badge1() {
     // repeatDelay: 0.4,
     stagger: 0.5,
   });
-  $(".badge.am1").mouseenter(function () {
-    gsap.to(".badge.am1", {
-      x: 190,
-
-    });
-
-  })
-  $(".badge.am1").mouseleave(function () {
-    gsap.to(".badge.am1", {
-      x: 0,
-    })
-  })
   badge = function badge1() {};
 }
 
@@ -591,7 +579,7 @@ function changeSlides(instant) {
       $slider.removeClass("animating");
       animating = false;
     }, animTime);
-    badge();
+    // badge();
   }
 
   window.clearTimeout(autoSlideTimeout);
