@@ -380,12 +380,15 @@ img:not([src]) {
     }
     #orderClean{
       position: absolute;
-      right: -30px;
-      top:-30px;
+      right: 0px;
+      top:-20px;
+      width: 15px; 
+      height: 15px;
+      transition: .5s;
       cursor: pointer;
-      color:$grey;
-      &:hover{
-        color:$lightGrey;
+      &:hover {
+        transform: rotate(360deg);
+        content: url(../images/homepage/close_red.png);
       }
 
     }

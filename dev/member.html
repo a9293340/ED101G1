@@ -337,12 +337,12 @@
                     <div id="memContentOrderListQRCode"></div>
                 </div>
                 <div class="memContentOrderListBuyAgainBox" v-for='order in memOrder' v-if='order.orderId == nowDataSetNumber'>
-                    <h3 v-if='order.orderStatus == 4'>訂單已完成，再次選購請點選下面按鈕</h3>
+                    <h3 v-if='order.orderStatus == 4 || order.orderStatus == 6'>訂單已完成，再次選購請點選下面按鈕</h3>
                     <h3 v-if='order.orderStatus == 5'>訂單已取消，再次選購請點選下面按鈕</h3>
                     <h3 v-if='order.orderStatus == 1'>訂單尚未完成，待完成後即可再次選購</h3>
                     <h3 v-if='order.orderStatus == 3'>訂單尚未完成，待完成後即可再次選購</h3>
                     <h3 v-if='order.orderStatus == 2'>訂單尚未完成，待完成後即可再次選購</h3>
-                    <div class="memContentOrderListBuyAgainBtn" v-if='order.orderStatus == 4 || order.orderStatus == 5' @click='memBuyAgain'>
+                    <div class="memContentOrderListBuyAgainBtn" v-if='order.orderStatus == 4 || order.orderStatus == 5 || order.orderStatus == 6' @click='memBuyAgain'>
                         再買一次
                     </div>
                 </div>
