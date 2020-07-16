@@ -585,16 +585,7 @@ function bkChangePage(e){
     }
     if(count == 12){
         let now = new Date();
-        let today;
-        if(now.getMonth()+1 < 10 && now.getDate() < 10){
-            today = `${now.getFullYear()}-0${now.getMonth()+1}-0${now.getDate()}`;
-        }else if(now.getMonth()+1 < 10 && now.getDate() >= 10){
-            today = `${now.getFullYear()}-0${now.getMonth()+1}-${now.getDate()}`;
-        }else if(now.getMonth()+1 >= 10 && now.getDate() < 10){
-            today = `${now.getFullYear()}-${now.getMonth()+1}-0${now.getDate()}`;
-        }else{
-            today = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
-        }
+        let today = `${now.getFullYear()}-${(now.getMonth()+1)<10?0:''}${now.getMonth()+1}-${(now.getDate()+1)<10?0:''}${now.getDate()}`;
         let bkorderAvm = new Vue({
             el:'#bkOrderAnalysis',
             data:{
@@ -655,16 +646,7 @@ function bkChangePage(e){
     }
     if(count == 13){
         let now = new Date();
-        let today;
-        if(now.getMonth()+1 < 10 && now.getDate() < 10){
-            today = `${now.getFullYear()}-0${now.getMonth()+1}-0${now.getDate()}`;
-        }else if(now.getMonth()+1 < 10 && now.getDate() >= 10){
-            today = `${now.getFullYear()}-0${now.getMonth()+1}-${now.getDate()}`;
-        }else if(now.getMonth()+1 >= 10 && now.getDate() < 10){
-            today = `${now.getFullYear()}-${now.getMonth()+1}-0${now.getDate()}`;
-        }else{
-            today = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
-        }
+        let today = `${now.getFullYear()}-${(now.getMonth()+1)<10?0:''}${now.getMonth()+1}-${(now.getDate()+1)<10?0:''}${now.getDate()}`;
         let bksetAvm = new Vue({
             el:'#bkSetAnalysis',
             data:{
@@ -732,16 +714,7 @@ function bkChangePage(e){
     }
     if(count == 14){
         let now = new Date();
-        let today;
-        if(now.getMonth()+1 < 10 && now.getDate() < 10){
-            today = `${now.getFullYear()}-0${now.getMonth()+1}-0${now.getDate()}`;
-        }else if(now.getMonth()+1 < 10 && now.getDate() >= 10){
-            today = `${now.getFullYear()}-0${now.getMonth()+1}-${now.getDate()}`;
-        }else if(now.getMonth()+1 >= 10 && now.getDate() < 10){
-            today = `${now.getFullYear()}-${now.getMonth()+1}-0${now.getDate()}`;
-        }else{
-            today = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
-        }
+        let today = `${now.getFullYear()}-${(now.getMonth()+1)<10?0:''}${now.getMonth()+1}-${(now.getDate()+1)<10?0:''}${now.getDate()}`;
         let bksingleAvm = new Vue({
             el:'#bkSingleAnalysis',
             data:{
