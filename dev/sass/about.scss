@@ -1,12 +1,6 @@
 @import "./main";
 @import url('https://fonts.googleapis.com/css?family=Stalemate');
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
 #homeTwoScreen .top_group .navgroup .aboutus{
   color: $orange;
   font: 12px;
@@ -102,7 +96,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 10%;
+  // padding: 10%;
 }
 
 .content-inner {
