@@ -3516,7 +3516,7 @@ $(window).ready(function () {
           if(count === 1){
             $(".kitchen").css("opacity","0")
             $(".cooking").css("opacity","0")
-            $(".p23").css("opacity","0")
+            // $(".p23").css("opacity","0")
           }
           if(count === 2){
             buildLine()  
@@ -3733,7 +3733,7 @@ function kitchenFn(){
   // text.from(chars,
   //   {duration: 2, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=1"
   //   ); 
-  // $(".p23").css("opacity","1")
+  $(".p23").css("opacity","1")
 
 var kitchen_time = gsap.timeline({
   delay: 3,
