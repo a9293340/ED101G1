@@ -1,3 +1,11 @@
+import findColor from '../../dev/js/modules/findColor.js';
+import chartBarOrder from '../../dev/js/modules/chartBar2.js';
+import chartBarSet from '../../dev/js/modules/chartBar.js';
+import progressBar from '../../dev/js/modules/progressBar.js';
+
+let bkAbox = document.getElementsByClassName('bkAbox');
+let bkSingleAnalysisBtn = document.getElementsByClassName('bkSingleAnalysisBtn');
+
 window.addEventListener('load',gogoPower);
 Chart.defaults.global.defaultFontColor = '#fff';
 function gogoPower(){
@@ -39,6 +47,8 @@ function bkChangePage(e){
         document.getElementsByClassName('collapse-item')[4].style.backgroundColor = '#EAECF4'
     }else if(count == 13){
         document.getElementsByClassName('collapse-item')[13].style.backgroundColor = '#EAECF4'
+    }else if(count == 14){
+        document.getElementsByClassName('collapse-item')[14].style.backgroundColor = '#EAECF4'
     }else if(count >=4){
         document.getElementsByClassName('collapse-item')[count+1].style.backgroundColor = '#EAECF4'
     }else{
@@ -575,16 +585,7 @@ function bkChangePage(e){
     }
     if(count == 12){
         let now = new Date();
-        let today;
-        if(now.getMonth()+1 < 10 && now.getDate() < 10){
-            today = `${now.getFullYear()}-0${now.getMonth()+1}-0${now.getDate()}`;
-        }else if(now.getMonth()+1 < 10 && now.getDate() >= 10){
-            today = `${now.getFullYear()}-0${now.getMonth()+1}-${now.getDate()}`;
-        }else if(now.getMonth()+1 >= 10 && now.getDate() < 10){
-            today = `${now.getFullYear()}-${now.getMonth()+1}-0${now.getDate()}`;
-        }else{
-            today = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
-        }
+        let today = `${now.getFullYear()}-${(now.getMonth()+1)<10?0:''}${now.getMonth()+1}-${(now.getDate()+1)<10?0:''}${now.getDate()}`;
         let bkorderAvm = new Vue({
             el:'#bkOrderAnalysis',
             data:{
@@ -628,7 +629,8 @@ function bkChangePage(e){
                                     })
                                 }
                             }
-                            chartBarOrder(timeLabel,timeObj);
+                            let ctx7 = document.getElementById("myChart2").getContext("2d");
+                            chartBarOrder(ctx7,timeLabel,timeObj);
                             
                             
                         }else{
@@ -644,16 +646,7 @@ function bkChangePage(e){
     }
     if(count == 13){
         let now = new Date();
-        let today;
-        if(now.getMonth()+1 < 10 && now.getDate() < 10){
-            today = `${now.getFullYear()}-0${now.getMonth()+1}-0${now.getDate()}`;
-        }else if(now.getMonth()+1 < 10 && now.getDate() >= 10){
-            today = `${now.getFullYear()}-0${now.getMonth()+1}-${now.getDate()}`;
-        }else if(now.getMonth()+1 >= 10 && now.getDate() < 10){
-            today = `${now.getFullYear()}-${now.getMonth()+1}-0${now.getDate()}`;
-        }else{
-            today = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
-        }
+        let today = `${now.getFullYear()}-${(now.getMonth()+1)<10?0:''}${now.getMonth()+1}-${(now.getDate()+1)<10?0:''}${now.getDate()}`;
         let bksetAvm = new Vue({
             el:'#bkSetAnalysis',
             data:{
@@ -671,15 +664,21 @@ function bkChangePage(e){
                     let xhr = new XMLHttpRequest();
                     xhr.onload=function (){
                         if( xhr.status == 200 ){
-                            // console.log(JSON.parse(xhr.responseText))
+                            //項目標題
                             let label = JSON.parse(xhr.responseText)[0];
-                            this.label = label;
+                            bksetAvm.$data.label = label;
+                            console.log(this.label)
+                            //訂單（訂單名稱 & 該數量）
                             let data = JSON.parse(xhr.responseText)[1];
+                            // 裝載對應label之數量
                             let box = [];
                             let total = 0;
                             let boxArv = [];
-                            label.forEach(()=>{
+                            let idBox = [];
+                            label.forEach((el,i)=>{
                                 box.push(0);
+                                // 產生對應數量的id編號
+                                idBox.push(`bkSetSalesPropress${i+1}`);
                             })
                             for (let i = 0; i < data.length; i++) {
                                 label.forEach((el,j)=>{
@@ -694,13 +693,14 @@ function bkChangePage(e){
                             box.forEach((el)=>{
                                 boxArv.push((el/total).toFixed(2));
                             })
-                            // console.log(total,boxArv);
-                            chartBarSet(label,box);
-
-                            progressBar(label,boxArv);
+                            let myChart1 = document.getElementById('myChart1').getContext('2d');
+                            let title = '套餐銷路分析'
+                            chartBarSet(myChart1,label,box,title);
+                            setTimeout(()=>{
+                                progressBar(idBox,boxArv,findColor(label.length));
+                            },200)
                             document.getElementsByClassName('bkSetSalesAna')[0].classList.remove('bkSetNone')
-                            
-                            
+                            // console.log(idBox)
                         }else{
                             alert( xhr.status );
                         }
@@ -712,289 +712,168 @@ function bkChangePage(e){
             },
         })
     }
-}
+    if(count == 14){
+        let now = new Date();
+        let today = `${now.getFullYear()}-${(now.getMonth()+1)<10?0:''}${now.getMonth()+1}-${(now.getDate()+1)<10?0:''}${now.getDate()}`;
+        let bksingleAvm = new Vue({
+            el:'#bkSingleAnalysis',
+            data:{
+                beforeTime: today,
+                afterTime: today,
+                today,
+                label:[],
+                labelRice:[],
+                countRice: [],
+                labelMain:[],
+                countMain: [],
+                labelSide:[],
+                countSide: [],
+                idBoxRice:[],
+                idBoxMain:[],
+                idBoxSide:[],
+                RiceNum:0,
+                MainNum:0,
+                SideNum:0,
+            },
+            methods:{
+                bkSelectOderByTime(){
+                    // console.log(this.beforeTime,this.afterTime);
+                    let before = this.beforeTime + ' 00:00:00';
+                    let after = this.afterTime + ' 23:59:59';
+                    fetch(`./php/bkSingleSearchTime.php?bTime=${before}&aTime=${after}`).
+                    then(res=> res.json()).
+                    then((res)=>{
+                        bksingleAvm.$data.label = res[0];
+                        let data = res[1];
+                        let countBox = [];
+                        let labelBox = [];
+                        this.label.forEach((el)=>{
+                            countBox.push(0);
+                            labelBox.push(el.spName)
+                        })
 
-function chartBarOrder(timeLabel,timeObj){
-    // console.log(timeLabel,timeObj)
-    let count = [];
-    let price = [];
-    timeObj.forEach((el)=>{
-        count.push(Number(el.count)) 
-        price.push(Number(el.price)) 
-    })
-    console.log(timeLabel,count,price,Math.max(count))
-    var data7 = {
-        labels: timeLabel,
-        datasets: [
-        {
-            yAxisID: 'A',
-            type: "bar",
-            label: "當日訂單數量",
-            backgroundColor: "#e81760",
-            borderColor: "#e81760",
-            borderWidth: 3,
-            data: count 
-        },{
-            yAxisID: 'B',
-            type: "bar",
-            label: "當日總營收",
-            backgroundColor: "rgba(3, 169, 244)",
-            borderColor: "rgba(3, 169, 244)",
-            borderWidth: 3,
-            data:price
-        }
-        ]
-    };
-    
-    let ctx7 = document.getElementById("myChart2").getContext("2d");
-    let myBar = new Chart(ctx7, {
-    type: 'bar',
-    data: data7,
-    options: {
-        responsive: true,
-        title: {
-        display: false,
-        text: '每日訂單狀況'
-        },
-        tooltips: {
-            mode: 'index',
-            intersect: true
-        }, 
-        legend:{  //小標題設定
-            display:true,
-            position:'right',
-            labels:{
-                fontColor:'#fff'
-            }
-        },
-        title:{  //標題設定
-            display:true,
-            text:'每日訂餐狀況',
-            fontSize:25,
-            position:'top'
-        },
-        scales: {
-            xAxes: [{
-                categoryPercentage: 0.6,
-                barPercentage: 0.85,
-                gridLines : {
-                    display: false,
-                    drawBorder: false,
-                    drawTicks: true,
-                    tickMarkLength: 15,
-                    borderDashOffset: 15
+                        data.forEach((el,i)=>{
+                            labelBox.forEach((la,j)=>{
+                                if(el.soRice == la){
+                                    countBox[j] ++;
+                                }else if(el.mainfood == la){
+                                    countBox[j] ++;
+                                }else if(el.sideDishes1 == la){
+                                    countBox[j] ++;
+                                }else if(el.sideDishes2 == la){
+                                    countBox[j] ++;
+                                }else if(el.sideDishes3 == la){
+                                    countBox[j] ++;
+                                }
+                            })
+                        })
+
+                        this.label.forEach((el,i)=>{
+                            if(el.spClass == 0){
+                                this.countRice.push(countBox[i]);
+                                this.labelRice.push(labelBox[i]);
+                            }else if(el.spClass == 1){
+                                this.countMain.push(countBox[i]);
+                                this.labelMain.push(labelBox[i]);
+                            }else if(el.spClass == 2){
+                                this.countSide.push(countBox[i]);
+                                this.labelSide.push(labelBox[i]);
+                            }
+                        })
+                        console.log(this.countRice,this.countMain,this.countSide)
+                        document.getElementsByClassName('bkSingleAnalysisBtnBox')[0].classList.remove('bkSingleAnalysisBtnNone')
+                    })
                 },
-                ticks: {
-                    fontStyle: 'bold',
-                    fontSize: 20,
-                    fontColor: "#fff",
-                    beginAtZero: true
-                }
-            }],
-            yAxes: [
-                {
-                    id: 'A',
-                    type: 'linear',
-                    position: 'left',
-                    gridLines: {
-                        display: true,
-                        drawBorder: true,
-                        drawTicks: true,
-                        tickMarkLength: 15,
-                        borderDashOffset: 15,
-                        color: "#FFFFFF"
-                    },
-                    ticks: {
-                        display: true,
-                        fontStyle: 'bold',
-                        fontSize: 13,
-                        beginAtZero: false,
-                        suggestedMin: 0,
+                bkRice(){
+                    let idBox = [];
+                    let total = 0;
+                    let boxArv = [];
+                    for(let i = 0 ; i < bkAbox.length;i++){
+                        bkAbox[i].classList.add('bkSetNone');
+                        bkSingleAnalysisBtn[i].classList.remove('bkSingleAnalysisBtnDark')
+                    }
+                    bkAbox[0].classList.remove('bkSetNone');
+                    bkSingleAnalysisBtn[0].classList.add('bkSingleAnalysisBtnDark');
+                    this.countRice.forEach((el,i)=>{
+                        idBox.push(`bkRicePropress${i+1}`);
+                    })
+                    this.countRice.forEach((el)=>{
+                        total += el;
+                    })
+                    this.countRice.forEach((el)=>{
+                        boxArv.push((el/total).toFixed(2));
+                    })
+                    let myChart3 = document.getElementById('myChart3').getContext('2d');
+                    let title = '單品-米飯銷路分析';
+                    if(this.RiceNum == 0){
+                        chartBarSet(myChart3,this.labelRice,this.countRice,title);
+                    
+                        setTimeout(()=>{
+                            progressBar(idBox,boxArv,findColor(this.labelRice.length));
+                        },200)
+
+                        this.RiceNum += 1;
                     }
                 },
-                {
-                    id: 'B',
-                    type: 'linear',
-                    position: 'right',
-                    gridLines: {
-                        display: false,
-                        drawBorder: true,
-                        drawTicks: true,
-                        tickMarkLength: 15,
-                        borderDashOffset: 15,
-                        color: "#FFFFFF"
-                    },
-                    ticks: {
-                        display: true,
-                        fontStyle: 'bold',
-                        fontSize: 13,
-                        beginAtZero: false,
-                        suggestedMin: 0
+                bkMain(){
+                    let idBox = [];
+                    let total = 0;
+                    let boxArv = [];
+                    for(let i = 0 ; i < bkAbox.length;i++){
+                        bkAbox[i].classList.add('bkSetNone');
+                        bkSingleAnalysisBtn[i].classList.remove('bkSingleAnalysisBtnDark')
+                    }
+                    bkAbox[1].classList.remove('bkSetNone');
+                    bkSingleAnalysisBtn[1].classList.add('bkSingleAnalysisBtnDark');
+                    this.countMain.forEach((el,i)=>{
+                        idBox.push(`bkMainPropress${i+1}`);
+                    })
+                    this.countMain.forEach((el)=>{
+                        total += el;
+                    })
+                    this.countMain.forEach((el)=>{
+                        boxArv.push((el/total).toFixed(2));
+                    })
+                    let myChart4 = document.getElementById('myChart4').getContext('2d');
+                    let title = '單品-主食銷路分析';
+                    if(this.MainNum == 0){
+                        chartBarSet(myChart4,this.labelMain,this.countMain,title);
+                        setTimeout(()=>{
+                            progressBar(idBox,boxArv,findColor(this.labelMain.length));
+                        },200)
+                        this.MainNum += 1;
+                    }
+                },
+                bkSide(){
+                    let idBox = [];
+                    let total = 0;
+                    let boxArv = [];
+                    for(let i = 0 ; i < bkAbox.length;i++){
+                        bkAbox[i].classList.add('bkSetNone');
+                        bkSingleAnalysisBtn[i].classList.remove('bkSingleAnalysisBtnDark')
+                    }
+                    bkAbox[2].classList.remove('bkSetNone');
+                    bkSingleAnalysisBtn[2].classList.add('bkSingleAnalysisBtnDark');
+                    this.countSide.forEach((el,i)=>{
+                        idBox.push(`bkSidePropress${i+1}`);
+                    })
+                    this.countSide.forEach((el)=>{
+                        total += el;
+                    })
+                    this.countSide.forEach((el)=>{
+                        boxArv.push((el/total).toFixed(2));
+                    })
+                    let myChart5 = document.getElementById('myChart5').getContext('2d');
+                    let title = '單品-配菜銷路分析';
+                    if(this.SideNum == 0){
+                        chartBarSet(myChart5,this.labelSide,this.countSide,title);
+                        setTimeout(()=>{
+                            progressBar(idBox,boxArv,findColor(this.labelSide.length));
+                        },200)
+                        this.SideNum += 1;
                     }
                 }
-            ]
-        }
-    }
-    });
-}
-
-function chartBarSet(label,box){
-    console.log(label,box);
-    let myChart1 = document.getElementById('myChart1').getContext('2d');
-    let massPopChart = new Chart(myChart1,{
-        type:'bar', //圖表類型 bar , horizontalBar, pie, line, doughnut, radar, polarArea
-        //--------------
-        data:{
-            labels: label, //項目
-            datasets: [{
-                label: '數量', //圖表標題
-                data: box, //資料內容
-                backgroundColor:['rgba(255, 235, 59)','rgba(3, 169, 244)','#e88e3c','#e81760','#2bab51','rgb(202,104,209)'],
-                borderWidth:0,
-                
-            }]
-        },
-        //--------------
-        options:{  //對各玩意兒設定
-            responsive: true,  //資料從0開始
-            legend: false,
-            scales:{
-                xAxes:[{
-                    barPercentage: 0.5,
-                    gridLines: {
-                        display: false ,
-                        color: "#FFFFFF"
-                    },
-                }],
-                yAxes:[{
-                    ticks:{
-                        beginAtZero:true
-                    },
-                    gridLines: {
-                        display: true ,
-                        color: "#FFFFFF"
-                    },
-                }]
             },
-            title:{  //標題設定
-                display:true,
-                text:'套餐銷路分析',
-                fontSize:25,
-                position:'top'
-            },
-            layout:{  //整塊圖表範圍的調整
-                padding:{
-                    left:0,
-                    right:0,
-                    bottom:0,
-                    top:30
-                }
-            },
-            tooltips:{  //tooltip開關
-                enabled:true
-            }
-        }
-    });
-}
-
-
-function progressBar(label,boxArv){
-    var bkSetSalesPropress1 = new ProgressBar.Circle('#bkSetSalesPropress1', {
-        color: 'rgba(255, 235, 59)',
-        strokeWidth: 8,
-        trailWidth: 8,
-        duration: 1500,
-        text: {
-            value: '0%'
-        },
-        step: function(state, bar) {
-          bar.setText((bar.value() * 100).toFixed(0) + "%");
-        }
-    });
-    var bkSetSalesPropress2 = new ProgressBar.Circle('#bkSetSalesPropress2', {
-    color: 'rgba(3, 169, 244)',
-    strokeWidth: 8,
-    trailWidth: 8,
-    duration: 1500,
-    text: {
-        value: '0%'
-    },
-    step: function(state, bar) {
-        bar.setText((bar.value() * 100).toFixed(0) + "%");
+        })
     }
-    });
-    var bkSetSalesPropress3 = new ProgressBar.Circle('#bkSetSalesPropress3', {
-    color: '#e88e3c',
-    strokeWidth: 8,
-    trailWidth: 8,
-    duration: 1500,
-    text: {
-        value: '0%'
-    },
-    step: function(state, bar) {
-        bar.setText((bar.value() * 100).toFixed(0) + "%");
-    }
-    });
-    var bkSetSalesPropress4 = new ProgressBar.Circle('#bkSetSalesPropress4', {
-        color: '#e81760',
-        strokeWidth: 8,
-        trailWidth: 8,
-        duration: 1500,
-        text: {
-            value: '0%'
-        },
-        step: function(state, bar) {
-          bar.setText((bar.value() * 100).toFixed(0) + "%");
-        }
-    });
-    var bkSetSalesPropress5 = new ProgressBar.Circle('#bkSetSalesPropress5', {
-    color: '#2bab51',
-    strokeWidth: 8,
-    trailWidth: 8,
-    duration: 1500,
-    text: {
-        value: '0%'
-    },
-    step: function(state, bar) {
-        bar.setText((bar.value() * 100).toFixed(0) + "%");
-    }
-    });
-    var bkSetSalesPropress6 = new ProgressBar.Circle('#bkSetSalesPropress6', {
-    color: 'rgb(202,104,209)',
-    strokeWidth: 8,
-    trailWidth: 8,
-    duration: 1500,
-    text: {
-        value: '0%'
-    },
-    step: function(state, bar) {
-        bar.setText((bar.value() * 100).toFixed(0) + "%");
-    }
-    });
-    bkSetSalesPropress1.animate(boxArv[0]);
-    bkSetSalesPropress2.animate(boxArv[1]);
-    bkSetSalesPropress3.animate(boxArv[2]);
-    bkSetSalesPropress4.animate(boxArv[3]);
-    bkSetSalesPropress5.animate(boxArv[4]);
-    bkSetSalesPropress6.animate(boxArv[5]);
-}
-
-
-//隨機顏色
-function randColors() {
-    let r = Math.floor(Math.random() * 255);
-    let g = Math.floor(Math.random() * 255);
-    let b = Math.floor(Math.random() * 255);
-    return "rgba(" + r + "," + g + "," + b + ", 0.8)";
-}
-
-//產生陣列多個隨機顏色
-function gogoColors(a) {
-    let pool = [];
-
-    for(i = 0; i < a; i++) {
-        pool.push(randColors());
-    }
-    
-    return pool;
 }

@@ -58,7 +58,7 @@
 .book-wrapper {
   transform: scale(1.2);
   position: relative;
-  margin: 6% 25%;
+  margin: 6% 30%;
   width: 595px;
 }
 
@@ -352,4 +352,18 @@ $color: #333; // the rest
   position: absolute;
   left: 0;
   top: 0;
+}
+.homeFooter{
+
+}
+@media(max-width: 350px){
+  .container{
+    .book-wrapper{
+      transform: scale(.5);
+    position: relative;
+    margin: 6% -44%;
+    width: 595px;
+    }
+  }
+
 }

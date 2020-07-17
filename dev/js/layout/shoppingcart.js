@@ -270,7 +270,7 @@ $('#log_out').click(function(e){
 })
 
 if(sessionStorage['memName'] != ''){
-    $('#member_name').text('HI~'+sessionStorage['memName']);
+    $('#member_name').text('Hi~'+sessionStorage['memName']);
 }
 
 if(localStorage.getItem('address')){

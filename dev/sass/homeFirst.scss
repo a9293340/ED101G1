@@ -12,6 +12,9 @@
   transition: all $transition ease;
 }
 
+// img:not([src]),img[src=""]{
+//   opacity: 0;
+// }
 section {
   // text-align: center;
   font-size: 0;
@@ -1051,18 +1054,51 @@ $base-size: 20rem;
       list-style: none;
 
       li {
-        @include flexStyle(center, center, column-reverse);
+
         color: black;
         font-size: $fzSubtitle;
+        width: 330px;
+        height: 475px;
+        border-radius: 50px;
+        background-color: #fff;
+        box-shadow: 10px 6px 15px 0px rgba(4, 4, 4, 0.2);
+
+        .benton_textgp {
+          max-width: 300px;
+          @include flexStyle(center, center, column-reverse);
+          margin: auto;
+        }
+
+        .NaP {
+          width: 100%;
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: space-between;
+          font-size: 26px;
+        }
 
         .benton_price,
-        .benton_name {
+        .benton_name,
+        .benton_introdunce {
           cursor: pointer;
         }
 
+        .benton_price {
+          color: #DECC5B;
+        }
+
+        .benton_introdunce {
+          font-size: 15px;
+          text-align: left;
+          margin-top: 20px;
+          letter-spacing: 1px;
+          font-weight: 300;
+        }
+
         img {
-          margin-bottom: 30%;
-          border-radius: 50%;
+          margin-bottom: 10%;
+          // border-radius: 50%;
+          margin-top: 8%;
         }
       }
     }
@@ -1070,7 +1106,7 @@ $base-size: 20rem;
     .leaderBoard {
       // height: 500px;
       // background-color: red;
-      width: 350px;
+      width: 330px;
       height: 475px;
       // height: 200px;
       // cursor: pointer;
@@ -1269,6 +1305,7 @@ $base-size: 20rem;
         justify-content: space-around;
         align-items: center;
         top: 20%;
+        border-radius: 5px;
 
         .left_group {
           display: flex;
@@ -1331,6 +1368,7 @@ $base-size: 20rem;
               #mg_content {
                 max-width: 280px;
                 text-align: left;
+                margin-bottom: 10px;
               }
 
               #mg_time {
@@ -1548,7 +1586,7 @@ $base-size: 20rem;
         bottom: 0;
         width: 100%;
         height: 100%;
-        color: #50C878;
+        color: #7DC7A2;
         transform: translate3d(0, -100%, 0);
         /* 先把顏色藏起 */
         transition: transform $indexHoverAT 0.1s;
@@ -1618,7 +1656,7 @@ $base-size: 20rem;
 
     &.el:nth-child(2) {
       .el__bg:before {
-
+        height: 135%;
         top: 0%;
       }
     }
@@ -1698,7 +1736,7 @@ $base-size: 20rem;
 }
 
 .el.third {
-  clip-path: polygon(10% 0, 100% 0, 100% 100%, 40% 100%);
+  clip-path: polygon(0% -30%, 100% 0, 100% 100%, 42% 100%);
   width: 35%;
   margin-left: -8.5%;
   z-index: 11;
@@ -1897,13 +1935,35 @@ $base-size: 20rem;
           color: black;
           font-size: $fzSubtitle;
 
+          .NaP {
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            font-size: 26px;
+          }
+
           .benton_price,
-          .benton_name {
+          .benton_name,
+          .benton_introdunce {
             cursor: pointer;
           }
 
+          .benton_price {
+            color: #DECC5B;
+          }
+
+          .benton_introdunce {
+            font-size: 15px;
+            text-align: left;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            font-weight: 300;
+          }
+
           img {
-            margin-bottom: 30%;
+            margin-bottom: 10%;
+            margin-top: 8%;
           }
         }
       }
@@ -1911,7 +1971,7 @@ $base-size: 20rem;
       .leaderBoard {
         // height: 500px;
         // background-color: red;
-        width: 350px;
+        width: 330px;
 
         // height: 200px;
 
@@ -2273,7 +2333,7 @@ $base-size: 20rem;
   }
 
   .el.third {
-    clip-path: polygon(10% 0, 100% 0, 100% 100%, 40% 100%);
+    clip-path: polygon(0% -30%, 100% 0, 100% 100%, 42% 100%);
     width: 35%;
     margin-left: -8.5%;
     z-index: 11;
@@ -2284,7 +2344,12 @@ $base-size: 20rem;
   }
 }
 
-@media(min-width: 375px)and(max-width: 576px) {
+@media(min-width: 350px)and(max-width: 576px) {
+
+  .el__leaderBoards #lb_lightBox {
+    height: 170%;
+  }
+
   @mixin fontPos {
     overflow: hidden;
     position: absolute;
@@ -2305,7 +2370,7 @@ $base-size: 20rem;
   .cont {
     position: relative;
     overflow: hidden;
-    height: 92vh;
+    height: 75vh;
     background-color: rgb(36, 31, 31);
 
     &__inner {
@@ -2479,16 +2544,44 @@ $base-size: 20rem;
           @include flexStyle(space-around, center, column-reverse);
           color: black;
           font-size: $fzSubtitle;
-          margin-bottom: 25%;
+          margin-bottom: 35%;
 
-          .benton_price,
-          .benton_name {
-            cursor: pointer;
-            margin-bottom: 30px;
+          .benton_textgp {
+            max-width: 300px;
+            @include flexStyle(center, center, column-reverse);
+            margin: auto;
           }
 
+          .NaP {
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            font-size: 26px;
+          }
+
+          .benton_price,
+          .benton_name,
+          .benton_introdunce {
+            cursor: pointer;
+
+          }
+
+          .benton_price {
+            color: #DECC5B;
+          }
+
+          .benton_introdunce {
+            font-size: 15px;
+            text-align: left;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            font-weight: 300;
+          }
+
+
           img {
-            margin-bottom: 25%;
+            margin-bottom: 8%;
           }
         }
       }
@@ -2496,7 +2589,7 @@ $base-size: 20rem;
       .leaderBoard {
         // height: 500px;
         // background-color: red;
-        width: 350px;
+        width: 330px;
         // height: 200px;
 
 
@@ -2512,9 +2605,14 @@ $base-size: 20rem;
             transform: translate3d(0, 0, 0);
           }
 
+          img {
+            transform: scale(.9);
+          }
+
           .content {
             text-align: left;
-            margin-left: 30%;
+            margin-bottom: 6%;
+            // margin-left: 30%;
 
             #menu_ndgroup {
               // display: flex;
@@ -2524,7 +2622,7 @@ $base-size: 20rem;
               // border: 1px solid #000;
 
               #menu_name_sec {
-                font-size: 30px;
+                font-size: 20px;
               }
 
             }
@@ -2549,7 +2647,7 @@ $base-size: 20rem;
 
           .content {
             @include LB_content {
-              margin-top: 25%;
+              // margin-top: 25%;
 
             }
           }
@@ -2559,6 +2657,16 @@ $base-size: 20rem;
           transform: translate3d(0, -3vw, 0);
           position: relative;
           margin-top: 25%;
+
+          .medal {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            z-index: 100;
+            top: -10%;
+            left: 69%;
+            transform: scale(.7);
+          }
 
           @include elActive {
             transition: all $contentFadeinAT $fullExpandAT +.8;
@@ -2573,7 +2681,7 @@ $base-size: 20rem;
 
           .content {
             @include LB_content {
-              margin-top: 100%;
+              // margin-top: 100%;
             }
           }
         }
@@ -2620,6 +2728,7 @@ $base-size: 20rem;
       pointer-events: none;
       transition: all 0s $closeBtnAT + $closeBtnLineDelay;
       cursor: pointer;
+      transform: scale(.6);
 
       @include elActive {
         z-index: 5;
@@ -2722,7 +2831,7 @@ $base-size: 20rem;
           bottom: 0;
           width: 100%;
           height: 100%;
-          color: #fff;
+          color: #7DC7A2;
           transform: translate3d(0, -100%, 0);
           /* 先把顏色藏起 */
           transition: transform $indexHoverAT 0.1s;
@@ -2825,16 +2934,27 @@ $base-size: 20rem;
     // }
   }
 
+  .el__leaderBoards #lb_lightBox .light_box {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 800px;
+
+    .right_group {
+      width: 300px;
+    }
+  }
+
   .el.first {
     background-color: #fff;
     z-index: 11;
-    clip-path: polygon(0 0, 78% 0, 53% 100%, 0% 100%);
+    clip-path: polygon(0 0, 70% 0, 70% 100%, 0% 100%);
     width: 40%;
 
   }
 
   .el.sec {
-    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(20% 0%, 80% 0%, 80% 100%, 20% 100%);
     width: 50%;
     z-index: 10;
     // margin-left: -45%;
@@ -2842,7 +2962,7 @@ $base-size: 20rem;
   }
 
   .el.third {
-    clip-path: polygon(10% 0, 100% 0, 100% 100%, 40% 100%);
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 20% 100%);
     width: 35%;
     margin-left: -8.5%;
     z-index: 11;
@@ -3251,9 +3371,17 @@ $base-size: 20rem;
   align-items: center;
   width: 100%;
   height: 800px;
+  position: relative;
+
   /* margin-top: -50px; */
   /* margin-top: -310px; */
   /* background-color: black; */
+  .about_title {
+    position: absolute;
+    left: 7%;
+    top: 7%;
+    font-size: 2.5rem;
+  }
 }
 
 svg {
@@ -3377,23 +3505,7 @@ svg {
 
 }
 
-.slide.active {
-
-  .slide__content .slider_2 .badge.am1 {
-    margin-top: -18%;
-    // transition: margin-top .5s .3s ease-in, background-position .5s, transform .5s, box-shadow .5s;
-  }
-
-  .slide__content .slider_2 .badge.am2 {
-    margin-top: -18%;
-    // transition: margin-top .5s .5s ease-in, background-position .5s, transform .5s, box-shadow .5s;
-  }
-
-  .slide__content .slider_2 .badge.am3 {
-    margin-top: -18%;
-    // transition: margin-top .5s .7s ease-in, background-position .5s, transform .5s, box-shadow .5s;
-  }
-}
+.slide.active {}
 
 .slide__bg {
   position: absolute;
@@ -3419,9 +3531,9 @@ svg {
     color: rgb(0, 0, 0);
     position: absolute;
     font-size: 30px;
-    background-color: rgb(249, 249, 249);
+    // background-color: rgb(249, 249, 249);
     top: 7%;
-    left: 2%;
+    left: 50%;
   }
 }
 
@@ -3469,6 +3581,10 @@ svg {
       display: flex;
       justify-content: center;
       align-items: center;
+
+      .ab_address {
+        font-size: 3rem;
+      }
 
       .lada {
         position: absolute;
@@ -3562,89 +3678,68 @@ svg {
   }
 
   //第二slider
+
   .slider_2 {
     // border: 1px solid red;
     //  flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 12%;
+    width: 20%;
+    height: 50%;
+    right: 2%;
+    font-size: 2rem;
 
-    .badge {
-      display: block;
-      position: relative;
-      width: $base-size;
-      height: $base-size;
-      cursor: pointer;
-      background: url(../images/order/orderfat.png) no-repeat 25% 40%;
-      background-size: 80%;
-      border-radius: 50%;
-      // transition: $easing;
-      box-shadow: 0px .5rem 1rem rgba(0, 0, 0, .75);
-      margin-left: 50px;
-      transform: skew(59deg, -60deg) scale(0.4);
+    // .phone{
+    //   position: absolute;
+    //   left: -5%;
+    //   // top: -10%;
+    // }
 
-      &:hover {
-        box-shadow: 0px .5rem 2rem rgba(0, 0, 0, .75);
-        background-position: 0% 45%;
-        transform: skew(0deg) scale(1);
-
-        .text {
-          transform: rotate(-45deg) translate(0px) rotate(-315deg);
-          background: rgba(124, 206, 199, .5);
-          width: $base-size;
-          letter-spacing: 1rem;
-          line-height: $base-size;
-          height: $base-size;
-          margin-top: -($base-size / 2);
-          margin-left: -($base-size / 2);
-          opacity: 1;
-          transition:
-            $easing,
-            letter-spacing 1.5s ease-out;
-        }
-      }
-
-      .text {
-        display: block;
-        position: absolute;
-        width: ($base-size / 2);
-        height: ($base-size / 2);
-        line-height: ($base-size / 2);
-        left: 50%;
-        top: 50%;
-        margin-top: -($base-size / 4);
-        margin-left: -($base-size / 4);
-        font-size: 2rem;
-        font-family: Raleway, sans-serif;
-        text-align: center;
-        color: #fff;
-        border-radius: 50%;
-        background: rgb(124, 206, 199);
-        transform: rotate(-180deg) translate(-($base-size / 2)) rotate(180deg);
-        box-shadow: 0px .5rem 1rem rgba(0, 0, 0, .5);
-        transition: $easing;
-        opacity: 0;
-      }
-
-
-      &.am1 {
-        background: url(../images/order/orderfat.png) no-repeat 25% 40%;
-        background-size: 80%;
-      }
-
-      &.am2 {
-        background: url(../images/order/orderHappy.png) no-repeat 25% 40%;
-        background-size: 100%;
-      }
-
-      &.am3 {
-        background: url(../images/order/OrderhappyTaiwan.png) no-repeat 46% 40%;
-        background-size: 72%;
-      }
-    }
   }
 
+  .arrow {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 83%;
+    top: 37%;
+  }
 
+}
+
+.store_group {
+
+  position: absolute;
+  left: 35%;
+  top: -2%;
+
+  .cooker {
+    width: 170px;
+    height: 170px;
+    position: relative;
+    left: 157%;
+    bottom: -120px;
+  }
+
+  .standee {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: -150%;
+    bottom: -187%;
+
+  }
+
+  .kitchen {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 60%;
+    top: 5%;
+  }
 }
 
 /* .slide__overlay {
@@ -3833,6 +3928,10 @@ svg {
         justify-content: center;
         align-items: center;
 
+        .ab_address {
+          font-size: 3rem;
+        }
+
         .lada {
           position: absolute;
           width: 50px;
@@ -3936,7 +4035,7 @@ svg {
   }
 }
 
-@media (min-width: 375px) and (max-width: 576px) {
+@media (min-width: 350px) and (max-width: 576px) {
 
 
   .slide__content {
@@ -3967,6 +4066,12 @@ svg {
           animation: lada 3s ease-out infinite alternate;
         }
 
+        .ab_address {
+          font-size: 3rem;
+          position: absolute;
+          left: 500%;
+        }
+
         .location_here {
           position: relative;
           left: -27%;
@@ -3980,6 +4085,10 @@ svg {
     .slide__bg {
       position: absolute;
       background-position: 0 0;
+
+      .content {
+        display: none;
+      }
     }
   }
 }

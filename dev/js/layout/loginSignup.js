@@ -57,7 +57,7 @@ let homeLoginSignup = new Vue({
                         sessionStorage['mEmmEmId'] = member.memId;
                         sessionStorage['orderMemScore'] = member.memScore;
                         sessionStorage['memName'] = member.memName;
-                        $('#member_name').text('HI~'+sessionStorage['memName']);
+                        $('#member_name').text('Hi~'+sessionStorage['memName']);
                         document.getElementById('memHead').src = sessionStorage['memImage'];
                         $('#member_aflogin').show(500);
                         $('#homeContainderBgc').hide(500);
@@ -74,14 +74,7 @@ let homeLoginSignup = new Vue({
             xhr.onreadystatechange = function(){
             if(xhr.readyState == 4){
                 if(xhr.status == 200){
-                    // document.getElementById('idMsg').innerText = xhr.responseText;
-                    // if(xhr.responseText == '此帳號可使用'){
-                    //     document.getElementById('idMsg').classList.remove('homeWarningWordsOrange');
-                    //     document.getElementById('idMsg').classList.add('homeWarningWordsGreen');
-                    // }else{
-                    //     document.getElementById('idMsg').classList.add('homeWarningWordsOrange');
-                    //     document.getElementById('idMsg').classList.remove('homeWarningWordsGreen');
-                    // }
+
                     if(/^([A-Za-z0-9_\-\.])+\@[A-Za-z]{2,6}\.com(\.[A-Za-z]{2,6})?$/.test(document.getElementById('memSignupEmail').value)){
                         if(xhr.responseText == '此帳號可使用'){
                             document.getElementById('idMsg').innerText = `此信箱格式正確且可以使用`;
@@ -128,7 +121,7 @@ let homeLoginSignup = new Vue({
                 this.homeLoginPswWarning = '密碼格式正確';
                 return 'homeWarningWords homeWarningWordsGreen';
             }else{
-                this.homeLoginPswWarning = '須包含數字及大小寫各1且長度為7以上';
+                this.homeLoginPswWarning = '含數字及大小寫各1長度至少為7';
                 return 'homeWarningWords homeWarningWordsOrange';
             }
         },
@@ -143,17 +136,6 @@ let homeLoginSignup = new Vue({
                 return 'homeWarningWords homeWarningWordsOrange';
             }
         },
-        // homeSignupMailClass(){
-        //     if(/^([A-Za-z0-9_\-\.])+\@[A-Za-z]{2,6}\.com(\.[A-Za-z]{2,6})?$/.test(this.homeSignupMail)){
-        //         this.homeSignupMailWarning = '信箱格式正確';
-        //         this.check = true;
-        //         return 'homeWarningWords homeWarningWordsGreen';
-        //     }else{
-        //         this.homeSignupMailWarning = '請填寫正確電子信箱格式';
-        //         this.check = false;
-        //         return 'homeWarningWords homeWarningWordsOrange';
-        //     }
-        // },
         homeSignupPswClass(){
             let score = this.homeSignupPsw.length;
             if(/[A-Z].*[A-Z]/.test(this.homeSignupPsw)) score *= 2;
@@ -178,7 +160,7 @@ let homeLoginSignup = new Vue({
                     return 'homeWarningWords homeWarningWordsYellow';
                 }
             }else{
-                this.homeSignupPswWarning = '須包含數字及大小寫各1且長度為7以上';
+                this.homeSignupPswWarning = '含數字及大小寫各1長度至少為7';
                 this.check = false;
                 return 'homeWarningWords homeWarningWordsOrange';
             }
