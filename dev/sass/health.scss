@@ -29,7 +29,14 @@ body {
     $notoSansTC: 'Noto Sans TC', sans-serif;
 }
 
-    
+.healthCover{
+    @include coverBlack();
+    min-height: 850px;
+    left: auto;
+    top: auto;
+    z-index:1000;
+    //display: block;
+    }
 
 
 div.wrapper {
@@ -180,14 +187,7 @@ div.wrapper {
                 width: 100%;
         }
         }
-        .healthCover{
-            @include coverBlack();
-            min-height: 850px;
-            left: auto;
-            top: auto;
-            z-index: 9;
-            //display: block;
-            }
+  
         div.overlay {
             position: fixed;
             transform: translate(-50%, -50%);
@@ -198,7 +198,7 @@ div.wrapper {
             background-color: rgba(199, 198, 198, 1);
             box-shadow: 0 0 10px rgb(104, 104, 104);
             border-radius: 5px;
-            z-index: 100;
+            z-index: 1200;
             opacity: 1;
             line-height: 50px;
         div.overlay.-opacity-zero {
