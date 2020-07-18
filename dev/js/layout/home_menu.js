@@ -156,7 +156,7 @@ function leaderBoard() {
     <div class="top_img">
     <img width="248px" height="146px" id="first_img" src=" ${leaderData[i].img}">
     </div>
-    <a href="./showbenton.html" class="buynow">前往購買</a>
+    <a href="./showbenton.html" class="buynow">了解更多</a>
     <div id="menu_ndgroup1">
     <div id="menu_maker">
     <div id="menu_memname_sec1">${leaderData[i].memname} </div>
@@ -164,7 +164,7 @@ function leaderBoard() {
     </div>
     <div id="menu_name_sec1"> ${leaderData[i].title} </div>
     <div id="menu_content_sec1"> ${leaderData[i].content} </div>
-    <div id="menu_date_sec1">日期： ${leaderData[i].postdate} </div>
+    <div id="menu_date_sec1">${leaderData[i].postdate} </div>
     </div>
     <img id ="closebtn" src = "./images/showbenton/close.png" >
     `;
