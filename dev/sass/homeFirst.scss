@@ -30,95 +30,6 @@ section {
     position: relative;
     background-size: cover;
 
-    //--------------- 隱藏菜名
-    // .homeLove-Fish {
-    //   //鱈魚的菜名
-    //   transform: none;
-    //   opacity: 1;
-    //   position: absolute;
-    //   top: 150px;
-    //   left: 60%;
-    //   width: 133px;
-    //   height: 135px;
-    //   background-image: url(../images/homeFirst/love-Fish.png);
-    //   z-index: 99999;
-    //   animation-duration: 3s; //執行動畫長度
-    //   animation-fill-mode: both;
-    //   animation-name: loveElement-Fish;
-    //   animation-delay: 10s; //延遲
-
-    //   .loveElement-Fish {
-    //     animation: loveElement-Fish 3s;
-    //     animation-iteration-count: 1;
-    //     transform-origin: 50% 50%;
-    //   }
-
-    //   @keyframes loveElement-Fish {
-    //     0% {
-    //       transform: translate(-160px, 0px);
-    //       opacity: 0;
-    //     }
-
-    //     20% {
-    //       opacity: 1;
-    //     }
-
-    //     99% {
-    //       opacity: 1;
-    //     }
-
-    //     100% {
-    //       transform: translate(200px, 0px);
-    //       opacity: 0;
-    //     }
-    //   }
-    // }
-
-    // .homeLove-Pg {
-    //   //排骨的菜名
-    //   transform: none;
-    //   opacity: 1;
-    //   position: absolute;
-    //   top: 150px;
-    //   left: 70%;
-    //   width: 133px;
-    //   height: 135px;
-    //   z-index: 99999;
-    //   background-image: url(../images/homeFirst/love-Pg.png);
-    //   animation-duration: 3s; //執行動畫長度
-    //   animation-fill-mode: both;
-    //   animation-name: loveElement-Pg;
-    //   animation-delay: 0s;
-
-    //   .loveElement-Pg {
-    //     animation: loveElement-Pg 4s;
-    //     animation-iteration-count: 1;
-    //     transform-origin: 50% 50%;
-    //   }
-
-    //   @keyframes loveElement-Pg {
-    //     0% {
-    //       transform: translate(0px, 220px);
-    //       opacity: 0;
-    //     }
-
-    //     20% {
-    //       opacity: 1;
-    //     }
-
-    //     99% {
-    //       opacity: 1;
-    //     }
-
-    //     100% {
-    //       transform: translate(0px, -30px);
-    //       opacity: 0;
-    //     }
-    //   }
-    // }
-    //end--------------- 隱藏菜名
-
-
     .homeCoverflow {
       position: relative;
       text-align: center;
@@ -200,8 +111,8 @@ section {
     .homeCoverflow:hover img {
       //滑入時旋轉
       cursor: pointer;
-      animation: homeFoodDegAction linear 5s;
-      animation-iteration-count: 1;
+      animation: homeFoodDegAction linear 5s; //轉動速度
+      animation-iteration-count: infinite; //無限循環轉動
       transform-origin: 50% 50%;
 
       @keyframes homeFoodDegAction {
@@ -250,6 +161,7 @@ section {
       display: flex;
       flex-wrap: nowrap;
       box-sizing: border-box;
+      margin-top: 3%;
 
       .home-location-form {
         top: 0;
@@ -293,6 +205,8 @@ section {
           margin: 0 2%;
           width: 19%;
           height: 64px;
+          font-family: 'Noto Sans TC','Noto Sans', '微軟正黑體', "Times New Roman", sans-serif;
+          cursor: pointer;
 
           &:hover {
             background: $red;
@@ -638,7 +552,7 @@ $animationDuration: 1.5s;
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 350px) {
   .eff {
     background-position: bottom;
 
@@ -3030,7 +2944,7 @@ $base-size: 20rem;
         width: 100%;
         color: white;
         margin: 10px auto;
-        font-size: $fzTitle;
+        font-size: $fzMX;
         letter-spacing: 5px;
         text-align: left;
         font-weight: 900;
@@ -3039,7 +2953,7 @@ $base-size: 20rem;
       p {
         color: $white;
         width: 100%;
-        font-size: $fzMd;
+        font-size:1.4rem;
         letter-spacing: 1px;
         padding: 40px 0;
       }
@@ -3090,18 +3004,13 @@ $base-size: 20rem;
           font-weight: 900;
           line-height: 26px;
 
-          &:hover {
-            transform: scale(1.2);
-            color: $orange;
-            cursor: pointer;
-          }
-
           &:nth-child(2) {
             background: $white;
             font-size: $fzSubtitle;
             animation: homeQTextBig 0.4s infinite alternate;
             transform-origin: center;
             animation-delay: 0s;
+            color: $orange;
 
             @keyframes homeQTextBig {
               to {
@@ -3172,7 +3081,7 @@ $base-size: 20rem;
         position: absolute;
         // border: 2px solid green;
         top: -100%;
-        left: 60%;
+        left: 50%;
         max-width: 50%;
         width: 50%;
         height: 100%;
@@ -3220,6 +3129,26 @@ $base-size: 20rem;
           }
         }
       }
+      .homeGotoHealth{
+        display: inline-block;
+        cursor: pointer;
+        position: absolute;
+        right: 5% !important;
+        bottom: 50% !important;
+        padding: 0.8rem 1rem;
+        color: #ECEEE7;
+        background: #EA6227;
+        border: 1px solid #EA6227;
+        font-size: 1rem;
+        width: 7.2% !important;
+        text-align: center;
+        border-radius:3px;
+        text-decoration: none;
+
+        &:hover{
+          background:$red;
+        }
+      }
     }
   }
 }
@@ -3231,19 +3160,18 @@ $base-size: 20rem;
       padding: 0 2%;
 
       .homeIceBox {
-        // border: 1px solid yellow;
-        top: -33% !important;
+        top: -25% !important;
 
         .homeIceOne {
-          width: 15% !important;
+          width: 10% !important;
         }
 
         .homeIceTwo {
-          width: 35% !important;
+          width: 25% !important;
         }
 
         .homeTapBox {
-          top: 10% !important;
+          top: -15% !important;
 
           .homeTapUp {
             display: initial !important;
@@ -3253,12 +3181,31 @@ $base-size: 20rem;
             display: initial !important;
           }
         }
+        .homeGotoHealth{
+          display: inline-block;
+          cursor: pointer;
+          position: absolute;
+          right: 5% !important;
+          bottom: 50% !important;
+          padding: 0.8rem 1rem;
+          color: #ECEEE7;
+          background: #EA6227;
+          border: 1px solid #EA6227;
+          font-size: 1rem;
+          width: 7.2% !important;
+          text-align: center;
+          border-radius:3px;
+          text-decoration: none;
+
+          &:hover{
+            background:$red;
+          }
+        }
       }
     }
   }
 }
-
-@media (min-width: 375px) and (max-width: 576px) {
+@media (min-width: 350px) and (max-width: 576px) {
   .homeSection-3 {
     height: 100%;
 
@@ -3277,7 +3224,7 @@ $base-size: 20rem;
       }
 
       .homeOrder {
-        margin-top: 10%;
+        height: 380px !important;
 
         .homeQuestionTitle {
           margin: 0 !important;
@@ -3290,57 +3237,8 @@ $base-size: 20rem;
       }
 
       .homeIceBox {
-        // border: 1px solid red;
-        margin-bottom: 30px !important;
-        top: -30px !important;
-
-        .homeIceOne {
-          // top: -20% !important;
-        }
-
-        .homeIceTwo {
-          // top: -65px !important;
-          // left: 95px !important;
-          // width: 45% !important;
-        }
-
-        .homeTapBox {
-          .homeTapUp {
-            //隱藏敲黑板
-            display: none;
-          }
-
-          .homeTwBoy {
-            //隱藏敲黑板人物
-            display: none;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: 320px) {
-  .homeSection-3 {
-    .homeBlackBoardContainer {
-      .homeBlackBoardTit {
-        width: 90% !important;
-      }
-
-      .homeOrder {
-        width: 75% !important;
-
-        .homeQuestionTitle {
-          margin: 0 !important;
-        }
-
-        .homeQuesionBox {
-          margin-left: -15px !important;
-        }
-      }
-
-      .homeIceBox {
-        bottom: 18%;
+        top: -100px !important;
+        padding-bottom: 2% !important;
 
         .homeIceOne {
           width: 30%;
@@ -3362,6 +3260,11 @@ $base-size: 20rem;
             //隱藏敲黑板人物
             display: none;
           }
+        }
+        .homeGotoHealth{
+          right: 30% !important;
+          bottom: -40% !important;
+          width: 30% !important;
         }
       }
     }

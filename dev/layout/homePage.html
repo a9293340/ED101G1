@@ -229,15 +229,15 @@
       <p class="homeQuestionTitle">Q : 請問您的手腳是否常常感到容易冰冷呢？</p>
       <div class="homeQuesionBox">
         <label class="homeTest">
-          <input class="homeQinput" type="radio" name="homeFood">
+          <input class="homeQinput" type="radio" name="homeFood" onclick="return false">
           時常冰冷
         </label>
         <label class="homeTest">
-          <input class="homeQinput homeQcheck" type="radio" name="homeFood" checked>
+          <input class="homeQinput homeQcheck" type="radio" name="homeFood" onclick="return false">
           會盜汗
         </label>
         <label class="homeTest">
-          <input class="homeQinput" type="radio" name="homeFood">
+          <input class="homeQinput" type="radio" name="homeFood" onclick="return false">
           正常
         </label>
       </div>
@@ -251,8 +251,10 @@
         <img class="homeTwBoy" id="homeTapPic" src="./images/homeHealth/homeHealthLogo.png" />
       </div>
       <!--end TW人物角色 -->
+      <!-- 前往測驗-->
+      <a class="homeGotoHealth" href="./health.html">前往測驗</a>
+      <!-- end 前往測驗-->
     </div>
-
   </div>
 </section>
 <!-- end 第 3 屏 -->

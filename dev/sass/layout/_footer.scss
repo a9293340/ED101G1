@@ -4,13 +4,10 @@
     background-color: #595959;
     font-size: $fzContent;
     line-height: 50px;
-    height: 50px;
+    height: 50px; //置底給高。並在過短的主體頁 加上 min-height: calc(100vh - 50px);
     margin-top: -50px;
     width: 100%;
     text-align: center;
-    // bottom: 0;  //置底
-    // position: fixed; //置底
-    // right: 0; //置底
     .homeFooterBox {
         margin: 0 auto;
         margin-top: -50px;
@@ -27,11 +24,6 @@
                         color: $lightGrey;
                     }
                 }
-                // &:first-child {
-                //     // letter-spacing: 1px;
-                //     // float: left;
-                //     // padding-right: 25%;
-                // }
                 .homePhone {
                     letter-spacing: 2px;
                     float: right;
