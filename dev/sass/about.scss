@@ -1,9 +1,14 @@
 @import "./main";
 @import url('https://fonts.googleapis.com/css?family=Stalemate');
 
-#homeTwoScreen .top_group .navgroup .aboutus{
+.container {
+  min-height: calc(100vh - 195px);
+}
+
+#homeTwoScreen .top_group .navgroup .aboutus {
   color: $orange;
   font: 12px;
+
   &:before {
     content: "";
     overflow: hidden;
@@ -347,16 +352,31 @@ $color: #333; // the rest
   left: 0;
   top: 0;
 }
-.homeFooter{
+
+@media(min-width: 1000px)and(max-width: 1200px) {
+  .book-wrapper {
+    margin: 10% 20%;
+    width: 595px;
+  }
+
+  .container {
+    min-height: calc(100vh - 185px);
+  }
+
+
+
 
 }
-@media(max-width: 350px){
-  .container{
-    .book-wrapper{
+
+
+
+@media(max-width: 350px) {
+  .container {
+    .book-wrapper {
       transform: scale(.5);
-    position: relative;
-    margin: 6% -44%;
-    width: 595px;
+      position: relative;
+      margin: 6% -44%;
+      width: 595px;
     }
   }
 
