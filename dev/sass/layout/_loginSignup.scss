@@ -27,8 +27,6 @@
   flex-wrap: wrap;
   position: relative;
   list-style: none;
-  // background-color:$white;
-  // box-shadow:  0 0 1em $lightGrey;
 
     .homeTab {
       display: none;
@@ -36,8 +34,7 @@
 
     .homeTab:checked + label {
       cursor: default;
-      color: $white;
-      background-color:$green;
+      background-color:$white;
     }
     .homeTab + label {
       cursor: pointer;
@@ -45,7 +42,7 @@
       text-decoration: none;
       flex-grow: 3;
       text-align: center;
-      background-color:$white;
+      background:$green;
       user-select: none;
       text-align: center;
       transition: 0.3s background-color ease;
