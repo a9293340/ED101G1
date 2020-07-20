@@ -4,7 +4,8 @@ let bkGo = document.getElementsByClassName('bkFoBtn')[2];
 let bkLoginLightBox = document.getElementById('bkLogin');
 let bkEndLogin = document.getElementById('bkEndLogin');
 function gogoPower(){
-
+    document.getElementById('exampleInputEmail').value = 'ed101';
+    document.getElementById('exampleInputPassword').value = 'ed101';
     bkLogin.addEventListener('click',(e)=>{
         e.preventDefault;
         bkLoginLightBox.classList.toggle('bk2None');
