@@ -10,7 +10,7 @@
         $member->bindValue(":memPhone", $_POST["memPhone"]);
         $member->execute();
     
-        echo "<script>alert('新增成功');location.href='../order.html';</script>";
+        echo "<script>alert('新增成功');location.href='../homepage.html';</script>";
     }catch(PDOException $e){
       echo $e->getMessage();
     }

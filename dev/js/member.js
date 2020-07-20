@@ -56,11 +56,11 @@ function gogoPower(){
                 }
                 if(Number(changeCount) == 3){
                     // let now = new Date();
-                    if(new Date(this.memData.memPlayTime) > new Date()){
-                        // alert('aaa')
-                        $(".infoText").html("遊玩次數達到本日上線囉~明日請早");
-                        $("button").hide();
-                    }
+                    // if(new Date(this.memData.memPlayTime) > new Date()){
+                    //     // alert('aaa')
+                    //     $(".infoText").html("遊玩次數達到本日上線囉~明日請早");
+                    //     $("button").hide();
+                    // }
                     document.getElementById('memSimpleUsage').innerText = '';
                     tomotoTypeIt();
                     setInterval(()=>{
@@ -547,6 +547,9 @@ function gogoPower(){
                     type: "GET",
                     url: "./php/memajax1.php",
                     success: function (response) {
+                        if(JSON.parse(response)[0] == 0){
+                            location.href = './homepage.html'
+                        }
                         memVm.$data.memData = JSON.parse(response)[0][0];
                         memVm.$data.memOrder = JSON.parse(response)[1];
                         for(let i = 0; i < memVm.$data.memOrder.length; i++){
@@ -558,9 +561,6 @@ function gogoPower(){
                         memVm.$data.memHealth = JSON.parse(response)[2];
                         memVm.$data.memOrderPages = Math.ceil(memVm.$data.memOrder.length / memVm.$data.memPage);
                         console.log(JSON.parse(response));
-                        // this.memData = JSON.parse(response)[0][0];
-                        // this.memOrder = JSON.parse(response)[1];
-                        // this.memHealth = JSON.parse(response)[2];
                         for(let i = 0; i<memVm.$data.memHealth.length;i++){
                             let objColdHot = {x:new Date(memVm.$data.memHealth[i].healLastTime),y:memVm.$data.memHealth[i].healColdHot};
                             let objhealth = {x:new Date(memVm.$data.memHealth[i].healLastTime),y:memVm.$data.memHealth[i].healHealth};

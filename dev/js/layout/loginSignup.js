@@ -1,9 +1,9 @@
 let homeLoginSignup = new Vue({
     el:'#homeContainer',
     data:{
-        homeLoginMail:'',
+        homeLoginMail:'f1020@gmail.com',
         homeLoginMailWarning:'',
-        homeLoginPsw:'',
+        homeLoginPsw:'a1234567A',
         homeLoginPswWarning:'',
         homeSignupName:'',
         homeSignupNameWarning:'',
