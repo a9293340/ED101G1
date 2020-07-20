@@ -245,7 +245,7 @@
                 <div class="buy_card3" v-if="item.setStatus==1 && item.setClass ==1" v-for="item in orderSetdo">
                     <img :id="'setdoimg'+item.setId" :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200"
                         height="200">
-                    <div class="buy_name">{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}</div>
+                    <div class="buy_name"><span style="color: brown;">(季節)</span>{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}</div>
 
                     <div><button class="orderbutton" :id="'setdocountminus'+item.setId"
                             :data-num="item.setId">-</button><span class="ordercount"
