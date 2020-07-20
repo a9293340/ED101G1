@@ -1,6 +1,25 @@
 @import "./main";
 @import url('https://fonts.googleapis.com/css?family=Stalemate');
 
+.kitchen_picatext{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img{
+    border-radius: 20px;
+    width: 800px;
+    height: 533px;
+  }
+.title{
+margin-bottom: 2%;
+  font-size: 2rem;
+}
+.pint{
+  font-size: 1.4rem;
+  margin-top: 2%;
+}
+}
+
 .container {
   min-height: calc(100vh - 195px);
 }
@@ -159,6 +178,7 @@
       align-items: center;
       background-color: #fff;
       position: relative;
+      border-radius: 20px;
 
       #closebtn {
         position: absolute;
@@ -196,6 +216,7 @@
       align-items: center;
       background-color: #fff;
       position: relative;
+      border-radius: 20px;
 
       #closebtns {
         position: absolute;

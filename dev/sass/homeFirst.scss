@@ -12,9 +12,6 @@
   transition: all $transition ease;
 }
 
-// img:not([src]),img[src=""]{
-//   opacity: 0;
-// }
 section {
   // text-align: center;
   font-size: 0;
@@ -1105,7 +1102,8 @@ $base-size: 20rem;
           @include top_img_size {}
 
           img {
-            height: 190px;
+            height: 200px;
+            width: 250px;
           }
         }
 
@@ -1225,7 +1223,7 @@ $base-size: 20rem;
       .light_box {
         position: absolute;
         width: 875px;
-        height: 400px;
+        height: 500px;
         background-color: #fff;
         display: flex;
         justify-content: space-around;
@@ -1240,7 +1238,8 @@ $base-size: 20rem;
 
           .top_img {
             img {
-              height: 190px;
+              height: 200px;
+              width: 250px;
             }
           }
 
@@ -1523,7 +1522,7 @@ $base-size: 20rem;
         bottom: 0;
         width: 100%;
         height: 100%;
-        color: #7DC7A2;
+        color: #30BD51;
         transform: translate3d(0, -100%, 0);
         /* 先把顏色藏起 */
         transition: transform $indexHoverAT 0.1s;
@@ -2144,7 +2143,7 @@ $base-size: 20rem;
           bottom: 0;
           width: 100%;
           height: 100%;
-          color: #50C878;
+          color: #30BD51;
           transform: translate3d(0, -100%, 0);
           /* 先把顏色藏起 */
           transition: transform $indexHoverAT 0.1s;
@@ -2771,7 +2770,7 @@ $base-size: 20rem;
           bottom: 0;
           width: 100%;
           height: 100%;
-          color: #7DC7A2;
+          color: #30BD51;
           transform: translate3d(0, -100%, 0);
           /* 先把顏色藏起 */
           transition: transform $indexHoverAT 0.1s;
@@ -3315,6 +3314,7 @@ $base-size: 20rem;
     left: 7%;
     top: 7%;
     font-size: 2.5rem;
+    font-weight: 900;
   }
 }
 
@@ -3621,7 +3621,12 @@ svg {
   }
 
   //第二slider
+  .stext{ 
+    position: relative;
+    left: 15%;
+    font-size: 2rem;
 
+  }
   .slider_2 {
     // border: 1px solid red;
     //  flex: 1;
