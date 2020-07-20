@@ -3982,7 +3982,11 @@ function buildLine1() {
   });
   for (i = 0; i < 10; i++) {
     faultGroup1.add(Animation1(), i * 0.17);
-  }
+  };
+  setTimeout(function () {
+     $(".fault1").css("display","none");
+  },10000)
+ 
 }
 
 

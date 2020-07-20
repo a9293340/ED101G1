@@ -60,7 +60,10 @@
                 <div class="memMyFileDataBox">
                     <h2 class="memHealthDataShowTitle">基本資料</h2>
                     <div class="memHealthDataShowDataBox">
-                        <p>性別：{{memData.memGender}}</p>
+                        <p>性別：
+                            <span v-if='memData.memGender == 0'>男</span>
+                            <span v-if='memData.memGender == 1'>女</span>
+                        </p>
                         <!-- 避免還沒接收檔案時就渲染會報錯 -->
                         <p v-if='memHealth[0]'>身高：{{memHealth[0].healNewheight}} cm</p>
                         <p v-if='memHealth[0]'>體重：{{memHealth[0].healNewWeight}} kg</p>

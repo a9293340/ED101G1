@@ -24,16 +24,7 @@ $(window).on('scroll', function (event) {
 });
 
 
-var btn_switch = $('.btn_switch'),
-  navgroup_rwd = $('.navgroup_rwd'),
-  overlay = $('.overlay');
-btn_switch.on('click', function () {
-  navgroup_rwd.toggleClass('open');
-  $('.bgl').toggleClass('translateY');
-  $('.bottom').toggleClass('turnN');
-  $('.top').toggleClass('turnX');
-  $('.navgroup a').toggleClass('test');
-});
+
 
 
 
