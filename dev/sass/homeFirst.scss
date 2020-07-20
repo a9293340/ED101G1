@@ -205,7 +205,7 @@ section {
           margin: 0 2%;
           width: 19%;
           height: 64px;
-          font-family: 'Noto Sans TC','Noto Sans', '微軟正黑體', "Times New Roman", sans-serif;
+          font-family: 'Noto Sans TC', 'Noto Sans', '微軟正黑體', "Times New Roman", sans-serif;
           cursor: pointer;
 
           &:hover {
@@ -508,7 +508,7 @@ $animationDuration: 1.5s;
     h1,
     h2 {
       font-size: $fzXl !important;
-      color:$green !important; //字變綠
+      color: $green !important; //字變綠
       text-shadow: 0 0 0.1em #fff, 0 0 0.1em #Fff; //加強字體
     }
 
@@ -612,7 +612,7 @@ $animationDuration: 1.5s;
     h1,
     h2 {
       font-size: $fzXl !important;
-      color:$green !important; //字變綠
+      color: $green !important; //字變綠
       text-shadow: 0 0 0.1em #fff, 0 0 0.1em #Fff; //加強字體
     }
 
@@ -2738,6 +2738,7 @@ $base-size: 20rem;
         left: 0;
         bottom: 0;
         width: 100%;
+        font-size: 2rem;
       }
 
       &-back {
@@ -2959,7 +2960,7 @@ $base-size: 20rem;
         width: 100%;
         color: white;
         margin: 10px auto;
-        font-size:2.5rem;
+        font-size: 2.5rem;
         letter-spacing: 5px;
         text-align: left;
         font-weight: 900;
@@ -2968,7 +2969,7 @@ $base-size: 20rem;
       p {
         color: $white;
         width: 100%;
-        font-size:1.4rem;
+        font-size: 1.4rem;
         letter-spacing: 1px;
         padding: 40px 0;
       }
@@ -3144,7 +3145,8 @@ $base-size: 20rem;
           }
         }
       }
-      .homeGotoHealth{
+
+      .homeGotoHealth {
         display: inline-block;
         cursor: pointer;
         position: absolute;
@@ -3157,11 +3159,11 @@ $base-size: 20rem;
         font-size: 1rem;
         width: 7.2% !important;
         text-align: center;
-        border-radius:3px;
+        border-radius: 3px;
         text-decoration: none;
 
-        &:hover{
-          background:$red;
+        &:hover {
+          background: $red;
         }
       }
     }
@@ -3196,7 +3198,8 @@ $base-size: 20rem;
             display: initial !important;
           }
         }
-        .homeGotoHealth{
+
+        .homeGotoHealth {
           display: inline-block;
           cursor: pointer;
           position: absolute;
@@ -3209,17 +3212,18 @@ $base-size: 20rem;
           font-size: 1rem;
           width: 7.2% !important;
           text-align: center;
-          border-radius:3px;
+          border-radius: 3px;
           text-decoration: none;
 
-          &:hover{
-            background:$red;
+          &:hover {
+            background: $red;
           }
         }
       }
     }
   }
 }
+
 @media (min-width: 350px) and (max-width: 576px) {
   .homeSection-3 {
     height: 100%;
@@ -3276,7 +3280,8 @@ $base-size: 20rem;
             display: none;
           }
         }
-        .homeGotoHealth{
+
+        .homeGotoHealth {
           right: 30% !important;
           bottom: -40% !important;
           width: 30% !important;
@@ -3319,7 +3324,7 @@ svg {
 }
 
 .slider-container {
-  width: 80%;
+  width: 90%;
   /* margin-top: 150px; */
   /* margin: 20% 10%; */
   overflow: hidden;
@@ -3503,6 +3508,10 @@ svg {
       position: absolute;
       left: 4%;
       top: 68%;
+      color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      background-color: rgb(0, 0, 0);
     }
 
     .location {
@@ -3843,7 +3852,7 @@ svg {
 
 ;
 
-@media (min-width: 1000px) and (max-width: 1200px) {
+@media (min-width: 1000px) and (max-width: 1400px) {
 
   .slide__content {
     .slider_1_left {
@@ -4001,6 +4010,22 @@ svg {
 
 @media (min-width: 350px) and (max-width: 576px) {
 
+  .arrow {
+    display: none;
+  }
+
+  .slide__content .slider_2 {
+    display: none;
+  }
+
+  .kitchen {
+    display: none;
+  }
+
+  .store_group .standee {
+    left: -50%;
+    top: 32%;
+  }
 
   .slide__content {
     .slider_1_right_bg {
