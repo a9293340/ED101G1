@@ -1,7 +1,8 @@
 let talkArray = [];
+//全域變數
 let bentonArray = [];
 let benton = [];
-let bentonWallNumber = 9;
+let bentonWallNumber = 9; //一頁有幾個便當卡片
 let currentPager = 0;
 let lastLikeTime = "";
 
@@ -234,9 +235,10 @@ new Vue({
         },
       });
     },
-
+    //新增便當
     showBentonList() {
       this.loadSingelOrderImg();
+      //判斷是否會員有登入
       let username = window.sessionStorage.getItem("memId");
       if (username !== "good") {
         alert("請先登入會員!");
@@ -272,8 +274,26 @@ let addBentonVm = new Vue({
       $(`#bentonLi${item.id}`).css("border-color", "rgb(231, 70, 21)");
       this.img = item.img; //變成全域變數
       this.chooseImgID = `bentonLi${item.id}`; //變成全域變數，以便上一步記得選擇的benton
+
       this.addBentonId = item.id;
     },
+
+    showBentonStep1(isShow) {
+      if (this.img == "" || this.chooseImgID == "") {
+        alert("你還沒選擇喜愛的自選便當喔!!");
+        return;
+      } else {
+        this.showBentonImgList = isShow;
+      }
+    },
+    showCloselightbox() {
+      $(".box1").css("display", "none");
+      $(".showbentonCover").css("display", "none");
+      $("body").css("overflow", "auto");
+
+      this.showBentonImgList = true; //重開回到Step1
+    },
+
     //輸入標題字數限制
     checkTitle() {
       let maxLength = 25;
@@ -294,21 +314,6 @@ let addBentonVm = new Vue({
       }
     },
 
-    showBentonStep1(isShow) {
-      if (this.img == "" || this.chooseImgID == "") {
-        alert("你還沒選擇喜愛的自選便當喔!!");
-        return;
-      } else {
-        this.showBentonImgList = isShow;
-      }
-    },
-    showCloselightbox() {
-      $(".box1").css("display", "none");
-      $(".showbentonCover").css("display", "none");
-      $("body").css("overflow", "auto");
-
-      this.showBentonImgList = true;
-    },
     SendBenton() {
       let step2Title = $("#Step2TitlText").val();
       let step2Content = $("#Step2ContentText").val();
@@ -338,105 +343,25 @@ let addBentonVm = new Vue({
           console.log(jqXHR, "error");
         },
       });
-
+      //新增後資料清空
       this.message = "";
       this.messageContent = "";
       this.chooseImgID = "";
       $(".box1").css("display", "none");
       $(".showbentonCover").css("display", "none");
       $("body").css("overflow", "auto");
-      this.showBentonImgList = true;
+      this.showBentonImgList = true; //重開回到Step1
     },
   },
   updated() {
+    //回上一步，因頁面改變而觸發以下判斷
     if (this.showBentonImgList === true && this.chooseImgID !== "") {
       $(`#${this.chooseImgID}`).css("border-color", "rgb(231, 70, 21)");
     }
   },
 });
 
-//-----------產出便當便貼
-
-// document.getElementById("showBentonImg").innerHTML = "";
-// for (let i = 0; i < this.bentonArray.length; i++) {
-//   let arrBentonImg = this.bentonArray[i].bentonImg; //arr圖片
-//   let arrBentonTitle = this.bentonArray[i].title; //arr標題
-//   let arrBentonContent = this.bentonArray[i].content; //arr內文
-//   document.getElementById("showBentonImg").innerHTML += `
-//   <div class='shareBenton'>
-//   <img src='${arrBentonImg}' class='shareBentonImg'/>
-//   <p class='shareBentonText'>${arrBentonTitle}</p>
-//   <p class='shareBentonContent'>${arrBentonContent}</p>
-//   <img src='./images/showbenton/conversation.png' class='conversation'/>
-//   <img src='./images/showbenton/like.png' class='like' data-index='${i}'/>
-//   <span class='liketimes'>0<span>
-// </div>`;
-
-// $(".shareBenton").remove();
-// $("#showBentonImg").append(
-// `<div class='shareBenton'>
-//   <img src='${arrBentonImg}' class='shareBentonImg'/>
-//   <p class='shareBentonText'>${arrBentonTitle}</p>
-//   <p class='shareBentonContent'>${arrBentonContent}</p>
-//   <img src='./images/showbenton/conversation.png' class='conversation'/>
-//   <img src='./images/showbenton/like.png' class='like' @click='showbentonLikeTimes'/>
-//   <span class='liketimes'>0<span>
-
-// </div>`
-// );
-
-// $("#showBentonImg div")
-//   .eq(i)
-//   .addClass("group" + i);
-//新增分享便當的標題
-// $(`#showBentonImg div.group${i} p`).eq(0).addClass("shareBentonText");
-// $(`#showBentonImg div.group${i} p`)
-//   .eq(1)
-//   .addClass("shareBentonContent");
-//讚圖
-// $(`#showBentonImg div.group${i} img`).eq(2).addClass("like");
-//對話圖
-// $(`#showBentonImg div.group${i} img`).eq(1).addClass("conversation");
-// }
-// //按讚圖
-// for (let j = 0; j < document.getElementsByClassName("like").length; j++) {
-//   document
-//     .getElementsByClassName("like")
-//     [j].addEventListener("click", showbentonLikeTimes);
-// }
-//內容物如下
-//新增分享便當的圖片
-// $("#showBentonImg img").addClass("shareBentonImg");
-//新增分享便當的便貼區塊
-// $("#showBentonImg div").addClass("shareBenton");
-//新增按讚數
-// $("#showBentonImg span").addClass("liketimes");
-
-//   },
-// });
-//---------------------------------------按讚數
-// $("#like_img").click(function () {
-//   let like_num = $("#like_num").text();
-//   let like_num1 = parseInt(like_num) + 1;
-//   $("#like_num").text(like_num1);
-
-// });
-
-// function showbentonLikeTimes(e) {
-// let like_num = $(".liketimes").text();
-// let like_num1 = parseInt(like_num) + 1;
-// $(".liketimes").text(like_num1);
-// console.log("a");
-//   console.log(parseInt(e.target.dataset.index));
-//   document.getElementsByClassName("liketimes")[
-//     parseInt(e.target.dataset.index)
-//   ].innerText =
-//     parseInt(
-//       document.getElementsByClassName("liketimes")[
-//         parseInt(e.target.dataset.index)
-//       ].innerText
-//     ) + 1;
-
+//便當牆
 let bentonWallVm = new Vue({
   el: "#bentonWall",
   data: {
@@ -534,8 +459,8 @@ let bentonWallVm = new Vue({
         url: "./php/showbentonTalkBlock.php", //傳送目的地 (之後統整要修改網址)
         dataType: "json", //資料格式
         data: {
-          talkmessage: talkContent,
-          messPostId: this.addBentonmessPostId,
+          talkmessage: talkContent, //發文內容
+          messPostId: this.addBentonmessPostId, //發文編號
         },
         success: function (data) {
           bentonWallVm.$data.talkArray = data;
@@ -562,7 +487,6 @@ let bentonWallVm = new Vue({
     },
     //按讚數
     change(num) {
-      //let num = Number(this.currentPager * this.bentonWallNumber + index);
       //判斷是否會員登入狀態
       let username = window.sessionStorage.getItem("memId");
       if (username !== "good") {
@@ -621,7 +545,7 @@ let bentonWallVm = new Vue({
         dataType: "json", //資料格式
         data: {
           reportReason: $('input[name="reportMes"]:checked').val(),
-          messId: this.reportMessId,
+          messId: this.reportMessId, //須找到留言編號
         },
         success: function (data) {
           console.log(data);
