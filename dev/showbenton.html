@@ -20,7 +20,7 @@
       <p class="showTitle">
         SHOW便當
       </p>
-      <p class="showTitle1">美味便當分享區</p>
+      <p class="showTitle1">自選便當分享區</p>
     </div>
     <!----------------新增按鈕--------------->
     <div id="addBenton" class="addBenton" @click="showBentonList">
@@ -29,8 +29,6 @@
 
     <div class="kitchenTool"></div>
 
-    <!------------------格線------------------>
-    <!-- <div class="grid"></div> -->
     <!----------------跳出燈箱--------------->
     <div class="showbentonCover"></div>
     <div id="lightbox" class="showBentonListLightbox box1">
@@ -55,7 +53,7 @@
               alt=""
             />
           </li>
-          <div class="noBentonChoose" v-if='benton.length == 0'>您尚未訂購過自選便當喔!Q.Q <br>趕快到<span style="font-weight: 600;">我要訂餐>自選便當</span> 來搭配屬於自己的美味便當吧!</span> 請點選<a href="./order.html" class="makeBenton">這裡</a>。</div>
+          <div class="noBentonChoose" v-if='benton.length == 0'><span style="display:block;margin-bottom:10px;font-size: 30px;">您尚未訂購過自選便當喔 Q.Q </span><br>趕快到<span style="font-weight: 600;">我要訂餐>自選便當</span> 來搭配屬於自己的美味便當吧！請點選<a href="./order.html" class="makeBenton">這裡</a>。</div>
         </ul>
         <div class="confirmBentonBox1">
           <button class="Next" @click="showBentonStep1(false)">
@@ -101,13 +99,14 @@
         </div>
       </div>
     </div>
-<p class="bentonWallTitle">營養好搭配　健康送到家</p>
+<p class="bentonWallTitle">營養好搭配　美味送到家</p>
 <div class="bentonWallNote"><img style="width:20px; height:20px;" src="./images/showbenton/like.png"/>：會員一天可按一次讚，並於24小時後即可再執行。</div>
     <div class="showBentonImg" id="bentonWall">
-      <div
+      <!--  bentonDiv'+(currentPager * bentonWallNumber + index) 為了區隔第一頁和第二頁的按讚數index -->
+      <div 
         class="shareBenton"
         v-for="(notes,index) in bentonCardArray"
-        :id="'bentonDiv'+(currentPager * bentonWallNumber + index)"
+        :id="'bentonDiv'+(currentPager * bentonWallNumber + index)" 
         :key="index"
       >
         <div class="WallSharebentonImg">
@@ -120,7 +119,7 @@
           />
         </div>
         <p id="Step2TitlText">{{notes.title}}</p>
-        <div class="ranking" style="margin: 30px 0 5px; text-align: right;">
+        <div class="ranking" style="margin: 20px 0 5px; text-align: right;">
           <img
             class="conversation"
             @click="openLightBox(notes, index)"
@@ -165,7 +164,7 @@
             <button class="buyMore" id="buyMore" @click="buyMore(currentBenton.postSoId)">加入購物車</button>
             <div class="memTextBlock">
               <img :src="currentBenton.memImage" class="memPicture" />
-              <p class="member">{{currentBenton.memName}}</p>
+              <p class="member">創作者：{{currentBenton.memName}}</p>
               <p id="ContentTitlText">{{currentBenton.title}}</p>
               <p class="contentText">
                 {{currentBenton.content}}
