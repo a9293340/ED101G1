@@ -190,7 +190,7 @@ function doFirst() {
         }
 
     }
-
+    var chartBmi = 0;
 
 
     function goToFinalHealthPage() {
@@ -200,33 +200,40 @@ function doFirst() {
             console.log('過胖');
             healthChooseMenu('fat');
             pushDataToHealthAnalys(2);
+            chartBmi = Math.floor(Math.random() * 30) + 65;
+            console.log(chartBmi);
             return;
         } else if (BMIbox < 18) {
             healthTitle.innerText = `三比八體質`;
             console.log('過瘦')
             healthChooseMenu('thin');
             pushDataToHealthAnalys(3);
+            chartBmi = Math.floor(Math.random() * 30) + 0;
             return;
         } else if (avgScoreBox[2] > 65) {
             healthTitle.innerText = `燥呼呼體質`;
+            chartBmi = Math.floor(Math.random() * 30) + 35;
             console.log('燥熱')
             healthChooseMenu('hot');
             pushDataToHealthAnalys(1);
             return;
         } else if (avgScoreBox[2] < 45) {
             healthTitle.innerText = `冷吱吱體質`;
+            chartBmi = Math.floor(Math.random() * 30) + 35;
             console.log('虛寒')
             healthChooseMenu('cold');
             pushDataToHealthAnalys(0);
             return;
         } else if ((avgScoreBox[0] + avgScoreBox[1]) / 2 < 50) {
             healthTitle.innerText = `煩惱憂憂型`;
+            chartBmi = Math.floor(Math.random() * 30) + 35;
             console.log('身體欠佳')
             healthChooseMenu('bad');
             pushDataToHealthAnalys(4);
             return;
         } else {
             healthTitle.innerText = `幸褔樂樂型`;
+            chartBmi = Math.floor(Math.random() * 30) + 35;
             console.log('快樂')
             healthChooseMenu('good');
             pushDataToHealthAnalys(5);
@@ -250,33 +257,35 @@ function doFirst() {
             healNewheight: height,
             healLastTime
         })
-
-        var ctx = document.getElementById("example"),
-            example = new Chart(ctx, {
-                // 參數設定[註1]
-                type: "pie", // 圖表類型
-                data: {
-                    labels: ["BMI", "腸胃&生活作息", "寒燥"], // 標題
-                    datasets: [{
-                        label: "# of Votes", // 標籤
-                        data: [healthColdHot, healHealth, healStomach], // 資料
-                        backgroundColor: [ // 背景色
-                            "#FF3030",
-                            "#FFAC12",
-                            "#0aa3f5",
-                        ],
-                        borderWidth: 1 // 外框寬度
-                        // healthColdHot,
-                        // healHealth,
-                        // healStomach,
-                    }]
-                }
+        setTimeout(function () {
+            var ctx = document.getElementById("example"),
+                example = new Chart(ctx, {
+                    // 參數設定[註1]
+                    type: "pie", // 圖表類型
+                    data: {
+                        labels: ["寒燥值", "腸胃值＆生活作息", "BMI"], // 標題
+                        datasets: [{
+                            label: "# of Votes", // 標籤
+                            data: [healthColdHot, (healHealth + healStomach) / 2, chartBmi], // 資料
+                            backgroundColor: [ // 背景色
+                                "#FF3030", //red
+                                "#FFAC12", //oranged
+                                "#0aa3f5", //skyBlue
+                            ],
+                            borderWidth: 1 // 外框寬度
+                            // healthColdHot,
+                            // healHealth,
+                            // healStomach,
+                        }]
+                    }
+                });
+            $("#healthShow").css("display", "none");
+            $("#healthStandard").ready(function () {
+                $("#healthShow").slideDown("slow");
             });
-        $("#healthShow").css("display", "none");
-        $("#healthStandard").ready(function () {
-            $("#healthShow").slideDown("slow");
-        });
-        Chart.defaults.global.defaultFontSize = 16;
+            Chart.defaults.global.defaultFontSize = 14;
+        }, 0);
+
 
 
 
