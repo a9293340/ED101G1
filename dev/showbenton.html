@@ -158,7 +158,7 @@
                 alt="where is mybenton"
                 width="340"
                 height="260"
-                title="yummy benton"
+                title="yummy benton" 
               />
 						</div>
             <button class="buyMore" id="buyMore" @click="buyMore(currentBenton.postSoId)">加入購物車</button>
@@ -220,10 +220,10 @@
           <p class="cancel" @click="reportBoxClose">取消</p>
           <p class="confirmRport"@click="confirmRport" >檢舉</p>
         </div>
-      </div>
+      </div> 
       <!-- 分頁 -->
       <div class="bontonPagesBox">
-        <div class="bontonContentPages" 
+        <div class="bontonContentPages"  
             :id="'pagesIndex' + index"
             v-for='(notes,index) in bentonArray' 
             v-if='index < bentonWallPages'
