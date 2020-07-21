@@ -266,7 +266,7 @@ $('#log_out').click(function(e){
             sessionStorage['memId'] = 'bad';
             sessionStorage['memImage'] = 'bad';
             sessionStorage['memName'] = '';
-            location.href='./order.html';
+            location.href='./homepage.html';
             // $('#member_aflogin').hide();
             // $('#member').show(500);
         }
