@@ -215,11 +215,39 @@
     border-radius: 5px;
   }
   .orderscoreAlert{
-    position: relative;
-  }
-  .orderScoreText{
+    position: relative;   
+    .orderScoreText{
+    display: none;
+    background-color: white;
+    border-radius: 5px;
+    // border: 1px solid black;
+    padding: 3px;
     position: absolute;
+    color:#595959;
+    font-size: 13px;
+    width: 200px;
+    left:80px;
+    top:0px;
   }
+  .orderscoreOpen{
+         &:hover{
+        .orderScoreText{
+          display: block;
+        }
+      }
+    }
+  
+    img{
+      position: absolute;
+      top:2px;
+      left: 40px;
+      cursor: pointer;
+    
+    } 
+ 
+     
+  }
+ 
  
 }
 
