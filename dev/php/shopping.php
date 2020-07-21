@@ -48,7 +48,7 @@ try{
         $singleId3 = $value;
     }
     if($key == 'soImg'){
-        $soImg ="./images/singlePiC/202007062349030.png";
+        $soImg =$value;
         
     }
 }
