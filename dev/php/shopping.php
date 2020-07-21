@@ -67,7 +67,7 @@ $soImg = str_replace('data:image/png;base64,', '', $soImg);
 $soImg = str_replace(' ', '+', $soImg);
 
 $data = base64_decode($soImg);
-
+ 
 $fileName = date("YmdHis"); 
 
 $file = $upload_dir . $fileName . $i . ".png";
