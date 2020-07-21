@@ -33,7 +33,11 @@ var singleorderlist = new Vue({   //購物車 vue
 
 
 localStorage.setItem('orderClass',orderClass);
-
+if(localStorage.getItem('HeaderorderClass')){
+    orderClass=1;
+    localStorage.setItem('orderClass',orderClass);
+    document.getElementById('orderAddress').innerHTML='外帶';
+}    
 
 function setcart() {          //一開始自選購物車重新渲染
     SinglePrice = 0 ;
@@ -394,15 +398,15 @@ function orderBuy(){
     totalOrderPost.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     totalOrderPost.send("totalOrder=" + JSON.stringify(totalOrder));
     totalOrderPost.onload = function(){
-        // var posttest = JSON.parse(totalOrderPost.responseText);
+        var posttest = JSON.parse(totalOrderPost.responseText);
         // var posttest = totalOrderPost.responseText;
-        // console.log(posttest);
-        // if(totalOrderPost.responseText == "error"){
-        //     alert("Error");
-        //   }else{
-        //     alert('Succesfully uploaded');  
+        console.log(posttest);
+        if(totalOrderPost.responseText == "error"){
+            alert("Error");
+          }else{
+            alert('Succesfully uploaded');  
     
-        //   }
+          }
        
         }
         sessionStorage.setItem('orderMemScore',parseInt(MemScore)+parseInt(OrYourScore));
@@ -446,6 +450,10 @@ function orderBuy(){
     let btn = document.getElementById('btn');
     let gps = document.getElementById('gps');
     btn.addEventListener('click',()=>{
+        if(input.value==''){
+            alert('請輸入地址');
+        }else{
+
         service.getDistanceMatrix(
         {
             origins: [input.value],
@@ -475,6 +483,7 @@ function orderBuy(){
             }
             }
         });
+        }
         input.value = '';
     });
     gps.addEventListener('click',()=>{

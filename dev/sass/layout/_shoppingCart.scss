@@ -198,6 +198,7 @@
     color: white;
     cursor: pointer;
     transition: .5s;
+    outline: none;
     font-family: 'Noto Sans TC','Noto Sans', '微軟正黑體', "Times New Roman", sans-serif;
     &:hover {
       background-color: rgb(196, 125, 44);
@@ -212,6 +213,12 @@
     background-color: #FFD23F;
     border: none;
     border-radius: 5px;
+  }
+  .orderscoreAlert{
+    position: relative;
+  }
+  .orderScoreText{
+    position: absolute;
   }
  
 }

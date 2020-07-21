@@ -3498,7 +3498,7 @@
 })(jQuery);
 
 $(window).ready(function () {
-  var count = 0;
+    var count = 0;
     $('.pages').turn({
 
       duration: 1500,
@@ -3513,16 +3513,16 @@ $(window).ready(function () {
         turned: function (e, page) {
           console.log('Current view: ', $(this).turn('view'));
           count++;
-          if(count === 1){
-            $(".kitchen").css("opacity","0")
-            $(".cooking").css("opacity","0")
+          if (count === 1) {
+            $(".kitchen").css("opacity", "0")
+            $(".cooking").css("opacity", "0")
             // $(".p23").css("opacity","0")
           }
-          if(count === 2){
-            buildLine()  
+          if (count === 2) {
+            buildLine()
           }
         },
-      
+
 
       }
 
@@ -3536,7 +3536,7 @@ var bodys = ["#Capa_1 > path:nth-child(1)", "#Capa_1 > path:nth-child(2)"];
 var bodys2 = ["#Capa_1 > path:nth-child(3)", "#Capa_1 > g:nth-child(4)"];
 var eyes = ["#Capa_1 > path.rightEye", "#Capa_1 > path.leftEye"];
 var hat = ["#Capa_1 > path:nth-child(9)", "#Capa_1 > g:nth-child(16)", "#Capa_1 > rect", "#Capa_1 > path:nth-child(10)"]
-var face = ["#Capa_1 > polygon", "#Capa_1 > ellipse", "#Capa_1 > ellipse", "#Capa_1 > path:nth-child(8)", "#Capa_1 > circle"]
+var face = ["#Capa_1 > polygon", "#Capa_1 > ellipse", "#Capa_1 > ellipse", "#Capa_1 > path:nth-child(8)", "#Capa_1 > circle"];
 
 
 // var text = gsap.timeline(),
@@ -3549,9 +3549,25 @@ var face = ["#Capa_1 > polygon", "#Capa_1 > ellipse", "#Capa_1 > ellipse", "#Cap
 //   {duration: 2, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=1"
 //   );  
 
+$(".kitchenn").on("click", function () {
+  $(".kitchens").toggleClass("boxTrs");
+  console.log("23");
+});
 
+var closebtn = document.getElementById("closebtn");
+closebtn.addEventListener('click', function () {
+  $(".kitchens").toggleClass("boxTrs");
 
+})
 
+$(".cookingg").on("click", function () {
+  $(".cooks").toggleClass("boxTrss");
+});
+
+var closebtns = document.getElementById("closebtns");
+closebtns.addEventListener('click', function () {
+  $(".cooks").toggleClass("boxTrss")
+})
 
 
 
@@ -3714,8 +3730,8 @@ function buildLine() {
   faultGroup = gsap.timeline({
     // repeat: 5,
     // repeatDelay: 7,
-    onStart:kitchenFn,
-    onComplete:buildLine1,
+    onStart: kitchenFn,
+    onComplete: buildLine1,
   });
   for (i = 0; i < 10; i++) {
     faultGroup.add(Animation(), i * 0.17);
@@ -3723,148 +3739,148 @@ function buildLine() {
 }
 
 
-function kitchenFn(){
+function kitchenFn() {
   // var text = gsap.timeline(),
   // myText = new SplitText(".p23", {type:"words,chars"}),
   // chars = myText.chars;
-  
+
   // gsap.set(".p23", {perspective: 400});
-  
+
   // text.from(chars,
   //   {duration: 2, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.01}, "+=1"
   //   ); 
-  $(".p23").css("opacity","1")
+  $(".p23").css("opacity", "1")
 
-var kitchen_time = gsap.timeline({
-  delay: 3,
-  // repeat: -1,
-  // repeatDelay: 5,
-  // yoyo: 1
-});
-var l_box = ["#Layer_1 > g > g:nth-child(7) > path", "#Layer_1 > g > g:nth-child(30) > path", "#Layer_1 > g > g:nth-child(26) > path"],
-  r_box = ["#Layer_1 > g > g:nth-child(8) > path", "#Layer_1 > g > g:nth-child(25) > path"],
-  kitchen_mainBody = ["#Layer_1 > g > g:nth-child(6) > path"],
-  button = ["#Layer_1 > g > g:nth-child(27) > path", "#Layer_1 > g > g:nth-child(28) > path"],
-  b_box = ["#Layer_1 > g > g:nth-child(9) > path", "#Layer_1 > g > g:nth-child(29) > path"],
-  stove = ["#Layer_1 > g > g:nth-child(22) > path", "#Layer_1 > g > g:nth-child(3) > path", "#Layer_1 > g > g:nth-child(23) > path"],
-  plate = ["#Layer_1 > g > g:nth-child(13) > path", "#Layer_1 > g > g:nth-child(14) > path", "#Layer_1 > g > g:nth-child(15) > path"],
-  machine = ["#Layer_1 > g > g:nth-child(21) > path", "#Layer_1 > g > g:nth-child(1) > path", "#Layer_1 > g > g:nth-child(20) > path"],
-  machine_1 = ["#Layer_1 > g > g:nth-child(17) > path", "#Layer_1 > g > g:nth-child(5) > path", "#Layer_1 > g > g:nth-child(16) > path"],
-  machine_2 = ["#Layer_1 > g > g:nth-child(4) > path", "#Layer_1 > g > g:nth-child(18) > path"],
-  shelf = ["#Layer_1 > g > g:nth-child(2) > path", "#Layer_1 > g > g:nth-child(12) > path"],
-  bottle = ["#Layer_1 > g > g:nth-child(10) > path", "#Layer_1 > g > g:nth-child(11) > path"]
-
-kitchen_time
-  .from(kitchen_mainBody, {
-    ease: "power1.out",
-    duration: 1,
-    scaleY: 0,
-    scaleX: 0,
-    autoAlpha: 0,
-    transformOrigin: "center",
+  var kitchen_time = gsap.timeline({
+    delay: 3,
     // repeat: -1,
-  })
-  .from(l_box, {
-    ease: "bounce.out",
-    duration: 2,
-    scaleX: 0,
-    transformOrigin: "right",
-    autoAlpha: 0,
-    // repeat: -1,
-    stagger: .5,
-  })
-  .from(r_box, {
-    ease: "bounce.out",
-    duration: 2,
-    scaleX: 0,
-    transformOrigin: "left",
-    autoAlpha: 0,
-    // repeat: -1,
-    stagger: .5,
-  }, '<')
-  .from(button, {
-    ease: "bounce.out",
-    duration: .5,
-    scaleY: 0,
-    scaleX: 0,
-    transformOrigin: "center",
-  }, '>-1')
-  .from(b_box, {
-    ease: "bounce.out",
-    duration: 1,
-    y: 200,
-    rotate: 120,
-    stagger: .5,
-  })
-  .from(stove, {
-    ease: "power1.inout",
-    duration: 1,
-    y: 200,
-    stagger: .2,
-    autoAlpha: 0,
-  })
-  .from(plate, {
-    ease: "power1.inout",
-    duration: 1,
-    y: 200,
-    stagger: .3,
-    autoAlpha: 0,
-  }, '<')
-  .from(machine, {
-    ease: "bounce.out",
-    duration: .5,
-    scaleY: 0,
-    scaleX: 0,
-    transformOrigin: "center",
-    // stagger: .3,
-  })
-  .from(machine_1, {
-    ease: "bounce.out",
-    duration: .5,
-    scaleY: 0,
-    scaleX: 0,
-    transformOrigin: "center",
-    // stagger: .3,
-  })
-  .from(machine_2, {
-    ease: "bounce.out",
-    duration: .5,
-    scaleY: 0,
-    scaleX: 0,
-    transformOrigin: "center",
-    // stagger: .3,
-  })
-  .from(shelf, {
-    ease: "back.inOut",
-    duration: 1,
-    scaleY: 0,
+    // repeatDelay: 5,
+    // yoyo: 1
+  });
+  var l_box = ["#Layer_1 > g > g:nth-child(7) > path", "#Layer_1 > g > g:nth-child(30) > path", "#Layer_1 > g > g:nth-child(26) > path"],
+    r_box = ["#Layer_1 > g > g:nth-child(8) > path", "#Layer_1 > g > g:nth-child(25) > path"],
+    kitchen_mainBody = ["#Layer_1 > g > g:nth-child(6) > path"],
+    button = ["#Layer_1 > g > g:nth-child(27) > path", "#Layer_1 > g > g:nth-child(28) > path"],
+    b_box = ["#Layer_1 > g > g:nth-child(9) > path", "#Layer_1 > g > g:nth-child(29) > path"],
+    stove = ["#Layer_1 > g > g:nth-child(22) > path", "#Layer_1 > g > g:nth-child(3) > path", "#Layer_1 > g > g:nth-child(23) > path"],
+    plate = ["#Layer_1 > g > g:nth-child(13) > path", "#Layer_1 > g > g:nth-child(14) > path", "#Layer_1 > g > g:nth-child(15) > path"],
+    machine = ["#Layer_1 > g > g:nth-child(21) > path", "#Layer_1 > g > g:nth-child(1) > path", "#Layer_1 > g > g:nth-child(20) > path"],
+    machine_1 = ["#Layer_1 > g > g:nth-child(17) > path", "#Layer_1 > g > g:nth-child(5) > path", "#Layer_1 > g > g:nth-child(16) > path"],
+    machine_2 = ["#Layer_1 > g > g:nth-child(4) > path", "#Layer_1 > g > g:nth-child(18) > path"],
+    shelf = ["#Layer_1 > g > g:nth-child(2) > path", "#Layer_1 > g > g:nth-child(12) > path"],
+    bottle = ["#Layer_1 > g > g:nth-child(10) > path", "#Layer_1 > g > g:nth-child(11) > path"]
 
-  }, '<')
-  .from("#Layer_1 > g > g:nth-child(10) > path", {
-    ease: "back.inOut",
-    duration: 5,
-    scaleY: 0,
-    motionPath: {
-      path: "#path1",
-      alignOrigin: [0.5, 0.5],
-      align: "#path",
+  kitchen_time
+    .from(kitchen_mainBody, {
+      ease: "power1.out",
+      duration: 1,
+      scaleY: 0,
+      scaleX: 0,
+      autoAlpha: 0,
+      transformOrigin: "center",
+      // repeat: -1,
+    })
+    .from(l_box, {
+      ease: "bounce.out",
+      duration: 2,
+      scaleX: 0,
+      transformOrigin: "right",
+      autoAlpha: 0,
+      // repeat: -1,
+      stagger: .5,
+    })
+    .from(r_box, {
+      ease: "bounce.out",
+      duration: 2,
+      scaleX: 0,
+      transformOrigin: "left",
+      autoAlpha: 0,
+      // repeat: -1,
+      stagger: .5,
+    }, '<')
+    .from(button, {
+      ease: "bounce.out",
+      duration: .5,
+      scaleY: 0,
+      scaleX: 0,
+      transformOrigin: "center",
+    }, '>-1')
+    .from(b_box, {
+      ease: "bounce.out",
+      duration: 1,
+      y: 200,
+      rotate: 120,
+      stagger: .5,
+    })
+    .from(stove, {
+      ease: "power1.inout",
+      duration: 1,
+      y: 200,
+      stagger: .2,
+      autoAlpha: 0,
+    })
+    .from(plate, {
+      ease: "power1.inout",
+      duration: 1,
+      y: 200,
+      stagger: .3,
+      autoAlpha: 0,
+    }, '<')
+    .from(machine, {
+      ease: "bounce.out",
+      duration: .5,
+      scaleY: 0,
+      scaleX: 0,
+      transformOrigin: "center",
+      // stagger: .3,
+    })
+    .from(machine_1, {
+      ease: "bounce.out",
+      duration: .5,
+      scaleY: 0,
+      scaleX: 0,
+      transformOrigin: "center",
+      // stagger: .3,
+    })
+    .from(machine_2, {
+      ease: "bounce.out",
+      duration: .5,
+      scaleY: 0,
+      scaleX: 0,
+      transformOrigin: "center",
+      // stagger: .3,
+    })
+    .from(shelf, {
+      ease: "back.inOut",
+      duration: 1,
+      scaleY: 0,
 
-    }
-  }, '<-1')
-  .from("#Layer_1 > g > g:nth-child(11) > path", {
-    ease: "back.inOut",
-    duration: 5,
-    scaleY: 0,
-    onComplete: bjump,
-    motionPath: {
-      path: "#path2",
-      alignOrigin: [0.5, 0.5],
-      align: "#path",
+    }, '<')
+    .from("#Layer_1 > g > g:nth-child(10) > path", {
+      ease: "back.inOut",
+      duration: 5,
+      scaleY: 0,
+      motionPath: {
+        path: "#path1",
+        alignOrigin: [0.5, 0.5],
+        align: "#path",
 
-    }
-  }, '<-2')
+      }
+    }, '<-1')
+    .from("#Layer_1 > g > g:nth-child(11) > path", {
+      ease: "back.inOut",
+      duration: 5,
+      scaleY: 0,
+      onComplete: bjump,
+      motionPath: {
+        path: "#path2",
+        alignOrigin: [0.5, 0.5],
+        align: "#path",
+
+      }
+    }, '<-2')
   //一開始先在翻頁前隱藏，觸發path線段動畫後再出現，在前面就出現會閃爍
-  $(".kitchen").css("opacity","1")
+  $(".kitchen").css("opacity", "1")
 
 }
 
@@ -3904,7 +3920,7 @@ function bjump() {
     yoyo: 1,
 
   })
-  
+
 }
 
 var food1 = $("#food1"),
@@ -3962,11 +3978,15 @@ function buildLine1() {
     // repeat: 5,
     // repeatDelay: 7,
     // delay: 9
-    onStart:cookings,
+    onStart: cookings,
   });
   for (i = 0; i < 10; i++) {
     faultGroup1.add(Animation1(), i * 0.17);
-  }
+  };
+  setTimeout(function () {
+     $(".fault1").css("display","none");
+  },10000)
+ 
 }
 
 
@@ -3980,151 +4000,151 @@ var pot = ["#XMLID_896_", "#XMLID_1010_"],
   smoke = ["#XMLID_990_", "#XMLID_996_", "#XMLID_1035_", "#XMLID_997_"],
   custom = CustomEase.create("custom", "M0,0 C0.156,0 0.224,0.246 0.4,0.198 0.444,0.214 0.469,0.289 0.492,0.32 0.551,0.301 0.673,0.384 0.673,0.503 0.73,0.537 0.828,0.658 0.828,0.752 0.912,0.824 0.938,1 1,1 ");
 
-function cookings(){
-var cooking = gsap.timeline({
-  delay: 3,
+function cookings() {
+  var cooking = gsap.timeline({
+    delay: 3,
 
-});
-cooking
-  .from(bottom, {
-    autoAlpha: 0,
-    scaleX: 0,
-    transformOrigin: "center",
-    ease: "bounce.out",
-    // skewX: "30deg"
-  })
-  
-  .from("#XMLID_896_", {
-    autoAlpha: 0,
-    rotation: 150,
-    ease: "elastic.out",
-    duration: 2
-  })
-  .from("#XMLID_1010_", {
-    autoAlpha: 0,
-    rotation: -45,
-    ease: "elastic.out",
-    duration: 2
-  }, '<')
-  .from("#XMLID_831_", {
-    autoAlpha: 0,
-    x: 50,
-  })
-  .from("#XMLID_188_", {
-    autoAlpha: 0,
-    x: -50,
-  }, '<')
-  .fromTo(smoke,{
-    autoAlpha: 0,
-    y: 150,
-  },{
-    autoAlpha: 1, 
-    y: 150,
-  })
-  .fromTo(fire, {
-    scale: 0,
-    transformOrigin: "50% 100%;",
-  }, {
-    scale: 0.6,
-    duration: 1,
-    ease: "elastic.out",
-  })
+  });
+  cooking
+    .from(bottom, {
+      autoAlpha: 0,
+      scaleX: 0,
+      transformOrigin: "center",
+      ease: "bounce.out",
+      // skewX: "30deg"
+    })
+
+    .from("#XMLID_896_", {
+      autoAlpha: 0,
+      rotation: 150,
+      ease: "elastic.out",
+      duration: 2
+    })
+    .from("#XMLID_1010_", {
+      autoAlpha: 0,
+      rotation: -45,
+      ease: "elastic.out",
+      duration: 2
+    }, '<')
+    .from("#XMLID_831_", {
+      autoAlpha: 0,
+      x: 50,
+    })
+    .from("#XMLID_188_", {
+      autoAlpha: 0,
+      x: -50,
+    }, '<')
+    .fromTo(smoke, {
+      autoAlpha: 0,
+      y: 150,
+    }, {
+      autoAlpha: 1,
+      y: 150,
+    })
     .fromTo(fire, {
-    scale: 0,
-    transformOrigin: "50% 100%;",
-  }, {
-    scale: 0.8,
-    duration: 1,
-    ease: "elastic.out",
-  })
-  
+      scale: 0,
+      transformOrigin: "50% 100%;",
+    }, {
+      scale: 0.6,
+      duration: 1,
+      ease: "elastic.out",
+    })
     .fromTo(fire, {
-    scale: 0,
-    transformOrigin: "50% 100%;",
-  }, {
-    scale: 1,
-    duration: 1,
-    ease: "elastic.out",
-    onComplete: slider
-  })
-   
-  function slider(){
-  gsap.fromTo("#XMLID_812_",{
-    scale: 0.7,
-  },{
-    scale: 1,
-    repeat:-1,
-    duration: 1,
-    yoyo:1,
-    ease: custom
-  })
-  gsap.from("#XMLID_182_",{
-    scale: 0.9,
-    repeat:-1,
-    duration: .6,
-    yoyo:1,
-    stragger:.2,
-  },'<')
-   gsap.from("#XMLID_817_",{
-    scale: 0.9,
-    repeat:-1,
-    duration: .7,
-    yoyo:1,
-    stragger:.2,
-  },'<')
-  gsap.from("#XMLID_186_",{
-    scale: 0.8,
-    repeat:-1,
-    duration: 1.5,
-    yoyo:1,
-    ease: custom
-  },'<')
-   
-   gsap.fromTo("#XMLID_990_",{
-      y:100,
-    },{
-      y:-100,
+      scale: 0,
+      transformOrigin: "50% 100%;",
+    }, {
+      scale: 0.8,
+      duration: 1,
+      ease: "elastic.out",
+    })
+
+    .fromTo(fire, {
+      scale: 0,
+      transformOrigin: "50% 100%;",
+    }, {
+      scale: 1,
+      duration: 1,
+      ease: "elastic.out",
+      onComplete: slider
+    })
+
+  function slider() {
+    gsap.fromTo("#XMLID_812_", {
+      scale: 0.7,
+    }, {
+      scale: 1,
+      repeat: -1,
+      duration: 1,
+      yoyo: 1,
+      ease: custom
+    })
+    gsap.from("#XMLID_182_", {
+      scale: 0.9,
+      repeat: -1,
+      duration: .6,
+      yoyo: 1,
+      stragger: .2,
+    }, '<')
+    gsap.from("#XMLID_817_", {
+      scale: 0.9,
+      repeat: -1,
+      duration: .7,
+      yoyo: 1,
+      stragger: .2,
+    }, '<')
+    gsap.from("#XMLID_186_", {
+      scale: 0.8,
+      repeat: -1,
+      duration: 1.5,
+      yoyo: 1,
+      ease: custom
+    }, '<')
+
+    gsap.fromTo("#XMLID_990_", {
+      y: 100,
+    }, {
+      y: -100,
       ease: "power1.in",
-      duration:1,
-      repeat:-1,
+      duration: 1,
+      repeat: -1,
       // yoyo: 1,
-      repeatDelay:1.5,
+      repeatDelay: 1.5,
       autoAlpha: 0,
     })
 
-    gsap.fromTo("#XMLID_996_",{
-      y:100,
-    },{
-      y:-100,
+    gsap.fromTo("#XMLID_996_", {
+      y: 100,
+    }, {
+      y: -100,
       ease: "power1.in",
-      duration:1,
-      repeat:-1,
+      duration: 1,
+      repeat: -1,
       // yoyo: 1,
-      repeatDelay:2.5,
+      repeatDelay: 2.5,
       autoAlpha: 0,
     })
-     gsap.fromTo("#XMLID_997_",{
-      y:150,
-    },{
-      y:-150,
+    gsap.fromTo("#XMLID_997_", {
+      y: 150,
+    }, {
+      y: -150,
       ease: "power1.in",
-      duration:1,
-      repeat:-1,
+      duration: 1,
+      repeat: -1,
       // yoyo: 1,
       autoAlpha: 0,
-      repeatDelay:1.5,
-    },'<')
-     gsap.fromTo("#XMLID_1035_",{
-      y:100,
-    },{
-      y:-100,
+      repeatDelay: 1.5,
+    }, '<')
+    gsap.fromTo("#XMLID_1035_", {
+      y: 100,
+    }, {
+      y: -100,
       ease: "power1.in",
-      duration:1,
-      repeat:-1,
+      duration: 1,
+      repeat: -1,
       // yoyo: 1,
-      repeatDelay:3.5,
+      repeatDelay: 3.5,
       autoAlpha: 0,
     })
   };
-  $(".cooking").css("opacity","1")
-}
+  $(".cooking").css("opacity", "1")
+};
