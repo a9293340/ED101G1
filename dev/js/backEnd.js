@@ -586,294 +586,303 @@ function bkChangePage(e){
     if(count == 12){
         let now = new Date();
         let today = `${now.getFullYear()}-${(now.getMonth()+1)<10?0:''}${now.getMonth()+1}-${(now.getDate()+1)<10?0:''}${now.getDate()}`;
-        let bkorderAvm = new Vue({
-            el:'#bkOrderAnalysis',
-            data:{
-                beforeTime: today,
-                afterTime: today,
-                today,
-            },
-            methods:{
-                bkSelectOderByTime(){
-                    // console.log(this.beforeTime,this.afterTime);
-                    let before = this.beforeTime + ' 00:00:00';
-                    let after = this.afterTime + ' 23:59:59';
-                    console.log(before,after);
-                    let xhr = new XMLHttpRequest();
-                    xhr.onload=function (){
-                        if( xhr.status == 200 ){
-                            // console.log(JSON.parse(xhr.responseText))
-                            let data = JSON.parse(xhr.responseText);
-                            let timeLabel =[];
-                            let timeObj=[];
-                            data.forEach(el=> el.finishTime = el.finishTime.split(' ')[0])                        
-                            for(let i = 0 ;i < data.length ;i++){
-                                // 判斷是否有重複
-                                let check = timeLabel.some(function(item){
-                                    return item == data[i].finishTime
-                                })
-                            
-                                if(check == false){ //沒重複 則新增
-                                    timeLabel.push(data[i].finishTime);
-                                    timeObj.push({
-                                        time:data[i].finishTime,
-                                        count:1,
-                                        price:Number(data[i].orderTotalPrice)
-                                    });
-                                }else{
-                                    timeObj.forEach((el)=>{ // 重複則累加
-                                        if(el.time == data[i].finishTime){
-                                            el.count ++;
-                                            el.price += Number(data[i].orderTotalPrice);
-                                        }
+        if(Number(this.dataset.one) == 0){
+            this.dataset.one = '1';
+            let bkorderAvm = new Vue({
+                el:'#bkOrderAnalysis',
+                data:{
+                    beforeTime: today,
+                    afterTime: today,
+                    today,
+                },
+                methods:{
+                    bkSelectOderByTime(){
+                        // console.log(this.beforeTime,this.afterTime);
+                        let before = this.beforeTime + ' 00:00:00';
+                        let after = this.afterTime + ' 23:59:59';
+                        console.log(before,after);
+                        let xhr = new XMLHttpRequest();
+                        xhr.onload=function (){
+                            if( xhr.status == 200 ){
+                                // console.log(JSON.parse(xhr.responseText))
+                                let data = JSON.parse(xhr.responseText);
+                                let timeLabel =[];
+                                let timeObj=[];
+                                data.forEach(el=> el.finishTime = el.finishTime.split(' ')[0])                        
+                                for(let i = 0 ;i < data.length ;i++){
+                                    // 判斷是否有重複
+                                    let check = timeLabel.some(function(item){
+                                        return item == data[i].finishTime
                                     })
+                                
+                                    if(check == false){ //沒重複 則新增
+                                        timeLabel.push(data[i].finishTime);
+                                        timeObj.push({
+                                            time:data[i].finishTime,
+                                            count:1,
+                                            price:Number(data[i].orderTotalPrice)
+                                        });
+                                    }else{
+                                        timeObj.forEach((el)=>{ // 重複則累加
+                                            if(el.time == data[i].finishTime){
+                                                el.count ++;
+                                                el.price += Number(data[i].orderTotalPrice);
+                                            }
+                                        })
+                                    }
                                 }
+                                let ctx7 = document.getElementById("myChart2").getContext("2d");
+                                chartBarOrder(ctx7,timeLabel,timeObj);
+                                
+                                
+                            }else{
+                                alert( xhr.status );
                             }
-                            let ctx7 = document.getElementById("myChart2").getContext("2d");
-                            chartBarOrder(ctx7,timeLabel,timeObj);
-                            
-                            
-                        }else{
-                            alert( xhr.status );
                         }
+                        var url = `./php/bkorderSearchTime.php?bTime=${before}&aTime=${after}`;
+                        xhr.open("Get", url, true);
+                        xhr.send( null );
                     }
-                    var url = `./php/bkorderSearchTime.php?bTime=${before}&aTime=${after}`;
-                    xhr.open("Get", url, true);
-                    xhr.send( null );
-                }
-            },
-        })
+                },
+            })
+        }
     }
     if(count == 13){
         let now = new Date();
         let today = `${now.getFullYear()}-${(now.getMonth()+1)<10?0:''}${now.getMonth()+1}-${(now.getDate()+1)<10?0:''}${now.getDate()}`;
-        let bksetAvm = new Vue({
-            el:'#bkSetAnalysis',
-            data:{
-                beforeTime: today,
-                afterTime: today,
-                today,
-                label:[]
-            },
-            methods:{
-                bkSelectOderByTime(){
-                    // console.log(this.beforeTime,this.afterTime);
-                    let before = this.beforeTime + ' 00:00:00';
-                    let after = this.afterTime + ' 23:59:59';
-                    console.log(before,after);
-                    let xhr = new XMLHttpRequest();
-                    xhr.onload=function (){
-                        if( xhr.status == 200 ){
-                            //項目標題
-                            let label = JSON.parse(xhr.responseText)[0];
-                            bksetAvm.$data.label = label;
-                            console.log(this.label)
-                            //訂單（訂單名稱 & 該數量）
-                            let data = JSON.parse(xhr.responseText)[1];
-                            // 裝載對應label之數量
-                            let box = [];
-                            let total = 0;
-                            let boxArv = [];
-                            let idBox = [];
-                            label.forEach((el,i)=>{
-                                box.push(0);
-                                // 產生對應數量的id編號
-                                idBox.push(`bkSetSalesPropress${i+1}`);
-                            })
-                            for (let i = 0; i < data.length; i++) {
-                                label.forEach((el,j)=>{
-                                    if(el == data[i].setName){
-                                        box[j] += Number(data[i].setoAmount);
-                                    }
+        if(Number(this.dataset.one) == 0){
+            this.dataset.one = '1';
+            let bksetAvm = new Vue({
+                el:'#bkSetAnalysis',
+                data:{
+                    beforeTime: today,
+                    afterTime: today,
+                    today,
+                    label:[]
+                },
+                methods:{
+                    bkSelectOderByTime(){
+                        // console.log(this.beforeTime,this.afterTime);
+                        let before = this.beforeTime + ' 00:00:00';
+                        let after = this.afterTime + ' 23:59:59';
+                        console.log(before,after);
+                        let xhr = new XMLHttpRequest();
+                        xhr.onload=function (){
+                            if( xhr.status == 200 ){
+                                //項目標題
+                                let label = JSON.parse(xhr.responseText)[0];
+                                bksetAvm.$data.label = label;
+                                console.log(this.label)
+                                //訂單（訂單名稱 & 該數量）
+                                let data = JSON.parse(xhr.responseText)[1];
+                                // 裝載對應label之數量
+                                let box = [];
+                                let total = 0;
+                                let boxArv = [];
+                                let idBox = [];
+                                label.forEach((el,i)=>{
+                                    box.push(0);
+                                    // 產生對應數量的id編號
+                                    idBox.push(`bkSetSalesPropress${i+1}`);
                                 })
+                                for (let i = 0; i < data.length; i++) {
+                                    label.forEach((el,j)=>{
+                                        if(el == data[i].setName){
+                                            box[j] += Number(data[i].setoAmount);
+                                        }
+                                    })
+                                }
+                                box.forEach((el)=>{
+                                    total += el;
+                                })
+                                box.forEach((el)=>{
+                                    boxArv.push((el/total).toFixed(2));
+                                })
+                                let myChart1 = document.getElementById('myChart1').getContext('2d');
+                                let title = '套餐銷路分析'
+                                chartBarSet(myChart1,label,box,title);
+                                setTimeout(()=>{
+                                    progressBar(idBox,boxArv,findColor(label.length));
+                                },200)
+                                document.getElementsByClassName('bkSetSalesAna')[0].classList.remove('bkSetNone')
+                                // console.log(idBox)
+                            }else{
+                                alert( xhr.status );
                             }
-                            box.forEach((el)=>{
-                                total += el;
-                            })
-                            box.forEach((el)=>{
-                                boxArv.push((el/total).toFixed(2));
-                            })
-                            let myChart1 = document.getElementById('myChart1').getContext('2d');
-                            let title = '套餐銷路分析'
-                            chartBarSet(myChart1,label,box,title);
-                            setTimeout(()=>{
-                                progressBar(idBox,boxArv,findColor(label.length));
-                            },200)
-                            document.getElementsByClassName('bkSetSalesAna')[0].classList.remove('bkSetNone')
-                            // console.log(idBox)
-                        }else{
-                            alert( xhr.status );
                         }
+                        var url = `./php/bkSetSearchTime.php?bTime=${before}&aTime=${after}`;
+                        xhr.open("Get", url, true);
+                        xhr.send( null );
                     }
-                    var url = `./php/bkSetSearchTime.php?bTime=${before}&aTime=${after}`;
-                    xhr.open("Get", url, true);
-                    xhr.send( null );
-                }
-            },
-        })
+                },
+            })
+        }
     }
     if(count == 14){
         let now = new Date();
         let today = `${now.getFullYear()}-${(now.getMonth()+1)<10?0:''}${now.getMonth()+1}-${(now.getDate()+1)<10?0:''}${now.getDate()}`;
-        let bksingleAvm = new Vue({
-            el:'#bkSingleAnalysis',
-            data:{
-                beforeTime: today,
-                afterTime: today,
-                today,
-                label:[],
-                labelRice:[],
-                countRice: [],
-                labelMain:[],
-                countMain: [],
-                labelSide:[],
-                countSide: [],
-                idBoxRice:[],
-                idBoxMain:[],
-                idBoxSide:[],
-                RiceNum:0,
-                MainNum:0,
-                SideNum:0,
-            },
-            methods:{
-                bkSelectOderByTime(){
-                    // console.log(this.beforeTime,this.afterTime);
-                    let before = this.beforeTime + ' 00:00:00';
-                    let after = this.afterTime + ' 23:59:59';
-                    fetch(`./php/bkSingleSearchTime.php?bTime=${before}&aTime=${after}`).
-                    then(res=> res.json()).
-                    then((res)=>{
-                        bksingleAvm.$data.label = res[0];
-                        let data = res[1];
-                        let countBox = [];
-                        let labelBox = [];
-                        this.label.forEach((el)=>{
-                            countBox.push(0);
-                            labelBox.push(el.spName)
-                        })
-
-                        data.forEach((el,i)=>{
-                            labelBox.forEach((la,j)=>{
-                                if(el.soRice == la){
-                                    countBox[j] ++;
-                                }else if(el.mainfood == la){
-                                    countBox[j] ++;
-                                }else if(el.sideDishes1 == la){
-                                    countBox[j] ++;
-                                }else if(el.sideDishes2 == la){
-                                    countBox[j] ++;
-                                }else if(el.sideDishes3 == la){
-                                    countBox[j] ++;
+        if(Number(this.dataset.one) == 0){
+            this.dataset.one = '1';
+            let bksingleAvm = new Vue({
+                el:'#bkSingleAnalysis',
+                data:{
+                    beforeTime: today,
+                    afterTime: today,
+                    today,
+                    label:[],
+                    labelRice:[],
+                    countRice: [],
+                    labelMain:[],
+                    countMain: [],
+                    labelSide:[],
+                    countSide: [],
+                    idBoxRice:[],
+                    idBoxMain:[],
+                    idBoxSide:[],
+                    RiceNum:0,
+                    MainNum:0,
+                    SideNum:0,
+                },
+                methods:{
+                    bkSelectOderByTime(){
+                        // console.log(this.beforeTime,this.afterTime);
+                        let before = this.beforeTime + ' 00:00:00';
+                        let after = this.afterTime + ' 23:59:59';
+                        fetch(`./php/bkSingleSearchTime.php?bTime=${before}&aTime=${after}`).
+                        then(res=> res.json()).
+                        then((res)=>{
+                            bksingleAvm.$data.label = res[0];
+                            let data = res[1];
+                            let countBox = [];
+                            let labelBox = [];
+                            this.label.forEach((el)=>{
+                                countBox.push(0);
+                                labelBox.push(el.spName)
+                            })
+    
+                            data.forEach((el,i)=>{
+                                labelBox.forEach((la,j)=>{
+                                    if(el.soRice == la){
+                                        countBox[j] ++;
+                                    }else if(el.mainfood == la){
+                                        countBox[j] ++;
+                                    }else if(el.sideDishes1 == la){
+                                        countBox[j] ++;
+                                    }else if(el.sideDishes2 == la){
+                                        countBox[j] ++;
+                                    }else if(el.sideDishes3 == la){
+                                        countBox[j] ++;
+                                    }
+                                })
+                            })
+    
+                            this.label.forEach((el,i)=>{
+                                if(el.spClass == 0){
+                                    this.countRice.push(countBox[i]);
+                                    this.labelRice.push(labelBox[i]);
+                                }else if(el.spClass == 1){
+                                    this.countMain.push(countBox[i]);
+                                    this.labelMain.push(labelBox[i]);
+                                }else if(el.spClass == 2){
+                                    this.countSide.push(countBox[i]);
+                                    this.labelSide.push(labelBox[i]);
                                 }
                             })
+                            console.log(this.countRice,this.countMain,this.countSide)
+                            document.getElementsByClassName('bkSingleAnalysisBtnBox')[0].classList.remove('bkSingleAnalysisBtnNone')
                         })
-
-                        this.label.forEach((el,i)=>{
-                            if(el.spClass == 0){
-                                this.countRice.push(countBox[i]);
-                                this.labelRice.push(labelBox[i]);
-                            }else if(el.spClass == 1){
-                                this.countMain.push(countBox[i]);
-                                this.labelMain.push(labelBox[i]);
-                            }else if(el.spClass == 2){
-                                this.countSide.push(countBox[i]);
-                                this.labelSide.push(labelBox[i]);
-                            }
+                    },
+                    bkRice(){
+                        let idBox = [];
+                        let total = 0;
+                        let boxArv = [];
+                        for(let i = 0 ; i < bkAbox.length;i++){
+                            bkAbox[i].classList.add('bkSetNone');
+                            bkSingleAnalysisBtn[i].classList.remove('bkSingleAnalysisBtnDark')
+                        }
+                        bkAbox[0].classList.remove('bkSetNone');
+                        bkSingleAnalysisBtn[0].classList.add('bkSingleAnalysisBtnDark');
+                        this.countRice.forEach((el,i)=>{
+                            idBox.push(`bkRicePropress${i+1}`);
                         })
-                        console.log(this.countRice,this.countMain,this.countSide)
-                        document.getElementsByClassName('bkSingleAnalysisBtnBox')[0].classList.remove('bkSingleAnalysisBtnNone')
-                    })
+                        this.countRice.forEach((el)=>{
+                            total += el;
+                        })
+                        this.countRice.forEach((el)=>{
+                            boxArv.push((el/total).toFixed(2));
+                        })
+                        let myChart3 = document.getElementById('myChart3').getContext('2d');
+                        let title = '單品-米飯銷路分析';
+                        if(this.RiceNum == 0){
+                            chartBarSet(myChart3,this.labelRice,this.countRice,title);
+                        
+                            setTimeout(()=>{
+                                progressBar(idBox,boxArv,findColor(this.labelRice.length));
+                            },200)
+    
+                            this.RiceNum += 1;
+                        }
+                    },
+                    bkMain(){
+                        let idBox = [];
+                        let total = 0;
+                        let boxArv = [];
+                        for(let i = 0 ; i < bkAbox.length;i++){
+                            bkAbox[i].classList.add('bkSetNone');
+                            bkSingleAnalysisBtn[i].classList.remove('bkSingleAnalysisBtnDark')
+                        }
+                        bkAbox[1].classList.remove('bkSetNone');
+                        bkSingleAnalysisBtn[1].classList.add('bkSingleAnalysisBtnDark');
+                        this.countMain.forEach((el,i)=>{
+                            idBox.push(`bkMainPropress${i+1}`);
+                        })
+                        this.countMain.forEach((el)=>{
+                            total += el;
+                        })
+                        this.countMain.forEach((el)=>{
+                            boxArv.push((el/total).toFixed(2));
+                        })
+                        let myChart4 = document.getElementById('myChart4').getContext('2d');
+                        let title = '單品-主食銷路分析';
+                        if(this.MainNum == 0){
+                            chartBarSet(myChart4,this.labelMain,this.countMain,title);
+                            setTimeout(()=>{
+                                progressBar(idBox,boxArv,findColor(this.labelMain.length));
+                            },200)
+                            this.MainNum += 1;
+                        }
+                    },
+                    bkSide(){
+                        let idBox = [];
+                        let total = 0;
+                        let boxArv = [];
+                        for(let i = 0 ; i < bkAbox.length;i++){
+                            bkAbox[i].classList.add('bkSetNone');
+                            bkSingleAnalysisBtn[i].classList.remove('bkSingleAnalysisBtnDark')
+                        }
+                        bkAbox[2].classList.remove('bkSetNone');
+                        bkSingleAnalysisBtn[2].classList.add('bkSingleAnalysisBtnDark');
+                        this.countSide.forEach((el,i)=>{
+                            idBox.push(`bkSidePropress${i+1}`);
+                        })
+                        this.countSide.forEach((el)=>{
+                            total += el;
+                        })
+                        this.countSide.forEach((el)=>{
+                            boxArv.push((el/total).toFixed(2));
+                        })
+                        let myChart5 = document.getElementById('myChart5').getContext('2d');
+                        let title = '單品-配菜銷路分析';
+                        if(this.SideNum == 0){
+                            chartBarSet(myChart5,this.labelSide,this.countSide,title);
+                            setTimeout(()=>{
+                                progressBar(idBox,boxArv,findColor(this.labelSide.length));
+                            },200)
+                            this.SideNum += 1;
+                        }
+                    }
                 },
-                bkRice(){
-                    let idBox = [];
-                    let total = 0;
-                    let boxArv = [];
-                    for(let i = 0 ; i < bkAbox.length;i++){
-                        bkAbox[i].classList.add('bkSetNone');
-                        bkSingleAnalysisBtn[i].classList.remove('bkSingleAnalysisBtnDark')
-                    }
-                    bkAbox[0].classList.remove('bkSetNone');
-                    bkSingleAnalysisBtn[0].classList.add('bkSingleAnalysisBtnDark');
-                    this.countRice.forEach((el,i)=>{
-                        idBox.push(`bkRicePropress${i+1}`);
-                    })
-                    this.countRice.forEach((el)=>{
-                        total += el;
-                    })
-                    this.countRice.forEach((el)=>{
-                        boxArv.push((el/total).toFixed(2));
-                    })
-                    let myChart3 = document.getElementById('myChart3').getContext('2d');
-                    let title = '單品-米飯銷路分析';
-                    if(this.RiceNum == 0){
-                        chartBarSet(myChart3,this.labelRice,this.countRice,title);
-                    
-                        setTimeout(()=>{
-                            progressBar(idBox,boxArv,findColor(this.labelRice.length));
-                        },200)
-
-                        this.RiceNum += 1;
-                    }
-                },
-                bkMain(){
-                    let idBox = [];
-                    let total = 0;
-                    let boxArv = [];
-                    for(let i = 0 ; i < bkAbox.length;i++){
-                        bkAbox[i].classList.add('bkSetNone');
-                        bkSingleAnalysisBtn[i].classList.remove('bkSingleAnalysisBtnDark')
-                    }
-                    bkAbox[1].classList.remove('bkSetNone');
-                    bkSingleAnalysisBtn[1].classList.add('bkSingleAnalysisBtnDark');
-                    this.countMain.forEach((el,i)=>{
-                        idBox.push(`bkMainPropress${i+1}`);
-                    })
-                    this.countMain.forEach((el)=>{
-                        total += el;
-                    })
-                    this.countMain.forEach((el)=>{
-                        boxArv.push((el/total).toFixed(2));
-                    })
-                    let myChart4 = document.getElementById('myChart4').getContext('2d');
-                    let title = '單品-主食銷路分析';
-                    if(this.MainNum == 0){
-                        chartBarSet(myChart4,this.labelMain,this.countMain,title);
-                        setTimeout(()=>{
-                            progressBar(idBox,boxArv,findColor(this.labelMain.length));
-                        },200)
-                        this.MainNum += 1;
-                    }
-                },
-                bkSide(){
-                    let idBox = [];
-                    let total = 0;
-                    let boxArv = [];
-                    for(let i = 0 ; i < bkAbox.length;i++){
-                        bkAbox[i].classList.add('bkSetNone');
-                        bkSingleAnalysisBtn[i].classList.remove('bkSingleAnalysisBtnDark')
-                    }
-                    bkAbox[2].classList.remove('bkSetNone');
-                    bkSingleAnalysisBtn[2].classList.add('bkSingleAnalysisBtnDark');
-                    this.countSide.forEach((el,i)=>{
-                        idBox.push(`bkSidePropress${i+1}`);
-                    })
-                    this.countSide.forEach((el)=>{
-                        total += el;
-                    })
-                    this.countSide.forEach((el)=>{
-                        boxArv.push((el/total).toFixed(2));
-                    })
-                    let myChart5 = document.getElementById('myChart5').getContext('2d');
-                    let title = '單品-配菜銷路分析';
-                    if(this.SideNum == 0){
-                        chartBarSet(myChart5,this.labelSide,this.countSide,title);
-                        setTimeout(()=>{
-                            progressBar(idBox,boxArv,findColor(this.labelSide.length));
-                        },200)
-                        this.SideNum += 1;
-                    }
-                }
-            },
-        })
+            })
+        }
     }
 }
