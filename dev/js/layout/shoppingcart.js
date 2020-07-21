@@ -357,7 +357,7 @@ document.getElementById('orderOut').addEventListener('click',function(){
 
 // 訂單傳到PHP
 function orderBuy(){
-    shoppingCartNum();
+   
     var orderSin = [];
     var orderSet = [];
     var orderOth = [];
@@ -429,6 +429,7 @@ function orderBuy(){
         // 
      
         OrderTotalPrice();
+        shoppingCartNum();
 
         orderListText.value="";
         alert('已新增訂單 可至會員專區查看');
