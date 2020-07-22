@@ -57,7 +57,7 @@
                         <img :id="'riceimg'+item.spId" class="orderRicePic" :data-id="item.spId"
                             v-bind:src="item.spImage" atl="" width="200" height="200">
                         <div class="buy_name">{{item.spName}}</div>
-                        <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
+                        <div class="buy_price"><span class="pricecolor">NT ${{item.spPrice}}</span></div>
                         <div>
                             <p>Cal: {{item.spCalories}}</p>
                         </div>
@@ -85,7 +85,7 @@
                         <img :id="'meatimg'+item.spId" class="orderRicePic" :data-id="item.spId"
                             v-bind:src="item.spImage" atl="" width="200" height="200">
                         <div class="buy_name">{{item.spName}}</div>
-                        <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
+                        <div class="buy_price"><span class="pricecolor">NT ${{item.spPrice}}</span></div>
                         <div>
                             <p>Cal: {{item.spCalories}}</p>
                         </div>
@@ -112,7 +112,7 @@
                         <img :id="'img'+item.spId" class="orderRicePic" :data-id="item.spId" v-bind:src="item.spImage"
                             atl="" width="200" height="200">
                         <div class="buy_name">{{item.spName}}</div>
-                        <div class="buy_price"><span>NT $</span>{{item.spPrice}}</div>
+                        <div class="buy_price"><span class="pricecolor">NT ${{item.spPrice}}</span></div>
                         <div>
                             <p>Cal: {{item.spCalories}}</p>
                         </div>
@@ -224,7 +224,7 @@
                 <div class="buy_card3" v-if="item.setStatus==1 && item.setClass ==0" v-for="item in orderSetdo">
                     <img :id="'setdoimg'+item.setId" :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200"
                         height="200">
-                    <div class="buy_name">{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}</div>
+                    <div class="buy_name">{{item.setName}}&nbsp;&nbsp;<span class="pricecolor">${{item.setPrice}}</span></div>
                     <div><button class="orderbutton" :id="'setdocountminus'+item.setId"
                             :data-num="item.setId">-</button><span class="ordercount"
                             :id="'setdocount'+item.setId">0</span><button class="orderbutton"
@@ -248,7 +248,7 @@
                     <img :id="'setdoimg'+item.setId" :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200"
                         height="200">
                     <div class="buy_name"><span
-                            style="color: brown;">(季節)</span>{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}
+                            style="color: brown;">(季節)</span>{{item.setName}}&nbsp;&nbsp;<span class="pricecolor">${{item.setPrice}}</span>
                     </div>
 
                     <div><button class="orderbutton" :id="'setdocountminus'+item.setId"
