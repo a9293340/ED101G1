@@ -389,8 +389,16 @@ function orderBuy(){
     }else{
         orderEmpty = 1;
     }
-    if(orderEmpty==0 || memLogin=='bad' || orderCla==-1){
-        alert('請登入 選擇品項 選擇外送外帶');
+    if(orderEmpty==0 || memLogin !=='good' || orderCla==-1){
+        if(orderEmpty==0){
+            alert('請選擇便當喔');
+        }
+        if(memLogin !=='good'){
+            alert('請先登入會員');
+        }
+        if(orderCla==-1){
+            alert('請選擇外送或外帶');
+        }
     }else{
        
     var totalOrderPost = new XMLHttpRequest();

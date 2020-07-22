@@ -209,7 +209,6 @@ function gogoPower(){
                     localStorage['singleNum'] = count;
                     localStorage['singleOrder'] = JSON.stringify(single);
                 }
-
                 // set
                 if(localStorage['setdoMenuList']){
                     setA = JSON.parse(localStorage['setdoMenuList']);
@@ -302,6 +301,70 @@ function gogoPower(){
                 setordercart()
                 alert('已加入購物車');
             },
+            AddSingleToCart(e){
+                let id = Number(e.target.dataset.count)
+                console.log(id)
+                let single = [];
+                let count = 0;
+                if(localStorage['singleNum']){
+                    count = Number(localStorage['singleNum'])
+                }else{
+                    localStorage['singleNum'] = 0;
+                    count = localStorage['singleNum']
+                }
+                if(localStorage['singleOrder']){
+                    single = JSON.parse(localStorage['singleOrder']);
+                    for(let i = 0; i < this.memSingleOrder.length; i++){
+                        if(this.memSingleOrder[i].soId == id){
+                            single.push({
+                                "meat":this.memSingleOrder[i].mainfood,
+                                "meatId":this.memSingleOrder[i].mainfoodId,
+                                "rice":this.memSingleOrder[i].soRice,
+                                "riceId":this.memSingleOrder[i].soRiceId,
+                                "single1":this.memSingleOrder[i].sideDishes1,
+                                "singleId1":this.memSingleOrder[i].sideDishes1Id,
+                                "single2":this.memSingleOrder[i].sideDishes2,
+                                "singleId2":this.memSingleOrder[i].sideDishes2Id,
+                                "single3":this.memSingleOrder[i].sideDishes3,
+                                "singleId3":this.memSingleOrder[i].sideDishes3Id,
+                                "soPrice":this.memSingleOrder[i].soPrice,
+                                "soImg":this.memSingleOrder[i].soImg,
+                                "sNum":count
+                            })
+                            count++
+                        }
+                    }
+                    localStorage['singleNum'] = count;
+                    localStorage['singleOrder'] = JSON.stringify(single);
+                }else{
+                    for(let i = 0; i < this.memSingleOrder.length; i++){
+                        if(this.memSingleOrder[i].soId == id){
+                            single.push({
+                                "meat":this.memSingleOrder[i].mainfood,
+                                "meatId":this.memSingleOrder[i].mainfoodId,
+                                "rice":this.memSingleOrder[i].soRice,
+                                "riceId":this.memSingleOrder[i].soRiceId,
+                                "single1":this.memSingleOrder[i].sideDishes1,
+                                "singleId1":this.memSingleOrder[i].sideDishes1Id,
+                                "single2":this.memSingleOrder[i].sideDishes2,
+                                "singleId2":this.memSingleOrder[i].sideDishes2Id,
+                                "single3":this.memSingleOrder[i].sideDishes3,
+                                "singleId3":this.memSingleOrder[i].sideDishes3Id,
+                                "soPrice":this.memSingleOrder[i].soPrice,
+                                "soImg":this.memSingleOrder[i].soImg,
+                                "sNum":count
+                            })
+                            count++
+                        }
+                    }
+                    localStorage['singleNum'] = count;
+                    localStorage['singleOrder'] = JSON.stringify(single);
+                }
+                setcart()
+                // setsetdocart()
+                // setordercart()
+                alert('已加入購物車');
+            },
             AddOtherToCart(e){
                 let id = Number(e.target.dataset.count)
                 console.log(id)
@@ -389,6 +452,7 @@ function gogoPower(){
                     }
                     localStorage['setdoMenuList'] = JSON.stringify(setA);
                 }
+                console.log(localStorage['setdoMenuList'])
                 setcart()
                 setsetdocart()
                 setordercart()
@@ -400,7 +464,7 @@ function gogoPower(){
                 let reader = new FileReader();
                 reader.onload = function(){
                     document.getElementById('memPicture').src = reader.result;
-                    // ajax
+                    sessionStorage['memImage'] = reader.result;
                 }
                 reader.readAsDataURL(file);
             },
@@ -584,7 +648,7 @@ function gogoPower(){
                                 memVm.$data.memSingleOrder = JSON.parse(response)[0];
                                 memVm.$data.memSetOrder = JSON.parse(response)[1];
                                 memVm.$data.memOtherOrder = JSON.parse(response)[2];
-                                console.log(JSON.parse(response));
+                                // console.log(JSON.parse(response));
                                 console.log(memVm.$data.memSingleOrder);
                                 $.ajax({
                                     type: "GET",
