@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>寶島食堂</title>
+    <!-- favicon -->
+    <link rel="icon" href="./images/mainLogo/mainLogo1.png" type="image/x-icon">
     <!-- <link rel="stylesheet" href="./css/loginSignup.css"> -->
-    <link rel="icon" href="./images/homeFirst/favicon.ico" />
     <script src="https://use.fontawesome.com/2287e04f65.js"></script>
     <!--註冊/登入 -->
     <link rel="stylesheet" href="./css/homeFirst.css">
+
 
     <!--第1屏 -->
     <!-- <link rel="stylesheet" href="./css/header.css"> -->
@@ -49,113 +51,113 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD02IgpgazAmzATKes-_caAbP71BqItLQc"></script>
     <script>
-    let service = new google.maps.DistanceMatrixService();
+        let service = new google.maps.DistanceMatrixService();
     </script>
     <script>
 
         let input1 = document.getElementById('input1');
         let btn1 = document.getElementById('btn1');
         let gps1 = document.getElementById('gps1');
-        btn1.addEventListener('click',()=>{
-          if(input1.value==''){
-            alert('請輸入地址');
-          }else{
-            service.getDistanceMatrix(
-            {
-                origins: [input1.value],
-                destinations: ['桃園市中壢區中大路300號'],
-                travelMode: google.maps.TravelMode["DRIVING"],
-                unitSystem: google.maps.UnitSystem.METRIC,
-            }, function(response, status) {
-                if (status !== google.maps.DistanceMatrixStatus.OK) {
-                window.alert('Error was' + status);
-                } else {
-                console.log(response);
-                if(response.rows[0].elements[0].distance.value > 5000 ){
-                    // document.getElementById('orderAddress').innerHTML='超出外送範圍';
-                    // document.getElementById('orderAddress').style.color = 'red';
-                    orderClass=-1;
-                    localStorage.setItem('orderClass',orderClass);
-                    alert(`${response.originAddresses[0]}
+        btn1.addEventListener('click', () => {
+            if (input1.value == '') {
+                alert('請輸入地址');
+            } else {
+                service.getDistanceMatrix(
+                    {
+                        origins: [input1.value],
+                        destinations: ['桃園市中壢區中大路300號'],
+                        travelMode: google.maps.TravelMode["DRIVING"],
+                        unitSystem: google.maps.UnitSystem.METRIC,
+                    }, function (response, status) {
+                        if (status !== google.maps.DistanceMatrixStatus.OK) {
+                            window.alert('Error was' + status);
+                        } else {
+                            console.log(response);
+                            if (response.rows[0].elements[0].distance.value > 5000) {
+                                // document.getElementById('orderAddress').innerHTML='超出外送範圍';
+                                // document.getElementById('orderAddress').style.color = 'red';
+                                orderClass = -1;
+                                localStorage.setItem('orderClass', orderClass);
+                                alert(`${response.originAddresses[0]}
                         總共距離${response.rows[0].elements[0].distance.text}，超出外送範圍
                         ${response}
                         `);
-                }else{
-                    document.getElementById('orderAddress').innerHTML = '外送地址 :'+response.originAddresses[0];
-                    orderClass=0;
-                    localStorage.setItem('address',response.originAddresses[0]);
-                    localStorage.setItem('orderClass',orderClass);
-                    alert(`${response.originAddresses[0]}，:總共距離，${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
-                    window.location.replace("./order.html");
-                }
-                }
-            });
-          }
+                            } else {
+                                document.getElementById('orderAddress').innerHTML = '外送地址 :' + response.originAddresses[0];
+                                orderClass = 0;
+                                localStorage.setItem('address', response.originAddresses[0]);
+                                localStorage.setItem('orderClass', orderClass);
+                                alert(`${response.originAddresses[0]}，:總共距離，${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
+                                window.location.replace("./order.html");
+                            }
+                        }
+                    });
+            }
             input.value = '';
         });
-        gps1.addEventListener('click',()=>{
+        gps1.addEventListener('click', () => {
             navigator.geolocation.getCurrentPosition(
-            succCallback1,
-            errorCallback,
-            {
-                enableHighAccuracy: false,
-                timeout: 10000000,
-                maximumAge: 0,
-            });
+                succCallback1,
+                errorCallback,
+                {
+                    enableHighAccuracy: false,
+                    timeout: 10000000,
+                    maximumAge: 0,
+                });
         });
-        function succCallback1(e){
-        let lati = e.coords.latitude;
-        let longi = e.coords.longitude;
-        let accuracy = e.coords.accuracy;
-        service.getDistanceMatrix(
-            {
-                origins: [{lat: lati, lng: longi}],
-                destinations: ['桃園市中壢區中大路300號'],
-                travelMode: google.maps.TravelMode["DRIVING"],
-                unitSystem: google.maps.UnitSystem.METRIC,
-            }, function(response, status) {
-                if (status !== google.maps.DistanceMatrixStatus.OK) {
-                window.alert('Error was' + status);
-                } else {
-                console.log(response.originAddresses[0]);
-                if(response.rows[0].elements[0].distance.value > 5000 ){
-                    orderClass=-1;
-                    localStorage.setItem('orderClass',orderClass);
-                    document.getElementById('input1').value=response.originAddresses[0];
-                    // document.getElementById('orderAddress').innerHTML='超出外送範圍';
-                    // document.getElementById('orderAddress').style.color = 'red';
-                    alert(`
+        function succCallback1(e) {
+            let lati = e.coords.latitude;
+            let longi = e.coords.longitude;
+            let accuracy = e.coords.accuracy;
+            service.getDistanceMatrix(
+                {
+                    origins: [{ lat: lati, lng: longi }],
+                    destinations: ['桃園市中壢區中大路300號'],
+                    travelMode: google.maps.TravelMode["DRIVING"],
+                    unitSystem: google.maps.UnitSystem.METRIC,
+                }, function (response, status) {
+                    if (status !== google.maps.DistanceMatrixStatus.OK) {
+                        window.alert('Error was' + status);
+                    } else {
+                        console.log(response.originAddresses[0]);
+                        if (response.rows[0].elements[0].distance.value > 5000) {
+                            orderClass = -1;
+                            localStorage.setItem('orderClass', orderClass);
+                            document.getElementById('input1').value = response.originAddresses[0];
+                            // document.getElementById('orderAddress').innerHTML='超出外送範圍';
+                            // document.getElementById('orderAddress').style.color = 'red';
+                            alert(`
                         ${response.originAddresses[0]}，
                         總共距離${response.rows[0].elements[0].distance.text}，超出外送範圍
                         ${response.originAddresses}
                         
                     `)
-                    ;
-                }else{
-                    // document.getElementById('orderAddress').innerHTML = '外送地址 :'+response.originAddresses[0];
-                    document.getElementById('input1').value = `${response.originAddresses[0]}`;
-                    orderClass=0;
-                    localStorage.setItem('address',response.originAddresses[0]);
-                    localStorage.setItem('orderClass',orderClass);
-                    alert(`${response.originAddresses[0]}，總共距離${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
-                    window.location.replace("./order.html");
-                }
-                }
-            });
-        
+                                ;
+                        } else {
+                            // document.getElementById('orderAddress').innerHTML = '外送地址 :'+response.originAddresses[0];
+                            document.getElementById('input1').value = `${response.originAddresses[0]}`;
+                            orderClass = 0;
+                            localStorage.setItem('address', response.originAddresses[0]);
+                            localStorage.setItem('orderClass', orderClass);
+                            alert(`${response.originAddresses[0]}，總共距離${response.rows[0].elements[0].distance.text}，運送時間預估${response.rows[0].elements[0].duration.text}`);
+                            window.location.replace("./order.html");
+                        }
+                    }
+                });
+
         }
-    
-        function errorCallback(e){
+
+        function errorCallback(e) {
             document.getElementById('position').innerHTML = `錯誤碼: ${e.code}<br>錯誤訊息: ${e.message}`
         }
-    
-    
-        document.getElementById('headerOut').addEventListener('click',function(){
-          localStorage.setItem('HeaderorderClass',1);
-          localStorage.removeItem('address');
-          window.location.replace("./order.html");
+
+
+        document.getElementById('headerOut').addEventListener('click', function () {
+            localStorage.setItem('HeaderorderClass', 1);
+            localStorage.removeItem('address');
+            window.location.replace("./order.html");
         });
-    
+
     </script>
     <!-- Login、Signup、ShoppingCart -->
     <script src="../dev/js/layout/shoppingcart.js"></script>
