@@ -768,6 +768,11 @@ $bgcgrey: #c4c0c0;
                         .memFontSmall{
                             @include fontStyle($memgrey,1rem);
                         }
+                        .memOrderListGoBuyOneSetBtn{
+                            @include btn(90px,40px,20px);
+                            margin-top: 20px;
+                            font-size: .8rem;
+                        }
                     }
                 }
                 .memOrderPirceShow{
