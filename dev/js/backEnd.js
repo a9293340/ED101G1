@@ -545,6 +545,7 @@ function bkChangePage(e){
             },
         })
     }
+    //
     if(count == 11){
         let bkreportVM = new Vue({
             el:'#bkReportFix',
