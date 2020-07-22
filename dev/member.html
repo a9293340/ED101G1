@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>寶島食堂</title>
     <!-- 字體 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="./css/member.css">
     <!-- <link rel="stylesheet" href="./css/loginSignup.css"> -->
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
     <!-- Vue -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <!-- chart.js -->
@@ -22,14 +26,17 @@
     <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
     <!-- googleAPI -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD02IgpgazAmzATKes-_caAbP71BqItLQc"></script>
+    <!-- favicon -->
+    <link rel="icon" href="./images/mainLogo/mainLogo1.png" type="image/x-icon">
 </head>
+
 <body>
     <!-- header -->
     @@include('./layout/header.html',{})
-    
-    
+
+
     <!-- shoppingCart -->
-    
+
 
 
     <div id="memApp">
@@ -67,7 +74,9 @@
                         <!-- 避免還沒接收檔案時就渲染會報錯 -->
                         <p v-if='memHealth[0]'>身高：{{memHealth[0].healNewheight}} cm</p>
                         <p v-if='memHealth[0]'>體重：{{memHealth[0].healNewWeight}} kg</p>
-                        <p v-if='memHealth[0]'>BMI：{{Math.round(memHealth[0].healNewWeight/Math.pow(memHealth[0].healNewheight/100,2))}}</p>
+                        <p v-if='memHealth[0]'>
+                            BMI：{{Math.round(memHealth[0].healNewWeight/Math.pow(memHealth[0].healNewheight/100,2))}}
+                        </p>
                         <p v-if='memHealth[0]'>最後更新日期：{{memHealth[0].healLastTime}}
                         </p>
                     </div>
@@ -103,9 +112,13 @@
                             </h2>
                             <p>BMI：
                                 <!-- BMI判斷 -->
-                                <span v-if='Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) > 18.5 && Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) < 24'>標準</span>
-                                <span v-if='Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) < 18.5' style="color: brown;">過瘦</span>
-                                <span v-if='Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) > 24' style="color: brown;">過胖</span>
+                                <span
+                                    v-if='Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) > 18.5 && Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) < 24'>標準</span>
+                                <span
+                                    v-if='Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) < 18.5'
+                                    style="color: brown;">過瘦</span>
+                                <span v-if='Math.round(health.healNewWeight/Math.pow(health.healNewheight/100,2)) > 24'
+                                    style="color: brown;">過胖</span>
                             </p>
                             <p>體質：
                                 <!-- 體質判斷 -->
@@ -115,9 +128,12 @@
                             </p>
                             <p>健康狀況：
                                 <!-- 健康狀況判斷 -->
-                                <span v-if='(Math.round(health.healHealth) + Math.round(health.healStomach))/2 >= 40 && (Math.round(health.healHealth) + Math.round(health.healStomach))/2 <= 60'>正常</span>
-                                <span v-if='(Math.round(health.healHealth) + Math.round(health.healStomach))/2 < 40' style="color: brown;">略差</span>
-                                <span v-if='(Math.round(health.healHealth) + Math.round(health.healStomach))/2 > 60' style="color: green;">超棒</span>
+                                <span
+                                    v-if='(Math.round(health.healHealth) + Math.round(health.healStomach))/2 >= 40 && (Math.round(health.healHealth) + Math.round(health.healStomach))/2 <= 60'>正常</span>
+                                <span v-if='(Math.round(health.healHealth) + Math.round(health.healStomach))/2 < 40'
+                                    style="color: brown;">略差</span>
+                                <span v-if='(Math.round(health.healHealth) + Math.round(health.healStomach))/2 > 60'
+                                    style="color: green;">超棒</span>
                             </p>
                         </div>
                     </div>
@@ -125,7 +141,8 @@
                 <div class="memHealthContentGoToListBox">
                     <p>測驗分析日期：<span>{{health.healLastTime}}</span>
                     </p>
-                    <div class="memHealthContentGoToListBtn" :data-healthid="health.healId" @click='showHealthList'>查看分析</div>
+                    <div class="memHealthContentGoToListBtn" :data-healthid="health.healId" @click='showHealthList'>查看分析
+                    </div>
                 </div>
             </div>
         </div>
@@ -151,18 +168,21 @@
                     </div>
                 </div>
                 <div class="memOrderListBox">
-                    <div class="memOrderList" v-for='(single,index) in memSingleOrder' v-if='single.soBelongOrder == item.orderId' >
+                    <div class="memOrderList" v-for='(single,index) in memSingleOrder'
+                        v-if='single.soBelongOrder == item.orderId'>
                         <div class="memFlexRight">
                             <img :src="single.soImg" alt="">
                             <div class="memOrderSomethingBox">
                                 <p>自選便當</p>
-                                <p class="memFontSmall">規格:{{single.soRice}}/{{single.sideDishes1}}/{{single.sideDishes2}}/{{single.sideDishes3}}/{{single.mainfood}}</p>
+                                <p class="memFontSmall">
+                                    規格:{{single.soRice}}/{{single.sideDishes1}}/{{single.sideDishes2}}/{{single.sideDishes3}}/{{single.mainfood}}
+                                </p>
                                 <p class="memFontSmall">數量： {{single.soAmount}}</p>
                             </div>
                         </div>
                         <p class="memOrderPirceShow">${{single.soPrice}}</p>
                     </div>
-                    <div class="memOrderList" v-for='set in memSetOrder' v-if='set.setoBelongOrder == item.orderId' >
+                    <div class="memOrderList" v-for='set in memSetOrder' v-if='set.setoBelongOrder == item.orderId'>
                         <div class="memFlexRight">
                             <img :src="set.setImage" alt="">
                             <div class="memOrderSomethingBox">
@@ -173,7 +193,7 @@
                         </div>
                         <p class="memOrderPirceShow">${{set.setoPrice}}</p>
                     </div>
-                    <div class="memOrderList" v-for='other in memOtherOrder' v-if='other.ooBelongOrder == item.orderId' >
+                    <div class="memOrderList" v-for='other in memOtherOrder' v-if='other.ooBelongOrder == item.orderId'>
                         <div class="memFlexRight">
                             <img :src="other.opImage" alt="">
                             <div class="memOrderSomethingBox">
@@ -187,16 +207,14 @@
                 <div class="memOrderTotalPriceBox">
                     <p>訂單金額：<span>${{item.orderTotalPrice}}</span></p>
                     <div class="memOrderGoToListBtn" :data-order='item.orderId' @click='showOrderList'>查看訂單</div>
-                    <div class="memOrderGoToListBtn" :data-order='item.orderId' v-if='item.orderStatus == 0' @click='cansolOrder'>取消訂單</div>
+                    <div class="memOrderGoToListBtn" :data-order='item.orderId' v-if='item.orderStatus == 0'
+                        @click='cansolOrder'>取消訂單</div>
                 </div>
             </div>
             <!-- 分頁 -->
             <div class="memContentOrderPagesBox">
-                <div class="memContentOrderPages" 
-                    v-for='(order,index) in memOrder' 
-                    v-if='index < memOrderPages'
-                    :data-index="index"
-                    @click='memGoNextPage'>{{index+1}}</div>
+                <div class="memContentOrderPages" v-for='(order,index) in memOrder' v-if='index < memOrderPages'
+                    :data-index="index" @click='memGoNextPage'>{{index+1}}</div>
             </div>
             <div class="memOrderBox memGoToOrderX" v-if='memOrder.length == 0'>您尚未有任何訂單喔，
                 <a href="./health.html" class="memGoToOrder">快來買吧！</a>
@@ -215,12 +233,14 @@
                     </label>
                     <label for="memHeight">
                         身高
-                        <input type="text" class="memHeight" name="memHeight" id="memHeight" v-model='memData.memHeight'>
+                        <input type="text" class="memHeight" name="memHeight" id="memHeight"
+                            v-model='memData.memHeight'>
                         公分
                     </label>
                     <label for="memWeight">
                         體重
-                        <input type="text" class="memWeight" name="memWeight" id="memWeight" v-model='memData.memWeight'>
+                        <input type="text" class="memWeight" name="memWeight" id="memWeight"
+                            v-model='memData.memWeight'>
                         公斤
                     </label>
                     <label>
@@ -272,30 +292,31 @@
             </div>
         </div>
         <div class="memContent memContentNone" id="memContentGame">
-            <h2>玩遊戲賺寶幣～>A<</h2>
-            <div class="game">
-                <div class="board b1"></div>
-                <div class="board b2"></div>
-                <div class="ball">
-                    <img src="./images/member/mushrooms.png" alt="">
-                </div>
-                <div class="info">
-                    <h2 class="infoText">Start Game</h2>
-                    <button class="start" @click='memStartGamesGo'>start</button>
-                </div>
-                <div class="grade"></div>
-            </div>
-            <div class="memGameTomoto">
-                <img src="./images/member/tomato.png" alt="">
-                <div class="memGameConversationBox">
-                    <img src="./images/member/conversation.png" alt="">
-                    <p id="memSimpleUsage"></p>
-                </div>
-            </div>
+            <h2>玩遊戲賺寶幣～>A<< /h2>
+                    <div class="game">
+                        <div class="board b1"></div>
+                        <div class="board b2"></div>
+                        <div class="ball">
+                            <img src="./images/member/mushrooms.png" alt="">
+                        </div>
+                        <div class="info">
+                            <h2 class="infoText">Start Game</h2>
+                            <button class="start" @click='memStartGamesGo'>start</button>
+                        </div>
+                        <div class="grade"></div>
+                    </div>
+                    <div class="memGameTomoto">
+                        <img src="./images/member/tomato.png" alt="">
+                        <div class="memGameConversationBox">
+                            <img src="./images/member/conversation.png" alt="">
+                            <p id="memSimpleUsage"></p>
+                        </div>
+                    </div>
         </div>
         <div class="memContentOrderList memContentNone" id="memContentOrderList">
             <div class="memContentOrderListHeader">
-                <p class="memOrderListGoBackBtn" @click='GoBackToOrderContent'><span><</span>回上一頁</p>
+                <p class="memOrderListGoBackBtn" @click='GoBackToOrderContent'><span>
+                        << /span>回上一頁</p>
                 <p>訂單編號：<span>{{nowDataSetNumber}}</span></p>
             </div>
             <div class="memContentOrderListStatus" v-for='order in memOrder' v-if='order.orderId == nowDataSetNumber'>
@@ -327,7 +348,8 @@
                     <div :class="memChooseCirleColor4">
                         <img src="./images/member/checkIconGreen.png" alt="" v-if='order.orderStatus == 4'>
                         <img src="./images/member/close_green.png" alt="" v-if='order.orderStatus == 5'>
-                        <img src="./images/member/checkIcon.png" alt="" v-if='order.orderStatus != 5 && order.orderStatus != 4'>
+                        <img src="./images/member/checkIcon.png" alt=""
+                            v-if='order.orderStatus != 5 && order.orderStatus != 4'>
                     </div>
                     <p :class='memChooseCircleFontColor4' v-if='order.orderStatus != 5'>訂單已完成</p>
                     <p :class='memChooseCircleFontColor4' v-else>訂單已取消</p>
@@ -340,13 +362,16 @@
                     </h3>
                     <div id="memContentOrderListQRCode"></div>
                 </div>
-                <div class="memContentOrderListBuyAgainBox" v-for='order in memOrder' v-if='order.orderId == nowDataSetNumber'>
+                <div class="memContentOrderListBuyAgainBox" v-for='order in memOrder'
+                    v-if='order.orderId == nowDataSetNumber'>
                     <h3 v-if='order.orderStatus == 4 || order.orderStatus == 6'>訂單已完成，再次選購請點選下面按鈕</h3>
                     <h3 v-if='order.orderStatus == 5'>訂單已取消，再次選購請點選下面按鈕</h3>
                     <h3 v-if='order.orderStatus == 1'>訂單尚未完成，待完成後即可再次選購</h3>
                     <h3 v-if='order.orderStatus == 3'>訂單尚未完成，待完成後即可再次選購</h3>
                     <h3 v-if='order.orderStatus == 2'>訂單尚未完成，待完成後即可再次選購</h3>
-                    <div class="memContentOrderListBuyAgainBtn" v-if='order.orderStatus == 4 || order.orderStatus == 5 || order.orderStatus == 6' @click='memBuyAgain'>
+                    <div class="memContentOrderListBuyAgainBtn"
+                        v-if='order.orderStatus == 4 || order.orderStatus == 5 || order.orderStatus == 6'
+                        @click='memBuyAgain'>
                         再買一次
                     </div>
                 </div>
@@ -362,12 +387,15 @@
             </div>
             <div class="memContentOrderListBox">
                 <h3>◆訂購明細</h3>
-                <div class="memContentOrderListReal" v-for='single in memSingleOrder' v-if='single.soBelongOrder == nowDataSetNumber'>
+                <div class="memContentOrderListReal" v-for='single in memSingleOrder'
+                    v-if='single.soBelongOrder == nowDataSetNumber'>
                     <div class="memContentOrderListRealRight">
                         <img :src="single.soImg" class="memContentOrderListRealRightImg">
                         <div class="memOrderListRealSomething">
                             <p>自選便當</p>
-                            <p class="memFontSmall">規格:{{single.soRice}}/{{single.sideDishes1}}/{{single.sideDishes2}}/{{single.sideDishes3}}/{{single.mainfood}}</p>
+                            <p class="memFontSmall">
+                                規格:{{single.soRice}}/{{single.sideDishes1}}/{{single.sideDishes2}}/{{single.sideDishes3}}/{{single.mainfood}}
+                            </p>
                             <p class="memFontSmall">數量： {{single.soAmount}}</p>
                             <div class="memOrderListGoBuyOneSetBtn" :data-count="single.soId" @click='AddSingleToCart'
                             >加入購物車</div>
@@ -375,7 +403,8 @@
                     </div>
                     <p class="memOrderPirceShow">${{single.soPrice}}</p>
                 </div>
-                <div class="memContentOrderListReal" v-for='set in memSetOrder' v-if='set.setoBelongOrder == nowDataSetNumber'>
+                <div class="memContentOrderListReal" v-for='set in memSetOrder'
+                    v-if='set.setoBelongOrder == nowDataSetNumber'>
                     <div class="memContentOrderListRealRight">
                         <img :src="set.setImage">
                         <div class="memOrderListRealSomething">
@@ -388,7 +417,8 @@
                     </div>
                     <p class="memOrderPirceShow">${{set.setoPrice}}</p>
                 </div>
-                <div class="memContentOrderListReal" v-for='other in memOtherOrder' v-if='other.ooBelongOrder == nowDataSetNumber'>
+                <div class="memContentOrderListReal" v-for='other in memOtherOrder'
+                    v-if='other.ooBelongOrder == nowDataSetNumber'>
                     <div class="memContentOrderListRealRight">
                         <img :src="other.opImage">
                         <div class="memOrderListRealSomething">
@@ -411,17 +441,23 @@
         <div class="memContentHealthList memContentNone" id="memContentHealthList">
             <div v-for='health in memHealth' v-if='health.healId == nowDataHealthNumber'>
                 <div class="memContentHealthListHeader">
-                    <p class="memHealthListHeaderGoBackBtn" @click='GoBackToHealthContent'><span><</span>回上一頁</p>
+                    <p class="memHealthListHeaderGoBackBtn" @click='GoBackToHealthContent'><span>
+                            << /span>回上一頁</p>
                     <h3>健康測驗結果</h3>
                     <p>健康分析編號：<span>H{{nowDataHealthNumber}}</span></p>
                 </div>
                 <div class="memContentHealthListMainBox">
-                    <img src="./images/taiwanHealth/coldTaiwan.png" class="memHealthListImage" v-if='health.healClass == 0'>
-                    <img src="./images/taiwanHealth/hotTaiwan.png" class="memHealthListImage" v-if='health.healClass == 1'>
-                    <img src="./images/taiwanHealth/highBmi.png" class="memHealthListImage" v-if='health.healClass == 2'>
+                    <img src="./images/taiwanHealth/coldTaiwan.png" class="memHealthListImage"
+                        v-if='health.healClass == 0'>
+                    <img src="./images/taiwanHealth/hotTaiwan.png" class="memHealthListImage"
+                        v-if='health.healClass == 1'>
+                    <img src="./images/taiwanHealth/highBmi.png" class="memHealthListImage"
+                        v-if='health.healClass == 2'>
                     <img src="./images/taiwanHealth/lowBmi.png" class="memHealthListImage" v-if='health.healClass == 3'>
-                    <img src="./images/taiwanHealth/sadTaiwan.png" class="memHealthListImage" v-if='health.healClass == 4'>
-                    <img src="./images/taiwanHealth/happyTaiwan.png" class="memHealthListImage" v-if='health.healClass == 5'>
+                    <img src="./images/taiwanHealth/sadTaiwan.png" class="memHealthListImage"
+                        v-if='health.healClass == 4'>
+                    <img src="./images/taiwanHealth/happyTaiwan.png" class="memHealthListImage"
+                        v-if='health.healClass == 5'>
                     <div class="memContentHealthListMain">
                         <p>你是屬於</p>
                         <h3 v-if='health.healClass == 0' style="color: royalblue;">冷吱吱體質</h3>
@@ -439,7 +475,8 @@
                         <h4 v-if='health.healClass == 5'>恭喜您！健康狀況很不錯唷！請繼續保持下去～</h4>
                     </div>
                 </div>
-                <div class="memHealthListRecommondFood" v-for='health in memHealth' v-if='health.healId == nowDataHealthNumber'>
+                <div class="memHealthListRecommondFood" v-for='health in memHealth'
+                    v-if='health.healId == nowDataHealthNumber'>
                     <div class="memHealthListTitle">
                         <h2>◆推薦套餐</h2>
                     </div>
@@ -451,7 +488,8 @@
                                 <p>{{set.setInfo}}</p>
                             </div>
                         </div>
-                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memHot' :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
+                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memHot'
+                            :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
                     </div>
                     <div class="memHealthListSetBox" v-if='health.healClass == 1'>
                         <div class='memHealthListSet' v-for='set in memSetProduct' v-if='set.setId == memCold'>
@@ -461,7 +499,8 @@
                                 <p>{{set.setInfo}}</p>
                             </div>
                         </div>
-                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memCold' :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
+                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memCold'
+                            :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
                     </div>
                     <div class="memHealthListSetBox" v-if='health.healClass == 2'>
                         <div class='memHealthListSet' v-for='set in memSetProduct' v-if='set.setId == memThin'>
@@ -471,7 +510,8 @@
                                 <p>{{set.setInfo}}</p>
                             </div>
                         </div>
-                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memThin' :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
+                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memThin'
+                            :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
                     </div>
                     <div class="memHealthListSetBox" v-if='health.healClass == 3'>
                         <div class='memHealthListSet' v-for='set in memSetProduct' v-if='set.setId == memFat'>
@@ -481,7 +521,8 @@
                                 <p>{{set.setInfo}}</p>
                             </div>
                         </div>
-                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memFat' :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
+                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memFat'
+                            :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
                     </div>
                     <div class="memHealthListSetBox" v-if='health.healClass == 4'>
                         <div class='memHealthListSet' v-for='set in memSetProduct' v-if='set.setId == memHappy'>
@@ -491,7 +532,8 @@
                                 <p>{{set.setInfo}}</p>
                             </div>
                         </div>
-                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memHappy' :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
+                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memHappy'
+                            :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
                     </div>
                     <div class="memHealthListSetBox" v-if='health.healClass == 5'>
                         <div class='memHealthListSet' v-for='set in memSetProduct' v-if='set.setId == memSad'>
@@ -501,18 +543,21 @@
                                 <p>{{set.setInfo}}</p>
                             </div>
                         </div>
-                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memSad' :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
+                        <div class="memHealthListGoBuySetBtn" v-for='set in memSetProduct' v-if='set.setId == memSad'
+                            :data-count='set.setId' @click='AddSetToCart'>加入購物車</div>
                     </div>
                     <div class="memHealthListLine"></div>
                     <div class="memHealthListTitle">
                         <h2>◆推薦其他餐點</h2>
                     </div>
                     <div class="memHealthListOtherBox" v-if='health.healClass == 0'>
-                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1000 || other.opId == 1005 || other.opId == 1007'>
+                        <div class="memHealthListOther" v-for='other in memOtherProduct'
+                            v-if='other.opId == 1000 || other.opId == 1005 || other.opId == 1007'>
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
-                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>加入購物車</div>
+                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>
+                                    加入購物車</div>
                             </div>
                         </div>
                     </div>
@@ -521,16 +566,19 @@
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
-                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>加入購物車</div>
+                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>
+                                    加入購物車</div>
                             </div>
                         </div>
                     </div>
                     <div class="memHealthListOtherBox" v-if='health.healClass == 2'>
-                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1002 || other.opId == 1005 || other.opId == 1006'>
+                        <div class="memHealthListOther" v-for='other in memOtherProduct'
+                            v-if='other.opId == 1002 || other.opId == 1005 || other.opId == 1006'>
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
-                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>加入購物車</div>
+                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>
+                                    加入購物車</div>
                             </div>
                         </div>
                     </div>
@@ -539,16 +587,19 @@
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
-                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>加入購物車</div>
+                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>
+                                    加入購物車</div>
                             </div>
                         </div>
                     </div>
                     <div class="memHealthListOtherBox" v-if='health.healClass == 4'>
-                        <div class="memHealthListOther" v-for='other in memOtherProduct' v-if='other.opId == 1001 || other.opId == 1006'>
+                        <div class="memHealthListOther" v-for='other in memOtherProduct'
+                            v-if='other.opId == 1001 || other.opId == 1006'>
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
-                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>加入購物車</div>
+                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>
+                                    加入購物車</div>
                             </div>
                         </div>
                     </div>
@@ -557,7 +608,8 @@
                             <div class="memHealthListOtherList">
                                 <img :src="other.opImage">
                                 <h3>{{other.opName}}</h3>
-                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>加入購物車</div>
+                                <div class="memHealthListOtherListBtn" :data-count='other.opId' @click='AddOtherToCart'>
+                                    加入購物車</div>
                             </div>
                         </div>
                     </div>
@@ -566,7 +618,7 @@
             </div>
         </div>
     </div>
-    
+
 
     @@include('./layout/shoppingcart.html',{})
     <!-- @@include('./layout/loginSignup.html',{}) -->
@@ -584,4 +636,5 @@
     <script type="module" src="../dev/js/member.js"></script>
 
 </body>
+
 </html>

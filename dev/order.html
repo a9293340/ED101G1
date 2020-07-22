@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>order</title>
+    <title>我要訂餐</title>
     <!-- 字體 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
@@ -18,6 +18,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <!--canvas-->
     <script src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <!-- favicon -->
+    <link rel="icon" href="./images/mainLogo/mainLogo1.png" type="image/x-icon">
 
 
 </head>
@@ -245,7 +247,9 @@
                 <div class="buy_card3" v-if="item.setStatus==1 && item.setClass ==1" v-for="item in orderSetdo">
                     <img :id="'setdoimg'+item.setId" :data-id="item.setId" v-bind:src="item.setImage" atl="" width="200"
                         height="200">
-                    <div class="buy_name"><span style="color: brown;">(季節)</span>{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}</div>
+                    <div class="buy_name"><span
+                            style="color: brown;">(季節)</span>{{item.setName}}&nbsp;&nbsp;<span>$</span>{{item.setPrice}}
+                    </div>
 
                     <div><button class="orderbutton" :id="'setdocountminus'+item.setId"
                             :data-num="item.setId">-</button><span class="ordercount"
