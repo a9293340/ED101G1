@@ -400,7 +400,7 @@ function gogoPower(){
                 let reader = new FileReader();
                 reader.onload = function(){
                     document.getElementById('memPicture').src = reader.result;
-                    // ajax
+                    sessionStorage['memImage'] = reader.result;
                 }
                 reader.readAsDataURL(file);
             },
