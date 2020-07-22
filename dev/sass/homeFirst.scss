@@ -660,11 +660,11 @@ $animationDuration: 1.5s;
 
 
 
-#canvas {
-  display: block;
-  position: absolute;
-  transform: translate3d(0%, -20%, 0);
-}
+// #canvas {
+//   display: block;
+//   position: absolute;
+//   transform: translate3d(0%, -20%, 0);
+// }
 
 $vertPad: 20px;
 $sidePad: 18px;
@@ -2595,6 +2595,7 @@ $base-size: 20rem;
           transform: translate3d(0, -3vw, 0);
           position: relative;
           margin-top: 25%;
+          order:-1 ;
 
           .medal {
             position: absolute;

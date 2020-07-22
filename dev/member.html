@@ -369,6 +369,8 @@
                             <p>自選便當</p>
                             <p class="memFontSmall">規格:{{single.soRice}}/{{single.sideDishes1}}/{{single.sideDishes2}}/{{single.sideDishes3}}/{{single.mainfood}}</p>
                             <p class="memFontSmall">數量： {{single.soAmount}}</p>
+                            <div class="memOrderListGoBuyOneSetBtn" :data-count="single.soId" @click='AddSingleToCart'
+                            >加入購物車</div>
                         </div>
                     </div>
                     <p class="memOrderPirceShow">${{single.soPrice}}</p>
@@ -380,6 +382,8 @@
                             <p v-if='set.setClass == 0'>經典便當-{{set.setName}}</p>
                             <p v-if='set.setClass == 1'>季節便當-{{set.setName}}</p>
                             <p class="memFontSmall">數量： {{set.setoAmount}}</p>
+                            <div class="memOrderListGoBuyOneSetBtn" :data-count="set.setId" @click='AddSetToCart'
+                            >加入購物車</div>
                         </div>
                     </div>
                     <p class="memOrderPirceShow">${{set.setoPrice}}</p>
@@ -390,6 +394,8 @@
                         <div class="memOrderListRealSomething">
                             <p>{{other.opName}}</p>
                             <p class="memFontSmall">數量： {{other.ooAmount}}</p>
+                            <div class="memOrderListGoBuyOneSetBtn" :data-count="other.opId" @click='AddOtherToCart'
+                            >加入購物車</div>
                         </div>
                     </div>
                     <p class="memOrderPirceShow">${{other.ooPrice}}</p>
