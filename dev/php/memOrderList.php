@@ -97,19 +97,19 @@
             <td>
                 <?php 
                     if($order['orderStatus'] == 0){
-                        echo '確認中';
+                        echo '確認中'."(".$order['orderTime'].")";
                     }else if($order['orderStatus'] == 1){
-                        echo '已確認';
+                        echo '已確認'."(".$order['orderTime'].")";
                     }else if($order['orderStatus'] == 2){
-                        echo '已出餐';
+                        echo '已出餐'."(".$order['mealTime'].")";
                     }else if($order['orderStatus'] == 3){
-                        echo '已送達';
+                        echo '已送達'."(".$order['arrivalTime'].")";
                     }else if($order['orderStatus'] == 4){
-                        echo '完成訂單';
+                        echo '完成訂單'."(".$order['finishTime'].")";
                     }else if($order['orderStatus'] == 5){
                         echo '已取消';
                     }else if($order['orderStatus'] == 6){
-                        echo '已歸檔';
+                        echo '已歸檔'."(".$order['ArchivingTime'].")";
                     }
                 ?>
             </td>
