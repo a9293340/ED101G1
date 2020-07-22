@@ -16,7 +16,7 @@ try{
     $order = $orderSql->fetchAll(PDO::FETCH_ASSOC);
     // echo json_encode($order);
     foreach ($order as $i => $value) {
-        $sql = "select sp1.spName as 'soRice', sp2.spName as 'mainfood', sp3.spName as 'sideDishes1', sp4.spName as 'sideDishes2', sp5.spName as 'sideDishes3',so.soPrice,so.soImg,so.soAmount,so.soBelongOrder,so.soRice as 'soRiceId',so.mainFood as 'mainfoodId',so.sideDishes1 as 'sideDishes1Id',so.sideDishes2 as 'sideDishes2Id',so.sideDishes3 as 'sideDishes3Id' from SINGLE_ORDER as so join SINGLE_PRODUCT as sp1 on so.soRice = sp1.spId join SINGLE_PRODUCT as sp2 on so.mainFood = sp2.spId join SINGLE_PRODUCT as sp3 on so.sideDishes1 = sp3.spId join SINGLE_PRODUCT as sp4 on so.sideDishes2 = sp4.spId join SINGLE_PRODUCT as sp5 on so.sideDishes3 = sp5.spId where so.soBelongOrder =:orderId";
+        $sql = "select so.soId as 'soId', sp1.spName as 'soRice', sp2.spName as 'mainfood', sp3.spName as 'sideDishes1', sp4.spName as 'sideDishes2', sp5.spName as 'sideDishes3',so.soPrice,so.soImg,so.soAmount,so.soBelongOrder,so.soRice as 'soRiceId',so.mainFood as 'mainfoodId',so.sideDishes1 as 'sideDishes1Id',so.sideDishes2 as 'sideDishes2Id',so.sideDishes3 as 'sideDishes3Id' from SINGLE_ORDER as so join SINGLE_PRODUCT as sp1 on so.soRice = sp1.spId join SINGLE_PRODUCT as sp2 on so.mainFood = sp2.spId join SINGLE_PRODUCT as sp3 on so.sideDishes1 = sp3.spId join SINGLE_PRODUCT as sp4 on so.sideDishes2 = sp4.spId join SINGLE_PRODUCT as sp5 on so.sideDishes3 = sp5.spId where so.soBelongOrder =:orderId";
         $orderSql = $pdo->prepare($sql); 
         $orderSql->bindValue(":orderId",$value['orderId']);
         $orderSql->execute();
