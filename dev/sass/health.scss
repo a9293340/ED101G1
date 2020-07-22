@@ -621,14 +621,6 @@ div.wrapper {
             }
         }
     }
-    .healthCover{
-        @include coverBlack();
-        min-height: 850px;
-        left: auto;
-        top: auto;
-        z-index: 99;
-        //display: block;
-        }
     div.overlay{
                 width: 93% !important;
                 left:4%;
