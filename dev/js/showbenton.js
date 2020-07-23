@@ -275,7 +275,7 @@ let addBentonVm = new Vue({
       this.img = item.img; //變成全域變數
       this.chooseImgID = `bentonLi${item.id}`; //變成全域變數，以便上一步記得選擇的benton
 
-      this.addBentonId = item.id;
+      this.addBentonId = item.id; //id = soId
     },
 
     showBentonStep1(isShow) {
@@ -334,7 +334,7 @@ let addBentonVm = new Vue({
         data: {
           titleText: this.message,
           contentText: this.messageContent,
-          addBentonId: this.addBentonId,
+          addBentonId: this.addBentonId, // item.postSoId = item.soId
         },
         success: function (data) {
           console.log(data);
@@ -463,7 +463,7 @@ let bentonWallVm = new Vue({
           messPostId: this.addBentonmessPostId, //發文編號
         },
         success: function (data) {
-          bentonWallVm.$data.talkArray = data;
+          bentonWallVm.$data.talkArray = data; //將留言送出存在於留言區內
         },
         error: function (jqXHR) {
           console.log(jqXHR, "error");
@@ -477,7 +477,7 @@ let bentonWallVm = new Vue({
       $(".showBentonContentbox").css("display", "none");
       $(".showbentonCover").css("display", "none");
       $("body").css("overflow", "auto");
-      this.talkArray = [];
+      this.talkArray = []; //留言區內容清空
     },
 
     showCloselightbox() {
@@ -508,15 +508,14 @@ let bentonWallVm = new Vue({
         url: "./php/showbentonLiketimes.php", //傳送目的地 (之後統整要修改網址)
         dataType: "json", //資料 格式
         data: {
-          plus: "+",
+          plus: "+", //原本要有減，但目前沒有，暫時沒用到
           postId: this.bentonArray[num].postId,
         },
         success: function (data) {
           bentonWallVm.$data.bentonArray[num].liketimes = data[0].postLike;
           lastLikeTime = data[0].memLastVoteTime;
           bentonWallVm.$data.bentonArray[num].likeImgSrc =
-            bentonWallVm.$data.likedImgSrc;
-          //e.target.src = "./images/showbenton/like1.png";
+            bentonWallVm.$data.likedImgSrc; //變成藍色的讚圖
           //e.target.dataset.check = "1";
           alert("感謝您投下神聖的一票!(每人一天可投一票)");
         },
@@ -568,11 +567,10 @@ let bentonWallVm = new Vue({
         return index >= startIndex && index <= endIndex;
       });
       this.bentonCardArray = [];
-      // this.bentonCardArray = [...showItems];
+      //this.bentonCardArray = [...showItems];
       for (let i = 0; i < showItems.length; i++) {
         this.bentonCardArray.push(showItems[i]);
       }
-
       console.log(this.bentonCardArray);
 
       //改按鈕顏色
@@ -595,13 +593,14 @@ let bentonWallVm = new Vue({
       success: function (data) {
         //按讚圖片更換
         for (let i = 0; i < data[0].length; i++) {
-          data[0][i].likeImgSrc = bentonWallVm.$data.likeImgSrc;
+          data[0][i].likeImgSrc = bentonWallVm.$data.likeImgSrc; //新增likeImgSrc屬性，再塞讚圖
         }
         bentonWallVm.$data.bentonArray = data[0];
-        if (data[1] != "") {
-          lastLikeTime = data[1][0].memLastVoteTime;
+        const lastLikeTimeData = data[1]; //最後按讚時間
+        if (lastLikeTimeData != "") {
+          lastLikeTime = data[1][0].memLastVoteTime; //data[1]裡面第0列memLastVoteTime
         }
-        //分頁計算方式
+        //計算會有幾個分頁按鈕
         bentonWallVm.$data.bentonWallPages = Math.ceil(
           bentonWallVm.$data.bentonArray.length /
             bentonWallVm.$data.bentonWallNumber
@@ -632,7 +631,7 @@ function showbentonShoppingCart(postSoId) {
     success: function (data) {
       orderCart.push({ ...data[0], sNum: singleNum });
       localStorage.setItem("singleNum", ++singleNum);
-      var showOrder = JSON.stringify(orderCart);
+      var showOrder = JSON.stringify(orderCart); //陣列內容物轉換成JSON字串
       localStorage.setItem("singleOrder", showOrder);
       setcart();
     },
