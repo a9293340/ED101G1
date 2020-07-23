@@ -1,7 +1,7 @@
 @import "./main";
 
 
-.bg-gradient-primary{
+.home-gradient-primary{
     .container{
         .backEndContent {
             min-height:100vh;
@@ -63,7 +63,7 @@
 }
 // ----------------------------------手機板
 @media (min-width:320px) and (max-width:576px){
-   .bg-gradient-primary{
+   .home-gradient-primary{
         .container{
              .backEndContent{
                  .backEndCaption {
