@@ -105,6 +105,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <!----------點擊分享便當裡面的畫面------------>
     <div class="showBentonContentbox" id="mainBuyBenton">
       <div v-bind:class="currentBenton.cls">
@@ -124,6 +125,38 @@
               {{currentBenton.content}}
             </p>
             <p class="talkDateTime">{{currentBenton.postDateTime}}</p>
+=======
+      <!----------點擊分享便當裡面的畫面------------>
+      <div class="showBentonContentbox" id="mainBuyBenton">
+        <div v-bind:class="currentBenton.cls">
+          <img
+            class="closebox"
+            @click="showContentCloselightbox"
+            src="./images/showbenton/close.png"
+          />
+          <!--發文者大區塊-->
+          <div class="shareBlock">
+            <div class="bentonimg">
+              <img
+                class="showBentonContentImg"
+                v-bind:src="currentBenton.bentonImg"
+                alt="where is my benton"
+                width="340"
+                height="260"
+                title="yummy benton" 
+              />
+						</div>
+            <button class="buyMore" id="buyMore" @click="buyMore(currentBenton.postSoId)">加入購物車</button>
+            <div class="memTextBlock">
+              <img :src="currentBenton.memImage" class="memPicture" />
+              <p class="member">創作者：{{currentBenton.memName}}</p>
+              <p id="ContentTitlText">{{currentBenton.title}}</p>
+              <p class="contentText">
+                {{currentBenton.content}}
+              </p>
+              <p class="talkDateTime">{{currentBenton.postDateTime}}</p>
+            </div>
+>>>>>>> show
           </div>
         </div>
         <div class="messageBoard">
