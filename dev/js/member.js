@@ -83,7 +83,7 @@ function gogoPower(){
                 $('#memContentOrderListQRCode').qrcode({
                     width: 120,
                     height: 120,
-                    text: `http://140.115.236.71/demo-projects/ED101/ED101_G1/dest/php/memOrderList.php?orderId=${this.nowDataSetNumber}`
+                    text: `http://140.115.236.71/demo-projects/ED101/ED101G1/ED101_G1/dest/php/memOrderList.php?orderId=${this.nowDataSetNumber}`
                 });
                 // 跳轉至orderList的content
                 document.getElementById('memContentOrderList').classList.remove('memContentNone');
