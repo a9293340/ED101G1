@@ -373,6 +373,7 @@ p.showMyself {
   line-height: 20px;
   margin-left: auto;
   outline: none;
+  display: block;
 }
 
 //-------------共用樣式-------------
@@ -761,7 +762,25 @@ button.Pre {
   border: 1px solid transparent;
   z-index: -1;
   opacity: 0.8;
+} //header 效果
+#homeTwoScreen .top_group .navgroup .showbento {
+  color: $orange;
+  font: 12px;
+  &:before {
+    content: "";
+    overflow: hidden;
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+    // display: block;
+    left: 1%;
+    background-image: url("../../dest/images/header/faultc_01.png");
+    width: 50px;
+    height: 50px;
+    transition: 0.5s;
+    opacity: 1;
+  }
 }
+
 //---------------------RWD
 
 @media screen and (max-width: 576px) {
@@ -1010,25 +1029,6 @@ button.Pre {
 }
 .ranking::after {
   left: 90px;
-}
-
-//header 效果
-#homeTwoScreen .top_group .navgroup .showbento {
-  color: $orange;
-  font: 12px;
-  &:before {
-    content: "";
-    overflow: hidden;
-    position: absolute;
-    transform: translate3d(0, 0, 0);
-    // display: block;
-    left: 1%;
-    background-image: url("../../dest/images/header/faultc_01.png");
-    width: 50px;
-    height: 50px;
-    transition: 0.5s;
-    opacity: 1;
-  }
 }
 
 @media screen and (max-width: 375px) {
