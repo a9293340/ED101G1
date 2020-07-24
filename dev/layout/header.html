@@ -14,11 +14,7 @@
       <a href="./health.html" class="analysis">健康分析</a>      
       <a href="./about_me.html" class="aboutus">關於我們</a>
     </div>
-    <div class="navgroup_rwd">
-      <a href="./order.html" class="book">我要訂餐</a>
-      <a href="./showbenton.html" class="showbento">SHOW便當</a>
-      <a href="./health.html" class="analysis">健康分析</a>
-    </div>
+  
     <div class="membergroup">
       <div id="shoppingcart"><img src="./images/header/shopping-cart.png" width="30" height="30" alt=""><p id = shoppingNum>0</p></div>
       <div id="member"><img src="./images/header/user.png" width="30" height="30" alt=""></div>
@@ -34,12 +30,23 @@
   </div>
   </div>
 </nav>
+<div class="navgroup_rwd">
+  <a href="./order.html" class="book">我要訂餐</a>
+  <a href="./showbenton.html" class="showbento">SHOW便當</a>
+  <a href="./health.html" class="analysis">健康分析</a>
+  <div class="btn_switch">
+    <div class="bgl top"></div>
+    <div class="bgl"></div>
+    <div class="bgl bottom"></div>
+  </div>
+</div>
 <script>
   var btn_switch = $('.btn_switch'),
   navgroup_rwd = $('.navgroup_rwd'),
   overlay = $('.overlay');
 btn_switch.on('click', function () {
   navgroup_rwd.toggleClass('open');
+  $('body').toggleClass('bdovh')
   $('.bgl').toggleClass('translateY');
   $('.bottom').toggleClass('turnN');
   $('.top').toggleClass('turnX');
