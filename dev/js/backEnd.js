@@ -104,6 +104,7 @@ function bkChangePage(e){
                         // console.log(this.members[i].memId);
                         if(this.members[i].memReportCount == 0){
                             box.push(this.members[i]);
+                            this.index = '';
                             console.log(i);
                         }
                     }
@@ -115,6 +116,7 @@ function bkChangePage(e){
                         // console.log(this.members[i].memId);
                         if(this.members[i].memReportCount == 1){
                             box.push(this.members[i]);
+                            this.index = '';
                             console.log(i);
                         }
                     }
@@ -122,6 +124,7 @@ function bkChangePage(e){
                 },
                 bkFindMemberC(){
                     this.nowMembers = this.members;
+                    this.index = '';
                 }
             },
             mounted() {
@@ -555,12 +558,19 @@ function bkChangePage(e){
             methods:{
                 bkReportGo(e){
                     let reportId = Number(e.target.dataset.reportid);
+                    let reportIds = Number(e.target.dataset.reportsid);
+
                     let xhr = new XMLHttpRequest();
                     xhr.onload=function (){
                         if( xhr.status == 200 ){
                             if(xhr.responseText == '1'){
                                 alert('檢舉成功');
-                                // e.target.style.transform = 'scale(.8)';
+                                for(let i = 0; i < bkreportVM.$data.reports.length; i++){
+                                    if(reportIds == bkreportVM.$data.reports[i].reportId){
+                                        bkreportVM.$data.reports[i].memReportCount = 1;
+                                        console.log(bkreportVM.$data.reports[i].memReportCount);
+                                    }
+                                }
                             }
                         }else{
                             alert( xhr.status );

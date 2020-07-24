@@ -2,7 +2,7 @@
 
     session_start();
     require_once("connect.php");
-    $sql2 = "update `member` set memName=:memName,memHeight=:memHeight,memWeight=:memWeight,memPhone=:memPhone,memAddr=:memAddr where memId=:memId";
+    $sql2 = "UPDATE `member` set memName=:memName,memHeight=:memHeight,memWeight=:memWeight,memPhone=:memPhone,memAddr=:memAddr where memId=:memId";
     $fixImage = $pdo->prepare($sql2);
     $fixImage->bindValue(":memId",$_SESSION["memId"] );
     $fixImage->bindValue(":memName",$_POST["memName"] );
