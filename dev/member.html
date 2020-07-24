@@ -441,8 +441,7 @@
         <div class="memContentHealthList memContentNone" id="memContentHealthList">
             <div v-for='health in memHealth' v-if='health.healId == nowDataHealthNumber'>
                 <div class="memContentHealthListHeader">
-                    <p class="memHealthListHeaderGoBackBtn" @click='GoBackToHealthContent'><span>
-                            << /span>回上一頁</p>
+                    <p class="memHealthListHeaderGoBackBtn" @click='GoBackToHealthContent'>回上一頁</p>
                     <h3>健康測驗結果</h3>
                     <p>健康分析編號：<span>H{{nowDataHealthNumber}}</span></p>
                 </div>
