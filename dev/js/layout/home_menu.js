@@ -655,7 +655,7 @@ var badge = function badge1() {
     ease: "power1.out",
     duration: 1,
     y: 100,
-    delay: 8,
+    // delay: 8,
     autoAlpha: 0,
   })
 
@@ -663,7 +663,7 @@ var badge = function badge1() {
     ease: "power1.out",
     duration: 1,
     scaleX: 0,
-    delay: 9,
+    delay: 1,
     autoAlpha: 0,
     transformOrigin: "center",
     onComplete: move_head
