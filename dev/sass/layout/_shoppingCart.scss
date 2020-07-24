@@ -280,3 +280,9 @@
   color: red;
   }
 
+  @media screen and ( max-width: 576px ){
+    .ordercart {
+      width: 355px;
+    }
+    
+  }
