@@ -1237,7 +1237,12 @@ $bgcgrey: #c4c0c0;
                                 font-size: 1rem;
                             }
                             .memFontSmall{
-                                font-size: .8rem;
+                                font-size: .6rem;
+                            }
+                            .memOrderListGoBuyOneSetBtn{
+                                @include btn(60px,20px,20px);
+                                margin-top: 0px;
+                                font-size: .6rem;
                             }
                         }
                     }
