@@ -2285,7 +2285,8 @@ $base-size: 20rem;
 @media(min-width: 350px)and(max-width: 576px) {
 
   .el__leaderBoards #lb_lightBox {
-    height: 170%;
+    height: 350%;
+    
   }
 
   @mixin fontPos {
@@ -4031,13 +4032,18 @@ svg {
   }
 
   .store_group .standee {
-    left: -50%;
+    left: -60%;
     top: 32%;
   }
 
   .slide__content {
     .slider_1_right_bg {
       opacity: 0;
+      
+    }
+    .stext{
+      font-size: 1.4rem;
+      left: 2%;
     }
 
     .slider_1_left {
@@ -4055,7 +4061,7 @@ svg {
         background-size: cover;
         position: absolute;
         transform: scale(0.3);
-        left: 18%;
+        left: 22%;
         top: 52%;
         display: flex;
         justify-content: center;

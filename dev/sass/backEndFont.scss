@@ -2,7 +2,7 @@
 
 
 .home-gradient-primary{
-    .container{
+    .home-container{
         .backEndContent {
             min-height:100vh;
             background-image: url(../images/backEnd/backEndFish.jpg);
@@ -64,7 +64,7 @@
 // ----------------------------------手機板
 @media (min-width:320px) and (max-width:576px){
    .home-gradient-primary{
-        .container{
+        .home-container{
              .backEndContent{
                  .backEndCaption {
                     max-width: 1200px;
