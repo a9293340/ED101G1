@@ -749,8 +749,8 @@
                 <thead>
                     <th>檢舉編號</th>
                     <th>留言內容</th>
-                    <th>檢舉類別</th>
                     <th>被檢舉人</th>
+                    <th>檢舉類別</th>
                     <th>是否檢舉</th>
                     <th>是否處理</th>
                 </thead>
@@ -767,6 +767,7 @@
                             <div 
                                 class="bkReportToList"
                                 :data-reportid='re.memId'
+                                :data-reportsid='re.reportId'
                                 @click='bkReportGo'
                             >檢舉</div>
                         </td>

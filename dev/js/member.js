@@ -843,6 +843,7 @@ function gogoPower(){
         var xhr = new XMLHttpRequest();
         xhr.onload=function (){
             if( xhr.status == 200 ){
+                sessionStorage['orderMemScore'] = Score;
                 alert('遊戲結束')
             }else{
                 alert( xhr.status );
