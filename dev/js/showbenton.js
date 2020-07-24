@@ -377,7 +377,7 @@ let bentonWallVm = new Vue({
     bentonWallNumber,
     bentonCardArray: [],
     currentPager,
-    likeImgSrc: "./images/showbenton/like.png",
+    likeImgSrc: "./images/showbenton/like1.png",
     likedImgSrc: "./images/showbenton/like1.png",
   },
   methods: {
