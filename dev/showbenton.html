@@ -1,131 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHOW便當</title>
+     <!-- favicon -->
+    <link rel="icon" href="./images/mainLogo/mainLogo1.png" type="image/x-icon" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../dest/css/showbenton.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SHOW便當</title>
-  <!-- CSS -->
-  <link rel="stylesheet" href="../dest/css/showbenton.css" />
-  <!-- favicon -->
-  <link rel="icon" href="./images/mainLogo/mainLogo1.png" type="image/x-icon">
-  <!-- Jquery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!-- Vue -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
-</head>
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Vue -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+  </head>
 
-<body>
-  <!------------------header---------------->
-  @@include('./layout/header.html',{})
-  <div id="add" class="showBlock">
-    <p class="showTitle">
-      SHOW便當
-    </p>
-    <p class="showTitle1">自選便當分享區</p>
-  </div>
-  <!----------------新增按鈕--------------->
-  <div id="addBenton" class="addBenton" @click="showBentonList">
-    <div class="addBentonImg2"></div>
-  </div>
-
-  <div class="kitchenTool"></div>
-
-  <!----------------跳出燈箱--------------->
-  <div class="showbentonCover"></div>
-  <div id="lightbox" class="showBentonListLightbox box1">
-    <!-------Step1-------->
-    <div v-if="showBentonImgList === true">
-      <div class="bentoncarTitle">
-        <span>請選擇您喜愛的自選便當</span>
-        <img class="closebox" @click="showCloselightbox" src="./images/showbenton/close.png" />
-      </div>
-      <ul class="bentoncardBox">
-        <li :id="'bentonLi'+item.id" class="bentonCard" v-for="(item, index) in benton" :key="item.id"
-          @click="showChooseBenton(item)">
-          <img :id="'riceimg'+item.id" :data-id="item.id" v-bind:src="item.img" alt="" />
-        </li>
-        <div class="noBentonChoose" v-if='benton.length == 0'><span
-            style="display:block;margin-bottom:10px;font-size: 30px;">您尚未訂購過自選便當喔 Q.Q </span><br>趕快到<span
-            style="font-weight: 600;">我要訂餐>自選便當</span> 來搭配屬於自己的美味便當吧！請點選<a href="./order.html"
-            class="makeBenton">這裡</a>。</div>
-      </ul>
-      <div class="confirmBentonBox1">
-        <button class="Next" @click="showBentonStep1(false)">
-          下一步
-        </button>
-      </div>
+  <body>
+    <!------------------header---------------->
+    @@include('./layout/header.html',{})
+    <div id="add" class="showBlock">
+      <p class="showTitle">
+        SHOW便當
+      </p>
+      <p class="showTitle1">自選便當分享區</p>
     </div>
-    <!-------Step2-------->
-    <div v-else>
-      <div class="bentoncarTitle">
-        <span> 請填寫便當內容</span>
-        <img class="closebox" @click="showCloselightbox" src="./images/showbenton/close.png" />
+    <!----------------新增按鈕--------------->
+    <div id="addBenton" class="addBenton" @click="showBentonList">
+     <div class="addBentonImg2"></div>
+    </div>
+
+    <div class="kitchenTool"></div>
+
+    <!----------------跳出燈箱--------------->
+    <div class="showbentonCover"></div>
+    <div id="lightbox" class="showBentonListLightbox box1">
+      <!-------Step1-------->
+      <div v-if="showBentonImgList === true">
+        <div class="bentoncarTitle">
+          <span>請選擇您喜愛的自選便當</span>
+          <img class="closebox" @click="showCloselightbox" src="./images/showbenton/close.png" />
+        </div>
+        <ul class="bentoncardBox">
+          <li
+            :id="'bentonLi'+item.id"
+            class="bentonCard"
+            v-for="(item, index) in benton"
+            :key="item.id"
+            @click="showChooseBenton(item)"
+          >
+            <img
+              :id="'riceimg'+item.id"
+              :data-id="item.id"
+              v-bind:src="item.img"
+              alt=""
+            />
+          </li>
+          <div class="noBentonChoose" v-if='benton.length == 0'><span style="display:block;margin-bottom:10px;font-size: 30px;">您尚未訂購過自選便當喔 Q.Q </span><br>趕快到<span style="font-weight: 600;">我要訂餐>自選便當</span> 來搭配屬於自己的美味便當吧！請點選<a href="./order.html" class="makeBenton">這裡</a>。</div>
+        </ul>
+        <div class="confirmBentonBox1">
+          <button class="Next" @click="showBentonStep1(false)">
+            下一步
+          </button>
+        </div>
       </div>
-      <div class="bentonContentForm">
-        <label class="Step2Title" for="Step2TitlText">標題：</label>
-        <input id="Step2TitlText" class="Step2TitlStyle" placeholder="請輸入標題(最大字數20)" type="text" v-on:input="checkTitle"
-          v-model="message" />
-        <div class="Step2Space">
-          <label class="Step2Content" for="Step2ContentText">內容：</label>
-          <textarea placeholder="請輸入內容(最大字數50)" id="Step2ContentText" rows="15" cols="30" v-on:input="checkContent"
-            v-model="messageContent"></textarea>
-          <div class="confirmBentonBox2">
-            <button class="Pre" @click="showBentonStep1(true)">
-              上一步
-            </button>
-            <button class="Send" @click="SendBenton">
-              送出
-            </button>
+      <!-------Step2-------->
+      <div v-else>
+        <div class="bentoncarTitle">
+          <span> 請填寫便當內容</span>
+          <img class="closebox" @click="showCloselightbox" src="./images/showbenton/close.png" />
+        </div>
+        <div class="bentonContentForm">
+          <label class="Step2Title" for="Step2TitlText">標題：</label>
+          <input
+            id="Step2TitlText"
+            class="Step2TitlStyle"
+            placeholder="請輸入標題(最大字數20)"
+            type="text"
+            v-on:input="checkTitle"
+            v-model="message"
+          />
+          <div class="Step2Space">
+            <label class="Step2Content" for="Step2ContentText">內容：</label>
+            <textarea
+              placeholder="請輸入內容(最大字數50)"
+              id="Step2ContentText"
+              rows="15"
+              cols="30"
+              v-on:input="checkContent"
+              v-model="messageContent"
+            ></textarea>
+            <div class="confirmBentonBox2">
+              <button class="Pre" @click="showBentonStep1(true)">
+                上一步
+              </button>
+              <button class="Send" @click="SendBenton">
+                送出
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <p class="bentonWallTitle">營養好搭配　美味送到家</p>
-  <div class="bentonWallNote"><img style="width:20px; height:20px;"
-      src="./images/showbenton/like.png" />：會員一天可按一次讚，並於24小時後即可再執行。</div>
-  <div class="showBentonImg" id="bentonWall">
-    <!--  bentonDiv'+(currentPager * bentonWallNumber + index) 為了區隔第一頁和第二頁的按讚數index -->
-    <div class="shareBenton" v-for="(notes,index) in bentonCardArray"
-      :id="'bentonDiv'+(currentPager * bentonWallNumber + index)" :key="index">
-      <div class="WallSharebentonImg">
-        <img @click="openLightBox(notes, index)" :id="'bentonimg'+index" :data-id="index" v-bind:src="notes.bentonImg"
-          alt="" />
+<p class="bentonWallTitle">營養好搭配　美味送到家</p>
+<div class="bentonWallNote"><img style="width:20px; height:20px;" src="./images/showbenton/like1.png"/>：會員一天可按一次讚，並於24小時後即可再執行。</div>
+    <div class="showBentonImg" id="bentonWall">
+      <!--  bentonDiv'+(currentPager * bentonWallNumber + index) 為了區隔第一頁和第二頁的按讚數index -->
+      <div 
+        class="shareBenton"
+        v-for="(notes,index) in bentonCardArray"
+        :id="'bentonDiv'+(currentPager * bentonWallNumber + index)" 
+        :key="index"
+      >
+        <div class="WallSharebentonImg">
+          <img
+            @click="openLightBox(notes, index)"
+            :id="'bentonimg'+index"
+            :data-id="index"
+            v-bind:src="notes.bentonImg"
+            alt=""
+          />
+        </div>
+        <p id="Step2TitlText">{{notes.title}}</p>
+        <div class="ranking" style="margin: 20px 0 5px; text-align: right;">
+          <img
+            class="conversation"
+            @click="openLightBox(notes, index)"
+            src="./images/showbenton/conversation.png"
+            width="30px"
+            height="30px"
+          />
+
+          <img
+            class="like"
+            v-bind:src="notes.likeImgSrc"
+            width="30px"
+            height="30px"
+            :data-num="index"
+            @click="change(currentPager * bentonWallNumber + index)"
+          />
+
+          <span class="liketimes">{{notes.liketimes}}</span>
+        </div>
       </div>
-      <p id="Step2TitlText">{{notes.title}}</p>
-      <div class="ranking" style="margin: 20px 0 5px; text-align: right;">
-        <img class="conversation" @click="openLightBox(notes, index)" src="./images/showbenton/conversation.png"
-          width="30px" height="30px" />
 
-        <img class="like" v-bind:src="notes.likeImgSrc" width="30px" height="30px" :data-num="index"
-          @click="change(currentPager * bentonWallNumber + index)" />
-
-        <span class="liketimes">{{notes.liketimes}}</span>
-      </div>
-    </div>
-
-<<<<<<< HEAD
-    <!----------點擊分享便當裡面的畫面------------>
-    <div class="showBentonContentbox" id="mainBuyBenton">
-      <div v-bind:class="currentBenton.cls">
-        <img class="closebox" @click="showContentCloselightbox" src="./images/showbenton/close.png" />
-        <!--發文者大區塊-->
-        <div class="shareBlock">
-          <div class="bentonimg">
-            <img class="showBentonContentImg" v-bind:src="currentBenton.bentonImg" alt="where is mybenton" width="340"
-              height="260" title="yummy benton" />
-          </div>
-          <button class="buyMore" id="buyMore" @click="buyMore(currentBenton.postSoId)">加入購物車</button>
-          <div class="memTextBlock">
-            <img :src="currentBenton.memImage" class="memPicture" />
-            <p class="member">創作者：{{currentBenton.memName}}</p>
-            <p id="ContentTitlText">{{currentBenton.title}}</p>
-            <p class="contentText">
-              {{currentBenton.content}}
-            </p>
-            <p class="talkDateTime">{{currentBenton.postDateTime}}</p>
-=======
       <!----------點擊分享便當裡面的畫面------------>
       <div class="showBentonContentbox" id="mainBuyBenton">
         <div v-bind:class="currentBenton.cls">
@@ -140,7 +157,7 @@
               <img
                 class="showBentonContentImg"
                 v-bind:src="currentBenton.bentonImg"
-                alt="where is my benton"
+                alt="where is mybenton"
                 width="340"
                 height="260"
                 title="yummy benton" 
@@ -156,68 +173,80 @@
               </p>
               <p class="talkDateTime">{{currentBenton.postDateTime}}</p>
             </div>
->>>>>>> show
           </div>
-        </div>
-        <div class="messageBoard">
-          <!--留言大區塊 -->
-          <div class="mesTalks">–––––––– 留言區 ––––––––</div>
-          <!--留言區-->
-          <div class="talksBlock">
-            <div v-for="talks in talkArray" id="show_msg" class="showmsg">
-              <img :src="talks.memImage" class="memPicture" />
-              <p class="member">{{talks.memName}}</p>
-              <div class="report" @click="reportBox(talks)">檢舉</div>
-              <div class="talkmessage">{{talks.talkmessage}}</div>
+          <div class="messageBoard">
+            <!--留言大區塊 -->
+            <div class="mesTalks">–––––––– 留言區 ––––––––</div>
+            <!--留言區-->
+            <div class="talksBlock">
+              <div v-for="talks in talkArray" id="show_msg" class="showmsg">
+                <img :src="talks.memImage" class="memPicture" />
+                <p class="member">{{talks.memName}}</p>
+                <div class="report" @click="reportBox(talks)">檢舉</div>
+                <div class="talkmessage">{{talks.talkmessage}}</div>
 
-              <p class="talkDateTime">{{talks.dateTime}}</p>
+                <p class="talkDateTime">{{talks.dateTime}}</p>
+              </div>
             </div>
+
+            <form id="demo">
+              <div></div>
+              <textarea
+                placeholder="我要留言.."
+                class="comment"
+                cols="45"
+                rows="4"
+                id="content"
+                v-model="talkBlockMessage"
+              ></textarea>
+              <button
+                type="button"
+                id="showSend"
+                style="display: block;"
+                @click="talk"
+              >
+                送出
+              </button>
+            </form>
           </div>
-
-          <form id="demo">
-            <div></div>
-            <textarea placeholder="我要留言.." class="comment" cols="45" rows="4" id="content"
-              v-model="talkBlockMessage"></textarea>
-            <button type="button" id="showSend" style="display: block;" @click="talk">
-              送出
-            </button>
-          </form>
+          <p id="result"></p>
         </div>
-        <p id="result"></p>
-      </div>
-      <div class="reportBox">
-        <p class="reportContent">檢舉留言</p>
-        <div class="reportChoose">
-          <input id="rep1" type="radio" name="reportMes" value="0" checked>色情或煽情露骨的內容</br></option>
-          <input id="rep2" type="radio" name="reportMes" value="1">仇恨言論或血腥暴力的內容</br></option>
-          <input id="rep3" type="radio" name="reportMes" value="2">不請自來的廣告或垃圾內容</br></option>
-          <input id="rep4" type="radio" name="reportMes" value="3">騷擾或霸凌內容</br></option>
+        <div class="reportBox">
+          <p class="reportContent">檢舉留言</p>
+          <div class="reportChoose"> 
+            <input id="rep1" type="radio" name="reportMes" value="0" checked>色情或煽情露骨的內容</br></option>
+            <input id="rep2" type="radio" name="reportMes" value="1">仇恨言論或血腥暴力的內容</br></option>
+            <input id="rep3" type="radio" name="reportMes" value="2" >不請自來的廣告或垃圾內容</br></option>
+            <input id="rep4" type="radio" name="reportMes" value="3">騷擾或霸凌內容</br></option>
+          </div >
+          <p class="cancel" @click="reportBoxClose">取消</p>
+          <p class="confirmRport"@click="confirmRport" >檢舉</p>
         </div>
-        <p class="cancel" @click="reportBoxClose">取消</p>
-        <p class="confirmRport" @click="confirmRport">檢舉</p>
+      </div> 
+      <!-- 分頁 -->
+      <div class="bontonPagesBox">
+        <div class="bontonContentPages"  
+            :id="'pagesIndex' + index"
+            v-for='(notes,index) in bentonArray' 
+            v-if='index < bentonWallPages'
+            :data-index="index"
+            @click='bentonNextPage'>{{index+1}}</div>
       </div>
     </div>
-    <!-- 分頁 -->
-    <div class="bontonPagesBox">
-      <div class="bontonContentPages" :id="'pagesIndex' + index" v-for='(notes,index) in bentonArray'
-        v-if='index < bentonWallPages' :data-index="index" @click='bentonNextPage'>{{index+1}}</div>
-    </div>
-  </div>
-  <div class="underblock"></div>
-  <button id="myBtn" title="Gotop" onclick="gotop()">&#9650<br>Top</button>
-
-
-  @@include('./layout/loginSignup.html',{})
-  @@include('./layout/shoppingcart.html',{})
-  @@include('./layout/footer.html',{})
-  <script src="../dev/js/showbenton.js"></script>
-  <script src="../dev//js/layout/loginSignup.js"></script>
-  <script src="../dev/js/layout/shoppingcart.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD02IgpgazAmzATKes-_caAbP71BqItLQc"></script>
-  <script src="../dev/js/gotop.js"></script>
-  <script>
-    let service = new google.maps.DistanceMatrixService();
-  </script>
-</body>
-
+    <div class="underblock"></div>
+    <button id="myBtn" title="Gotop" onclick="gotop()">&#9650<br>Top</button>
+    
+    
+    @@include('./layout/loginSignup.html',{})
+    @@include('./layout/shoppingcart.html',{})
+    @@include('./layout/footer.html',{})
+    <script src="../dev/js/showbenton.js"></script>
+    <script src="../dev//js/layout/loginSignup.js"></script>
+    <script src="../dev/js/layout/shoppingcart.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD02IgpgazAmzATKes-_caAbP71BqItLQc"></script>
+    <script src="../dev/js/gotop.js"></script>
+    <script>
+        let service = new google.maps.DistanceMatrixService();
+    </script>
+  </body>
 </html>
