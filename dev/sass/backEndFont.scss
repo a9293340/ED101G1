@@ -62,7 +62,7 @@
     }
 }
 // ----------------------------------手機板
-@media (min-width:320px) and (max-width:576px){
+@media (min-width:350px) and (max-width:576px){
    .home-gradient-primary{
         .home-container{
              .backEndContent{
@@ -75,7 +75,7 @@
                         }
                     .backEndBtnBox{
                         .backEndBtn-fd, .backEndBtn-bk{
-                           width: 50%;
+                        //    width: 50%;
                             text-align: center;
                             font-size: 1.3rem;
                         }      
