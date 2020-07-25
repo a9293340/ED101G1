@@ -565,12 +565,7 @@ function bkChangePage(e){
                         if( xhr.status == 200 ){
                             if(xhr.responseText == '1'){
                                 alert('檢舉成功');
-                                for(let i = 0; i < bkreportVM.$data.reports.length; i++){
-                                    if(reportIds == bkreportVM.$data.reports[i].reportId){
-                                        bkreportVM.$data.reports[i].memReportCount = 1;
-                                        console.log(bkreportVM.$data.reports[i].memReportCount);
-                                    }
-                                }
+                                location.reload();
                             }
                         }else{
                             alert( xhr.status );
