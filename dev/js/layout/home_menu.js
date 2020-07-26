@@ -96,7 +96,7 @@ var leaderId_1 = "",
 //JSON
 function leaderBoard() {
   var leaderRequest = new XMLHttpRequest();
-  leaderRequest.open('GET', '../dest/php/home_leaderBoard.php')
+  leaderRequest.open('GET', './php/home_leaderBoard.php')
   leaderRequest.onload = function () {
     var leaderData = JSON.parse(leaderRequest.responseText);
     // console.log(leaderData[0]);
@@ -223,7 +223,7 @@ function leaderBoard() {
                 };
                 messagebox();
               };
-              contentRequest.open('POST', '../dest/php/home_lBmessage.php');
+              contentRequest.open('POST', './php/home_lBmessage.php');
               contentRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               if (i == 1) {
                 contentRequest.send("messPostId=" + leaderId_1);

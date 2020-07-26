@@ -2286,7 +2286,7 @@ $base-size: 20rem;
 
   .el__leaderBoards #lb_lightBox {
     height: 350%;
-    
+
   }
 
   @mixin fontPos {
@@ -2596,7 +2596,7 @@ $base-size: 20rem;
           transform: translate3d(0, -3vw, 0);
           position: relative;
           margin-top: 25%;
-          order:-1 ;
+          order: -1;
 
           .medal {
             position: absolute;
@@ -3216,7 +3216,7 @@ $base-size: 20rem;
           text-align: center;
           border-radius: 3px;
           text-decoration: none;
-          top:70%;
+          top: 70%;
 
           &:hover {
             background: $red;
@@ -3625,12 +3625,13 @@ svg {
   }
 
   //第二slider
-  .stext{ 
+  .stext {
     position: relative;
     left: 15%;
     font-size: 2rem;
 
   }
+
   .slider_2 {
     // border: 1px solid red;
     //  flex: 1;
@@ -4039,9 +4040,10 @@ svg {
   .slide__content {
     .slider_1_right_bg {
       opacity: 0;
-      
+
     }
-    .stext{
+
+    .stext {
       font-size: 1.4rem;
       left: 2%;
     }
