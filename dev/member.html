@@ -315,8 +315,8 @@
         </div>
         <div class="memContentOrderList memContentNone" id="memContentOrderList">
             <div class="memContentOrderListHeader">
-                <p class="memOrderListGoBackBtn" @click='GoBackToOrderContent'><span>
-                        << /span>回上一頁</p>
+                <p class="memOrderListGoBackBtn" @click='GoBackToOrderContent'>
+                        < 回上一頁</p>
                 <p>訂單編號：<span>{{nowDataSetNumber}}</span></p>
             </div>
             <div class="memContentOrderListStatus" v-for='order in memOrder' v-if='order.orderId == nowDataSetNumber'>
@@ -441,7 +441,7 @@
         <div class="memContentHealthList memContentNone" id="memContentHealthList">
             <div v-for='health in memHealth' v-if='health.healId == nowDataHealthNumber'>
                 <div class="memContentHealthListHeader">
-                    <p class="memHealthListHeaderGoBackBtn" @click='GoBackToHealthContent'>回上一頁</p>
+                    <p class="memHealthListHeaderGoBackBtn" @click='GoBackToHealthContent'> < 回上一頁</p>
                     <h3>健康測驗結果</h3>
                     <p>健康分析編號：<span>H{{nowDataHealthNumber}}</span></p>
                 </div>

@@ -232,7 +232,7 @@ function gogoPower(){
                                     "setdoId":this.memSetOrder[i].setId,
                                     "setdoImg":this.memSetOrder[i].setImage,
                                     "setdoName":this.memSetOrder[i].setName,
-                                    "setdoPrice":this.memSetOrder[i].setoPrice / this.memSetOrder[i].setoAmount
+                                    "setdoPrice":this.memSetOrder[i].setoPrice
                                 })
                             }
                         }
@@ -246,7 +246,7 @@ function gogoPower(){
                                 "setdoId":this.memSetOrder[i].setId,
                                 "setdoImg":this.memSetOrder[i].setImage,
                                 "setdoName":this.memSetOrder[i].setName,
-                                "setdoPrice":this.memSetOrder[i].setoPrice / this.memSetOrder[i].setoAmount
+                                "setdoPrice":this.memSetOrder[i].setoPrice
                             })
                         }
                     }
@@ -276,7 +276,7 @@ function gogoPower(){
                                     "otherId":this.memOtherOrder[i].opId,
                                     "otherImg":this.memOtherOrder[i].opImage,
                                     "otherName":this.memOtherOrder[i].opName,
-                                    "otherPrice":this.memOtherOrder[i].ooPrice / this.memOtherOrder[i].ooAmount
+                                    "otherPrice":this.memOtherOrder[i].ooPrice
                                 })
                             }
                         }
@@ -290,7 +290,7 @@ function gogoPower(){
                                 "otherId":this.memOtherOrder[i].opId,
                                 "otherImg":this.memOtherOrder[i].opImage,
                                 "otherName":this.memOtherOrder[i].opName,
-                                "otherPrice":this.memOtherOrder[i].ooPrice / this.memOtherOrder[i].ooAmount
+                                "otherPrice":this.memOtherOrder[i].ooPrice
                             })
                         }
                     }
