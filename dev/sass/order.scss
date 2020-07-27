@@ -730,7 +730,9 @@ HEAD .count {
   }
 
   #buy_app3{
-    height: 320px;
+    height: auto;
+    width: 100%;
+    overflow-y: hidden;
   
   }
   .buy_setdo_containter{
