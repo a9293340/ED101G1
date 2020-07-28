@@ -684,7 +684,7 @@ HEAD .count {
           text-align: center;
           #incart{
             margin: 0 auto;
-            margin-top: 10px;
+            margin-top: 30px;
           } 
         }
       }
@@ -730,7 +730,9 @@ HEAD .count {
   }
 
   #buy_app3{
-    height: 320px;
+    height: auto;
+    width: 100%;
+    overflow-y: hidden;
   
   }
   .buy_setdo_containter{
@@ -748,7 +750,15 @@ HEAD .count {
     right: 17px;
           }
   }
-  
+  .buy_list{
+    #orderClean{
+      position: absolute;
+      right: -18px;
+      top: 3px;
+      width: 15px;
+      height: 15px;
+    }
+  }   
 }
 
 @media screen and ( max-width: 320px ){
