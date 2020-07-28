@@ -552,7 +552,7 @@ $animationDuration: 1.5s;
   }
 }
 
-@media (max-width: 350px) {
+@media (min-width: 350px)and (max-width: 576px) {
   .eff {
     background-position: bottom;
 
@@ -2283,6 +2283,13 @@ $base-size: 20rem;
 }
 
 @media(min-width: 350px)and(max-width: 576px) {
+  .el.el:nth-child(3) .el__bg:before {
+    background-position: 505px -20px;
+  }
+
+  .el.el:nth-child(2) .el__bg:before {
+    background-position: -200px 0px;
+  }
 
   .el__leaderBoards #lb_lightBox {
     height: 350%;
@@ -2740,7 +2747,7 @@ $base-size: 20rem;
         left: 0;
         bottom: 0;
         width: 100%;
-        font-size: 2rem;
+        // font-size: 2rem;
       }
 
       &-back {
@@ -3228,8 +3235,10 @@ $base-size: 20rem;
 }
 
 @media (min-width: 350px) and (max-width: 576px) {
+
   .homeSection-3 {
     height: 100%;
+
 
     .homeBlackBoardContainer {
       max-width: 100%;
