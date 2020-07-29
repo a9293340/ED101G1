@@ -293,7 +293,7 @@ let menu_third = new Vue({
       url: "./php/home_featureLB.php",
       dataType: "json",
       success: function (data) {
-        menu_third.$data.list = data.slice(3);
+        menu_third.$data.list = data.slice(3, 6);
 
         // console.log(data);
       },
