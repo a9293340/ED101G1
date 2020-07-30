@@ -444,7 +444,7 @@ $animationDuration: 1.5s;
   }
 }
 
-@media (min-width: 375px) and (max-width: 576px) {
+@media (min-width: 350px) and (max-width: 576px) {
   .eff {
     background-position: bottom;
 
@@ -552,7 +552,7 @@ $animationDuration: 1.5s;
   }
 }
 
-@media (min-width: 350px)and (max-width: 576px) {
+@media (max-width: 350px) {
   .eff {
     background-position: bottom;
 
@@ -650,6 +650,104 @@ $animationDuration: 1.5s;
   }
 }
 
+
+// @media (min-width: 350px)and (max-width: 576px) {
+//   .eff {
+//     background-position: bottom;
+
+//     .homeLove-Fish,
+//     .homeLove-Pg,
+//     .homeLove-Gt {
+//       // border: 3px solid yellow;
+//       width: 100px !important;
+//       height: 100px !important;
+//       background-size: cover;
+//     }
+
+//     .homeLove-Fish {
+//       //鱈魚
+//       top: 40px !important;
+//       left: 0px !important;
+//     }
+
+//     .homeLove-Pg {
+//       //排骨
+//       top: 68px !important;
+//       left: 200px !important;
+//     }
+
+//     .homeLove-Gt {
+//       //雞腿
+//       top: -20px !important;
+//       left: 200px !important;
+//     }
+
+//     .homeCoverflow-xs {
+//       position: static !important;
+//       border: 3px solid green;
+
+//       .homeShowSmoke-320 {
+//         left: -55px !important;
+//         top: -700px !important;
+//       }
+
+//       a>img {
+//         max-width: 80% !important;
+//         position: relative;
+//         left: 0px;
+//         top: 50px;
+//       }
+//     }
+//   }
+
+//   .homeTextBox {
+//     max-width: 100% !important;
+//     left: 0% !important;
+//     margin: 0 2rem;
+//     top: 45% !important;
+
+//     h1,
+//     h2 {
+//       font-size: $fzXl !important;
+//       color: $green !important; //字變綠
+//       text-shadow: 0 0 0.1em #fff, 0 0 0.1em #Fff; //加強字體
+//     }
+
+//     h2 {
+//       margin-bottom: 10px;
+//     }
+
+//     .home-section-form {
+//       .home-location-form {
+//         text-align: center;
+
+//         .homeAddIcon {
+//           top: 18% !important;
+//           left: 85% !important;
+//         }
+
+//         .homeAddInput {
+//           max-width: 100% !important;
+//           width: 100% !important;
+//         }
+
+//         .homeBtnLinkSpan {}
+
+//         .homeAddBtn {
+//           margin: 2% !important;
+//           width: 42.5% !important;
+//           height: 64px !important;
+//           padding: 0 !important;
+//         }
+//       }
+//     }
+//   }
+
+//   .homeMouse {
+//     // top: -80px;
+//     display: none;
+//   }
+// }
 // --------------------end 手機板
 
 // ---------------------------------------------------------------homefirst.scss
